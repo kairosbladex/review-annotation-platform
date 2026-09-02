@@ -21,7 +21,7 @@ def _counts(session: Session, task_id: str) -> dict[str, int]:
             func.sum(case((Annotation.label == "false", 1), else_=0)),
         )
         .select_from(Candidate)
-        .join(AnnotationTask, AnnotationTask.model_run_id == Candidate.model_run_id)
+        .join(AnnotationTask, (AnnotationTask.model_run_id == Candidate.model_run_id) & (AnnotationTask.sample_id == Candidate.sample_id))
         .outerjoin(Annotation, Annotation.candidate_id == Candidate.id)
         .where(AnnotationTask.id == task_id)
     ).one()
@@ -81,7 +81,7 @@ def serialize_sample(session: Session, sample: Sample) -> dict:
         # that can roll back or overwrite the value just persisted.
         counts = _counts(session, task.id)
         run = session.get(ModelRun, task.model_run_id)
-        candidates = session.scalars(select(Candidate).where(Candidate.model_run_id == task.model_run_id).order_by(Candidate.target_index)).all()
+        candidates = session.scalars(select(Candidate).where(Candidate.model_run_id == task.model_run_id, Candidate.sample_id == task.sample_id).order_by(Candidate.target_index)).all()
         annotations = {
             annotation.candidate_id: annotation
             for annotation in session.scalars(select(Annotation).where(Annotation.candidate_id.in_([candidate.id for candidate in candidates]))).all()
@@ -202,7 +202,7 @@ def update_annotation(session: Session, candidate: Candidate, user: User, payloa
     # label before counting so the task transition is based on the new state,
     # not on the previous transaction snapshot.
     session.flush()
-    task = session.scalar(select(AnnotationTask).where(AnnotationTask.model_run_id == candidate.model_run_id))
+    task = session.scalar(select(AnnotationTask).where(AnnotationTask.model_run_id == candidate.model_run_id, AnnotationTask.sample_id == candidate.sample_id))
     if task is None:
         raise ValueError("annotation task not found")
     counts = refresh_task_status(session, task)

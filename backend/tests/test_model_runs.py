@@ -105,3 +105,25 @@ def test_model_run_is_versioned_and_creates_a_new_annotation_task(tmp_path):
     sample = sample_detail.json()
     assert len(sample["runs"]) == 2
     assert {run["model_run"]["model_version"] for run in sample["runs"]} == {"review-event", "v2"}
+
+
+def test_annotation_counts_are_scoped_to_sample_and_model_run(tmp_path):
+    app = create_app(_settings(tmp_path), model_adapter=FakeModelAdapter())
+    app.state.task_dispatcher = InlineDispatcher(lambda job_id: app.state.run_model_job(job_id))
+    client = TestClient(app)
+    headers = {"X-Service-Key": "service-secret"}
+    first = client.post("/api/v1/ingest/review-events", json=_review_event("event-scope-001"), headers=headers)
+    second = client.post("/api/v1/ingest/review-events", json=_review_event("event-scope-002"), headers=headers)
+    assert first.status_code == 201 and second.status_code == 201
+    auth = _login(client)
+    profile = client.post("/api/v1/model-profiles", json={"profile_key": "scope-v2", "name": "Scope v2", "model_name": "fake", "model_version": "v2", "adapter_type": "fake", "config": {}}, headers=auth)
+    run = client.post("/api/v1/model-runs", json={"sample_ids": [first.json()["sample_id"], second.json()["sample_id"]], "model_profile_id": profile.json()["model_profile_id"], "options": {}}, headers=auth)
+    assert run.status_code == 202, run.text
+
+    first_detail = client.get(f"/api/v1/samples/{first.json()['sample_id']}", headers=auth).json()
+    second_detail = client.get(f"/api/v1/samples/{second.json()['sample_id']}", headers=auth).json()
+    for candidate in first_detail["candidates"]:
+        response = client.patch(f"/api/v1/candidates/{candidate['candidate_id']}/annotation", json={"label": "true"}, headers=auth)
+        assert response.status_code == 200, response.text
+    assert client.get(f"/api/v1/samples/{first.json()['sample_id']}", headers=auth).json()["status"] == "completed"
+    assert client.get(f"/api/v1/samples/{second.json()['sample_id']}", headers=auth).json()["status"] == "pending"
