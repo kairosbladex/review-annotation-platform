@@ -3,6 +3,7 @@ from __future__ import annotations
 import io
 import json
 import zipfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 from sqlalchemy import select
@@ -21,6 +22,7 @@ def _jsonl_rows(session, run_id: str) -> list[dict]:
         if task is None or task.status != "completed":
             raise ValueError("only completed annotation tasks can be exported")
         sample = session.get(Sample, run_input.sample_id)
+        original = session.scalar(select(Asset).where(Asset.sample_id == sample.id, Asset.kind == "original"))
         candidates = session.scalars(select(Candidate).where(Candidate.model_run_id == run_id, Candidate.sample_id == run_input.sample_id).order_by(Candidate.target_index)).all()
         for candidate in candidates:
             annotation = session.scalar(select(Annotation).where(Annotation.candidate_id == candidate.id))
@@ -31,8 +33,8 @@ def _jsonl_rows(session, run_id: str) -> list[dict]:
                 "source_type": sample.source_type,
                 "sample_created_at": sample.created_at,
                 "run_id": run_id,
-                "image_object_key": None,
-                "image_bucket": None,
+                "image_object_key": original.object_key if original else None,
+                "image_bucket": original.bucket if original else None,
                 "candidate_id": candidate.id,
                 "bbox": [candidate.x1, candidate.y1, candidate.x2, candidate.y2],
                 "class_id": candidate.class_id,
@@ -48,11 +50,6 @@ def _jsonl_rows(session, run_id: str) -> list[dict]:
                 "labeled_by": annotation.labeled_by,
                 "labeled_at": annotation.labeled_at.isoformat() if annotation.labeled_at else None,
             })
-        original = session.scalar(select(Asset).where(Asset.sample_id == sample.id, Asset.kind == "original"))
-        for row in rows:
-            if row["sample_id"] == sample.id:
-                row["image_object_key"] = original.object_key if original else None
-                row["image_bucket"] = original.bucket if original else None
     return rows
 
 
@@ -70,11 +67,16 @@ def _apply_filters(rows: list[dict], filters: dict) -> list[dict]:
     if created_from or created_to:
         # _jsonl_rows can be extended with sample timestamps without changing
         # the public JSONL schema; malformed filters fail loudly here.
-        from datetime import datetime
-
         lower = datetime.fromisoformat(created_from.replace("Z", "+00:00")) if created_from else None
         upper = datetime.fromisoformat(created_to.replace("Z", "+00:00")) if created_to else None
-        rows = [row for row in rows if (not lower or row.get("sample_created_at") >= lower) and (not upper or row.get("sample_created_at") <= upper)]
+        def timestamp(value: datetime) -> float:
+            if value.tzinfo is None:
+                value = value.replace(tzinfo=timezone.utc)
+            return value.timestamp()
+
+        lower_ts = timestamp(lower) if lower else None
+        upper_ts = timestamp(upper) if upper else None
+        rows = [row for row in rows if (lower_ts is None or timestamp(row["sample_created_at"]) >= lower_ts) and (upper_ts is None or timestamp(row["sample_created_at"]) <= upper_ts)]
     return rows
 
 
@@ -91,11 +93,15 @@ def execute_export_job(*, session_factory, object_store, bucket: str, job_id: st
             return
         try:
             rows = _apply_filters(_jsonl_rows(session, record.run_id), json.loads(record.filters_json or "{}"))
+            public_rows = []
             for row in rows:
-                row.pop("source_type", None)
-                row.pop("sample_created_at", None)
+                public_row = dict(row)
+                public_row.pop("source_type", None)
+                public_row.pop("sample_created_at", None)
+                public_row.pop("image_bucket", None)
+                public_rows.append(public_row)
             formats = json.loads(record.formats_json or "[]")
-            payload = "\n".join(json.dumps(row, ensure_ascii=False, default=str) for row in rows).encode("utf-8")
+            payload = "\n".join(json.dumps(row, ensure_ascii=False, default=str) for row in public_rows).encode("utf-8")
             extension = "jsonl"
             if "yolo" in formats:
                 archive = io.BytesIO()
@@ -103,7 +109,7 @@ def execute_export_job(*, session_factory, object_store, bucket: str, job_id: st
                     zipped.writestr("annotations.jsonl", payload)
                     hard_negative = b"\n".join(
                         json.dumps(row, ensure_ascii=False, default=str).encode("utf-8")
-                        for row in rows
+                        for row in public_rows
                         if row["human_label"] == "false"
                     )
                     if hard_negative:

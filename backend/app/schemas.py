@@ -83,5 +83,5 @@ class MinioImportRequest(BaseModel):
 
 class ExportRequest(BaseModel):
     run_id: str | None = None
-    formats: list[Literal["yolo", "jsonl"]] = Field(default_factory=lambda: ["jsonl"])
+    formats: list[Literal["yolo", "jsonl"]] = Field(default_factory=lambda: ["jsonl"], min_length=1)
     filters: dict[str, Any] = Field(default_factory=dict)
