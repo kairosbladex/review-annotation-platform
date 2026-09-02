@@ -89,6 +89,7 @@ cd frontend && npm run build
 - 增加 MinIO S3 API `9000` 映射；
 - 增加 `API_PORT`/`FRONTEND_PORT` 覆盖，允许和已有本机开发服务并行验收；
 - `docker compose` 默认开发密码仍是示例值，生产部署前必须替换 `.env` 中所有 `change-me` 密钥；
+- Celery Worker 当前以镜像默认 root 用户运行，日志有安全警告；生产部署前应增加非 root 用户并在 Compose 中显式运行。
 - 本轮保留了此前本机等价服务及其数据，没有删除或重置任何已有数据。
 
 ## Git state
