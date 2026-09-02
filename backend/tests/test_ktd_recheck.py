@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 
 import pytest
 
@@ -19,6 +20,7 @@ from app.services.ktd_recheck import (
     group_source_rows,
     load_uncertain_images,
     request_fingerprint,
+    render_multi_image_prompt,
     validate_batch_response,
     write_outputs,
 )
@@ -87,6 +89,19 @@ def test_validate_batch_response_requires_every_image_and_candidate_exactly_once
             {"images": [{"image_id": "image-a", "decisions": [_decision(0)]}]},
             candidates,
         )
+
+
+def test_single_image_prompt_distinguishes_attachment_pair_from_logical_images():
+    prompt = render_multi_image_prompt([{
+        "image_id": "image-a",
+        "file_path": "source/image-a.jpg",
+        "candidates": [{"target_index": 0}],
+    }])
+
+    assert "只有一个逻辑图片" in prompt
+    assert "image-a" in prompt
+    assert "images 数组只能包含一个对象" in prompt
+    assert "禁止调用任何 MCP、Computer Use、浏览器或终端工具" in prompt
 
 
 def test_uncertain_is_valid_and_does_not_produce_a_binary_label():
@@ -191,6 +206,37 @@ def test_provider_chain_reports_all_failures_without_partial_success():
         )
 
     assert first.calls == second.calls == 1
+
+
+def test_command_provider_timeout_does_not_wait_on_inherited_pipes(monkeypatch, tmp_path):
+    class Process:
+        pid = 12345
+        returncode = -15
+        stdin = stdout = stderr = None
+
+        def __init__(self):
+            self.communicate_calls = 0
+            self.wait_calls = []
+
+        def communicate(self, **_kwargs):
+            self.communicate_calls += 1
+            raise subprocess.TimeoutExpired("fake", 1, output="partial", stderr="diagnostic")
+
+        def wait(self, **kwargs):
+            self.wait_calls.append(kwargs)
+            return self.returncode
+
+    process = Process()
+    monkeypatch.setattr("app.services.ktd_recheck.subprocess.Popen", lambda *_args, **_kwargs: process)
+    monkeypatch.setattr("app.services.ktd_recheck.os.killpg", lambda *_args: None)
+
+    with pytest.raises(RecheckProviderError, match="timed out"):
+        CommandProvider(name="gpt", binary="codex", model="gpt-test", timeout_seconds=1)._run(
+            ["codex"], prompt="prompt", cwd=tmp_path
+        )
+
+    assert process.communicate_calls == 1
+    assert process.wait_calls == [{"timeout": 5}]
 
 
 def test_command_provider_uses_cli_flags_supported_by_current_build(monkeypatch, tmp_path):
