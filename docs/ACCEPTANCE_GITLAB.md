@@ -22,9 +22,9 @@ COMPLETED：项目已创建并推送到公司 GitLab，最新默认校验流水�
 
 最新流水线：
 
-- Pipeline `#82`：
-  `http://192.168.110.2/wangxiaolin/review-annotation-platform/-/pipelines/82`
-- Commit：`6a04d5f`（`docs: record gitlab pipeline acceptance`）；
+- Pipeline `#83`：
+  `http://192.168.110.2/wangxiaolin/review-annotation-platform/-/pipelines/83`
+- Commit：`1879d1f`（`docs: refresh gitlab evidence`）；
 - `backend-test`：passed；
 - `compose-config`：passed；
 - `frontend-build`：passed；
@@ -66,7 +66,7 @@ npm --prefix frontend run build
 - GitLab CI 结构校验通过；
 - 后端测试 `10 passed`；
 - 前端 TypeScript/Vite 构建通过；
-- GitLab Pipeline `#82` 的三个自动 job 全部通过；
+- GitLab Pipeline `#83` 的三个自动 job 全部通过；
 - Docker Compose PostgreSQL、Redis、MinIO、API、Worker、前端真实栈验收记录见 [ACCEPTANCE_REAL-STACK.md](ACCEPTANCE_REAL-STACK.md)。
 
 ## Not delivered
@@ -88,6 +88,6 @@ npm --prefix frontend run build
 ```text
 branch: master
 tracking: origin/master
-latest validated commit: 6a04d5f
+latest validated commit: 1879d1f
 working tree: clean after the final documentation commit
 ```
