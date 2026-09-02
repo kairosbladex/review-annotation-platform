@@ -1,0 +1,117 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-review_annotation}
+      POSTGRES_USER: ${POSTGRES_USER:-review}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me-postgres-password}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  minio:
+    image: minio/minio:RELEASE.2025-02-28T09-55-16Z
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-change-me-minio-secret}
+    volumes:
+      - minio-data:/data
+    ports:
+      - "9001:9001"
+
+  minio-init:
+    image: minio/mc:RELEASE.2025-02-21T16-28-42Z
+    depends_on:
+      - minio
+    environment:
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-change-me-minio-secret}
+      MINIO_BUCKET: ${MINIO_BUCKET:-review-annotation}
+    entrypoint: ["/bin/sh", "-c"]
+    command: >-
+      "until mc alias set local http://minio:9000 $${MINIO_ACCESS_KEY:-minioadmin} $${MINIO_SECRET_KEY:-change-me-minio-secret}; do sleep 2; done;
+      mc mb --ignore-existing local/$${MINIO_BUCKET:-review-annotation}"
+    restart: "no"
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - .env.example
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-review}:${POSTGRES_PASSWORD:-change-me-postgres-password}@postgres:5432/${POSTGRES_DB:-review_annotation}
+      REDIS_URL: redis://redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-change-me-minio-secret}
+      MINIO_BUCKET: ${MINIO_BUCKET:-review-annotation}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me-admin-password}
+      JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret-at-least-32-characters}
+      SERVICE_API_KEY: ${SERVICE_API_KEY:-change-me-service-api-key}
+      MODEL_SERVICE_BASE_URL: ${MODEL_SERVICE_BASE_URL:-}
+      MODEL_SERVICE_API_KEY: ${MODEL_SERVICE_API_KEY:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+    ports:
+      - "8190:8000"
+
+  worker:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - .env.example
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-review}:${POSTGRES_PASSWORD:-change-me-postgres-password}@postgres:5432/${POSTGRES_DB:-review_annotation}
+      REDIS_URL: redis://redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-change-me-minio-secret}
+      MINIO_BUCKET: ${MINIO_BUCKET:-review-annotation}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me-admin-password}
+      JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret-at-least-32-characters}
+      SERVICE_API_KEY: ${SERVICE_API_KEY:-change-me-service-api-key}
+      MODEL_SERVICE_BASE_URL: ${MODEL_SERVICE_BASE_URL:-}
+      MODEL_SERVICE_API_KEY: ${MODEL_SERVICE_API_KEY:-}
+    command: celery -A app.tasks.celery_app.celery_app worker --loglevel=INFO --concurrency=2
+    depends_on:
+      api:
+        condition: service_started
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    depends_on:
+      - api
+    ports:
+      - "5173:80"
+
+volumes:
+  postgres-data:
+  redis-data:
+  minio-data:

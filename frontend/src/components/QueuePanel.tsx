@@ -1,0 +1,70 @@
+import { Check, CircleDot, Filter, LoaderCircle, Search, Upload } from "lucide-react";
+import type { Sample, SampleStatus } from "../types";
+
+interface QueuePanelProps {
+  samples: Sample[];
+  selectedId: string | null;
+  statusFilter: string;
+  query: string;
+  onSelect: (id: string) => void;
+  onFilter: (value: string) => void;
+  onQuery: (value: string) => void;
+  onUpload: (files: File[]) => void;
+  uploading: boolean;
+}
+
+const statusLabels: Record<SampleStatus, string> = {
+  imported: "待配置",
+  pending: "待标注",
+  in_progress: "进行中",
+  completed: "已完成",
+  no_candidates: "无目标",
+};
+
+function formatTime(value: string) {
+  return new Intl.DateTimeFormat("zh-CN", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }).format(new Date(value));
+}
+
+export function QueuePanel({ samples, selectedId, statusFilter, query, onSelect, onFilter, onQuery, onUpload, uploading }: QueuePanelProps) {
+  const filtered = samples.filter((sample) => {
+    const text = `${sample.session_id ?? ""} ${sample.source_event_id ?? ""} ${sample.rule_code ?? ""}`.toLowerCase();
+    return text.includes(query.toLowerCase());
+  });
+
+  return (
+    <aside className="queue-panel panel">
+      <div className="panel-heading">
+        <div>
+          <span className="eyebrow">REVIEW QUEUE</span>
+          <h2>复核队列</h2>
+        </div>
+        <label className="icon-button upload-button" title="上传图片">
+          {uploading ? <LoaderCircle className="spin" size={17} /> : <Upload size={17} />}
+          <input type="file" accept="image/*" multiple hidden onChange={(event) => {
+            if (event.target.files?.length) onUpload(Array.from(event.target.files));
+            event.currentTarget.value = "";
+          }} />
+        </label>
+      </div>
+
+      <div className="queue-tools">
+        <div className="search-field"><Search size={15} /><input value={query} onChange={(event) => onQuery(event.target.value)} placeholder="搜索会话、事件或规则" /></div>
+        <div className="filter-row"><Filter size={14} /><select value={statusFilter} onChange={(event) => onFilter(event.target.value)}><option value="all">全部状态</option><option value="pending">待标注</option><option value="in_progress">进行中</option><option value="completed">已完成</option><option value="imported">待配置</option></select></div>
+      </div>
+
+      <div className="queue-list">
+        {filtered.length === 0 && <div className="empty-state">暂无匹配样本<br /><span>可以从右上角上传复核图片</span></div>}
+        {filtered.map((sample) => {
+          const isSelected = sample.sample_id === selectedId;
+          const progress = sample.counts.total ? Math.round((sample.counts.labeled / sample.counts.total) * 100) : 0;
+          return <button className={`queue-item ${isSelected ? "selected" : ""}`} key={sample.sample_id} onClick={() => onSelect(sample.sample_id)}>
+            <div className="queue-thumb"><span className="thumb-placeholder">{sample.source_type === "review_service" ? "RV" : "UP"}</span><span className={`status-dot ${sample.status}`} /></div>
+            <div className="queue-copy"><div className="queue-title"><strong>{sample.session_id ?? sample.sample_id.slice(0, 8)}</strong><span className={`status-text ${sample.status}`}>{statusLabels[sample.status] ?? sample.status}</span></div><div className="queue-meta">{sample.rule_code ?? "未指定规则"} · {formatTime(sample.created_at)}</div><div className="progress-line"><span style={{ width: `${progress}%` }} /><small>{sample.counts.labeled}/{sample.counts.total}</small></div></div>
+            {sample.status === "completed" ? <Check className="queue-check" size={16} /> : <CircleDot className="queue-dot" size={16} />}
+          </button>;
+        })}
+      </div>
+      <div className="queue-footer"><span>{filtered.length} 个样本</span><span className="live-indicator"><i />实时队列</span></div>
+    </aside>
+  );
+}
