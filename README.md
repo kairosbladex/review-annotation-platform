@@ -56,6 +56,14 @@ docker compose up --build
 
 容器启动时会先执行 `alembic upgrade head`。MinIO 初始化容器创建 `review-annotation` bucket。浏览器不直接读取公开对象地址，API 返回短期 presigned URL。
 
+确认真实 MinIO 连接和读写权限：
+
+```bash
+PYTHONPATH=backend python3 scripts/check_minio.py
+```
+
+脚本只写入一个 `_smoke/` 小对象用于回读校验，不触碰已有业务对象；验证输出包含 bucket、对象 key、回读结果和 presigned URL 是否生成。
+
 ## 主要 API
 
 管理接口均需要 `Authorization: Bearer <token>`，登录：
@@ -122,7 +130,7 @@ backend/app/       FastAPI、领域模型、接入、标注、模型任务、导
 backend/tests/     API 和服务集成测试
 frontend/src/      React/TypeScript 队列与标注工作台
 migrations/        Alembic 初始 schema
-scripts/           旧 SQLite 迁移工具
+scripts/           旧 SQLite 迁移工具和 MinIO smoke check
 docs/              验收和交接文档
 ```
 

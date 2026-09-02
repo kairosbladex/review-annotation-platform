@@ -28,13 +28,13 @@ class HttpModelAdapter:
         if api_key:
             headers["X-API-Key"] = api_key
         timeout = float(profile.get("timeout_seconds", 120))
-        response = httpx.post(
-            f"{base_url}{endpoint}",
-            files={"image": (image["object_key"].rsplit("/", 1)[-1], image_bytes, "application/octet-stream")},
-            params={"conf": options.get("confidence_threshold", 0.25)},
-            headers=headers,
-            timeout=timeout,
-        )
+        with httpx.Client(timeout=timeout, trust_env=False) as client:
+            response = client.post(
+                f"{base_url}{endpoint}",
+                files={"image": (image["object_key"].rsplit("/", 1)[-1], image_bytes, "application/octet-stream")},
+                params={"conf": options.get("confidence_threshold", 0.25)},
+                headers=headers,
+            )
         response.raise_for_status()
         body = response.json()
         if body.get("success") is False:
@@ -58,7 +58,10 @@ class HttpModelAdapter:
                 "error_code": prediction.get("error_code"),
                 "reasoning": prediction.get("reasoning", ""),
             })
-        return {"predictions": normalized, "artifact": body.get("preview_url") or body.get("result_image_url")}
+        artifact = body.get("preview_url") or body.get("result_image_url")
+        if isinstance(artifact, str) and artifact.startswith("/"):
+            artifact = f"{base_url}{artifact}"
+        return {"predictions": normalized, "artifact": artifact}
 
     def fetch_artifact(self, artifact: Any) -> tuple[bytes, str] | None:
         """Resolve an optional adapter preview into bytes for object storage."""
@@ -71,7 +74,7 @@ class HttpModelAdapter:
             media_type = header[5:].split(";", 1)[0] or "image/jpeg"
             return base64.b64decode(encoded), media_type
         if artifact.startswith(("http://", "https://")):
-            response = httpx.get(artifact, timeout=120, follow_redirects=True)
+            response = httpx.get(artifact, timeout=120, follow_redirects=True, trust_env=False)
             response.raise_for_status()
             return response.content, response.headers.get("content-type", "image/jpeg").split(";", 1)[0]
         return None
