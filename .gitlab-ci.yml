@@ -31,17 +31,17 @@ backend-test:
   stage: validate
   image: python:3.12-slim
   before_script:
-    - python --version
-    - python -m pip install --quiet -r requirements.txt pytest
+    - python3 --version
+    - python3 -m pip install --quiet -r requirements.txt pytest
   script:
-    - PYTHONPATH=backend python -m compileall -q backend scripts migrations
-    - PYTHONPATH=backend python -m pytest backend/tests -q
+    - PYTHONPATH=backend python3 -m compileall -q backend scripts migrations
+    - PYTHONPATH=backend python3 -m pytest backend/tests -q
 
 compose-config:
   stage: validate
   image: python:3.12-slim
   before_script:
-    - python -m pip install --quiet pyyaml
+    - python3 -m pip install --quiet pyyaml
   script:
     - >
       python -c 'import yaml; yaml.safe_load(open("docker-compose.yml")); print("docker-compose.yml: YAML OK")'
