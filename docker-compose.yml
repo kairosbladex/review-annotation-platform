@@ -63,13 +63,20 @@ services:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-change-me-minio-secret}
       MINIO_BUCKET: ${MINIO_BUCKET:-review-annotation}
+      MINIO_REGION: ${MINIO_REGION:-us-east-1}
+      MINIO_AUTO_CREATE_BUCKET: ${MINIO_AUTO_CREATE_BUCKET:-true}
+      OBJECT_STORE_REQUIRED: ${OBJECT_STORE_REQUIRED:-false}
       MINIO_PUBLIC_ENDPOINT: ${MINIO_PUBLIC_ENDPOINT:-127.0.0.1:9000}
       ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me-admin-password}
       JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret-at-least-32-characters}
       SERVICE_API_KEY: ${SERVICE_API_KEY:-change-me-service-api-key}
+      MODEL_ADAPTER_TYPE: ${MODEL_ADAPTER_TYPE:-http}
       MODEL_SERVICE_BASE_URL: ${MODEL_SERVICE_BASE_URL:-}
       MODEL_SERVICE_API_KEY: ${MODEL_SERVICE_API_KEY:-}
+      MODEL_SERVICE_DETECT_ENDPOINT: ${MODEL_SERVICE_DETECT_ENDPOINT:-/api/v1/review-agent/yolo-detect}
+      MODEL_SERVICE_REVIEW_ENDPOINT: ${MODEL_SERVICE_REVIEW_ENDPOINT:-/api/v1/review-agent/review}
+      MODEL_SERVICE_VERIFY_TLS: ${MODEL_SERVICE_VERIFY_TLS:-true}
     depends_on:
       postgres:
         condition: service_healthy
@@ -93,13 +100,20 @@ services:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-change-me-minio-secret}
       MINIO_BUCKET: ${MINIO_BUCKET:-review-annotation}
+      MINIO_REGION: ${MINIO_REGION:-us-east-1}
+      MINIO_AUTO_CREATE_BUCKET: ${MINIO_AUTO_CREATE_BUCKET:-true}
+      OBJECT_STORE_REQUIRED: ${OBJECT_STORE_REQUIRED:-false}
       MINIO_PUBLIC_ENDPOINT: ${MINIO_PUBLIC_ENDPOINT:-127.0.0.1:9000}
       ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me-admin-password}
       JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret-at-least-32-characters}
       SERVICE_API_KEY: ${SERVICE_API_KEY:-change-me-service-api-key}
+      MODEL_ADAPTER_TYPE: ${MODEL_ADAPTER_TYPE:-http}
       MODEL_SERVICE_BASE_URL: ${MODEL_SERVICE_BASE_URL:-}
       MODEL_SERVICE_API_KEY: ${MODEL_SERVICE_API_KEY:-}
+      MODEL_SERVICE_DETECT_ENDPOINT: ${MODEL_SERVICE_DETECT_ENDPOINT:-/api/v1/review-agent/yolo-detect}
+      MODEL_SERVICE_REVIEW_ENDPOINT: ${MODEL_SERVICE_REVIEW_ENDPOINT:-/api/v1/review-agent/review}
+      MODEL_SERVICE_VERIFY_TLS: ${MODEL_SERVICE_VERIFY_TLS:-true}
     command: celery -A app.tasks.celery_app.celery_app worker --loglevel=INFO --concurrency=2
     depends_on:
       api:

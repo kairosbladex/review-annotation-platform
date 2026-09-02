@@ -10,7 +10,7 @@ from fastapi.responses import JSONResponse
 from sqlalchemy import select
 
 from .adapters.object_store import ObjectStore, build_object_store
-from .adapters.model_provider import HttpModelAdapter
+from .adapters.model_provider import build_model_adapter
 from .config import Settings
 from .db import Base, build_engine, build_session_factory
 from .models import Annotation, AnnotationTask, AuditEvent, Candidate, ExportRecord, Job, ModelProfile, ModelRun, ModelRunSample, Sample, User
@@ -34,7 +34,8 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
         except Exception:
             # A missing/unavailable object store is reflected as an asset error
             # by the ingestion path; API startup should stay inspectable.
-            pass
+            if settings.object_store_required:
+                raise
 
     with session_factory() as session:
         admin = session.scalar(select(User).where(User.username == settings.admin_username))
@@ -46,11 +47,7 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
     app.state.settings = settings
     app.state.session_factory = session_factory
     app.state.object_store = object_store
-    app.state.model_adapter = model_adapter or HttpModelAdapter(
-        object_store=object_store,
-        default_base_url=settings.model_service_base_url,
-        default_api_key=settings.model_service_api_key,
-    )
+    app.state.model_adapter = model_adapter or build_model_adapter(settings, object_store)
     app.state.task_dispatcher = task_dispatcher or CeleryDispatcher(settings.redis_url)
     app.state.export_dispatcher = export_dispatcher or app.state.task_dispatcher
 

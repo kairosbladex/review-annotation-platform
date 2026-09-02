@@ -36,6 +36,7 @@ def execute_model_job(*, session_factory, object_store, adapter, job_id: str) ->
         profile_options = json.loads(run.parameters_json or "{}")
         profile_options["_model_profile"] = {
             **(json.loads(profile.config_json or "{}") if profile else {}),
+            "adapter_type": profile.adapter_type if profile else "http",
             "model_name": profile.model_name if profile else run.model_name,
             "model_version": profile.model_version if profile else run.model_version,
         }
@@ -73,7 +74,7 @@ def execute_model_job(*, session_factory, object_store, adapter, job_id: str) ->
                 artifact = result.get("artifact") if isinstance(result, dict) else getattr(result, "artifact", None)
                 if artifact and hasattr(adapter, "fetch_artifact"):
                     try:
-                        resolved = adapter.fetch_artifact(artifact)
+                        resolved = adapter.fetch_artifact(artifact, profile_options)
                         if resolved:
                             artifact_bytes, content_type = resolved
                             suffix = ".png" if content_type == "image/png" else ".jpg"

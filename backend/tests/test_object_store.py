@@ -4,6 +4,7 @@ import sys
 from types import SimpleNamespace
 
 from app.adapters.object_store import MinioObjectStore
+from app.config import Settings
 
 
 def test_presigned_url_uses_browser_reachable_endpoint(monkeypatch):
@@ -24,3 +25,51 @@ def test_presigned_url_uses_browser_reachable_endpoint(monkeypatch):
     )
 
     assert store.presigned_get_url("review-annotation", "raw/sample.png").startswith("http://127.0.0.1:9000/")
+
+
+def test_production_store_does_not_create_missing_bucket(monkeypatch):
+    class FakeMinio:
+        def __init__(self, *_args, **_kwargs):
+            self.make_bucket_called = False
+
+        def bucket_exists(self, _bucket):
+            return False
+
+        def make_bucket(self, _bucket):
+            self.make_bucket_called = True
+
+    monkeypatch.setitem(sys.modules, "minio", SimpleNamespace(Minio=FakeMinio))
+    store = MinioObjectStore(
+        endpoint="minio.example.internal:9000",
+        public_endpoint="minio.example.internal:9000",
+        access_key="access",
+        secret_key="secret",
+        secure=True,
+        auto_create_bucket=False,
+    )
+
+    try:
+        store.ensure_bucket("review-annotation")
+    except RuntimeError as exc:
+        assert "does not exist" in str(exc)
+    else:
+        raise AssertionError("missing production bucket must fail")
+    assert not store.client.make_bucket_called
+
+
+def test_required_object_store_does_not_silently_downgrade_when_config_is_missing():
+    from app.adapters.object_store import build_object_store
+
+    settings = Settings(
+        minio_endpoint="",
+        minio_access_key="",
+        minio_secret_key="",
+        object_store_required=True,
+    )
+
+    try:
+        build_object_store(settings)
+    except RuntimeError as exc:
+        assert "required" in str(exc)
+    else:
+        raise AssertionError("required object storage must fail when configuration is missing")

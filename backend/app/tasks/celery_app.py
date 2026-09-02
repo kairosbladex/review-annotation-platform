@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from celery import Celery
 
-from ..adapters.model_provider import HttpModelAdapter
+from ..adapters.model_provider import build_model_adapter
 from ..adapters.object_store import build_object_store
 from ..config import Settings
 from ..db import build_engine, build_session_factory
@@ -20,11 +20,7 @@ def execute_model_job_task(self, job_id: str):
         engine = build_engine(settings.database_url)
         factory = build_session_factory(engine)
         object_store = build_object_store(settings)
-        adapter = HttpModelAdapter(
-            object_store=object_store,
-            default_base_url=settings.model_service_base_url,
-            default_api_key=settings.model_service_api_key,
-        )
+        adapter = build_model_adapter(settings, object_store)
         execute_model_job(session_factory=factory, object_store=object_store, adapter=adapter, job_id=job_id)
     except Exception as exc:
         raise self.retry(exc=exc, countdown=10)

@@ -1,0 +1,36 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - ${PLATFORM_ENV_FILE:-./deploy/production.env}
+    environment:
+      PYTHONPATH: /app/backend
+    ports:
+      - "${API_PORT:-8190}:8000"
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - ${PLATFORM_ENV_FILE:-./deploy/production.env}
+    environment:
+      PYTHONPATH: /app/backend
+    command: celery -A app.tasks.celery_app.celery_app worker --loglevel=INFO --concurrency=2
+    depends_on:
+      api:
+        condition: service_started
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    depends_on:
+      - api
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+    restart: unless-stopped

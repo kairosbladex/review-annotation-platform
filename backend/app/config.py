@@ -21,8 +21,15 @@ class Settings:
     minio_bucket: str = "review-annotation"
     minio_public_endpoint: str = ""
     minio_secure: bool = False
+    minio_region: str = "us-east-1"
+    minio_auto_create_bucket: bool = True
+    object_store_required: bool = False
+    model_adapter_type: str = "http"
     model_service_base_url: str = ""
     model_service_api_key: str = ""
+    model_service_detect_endpoint: str = "/api/v1/review-agent/yolo-detect"
+    model_service_review_endpoint: str = "/api/v1/review-agent/review"
+    model_service_verify_tls: bool = True
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -40,6 +47,13 @@ class Settings:
             minio_bucket=os.getenv("MINIO_BUCKET", cls.minio_bucket),
             minio_public_endpoint=os.getenv("MINIO_PUBLIC_ENDPOINT", cls.minio_public_endpoint),
             minio_secure=os.getenv("MINIO_SECURE", "false").lower() in {"1", "true", "yes", "on"},
+            minio_region=os.getenv("MINIO_REGION", cls.minio_region),
+            minio_auto_create_bucket=os.getenv("MINIO_AUTO_CREATE_BUCKET", "true").lower() in {"1", "true", "yes", "on"},
+            object_store_required=os.getenv("OBJECT_STORE_REQUIRED", "false").lower() in {"1", "true", "yes", "on"},
+            model_adapter_type=os.getenv("MODEL_ADAPTER_TYPE", cls.model_adapter_type),
             model_service_base_url=os.getenv("MODEL_SERVICE_BASE_URL", cls.model_service_base_url),
             model_service_api_key=os.getenv("MODEL_SERVICE_API_KEY", cls.model_service_api_key),
+            model_service_detect_endpoint=os.getenv("MODEL_SERVICE_DETECT_ENDPOINT", cls.model_service_detect_endpoint),
+            model_service_review_endpoint=os.getenv("MODEL_SERVICE_REVIEW_ENDPOINT", cls.model_service_review_endpoint),
+            model_service_verify_tls=os.getenv("MODEL_SERVICE_VERIFY_TLS", "true").lower() in {"1", "true", "yes", "on"},
         )

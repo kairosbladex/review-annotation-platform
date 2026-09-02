@@ -4,16 +4,30 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import uuid
+from pathlib import Path
 
 from app.adapters.object_store import build_object_store
 from app.config import Settings
 
 
+def _load_env_file(path: Path) -> None:
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--bucket", default=None)
+    parser.add_argument("--env-file", type=Path, help="dotenv file to load before connecting")
     args = parser.parse_args()
+    if args.env_file:
+        _load_env_file(args.env_file)
     settings = Settings.from_env()
     bucket = args.bucket or settings.minio_bucket
     store = build_object_store(settings)

@@ -42,10 +42,11 @@ class NullObjectStore(ObjectStore):
 
 
 class MinioObjectStore(ObjectStore):
-    def __init__(self, *, endpoint: str, access_key: str, secret_key: str, secure: bool, public_endpoint: str = ""):
+    def __init__(self, *, endpoint: str, access_key: str, secret_key: str, secure: bool, public_endpoint: str = "", region: str = "us-east-1", auto_create_bucket: bool = True):
         from minio import Minio
 
-        self.client = Minio(endpoint, access_key=access_key, secret_key=secret_key, secure=secure)
+        self.auto_create_bucket = auto_create_bucket
+        self.client = Minio(endpoint, access_key=access_key, secret_key=secret_key, secure=secure, region=region or None)
         self.presign_client = self.client
         if public_endpoint and public_endpoint != endpoint:
             # The browser-facing endpoint may be unreachable from this
@@ -56,12 +57,15 @@ class MinioObjectStore(ObjectStore):
                 access_key=access_key,
                 secret_key=secret_key,
                 secure=secure,
-                region="us-east-1",
+                region=region or "us-east-1",
             )
 
     def ensure_bucket(self, bucket: str) -> None:
-        if not self.client.bucket_exists(bucket):
-            self.client.make_bucket(bucket)
+        if self.client.bucket_exists(bucket):
+            return
+        if not self.auto_create_bucket:
+            raise RuntimeError(f"MinIO bucket does not exist: {bucket}")
+        self.client.make_bucket(bucket)
 
     def exists(self, bucket: str, object_key: str) -> bool:
         try:
@@ -96,6 +100,8 @@ class MinioObjectStore(ObjectStore):
 
 def build_object_store(settings) -> ObjectStore:
     if not settings.minio_endpoint or not settings.minio_access_key or not settings.minio_secret_key:
+        if settings.object_store_required:
+            raise RuntimeError("object storage is required but MinIO endpoint and credentials are incomplete")
         return NullObjectStore()
     try:
         return MinioObjectStore(
@@ -104,6 +110,10 @@ def build_object_store(settings) -> ObjectStore:
             secret_key=settings.minio_secret_key,
             secure=settings.minio_secure,
             public_endpoint=settings.minio_public_endpoint,
+            region=settings.minio_region,
+            auto_create_bucket=settings.minio_auto_create_bucket,
         )
     except Exception:
+        if settings.object_store_required:
+            raise
         return NullObjectStore()

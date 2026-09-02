@@ -65,6 +65,23 @@ PYTHONPATH=backend python3 scripts/check_minio.py
 
 脚本只写入一个 `_smoke/` 小对象用于回读校验，不触碰已有业务对象；验证输出包含 bucket、对象 key、回读结果和 presigned URL 是否生成。
 
+生产环境可以直接加载部署变量执行同一个探针：
+
+```bash
+PYTHONPATH=backend python3 scripts/check_minio.py --env-file deploy/production.env
+```
+
+确认真实复检服务的检测→复核链路（需要提供一张可复现的图片）：
+
+```bash
+PYTHONPATH=backend python3 scripts/check_model_service.py \
+  --env-file deploy/production.env \
+  --rule-code waterline-v1 \
+  /path/to/review-sample.jpg
+```
+
+探针只输出检测数量、复核数量、存疑数量和结果图是否存在，不输出 API Key 或模型响应中的图片地址。
+
 ## 主要 API
 
 管理接口均需要 `Authorization: Bearer <token>`，登录：
@@ -100,6 +117,37 @@ curl -X POST http://localhost:8190/api/v1/ingest/review-events \
   "timeout_seconds": 120
 }
 ```
+
+接入当前真实复检服务时，把 profile 的 `adapter_type` 设为 `legacy_review_agent`。该 Adapter 会先调用 `/api/v1/review-agent/yolo-detect` 获取候选框，再调用 `/api/v1/review-agent/review` 获取完整复核结果，并优先保存响应中的 `rawDecision`，因此服务对外的两态兼容映射不会把 `uncertain` 变成假目标：
+
+```json
+{
+  "profile_key": "legacy-review-v1",
+  "name": "现有 YOLOE 复检服务",
+  "model_name": "yoloe-review-service",
+  "model_version": "部署版本号",
+  "adapter_type": "legacy_review_agent",
+  "config": {
+    "base_url": "http://yoloe-review-service:8188",
+    "detect_endpoint": "/api/v1/review-agent/yolo-detect",
+    "review_endpoint": "/api/v1/review-agent/review",
+    "timeout_seconds": 120,
+    "verify_tls": true
+  }
+}
+```
+
+生产环境使用外部 PostgreSQL、Redis、MinIO 和复检服务，不启动本地 MinIO。先复制并填写 [deploy/production.env.example](deploy/production.env.example)，实际文件 `deploy/production.env` 已被 Git 忽略；校验不会打印任何密钥：
+
+```bash
+cp deploy/production.env.example deploy/production.env
+# 修改 deploy/production.env 中的地址、密码、API Key 和 bucket
+python3 scripts/check_production_config.py --env-file deploy/production.env
+docker compose --env-file deploy/production.env -f docker-compose.production.yml config
+docker compose --env-file deploy/production.env -f docker-compose.production.yml up --build -d
+```
+
+生产 MinIO 的 SDK 地址和浏览器地址都使用 `host:port`（不带 URL scheme），由 `MINIO_SECURE=true` 控制 HTTPS。平台以 `MINIO_AUTO_CREATE_BUCKET=false` 和 `OBJECT_STORE_REQUIRED=true` 启动：bucket 不存在或 MinIO 不可用时直接失败，不会静默降级到本地空存储。浏览器访问图片使用 `MINIO_PUBLIC_ENDPOINT` 生成的短期 presigned URL。
 
 批量运行：`POST /api/v1/model-runs`；进度：`GET /api/v1/jobs/{job_id}`；运行详情和评估分别是 `GET /api/v1/model-runs/{run_id}`、`GET /api/v1/model-runs/{run_id}/evaluation`。已完成运行才能创建正式导出：`POST /api/v1/exports`，下载支持 `/download`。
 
