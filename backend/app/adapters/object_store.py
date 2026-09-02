@@ -42,10 +42,22 @@ class NullObjectStore(ObjectStore):
 
 
 class MinioObjectStore(ObjectStore):
-    def __init__(self, *, endpoint: str, access_key: str, secret_key: str, secure: bool):
+    def __init__(self, *, endpoint: str, access_key: str, secret_key: str, secure: bool, public_endpoint: str = ""):
         from minio import Minio
 
         self.client = Minio(endpoint, access_key=access_key, secret_key=secret_key, secure=secure)
+        self.presign_client = self.client
+        if public_endpoint and public_endpoint != endpoint:
+            # The browser-facing endpoint may be unreachable from this
+            # container. Pin MinIO's default region so presigning does not
+            # need a bucket-location request through that public endpoint.
+            self.presign_client = Minio(
+                public_endpoint,
+                access_key=access_key,
+                secret_key=secret_key,
+                secure=secure,
+                region="us-east-1",
+            )
 
     def ensure_bucket(self, bucket: str) -> None:
         if not self.client.bucket_exists(bucket):
@@ -62,7 +74,7 @@ class MinioObjectStore(ObjectStore):
         from datetime import timedelta
 
         try:
-            return self.client.presigned_get_object(bucket, object_key, expires=timedelta(seconds=expires_seconds))
+            return self.presign_client.presigned_get_object(bucket, object_key, expires=timedelta(seconds=expires_seconds))
         except Exception:
             return None
 
@@ -91,6 +103,7 @@ def build_object_store(settings) -> ObjectStore:
             access_key=settings.minio_access_key,
             secret_key=settings.minio_secret_key,
             secure=settings.minio_secure,
+            public_endpoint=settings.minio_public_endpoint,
         )
     except Exception:
         return NullObjectStore()

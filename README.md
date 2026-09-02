@@ -52,9 +52,10 @@ docker compose up --build
 
 - API：<http://localhost:8190>
 - 管理后台：<http://localhost:5173>
+- MinIO S3 API：<http://localhost:9000>
 - MinIO Console：<http://localhost:9001>
 
-容器启动时会先执行 `alembic upgrade head`。MinIO 初始化容器创建 `review-annotation` bucket。浏览器不直接读取公开对象地址，API 返回短期 presigned URL。
+容器启动时会先执行 `alembic upgrade head`。MinIO 初始化容器创建 `review-annotation` bucket。浏览器不直接读取公开对象地址，API 返回短期 presigned URL；容器内访问使用 `MINIO_ENDPOINT=minio:9000`，签发给浏览器的地址使用 `MINIO_PUBLIC_ENDPOINT`，生产环境需要将其改为浏览器可访问的 MinIO 域名。
 
 确认真实 MinIO 连接和读写权限：
 

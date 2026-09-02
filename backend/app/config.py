@@ -19,6 +19,7 @@ class Settings:
     minio_access_key: str = "minioadmin"
     minio_secret_key: str = "minioadmin"
     minio_bucket: str = "review-annotation"
+    minio_public_endpoint: str = ""
     minio_secure: bool = False
     model_service_base_url: str = ""
     model_service_api_key: str = ""
@@ -37,6 +38,7 @@ class Settings:
             minio_access_key=os.getenv("MINIO_ACCESS_KEY", cls.minio_access_key),
             minio_secret_key=os.getenv("MINIO_SECRET_KEY", cls.minio_secret_key),
             minio_bucket=os.getenv("MINIO_BUCKET", cls.minio_bucket),
+            minio_public_endpoint=os.getenv("MINIO_PUBLIC_ENDPOINT", cls.minio_public_endpoint),
             minio_secure=os.getenv("MINIO_SECURE", "false").lower() in {"1", "true", "yes", "on"},
             model_service_base_url=os.getenv("MODEL_SERVICE_BASE_URL", cls.model_service_base_url),
             model_service_api_key=os.getenv("MODEL_SERVICE_API_KEY", cls.model_service_api_key),

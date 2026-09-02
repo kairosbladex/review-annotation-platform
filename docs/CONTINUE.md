@@ -14,11 +14,11 @@
 
 ## 下一步建议
 
-- 接入真实复检服务，建立 Adapter Contract Test：固定验证 uncertain、原始多路决策、错误码、结果图和超时。
-- 已补本地 HTTP Adapter Contract Test；部署到真实环境后运行 `PYTHONPATH=backend python3 scripts/check_minio.py` 验证目标 MinIO 的 bucket、读写和 presigned URL。
+- 已补本地 HTTP Adapter Contract Test；并已在 Docker Compose 真实栈运行 `PYTHONPATH=backend python3 scripts/check_minio.py`，验证目标 MinIO 的 bucket、读写和 presigned URL。
 - 为页面上传和 manifest 导入增加批次详情页与导入错误下载。
 - 将 PostgreSQL/Redis/MinIO 用 Docker Compose 集成测试跑进 CI。
-- 接入真实 MinIO 结果图写回：当前 adapter 预留 artifact，但还没有将外部 `preview_url` 下载并持久化为 `model-runs/.../result.jpg`。
+- 已接入真实 MinIO 结果图写回：外部 `preview_url` 会下载并持久化为 `model-runs/.../result.jpg`，并由 API 返回短期 presigned URL。
+- 已完成 Docker Compose 真实验收：PostgreSQL、Redis、MinIO、API、Worker、前端均已启动；详见 `docs/ACCEPTANCE_REAL-STACK.md`。
 - 增加导出历史列表、短期下载链接和精度曲线可视化。
 - PLATFORM-006：整图标注、漏检/无目标确认、改框/改类，再实现 recall/mAP。
 
