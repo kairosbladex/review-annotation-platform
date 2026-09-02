@@ -79,4 +79,4 @@ docker compose --env-file deploy/production.env -f docker-compose.production.yml
 
 ## Git state at handoff
 
-本文件与本次真实接入改动在验收文档生成时尚未提交；提交前应再次运行完整测试、前端构建和 Compose 配置检查，并确认 `git diff --check` 无输出。
+本次真实接入实现已提交到本地 `master`：`69ca041 feat(integration): connect legacy review service and production minio`。本地工作树在交接时应保持 clean；该提交尚未自动 push。真实生产连通性探针仍需在获得生产配置和样例图后执行。
