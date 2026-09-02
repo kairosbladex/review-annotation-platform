@@ -22,6 +22,10 @@ def main() -> int:
     parser.add_argument("--batch-size", "--image-batch-size", dest="batch_size", type=int, default=10, help="images per model request, 1-20")
     parser.add_argument("--concurrency", type=int, default=2)
     parser.add_argument("--pilot-images", type=int, default=None, help="process only this many unique images while keeping the full manifest")
+    parser.add_argument(
+        "--uncertain-only-from", "--source-run-id", dest="source_run_id", default=None,
+        help="create a second-pass run from successful uncertain candidates in an existing local run",
+    )
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
     if args.limit < 1 or args.offset < 0:
@@ -45,6 +49,7 @@ def main() -> int:
         concurrency=args.concurrency,
         resume=args.resume,
         pilot_images=args.pilot_images,
+        source_run_id=args.source_run_id,
     )
     print({
         "run_id": summary["run_id"],
@@ -57,6 +62,8 @@ def main() -> int:
         "provider_calls": summary["provider_calls"],
         "preflight_calls": summary["preflight_calls"],
         "remaining_images": summary.get("remaining_images", 0),
+        "run_stage": summary.get("run_stage"),
+        "parent_run_id": summary.get("parent_run_id"),
         "output_dir": str(output_dir),
     })
     return 0 if summary["status"] in {"succeeded", "pilot_complete"} else 1

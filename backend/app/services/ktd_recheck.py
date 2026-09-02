@@ -156,6 +156,7 @@ class GroupedCandidate:
     payload: dict[str, Any]
     source_row_ids: list[str] = field(default_factory=list)
     needs_manual_review: bool = False
+    source_candidate_index: int | None = None
 
 
 @dataclass
@@ -449,7 +450,10 @@ CREATE TABLE IF NOT EXISTS runs (
     created_at TEXT NOT NULL,
     started_at TEXT,
     finished_at TEXT,
-    error_summary TEXT
+    error_summary TEXT,
+    run_stage TEXT NOT NULL DEFAULT 'initial',
+    parent_run_id TEXT,
+    selection TEXT NOT NULL DEFAULT 'all'
 );
 CREATE TABLE IF NOT EXISTS source_rows (
     run_id TEXT NOT NULL,
@@ -488,6 +492,7 @@ CREATE TABLE IF NOT EXISTS candidates (
     label_source TEXT,
     human_confirmed INTEGER NOT NULL DEFAULT 0,
     decision_json TEXT,
+    source_candidate_index INTEGER,
     PRIMARY KEY (run_id, image_id, candidate_index)
 );
 CREATE TABLE IF NOT EXISTS attempts (
@@ -522,6 +527,24 @@ class RecheckStore:
         self.database_path.parent.mkdir(parents=True, exist_ok=True)
         with self.connect() as connection:
             connection.executescript(SCHEMA)
+            self._upgrade_schema(connection)
+
+    @staticmethod
+    def _upgrade_schema(connection: sqlite3.Connection) -> None:
+        """Add lineage columns to databases created by the first-pass runner."""
+        columns = {
+            "runs": {
+                "run_stage": "TEXT NOT NULL DEFAULT 'initial'",
+                "parent_run_id": "TEXT",
+                "selection": "TEXT NOT NULL DEFAULT 'all'",
+            },
+            "candidates": {"source_candidate_index": "INTEGER"},
+        }
+        for table, additions in columns.items():
+            existing = {row[1] for row in connection.execute(f"PRAGMA table_info({table})")}
+            for name, definition in additions.items():
+                if name not in existing:
+                    connection.execute(f"ALTER TABLE {table} ADD COLUMN {name} {definition}")
 
     def connect(self) -> sqlite3.Connection:
         connection = sqlite3.connect(self.database_path, timeout=60)
@@ -540,6 +563,9 @@ class RecheckStore:
         batch_size: int,
         concurrency: int,
         resume: bool,
+        parent_run_id: str | None = None,
+        run_stage: str = "initial",
+        selection: str = "all",
     ) -> None:
         source_row_count = sum(len(image.source_row_ids) for image in images)
         candidate_count = sum(len(image.candidates) for image in images)
@@ -548,13 +574,15 @@ class RecheckStore:
             existing = connection.execute("SELECT * FROM runs WHERE run_id=?", (run_id,)).fetchone()
             if existing is None:
                 connection.execute(
-                    "INSERT INTO runs(run_id,output_dir,status,source_row_count,unique_image_count,candidate_count,provider_order_json,prompt_version,candidate_data_version,batch_size,concurrency,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
-                    (run_id, str(output_dir), "pending", source_row_count, len(images), candidate_count, _safe_json(list(provider_order)), PROMPT_VERSION, CANDIDATE_DATA_VERSION, batch_size, concurrency, now),
+                    "INSERT INTO runs(run_id,output_dir,status,source_row_count,unique_image_count,candidate_count,provider_order_json,prompt_version,candidate_data_version,batch_size,concurrency,created_at,run_stage,parent_run_id,selection) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    (run_id, str(output_dir), "pending", source_row_count, len(images), candidate_count, _safe_json(list(provider_order)), PROMPT_VERSION, CANDIDATE_DATA_VERSION, batch_size, concurrency, now, run_stage, parent_run_id, selection),
                 )
             elif not resume:
                 raise RuntimeError(f"run {run_id} already exists; pass --resume")
             elif (existing["source_row_count"], existing["unique_image_count"], existing["candidate_count"]) != (source_row_count, len(images), candidate_count):
                 raise RuntimeError("resume manifest counts do not match the existing run")
+            elif (existing["run_stage"], existing["parent_run_id"], existing["selection"]) != (run_stage, parent_run_id, selection):
+                raise RuntimeError("resume lineage does not match the existing run")
             for image in images:
                 connection.execute(
                     "INSERT OR IGNORE INTO images(run_id,image_id,file_path,source_row_ids_json,conflict,status,candidate_count) VALUES(?,?,?,?,?,?,?)",
@@ -562,8 +590,8 @@ class RecheckStore:
                 )
                 for index, candidate in enumerate(image.candidates):
                     connection.execute(
-                        "INSERT OR IGNORE INTO candidates(run_id,image_id,candidate_index,candidate_key,payload_json,source_row_ids_json,needs_manual_review,result_status) VALUES(?,?,?,?,?,?,?,?)",
-                        (run_id, image.image_id, index, candidate.candidate_key, _safe_json(candidate.payload), _safe_json(candidate.source_row_ids), int(candidate.needs_manual_review), "pending"),
+                        "INSERT OR IGNORE INTO candidates(run_id,image_id,candidate_index,candidate_key,payload_json,source_row_ids_json,needs_manual_review,result_status,source_candidate_index) VALUES(?,?,?,?,?,?,?,?,?)",
+                        (run_id, image.image_id, index, candidate.candidate_key, _safe_json(candidate.payload), _safe_json(candidate.source_row_ids), int(candidate.needs_manual_review), "pending", candidate.source_candidate_index),
                     )
                 for source_row in image.source_rows:
                     keys = [candidate.candidate_key for candidate in image.candidates if source_row["source_row_id"] in candidate.source_row_ids]
@@ -741,6 +769,48 @@ def load_annex_rows_from_mysql(env: Mapping[str, str], *, limit: int, offset: in
             },
         })
     return rows
+
+
+def load_uncertain_images(store: RecheckStore, source_run_id: str) -> list[GroupedImage]:
+    """Build a second-pass manifest from successful uncertain candidates only."""
+    data = store.rows_for_output(source_run_id)
+    if not data["runs"]:
+        raise RuntimeError(f"source run does not exist: {source_run_id}")
+    source_rows_by_image: dict[str, list[dict[str, Any]]] = {}
+    for row in data["source_rows"]:
+        source_rows_by_image.setdefault(row["image_id"], []).append({
+            "source_row_id": row["source_row_id"],
+            "file_path": row["file_path"],
+            "candidate_count": len(_row_json(row, "candidate_keys_json", [])),
+            "source_payload": _row_json(row, "source_payload_json", {}),
+        })
+    candidates_by_image: dict[str, list[sqlite3.Row]] = {}
+    for row in data["candidates"]:
+        if row["result_status"] == "succeeded" and row["auto_label"] == "uncertain":
+            candidates_by_image.setdefault(row["image_id"], []).append(row)
+
+    selected: list[GroupedImage] = []
+    for image in data["images"]:
+        candidate_rows = candidates_by_image.get(image["image_id"], [])
+        if not candidate_rows:
+            continue
+        source_rows = source_rows_by_image.get(image["image_id"], [])
+        source_row_ids = _row_json(image, "source_row_ids_json", [])
+        selected.append(GroupedImage(
+            image_id=image["image_id"],
+            file_path=image["file_path"],
+            source_row_ids=source_row_ids,
+            candidates=[GroupedCandidate(
+                candidate_key=row["candidate_key"],
+                payload=_row_json(row, "payload_json", {}),
+                source_row_ids=_row_json(row, "source_row_ids_json", []),
+                needs_manual_review=bool(row["needs_manual_review"]),
+                source_candidate_index=int(row["candidate_index"]),
+            ) for row in candidate_rows],
+            conflict=bool(image["conflict"]),
+            source_rows=source_rows,
+        ))
+    return selected
 
 
 class SourceImageClient:
@@ -960,6 +1030,14 @@ def write_jsonl(path: Path, rows: Iterable[Mapping[str, Any]]) -> None:
     os.replace(temporary, path)
 
 
+def _training_label_tier(*, human_confirmed: bool, parent_run_id: str | None) -> str:
+    if human_confirmed:
+        return "gold"
+    if parent_run_id:
+        return "uncertain_recheck_pseudo"
+    return "first_pass_pseudo"
+
+
 def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     data = store.rows_for_output(run_id)
@@ -967,6 +1045,19 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
     images = data["images"]
     candidates = data["candidates"]
     attempts = data["attempts"]
+    if not data["runs"]:
+        raise RuntimeError(f"run does not exist: {run_id}")
+    run = data["runs"][0]
+    parent_run_id = run["parent_run_id"]
+    parent_candidates: dict[tuple[str, int], sqlite3.Row] = {}
+    parent_images: dict[str, sqlite3.Row] = {}
+    if parent_run_id:
+        parent_data = store.rows_for_output(parent_run_id)
+        parent_images = {row["image_id"]: row for row in parent_data["images"]}
+        parent_candidates = {
+            (row["image_id"], row["candidate_index"]): row
+            for row in parent_data["candidates"]
+        }
     write_jsonl(output_dir / "source_manifest.jsonl", ({
         "run_id": run_id,
         "source_row_id": row["source_row_id"],
@@ -1002,18 +1093,36 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
     candidate_output_rows: list[dict[str, Any]] = []
     pseudo_rows: list[dict[str, Any]] = []
     hard_negative_rows: list[dict[str, Any]] = []
+    yoloe_training_rows: list[dict[str, Any]] = []
+    qwen_vl_training_rows: list[dict[str, Any]] = []
+    uncertain_excluded_rows: list[dict[str, Any]] = []
     class_names: set[str] = set()
     for row in candidates:
         payload = _row_json(row, "payload_json", {})
         decision = _row_json(row, "decision_json")
         image = image_by_id[row["image_id"]]
         class_names.add(str(payload.get("class_name") or ""))
+        source_candidate_index = row["source_candidate_index"]
+        parent_candidate = None
+        parent_image = None
+        if parent_run_id and source_candidate_index is not None:
+            parent_candidate = parent_candidates.get((row["image_id"], int(source_candidate_index)))
+            parent_image = parent_images.get(row["image_id"])
+        first_pass_label = parent_candidate["auto_label"] if parent_candidate is not None else (row["auto_label"] if run["run_stage"] == "initial" else None)
+        first_pass_decision = _row_json(parent_candidate, "decision_json") if parent_candidate is not None else (decision if run["run_stage"] == "initial" else None)
+        first_pass_provider = parent_image["chosen_provider"] if parent_image is not None else (image["chosen_provider"] if run["run_stage"] == "initial" else None)
+        first_pass_model = parent_image["chosen_model"] if parent_image is not None else (image["chosen_model"] if run["run_stage"] == "initial" else None)
+        second_pass_label = row["auto_label"] if parent_run_id else None
+        second_pass_decision = decision if parent_run_id else None
         candidate_result = {
             "run_id": run_id,
+            "run_stage": run["run_stage"],
+            "parent_run_id": parent_run_id,
             "image_id": row["image_id"],
             "file_path": image["file_path"],
             "source_row_ids": _row_json(row, "source_row_ids_json", []),
             "candidate_index": row["candidate_index"],
+            "source_candidate_index": source_candidate_index,
             "class_name": payload.get("class_name"),
             "class_id": payload.get("class_id"),
             "confidence": payload.get("confidence"),
@@ -1027,6 +1136,12 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
             "decision": decision,
             "provider": image["chosen_provider"],
             "model": image["chosen_model"],
+            "first_pass_label": first_pass_label,
+            "first_pass_decision": first_pass_decision,
+            "first_pass_provider": first_pass_provider,
+            "first_pass_model": first_pass_model,
+            "second_pass_label": second_pass_label,
+            "second_pass_decision": second_pass_decision,
             "error_message": image["error_message"] if row["result_status"] == "failed" else None,
         }
         candidate_output_rows.append(candidate_result)
@@ -1034,11 +1149,102 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
             pseudo_rows.append({**candidate_result, "training_label": row["auto_label"], "label_source": "model_pseudo"})
         if row["auto_label"] == "false":
             hard_negative_rows.append({**candidate_result, "label_source": "model_pseudo"})
+        if row["auto_label"] == "uncertain":
+            uncertain_excluded_rows.append({
+                **candidate_result,
+                "exclusion_reason": "uncertain_after_recheck" if parent_run_id else "uncertain_after_first_pass",
+            })
+        if row["auto_label"] in {"true", "false"}:
+            training_base = {
+                "id": f"{run_id}:{row['image_id']}:{row['candidate_index']}",
+                "run_id": run_id,
+                "parent_run_id": parent_run_id,
+                "image_id": row["image_id"],
+                "image_bucket": "minio-src",
+                "image_object_key": image["file_path"],
+                "file_path": image["file_path"],
+                "source_row_ids": _row_json(row, "source_row_ids_json", []),
+                "candidate_index": row["candidate_index"],
+                "source_candidate_index": source_candidate_index,
+                "class_name": payload.get("class_name"),
+                "class_id": payload.get("class_id"),
+                "bbox": payload.get("bbox"),
+                "training_label": row["auto_label"],
+                "label_tier": _training_label_tier(
+                    human_confirmed=bool(row["human_confirmed"]),
+                    parent_run_id=parent_run_id,
+                ),
+                "human_confirmed": bool(row["human_confirmed"]),
+                "first_pass_label": first_pass_label,
+                "second_pass_label": second_pass_label,
+                "decision": decision,
+            }
+            if row["auto_label"] == "true":
+                yoloe_training_rows.append(training_base)
+            qwen_vl_training_rows.append({
+                **training_base,
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "image", "image": image["file_path"]},
+                            {"type": "text", "text": "请判断给定候选框内是否存在且符合候选类别的目标。候选信息（类别与归一化 bbox）如下：" + _safe_json({"class_name": payload.get("class_name"), "bbox": payload.get("bbox")}) + "。只依据图像证据，输出 true 或 false。"},
+                        ],
+                    },
+                    {
+                        "role": "assistant",
+                        "content": [{"type": "text", "text": _safe_json({
+                            "label": row["auto_label"],
+                            "class_name": payload.get("class_name"),
+                            "bbox": payload.get("bbox"),
+                        })}],
+                    },
+                ],
+            })
     write_jsonl(output_dir / "candidate_results.jsonl", candidate_output_rows)
     write_jsonl(output_dir / "pseudo_label_manifest.jsonl", pseudo_rows)
     write_jsonl(output_dir / "training_manifest.jsonl", [row for row in candidate_output_rows if row["human_confirmed"] and row["final_label"] in {"true", "false"}])
     write_jsonl(output_dir / "hard_negative.jsonl", hard_negative_rows)
+    write_jsonl(output_dir / "yoloe_training_manifest.jsonl", yoloe_training_rows)
+    write_jsonl(output_dir / "qwen_vl_training.jsonl", qwen_vl_training_rows)
+    write_jsonl(output_dir / "uncertain_excluded.jsonl", uncertain_excluded_rows)
     (output_dir / "class_map.json").write_text(json.dumps({"version": 1, "classes": {name: None for name in sorted(class_names) if name}, "note": "官方 class_id 未提供；请人工填写后再生成 YOLO 数字标签。"}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    training_data_summary = {
+        "schema_version": 1,
+        "run_id": run_id,
+        "run_stage": run["run_stage"],
+        "parent_run_id": parent_run_id,
+        "label_policy": "Only human-confirmed rows are gold. Model-derived binary rows are pseudo labels; uncertain rows are excluded.",
+        "class_id_policy": "class_id remains null until the official class mapping is supplied.",
+        "uncertain_excluded_rows": len(uncertain_excluded_rows),
+        "rows": {
+            "candidate_results": len(candidate_output_rows),
+            "binary_pseudo_or_gold": len(pseudo_rows),
+            "true": sum(row["training_label"] == "true" for row in pseudo_rows),
+            "false": sum(row["training_label"] == "false" for row in pseudo_rows),
+            "uncertain_excluded": len(uncertain_excluded_rows),
+        },
+        "yoloe": {
+            "positive_rows": len(yoloe_training_rows),
+            "hard_negative_rows": len(hard_negative_rows),
+            "class_names": sorted(name for name in class_names if name),
+            "label_file_policy": "Use only training_label=true rows for positive boxes; keep hard_negative.jsonl separate.",
+        },
+        "qwen_vl": {
+            "rows": len(qwen_vl_training_rows),
+            "true_rows": sum(row["training_label"] == "true" for row in qwen_vl_training_rows),
+            "false_rows": sum(row["training_label"] == "false" for row in qwen_vl_training_rows),
+            "format": "messages with image object key and structured assistant label",
+        },
+        "lineage": {
+            "rechecked_candidates": sum(row["parent_run_id"] is not None for row in candidate_output_rows),
+            "first_pass_uncertain_to_true": sum(row["first_pass_label"] == "uncertain" and row["second_pass_label"] == "true" for row in candidate_output_rows),
+            "first_pass_uncertain_to_false": sum(row["first_pass_label"] == "uncertain" and row["second_pass_label"] == "false" for row in candidate_output_rows),
+            "still_uncertain": sum(row["second_pass_label"] == "uncertain" for row in candidate_output_rows) if parent_run_id else len(uncertain_excluded_rows),
+        },
+    }
+    (output_dir / "training_data_summary.json").write_text(json.dumps(training_data_summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     succeeded_images = sum(row["status"] == "succeeded" for row in images)
     failed_images = sum(row["status"] == "failed" for row in images)
@@ -1051,6 +1257,9 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
     labels = Counter(row["auto_label"] for row in candidates if row["auto_label"])
     summary = {
         "run_id": run_id,
+        "run_stage": run["run_stage"],
+        "parent_run_id": parent_run_id,
+        "selection": run["selection"],
         "status": "succeeded" if failed_images == 0 and succeeded_images == len(images) else ("partial_failed" if succeeded_images else "failed"),
         "source_rows": len(source_rows),
         "unique_images": len(images),
@@ -1067,6 +1276,12 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
         "training_manifest_rows": sum(row["human_confirmed"] and row["final_label"] in {"true", "false"} for row in candidate_output_rows),
         "pseudo_label_rows": len(pseudo_rows),
         "hard_negative_rows": len(hard_negative_rows),
+        "uncertain_excluded_rows": len(uncertain_excluded_rows),
+        "training_views": {
+            "yoloe_positive_rows": len(yoloe_training_rows),
+            "qwen_vl_rows": len(qwen_vl_training_rows),
+            "gold_rows": sum(row["human_confirmed"] for row in candidate_output_rows if row["final_label"] in {"true", "false"}),
+        },
         "class_names": sorted(name for name in class_names if name),
     }
     (output_dir / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -1145,6 +1360,8 @@ def _runtime_bundle(store: RecheckStore, client: SourceImageClient, run_id: str,
     for row in candidate_rows:
         payload = _row_json(row, "payload_json", {})
         payload["target_index"] = row["candidate_index"]
+        if row["source_candidate_index"] is not None:
+            payload["source_candidate_index"] = row["source_candidate_index"]
         candidates.append(payload)
     return {
         "image_id": image_id,
@@ -1332,16 +1549,25 @@ def run_recheck(
     concurrency: int = 2,
     resume: bool = False,
     pilot_images: int | None = None,
+    source_run_id: str | None = None,
 ) -> dict[str, Any]:
     if batch_size < 1 or batch_size > 20:
         raise ValueError("batch_size must be between 1 and 20")
     if concurrency < 1:
         raise ValueError("concurrency must be positive")
-    rows = load_annex_rows_from_mysql(env, limit=limit, offset=offset)
-    images = group_source_rows(rows)
-    if not images:
-        raise RuntimeError("source query returned no rows")
     store = RecheckStore(database_path)
+    if source_run_id:
+        images = load_uncertain_images(store, source_run_id)
+        run_stage = "uncertain_recheck"
+        selection = "uncertain"
+    else:
+        rows = load_annex_rows_from_mysql(env, limit=limit, offset=offset)
+        images = group_source_rows(rows)
+        run_stage = "initial"
+        selection = "all"
+    if not images:
+        message = f"source run {source_run_id} has no successful uncertain candidates" if source_run_id else "source query returned no rows"
+        raise RuntimeError(message)
     store.create_or_validate_run(
         run_id=run_id,
         output_dir=output_dir,
@@ -1350,6 +1576,9 @@ def run_recheck(
         batch_size=batch_size,
         concurrency=concurrency,
         resume=resume,
+        parent_run_id=source_run_id,
+        run_stage=run_stage,
+        selection=selection,
     )
     client = SourceImageClient(
         base_url=env.get("SOURCE_IMAGE_BASE_URL", ""),

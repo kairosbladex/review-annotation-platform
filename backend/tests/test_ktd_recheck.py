@@ -17,6 +17,7 @@ from app.services.ktd_recheck import (
     _preflight_provider,
     decision_label,
     group_source_rows,
+    load_uncertain_images,
     request_fingerprint,
     validate_batch_response,
     write_outputs,
@@ -371,3 +372,114 @@ def test_store_and_outputs_keep_attempts_traceable_without_secrets(tmp_path):
         resume=True,
     )
     assert len(store.pending_images("run-a")) == 0
+
+
+def test_load_uncertain_images_selects_only_uncertain_candidates_and_preserves_lineage(tmp_path):
+    store = RecheckStore(tmp_path / "recheck.sqlite3")
+    image = GroupedImage(
+        image_id="image-a",
+        file_path="images/a.jpg",
+        source_row_ids=["row-a"],
+        candidates=[
+            GroupedCandidate(candidate_key="uncertain-key", payload=_candidate(), source_row_ids=["row-a"]),
+            GroupedCandidate(candidate_key="true-key", payload=_candidate(0.4), source_row_ids=["row-a"]),
+        ],
+        conflict=False,
+        source_rows=[{"source_row_id": "row-a", "source_payload": {"id": "row-a"}}],
+    )
+    store.create_or_validate_run(
+        run_id="first-pass",
+        output_dir=tmp_path / "first",
+        images=[image],
+        provider_order=["gpt"],
+        batch_size=10,
+        concurrency=1,
+        resume=False,
+    )
+    store.apply_results(
+        run_id="first-pass",
+        image_ids=["image-a"],
+        results={"image-a": {0: _decision(0, "uncertain"), 1: _decision(1, "true")}},
+        provider="gpt",
+        model="gpt-test",
+        sha256_by_image={"image-a": "sha"},
+    )
+
+    selected = load_uncertain_images(store, "first-pass")
+
+    assert len(selected) == 1
+    assert selected[0].image_id == "image-a"
+    assert selected[0].source_row_ids == ["row-a"]
+    assert len(selected[0].candidates) == 1
+    assert selected[0].candidates[0].source_candidate_index == 0
+    assert selected[0].candidates[0].payload["bbox"] == _candidate()["bbox"]
+
+
+def test_second_pass_outputs_training_views_with_first_pass_evidence(tmp_path):
+    store = RecheckStore(tmp_path / "recheck.sqlite3")
+    image = GroupedImage(
+        image_id="image-a",
+        file_path="images/a.jpg",
+        source_row_ids=["row-a"],
+        candidates=[
+            GroupedCandidate(candidate_key="uncertain-key", payload=_candidate(), source_row_ids=["row-a"]),
+            GroupedCandidate(candidate_key="uncertain-key-2", payload=_candidate(0.4), source_row_ids=["row-a"]),
+        ],
+        conflict=False,
+        source_rows=[{"source_row_id": "row-a", "source_payload": {"id": "row-a"}}],
+    )
+    store.create_or_validate_run(
+        run_id="first-pass",
+        output_dir=tmp_path / "first",
+        images=[image],
+        provider_order=["gpt"],
+        batch_size=10,
+        concurrency=1,
+        resume=False,
+    )
+    store.apply_results(
+        run_id="first-pass",
+        image_ids=["image-a"],
+        results={"image-a": {0: _decision(0, "uncertain"), 1: _decision(1, "uncertain")}},
+        provider="gpt",
+        model="gpt-first",
+        sha256_by_image={"image-a": "sha"},
+    )
+    selected = load_uncertain_images(store, "first-pass")
+    store.create_or_validate_run(
+        run_id="second-pass",
+        output_dir=tmp_path / "second",
+        images=selected,
+        provider_order=["gpt"],
+        batch_size=10,
+        concurrency=1,
+        resume=False,
+        parent_run_id="first-pass",
+        run_stage="uncertain_recheck",
+        selection="uncertain",
+    )
+    store.apply_results(
+        run_id="second-pass",
+        image_ids=["image-a"],
+        results={"image-a": {0: _decision(0, "true"), 1: _decision(1, "false")}},
+        provider="gpt",
+        model="gpt-second",
+        sha256_by_image={"image-a": "sha"},
+    )
+
+    summary = write_outputs(store, "second-pass", tmp_path / "second")
+    candidate_rows = [json.loads(line) for line in (tmp_path / "second" / "candidate_results.jsonl").read_text(encoding="utf-8").splitlines()]
+    yoloe_rows = [json.loads(line) for line in (tmp_path / "second" / "yoloe_training_manifest.jsonl").read_text(encoding="utf-8").splitlines()]
+    qwen_rows = [json.loads(line) for line in (tmp_path / "second" / "qwen_vl_training.jsonl").read_text(encoding="utf-8").splitlines()]
+    training_summary = json.loads((tmp_path / "second" / "training_data_summary.json").read_text(encoding="utf-8"))
+
+    assert candidate_rows[0]["first_pass_label"] == "uncertain"
+    assert candidate_rows[0]["second_pass_label"] == "true"
+    assert candidate_rows[0]["source_candidate_index"] == 0
+    assert candidate_rows[0]["parent_run_id"] == "first-pass"
+    assert len(yoloe_rows) == 1
+    assert yoloe_rows[0]["training_label"] == "true"
+    assert len(qwen_rows) == 2
+    assert {row["training_label"] for row in qwen_rows} == {"true", "false"}
+    assert summary["training_views"]["yoloe_positive_rows"] == 1
+    assert training_summary["uncertain_excluded_rows"] == 0
