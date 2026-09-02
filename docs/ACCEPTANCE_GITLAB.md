@@ -1,50 +1,93 @@
 # ACCEPTANCE_GITLAB
 
-## 状态
+## Status
 
-PARTIAL：本地 GitLab 项目和流水线配置已准备好，等待推送后读取第一条 GitLab pipeline 结果。
+COMPLETED：项目已创建并推送到公司 GitLab，最新默认校验流水线已真实通过。
 
 ## Ticket
 
 `GITLAB-REVIEW-ANNOTATION-PLATFORM`
 
-## 已完成
+## Delivered behavior
 
-- 已在公司 GitLab 创建私有项目 `wangxiaolin/review-annotation-platform`；
-- 已确认 SSH 登录身份为 `@wangxiaolin`；
-- 已新增 `.gitlab-ci.yml`；
-- 已新增 `docs/CICD_GITLAB.md`，说明 job、Runner tag、触发方式和凭据边界；
-- 已在本地解析 `.gitlab-ci.yml` 和 `docker-compose.yml`；
-- 已在正在运行的 Compose 容器中执行 Alembic、MinIO smoke 和前端页面探针。
+- 在公司 GitLab 创建了私有项目 `wangxiaolin/review-annotation-platform`；
+- 本地 `master` 已配置 remote：`origin` → `git@192.168.110.2:wangxiaolin/review-annotation-platform.git`；
+- 当前 `master` 已推送到 `origin/master`；
+- 新增 `.gitlab-ci.yml`，对 push 和 Merge Request 自动执行后端、Compose 配置和前端构建校验；
+- 新增 `compose-integration` 手动作业，用于需要 Docker-in-Docker/privileged executor 的真实 Compose 验收；
+- 创建并注册了项目专用 Runner `review-annotation-platform-local`，标签为 `infra-238`，锁定到当前项目；
+- 未将生产数据库、MinIO、模型服务或 JWT 密钥写入仓库或前端构建产物。
 
-## 流水线 job
+## GitLab pipeline evidence
 
-- `backend-test`：Python 编译检查和后端单元测试；
-- `compose-config`：Compose YAML 结构校验；
-- `frontend-build`：TypeScript/Vite 生产构建和 dist artifact；
-- `compose-integration`：手动触发的 Docker-in-Docker 真实依赖验收。
+最新流水线：
 
-## 未做
+- Pipeline `#81`：
+  `http://192.168.110.2/wangxiaolin/review-annotation-platform/-/pipelines/81`
+- Commit：`0bb7440`（`ci: use python3 for compose validation`）；
+- `backend-test`：passed；
+- `compose-config`：passed；
+- `frontend-build`：passed；
+- `compose-integration`：skipped/manual，按设计不阻塞普通分支和 Merge Request 校验。
 
-- 尚未把本地 Git remote 添加到仓库；
-- 尚未推送当前 master；
-- 尚未读取 GitLab pipeline 的真实执行状态；
-- 没有配置自动部署，也没有把任何生产密钥写入仓库。
+此前失败已被定位并修复：
 
-## 风险与后续
+- Pipeline `#77`：GitLab YAML 将带冒号的 shell 命令解析成 mapping；已通过 block scalar 修复；
+- Pipeline `#78`：Runner 初始处于等待状态；已创建项目专用 Runner 并注册到本机；
+- Pipeline `#79`：Shell executor 没有 `python` 命令；CI 改用 `python3`；
+- Pipeline `#80`：Compose 配置 job 仍有一处 `python` 调用；已改为 `python3`。
 
-- 流水线默认使用公司 Runner tag `infra-238`；如果个人命名空间无法使用该 Runner，需要在项目 CI/CD 设置中绑定可用 Runner 或修改 tag；
-- `compose-integration` 要求 Runner 使用 privileged Docker executor；它设计为手动 job，不阻塞普通 MR 校验；
-- 生产接入模型、MinIO 和部署主机时，应把密钥放在 GitLab CI/CD Variables，并补充部署 job 的明确目标和回滚策略。
+## Repository files
 
-## 本地验证
+- `.gitlab-ci.yml`：流水线定义；
+- `docs/CICD_GITLAB.md`：job、触发策略、Runner 和凭据说明；
+- `docs/ACCEPTANCE_GITLAB.md`：本次 GitLab 推送和验收记录。
+
+## Validation evidence
+
+本地验证：
 
 ```bash
-python3 -c 'import yaml; yaml.safe_load(open(".gitlab-ci.yml")); yaml.safe_load(open("docker-compose.yml"))'
+python3 - <<'PY'
+from pathlib import Path
+import yaml
+
+for path in (".gitlab-ci.yml", "docker-compose.yml"):
+    yaml.safe_load(Path(path).read_text())
+print("YAML OK")
+PY
+
 PYTHONPATH=backend python3 -m pytest backend/tests -q
-cd frontend && npm run build
+npm --prefix frontend run build
 ```
+
+结果：
+
+- GitLab CI 结构校验通过；
+- 后端测试 `10 passed`；
+- 前端 TypeScript/Vite 构建通过；
+- GitLab Pipeline `#81` 的三个自动 job 全部通过；
+- Docker Compose PostgreSQL、Redis、MinIO、API、Worker、前端真实栈验收记录见 [ACCEPTANCE_REAL-STACK.md](ACCEPTANCE_REAL-STACK.md)。
+
+## Not delivered
+
+- 没有配置自动部署、生产环境发布或模型服务自动替换；
+- 没有把真实模型服务 API Key、生产 MinIO 凭据或生产数据库密码写入 GitLab；
+- 没有在公司基础设施上部署长期 Runner 服务；当前项目 Runner 由本机用户态进程承载，适合当前验证和内部开发。
+
+## Risks and follow-ups
+
+- 本机项目 Runner 必须保持运行，后续 pipeline 才能立即领取；如果本机进程退出，GitLab 作业会回到 pending。长期使用建议让公司 Runner 管理员提供在线的 `infra-238` Runner，或将项目 Runner 安装为明确受控的用户服务；
+- `compose-integration` 使用 Docker-in-Docker，需要 privileged Docker executor；当前 Shell Runner 不执行该手动作业。真实 Compose 已在本机完成，因此它不会掩盖当前自动校验结果；
+- CI 依赖安装已固定使用 `https://pypi.org/simple`，避免本机默认镜像缺少 `redis<6`；如公司网络要求内部 PyPI，应改为 GitLab 允许访问的内部镜像；
+- SSH 推送时服务器提示未使用 post-quantum key exchange，这是公司 GitLab/SSH 服务端能力提示，不影响本次推送成功，后续可由基础设施侧升级 OpenSSH；
+- Compose 默认密钥只用于开发和 CI 临时环境，生产部署前必须由部署平台 Secret 管理覆盖。
 
 ## Git state
 
-提交本文件时尚未配置 remote；推送完成后需要补充 remote、pipeline URL 和真实 job 结果。
+```text
+branch: master
+tracking: origin/master
+head: 0bb7440 ci: use python3 for compose validation
+working tree: clean
+```

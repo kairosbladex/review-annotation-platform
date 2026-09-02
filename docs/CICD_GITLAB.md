@@ -9,7 +9,7 @@
 - `frontend-build`：执行 `npm ci` 和 TypeScript/Vite 生产构建，并保留 `frontend/dist` 一周；
 - `compose-integration`：手动触发的 Docker-in-Docker 真实栈验收，启动 PostgreSQL、Redis、MinIO、API、Worker 和前端，执行 Alembic、API health、MinIO 读写和 Nginx 页面检查。
 
-所有 job 默认使用公司 Runner tag `infra-238`，与现有公司 GitLab Python 项目保持一致。如果该个人命名空间看不到这个 Runner，需要在 GitLab 项目设置中启用可用 Runner，或把 `.gitlab-ci.yml` 中的 tag 改为该 Runner 的实际 tag。
+所有 job 默认使用公司 Runner tag `infra-238`，与现有公司 GitLab Python 项目保持一致。本项目已创建一个锁定到当前项目的 `review-annotation-platform-local` Runner，并使用同一标签执行自动校验。长期运行时建议迁移到公司在线共享 Runner，避免依赖个人电脑上的用户态 Runner 进程。
 
 ## 触发规则
 
@@ -28,6 +28,8 @@
 - 生产数据库、MinIO、JWT 和服务 API Key。
 
 这些变量不应提交到仓库，也不应写入前端构建产物。
+
+当前流水线真实结果记录在 [ACCEPTANCE_GITLAB.md](ACCEPTANCE_GITLAB.md)：最新 Pipeline `#81` 的 `backend-test`、`compose-config` 和 `frontend-build` 全部通过。`compose-integration` 保留为手动作业，因为它要求 privileged Docker executor，而当前项目 Runner 是 macOS Shell executor。
 
 ## 本地复现
 
