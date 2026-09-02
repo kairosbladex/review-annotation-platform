@@ -125,6 +125,35 @@ class Job(Base):
     finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
+class AutoAnnotationRun(Base):
+    """One batch of local consensus decisions over existing candidates."""
+
+    __tablename__ = "auto_annotation_runs"
+
+    id: Mapped[str] = mapped_column(String(32), primary_key=True, default=new_id)
+    model_name: Mapped[str] = mapped_column(String(160))
+    status: Mapped[str] = mapped_column(String(30), default="pending", index=True)
+    input_sample_count: Mapped[int] = mapped_column(Integer, default=0)
+    options_json: Mapped[str] = mapped_column(Text, default="{}")
+    error_summary: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_by: Mapped[str | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+
+
+class AutoAnnotationItem(Base):
+    __tablename__ = "auto_annotation_items"
+    __table_args__ = (UniqueConstraint("run_id", "sample_id", name="uq_auto_annotation_run_sample"),)
+
+    id: Mapped[str] = mapped_column(String(32), primary_key=True, default=new_id)
+    run_id: Mapped[str] = mapped_column(ForeignKey("auto_annotation_runs.id", ondelete="CASCADE"), index=True)
+    sample_id: Mapped[str] = mapped_column(ForeignKey("samples.id", ondelete="CASCADE"), index=True)
+    status: Mapped[str] = mapped_column(String(30), default="pending", index=True)
+    error_message: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+
+
 class Candidate(Base):
     __tablename__ = "candidates"
     __table_args__ = (UniqueConstraint("model_run_id", "sample_id", "target_index", name="uq_candidate_run_sample_index"),)

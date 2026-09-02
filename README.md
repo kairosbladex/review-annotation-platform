@@ -40,7 +40,48 @@ npm run dev
 
 打开 <http://localhost:5173>。默认开发账号来自环境变量：`admin / change-me-admin-password`。生产或共享环境必须修改密码、JWT 密钥、服务 API Key 和 MinIO 密钥。
 
+## 从 ktd 测试库导入到本机标注
+
+测试环境的 `sys_annex_file` 可以先同步到本机 MySQL，图片仍走公开前缀 `https://lxtest.zhuoyilingxi.com:8088/minio-src` + `file_path`，不把原图拷进本地 MinIO。
+
+```bash
+cp deploy/ktd-local.env.example .env.ktd.local
+# 填写源库密码；本地副本默认是 docker mysql:8.0 映射的 127.0.0.1:3307
+
+docker run -d --name review-ktd-mysql \
+  -e MYSQL_ROOT_PASSWORD=local-ktd-root \
+  -e MYSQL_DATABASE=ktd_lx \
+  -e MYSQL_USER=ktd_local \
+  -e MYSQL_PASSWORD=ktd_local \
+  -p 3307:3306 mysql:8.0
+
+PYTHONPATH=backend python3 scripts/sync_ktd_annex.py --env-file .env.ktd.local
+SOURCE_IMAGE_BASE_URL=https://lxtest.zhuoyilingxi.com:8088/minio-src \
+MINIO_ENDPOINT= MINIO_ACCESS_KEY= MINIO_SECRET_KEY= \
+DATABASE_URL=sqlite:///./data/ktd-local.sqlite3 \
+PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190
+PYTHONPATH=backend python3 scripts/ingest_ktd_annex.py --env-file .env.ktd.local --limit 20
+```
+
+`.env.ktd.local` 已被 git 忽略，不要提交源库密码。
+
 ## Docker Compose
+
+### Codex 自动标注
+
+平台的“AI 自动标注”按钮会对当前筛选队列中有候选框的样本逐图运行一次视觉复核。一次请求内包含三个独立检查视角（目标/框贴合、类别/场景、对抗误检），只有至少两票以不低于 0.6 的置信度一致时才自动写入 `Annotation`；冲突、异常和不确定结果保留待复核。提示词和门禁规则见 [`docs/AUTO_ANNOTATION.md`](docs/AUTO_ANNOTATION.md)。
+
+公司 `zhuoyi` 网关只接受官方 Codex 客户端，因此默认通过本机 `codex exec` 调用；通用 OpenAI Responses 网关可将 `AUTO_ANNOTATION_USE_CODEX_CLI=false` 切回 HTTP Adapter。使用 CC Switch 当前配置生成本地（gitignored、0600）凭据文件：
+
+运行 API/Worker 的环境需要把官方 `codex` CLI 放在 `PATH` 中；若部署镜像没有 CLI，任务会按失败处理并保留人工复核，不会写入不确定标签。
+
+```bash
+PYTHONPATH=backend python3 scripts/configure_auto_annotation_from_ccswitch.py
+set -a; source .env.ktd.local; source .env.auto-annotation.local; set +a
+PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190
+```
+
+该脚本只把选定 provider 的路由、模型和 API key 写入本机忽略文件，不写数据库模型 profile、不提交仓库，也不会在日志中打印 key。默认模型为 `gpt-5.6-luna`，用于兼顾视觉能力、速度和成本；如需更高质量，可通过环境变量覆盖模型。
 
 Compose 使用 PostgreSQL、Redis、MinIO、FastAPI、Celery Worker 和 Nginx 前端：
 

@@ -1,4 +1,4 @@
-import type { Job, ModelProfile, Sample } from "./types";
+import type { AutoAnnotationJob, Job, ModelProfile, Sample } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "/api/v1";
 
@@ -52,6 +52,13 @@ export async function createModelRun(token: string, sampleIds: string[], modelPr
   return request<{ run_id: string; job_id: string; status: string }>("/model-runs", {
     method: "POST",
     body: JSON.stringify({ sample_ids: sampleIds, model_profile_id: modelProfileId, options: {} }),
+  }, token);
+}
+
+export async function createAutoAnnotations(token: string, sampleIds: string[], options: Record<string, unknown> = {}) {
+  return request<AutoAnnotationJob>("/auto-annotations", {
+    method: "POST",
+    body: JSON.stringify({ sample_ids: sampleIds, options }),
   }, token);
 }
 

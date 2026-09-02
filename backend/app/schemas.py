@@ -65,6 +65,11 @@ class ModelRunRequest(BaseModel):
     options: dict[str, Any] = Field(default_factory=dict)
 
 
+class AutoAnnotationRequest(BaseModel):
+    sample_ids: list[str] = Field(min_length=1, max_length=10000)
+    options: dict[str, Any] = Field(default_factory=dict)
+
+
 class ModelProfileCreate(BaseModel):
     profile_key: str = Field(min_length=1, max_length=120)
     name: str = Field(min_length=1, max_length=160)

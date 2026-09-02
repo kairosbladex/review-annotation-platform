@@ -30,6 +30,25 @@ class Settings:
     model_service_detect_endpoint: str = "/api/v1/review-agent/yolo-detect"
     model_service_review_endpoint: str = "/api/v1/review-agent/review"
     model_service_verify_tls: bool = True
+    # The auto-annotation path talks to an OpenAI Responses-compatible vision
+    # endpoint.  Its credential intentionally has no non-empty default and is
+    # never copied into a model profile or job payload.
+    auto_annotation_api_key: str = ""
+    auto_annotation_base_url: str = "https://sub.butterfly2sea.us"
+    auto_annotation_model: str = "gpt-5.6-luna"
+    auto_annotation_endpoint: str = "/responses"
+    auto_annotation_reasoning_effort: str = "low"
+    auto_annotation_timeout_seconds: int = 120
+    auto_annotation_verify_tls: bool = True
+    # Company Codex gateways may reject raw HTTP callers and require the
+    # official CLI client headers/handshake. Keep that path enabled by default
+    # while retaining the direct Responses adapter for generic gateways.
+    auto_annotation_use_codex_cli: bool = True
+    auto_annotation_codex_binary: str = "codex"
+    auto_annotation_actor_authorization: str = "local-image-extension"
+    source_image_base_url: str = ""
+    source_image_bucket: str = "minio-src"
+    source_image_verify_tls: bool = True
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -56,4 +75,17 @@ class Settings:
             model_service_detect_endpoint=os.getenv("MODEL_SERVICE_DETECT_ENDPOINT", cls.model_service_detect_endpoint),
             model_service_review_endpoint=os.getenv("MODEL_SERVICE_REVIEW_ENDPOINT", cls.model_service_review_endpoint),
             model_service_verify_tls=os.getenv("MODEL_SERVICE_VERIFY_TLS", "true").lower() in {"1", "true", "yes", "on"},
+            auto_annotation_api_key=os.getenv("AUTO_ANNOTATION_API_KEY", ""),
+            auto_annotation_base_url=os.getenv("AUTO_ANNOTATION_BASE_URL", cls.auto_annotation_base_url).rstrip("/"),
+            auto_annotation_model=os.getenv("AUTO_ANNOTATION_MODEL", cls.auto_annotation_model),
+            auto_annotation_endpoint=os.getenv("AUTO_ANNOTATION_ENDPOINT", cls.auto_annotation_endpoint),
+            auto_annotation_reasoning_effort=os.getenv("AUTO_ANNOTATION_REASONING_EFFORT", cls.auto_annotation_reasoning_effort),
+            auto_annotation_timeout_seconds=int(os.getenv("AUTO_ANNOTATION_TIMEOUT_SECONDS", str(cls.auto_annotation_timeout_seconds))),
+            auto_annotation_verify_tls=os.getenv("AUTO_ANNOTATION_VERIFY_TLS", "true").lower() in {"1", "true", "yes", "on"},
+            auto_annotation_use_codex_cli=os.getenv("AUTO_ANNOTATION_USE_CODEX_CLI", "true").lower() in {"1", "true", "yes", "on"},
+            auto_annotation_codex_binary=os.getenv("AUTO_ANNOTATION_CODEX_BINARY", cls.auto_annotation_codex_binary),
+            auto_annotation_actor_authorization=os.getenv("AUTO_ANNOTATION_ACTOR_AUTHORIZATION", cls.auto_annotation_actor_authorization),
+            source_image_base_url=os.getenv("SOURCE_IMAGE_BASE_URL", cls.source_image_base_url).rstrip("/"),
+            source_image_bucket=os.getenv("SOURCE_IMAGE_BUCKET", cls.source_image_bucket),
+            source_image_verify_tls=os.getenv("SOURCE_IMAGE_VERIFY_TLS", "true").lower() in {"1", "true", "yes", "on"},
         )

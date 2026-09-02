@@ -95,3 +95,12 @@ export interface Job {
   failed: number;
   error_summary: string | null;
 }
+
+/**
+ * Progress returned by the AI auto-annotation endpoint.  The create response
+ * intentionally contains only the public progress fields; the job detail
+ * endpoint may add an error summary once processing has failed.
+ */
+export type AutoAnnotationJob = Omit<Job, "error_summary"> & {
+  error_summary?: string | null;
+};

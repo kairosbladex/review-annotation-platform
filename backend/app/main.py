@@ -10,19 +10,21 @@ from fastapi.responses import JSONResponse
 from sqlalchemy import select
 
 from .adapters.object_store import ObjectStore, build_object_store
+from .adapters.codex_responses import build_codex_vision_adapter
 from .adapters.model_provider import build_model_adapter
 from .config import Settings
 from .db import Base, build_engine, build_session_factory
-from .models import Annotation, AnnotationTask, AuditEvent, Candidate, ExportRecord, Job, ModelProfile, ModelRun, ModelRunSample, Sample, User
-from .schemas import AnnotationUpdate, ExportRequest, LoginRequest, MinioImportRequest, ModelProfileCreate, ModelRunRequest, ReviewEventInput
+from .models import Annotation, AnnotationTask, AuditEvent, Candidate, ExportRecord, Job, ModelProfile, ModelRun, ModelRunSample, Sample, User, AutoAnnotationRun
+from .schemas import AnnotationUpdate, AutoAnnotationRequest, ExportRequest, LoginRequest, MinioImportRequest, ModelProfileCreate, ModelRunRequest, ReviewEventInput
 from .security import decode_token, hash_password, issue_token, verify_password
 from .services.annotation_service import import_minio_prefix, import_uploaded_bytes, ingest_review_event, serialize_sample, update_annotation
 from .services.model_run_service import execute_model_job
 from .services.export_service import execute_export_job
+from .services.auto_annotation_service import create_auto_annotation_run, execute_auto_annotation_job
 from .tasks.dispatcher import CeleryDispatcher
 
 
-def create_app(settings: Settings | None = None, *, object_store: ObjectStore | None = None, model_adapter=None, task_dispatcher=None, export_dispatcher=None) -> FastAPI:
+def create_app(settings: Settings | None = None, *, object_store: ObjectStore | None = None, model_adapter=None, task_dispatcher=None, export_dispatcher=None, auto_annotation_adapter=None, auto_annotation_dispatcher=None) -> FastAPI:
     settings = settings or Settings.from_env()
     engine = build_engine(settings.database_url)
     Base.metadata.create_all(engine)
@@ -48,8 +50,10 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
     app.state.session_factory = session_factory
     app.state.object_store = object_store
     app.state.model_adapter = model_adapter or build_model_adapter(settings, object_store)
+    app.state.auto_annotation_adapter = auto_annotation_adapter or build_codex_vision_adapter(settings, object_store)
     app.state.task_dispatcher = task_dispatcher or CeleryDispatcher(settings.redis_url)
     app.state.export_dispatcher = export_dispatcher or app.state.task_dispatcher
+    app.state.auto_annotation_dispatcher = auto_annotation_dispatcher or app.state.task_dispatcher
 
     def run_model_job(job_id: str) -> None:
         execute_model_job(
@@ -60,6 +64,16 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
         )
 
     app.state.run_model_job = run_model_job
+
+    def run_auto_annotation_job(job_id: str) -> None:
+        execute_auto_annotation_job(
+            session_factory=app.state.session_factory,
+            object_store=app.state.object_store,
+            adapter=app.state.auto_annotation_adapter,
+            job_id=job_id,
+        )
+
+    app.state.run_auto_annotation_job = run_auto_annotation_job
 
     def run_export_job(job_id: str) -> None:
         execute_export_job(
@@ -233,6 +247,39 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             job = session.scalar(select(Job).where(Job.reference_id == run.id).order_by(Job.created_at.desc()))
             candidate_count = session.query(Candidate).filter(Candidate.model_run_id == run.id).count()
             return {"run_id": run.id, "model_name": run.model_name, "model_version": run.model_version, "status": run.status, "input_sample_count": run.input_sample_count, "candidate_count": candidate_count, "job": {"job_id": job.id, "status": job.status, "total": job.total, "completed": job.completed, "failed": job.failed} if job else None}
+
+    @app.post("/api/v1/auto-annotations", status_code=status.HTTP_202_ACCEPTED)
+    def create_auto_annotations(payload: AutoAnnotationRequest, user: User = Depends(current_user)):
+        # Keep first occurrence order while preventing duplicate work items.
+        sample_ids = list(dict.fromkeys(payload.sample_ids))
+        with session_scope() as session:
+            samples = session.scalars(select(Sample).where(Sample.id.in_(sample_ids))).all()
+            if len(samples) != len(sample_ids):
+                raise HTTPException(status_code=404, detail="存在不存在的样本")
+            run, job = create_auto_annotation_run(
+                session,
+                sample_ids=sample_ids,
+                options=payload.options,
+                model_name=settings.auto_annotation_model,
+                created_by=user.id,
+            )
+            session.commit()
+            try:
+                dispatcher = app.state.auto_annotation_dispatcher
+                if hasattr(dispatcher, "dispatch_auto_annotation"):
+                    dispatcher.dispatch_auto_annotation(job.id)
+                else:
+                    dispatcher.dispatch(job.id)
+            except Exception as exc:
+                run.status = "failed"
+                run.error_summary = str(exc)
+                job.status = "failed"
+                job.error_summary = str(exc)
+                session.commit()
+                raise HTTPException(status_code=503, detail="自动标注任务无法入队") from exc
+            session.expire_all()
+            refreshed = session.get(Job, job.id)
+            return {"job_id": refreshed.id, "status": refreshed.status, "total": refreshed.total, "completed": refreshed.completed, "failed": refreshed.failed}
 
     @app.get("/api/v1/jobs/{job_id}")
     def get_job(job_id: str, _: User = Depends(current_user)):

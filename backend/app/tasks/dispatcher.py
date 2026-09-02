@@ -12,3 +12,22 @@ class CeleryDispatcher:
 
     def dispatch_export(self, job_id: str) -> None:
         self.celery.send_task("review_annotation_platform.execute_export_job", args=[job_id])
+
+    def dispatch_auto_annotation(self, job_id: str) -> None:
+        self.celery.send_task("review_annotation_platform.execute_auto_annotation_job", args=[job_id])
+
+
+class InlineDispatcher:
+    """Synchronous dispatcher for API/integration tests and local tooling."""
+
+    def __init__(self, runner):
+        self.runner = runner
+
+    def dispatch(self, job_id: str) -> None:
+        self.runner(job_id)
+
+    def dispatch_auto_annotation(self, job_id: str) -> None:
+        self.runner(job_id)
+
+    def dispatch_export(self, job_id: str) -> None:
+        self.runner(job_id)
