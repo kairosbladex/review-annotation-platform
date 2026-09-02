@@ -45,7 +45,7 @@ compose-config:
     - python3 -m pip install --quiet pyyaml
   script:
     - >
-      python -c 'import yaml; yaml.safe_load(open("docker-compose.yml")); print("docker-compose.yml: YAML OK")'
+      python3 -c 'import yaml; yaml.safe_load(open("docker-compose.yml")); print("docker-compose.yml: YAML OK")'
 
 frontend-build:
   stage: build
