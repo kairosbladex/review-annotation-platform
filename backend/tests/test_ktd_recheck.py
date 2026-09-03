@@ -16,6 +16,8 @@ from app.services.ktd_recheck import (
     GroupedImage,
     ProviderResponse,
     _preflight_provider,
+    _write_yolo_training_files,
+    dataset_class_map,
     decision_label,
     group_source_rows,
     load_uncertain_images,
@@ -108,6 +110,31 @@ def test_uncertain_is_valid_and_does_not_produce_a_binary_label():
     votes = [_vote("uncertain"), _vote("true"), _vote("false")]
 
     assert decision_label(votes) == "uncertain"
+
+
+def test_dataset_class_map_is_stable_and_uses_class_names():
+    assert dataset_class_map(["车", "人员", "车", "两轮车"]) == {
+        "两轮车": 0,
+        "人员": 1,
+        "车": 2,
+    }
+
+
+def test_yolo_label_writer_clamps_rounded_edge_boxes(tmp_path):
+    _write_yolo_training_files(tmp_path, [{
+        "image_id": "edge-image",
+        "image_bucket": "minio-src",
+        "image_object_key": "images/edge.jpg",
+        "file_path": "images/edge.jpg",
+        "candidate_index": 0,
+        "class_id": 8,
+        "bbox": [0.0, 0.0, 0.028125, 0.041666666666666664],
+    }])
+
+    values = [float(value) for value in (tmp_path / "yolo_labels" / "edge-image.txt").read_text(encoding="utf-8").split()]
+    _, center_x, center_y, width, height = values
+    assert center_x - width / 2 >= 0
+    assert center_y - height / 2 >= 0
 
 
 def test_request_fingerprint_changes_with_image_candidate_prompt_or_model():
@@ -525,7 +552,12 @@ def test_second_pass_outputs_training_views_with_first_pass_evidence(tmp_path):
     assert candidate_rows[0]["parent_run_id"] == "first-pass"
     assert len(yoloe_rows) == 1
     assert yoloe_rows[0]["training_label"] == "true"
+    assert yoloe_rows[0]["class_id"] == 0
     assert len(qwen_rows) == 2
     assert {row["training_label"] for row in qwen_rows} == {"true", "false"}
     assert summary["training_views"]["yoloe_positive_rows"] == 1
     assert training_summary["uncertain_excluded_rows"] == 0
+    assert json.loads((tmp_path / "second" / "class_map.json").read_text(encoding="utf-8"))["classes"] == {"车": 0}
+    assert (tmp_path / "second" / "yolo_labels" / "image-a.txt").read_text(encoding="utf-8") == "0 0.15000000 0.15000000 0.10000000 0.10000000\n"
+    image_manifest = [json.loads(line) for line in (tmp_path / "second" / "yolo_image_manifest.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert image_manifest[0]["label_rows"] == 1

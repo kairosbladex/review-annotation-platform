@@ -28,10 +28,12 @@ PYTHONPATH=backend python3 scripts/run_ktd_gpt_recheck.py \
 - `qwen_vl_training.jsonl`：包含 true/false 的候选框判别对话，图片仍以源对象 key 引用。
 - `uncertain_excluded.jsonl`：二次后仍 uncertain 的候选，明确排除出训练集。
 - `training_manifest.jsonl`：只保留人工确认的 gold 数据；自动复检结果不会伪装成人工真值。
-- `class_map.json`：官方类别 ID 未提供时保持 `null`，不能把未知类别默认映射为 0。
+- `class_map.json`：按 `class_name` 排序生成的本数据集内部数字映射；业务区分以 `class_name` 为准。
+- `yolo_labels/<image_id>.txt`：仅由 `true` 候选生成的 YOLO 标签文件，按图片聚合。
+- `yolo_image_manifest.jsonl`：原图对象路径与对应标签文件的下载清单。
 
 ## 训练边界
 
-`yoloe_training_manifest.jsonl` 可作为检测训练数据的候选清单，但必须先补齐官方 `class_map.json`，并由 GPU 侧下载 `image_bucket + image_object_key` 对应的原图。`qwen_vl_training.jsonl` 适合训练候选框真假/类别复核器，不等于完整图像检测标注。
+`yoloe_training_manifest.jsonl` 和 `yolo_labels/` 可作为检测训练数据的候选清单；GPU 侧仍需根据 `yolo_image_manifest.jsonl` 下载 `image_bucket + image_object_key` 对应的原图。`qwen_vl_training.jsonl` 适合训练候选框真假/类别复核器，不等于完整图像检测标注。
 
 自动二次复检数据属于 pseudo label；首轮和二轮均来自模型时不能宣称人工准确率，也不能据此计算完整 recall 或 mAP。二次后仍 uncertain、源框冲突或图片失败的记录应保留在排除/人工复核队列。

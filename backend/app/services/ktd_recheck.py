@@ -1064,6 +1064,57 @@ def _training_label_tier(*, human_confirmed: bool, parent_run_id: str | None) ->
     return "first_pass_pseudo"
 
 
+def dataset_class_map(class_names: Iterable[str]) -> dict[str, int]:
+    """Assign stable dataset-local IDs; the business class name remains authoritative."""
+    names = sorted({str(name) for name in class_names if str(name)})
+    return {name: index for index, name in enumerate(names)}
+
+
+def _write_yolo_training_files(output_dir: Path, rows: Sequence[Mapping[str, Any]]) -> None:
+    labels_dir = output_dir / "yolo_labels"
+    labels_dir.mkdir(parents=True, exist_ok=True)
+    grouped: dict[str, list[Mapping[str, Any]]] = {}
+    for row in rows:
+        grouped.setdefault(str(row["image_id"]), []).append(row)
+
+    image_manifest: list[dict[str, Any]] = []
+    for image_id, image_rows in sorted(grouped.items()):
+        lines: list[str] = []
+        for row in sorted(image_rows, key=lambda item: int(item["candidate_index"])):
+            bbox = row.get("bbox")
+            if not isinstance(bbox, list) or len(bbox) != 4:
+                raise ValueError(f"invalid bbox for {image_id}:{row['candidate_index']}")
+            x1, y1, x2, y2 = (float(value) for value in bbox)
+            if not (0 <= x1 < x2 <= 1 and 0 <= y1 < y2 <= 1):
+                raise ValueError(f"bbox outside normalized bounds for {image_id}:{row['candidate_index']}")
+            class_id = row.get("class_id")
+            if not isinstance(class_id, int) or class_id < 0:
+                raise ValueError(f"missing dataset class_id for {image_id}:{row['candidate_index']}")
+            width = x2 - x1
+            height = y2 - y1
+            # Clamp against the rounded values that will actually be written.
+            width = round(width, 8)
+            height = round(height, 8)
+            center_x = min(max((x1 + x2) / 2, width / 2), 1 - width / 2)
+            center_y = min(max((y1 + y2) / 2, height / 2), 1 - height / 2)
+            lines.append(
+                f"{class_id} {center_x:.8f} {center_y:.8f} "
+                f"{width:.8f} {height:.8f}"
+            )
+        label_path = labels_dir / f"{image_id}.txt"
+        label_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        first = image_rows[0]
+        image_manifest.append({
+            "image_id": image_id,
+            "image_bucket": first["image_bucket"],
+            "image_object_key": first["image_object_key"],
+            "file_path": first["file_path"],
+            "label_file": f"yolo_labels/{image_id}.txt",
+            "label_rows": len(image_rows),
+        })
+    write_jsonl(output_dir / "yolo_image_manifest.jsonl", image_manifest)
+
+
 def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     data = store.rows_for_output(run_id)
@@ -1122,12 +1173,17 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
     yoloe_training_rows: list[dict[str, Any]] = []
     qwen_vl_training_rows: list[dict[str, Any]] = []
     uncertain_excluded_rows: list[dict[str, Any]] = []
-    class_names: set[str] = set()
+    class_names = {
+        str(_row_json(row, "payload_json", {}).get("class_name") or "")
+        for row in candidates
+    }
+    class_id_by_name = dataset_class_map(class_names)
     for row in candidates:
         payload = _row_json(row, "payload_json", {})
         decision = _row_json(row, "decision_json")
         image = image_by_id[row["image_id"]]
-        class_names.add(str(payload.get("class_name") or ""))
+        class_name = str(payload.get("class_name") or "")
+        dataset_class_id = class_id_by_name.get(class_name)
         source_candidate_index = row["source_candidate_index"]
         parent_candidate = None
         parent_image = None
@@ -1150,7 +1206,8 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
             "candidate_index": row["candidate_index"],
             "source_candidate_index": source_candidate_index,
             "class_name": payload.get("class_name"),
-            "class_id": payload.get("class_id"),
+            "class_id": dataset_class_id,
+            "source_class_id": payload.get("class_id"),
             "confidence": payload.get("confidence"),
             "bbox": payload.get("bbox"),
             "status": row["result_status"],
@@ -1193,7 +1250,8 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
                 "candidate_index": row["candidate_index"],
                 "source_candidate_index": source_candidate_index,
                 "class_name": payload.get("class_name"),
-                "class_id": payload.get("class_id"),
+                "class_id": dataset_class_id,
+                "source_class_id": payload.get("class_id"),
                 "bbox": payload.get("bbox"),
                 "training_label": row["auto_label"],
                 "label_tier": _training_label_tier(
@@ -1234,7 +1292,13 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
     write_jsonl(output_dir / "yoloe_training_manifest.jsonl", yoloe_training_rows)
     write_jsonl(output_dir / "qwen_vl_training.jsonl", qwen_vl_training_rows)
     write_jsonl(output_dir / "uncertain_excluded.jsonl", uncertain_excluded_rows)
-    (output_dir / "class_map.json").write_text(json.dumps({"version": 1, "classes": {name: None for name in sorted(class_names) if name}, "note": "官方 class_id 未提供；请人工填写后再生成 YOLO 数字标签。"}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    _write_yolo_training_files(output_dir, yoloe_training_rows)
+    (output_dir / "class_map.json").write_text(json.dumps({
+        "version": 1,
+        "classes": class_id_by_name,
+        "id_source": "class_name_sorted_dataset_local",
+        "note": "class_id 仅为本数据集内部编号，按 class_name 排序生成；业务区分以 class_name 为准。",
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     training_data_summary = {
         "schema_version": 1,
@@ -1242,7 +1306,7 @@ def write_outputs(store: RecheckStore, run_id: str, output_dir: Path) -> dict[st
         "run_stage": run["run_stage"],
         "parent_run_id": parent_run_id,
         "label_policy": "Only human-confirmed rows are gold. Model-derived binary rows are pseudo labels; uncertain rows are excluded.",
-        "class_id_policy": "class_id remains null until the official class mapping is supplied.",
+        "class_id_policy": "Dataset-local class_id is derived deterministically from class_name; class_name is authoritative.",
         "uncertain_excluded_rows": len(uncertain_excluded_rows),
         "rows": {
             "candidate_results": len(candidate_output_rows),
