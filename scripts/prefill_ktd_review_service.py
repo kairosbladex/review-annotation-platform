@@ -24,7 +24,7 @@ import httpx
 
 
 DEFAULT_SOURCE_BASE_URL = "https://lxtest.zhuoyilingxi.com:8088/minio-src"
-DEFAULT_GPU_BASE_URL = "https://192.168.130.238:8189"
+DEFAULT_GPU_BASE_URL = "https://123.52.43.165:8188"
 DEFAULT_REVIEW_ENDPOINT = "/api/v1/review-agent/review"
 MAX_IMAGE_BYTES = 50 * 1024 * 1024
 
@@ -255,7 +255,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--gpu-base-url", default=os.getenv("GPU_REVIEW_BASE_URL", DEFAULT_GPU_BASE_URL))
     parser.add_argument("--review-endpoint", default=DEFAULT_REVIEW_ENDPOINT)
     parser.add_argument("--api-key", default=os.getenv("GPU_REVIEW_API_KEY", ""))
-    parser.add_argument("--output-dir", default="data/ktd-8189-prefill-20260903")
+    parser.add_argument("--output-dir", default="data/ktd-8188-kimi-prefill-20260903")
     parser.add_argument("--confidence", type=float, default=0.25)
     parser.add_argument("--timeout-seconds", type=float, default=180.0)
     parser.add_argument("--limit", type=int, default=None, help="process at most this many images")
