@@ -153,11 +153,15 @@ def prepare(
     val_ratio: float,
     seed: int,
     image_size: int,
+    label_field: str = "training_label",
+    label_source: str = "model_pseudo",
+    require_human: bool = False,
 ) -> dict[str, Any]:
     rows = [
         row
         for row in _read_jsonl(input_path)
-        if str(row.get("training_label")) in {"true", "false"}
+        if str(row.get(label_field)) in {"true", "false"}
+        and (not require_human or bool(row.get("labeled_by")))
     ]
     if not rows:
         raise ValueError("no true/false rows found")
@@ -170,7 +174,7 @@ def prepare(
     by_object: dict[str, dict[str, Any]] = {}
     for row in rows:
         object_key = str(row.get("image_object_key") or row.get("file_path") or "")
-        image_id = str(row.get("image_id") or "")
+        image_id = str(row.get("image_id") or row.get("sample_id") or "")
         if not object_key or not image_id:
             raise ValueError("every row needs image_id and image_object_key")
         by_object.setdefault(object_key, {"image_id": image_id, "object_key": object_key})
@@ -198,6 +202,8 @@ def prepare(
     for row_index, row in enumerate(rows):
         object_key = str(row.get("image_object_key") or row.get("file_path"))
         image, digest, source_path = source_images[object_key]
+        image_id = str(row.get("image_id") or row.get("sample_id") or "")
+        candidate_index = row.get("candidate_index", row.get("target_index", row_index))
         width, height = image.size
         bbox = row.get("bbox")
         if not isinstance(bbox, list) or len(bbox) != 4:
@@ -213,13 +219,14 @@ def prepare(
         target = (x1, y1, x2, y2)
         context_box = _square_context(image.size, target, 8.0)
         roi_box = _square_context(image.size, target, 3.5)
-        stem = f"{row['image_id']}-{int(row.get('candidate_index', row_index))}"
+        stem = f"{image_id}-{int(candidate_index)}"
         context_path = media_dir / f"{stem}-context.jpg"
         roi_path = media_dir / f"{stem}-roi.jpg"
         _render_crop(image, context_box, target, image_size).save(context_path, quality=92)
         _render_crop(image, roi_box, target, image_size).save(roi_path, quality=92)
 
-        decision = "CONFIRMED" if row["training_label"] == "true" else "REJECTED"
+        label = str(row[label_field])
+        decision = "CONFIRMED" if label == "true" else "REJECTED"
         prompt = (
             "<image>\n<image>\n"
             "第一张图是候选框上下文，第二张图是候选区域放大图。"
@@ -230,7 +237,7 @@ def prepare(
         )
         records.append(
             {
-                "id": str(row.get("id") or f"row-{row_index}"),
+                "id": str(row.get("id") or row.get("candidate_id") or f"row-{row_index}"),
                 "image": [
                     str(context_path.relative_to(output_dir)),
                     str(roi_path.relative_to(output_dir)),
@@ -240,12 +247,14 @@ def prepare(
                     {"from": "gpt", "value": json.dumps({"decision": decision})},
                 ],
                 "meta": {
-                    "label_source": "model_pseudo",
+                    "label_source": label_source,
+                    "label_field": label_field,
+                    "labeled_by": row.get("labeled_by"),
                     "source_run_id": row.get("run_id"),
-                    "image_id": row.get("image_id"),
+                    "image_id": image_id,
                     "image_object_key": object_key,
                     "image_sha256": digest,
-                    "candidate_index": row.get("candidate_index"),
+                    "candidate_index": candidate_index,
                     "class_name": row.get("class_name"),
                     "bbox": bbox,
                     "source_image": source_path,
@@ -267,7 +276,9 @@ def prepare(
     summary = {
         "schema_version": 1,
         "task": "candidate_roi_binary_verifier",
-        "label_source": "model_pseudo",
+        "label_source": label_source,
+        "label_field": label_field,
+        "human_only": require_human,
         "source_file": str(input_path),
         "rows": len(records),
         "train_rows": len(train_rows),
@@ -308,6 +319,13 @@ def main() -> int:
     parser.add_argument("--val-ratio", type=float, default=0.2)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--image-size", type=int, default=224)
+    parser.add_argument("--label-field", default="training_label")
+    parser.add_argument("--label-source", default="model_pseudo")
+    parser.add_argument(
+        "--require-human",
+        action="store_true",
+        help="only include rows with a non-empty labeled_by provenance field",
+    )
     args = parser.parse_args()
     summary = prepare(
         input_path=args.input,
@@ -318,6 +336,9 @@ def main() -> int:
         val_ratio=args.val_ratio,
         seed=args.seed,
         image_size=args.image_size,
+        label_field=args.label_field,
+        label_source=args.label_source,
+        require_human=args.require_human,
     )
     print(json.dumps(summary, ensure_ascii=False))
     return 0
