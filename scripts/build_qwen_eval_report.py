@@ -286,6 +286,7 @@ def _prompt_eval_report(path: Path | None) -> dict[str, Any] | None:
                 "scored",
                 "correct",
                 "accuracy",
+                "dangerous_false_kills",
                 "confidence_interval_95",
             )
             if key in values
@@ -489,7 +490,8 @@ def render_markdown(snapshot: dict[str, Any]) -> str:
         for prompt_key, values in prompt_eval.get("prompts", {}).items():
             lines.append(
                 f"- `{prompt_key}`：合法 JSON {values.get('valid_json_count', '-')}/{values.get('total_cases', '-')}；"
-                f"评分 {values.get('scored', '-')}；准确率 {_pct(values.get('accuracy'))}。"
+                f"评分 {values.get('scored', '-')}；准确率 {_pct(values.get('accuracy'))}；"
+                f"危险误杀 {values.get('dangerous_false_kills', '-')}。"
             )
     lines += [
         "",
