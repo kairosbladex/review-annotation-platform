@@ -270,6 +270,46 @@ def _prompt_lineage(snapshot_dir: Path | None, catalog_dir: Path | None) -> dict
     return result
 
 
+def _prompt_eval_report(path: Path | None) -> dict[str, Any] | None:
+    if not path or not path.is_file():
+        return None
+    report = read_json(path) or {}
+    prompts = {}
+    for prompt_key, values in (report.get("prompts") or {}).items():
+        prompts[str(prompt_key)] = {
+            key: values.get(key)
+            for key in (
+                "total_cases",
+                "valid_json_count",
+                "valid_json_rate",
+                "structural_failures",
+                "scored",
+                "correct",
+                "accuracy",
+                "confidence_interval_95",
+            )
+            if key in values
+        }
+    return {
+        "path": str(path.resolve()),
+        "sha256": sha256_file(path),
+        "run_id": report.get("run_id"),
+        "mode": report.get("mode"),
+        "status": report.get("status"),
+        "lineage": report.get("lineage"),
+        "generation": {
+            key: (report.get("generation") or {}).get(key)
+            for key in ("stream", "think", "options")
+        },
+        "canonical_case_count": report.get("canonical_case_count"),
+        "attempt_count": report.get("attempt_count"),
+        "dispatch_message_count": report.get("dispatch_message_count"),
+        "observed_max_concurrency": report.get("observed_max_concurrency"),
+        "selection_gate": report.get("selection_gate"),
+        "prompts": prompts,
+    }
+
+
 def build_snapshot(args: argparse.Namespace) -> dict[str, Any]:
     repo_root = args.repo_root.resolve()
     gold, gold_summary = _human_gold(args.gold_annotations)
@@ -291,6 +331,7 @@ def build_snapshot(args: argparse.Namespace) -> dict[str, Any]:
     qwen_train = read_json(args.qwen_train_summary) or {}
     formal_doc = args.yoloe_report if args.yoloe_report.is_file() else None
     prompt_lineage = _prompt_lineage(args.prompt_snapshot_dir, args.grok_catalog_dir)
+    prompt_eval = _prompt_eval_report(args.prompt_eval_report)
     catalog_status = (prompt_lineage.get("grok_catalog") or {}).get("approval_status")
     locked_test_note = (
         "Locked-test 仍未在本报告中执行；catalog 已 approved，但仍需单独的一次性 locked_test 授权。"
@@ -342,6 +383,7 @@ def build_snapshot(args: argparse.Namespace) -> dict[str, Any]:
             "latency_ms": shadow_metrics.get("latency_ms"),
             "accuracy_status": "not_human_gold; pseudo-label agreement only",
         },
+        "prompt_eval": prompt_eval,
         "training": {
             "qwen_qlora_smoke": {
                 "summary_path": str(args.qwen_train_summary.resolve()),
@@ -435,6 +477,20 @@ def render_markdown(snapshot: dict[str, Any]) -> str:
             f"| {class_name} | {counts.get('true', 0)} | {counts.get('false', 0)} | {_pct(evaluation.get('resolved_coverage'))} | "
             f"{_pct(evaluation.get('binary_accuracy_on_resolved'))} | {evaluation.get('dangerous_miss', 0)} | {evaluation.get('false_accept', 0)} |"
         )
+    prompt_eval = snapshot.get("prompt_eval")
+    if prompt_eval:
+        lines += [
+            "",
+            "## Prompt Eval 真实 GPU 运行",
+            "",
+            f"- run：`{prompt_eval.get('run_id')}`；mode：`{prompt_eval.get('mode')}`；status：`{prompt_eval.get('status')}`；最大实测并发：`{prompt_eval.get('observed_max_concurrency')}`。",
+            f"- selection gate：`{json.dumps(prompt_eval.get('selection_gate'), ensure_ascii=False, sort_keys=True)}`。",
+        ]
+        for prompt_key, values in prompt_eval.get("prompts", {}).items():
+            lines.append(
+                f"- `{prompt_key}`：合法 JSON {values.get('valid_json_count', '-')}/{values.get('total_cases', '-')}；"
+                f"评分 {values.get('scored', '-')}；准确率 {_pct(values.get('accuracy'))}。"
+            )
     lines += [
         "",
         "## 训练与 Prompt 状态",
@@ -473,6 +529,28 @@ def render_html(snapshot: dict[str, Any]) -> str:
         width = round(float(evaluation.get("binary_accuracy_on_resolved") or 0) * 100, 2)
         bars.append(f"<div class='bar-row'><span>{html.escape(class_name)}</span><div class='bar'><i style='width:{width}%'></i></div><b>{width:.2f}%</b></div>")
     caveats = "".join(f"<li>{html.escape(item)}</li>" for item in snapshot["caveats"])
+    prompt_eval = snapshot.get("prompt_eval")
+    prompt_eval_html = ""
+    if prompt_eval:
+        prompt_rows = []
+        for prompt_key, values in prompt_eval.get("prompts", {}).items():
+            prompt_rows.append(
+                "<tr>"
+                f"<td>{html.escape(str(prompt_key))}</td>"
+                f"<td>{values.get('valid_json_count', '-')}/{values.get('total_cases', '-')}</td>"
+                f"<td>{values.get('scored', '-')}</td>"
+                f"<td>{html.escape(_pct(values.get('accuracy')))}</td>"
+                "</tr>"
+            )
+        prompt_eval_html = (
+            f"<h2>Prompt Eval 真实 GPU 运行</h2>"
+            f"<p>run：<code>{html.escape(str(prompt_eval.get('run_id')))}</code>；"
+            f"status：{html.escape(str(prompt_eval.get('status')))}；"
+            f"最大实测并发：{html.escape(str(prompt_eval.get('observed_max_concurrency')))}。</p>"
+            f"<p>selection gate：<code>{html.escape(json.dumps(prompt_eval.get('selection_gate'), ensure_ascii=False, sort_keys=True))}</code></p>"
+            "<table><thead><tr><th>Prompt</th><th>合法 JSON</th><th>评分数</th><th>准确率</th></tr></thead>"
+            f"<tbody>{''.join(prompt_rows)}</tbody></table>"
+        )
     return f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title>
@@ -489,6 +567,7 @@ main{{max-width:1120px;margin:0 auto;padding:36px 24px 60px}} h1{{font-size:28px
 <h2>服务指标</h2><table><thead><tr><th>服务</th><th>匹配人工金标</th><th>二态覆盖率</th><th>二态准确率</th><th>危险误杀</th><th>误接受</th><th>存疑</th></tr></thead><tbody>{''.join(rows)}</tbody></table>
 <h2>8188 各类别二态准确率</h2>{''.join(bars)}
 <h2>Qwen 影子运行</h2><p>模型：<code>{html.escape(str(snapshot['qwen_shadow'].get('model')))}</code>；输入：{snapshot['qwen_shadow'].get('input_count', 0)}；协议合法率：{html.escape(_pct(snapshot['qwen_shadow'].get('protocol_valid_rate')))}；invalid_json：{snapshot['qwen_shadow'].get('invalid_json', 0)}。</p><p class="note">影子运行与 GPT 伪标签的比较只用于诊断，不是人工金标准准确率。</p>
+{prompt_eval_html}
 <h2>边界与后续</h2><ul>{caveats}</ul><p class="meta">完整结构化数据见同目录 <code>latest.json</code>，历史快照见 <code>history.jsonl</code>。</p>
 </main></body></html>"""
 
@@ -521,6 +600,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--shadow-metrics", type=Path, default=repo_default / "data/agent-runs/ktd-qwen-shadow-20260903/metrics.json")
     parser.add_argument("--qwen-train-summary", type=Path, default=repo_default / "data/agent-runs/ktd-qwen-qlora-smoke-20260903/adapter/smoke_summary.json")
     parser.add_argument("--yoloe-report", type=Path, default=repo_default / "docs/KTD_GPU_SMOKE_TRAINING_20260903.md")
+    parser.add_argument("--prompt-eval-report", type=Path)
     parser.add_argument("--prompt-snapshot-dir", type=Path)
     parser.add_argument("--grok-catalog-dir", type=Path)
     return parser.parse_args()
