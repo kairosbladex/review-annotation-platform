@@ -1,4 +1,4 @@
-import { Check, CircleDot, Filter, LoaderCircle, Search, Upload } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, CircleDot, Filter, LoaderCircle, Search, Upload } from "lucide-react";
 import type { Sample, SampleStatus } from "../types";
 
 interface QueuePanelProps {
@@ -6,9 +6,13 @@ interface QueuePanelProps {
   selectedId: string | null;
   statusFilter: string;
   query: string;
+  pageOffset: number;
+  pageSize: number;
+  total: number;
   onSelect: (id: string) => void;
   onFilter: (value: string) => void;
   onQuery: (value: string) => void;
+  onPageChange: (page: number) => void;
   onUpload: (files: File[]) => void;
   uploading: boolean;
 }
@@ -25,7 +29,7 @@ function formatTime(value: string) {
   return new Intl.DateTimeFormat("zh-CN", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }).format(new Date(value));
 }
 
-export function QueuePanel({ samples, selectedId, statusFilter, query, onSelect, onFilter, onQuery, onUpload, uploading }: QueuePanelProps) {
+export function QueuePanel({ samples, selectedId, statusFilter, query, pageOffset, pageSize, total, onSelect, onFilter, onQuery, onPageChange, onUpload, uploading }: QueuePanelProps) {
   const filtered = samples.filter((sample) => {
     const text = `${sample.session_id ?? ""} ${sample.source_event_id ?? ""} ${sample.rule_code ?? ""}`.toLowerCase();
     return text.includes(query.toLowerCase());
@@ -64,7 +68,7 @@ export function QueuePanel({ samples, selectedId, statusFilter, query, onSelect,
           </button>;
         })}
       </div>
-      <div className="queue-footer"><span>{filtered.length} 个样本</span><span className="live-indicator"><i />实时队列</span></div>
+      <div className="queue-footer"><span>{total === 0 ? "0" : `${pageOffset + 1}-${Math.min(pageOffset + pageSize, total)}`} / {total} 个样本</span><div className="queue-pagination"><button type="button" aria-label="上一页" title="上一页" disabled={pageOffset === 0} onClick={() => onPageChange(Math.max(0, pageOffset / pageSize - 1))}><ArrowLeft size={13} /></button><span>{Math.floor(pageOffset / pageSize) + 1} / {Math.max(1, Math.ceil(total / pageSize))}</span><button type="button" aria-label="下一页" title="下一页" disabled={pageOffset + pageSize >= total} onClick={() => onPageChange(pageOffset / pageSize + 1)}><ArrowRight size={13} /></button></div><span className="live-indicator"><i />实时队列</span></div>
     </aside>
   );
 }

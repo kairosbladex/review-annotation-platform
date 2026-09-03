@@ -13,6 +13,7 @@ const TOKEN_KEY = "review-annotation-token";
 const ACTIVE_JOB_STATUSES = new Set(["pending", "queued", "running", "processing", "in_progress"]);
 const COMPLETED_JOB_STATUSES = new Set(["completed", "succeeded", "success"]);
 const FAILED_JOB_STATUSES = new Set(["failed", "error", "partial_failed"]);
+const QUEUE_PAGE_SIZE = 100;
 
 function isActiveJobStatus(status: string) {
   return ACTIVE_JOB_STATUSES.has(status);
@@ -52,6 +53,8 @@ function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [sample, setSample] = useState<Sample | null>(null);
   const [statusFilter, setStatusFilter] = useState("pending");
+  const [queuePage, setQueuePage] = useState(0);
+  const [queueTotal, setQueueTotal] = useState(0);
   const [query, setQuery] = useState("");
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [profiles, setProfiles] = useState<ModelProfile[]>([]);
@@ -70,10 +73,16 @@ function App() {
 
   const refreshQueue = useCallback(async () => {
     if (!token) return;
-    const result = await listSamples(token, statusFilter);
+    const result = await listSamples(token, statusFilter, queuePage * QUEUE_PAGE_SIZE, QUEUE_PAGE_SIZE);
     setSamples(result.samples);
+    setQueueTotal(result.pagination.total);
+    const lastPage = Math.max(0, Math.ceil(result.pagination.total / QUEUE_PAGE_SIZE) - 1);
+    if (queuePage > lastPage) {
+      setQueuePage(lastPage);
+      return;
+    }
     setSelectedId((current) => current && result.samples.some((item) => item.sample_id === current) ? current : result.samples[0]?.sample_id ?? null);
-  }, [statusFilter, token]);
+  }, [queuePage, statusFilter, token]);
 
   const refreshDetail = useCallback(async (sampleId: string) => {
     if (!token) return;
@@ -155,7 +164,7 @@ function App() {
     };
     window.addEventListener("keydown", handler); return () => window.removeEventListener("keydown", handler);
   }, [sample, saveLabel, saving, selectedCandidateId]);
-  async function handleUpload(files: File[]) { if (!token) return; setUploading(true); try { const result = await uploadImages(token, files); setActionMessage(`上传完成：${result.imported} 张图片进入队列`); setStatusFilter("all"); await refreshQueue(); } catch (reason) { setError(reason instanceof Error ? reason.message : "上传失败"); } finally { setUploading(false); } }
+  async function handleUpload(files: File[]) { if (!token) return; setUploading(true); try { const result = await uploadImages(token, files); setActionMessage(`上传完成：${result.imported} 张图片进入队列`); setQueuePage(0); setStatusFilter("all"); await refreshQueue(); } catch (reason) { setError(reason instanceof Error ? reason.message : "上传失败"); } finally { setUploading(false); } }
   async function handleRun() { if (!token || !profileId || samples.length === 0) { setError("请先选择模型配置并确保队列中有样本"); return; } try { const result = await createModelRun(token, samples.map((item) => item.sample_id), profileId); setJob({ job_id: result.job_id, status: result.status, total: samples.length, completed: 0, failed: 0, error_summary: null }); setActionMessage(`已创建批量识别任务 ${result.run_id.slice(0, 8)}`); } catch (reason) { setError(reason instanceof Error ? reason.message : "创建模型任务失败"); } }
   const refreshAutoAnnotationData = useCallback(async (sampleId: string | null) => {
     await refreshQueue();
@@ -217,10 +226,10 @@ function App() {
     <header className="topbar"><div className="topbar-brand"><div className="brand-mark small"><Database size={18} /></div><div><strong>复核标注工作台</strong><span>REVIEW ANNOTATION PLATFORM</span></div></div><div className="topbar-center"><span className="system-status"><i />系统运行正常</span><span className="separator" /><span className="workspace-name">算法数据闭环 / 默认工作区</span></div><div className="topbar-actions"><button className="icon-button" onClick={() => refreshQueue()} title="刷新队列"><RefreshCw size={17} /></button><button className="icon-button" title="系统设置"><Settings2 size={17} /></button><button className="user-menu" onClick={logout}><span className="avatar">A</span><span>admin</span><ChevronDown size={14} /></button></div></header>
     <main className="workspace"><section className="workspace-heading"><div><span className="eyebrow">HUMAN-IN-THE-LOOP</span><h1>存疑目标复核</h1><p>确认模型候选框的真伪，为下一轮阈值校准和训练积累金标。</p></div><div className="heading-actions">{profiles.length > 0 ? <label className="select-control"><span>模型配置</span><select value={profileId} onChange={(event) => setProfileId(event.target.value)}><option value="">未配置</option>{profiles.map((profile) => <option key={profile.model_profile_id} value={profile.model_profile_id}>{profile.name} · {profile.model_version}</option>)}</select></label> : <button className="secondary-button" onClick={() => setProfileFormOpen(true)}><Settings2 size={15} />添加模型配置</button>}<button className="secondary-button" onClick={handleRun}><Play size={15} />批量识别</button><div className="auto-annotation-entry"><button className="secondary-button" onClick={handleAutoAnnotate} disabled={autoAnnotationRunning || autoAnnotationSubmitting || autoAnnotationSampleIds.length === 0} title={autoAnnotationSampleIds.length === 0 ? "当前筛选队列没有可自动标注的样本" : `将对 ${autoAnnotationSampleIds.length} 个待复核样本运行 AI 自动标注`}><Sparkles size={15} />AI 自动标注{autoAnnotationRunning && <LoaderCircle className="spin" size={13} />}</button><span>仅自动写入高置信多数结论；冲突/不确定保留待复核（{autoAnnotationSampleIds.length} 个样本）</span></div><button className="secondary-button" onClick={handleExport}><Download size={15} />导出金标</button></div></section>
       {profileFormOpen && <div className="profile-form"><div><strong>连接外部模型服务</strong><span>保存地址后，Worker 会通过 HTTP Adapter 批量调用。</span></div><input value={profileBaseUrl} onChange={(event) => setProfileBaseUrl(event.target.value)} placeholder="例如 http://localhost:8000" /><button className="primary-button" onClick={handleCreateProfile}>保存配置</button><button className="ghost-button" onClick={() => setProfileFormOpen(false)}>取消</button></div>}
-      <section className="metric-strip"><div><span>待复核目标</span><strong>{stats.pending}</strong><small>当前队列</small></div><div><span>已完成人工判断</span><strong>{stats.labeled}</strong><small>跨当前筛选样本</small></div><div><span>真目标</span><strong className="positive">{stats.true}</strong><small>人工标注</small></div><div><span>假目标</span><strong className="negative">{stats.false}</strong><small>可作为 hard negative</small></div><div className="metric-note"><Activity size={17} /><div><strong>一期评估口径</strong><span>候选框 precision · 不代表完整召回率</span></div></div></section>
+      <section className="metric-strip"><div><span>待复核目标</span><strong>{stats.pending}</strong><small>当前页</small></div><div><span>已完成人工判断</span><strong>{stats.labeled}</strong><small>当前页</small></div><div><span>真目标</span><strong className="positive">{stats.true}</strong><small>当前页人工标注</small></div><div><span>假目标</span><strong className="negative">{stats.false}</strong><small>当前页人工标注</small></div><div className="metric-note"><Activity size={17} /><div><strong>一期评估口径</strong><span>候选框 precision · 不代表完整召回率</span></div></div></section>
       {autoAnnotationJob && <div className={`notice auto-annotation-notice ${autoAnnotationFailed ? "error" : ""}`}><Sparkles size={16} /><div className="auto-annotation-copy"><strong>AI 自动标注 · {autoAnnotationStatusLabel(autoAnnotationJob.status)}</strong><span>{autoAnnotationJob.completed}/{autoAnnotationJob.total} 个样本已处理{autoAnnotationJob.failed > 0 ? ` · 失败 ${autoAnnotationJob.failed}` : ""}</span><small>模型仅自动写入高置信多数结论；冲突/不确定保留待复核。</small>{autoAnnotationJob.error_summary && <small>任务信息：{autoAnnotationJob.error_summary}</small>}</div>{autoAnnotationTerminal && <button onClick={() => setAutoAnnotationJob(null)} aria-label="关闭 AI 自动标注状态">×</button>}</div>}
       {(error || actionMessage || job) && <div className={`notice ${error ? "error" : ""}`}>{error || actionMessage || `${job?.status === "running" ? "任务执行中" : "任务已创建"} · ${job?.completed ?? 0}/{job?.total ?? 0}`}<button onClick={() => { setError(""); setActionMessage(""); }}>×</button></div>}
-      <div className="review-layout"><QueuePanel samples={samples} selectedId={selectedId} statusFilter={statusFilter} query={query} onSelect={setSelectedId} onFilter={setStatusFilter} onQuery={setQuery} onUpload={handleUpload} uploading={uploading} /><div className="review-main">{loading && <div className="loading-overlay">加载队列…</div>}{sample ? <><div className="sample-context"><div><span className="eyebrow">SAMPLE DETAIL</span><h2>{sample.session_id ?? sample.sample_id}</h2><span>{sample.source_service ?? sample.source_type} · {sample.rule_code ?? "未指定规则"} · {sample.capture_time ? new Date(sample.capture_time).toLocaleString("zh-CN") : "时间未知"}</span></div><div className="context-actions"><span className="run-pill"><Archive size={13} />{activeRun?.model_run.model_version ?? "无模型版本"}</span><span className={`status-text ${sample.status}`}>{sample.status === "completed" ? "已完成" : sample.status === "in_progress" ? "进行中" : "待标注"}</span></div></div><div className="detail-layout"><ReviewCanvas imageUrl={imageUrl} candidates={sample.candidates} selectedId={selectedCandidateId} onSelect={setSelectedCandidateId} /><Inspector key={selectedCandidateId ?? "none"} candidate={candidate} candidates={sample.candidates} onSelect={setSelectedCandidateId} onLabel={saveLabel} saving={saving} /></div></> : <div className="no-sample"><UploadCloud size={34} /><h2>选择一个样本开始复核</h2><p>左侧队列会展示来自复检服务、MinIO 导入或页面上传的图片。</p></div>}</div></div>
+      <div className="review-layout"><QueuePanel samples={samples} selectedId={selectedId} statusFilter={statusFilter} query={query} pageOffset={queuePage * QUEUE_PAGE_SIZE} pageSize={QUEUE_PAGE_SIZE} total={queueTotal} onSelect={setSelectedId} onFilter={(value) => { setQueuePage(0); setStatusFilter(value); }} onQuery={(value) => { setQueuePage(0); setQuery(value); }} onPageChange={(page) => setQueuePage(page)} onUpload={handleUpload} uploading={uploading} /><div className="review-main">{loading && <div className="loading-overlay">加载队列…</div>}{sample ? <><div className="sample-context"><div><span className="eyebrow">SAMPLE DETAIL</span><h2>{sample.session_id ?? sample.sample_id}</h2><span>{sample.source_service ?? sample.source_type} · {sample.rule_code ?? "未指定规则"} · {sample.capture_time ? new Date(sample.capture_time).toLocaleString("zh-CN") : "时间未知"}</span></div><div className="context-actions"><span className="run-pill"><Archive size={13} />{activeRun?.model_run.model_version ?? "无模型版本"}</span><span className={`status-text ${sample.status}`}>{sample.status === "completed" ? "已完成" : sample.status === "in_progress" ? "进行中" : "待标注"}</span></div></div><div className="detail-layout"><ReviewCanvas imageUrl={imageUrl} candidates={sample.candidates} selectedId={selectedCandidateId} onSelect={setSelectedCandidateId} /><Inspector key={selectedCandidateId ?? "none"} candidate={candidate} candidates={sample.candidates} onSelect={setSelectedCandidateId} onLabel={saveLabel} saving={saving} /></div></> : <div className="no-sample"><UploadCloud size={34} /><h2>选择一个样本开始复核</h2><p>左侧队列会展示来自复检服务、MinIO 导入或页面上传的图片。</p></div>}</div></div>
     </main><footer className="app-footer"><span>RAP v0.1 · 数据由 PostgreSQL / MinIO 管理</span><span><ShieldCheck size={14} />所有标注操作均已审计</span></footer>
   </div>;
 }

@@ -21,8 +21,8 @@ export async function login(username: string, password: string) {
   });
 }
 
-export async function listSamples(token: string, status = "all") {
-  return request<{ samples: Sample[]; pagination: { total: number } }>(`/samples?status_filter=${encodeURIComponent(status)}&limit=100`, {}, token);
+export async function listSamples(token: string, status = "all", offset = 0, limit = 100) {
+  return request<{ samples: Sample[]; pagination: { limit: number; offset: number; total: number } }>(`/samples?status_filter=${encodeURIComponent(status)}&limit=${limit}&offset=${offset}`, {}, token);
 }
 
 export async function getSample(token: string, sampleId: string) {
