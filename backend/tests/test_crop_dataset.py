@@ -95,16 +95,19 @@ def build_fixture(tmp_path: Path) -> tuple[Path, Path, dict]:
         _record("cid-d", images["val"], [5, 5, 20, 20], teacher="uncertain"),   # human false; teacher dropped (val)
         _record("cid-e", images["locked"], [5, 5, 15, 15], teacher="true"),     # locked image -> fully excluded
     ]
-    gold = [_gold("cid-a", "true"), _gold("cid-d", "false"), _gold("cid-e", "true")]
+    selection_gold = [_gold("cid-a", "true"), _gold("cid-d", "false")]
 
     snapshot = tmp_path / "snapshot"
     snapshot.mkdir()
     (snapshot / "inference_records.jsonl").write_text(
         "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in inference), encoding="utf-8"
     )
-    (snapshot / "gold_records.jsonl").write_text(
-        "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in gold), encoding="utf-8"
+    (snapshot / "selection_gold.jsonl").write_text(
+        "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in selection_gold), encoding="utf-8"
     )
+    # Poison the broader/locked files: the crop builder must never open either.
+    (snapshot / "gold_records.jsonl").write_text("not-json\n", encoding="utf-8")
+    (snapshot / "locked_test_gold.jsonl").write_text("not-json\n", encoding="utf-8")
     (snapshot / "snapshot_manifest.json").write_text(json.dumps({"snapshot_id": "pg1-fixture"}), encoding="utf-8")
     return snapshot, images_root, images
 
@@ -180,12 +183,32 @@ def test_build_dataset_isolation_and_labels(tmp_path: Path) -> None:
     assert all("label" not in r for r in teacher.values())
     assert manifest["counts"]["teacher_skipped_val_image"] == 1
 
-    # crops: written for labeled non-excluded boxes only
+    # Two measurable views are emitted per labeled non-excluded box.  The
+    # compatibility crop_path points at the context view used by v1 trainers.
     assert (dataset / human["cid-a"]["crop_path"]).exists()
+    assert human["cid-a"]["crop_path"] == human["cid-a"]["context_crop_path"]
+    assert (dataset / human["cid-a"]["tight_crop_path"]).exists()
+    assert human["cid-a"]["tight_crop_path"] != human["cid-a"]["context_crop_path"]
     assert (dataset / teacher["cid-b"]["crop_path"]).exists()
     assert not list(dataset.glob("crops/excluded_locked/*"))
     assert human["cid-a"]["crop_path"].startswith("crops/train/")
     assert human["cid-d"]["crop_path"].startswith("crops/val/")
+
+    row = human["cid-a"]
+    assert row["tight_box_px"] == [10, 10, 30, 26]
+    assert row["context_box_px"] == [0, 0, 50, 42]
+    assert row["image_object_key"] == "fix/train.png"
+    assert row["source_width"] == 96 and row["source_height"] == 72
+    assert row["bbox_width_px"] == 20 and row["bbox_height_px"] == 16
+    assert row["bbox_area_fraction"] == pytest.approx(320 / (96 * 72))
+    assert row["bbox_aspect_ratio"] == pytest.approx(1.25)
+    assert row["bbox_touches_edge"] is False
+    assert row["context_clipped"] is True
+    assert row["tight_rendered_size_px"] == [64, 51]
+    assert row["context_rendered_size_px"] == [64, 54]
+    assert row["tight_upscale_factor"] == pytest.approx(3.2)
+    assert row["context_upscale_factor"] == pytest.approx(1.28)
+    assert row["source_pixel_status"] == "unverified_overlay_risk"
 
     # train/val image sets are disjoint
     train_sha = {r["image_sha256"] for r in human.values() if r["split"] == TRAIN}
@@ -200,6 +223,13 @@ def test_build_dataset_isolation_and_labels(tmp_path: Path) -> None:
     assert counts["boxes_excluded_locked"] == 1
     assert counts["boxes_no_label"] == 1
     assert counts["crops_written"] == 3
+    assert counts["crop_views_written"] == 6
+
+    assert manifest["schema_version"] == "prompt-gold-crop-dataset/2"
+    assert manifest["dataset_id"].startswith("cd2-")
+    assert manifest["source_pixels"]["provenance_status"] == "unverified"
+    assert manifest["source_pixels"]["overlay_risk"] is True
+    assert "kind='original'" in manifest["source_pixels"]["basis"]
 
     # SHA256SUMS covers every payload file
     sums = (dataset / "SHA256SUMS").read_text(encoding="utf-8")
@@ -219,3 +249,22 @@ def test_build_dataset_deterministic(tmp_path: Path) -> None:
     # rebuild into the same root: idempotent, keeps existing dir
     m3 = build_crop_dataset(str(snapshot), str(tmp_path / "out1"), image_root=str(images_root), min_long_edge=MIN_EDGE, workers=1)
     assert m3["dataset_id"] == m1["dataset_id"]
+
+
+def test_build_dataset_rejects_empty_box_before_rendering(tmp_path: Path) -> None:
+    snapshot, images_root, _ = build_fixture(tmp_path)
+    rows = _rows(snapshot, "inference_records.jsonl")
+    rows[0]["bbox_px"] = [10, 10, 10, 26]
+    (snapshot / "inference_records.jsonl").write_text(
+        "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="cid-a: bbox_px must be a non-empty box"):
+        build_crop_dataset(
+            str(snapshot),
+            str(tmp_path / "out-invalid"),
+            image_root=str(images_root),
+            min_long_edge=MIN_EDGE,
+            workers=1,
+        )

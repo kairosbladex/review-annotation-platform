@@ -1,9 +1,10 @@
 """Crop-image training dataset builder (contract section 12).
 
 Turns a prompt-gold snapshot into a crop-level training dataset: every canonical
-box is cut from its source image with context padding, small crops are upscaled,
-and labels are written in strictly separated files — human gold and GPT teacher
-labels are never mixed into one row or one file.
+box produces a tight ROI and a context view, small crops are upscaled, and labels
+are written in strictly separated files — human gold and GPT teacher labels are
+never mixed into one row or one file.  Human labels come exclusively from
+``selection_gold.jsonl``; the broader and locked-test gold files are untouched.
 
 Split discipline (extends contract section 5, image-level, zero intersection):
     sha256("prompt-gold-split-v1|" + image_sha256) mod 5
@@ -13,7 +14,7 @@ Split discipline (extends contract section 5, image-level, zero intersection):
 
 Determinism: same rules as the snapshot — rows sorted by canonical_id, canonical
 JSON, no wall-clock timestamps; dataset_id is content-addressed
-("cd1-" + sha256 of sorted file hashes, first 12 hex). Crops are JPEG
+("cd2-" + sha256 of sorted file hashes, first 12 hex). Crops are JPEG
 (quality=95, 4:4:4) which is byte-deterministic for a fixed Pillow build; the
 Pillow version is recorded in the manifest.
 
@@ -40,7 +41,7 @@ from . import CLASS_MAP
 from .common import jdumps, jsonl_bytes, sha256_bytes, sha256_text
 from .imaging import DEFAULT_IMAGE_BASE_URL, fetch_bytes
 
-DATASET_SCHEMA_VERSION = "prompt-gold-crop-dataset/1"
+DATASET_SCHEMA_VERSION = "prompt-gold-crop-dataset/2"
 
 TRAIN = "train"
 VAL = "val"
@@ -77,8 +78,10 @@ def padded_crop_box(
     )
 
 
-def render_crop(image_bytes: bytes, crop_box: tuple[int, int, int, int], min_long_edge: int) -> bytes:
-    """Crop and (if smaller than min_long_edge) upscale; return JPEG bytes."""
+def _render_crop(
+    image_bytes: bytes, crop_box: tuple[int, int, int, int], min_long_edge: int
+) -> tuple[bytes, tuple[int, int], float]:
+    """Render one crop and return its bytes, output size, and requested scale."""
     from PIL import Image  # Pillow is a hard dependency of this module only
 
     with Image.open(io.BytesIO(image_bytes)) as im:
@@ -86,6 +89,7 @@ def render_crop(image_bytes: bytes, crop_box: tuple[int, int, int, int], min_lon
         crop = rgb.crop(crop_box)
         w, h = crop.size
         long_edge = max(w, h)
+        scale = 1.0
         if long_edge < min_long_edge and long_edge > 0:
             scale = min_long_edge / long_edge
             crop = crop.resize(
@@ -94,7 +98,12 @@ def render_crop(image_bytes: bytes, crop_box: tuple[int, int, int, int], min_lon
             )
         buf = io.BytesIO()
         crop.save(buf, format="JPEG", quality=JPEG_QUALITY, subsampling=JPEG_SUBSAMPLING)
-        return buf.getvalue()
+        return buf.getvalue(), crop.size, scale
+
+
+def render_crop(image_bytes: bytes, crop_box: tuple[int, int, int, int], min_long_edge: int) -> bytes:
+    """Crop and (if smaller than min_long_edge) upscale; return JPEG bytes."""
+    return _render_crop(image_bytes, crop_box, min_long_edge)[0]
 
 
 def teacher_label_of(record: dict) -> tuple[str, dict] | None:
@@ -115,21 +124,52 @@ def _load_jsonl(path: Path) -> list[dict]:
         return [json.loads(line) for line in fh if line.strip()]
 
 
+def _validate_crop_geometry(record: dict) -> None:
+    cid = record.get("canonical_id", "<unknown>")
+    width = record.get("image_width")
+    height = record.get("image_height")
+    bbox = record.get("bbox_px")
+    if (
+        not isinstance(width, int)
+        or isinstance(width, bool)
+        or not isinstance(height, int)
+        or isinstance(height, bool)
+        or width <= 0
+        or height <= 0
+    ):
+        raise ValueError(f"{cid}: image dimensions must be positive integers")
+    if (
+        not isinstance(bbox, list)
+        or len(bbox) != 4
+        or any(not isinstance(value, int) or isinstance(value, bool) for value in bbox)
+    ):
+        raise ValueError(f"{cid}: bbox_px must contain four integers")
+    x1, y1, x2, y2 = bbox
+    if not (0 <= x1 < x2 <= width and 0 <= y1 < y2 <= height):
+        raise ValueError(f"{cid}: bbox_px must be a non-empty box inside the source image")
+
+
 def build_crop_dataset(
     snapshot_dir: str,
     output_root: str,
     *,
     image_root: str | None = None,
     image_base_url: str = DEFAULT_IMAGE_BASE_URL,
-    pad_ratio: float = 0.25,
+    pad_ratio: float = 1.0,
     min_long_edge: int = 224,
     workers: int = 8,
 ) -> dict:
     """Build the dataset; returns the manifest. Idempotent (content-addressed)."""
+    if pad_ratio < 0:
+        raise ValueError("pad_ratio must be >= 0")
+    if min_long_edge < 1:
+        raise ValueError("min_long_edge must be >= 1")
+    if workers < 1:
+        raise ValueError("workers must be >= 1")
     snapshot = Path(snapshot_dir)
     Path(output_root).mkdir(parents=True, exist_ok=True)
     inference = _load_jsonl(snapshot / "inference_records.jsonl")
-    gold_rows = _load_jsonl(snapshot / "gold_records.jsonl")
+    gold_rows = _load_jsonl(snapshot / "selection_gold.jsonl")
     gold_by_cid = {row["canonical_id"]: row for row in gold_rows}
 
     counts = {
@@ -141,6 +181,7 @@ def build_crop_dataset(
         "boxes_excluded_locked": 0,
         "boxes_no_label": 0,
         "crops_written": 0,
+        "crop_views_written": 0,
         "human_train": 0,
         "human_val": 0,
         "teacher_train": 0,
@@ -174,6 +215,7 @@ def build_crop_dataset(
         if teacher is None and not has_human:
             counts["boxes_no_label"] += 1
             continue
+        _validate_crop_geometry(rec)
         planned.append({"record": rec, "split": split, "teacher": teacher, "has_human": has_human})
 
     for info in images.values():
@@ -202,7 +244,7 @@ def build_crop_dataset(
                 image_bytes[sha] = data
 
     # --- render crops and assemble label rows -----------------------------------
-    tmp_dir = Path(tempfile.mkdtemp(prefix="cd1-build-", dir=output_root))
+    tmp_dir = Path(tempfile.mkdtemp(prefix="cd2-build-", dir=output_root))
     files: dict[str, bytes] = {}
     human_rows: list[dict] = []
     teacher_rows: list[dict] = []
@@ -214,19 +256,58 @@ def build_crop_dataset(
         data = image_bytes.get(sha)
         if data is None:
             continue
-        box = padded_crop_box(rec["bbox_px"], rec["image_width"], rec["image_height"], pad_ratio)
-        crop_rel = f"crops/{item['split']}/{cid}.jpg"
-        files[crop_rel] = render_crop(data, box, min_long_edge)
+        bbox = rec["bbox_px"]
+        width = rec["image_width"]
+        height = rec["image_height"]
+        bbox_width = bbox[2] - bbox[0]
+        bbox_height = bbox[3] - bbox[1]
+        pad_x = int(round(bbox_width * pad_ratio))
+        pad_y = int(round(bbox_height * pad_ratio))
+        desired_context = (
+            bbox[0] - pad_x,
+            bbox[1] - pad_y,
+            bbox[2] + pad_x,
+            bbox[3] + pad_y,
+        )
+        tight_box = tuple(bbox)
+        context_box = padded_crop_box(bbox, width, height, pad_ratio)
+        tight_rel = f"crops/{item['split']}/{cid}.tight.jpg"
+        context_rel = f"crops/{item['split']}/{cid}.context.jpg"
+        tight_bytes, tight_size, tight_scale = _render_crop(data, tight_box, min_long_edge)
+        context_bytes, context_size, context_scale = _render_crop(data, context_box, min_long_edge)
+        files[tight_rel] = tight_bytes
+        files[context_rel] = context_bytes
         counts["crops_written"] += 1
+        counts["crop_views_written"] += 2
 
         base = {
             "canonical_id": cid,
             "class_id": rec["class_id"],
             "class_name": rec["class_name"],
-            "crop_path": crop_rel,
+            "crop_path": context_rel,
+            "tight_crop_path": tight_rel,
+            "context_crop_path": context_rel,
             "image_sha256": sha,
-            "bbox_px": rec["bbox_px"],
-            "crop_box_px": list(box),
+            "image_object_key": rec["image_object_key"],
+            "bbox_px": bbox,
+            "crop_box_px": list(context_box),
+            "tight_box_px": list(tight_box),
+            "context_box_px": list(context_box),
+            "source_width": width,
+            "source_height": height,
+            "bbox_width_px": bbox_width,
+            "bbox_height_px": bbox_height,
+            "bbox_area_fraction": (bbox_width * bbox_height) / (width * height),
+            "bbox_aspect_ratio": bbox_width / bbox_height,
+            "bbox_touches_edge": (
+                bbox[0] <= 0 or bbox[1] <= 0 or bbox[2] >= width or bbox[3] >= height
+            ),
+            "context_clipped": context_box != desired_context,
+            "tight_rendered_size_px": list(tight_size),
+            "context_rendered_size_px": list(context_size),
+            "tight_upscale_factor": tight_scale,
+            "context_upscale_factor": context_scale,
+            "source_pixel_status": "unverified_overlay_risk",
             "detector_confidence": rec["detector_confidence"],
         }
         if item["has_human"]:
@@ -276,6 +357,14 @@ def build_crop_dataset(
             "crop_format": f"jpeg q={JPEG_QUALITY} subsampling={JPEG_SUBSAMPLING}",
             "pillow_version": PIL.__version__,
         },
+        "source_pixels": {
+            "provenance_status": "unverified",
+            "overlay_risk": True,
+            "basis": (
+                "Snapshot object references and metadata such as kind='original' do not prove "
+                "that source pixels are clean or overlay-free."
+            ),
+        },
         "split_rule": "sha256('prompt-gold-split-v1|' + image_sha256) mod 5: 0 -> excluded_locked (untouched), 4 -> val (human only), else train",
         "label_files": {
             "labels_human.jsonl": "人工金标 true/false，train+val；与教师标签永不混行混文件",
@@ -286,7 +375,7 @@ def build_crop_dataset(
     }
     sums_bytes = sums_text.encode("utf-8")
     manifest_bytes = (jdumps(manifest) + "\n").encode("utf-8")
-    dataset_id = "cd1-" + sha256_text(
+    dataset_id = "cd2-" + sha256_text(
         "".join(entry["sha256"] for entry in file_entries) + sha256_bytes(manifest_bytes)
     )[:12]
     manifest["dataset_id"] = dataset_id
@@ -315,7 +404,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output-root", default="data/prompt-eval/crop-datasets")
     parser.add_argument("--image-root", default=None)
     parser.add_argument("--image-base-url", default=DEFAULT_IMAGE_BASE_URL)
-    parser.add_argument("--pad-ratio", type=float, default=0.25)
+    parser.add_argument("--pad-ratio", type=float, default=1.0)
     parser.add_argument("--min-long-edge", type=int, default=224)
     parser.add_argument("--workers", type=int, default=8)
     args = parser.parse_args(argv)
