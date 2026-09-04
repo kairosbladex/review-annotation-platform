@@ -113,7 +113,13 @@ def test_candidates_require_service_key_and_page_with_opaque_cursor(tmp_path):
         headers={"X-Service-Key": "agent-secret"},
     )
     assert [item["candidate_id"] for item in second_page.json()["items"]] == [second_id]
-    assert second_page.json()["next_cursor"] is None
+    assert second_page.json()["next_cursor"]
+    empty_page = client.get(
+        "/api/v1/agent/candidates",
+        params={"limit": 10, "cursor": second_page.json()["next_cursor"]},
+        headers={"X-Service-Key": "agent-secret"},
+    )
+    assert empty_page.json() == {"items": [], "next_cursor": None}
     invalid_cursor = client.get(
         "/api/v1/agent/candidates",
         params={"cursor": "not-a-cursor"},
@@ -208,3 +214,4 @@ def test_human_gold_exports_only_human_true_false_with_lineage(tmp_path):
     assert item["image"]["sha256"] == "d" * 64
     assert item["class_name"] == "车辆"
     assert item["source_class_id"] == 917
+    assert item["initial_evidence"]["model_name"] == "yoloe"

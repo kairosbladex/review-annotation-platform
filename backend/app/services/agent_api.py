@@ -56,6 +56,7 @@ def _candidate_lineage(
     candidate: Candidate,
     sample: Sample,
     asset: Asset,
+    run: ModelRun,
 ) -> dict:
     return {
         "candidate_id": candidate.id,
@@ -65,6 +66,18 @@ def _candidate_lineage(
         "class_name": candidate.class_name,
         "source_class_id": candidate.class_id,
         "bbox": [candidate.x1, candidate.y1, candidate.x2, candidate.y2],
+        "initial_evidence": {
+            "model_run_id": run.id,
+            "model_name": run.model_name,
+            "model_version": run.model_version,
+            "confidence": candidate.confidence,
+            "raw_decision": candidate.raw_decision,
+            "yolo_decision": candidate.yolo_decision,
+            "llm_decision": candidate.llm_decision,
+            "reason_code": candidate.reason_code,
+            "error_code": candidate.error_code,
+            "reasoning": candidate.reasoning,
+        },
     }
 
 
@@ -97,27 +110,15 @@ def list_agent_candidates(
     page = rows[:limit]
     items = []
     for candidate, sample, asset, run in page:
-        item = _candidate_lineage(candidate, sample, asset)
+        item = _candidate_lineage(candidate, sample, asset, run)
         item.update(
             {
                 "created_at": candidate.created_at.isoformat(),
-                "initial_evidence": {
-                    "model_run_id": run.id,
-                    "model_name": run.model_name,
-                    "model_version": run.model_version,
-                    "confidence": candidate.confidence,
-                    "raw_decision": candidate.raw_decision,
-                    "yolo_decision": candidate.yolo_decision,
-                    "llm_decision": candidate.llm_decision,
-                    "reason_code": candidate.reason_code,
-                    "error_code": candidate.error_code,
-                    "reasoning": candidate.reasoning,
-                },
             }
         )
         items.append(item)
     next_cursor = None
-    if len(rows) > limit and page:
+    if page:
         candidate = page[-1][0]
         next_cursor = _encode_cursor(candidate.created_at, candidate.id)
     return {"items": items, "next_cursor": next_cursor}
@@ -169,10 +170,11 @@ def list_human_gold(
     limit: int,
 ) -> dict:
     query = (
-        select(Annotation, Candidate, Sample, Asset, User)
+        select(Annotation, Candidate, Sample, Asset, User, ModelRun)
         .join(Candidate, Candidate.id == Annotation.candidate_id)
         .join(Sample, Sample.id == Candidate.sample_id)
         .join(User, User.id == Annotation.labeled_by)
+        .join(ModelRun, ModelRun.id == Candidate.model_run_id)
         .join(
             Asset,
             and_(
@@ -196,8 +198,8 @@ def list_human_gold(
     rows = session.execute(query.limit(limit + 1)).all()
     page = rows[:limit]
     items = []
-    for annotation, candidate, sample, asset, user in page:
-        item = _candidate_lineage(candidate, sample, asset)
+    for annotation, candidate, sample, asset, user, run in page:
+        item = _candidate_lineage(candidate, sample, asset, run)
         item.update(
             {
                 "label": annotation.label,
@@ -209,7 +211,7 @@ def list_human_gold(
         )
         items.append(item)
     next_cursor = None
-    if len(rows) > limit and page:
+    if page:
         annotation = page[-1][0]
         next_cursor = _encode_cursor(annotation.labeled_at, annotation.id)
     return {"items": items, "next_cursor": next_cursor}
