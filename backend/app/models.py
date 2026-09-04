@@ -207,8 +207,9 @@ class AgentReviewRequest(Base):
     reason_code: Mapped[str] = mapped_column(String(120), index=True)
     reason: Mapped[str] = mapped_column(Text)
     attempt_refs_json: Mapped[str] = mapped_column(Text, default="[]")
+    request_fingerprint: Mapped[str] = mapped_column(String(64))
     status: Mapped[str] = mapped_column(String(30), default="pending", index=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, index=True)
 
 
 class IngestionEvent(Base):

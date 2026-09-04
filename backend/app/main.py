@@ -149,6 +149,25 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
                 review_request, created = create_agent_review_request(session, payload)
             except LookupError as exc:
                 raise HTTPException(status_code=404, detail=str(exc)) from exc
+            except ValueError as exc:
+                raise HTTPException(status_code=409, detail=str(exc)) from exc
+            if created:
+                session.add(
+                    AuditEvent(
+                        action="agent.review_requested",
+                        user_id=None,
+                        entity_type="candidate",
+                        entity_id=review_request.candidate_id,
+                        payload_json=json.dumps(
+                            {
+                                "cycle_id": review_request.cycle_id,
+                                "reason_code": review_request.reason_code,
+                                "review_request_id": review_request.id,
+                            },
+                            ensure_ascii=False,
+                        ),
+                    )
+                )
             session.commit()
             return JSONResponse(
                 status_code=201 if created else 200,

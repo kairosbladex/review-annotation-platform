@@ -8,7 +8,7 @@ from collections.abc import Iterable
 from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
 
-from ..models import Annotation, AnnotationTask, Asset, AuditEvent, Candidate, ImportBatch, IngestionEvent, ModelRun, ModelRunSample, Sample, User, new_id, utc_now
+from ..models import AgentReviewRequest, Annotation, AnnotationTask, Asset, AuditEvent, Candidate, ImportBatch, IngestionEvent, ModelRun, ModelRunSample, Sample, User, new_id, utc_now
 from .dataset_queue import DatasetQueueIndex, V2_DATASET_TAG
 
 
@@ -208,6 +208,15 @@ def update_annotation(session: Session, candidate: Candidate, user: User, payloa
     annotation.labeled_by = user.id if payload.label is not None else None
     annotation.labeled_at = utc_now() if payload.label is not None else None
     annotation.revision += 1
+    review_requests = list(
+        session.scalars(
+            select(AgentReviewRequest).where(
+                AgentReviewRequest.candidate_id == candidate.id
+            )
+        )
+    )
+    for review_request in review_requests:
+        review_request.status = "completed" if payload.label is not None else "pending"
     # The application deliberately uses autoflush=False.  Flush the changed
     # label before counting so the task transition is based on the new state,
     # not on the previous transaction snapshot.

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -60,11 +60,34 @@ class AnnotationUpdate(BaseModel):
 
 
 class AgentReviewRequestInput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     cycle_id: str = Field(min_length=1, max_length=120)
     candidate_id: str = Field(min_length=1, max_length=32)
     reason_code: str = Field(min_length=1, max_length=120)
     reason: str = Field(min_length=1, max_length=4000)
-    attempt_refs: list[str] = Field(default_factory=list, max_length=20)
+    attempt_refs: list[Annotated[str, Field(min_length=1, max_length=120)]] = Field(
+        default_factory=list,
+        max_length=20,
+    )
+
+    @field_validator("cycle_id", "candidate_id", "reason_code", "reason")
+    @classmethod
+    def reject_blank_values(cls, value: str) -> str:
+        value = value.strip()
+        if not value:
+            raise ValueError("value must not be blank")
+        return value
+
+    @field_validator("attempt_refs")
+    @classmethod
+    def unique_attempt_refs(cls, value: list[str]) -> list[str]:
+        normalized = [item.strip() for item in value]
+        if any(not item for item in normalized):
+            raise ValueError("attempt refs must not be blank")
+        if len(set(normalized)) != len(normalized):
+            raise ValueError("attempt refs must be unique")
+        return normalized
 
 
 class ModelRunRequest(BaseModel):

@@ -84,7 +84,7 @@ def test_candidates_require_service_key_and_page_with_opaque_cursor(tmp_path):
     first_id = seed_candidate(app, suffix="001", sha256="a" * 64, created_at=now)
     second_id = seed_candidate(app, suffix="002", sha256="b" * 64, created_at=now + timedelta(seconds=1))
     seed_candidate(app, suffix="missing-sha", sha256=None, created_at=now + timedelta(seconds=2))
-    seed_candidate(app, suffix="invalid-sha", sha256="short", created_at=now + timedelta(seconds=3))
+    seed_candidate(app, suffix="invalid-sha", sha256="g" * 64, created_at=now + timedelta(seconds=3))
 
     assert client.get("/api/v1/agent/candidates").status_code == 401
     first_page = client.get(
@@ -160,6 +160,12 @@ def test_review_request_is_idempotent_and_never_sets_annotation_label(tmp_path):
     assert created.json()["review_request_id"] == repeated.json()["review_request_id"]
     assert created.json()["created"] is True
     assert repeated.json()["created"] is False
+    conflict = client.post(
+        "/api/v1/agent/review-requests",
+        json={**payload, "reason_code": "different_reason"},
+        headers={"X-Service-Key": "agent-secret"},
+    )
+    assert conflict.status_code == 409
     with app.state.session_factory() as session:
         annotation = session.query(Annotation).filter(Annotation.candidate_id == candidate_id).one_or_none()
         assert annotation is None or annotation.label is None
@@ -215,3 +221,55 @@ def test_human_gold_exports_only_human_true_false_with_lineage(tmp_path):
     assert item["class_name"] == "车辆"
     assert item["source_class_id"] == 917
     assert item["initial_evidence"]["model_name"] == "yoloe"
+    assert item["label_source"] == "human"
+    assert "annotation_id" not in item
+    assert "note" not in item
+
+
+def test_human_gold_cursor_emits_a_new_revision_at_the_same_timestamp(tmp_path):
+    app, client = build_client(tmp_path)
+    labeled_at = datetime.now(timezone.utc)
+    candidate_id = seed_candidate(
+        app,
+        suffix="revised-gold",
+        sha256="1" * 64,
+        created_at=labeled_at - timedelta(minutes=1),
+    )
+    with app.state.session_factory() as session:
+        human = User(username="revision-reviewer", password_hash=hash_password("secret"))
+        session.add(human)
+        session.flush()
+        session.add(
+            Annotation(
+                candidate_id=candidate_id,
+                label="true",
+                labeled_by=human.id,
+                labeled_at=labeled_at,
+                revision=1,
+            )
+        )
+        session.commit()
+
+    first = client.get(
+        "/api/v1/agent/human-gold",
+        headers={"X-Service-Key": "agent-secret"},
+    )
+    cursor = first.json()["next_cursor"]
+    assert first.json()["items"][0]["revision"] == 1
+
+    with app.state.session_factory() as session:
+        annotation = session.query(Annotation).filter_by(candidate_id=candidate_id).one()
+        annotation.label = "false"
+        annotation.revision = 2
+        annotation.labeled_at = labeled_at
+        session.commit()
+
+    revised = client.get(
+        "/api/v1/agent/human-gold",
+        params={"cursor": cursor},
+        headers={"X-Service-Key": "agent-secret"},
+    )
+    assert revised.status_code == 200
+    assert [(item["candidate_id"], item["revision"], item["label"]) for item in revised.json()["items"]] == [
+        (candidate_id, 2, "false")
+    ]
