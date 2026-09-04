@@ -18,6 +18,6 @@ minio-data/
 *.sqlite3
 *.sqlite3-*
 .DS_Store
-# cd1 crops and model binaries are deterministically regenerable; keep git lean
+# Content-addressed crops and model binaries are regenerable; keep git lean
 data/prompt-eval/crop-datasets/*/crops/
 data/crop-verifier-runs/*/model.pt

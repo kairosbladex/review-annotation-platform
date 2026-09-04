@@ -1,5 +1,9 @@
 # KIMI → Codex 交接：部署版复检服务基线与失败归因（2026-09-03 夜）
 
+> **历史口径说明（2026-09-04）**：下述 `cd1-693db6804f05` 是
+> `prompt-gold-crop-dataset/1` 的不可改写 lineage。当前 cd2 契约会产生新的内容 ID，
+> 因此该首训只是历史基线，不得作为 cd2 有效性或准确率提升证据。
+>
 > **2026-09-04 12:00 增补二（cd1 训练数据集 + 首训证据）**：新增
 > `tools/prompt_eval_data/crop_dataset.py`（契约第 12 节）把 pg1 构建成裁剪图训练数据集
 > `data/prompt-eval/crop-datasets/cd1-693db6804f05`（2841 裁剪；人工 344 train + 94 val；

@@ -1,7 +1,8 @@
 # PROMPT_GOLD_CONTRACT — KTD 提示词优化人工金标快照与评分契约
 
-版本：`prompt-gold/1`。本契约定义 `tools/prompt_eval_data/` 的行为与产物格式。
-任何改动必须同时更新本文件、`SCHEMA_VERSION` 与快照 `schema_version`。
+核心快照版本：`prompt-gold/1`。本契约定义 `tools/prompt_eval_data/` 的行为与产物格式。
+快照格式改动必须同时更新本文件、`SCHEMA_VERSION` 与快照
+`schema_version`；第 11 节之后的独立派生产物各自维护子 schema，不倒推修改核心快照版本。
 
 ## 0. 范围与边界
 
@@ -176,32 +177,49 @@ image_sha256 集合交集为空；`*_inputs.jsonl` 不含禁用键
 - 验收：`backend/tests/test_service_attempts.py` 通过；基线产物与复现命令见
   `docs/KIMI_8188_BASELINE_HANDOFF.md`。
 
-## 12. 裁剪图训练数据集（cd1，2026-09-04 增补）
+## 12. 裁剪图训练数据集（cd2，2026-09-04 增补）
 
-`tools/prompt_eval_data/crop_dataset.py`（schema `prompt-gold-crop-dataset/1`）把任一
-prompt-gold 快照构建成裁剪图训练数据集，供任意"候选框复核器"模型训练使用：
+`tools/prompt_eval_data/crop_dataset.py`（schema `prompt-gold-crop-dataset/2`）从
+prompt-gold 快照的 selection 分区构建裁剪图数据集。人工标签只从
+`selection_gold.jsonl` 读取；构建器不打开 `gold_records.jsonl` 或
+`locked_test_gold.jsonl`。GPT 教师候选仍只来自
+`inference_records.jsonl.prior_gpt`。
 
-- **裁剪**：`bbox_px` 按框尺寸 `pad_ratio=0.25` 四向外扩并 clamp 到图内；长边小于
-  `min_long_edge=224` 的裁剪按比例放大（LANCZOS）；输出 JPEG q=95、4:4:4。
-  每取一张图都按字节 sha256 与快照 `image_sha256` 校验，不一致即计失败不静默。
+- **双视图裁剪**：tight view 使用原始 `bbox_px`；context view 默认按框尺寸
+  `pad_ratio=1.0` 每边外扩并 clamp 到图内。两视图分别写入 `.tight.jpg` 与
+  `.context.jpg`，长边小于 `min_long_edge=224` 时各自按比例放大（LANCZOS）；
+  输出 JPEG q=95、4:4:4。兼容字段 `crop_path == context_crop_path`、
+  `crop_box_px == context_box_px`。每张源图按字节 sha256 与快照 `image_sha256`
+  校验，不一致则计失败。
+- **可量化元数据**：标签行保留 object key、源图宽高、bbox 宽高/面积占比/长宽比、
+  `bbox_touches_edge`、`context_clipped`、两视图渲染尺寸与放大倍数，供按原框
+  尺寸分桶。
+- **像素 provenance**：标签行写入
+  `source_pixel_status="unverified_overlay_risk"`；manifest 的 `source_pixels` 明确
+  `kind='original'` 等快照元数据不能证明源像素无框、无文字 overlay。
 - **split（图级，零交集，第 5 节盐的扩展）**：
-  `mod 5 == 0` → excluded_locked（**完全不进入数据集**，不产裁剪不出行）；
-  `mod 5 == 4` → val（**只出人工标签**）；其余 → train。
-  val 图上的教师标签一律丢弃（`teacher_skipped_val_image` 计数），防止训练泄入验证图。
-- **标签分文件不混合**：`labels_human.jsonl`（人工 true/false，train+val，
-  无教师字段）与 `labels_teacher_gpt.jsonl`（GPT 教师 true/false/uncertain，仅 train，
-  无人工字段）。同一 canonical 可分别出现在两个文件，但行内字段永不混写。
+  `mod 5 == 0` → excluded_locked（不产裁剪不出行）；`mod 5 == 4` → val
+  （只出人工标签）；其余 → train。locked 排除只由 inference 的图片哈希确定，
+  过程不读取 locked gold。val 图上的教师标签一律丢弃
+  （`teacher_skipped_val_image` 计数），防止训练泄入验证图。
+- **标签分文件不混合**：`labels_human.jsonl`（人工 true/false，train+val）与
+  `labels_teacher_gpt.jsonl`（GPT 教师 true/false/uncertain，仅 train）。同一 canonical
+  可分别出现在两个文件，但行内字段永不混写。
 - **确定性**：行按 canonical_id 排序、canonical JSON、无墙钟时间戳；
-  `dataset_id = "cd1-" + sha256(文件哈希按路径排序拼接 + manifest 哈希)[:12]` 内容寻址；
-  同输入重复构建字节级一致并幂等跳过。crop 字节确定性依赖 Pillow 版本，
-  版本号记录在 manifest.params。
-- **依赖**：Pillow（隔离环境 `.venv-crop`，不进项目主依赖）；其余标准库。
-- **训练基线**：`tools/crop_verifier/train.py` 读取 cd1 数据集，训练
-  "教师(true/false) + 人工 train 合并（同 canonical 人工覆盖教师）、人工 val 验证"
-  的二值复核器（ResNet18 + 类别 one-hot 条件头），验证指标与第 8 节 scorer 同名
-  （dangerous_miss_rate / false_accept_rate + Wilson CI）。uncertain 教师行不进目标函数。
-- 验收：`backend/tests/test_crop_dataset.py`（split 不相交、标签分离、locked 全排除、
-  裁剪像素与放大、字节级重复构建）与 `backend/tests/test_crop_verifier_train.py` 通过。
+  `dataset_id = "cd2-" + sha256(文件哈希按路径排序拼接 + manifest 哈希)[:12]`
+  内容寻址。`crops_written` 计样本数，`crop_views_written` 计实际视图文件数。
+- **训练基线**：`tools/crop_verifier/train.py` 兼容 cd1/cd2。默认
+  `--train-label-source human-only`；GPT 伪标只能通过
+  `--train-label-source teacher-assisted` 显式加入，同 canonical 仍由人工标签覆盖。
+  `--crop-view {tight,context}` 为单次实验选择一种 cd2 视图，cd1 只支持 context。
+  metrics 固化 label source、crop view、dataset id/schema/manifest SHA、总体/逐类/原框尺寸分桶、
+  危险误杀优先的 best checkpoint 与可选 early stopping。`--reject-threshold` 只评估
+  低分 REJECT、其余 KEEP 的保守策略，并报告 auto-reject rate、safe-reject yield
+  与负例 correct-reject rate。selection/val 只用于选模型与阈值，
+  不得称为独立准确率证明。
+- **验收**：`backend/tests/test_crop_dataset.py`（poisoned full/locked gold 不读取、
+  split 不相交、标签分离、双视图/元数据、cd2 内容寻址与字节级重复构建）
+  与 `backend/tests/test_crop_verifier_train.py` 通过。
 
 ## 13. paired scorer（v1.0.0 vs v1.1.0，2026-09-04 增补，不改既有行为）
 
