@@ -1,0 +1,277 @@
+{
+ "batch_size": 32,
+ "dataset": "data/prompt-eval/crop-datasets/cd1-693db6804f05",
+ "device": "mps",
+ "epochs": 6,
+ "final_val": {
+  "accuracy": {
+   "ci95": [
+    0.741253,
+    0.892425
+   ],
+   "k": 78,
+   "n": 94,
+   "value": 0.829787
+  },
+  "correct_accept": 65,
+  "correct_reject": 13,
+  "dangerous_miss": 5,
+  "dangerous_miss_rate": {
+   "ci95": [
+    0.030894,
+    0.156556
+   ],
+   "k": 5,
+   "n": 70,
+   "value": 0.071429
+  },
+  "false_accept": 11,
+  "false_accept_rate": {
+   "ci95": [
+    0.278911,
+    0.649254
+   ],
+   "k": 11,
+   "n": 24,
+   "value": 0.458333
+  },
+  "threshold": 0.5
+ },
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.394247,
+   "val": {
+    "accuracy": {
+     "ci95": [
+      0.484078,
+      0.679451
+     ],
+     "k": 55,
+     "n": 94,
+     "value": 0.585106
+    },
+    "correct_accept": 37,
+    "correct_reject": 18,
+    "dangerous_miss": 33,
+    "dangerous_miss_rate": {
+     "ci95": [
+      0.359047,
+      0.586783
+     ],
+     "k": 33,
+     "n": 70,
+     "value": 0.471429
+    },
+    "false_accept": 6,
+    "false_accept_rate": {
+     "ci95": [
+      0.119992,
+      0.448998
+     ],
+     "k": 6,
+     "n": 24,
+     "value": 0.25
+    },
+    "threshold": 0.5
+   }
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.173221,
+   "val": {
+    "accuracy": {
+     "ci95": [
+      0.614366,
+      0.794458
+     ],
+     "k": 67,
+     "n": 94,
+     "value": 0.712766
+    },
+    "correct_accept": 51,
+    "correct_reject": 16,
+    "dangerous_miss": 19,
+    "dangerous_miss_rate": {
+     "ci95": [
+      0.181195,
+      0.385445
+     ],
+     "k": 19,
+     "n": 70,
+     "value": 0.271429
+    },
+    "false_accept": 8,
+    "false_accept_rate": {
+     "ci95": [
+      0.17972,
+      0.53294
+     ],
+     "k": 8,
+     "n": 24,
+     "value": 0.333333
+    },
+    "threshold": 0.5
+   }
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.106306,
+   "val": {
+    "accuracy": {
+     "ci95": [
+      0.659522,
+      0.831067
+     ],
+     "k": 71,
+     "n": 94,
+     "value": 0.755319
+    },
+    "correct_accept": 59,
+    "correct_reject": 12,
+    "dangerous_miss": 11,
+    "dangerous_miss_rate": {
+     "ci95": [
+      0.090075,
+      0.259885
+     ],
+     "k": 11,
+     "n": 70,
+     "value": 0.157143
+    },
+    "false_accept": 12,
+    "false_accept_rate": {
+     "ci95": [
+      0.314271,
+      0.685729
+     ],
+     "k": 12,
+     "n": 24,
+     "value": 0.5
+    },
+    "threshold": 0.5
+   }
+  },
+  {
+   "epoch": 4,
+   "train_loss": 0.104451,
+   "val": {
+    "accuracy": {
+     "ci95": [
+      0.64814,
+      0.822008
+     ],
+     "k": 70,
+     "n": 94,
+     "value": 0.744681
+    },
+    "correct_accept": 55,
+    "correct_reject": 15,
+    "dangerous_miss": 15,
+    "dangerous_miss_rate": {
+     "ci95": [
+      0.134386,
+      0.323914
+     ],
+     "k": 15,
+     "n": 70,
+     "value": 0.214286
+    },
+    "false_accept": 9,
+    "false_accept_rate": {
+     "ci95": [
+      0.211591,
+      0.572904
+     ],
+     "k": 9,
+     "n": 24,
+     "value": 0.375
+    },
+    "threshold": 0.5
+   }
+  },
+  {
+   "epoch": 5,
+   "train_loss": 0.067305,
+   "val": {
+    "accuracy": {
+     "ci95": [
+      0.705747,
+      0.866606
+     ],
+     "k": 75,
+     "n": 94,
+     "value": 0.797872
+    },
+    "correct_accept": 65,
+    "correct_reject": 10,
+    "dangerous_miss": 5,
+    "dangerous_miss_rate": {
+     "ci95": [
+      0.030894,
+      0.156556
+     ],
+     "k": 5,
+     "n": 70,
+     "value": 0.071429
+    },
+    "false_accept": 14,
+    "false_accept_rate": {
+     "ci95": [
+      0.388343,
+      0.755327
+     ],
+     "k": 14,
+     "n": 24,
+     "value": 0.583333
+    },
+    "threshold": 0.5
+   }
+  },
+  {
+   "epoch": 6,
+   "train_loss": 0.031799,
+   "val": {
+    "accuracy": {
+     "ci95": [
+      0.741253,
+      0.892425
+     ],
+     "k": 78,
+     "n": 94,
+     "value": 0.829787
+    },
+    "correct_accept": 65,
+    "correct_reject": 13,
+    "dangerous_miss": 5,
+    "dangerous_miss_rate": {
+     "ci95": [
+      0.030894,
+      0.156556
+     ],
+     "k": 5,
+     "n": 70,
+     "value": 0.071429
+    },
+    "false_accept": 11,
+    "false_accept_rate": {
+     "ci95": [
+      0.278911,
+      0.649254
+     ],
+     "k": 11,
+     "n": 24,
+     "value": 0.458333
+    },
+    "threshold": 0.5
+   }
+  }
+ ],
+ "lr": 0.0001,
+ "pretrained": true,
+ "seed": 42,
+ "train_human": 344,
+ "train_samples": 1925,
+ "train_teacher": 1581,
+ "val_samples": 94
+}

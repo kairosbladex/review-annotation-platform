@@ -175,3 +175,30 @@ image_sha256 集合交集为空；`*_inputs.jsonl` 不含禁用键
   时延分位的失败模式聚合，可嵌入 scorer 报告的 per-class 表。
 - 验收：`backend/tests/test_service_attempts.py` 通过；基线产物与复现命令见
   `docs/KIMI_8188_BASELINE_HANDOFF.md`。
+
+## 12. 裁剪图训练数据集（cd1，2026-09-04 增补）
+
+`tools/prompt_eval_data/crop_dataset.py`（schema `prompt-gold-crop-dataset/1`）把任一
+prompt-gold 快照构建成裁剪图训练数据集，供任意"候选框复核器"模型训练使用：
+
+- **裁剪**：`bbox_px` 按框尺寸 `pad_ratio=0.25` 四向外扩并 clamp 到图内；长边小于
+  `min_long_edge=224` 的裁剪按比例放大（LANCZOS）；输出 JPEG q=95、4:4:4。
+  每取一张图都按字节 sha256 与快照 `image_sha256` 校验，不一致即计失败不静默。
+- **split（图级，零交集，第 5 节盐的扩展）**：
+  `mod 5 == 0` → excluded_locked（**完全不进入数据集**，不产裁剪不出行）；
+  `mod 5 == 4` → val（**只出人工标签**）；其余 → train。
+  val 图上的教师标签一律丢弃（`teacher_skipped_val_image` 计数），防止训练泄入验证图。
+- **标签分文件不混合**：`labels_human.jsonl`（人工 true/false，train+val，
+  无教师字段）与 `labels_teacher_gpt.jsonl`（GPT 教师 true/false/uncertain，仅 train，
+  无人工字段）。同一 canonical 可分别出现在两个文件，但行内字段永不混写。
+- **确定性**：行按 canonical_id 排序、canonical JSON、无墙钟时间戳；
+  `dataset_id = "cd1-" + sha256(文件哈希按路径排序拼接 + manifest 哈希)[:12]` 内容寻址；
+  同输入重复构建字节级一致并幂等跳过。crop 字节确定性依赖 Pillow 版本，
+  版本号记录在 manifest.params。
+- **依赖**：Pillow（隔离环境 `.venv-crop`，不进项目主依赖）；其余标准库。
+- **训练基线**：`tools/crop_verifier/train.py` 读取 cd1 数据集，训练
+  "教师(true/false) + 人工 train 合并（同 canonical 人工覆盖教师）、人工 val 验证"
+  的二值复核器（ResNet18 + 类别 one-hot 条件头），验证指标与第 8 节 scorer 同名
+  （dangerous_miss_rate / false_accept_rate + Wilson CI）。uncertain 教师行不进目标函数。
+- 验收：`backend/tests/test_crop_dataset.py`（split 不相交、标签分离、locked 全排除、
+  裁剪像素与放大、字节级重复构建）与 `backend/tests/test_crop_verifier_train.py` 通过。

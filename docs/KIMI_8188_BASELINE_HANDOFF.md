@@ -1,5 +1,14 @@
 # KIMI → Codex 交接：部署版复检服务基线与失败归因（2026-09-03 夜）
 
+> **2026-09-04 12:00 增补二（cd1 训练数据集 + 首训证据）**：新增
+> `tools/prompt_eval_data/crop_dataset.py`（契约第 12 节）把 pg1 构建成裁剪图训练数据集
+> `data/prompt-eval/crop-datasets/cd1-693db6804f05`（2841 裁剪；人工 344 train + 94 val；
+> GPT 教师 2162 仅 train；locked_test 153 图 633 框零进入；train/val 图集交集 0；
+> val 图教师标签 679 条全丢弃防泄漏）。`tools/crop_verifier/train.py` 首训 6 epoch
+> （本机 MPS）：**同集 94 框对比部署版 8188——危险误杀持平（5/70 vs 4/70），误接受率
+> 45.8% vs 79.2% 几乎减半**。详见 `data/crop-verifier-runs/run-local-001/README.md`
+> 与桌面 `训练报告/02-Kimi-cd1裁剪数据集-首训证据.md`。
+>
 > **2026-09-04 09:10 增补**：本文全部产物已提交 `kimi/prompt-gold-v1` @ `0d37641`。
 > 桌面`训练报告/01-Kimi-8188基线-qwen协议根因.md` 是给 Codex 的入口指针（与 Grok 的
 > `00-给Codex的下一步.md` 同通道）。两条今晨新证据：(1) `qwen3-vl:8b` 实例 09:06 复测
