@@ -49,6 +49,7 @@ class Settings:
     source_image_base_url: str = ""
     source_image_bucket: str = "minio-src"
     source_image_verify_tls: bool = True
+    v2_queue_map_path: str = "data/prompt-eval/gold-expansion-20260904-v2/index.jsonl"
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -88,4 +89,5 @@ class Settings:
             source_image_base_url=os.getenv("SOURCE_IMAGE_BASE_URL", cls.source_image_base_url).rstrip("/"),
             source_image_bucket=os.getenv("SOURCE_IMAGE_BUCKET", cls.source_image_bucket),
             source_image_verify_tls=os.getenv("SOURCE_IMAGE_VERIFY_TLS", "true").lower() in {"1", "true", "yes", "on"},
+            v2_queue_map_path=os.getenv("V2_QUEUE_MAP_PATH", cls.v2_queue_map_path),
         )

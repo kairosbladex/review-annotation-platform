@@ -6,6 +6,7 @@ from fastapi.testclient import TestClient
 
 from app.config import Settings
 from app.main import create_app
+from app.services.dataset_queue import DatasetQueueIndex
 
 
 def _settings(tmp_path):
@@ -123,3 +124,92 @@ def test_review_event_is_idempotent_and_labels_complete_sample(tmp_path):
         "true": 1,
         "false": 1,
     }
+
+
+def test_sample_queue_can_filter_by_class_name(tmp_path):
+    client = TestClient(create_app(_settings(tmp_path)))
+    headers = {"X-Service-Key": "service-secret"}
+    car = _review_event("event-car")
+    helmet = _review_event("event-helmet")
+    helmet["image"]["object_key"] = "review/helmet.jpg"
+    helmet["targets"] = [
+        {
+            **helmet["targets"][0],
+            "class_id": 7,
+            "class_name": "没戴头盔",
+            "bbox": [0.2, 0.2, 0.3, 0.4],
+        }
+    ]
+    assert client.post("/api/v1/ingest/review-events", json=car, headers=headers).status_code == 201
+    helmet_resp = client.post("/api/v1/ingest/review-events", json=helmet, headers=headers)
+    assert helmet_resp.status_code == 201, helmet_resp.text
+    helmet_id = helmet_resp.json()["sample_id"]
+
+    auth = _login(client)
+    filtered = client.get("/api/v1/samples?status_filter=needs_review&class_name=%E6%B2%A1%E6%88%B4%E5%A4%B4%E7%9B%94", headers=auth)
+    assert filtered.status_code == 200, filtered.text
+    ids = [item["sample_id"] for item in filtered.json()["samples"]]
+    assert ids == [helmet_id]
+    assert filtered.json()["pagination"]["total"] == 1
+
+
+def test_v2_queue_uses_representative_targets_and_v2_pending_status(tmp_path):
+    app = create_app(_settings(tmp_path))
+    client = TestClient(app)
+    headers = {"X-Service-Key": "service-secret"}
+    response = client.post("/api/v1/ingest/review-events", json=_review_event("event-v2"), headers=headers)
+    assert response.status_code == 201, response.text
+    sample_id = response.json()["sample_id"]
+
+    auth = _login(client)
+    sample = client.get(f"/api/v1/samples/{sample_id}", headers=auth).json()
+    representative_id = sample["candidates"][0]["candidate_id"]
+    app.state.dataset_queue = DatasetQueueIndex({representative_id: "canonical-v2"})
+
+    filtered = client.get("/api/v1/samples?status_filter=needs_review&dataset_filter=v2", headers=auth)
+    assert filtered.status_code == 200, filtered.text
+    assert filtered.json()["pagination"]["total"] == 1
+    filtered_sample = filtered.json()["samples"][0]
+    assert filtered_sample["v2_target_count"] == 1
+    assert filtered_sample["v2_pending_count"] == 1
+    assert filtered_sample["candidates"][0]["dataset_tag"] == "v2"
+
+    labeled = client.patch(
+        f"/api/v1/candidates/{representative_id}/annotation",
+        json={"label": "true", "note": "V2 代表目标"},
+        headers=auth,
+    )
+    assert labeled.status_code == 200, labeled.text
+
+    completed_v2 = client.get("/api/v1/samples?status_filter=needs_review&dataset_filter=v2", headers=auth)
+    assert completed_v2.status_code == 200, completed_v2.text
+    assert completed_v2.json()["pagination"]["total"] == 0
+
+
+def test_needs_review_queue_keeps_in_progress_sample(tmp_path):
+    client = TestClient(create_app(_settings(tmp_path)))
+    headers = {"X-Service-Key": "service-secret"}
+    first = client.post("/api/v1/ingest/review-events", json=_review_event("event-open-1"), headers=headers)
+    second = client.post("/api/v1/ingest/review-events", json=_review_event("event-open-2"), headers=headers)
+    assert first.status_code == 201, first.text
+    assert second.status_code == 201, second.text
+    sample_a = first.json()["sample_id"]
+    sample_b = second.json()["sample_id"]
+
+    auth = _login(client)
+    detail = client.get(f"/api/v1/samples/{sample_a}", headers=auth).json()
+    labeled = client.patch(
+        f"/api/v1/candidates/{detail['candidates'][0]['candidate_id']}/annotation",
+        json={"label": "true", "note": "第一框"},
+        headers=auth,
+    )
+    assert labeled.status_code == 200, labeled.text
+    assert labeled.json()["sample"]["status"] == "in_progress"
+
+    pending_ids = [item["sample_id"] for item in client.get("/api/v1/samples?status_filter=pending", headers=auth).json()["samples"]]
+    review_ids = [item["sample_id"] for item in client.get("/api/v1/samples?status_filter=needs_review", headers=auth).json()["samples"]]
+    assert sample_a not in pending_ids
+    assert sample_b in pending_ids
+    assert sample_a in review_ids
+    assert sample_b in review_ids
+    assert client.get("/api/v1/samples?status_filter=needs_review", headers=auth).status_code == 200

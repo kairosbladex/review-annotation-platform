@@ -21,8 +21,11 @@ export async function login(username: string, password: string) {
   });
 }
 
-export async function listSamples(token: string, status = "all", offset = 0, limit = 100) {
-  return request<{ samples: Sample[]; pagination: { limit: number; offset: number; total: number } }>(`/samples?status_filter=${encodeURIComponent(status)}&limit=${limit}&offset=${offset}`, {}, token);
+export async function listSamples(token: string, status = "all", offset = 0, limit = 100, className = "", datasetFilter = "all") {
+  const params = new URLSearchParams({ status_filter: status, limit: String(limit), offset: String(offset) });
+  if (className) params.set("class_name", className);
+  if (datasetFilter !== "all") params.set("dataset_filter", datasetFilter);
+  return request<{ samples: Sample[]; pagination: { limit: number; offset: number; total: number } }>(`/samples?${params.toString()}`, {}, token);
 }
 
 export async function getSample(token: string, sampleId: string) {

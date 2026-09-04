@@ -20,6 +20,8 @@ export interface Annotation {
 
 export interface Candidate {
   candidate_id: string;
+  canonical_id: string | null;
+  dataset_tag: "v2" | null;
   target_index: number;
   class_id: number | null;
   class_name: string;
@@ -72,6 +74,9 @@ export interface Sample {
   created_at: string;
   status: SampleStatus;
   counts: Counts;
+  dataset_tags: string[];
+  v2_target_count: number;
+  v2_pending_count: number;
   annotation_task_id: string | null;
   assets: Asset[];
   runs: AnnotationTask[];

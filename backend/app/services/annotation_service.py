@@ -9,6 +9,7 @@ from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
 
 from ..models import Annotation, AnnotationTask, Asset, AuditEvent, Candidate, ImportBatch, IngestionEvent, ModelRun, ModelRunSample, Sample, User, new_id, utc_now
+from .dataset_queue import DatasetQueueIndex, V2_DATASET_TAG
 
 
 def _counts(session: Session, task_id: str) -> dict[str, int]:
@@ -47,9 +48,12 @@ def task_status_from_counts(counts: dict[str, int]) -> str:
     return "in_progress"
 
 
-def _candidate_payload(candidate: Candidate, annotation: Annotation | None) -> dict:
+def _candidate_payload(candidate: Candidate, annotation: Annotation | None, dataset_queue: DatasetQueueIndex | None = None) -> dict:
+    canonical_id = dataset_queue.canonical_id_for(candidate.id) if dataset_queue else None
     return {
         "candidate_id": candidate.id,
+        "canonical_id": canonical_id,
+        "dataset_tag": V2_DATASET_TAG if canonical_id else None,
         "target_index": candidate.target_index,
         "class_id": candidate.class_id,
         "class_name": candidate.class_name,
@@ -72,7 +76,7 @@ def _candidate_payload(candidate: Candidate, annotation: Annotation | None) -> d
     }
 
 
-def serialize_sample(session: Session, sample: Sample) -> dict:
+def serialize_sample(session: Session, sample: Sample, dataset_queue: DatasetQueueIndex | None = None) -> dict:
     tasks = session.scalars(select(AnnotationTask).where(AnnotationTask.sample_id == sample.id).order_by(AnnotationTask.created_at.desc())).all()
     task_payloads = []
     for task in tasks:
@@ -98,9 +102,12 @@ def serialize_sample(session: Session, sample: Sample) -> dict:
                 "status": run.status if run else None,
                 "parameters": json.loads(run.parameters_json or "{}") if run else {},
             },
-            "candidates": [_candidate_payload(candidate, annotations.get(candidate.id)) for candidate in candidates],
+            "candidates": [_candidate_payload(candidate, annotations.get(candidate.id), dataset_queue) for candidate in candidates],
         })
     active = task_payloads[0] if task_payloads else {"annotation_task_id": None, "status": "imported", "counts": {"total": 0, "labeled": 0, "pending": 0, "true": 0, "false": 0}, "candidates": []}
+    active_candidates = active.get("candidates", [])
+    v2_candidates = [candidate for candidate in active_candidates if candidate["dataset_tag"] == V2_DATASET_TAG]
+    v2_pending_count = sum(candidate["annotation"]["label"] is None for candidate in v2_candidates)
     return {
         "sample_id": sample.id,
         "source_type": sample.source_type,
@@ -115,6 +122,9 @@ def serialize_sample(session: Session, sample: Sample) -> dict:
         "created_at": sample.created_at,
         "status": active["status"],
         "counts": active["counts"],
+        "dataset_tags": [V2_DATASET_TAG] if v2_candidates else [],
+        "v2_target_count": len(v2_candidates),
+        "v2_pending_count": v2_pending_count,
         "annotation_task_id": active.get("annotation_task_id"),
         "assets": [
             {"asset_id": asset.id, "kind": asset.kind, "bucket": asset.bucket, "object_key": asset.object_key, "sha256": asset.sha256, "status": asset.status}

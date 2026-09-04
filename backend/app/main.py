@@ -18,6 +18,7 @@ from .models import Annotation, AnnotationTask, AuditEvent, Candidate, ExportRec
 from .schemas import AnnotationUpdate, AutoAnnotationRequest, ExportRequest, LoginRequest, MinioImportRequest, ModelProfileCreate, ModelRunRequest, ReviewEventInput
 from .security import decode_token, hash_password, issue_token, verify_password
 from .services.annotation_service import import_minio_prefix, import_uploaded_bytes, ingest_review_event, serialize_sample, update_annotation
+from .services.dataset_queue import DatasetQueueIndex, V2_DATASET_TAG
 from .services.model_run_service import execute_model_job
 from .services.export_service import execute_export_job
 from .services.auto_annotation_service import create_auto_annotation_run, execute_auto_annotation_job
@@ -49,6 +50,7 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
     app.state.settings = settings
     app.state.session_factory = session_factory
     app.state.object_store = object_store
+    app.state.dataset_queue = DatasetQueueIndex.from_jsonl(settings.v2_queue_map_path)
     app.state.model_adapter = model_adapter or build_model_adapter(settings, object_store)
     app.state.auto_annotation_adapter = auto_annotation_adapter or build_codex_vision_adapter(settings, object_store)
     app.state.task_dispatcher = task_dispatcher or CeleryDispatcher(settings.redis_url)
@@ -133,7 +135,7 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             if created:
                 session.add(AuditEvent(action="ingest.review_event", user_id=None, entity_type="sample", entity_id=sample.id, payload_json=json.dumps({"event_id": payload.event_id, "source_service": payload.source_service}, ensure_ascii=False)))
             session.commit()
-            result = serialize_sample(session, sample)
+            result = serialize_sample(session, sample, app.state.dataset_queue)
             return JSONResponse(
                 status_code=status.HTTP_201_CREATED if created else status.HTTP_200_OK,
                 content={
@@ -422,16 +424,39 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
         reason_code: str | None = None,
         asset_missing: bool | None = None,
         model_failed: bool | None = None,
+        dataset_filter: str = "all",
         _: User = Depends(current_user),
     ):
-        if status_filter not in {"all", "imported", "pending", "in_progress", "completed", "no_candidates"}:
+        if status_filter not in {"all", "imported", "pending", "in_progress", "completed", "no_candidates", "needs_review"}:
             raise HTTPException(status_code=400, detail="status_filter 无效")
+        if dataset_filter not in {"all", V2_DATASET_TAG, "other"}:
+            raise HTTPException(status_code=400, detail="dataset_filter 无效")
         with session_scope() as session:
             all_samples = session.scalars(select(Sample).order_by(Sample.created_at.desc())).all()
             samples: list[dict] = []
             for sample in all_samples:
-                serialized = serialize_sample(session, sample)
-                if status_filter != "all" and serialized["status"] != status_filter:
+                serialized = serialize_sample(session, sample, app.state.dataset_queue)
+                has_v2_target = serialized["v2_target_count"] > 0
+                v2_pending = serialized["v2_pending_count"]
+                other_pending = sum(
+                    candidate["annotation"]["label"] is None
+                    for candidate in serialized["candidates"]
+                    if candidate["dataset_tag"] != V2_DATASET_TAG
+                )
+                if dataset_filter == V2_DATASET_TAG and not has_v2_target:
+                    continue
+                if dataset_filter == "other" and has_v2_target:
+                    continue
+                if status_filter == "needs_review":
+                    if dataset_filter == V2_DATASET_TAG:
+                        if v2_pending == 0:
+                            continue
+                    elif dataset_filter == "other":
+                        if other_pending == 0:
+                            continue
+                    elif serialized["status"] not in {"pending", "in_progress"}:
+                        continue
+                elif status_filter != "all" and serialized["status"] != status_filter:
                     continue
                 if source_type and serialized["source_type"] != source_type:
                     continue
@@ -441,15 +466,22 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
                 if model_version and not any(run["model_run"].get("model_version") == model_version for run in runs):
                     continue
                 candidates = [candidate for run in runs for candidate in run["candidates"]]
-                if class_name and not any(candidate["class_name"] == class_name for candidate in candidates):
+                scoped_candidates = [
+                    candidate
+                    for candidate in candidates
+                    if dataset_filter == "all"
+                    or (dataset_filter == V2_DATASET_TAG and candidate["dataset_tag"] == V2_DATASET_TAG)
+                    or (dataset_filter == "other" and candidate["dataset_tag"] != V2_DATASET_TAG)
+                ]
+                if class_name and not any(candidate["class_name"] == class_name for candidate in scoped_candidates):
                     continue
-                if confidence_min is not None and not any(candidate["confidence"] is not None and candidate["confidence"] >= confidence_min for candidate in candidates):
+                if confidence_min is not None and not any(candidate["confidence"] is not None and candidate["confidence"] >= confidence_min for candidate in scoped_candidates):
                     continue
-                if confidence_max is not None and not any(candidate["confidence"] is not None and candidate["confidence"] <= confidence_max for candidate in candidates):
+                if confidence_max is not None and not any(candidate["confidence"] is not None and candidate["confidence"] <= confidence_max for candidate in scoped_candidates):
                     continue
-                if raw_decision and not any(candidate["raw_decision"] == raw_decision for candidate in candidates):
+                if raw_decision and not any(candidate["raw_decision"] == raw_decision for candidate in scoped_candidates):
                     continue
-                if reason_code and not any(candidate["reason_code"] == reason_code for candidate in candidates):
+                if reason_code and not any(candidate["reason_code"] == reason_code for candidate in scoped_candidates):
                     continue
                 if model_failed is not None and any(run["model_run"].get("status") in {"failed", "partial_failed"} for run in runs) != model_failed:
                     continue
@@ -466,7 +498,7 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             sample = session.get(Sample, sample_id)
             if sample is None:
                 raise HTTPException(status_code=404, detail="样本不存在")
-            return serialize_sample(session, sample)
+            return serialize_sample(session, sample, app.state.dataset_queue)
 
     @app.get("/api/v1/assets/{asset_id}/url")
     def get_asset_url(asset_id: str, _: User = Depends(current_user)):
@@ -492,7 +524,7 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             except ValueError as exc:
                 raise HTTPException(status_code=409, detail=str(exc)) from exc
             session.commit()
-            return {"sample": serialize_sample(session, sample)}
+            return {"sample": serialize_sample(session, sample, app.state.dataset_queue)}
 
     return app
 
