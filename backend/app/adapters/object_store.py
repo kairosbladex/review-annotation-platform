@@ -22,6 +22,10 @@ class ObjectStore:
         raise NotImplementedError
 
 
+def public_image_url(base_url: str, object_key: str) -> str:
+    return f"{base_url.rstrip('/')}/{str(object_key).lstrip('/')}"
+
+
 class NullObjectStore(ObjectStore):
     """No-op adapter used for tests and local API-only development."""
 
@@ -98,13 +102,106 @@ class MinioObjectStore(ObjectStore):
         return [item.object_name for item in self.client.list_objects(bucket, prefix=prefix, recursive=True)]
 
 
+class HttpPrefixObjectStore(ObjectStore):
+    """Read-only store that serves existing public image URLs without copying bytes."""
+
+    def __init__(self, *, base_url: str, bucket: str = "minio-src", verify_tls: bool = True):
+        self.base_url = base_url.rstrip("/")
+        self.bucket = bucket
+        self.verify_tls = verify_tls
+
+    def exists(self, bucket: str, object_key: str) -> bool:
+        return bucket == self.bucket and bool(object_key)
+
+    def presigned_get_url(self, bucket: str, object_key: str, expires_seconds: int = 900) -> str | None:
+        if not self.exists(bucket, object_key):
+            return None
+        return public_image_url(self.base_url, object_key)
+
+    def put_bytes(self, bucket: str, object_key: str, data: bytes, content_type: str) -> None:
+        raise RuntimeError("http prefix object store is read-only")
+
+    def get_bytes(self, bucket: str, object_key: str) -> bytes:
+        if not self.exists(bucket, object_key):
+            raise FileNotFoundError(object_key)
+        import httpx
+
+        response = httpx.get(
+            public_image_url(self.base_url, object_key),
+            timeout=60,
+            follow_redirects=True,
+            trust_env=False,
+            verify=self.verify_tls,
+        )
+        response.raise_for_status()
+        return response.content
+
+    def list_keys(self, bucket: str, prefix: str) -> list[str]:
+        return []
+
+
+class FallbackObjectStore(ObjectStore):
+    """Prefer local/MinIO objects, then fall back to a public HTTP image prefix."""
+
+    def __init__(self, primary: ObjectStore, fallback: ObjectStore):
+        self.primary = primary
+        self.fallback = fallback
+
+    def _fallback_handles_bucket(self, bucket: str) -> bool:
+        # The configured HTTP prefix is authoritative for its source bucket.
+        # Probing the default Docker MinIO endpoint first adds several seconds
+        # when this API is running directly on the host.
+        return isinstance(self.fallback, HttpPrefixObjectStore) and self.fallback.bucket == bucket
+
+    def exists(self, bucket: str, object_key: str) -> bool:
+        if self._fallback_handles_bucket(bucket):
+            return self.fallback.exists(bucket, object_key)
+        return self.primary.exists(bucket, object_key) or self.fallback.exists(bucket, object_key)
+
+    def presigned_get_url(self, bucket: str, object_key: str, expires_seconds: int = 900) -> str | None:
+        if self._fallback_handles_bucket(bucket):
+            return self.fallback.presigned_get_url(bucket, object_key, expires_seconds)
+        if self.primary.exists(bucket, object_key):
+            return self.primary.presigned_get_url(bucket, object_key, expires_seconds)
+        return self.fallback.presigned_get_url(bucket, object_key, expires_seconds)
+
+    def put_bytes(self, bucket: str, object_key: str, data: bytes, content_type: str) -> None:
+        self.primary.put_bytes(bucket, object_key, data, content_type)
+
+    def get_bytes(self, bucket: str, object_key: str) -> bytes:
+        if self._fallback_handles_bucket(bucket):
+            return self.fallback.get_bytes(bucket, object_key)
+        if self.primary.exists(bucket, object_key):
+            return self.primary.get_bytes(bucket, object_key)
+        return self.fallback.get_bytes(bucket, object_key)
+
+    def list_keys(self, bucket: str, prefix: str) -> list[str]:
+        return self.primary.list_keys(bucket, prefix)
+
+    def ensure_bucket(self, bucket: str) -> None:
+        if hasattr(self.primary, "ensure_bucket"):
+            self.primary.ensure_bucket(bucket)
+
+
+def _http_prefix_store(settings) -> HttpPrefixObjectStore | None:
+    base_url = getattr(settings, "source_image_base_url", "") or ""
+    if not base_url:
+        return None
+    return HttpPrefixObjectStore(
+        base_url=base_url,
+        bucket=getattr(settings, "source_image_bucket", "minio-src") or "minio-src",
+        verify_tls=getattr(settings, "source_image_verify_tls", True),
+    )
+
+
 def build_object_store(settings) -> ObjectStore:
+    http_store = _http_prefix_store(settings)
     if not settings.minio_endpoint or not settings.minio_access_key or not settings.minio_secret_key:
         if settings.object_store_required:
             raise RuntimeError("object storage is required but MinIO endpoint and credentials are incomplete")
-        return NullObjectStore()
+        return http_store or NullObjectStore()
     try:
-        return MinioObjectStore(
+        primary = MinioObjectStore(
             endpoint=settings.minio_endpoint,
             access_key=settings.minio_access_key,
             secret_key=settings.minio_secret_key,
@@ -116,4 +213,7 @@ def build_object_store(settings) -> ObjectStore:
     except Exception:
         if settings.object_store_required:
             raise
-        return NullObjectStore()
+        return http_store or NullObjectStore()
+    if http_store is None:
+        return primary
+    return FallbackObjectStore(primary, http_store)
