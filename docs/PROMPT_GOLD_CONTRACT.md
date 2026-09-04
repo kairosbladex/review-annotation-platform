@@ -152,7 +152,26 @@ image_sha256 集合交集为空；`*_inputs.jsonl` 不含禁用键
 
 ## 10. 验收映射
 
-- 运行输出第 7 节漏斗计数（raw→canonical→clean+conflict）。
+- 运行输出第 7 节漏斗计数（raw→canonical→clean/quarantine）。
 - `auditor` 证明 split SHA 交集为 0、输入文件无 gold/note/reviewer。
 - `backend/tests/test_prompt_eval_data.py` 固定夹具下重复导出字节级一致。
 - `PYTHONPATH=backend python3 -m pytest backend/tests -q` 通过。
+
+## 11. 部署服务适配器与失败分析（2026-09-03 增补，不改既有行为）
+
+在既有契约之外新增两个只增不改的模块，用于把**已部署复检服务**纳入同一评分体系：
+
+- `tools/prompt_eval_data/service_attempts.py`（schema `prompt-gold-service-attempts/1`）：
+  把预填充/服务运行的 `attempts.jsonl`（如 `data/ktd-8188-kimi-prefill-20260903/`）
+  转成第 8 节 scorer 的 decisions。`candidate_id → canonical_id` 经快照
+  `gold_records.jsonl` 的 aliases 连接。两种决策源必须分开评：
+  `--source decision`（服务最终上线判定，部署版把 uncertain 按设计转 confirmed）与
+  `--source yolo_decision`（验证器原始三态）。执行状态规则：attempt 失败 →
+  technical_failure；result 缺位/决策值不可映射 → protocol_error；`errorCode` 非空 →
+  technical_failure。同一 candidate 多次尝试取 (started_at, attempt_no) 最新；
+  输出行按 (canonical_id, candidate_id) 排序，确定性可复现。
+- `tools/prompt_eval_data/service_analysis.py`（schema `prompt-gold-service-analysis/1`）：
+  对 attempts 做字段分布、reasoning 模板归一化（数字/类名/标签脱敏后计数）、
+  时延分位的失败模式聚合，可嵌入 scorer 报告的 per-class 表。
+- 验收：`backend/tests/test_service_attempts.py` 通过；基线产物与复现命令见
+  `docs/KIMI_8188_BASELINE_HANDOFF.md`。
