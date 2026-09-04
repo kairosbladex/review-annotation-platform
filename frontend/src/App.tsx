@@ -1,5 +1,5 @@
 import { Activity, Archive, ChevronDown, Database, Download, LoaderCircle, Play, RefreshCw, Settings2, ShieldCheck, Sparkles, UploadCloud } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createAutoAnnotations, createExport, createModelRun, createProfile, getAssetUrl, getJob, getSample, labelCandidate, listProfiles, listSamples, login, uploadImages } from "./api";
 import { Inspector } from "./components/Inspector";
 import { QueuePanel } from "./components/QueuePanel";
@@ -77,11 +77,21 @@ function App() {
   const [job, setJob] = useState<Job | null>(null);
   const [autoAnnotationJob, setAutoAnnotationJob] = useState<AutoAnnotationJob | null>(null);
   const [autoAnnotationSubmitting, setAutoAnnotationSubmitting] = useState(false);
+  const queueRequestRef = useRef(0);
+  const detailRequestRef = useRef(0);
 
   const refreshQueue = useCallback(async (options?: { stealIfMissing?: boolean; page?: number }) => {
     if (!token) return;
+    const requestId = ++queueRequestRef.current;
     const page = options?.page ?? queuePage;
-    const result = await listSamples(token, statusFilter, page * QUEUE_PAGE_SIZE, QUEUE_PAGE_SIZE, classFilter, datasetFilter);
+    let result: Awaited<ReturnType<typeof listSamples>>;
+    try {
+      result = await listSamples(token, statusFilter, page * QUEUE_PAGE_SIZE, QUEUE_PAGE_SIZE, classFilter, datasetFilter);
+    } catch (reason) {
+      if (requestId === queueRequestRef.current) throw reason;
+      return;
+    }
+    if (requestId !== queueRequestRef.current) return;
     setSamples(result.samples);
     setQueueTotal(result.pagination.total);
     if (options?.page !== undefined && options.page !== queuePage) setQueuePage(options.page);
@@ -95,27 +105,50 @@ function App() {
 
   const refreshDetail = useCallback(async (sampleId: string) => {
     if (!token) return;
-    const result = await getSample(token, sampleId);
-    setSample(result);
-    setSelectedCandidateId((current) => {
-      const candidates = result.candidates.filter((item) => isDatasetCandidate(item, datasetFilter));
-      const currentItem = candidates.find((item) => item.candidate_id === current);
-      if (currentItem && currentItem.annotation.label === null) return current;
-      return nextPendingCandidateId(candidates, current) ?? candidates[0]?.candidate_id ?? result.candidates[0]?.candidate_id ?? null;
-    });
-    const original = result.assets.find((asset) => asset.kind === "original");
-    if (original?.status === "ready") {
-      try { setImageUrl((await getAssetUrl(token, original.asset_id)).url); } catch { setImageUrl(null); }
-    } else setImageUrl(null);
+    const requestId = ++detailRequestRef.current;
+    setSample(null);
+    setImageUrl(null);
+    setSelectedCandidateId(null);
+    try {
+      const result = await getSample(token, sampleId);
+      if (requestId !== detailRequestRef.current) return;
+      setSample(result);
+      setSelectedCandidateId((current) => {
+        const candidates = result.candidates.filter((item) => isDatasetCandidate(item, datasetFilter));
+        const currentItem = candidates.find((item) => item.candidate_id === current);
+        if (currentItem && currentItem.annotation.label === null) return current;
+        return nextPendingCandidateId(candidates, current) ?? candidates[0]?.candidate_id ?? null;
+      });
+      const original = result.assets.find((asset) => asset.kind === "original");
+      if (original?.status === "ready") {
+        try {
+          const asset = await getAssetUrl(token, original.asset_id);
+          if (requestId === detailRequestRef.current) setImageUrl(asset.url);
+        } catch {
+          if (requestId === detailRequestRef.current) setImageUrl(null);
+        }
+      }
+    } catch (reason) {
+      if (requestId === detailRequestRef.current) throw reason;
+    }
   }, [datasetFilter, token]);
+
+  useEffect(() => {
+    if (!token || !selectedId) {
+      detailRequestRef.current += 1;
+      setSample(null);
+      setImageUrl(null);
+      setSelectedCandidateId(null);
+      return;
+    }
+    refreshDetail(selectedId).catch((reason) => setError(reason instanceof Error ? reason.message : "读取样本失败"));
+  }, [refreshDetail, selectedId, token]);
 
   useEffect(() => {
     if (!token) return;
     setLoading(true); setError("");
     Promise.all([refreshQueue({ stealIfMissing: true }), listProfiles(token).then((result) => { setProfiles(result.profiles); setProfileId((current) => current || result.profiles[0]?.model_profile_id || ""); })]).catch((reason) => setError(reason instanceof Error ? reason.message : "读取数据失败")).finally(() => setLoading(false));
   }, [token, statusFilter, refreshQueue]);
-
-  useEffect(() => { if (token && selectedId) refreshDetail(selectedId).catch((reason) => setError(reason instanceof Error ? reason.message : "读取样本失败")); }, [refreshDetail, selectedId, token]);
 
   const visibleCandidates = sample?.candidates.filter((item) => isDatasetCandidate(item, datasetFilter)) ?? [];
   const candidate = visibleCandidates.find((item) => item.candidate_id === selectedCandidateId) ?? null;
@@ -151,7 +184,9 @@ function App() {
     try {
       const labeledId = candidate.candidate_id;
       const currentSampleId = sample.sample_id;
+      const requestId = detailRequestRef.current;
       const result = await labelCandidate(token, labeledId, { label, note, expected_revision: candidate.annotation.revision });
+      if (requestId !== detailRequestRef.current) return;
       const shouldAdvance = options?.advance !== false && label !== null;
       setSample(result.sample);
       if (!shouldAdvance) {
@@ -275,7 +310,7 @@ function App() {
       <section className="metric-strip"><div><span>待复核目标</span><strong>{stats.pending}</strong><small>当前页</small></div><div><span>已完成人工判断</span><strong>{stats.labeled}</strong><small>当前页</small></div><div><span>真目标</span><strong className="positive">{stats.true}</strong><small>当前页人工标注</small></div><div><span>假目标</span><strong className="negative">{stats.false}</strong><small>当前页人工标注</small></div><div className="metric-note"><Activity size={17} /><div><strong>一期评估口径</strong><span>候选框 precision · 不代表完整召回率</span></div></div></section>
       {autoAnnotationJob && <div className={`notice auto-annotation-notice ${autoAnnotationFailed ? "error" : ""}`}><Sparkles size={16} /><div className="auto-annotation-copy"><strong>AI 自动标注 · {autoAnnotationStatusLabel(autoAnnotationJob.status)}</strong><span>{autoAnnotationJob.completed}/{autoAnnotationJob.total} 个样本已处理{autoAnnotationJob.failed > 0 ? ` · 失败 ${autoAnnotationJob.failed}` : ""}</span><small>模型仅自动写入高置信多数结论；冲突/不确定保留待复核。</small>{autoAnnotationJob.error_summary && <small>任务信息：{autoAnnotationJob.error_summary}</small>}</div>{autoAnnotationTerminal && <button onClick={() => setAutoAnnotationJob(null)} aria-label="关闭 AI 自动标注状态">×</button>}</div>}
       {(error || actionMessage || job) && <div className={`notice ${error ? "error" : ""}`}>{error || actionMessage || `${job?.status === "running" ? "任务执行中" : "任务已创建"} · ${job?.completed ?? 0}/{job?.total ?? 0}`}<button onClick={() => { setError(""); setActionMessage(""); }}>×</button></div>}
-      <div className="review-layout"><QueuePanel samples={samples} selectedId={selectedId} statusFilter={statusFilter} classFilter={classFilter} datasetFilter={datasetFilter} classOptions={CLASS_FILTERS} query={query} pageOffset={queuePage * QUEUE_PAGE_SIZE} pageSize={QUEUE_PAGE_SIZE} total={queueTotal} onSelect={setSelectedId} onFilter={(value) => { setQueuePage(0); setStatusFilter(value); }} onClassFilter={(value) => { setQueuePage(0); setClassFilter(value); }} onDatasetFilter={(value) => { setQueuePage(0); setDatasetFilter(value); }} onQuery={(value) => { setQueuePage(0); setQuery(value); }} onPageChange={(page) => setQueuePage(page)} onUpload={handleUpload} uploading={uploading} /><div className="review-main">{loading && <div className="loading-overlay">加载队列…</div>}{sample ? <><div className="sample-context"><div><span className="eyebrow">SAMPLE DETAIL</span><h2>{sample.session_id ?? sample.sample_id}</h2><span>{sample.source_service ?? sample.source_type} · {sample.rule_code ?? "未指定规则"} · {sample.capture_time ? new Date(sample.capture_time).toLocaleString("zh-CN") : "时间未知"}</span></div><div className="context-actions">{sample.dataset_tags.includes("v2") && <span className="dataset-badge">V2 {sample.v2_pending_count}/{sample.v2_target_count}</span>}<span className="run-pill"><Archive size={13} />{activeRun?.model_run.model_version ?? "无模型版本"}</span><span className={`status-text ${sample.status}`}>{sample.status === "completed" ? "已完成" : sample.status === "in_progress" ? "进行中" : "待标注"}</span></div></div><div className="detail-layout"><ReviewCanvas imageUrl={imageUrl} candidates={visibleCandidates} selectedId={selectedCandidateId} onSelect={setSelectedCandidateId} /><Inspector key={selectedCandidateId ?? "none"} candidate={candidate} candidates={visibleCandidates} onSelect={setSelectedCandidateId} onLabel={saveLabel} saving={saving} /></div></> : <div className="no-sample"><UploadCloud size={34} /><h2>选择一个样本开始复核</h2><p>左侧队列会展示来自复检服务、MinIO 导入或页面上传的图片。</p></div>}</div></div>
+      <div className="review-layout"><QueuePanel samples={samples} selectedId={selectedId} statusFilter={statusFilter} classFilter={classFilter} datasetFilter={datasetFilter} classOptions={CLASS_FILTERS} query={query} pageOffset={queuePage * QUEUE_PAGE_SIZE} pageSize={QUEUE_PAGE_SIZE} total={queueTotal} onSelect={setSelectedId} onFilter={(value) => { setQueuePage(0); setSelectedId(null); setStatusFilter(value); }} onClassFilter={(value) => { setQueuePage(0); setSelectedId(null); setClassFilter(value); }} onDatasetFilter={(value) => { setQueuePage(0); setSelectedId(null); setDatasetFilter(value); }} onQuery={(value) => { setQueuePage(0); setQuery(value); }} onPageChange={(page) => { setQueuePage(page); setSelectedId(null); }} onUpload={handleUpload} uploading={uploading} /><div className="review-main">{loading && <div className="loading-overlay">加载队列…</div>}{sample ? <><div className="sample-context"><div><span className="eyebrow">SAMPLE DETAIL</span><h2>{sample.session_id ?? sample.sample_id}</h2><span>{sample.source_service ?? sample.source_type} · {sample.rule_code ?? "未指定规则"} · {sample.capture_time ? new Date(sample.capture_time).toLocaleString("zh-CN") : "时间未知"}</span></div><div className="context-actions">{sample.dataset_tags.includes("v2") && <span className="dataset-badge">V2 {sample.v2_pending_count}/{sample.v2_target_count}</span>}<span className="run-pill"><Archive size={13} />{activeRun?.model_run.model_version ?? "无模型版本"}</span><span className={`status-text ${sample.status}`}>{sample.status === "completed" ? "已完成" : sample.status === "in_progress" ? "进行中" : "待标注"}</span></div></div><div className="detail-layout"><ReviewCanvas imageUrl={imageUrl} candidates={visibleCandidates} selectedId={selectedCandidateId} onSelect={setSelectedCandidateId} /><Inspector key={selectedCandidateId ?? "none"} candidate={candidate} candidates={visibleCandidates} onSelect={setSelectedCandidateId} onLabel={saveLabel} saving={saving} /></div></> : <div className="no-sample"><UploadCloud size={34} /><h2>选择一个样本开始复核</h2><p>左侧队列会展示来自复检服务、MinIO 导入或页面上传的图片。</p></div>}</div></div>
     </main><footer className="app-footer"><span>RAP v0.1 · 数据由 PostgreSQL / MinIO 管理</span><span><ShieldCheck size={14} />所有标注操作均已审计</span></footer>
   </div>;
 }
