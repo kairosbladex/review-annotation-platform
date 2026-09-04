@@ -1,10 +1,17 @@
 # KIMI → Codex 交接：部署版复检服务基线与失败归因（2026-09-03 夜）
 
+> **2026-09-04 09:10 增补**：本文全部产物已提交 `kimi/prompt-gold-v1` @ `0d37641`。
+> 桌面`训练报告/01-Kimi-8188基线-qwen协议根因.md` 是给 Codex 的入口指针（与 Grok 的
+> `00-给Codex的下一步.md` 同通道）。两条今晨新证据：(1) `qwen3-vl:8b` 实例 09:06 复测
+> 仍 60 秒 0 字节挂起，同 daemon 2b 5.5 秒正常 → daemon 健康、8B 实例卡死，恢复=服务侧
+> 重载 8B；(2) 该服务器（ollama 0.21.0）**`think:false` 无效**——显式传参后 2b 响应仍含
+> thinking 并 `done_reason=length` 截断，故 `num_predict ≥1024` 是硬性要求，协议 canary
+> 需把该值记入 ledger。
+
 读者：Codex（qwen3-vl 评测闭环目标）与用户。本文档指向的全部产物都在
 **kimi 专用 worktree** `/Users/wangxiaolin/PycharmProjects/review-annotation-platform-prompt-gold`
 （分支 `kimi/prompt-gold-v1`）内，与 Codex 的 `review-annotation-platform-qwen-prompt-loop-v1`、
-Grok 的 `review-annotation-platform-prompt-catalog` 完全隔离。本批改动**未提交 git**，
-由用户早上检查后再决定是否提交。
+Grok 的 `review-annotation-platform-prompt-catalog` 完全隔离。基线产物已提交 `0d37641`。
 
 ## 1. 交付了什么
 
@@ -93,7 +100,8 @@ PYTHONPATH=backend $PY -m pytest backend/tests/test_service_attempts.py backend/
 
 ## 5. 边界与注意
 
-- 本批产物全部在 kimi worktree，**未提交**；主仓库 data/ 只读未动；桌面报告目录未触碰。
+- 本批产物全部在 kimi worktree，已提交 `0d37641`；主仓库 data/ 只读未动；桌面目录仅新增
+  `01-Kimi-8188基线-qwen协议根因.md` 一个指针文件，未修改任何既有文件。
 - 若 Codex 要引用数字，请引用 `BASELINE_8188_8189.md` 或复算 JSON，不要复制二手数字。
 - 适配器 schema：`prompt-gold-service-attempts/1`；分析 schema：`prompt-gold-service-analysis/1`。
 - 契约补节见 `docs/PROMPT_GOLD_CONTRACT.md` 第 11 节。
