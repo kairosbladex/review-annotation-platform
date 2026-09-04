@@ -202,3 +202,44 @@ prompt-gold 快照构建成裁剪图训练数据集，供任意"候选框复核�
   （dangerous_miss_rate / false_accept_rate + Wilson CI）。uncertain 教师行不进目标函数。
 - 验收：`backend/tests/test_crop_dataset.py`（split 不相交、标签分离、locked 全排除、
   裁剪像素与放大、字节级重复构建）与 `backend/tests/test_crop_verifier_train.py` 通过。
+
+## 13. paired scorer（v1.0.0 vs v1.1.0，2026-09-04 增补，不改既有行为）
+
+`tools/prompt_eval_data/paired_scorer.py`（schema `prompt-gold-paired-score/1`、误例包
+`prompt-gold-paired-error-packet/1`）对 Codex paired selection run 的两份 final decisions
+做只读、确定性的成对评分。复用第 8 节的 `judge`、`normalize_decision`、三态定义与
+Wilson CI，只新增成对对齐与门禁。
+
+- **输入**：`final_decisions_v1.0.0.jsonl` 与 `final_decisions_v1.1.0.jsonl`（Codex
+  paired run 产物，行含 `canonical_id/execution_status/decision/class_name/prompt_version/
+  run_id/safety_action`）；两份 run `report.json`（终态证据）；固定快照
+  `pg1-bc8c818184d8` 的 `selection_gold.jsonl`（438 框）。
+- **显式失败（退出码 2，绝不静默丢行或按顺序对齐）**：任一行 JSON 不可解析；
+  canonical_id 重复/缺失/多余（两侧集合必须各自与 selection_gold 完全相等）；
+  `prompt_version` 不以对应 `.v1.0.0`/`.v1.1.0` 结尾；decisions 的 `run_id` 与 report
+  不一致或一份文件内多个 run_id；manifest SHA 不等于
+  `4c15c3892c69eea10f28c3cd1fbc381ed6b34c7690922a34af189d5c2cd752b2`（CLI 默认钉死，
+  `--expect-manifest-sha` 仅供夹具测试覆盖）、selection_gold/
+  selection_inputs SHA 与 manifest files[] 不一致；run report `status` 非终态
+  （终态集 `{succeeded, partial_failed}`）或 report 中 snapshot SHA 与 manifest 不一致。
+- **状态映射**：Codex 的 `execution_status="succeeded"` 归一到第 8 节 `ok`；
+  `technical_failure/protocol_error` 依旧 `decision=null`、语义 keep，不算 true/false；
+  合法 `uncertain` 单独统计。gold 侧 `class_name` 为业务主键，`class_id` 只按快照原值
+  校验（禁止重排）；decisions 行 `class_name` 与 gold 不一致即失败。
+- **统计**：overall 与 per-class 的八桶计数（分母 gold_true/gold_false）、
+  dangerous_miss_rate/false_accept_rate/uncertain_rate + Wilson 95% CI，两侧各一份；
+  paired 迁移矩阵（v1.0 桶 → v1.1 桶）、改善/退化 canonical_id 列表（桶严重度
+  correct < uncertain < failure < false_accept < dangerous_miss）、新增危险误杀、
+  恢复的正确拒绝（false_accept→correct_reject）、UNCERTAIN 增减列表。
+- **口径**：调用数（两侧行数之和，成对 run 为 876）与独立框数（438）分列；
+  一切准确率分母只用单侧 438 的 gold_true/gold_false。scope 固定 `candidate_box`。
+- **门禁**：v1.1 须 dangerous_miss=0 且不劣于 v1.0（dangerous_miss、false_accept、
+  failure 不增，correct_accept、correct_reject 不减）→ `passed`；全部指标持平 →
+  `verdict="tie_keep_v1.0"`，必须建议保留 v1.0，不得写成提升；任一严格更优 →
+  `improved`；任一检查失败 → `regressed`。
+- **误例包**（给 Grok，去标识化）：仅含任一侧非 correct 的 canonical_id、class_name、
+  两版 final/execution_status/safety_action/axes/reason_codes、两侧错误桶、图像引用
+  （image_sha256/object_key）。**禁止**写入 gold label/note/reviewer；axes/reason_codes
+  仅在传入对应 run 目录（attempts.jsonl + prompt_manifest.json，同版本后缀、按
+  (attempt_no, attempt_id) 取最新）时填充，否则为 null。
+- 验收：`backend/tests/test_paired_scorer.py` 通过；同输入重复运行字节级一致。
