@@ -59,6 +59,14 @@ class AnnotationUpdate(BaseModel):
     expected_revision: int | None = Field(default=None, ge=0)
 
 
+class AgentReviewRequestInput(BaseModel):
+    cycle_id: str = Field(min_length=1, max_length=120)
+    candidate_id: str = Field(min_length=1, max_length=32)
+    reason_code: str = Field(min_length=1, max_length=120)
+    reason: str = Field(min_length=1, max_length=4000)
+    attempt_refs: list[str] = Field(default_factory=list, max_length=20)
+
+
 class ModelRunRequest(BaseModel):
     sample_ids: list[str] = Field(min_length=1, max_length=10000)
     model_profile_id: str

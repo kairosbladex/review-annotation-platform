@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hmac
 import uuid
 from contextlib import contextmanager
 from pathlib import Path
@@ -15,13 +16,14 @@ from .adapters.model_provider import build_model_adapter
 from .config import Settings
 from .db import Base, build_engine, build_session_factory
 from .models import Annotation, AnnotationTask, AuditEvent, Candidate, ExportRecord, Job, ModelProfile, ModelRun, ModelRunSample, Sample, User, AutoAnnotationRun
-from .schemas import AnnotationUpdate, AutoAnnotationRequest, ExportRequest, LoginRequest, MinioImportRequest, ModelProfileCreate, ModelRunRequest, ReviewEventInput
+from .schemas import AgentReviewRequestInput, AnnotationUpdate, AutoAnnotationRequest, ExportRequest, LoginRequest, MinioImportRequest, ModelProfileCreate, ModelRunRequest, ReviewEventInput
 from .security import decode_token, hash_password, issue_token, verify_password
 from .services.annotation_service import import_minio_prefix, import_uploaded_bytes, ingest_review_event, serialize_sample, update_annotation
 from .services.dataset_queue import DatasetQueueIndex, V2_DATASET_TAG
 from .services.model_run_service import execute_model_job
 from .services.export_service import execute_export_job
 from .services.auto_annotation_service import create_auto_annotation_run, execute_auto_annotation_job
+from .services.agent_api import create_agent_review_request, list_agent_candidates, list_human_gold
 from .tasks.dispatcher import CeleryDispatcher
 
 
@@ -110,12 +112,68 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             return user
 
     def service_auth(x_service_key: str | None = Header(default=None)) -> None:
-        if not settings.service_api_key or x_service_key != settings.service_api_key:
+        if (
+            not settings.service_api_key
+            or not x_service_key
+            or not hmac.compare_digest(
+                x_service_key.encode("utf-8"), settings.service_api_key.encode("utf-8")
+            )
+        ):
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="服务密钥无效")
 
     @app.get("/api/v1/health")
     def health():
         return {"status": "ok"}
+
+    @app.get("/api/v1/agent/candidates")
+    def agent_candidates(
+        cursor: str | None = None,
+        limit: int = 100,
+        _: None = Depends(service_auth),
+    ):
+        if limit < 1 or limit > 500:
+            raise HTTPException(status_code=422, detail="limit must be between 1 and 500")
+        with session_scope() as session:
+            try:
+                return list_agent_candidates(session, cursor=cursor, limit=limit)
+            except ValueError as exc:
+                raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    @app.post("/api/v1/agent/review-requests")
+    def agent_review_request(
+        payload: AgentReviewRequestInput,
+        _: None = Depends(service_auth),
+    ):
+        with session_scope() as session:
+            try:
+                review_request, created = create_agent_review_request(session, payload)
+            except LookupError as exc:
+                raise HTTPException(status_code=404, detail=str(exc)) from exc
+            session.commit()
+            return JSONResponse(
+                status_code=201 if created else 200,
+                content={
+                    "review_request_id": review_request.id,
+                    "candidate_id": review_request.candidate_id,
+                    "cycle_id": review_request.cycle_id,
+                    "status": review_request.status,
+                    "created": created,
+                },
+            )
+
+    @app.get("/api/v1/agent/human-gold")
+    def agent_human_gold(
+        cursor: str | None = None,
+        limit: int = 100,
+        _: None = Depends(service_auth),
+    ):
+        if limit < 1 or limit > 500:
+            raise HTTPException(status_code=422, detail="limit must be between 1 and 500")
+        with session_scope() as session:
+            try:
+                return list_human_gold(session, cursor=cursor, limit=limit)
+            except ValueError as exc:
+                raise HTTPException(status_code=400, detail=str(exc)) from exc
 
     @app.post("/api/v1/auth/login")
     def login(payload: LoginRequest):

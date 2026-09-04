@@ -191,6 +191,26 @@ class Annotation(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
 
 
+class AgentReviewRequest(Base):
+    """Idempotent handoff from the learning agent to the human queue."""
+
+    __tablename__ = "agent_review_requests"
+    __table_args__ = (
+        UniqueConstraint("cycle_id", "candidate_id", name="uq_agent_review_cycle_candidate"),
+    )
+
+    id: Mapped[str] = mapped_column(String(32), primary_key=True, default=new_id)
+    cycle_id: Mapped[str] = mapped_column(String(120), index=True)
+    candidate_id: Mapped[str] = mapped_column(
+        ForeignKey("candidates.id", ondelete="CASCADE"), index=True
+    )
+    reason_code: Mapped[str] = mapped_column(String(120), index=True)
+    reason: Mapped[str] = mapped_column(Text)
+    attempt_refs_json: Mapped[str] = mapped_column(Text, default="[]")
+    status: Mapped[str] = mapped_column(String(30), default="pending", index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+
+
 class IngestionEvent(Base):
     __tablename__ = "ingestion_events"
 
