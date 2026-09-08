@@ -2,6 +2,28 @@ import type { AutoAnnotationJob, Job, ModelProfile, Sample } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "/api/v1";
 
+export type HistoryCompareResult = {
+  status: "matched" | "not_found";
+  polygons: [number, number][][];
+  change_count: number;
+  current_width: number;
+  current_height: number;
+  baseline_width: number;
+  baseline_height: number;
+  coordinate_space: "normalized_current";
+  alignment: { method: string; inliers: number; overlap: number };
+  diff_summary: string;
+  semantic: { status: string; summary: string | null; error: string | null; region_count: number };
+};
+
+export async function compareHistoryImages(token: string, baseline: File, current: File, signal: AbortSignal) {
+  const form = new FormData(); form.append("baseline", baseline); form.append("current", current);
+  const response = await fetch(`${API_BASE}/history-compare`, { method: "POST", headers: { Authorization: `Bearer ${token}` }, body: form, signal });
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(typeof body.detail === "string" ? body.detail : `对比失败（${response.status}）`);
+  return body as HistoryCompareResult;
+}
+
 async function request<T>(path: string, init: RequestInit = {}, token?: string): Promise<T> {
   const headers = new Headers(init.headers);
   headers.set("Content-Type", "application/json");

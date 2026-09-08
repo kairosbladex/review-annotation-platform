@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import hmac
 import uuid
+import threading
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -120,6 +121,34 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             )
         ):
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="服务密钥无效")
+
+    history_compare_slots = threading.BoundedSemaphore(2)
+
+    @app.post("/api/v1/history-compare")
+    def history_compare(
+        baseline: UploadFile = File(...),
+        current: UploadFile = File(...),
+        _: User = Depends(current_user),
+    ):
+        from .services.history_compare import MAX_IMAGE_BYTES, compare_images
+
+        if not history_compare_slots.acquire(blocking=False):
+            raise HTTPException(status_code=503, detail="历史对比繁忙，请稍后重试")
+        try:
+            reference_bytes = baseline.file.read(MAX_IMAGE_BYTES + 1)
+            current_bytes = current.file.read(MAX_IMAGE_BYTES + 1)
+            if max(len(reference_bytes), len(current_bytes)) > MAX_IMAGE_BYTES:
+                raise HTTPException(status_code=413, detail="单张图片不能超过20MB")
+            return compare_images(
+                reference_bytes, current_bytes,
+                base_url=settings.history_compare_ollama_url,
+                model=settings.history_compare_model,
+                timeout=settings.history_compare_timeout_seconds,
+            )
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+        finally:
+            history_compare_slots.release()
 
     @app.get("/api/v1/health")
     def health():

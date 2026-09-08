@@ -30,6 +30,9 @@ class Settings:
     model_service_detect_endpoint: str = "/api/v1/review-agent/yolo-detect"
     model_service_review_endpoint: str = "/api/v1/review-agent/review"
     model_service_verify_tls: bool = True
+    history_compare_ollama_url: str = ""
+    history_compare_model: str = "qwen3.5:9b"
+    history_compare_timeout_seconds: int = 60
     # The auto-annotation path talks to an OpenAI Responses-compatible vision
     # endpoint.  Its credential intentionally has no non-empty default and is
     # never copied into a model profile or job payload.
@@ -76,6 +79,9 @@ class Settings:
             model_service_detect_endpoint=os.getenv("MODEL_SERVICE_DETECT_ENDPOINT", cls.model_service_detect_endpoint),
             model_service_review_endpoint=os.getenv("MODEL_SERVICE_REVIEW_ENDPOINT", cls.model_service_review_endpoint),
             model_service_verify_tls=os.getenv("MODEL_SERVICE_VERIFY_TLS", "true").lower() in {"1", "true", "yes", "on"},
+            history_compare_ollama_url=os.getenv("HISTORY_COMPARE_OLLAMA_URL", "").rstrip("/"),
+            history_compare_model=os.getenv("HISTORY_COMPARE_MODEL", cls.history_compare_model),
+            history_compare_timeout_seconds=int(os.getenv("HISTORY_COMPARE_TIMEOUT_SECONDS", "60")),
             auto_annotation_api_key=os.getenv("AUTO_ANNOTATION_API_KEY", ""),
             auto_annotation_base_url=os.getenv("AUTO_ANNOTATION_BASE_URL", cls.auto_annotation_base_url).rstrip("/"),
             auto_annotation_model=os.getenv("AUTO_ANNOTATION_MODEL", cls.auto_annotation_model),
