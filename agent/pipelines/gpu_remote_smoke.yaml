@@ -1,0 +1,22 @@
+# P1 dry-run: validates preflight -> submit -> monitor -> sync over SSH
+# without touching the GPU. `command` is a trivial stand-in for training.
+pipeline_id: gpu-remote-smoke
+version: "0.1.0"
+nodes:
+  - remote_preflight
+  - remote_submit
+  - remote_monitor
+  - remote_sync
+params:
+  remote_root: /data/workspace/review-annotation-platform-ktd/agent-runs
+  gpu_index: 4
+  min_free_gpu_mib: 1024
+  command: "echo job-start; sleep 5; hostname; echo job-done"
+  poll_seconds: 2
+  max_wait_seconds: 120
+  local_dir: data/agent-runs/{run_id}
+  sync_files:
+    - path: job.log
+      kind: log
+    - path: run.sh
+      kind: script

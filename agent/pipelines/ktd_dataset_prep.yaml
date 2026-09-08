@@ -1,0 +1,13 @@
+# P0 smoke pipeline: wrap the existing dataset-prep script as a traced node.
+# Paths are relative to the repo root; {run_id} is substituted by the runner.
+pipeline_id: ktd-dataset-prep
+version: "0.1.0"
+nodes:
+  - dataset_prep
+params:
+  manifest: data/recheck-runs/ktd-uncertain-recheck-20260903/yolo_image_manifest.jsonl
+  class_map: data/recheck-runs/ktd-uncertain-recheck-20260903/class_map.json
+  output_dir: data/agent-runs/{run_id}
+  download: false
+  val_ratio: 0.2
+  seed: 42
