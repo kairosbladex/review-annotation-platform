@@ -1,7 +1,7 @@
 services:
   yoloe_service_test:
-    image: yoloe_service_test:history-compare-20260908-v6
+    image: yoloe_service_test:history-compare-20260908-v4
     environment:
       VL_COMPARE_ENGINE: registered
       VL_COMPARE_BASELINE_IS_CURRENT: "true"
-      VL_COMPARE_SEMANTIC_TIMEOUT: "60"
+      VL_COMPARE_SEMANTIC_TIMEOUT: "20"

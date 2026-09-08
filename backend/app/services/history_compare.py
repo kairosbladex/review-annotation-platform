@@ -163,7 +163,7 @@ def describe_changes(result: dict, *, base_url: str, model: str, timeout: float,
         prompt += '\n用户比较要求（仅用于限定关注对象）：\n' + task_description
         prompt += f'\n本次共{count}行，每行都必须返回一个判断。'
     try:
-        with httpx.Client(timeout=httpx.Timeout(timeout, connect=min(timeout, 5.0)), trust_env=False) as client:
+        with httpx.Client(timeout=timeout, trust_env=False) as client:
             response = client.post(f'{base_url.rstrip("/")}/api/chat', json={
                 'model': model, 'stream': False, 'think': False, 'format': 'json',
                 'messages': [{'role': 'user', 'content': prompt, 'images': [base64.b64encode(buf.getvalue()).decode()]}],

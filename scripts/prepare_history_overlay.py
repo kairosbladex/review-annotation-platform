@@ -31,7 +31,7 @@ def patch_router(source: bytes, expected_sha: str = LEGACY_SHA256) -> str:
                 task_description=prompt,
                 baseline_is_current=_env("VL_COMPARE_BASELINE_IS_CURRENT", "false").lower() == "true",
                 base_url=client.base_url, model=client.model,
-                timeout=max(1.0, min(120.0, _env_float("VL_COMPARE_SEMANTIC_TIMEOUT", 60.0))),
+                timeout=max(1.0, min(20.0, _env_float("VL_COMPARE_SEMANTIC_TIMEOUT", 20.0))),
             )
         except ComparisonBusy as exc:
             raise HTTPException(status_code=503, detail=str(exc)) from exc
