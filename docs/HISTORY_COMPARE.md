@@ -35,3 +35,18 @@ URL 默认留空，关闭语义描述。使用 Compose 时在部署环境文件�
 Qwen 接收面积最大的最多 8 处变化区域的配对裁剪，仅负责局部语义描述，不生成或修改多边形。描述属于模型输出，不能作为全图物体数量或因果判断；超过 8 处时几何结果仍包含全部检测区域。
 
 2026-09-08 本地验证：用户提供的 4032×3024 光伏原图识别到 4 处新增区域；交换时间顺序验证缺失方向。另覆盖相同图、平移、整体亮度变化、无法配准、无效/过大文件、认证、模型超时与 Markdown JSON 返回。桌面及手机浏览器验证上传、对比、叠加层切换、交换照片和返回人工复核。此次为本地实现与验证，未部署到 8188/8189。
+
+## 独立测试部署
+
+2026-09-08 经用户确认，部署到本机独立 Compose 项目 `review-history-test`。入口为 <http://127.0.0.1:5275/#history-compare>，API 为 `127.0.0.1:8392`。使用本机测试账号 `admin / change-me-admin-password`，仅绑定回环地址。原有 `5274/8391` 测试栈和本机标注数据保持不变。
+
+配置文件为 `deploy/history-compare.test.yml`，需要支持 `!override` 的 Docker Compose（已用 5.5.0 验证）。镜像 `review-history-api:683feb3` 和 `review-history-frontend:683feb3` 从干净提交 `683feb3bd36fb9fc2621c1a09a017a447a866f97` 构建。启动已构建镜像：
+
+```bash
+docker compose --env-file .env.example -p review-history-test \
+  -f docker-compose.yml -f deploy/history-compare.test.yml up -d --no-build
+```
+
+该项目使用独立网络及 `review-history-test_*` 数据卷，MinIO 端口为 `127.0.0.1:9002/9003`。服务设置为 `unless-stopped`，Docker 恢复运行时自动启动。比较文件和结果仍不自动持久化，需要保留结果时在页面下载 JSON。
+
+部署验收：实际 Nginx 入口完成原图正反向对比，均为 4 处变化，桌面和手机截图无溢出；未认证为 401，无效图片为 422，超过 20 MiB 为 413，相同图片为零变化。新 PostgreSQL 已迁移至 `0004_agent_review_fingerprint`，样本/候选框/标注仍为零。原测试栈的 16 张表记录数与部署前一致，其 API、Worker、前端启动时间仍为 2026-09-02。本次未操作远端 8188/8189 服务。
