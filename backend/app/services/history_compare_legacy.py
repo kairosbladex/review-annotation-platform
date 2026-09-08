@@ -7,7 +7,7 @@ import time
 import numpy as np
 from PIL import Image, ImageOps
 
-from .history_compare import MAX_PIXELS, compare_geometry, describe_changes
+from .history_compare import MAX_PIXELS, compare_geometry, describe_changes, filter_task_changes
 
 _slots = threading.BoundedSemaphore(2)
 
@@ -17,7 +17,8 @@ class ComparisonBusy(RuntimeError):
 
 
 def compare_legacy_pair(first: Image.Image, second: Image.Image, *, one_to_many: bool,
-                        baseline_is_current: bool, base_url: str, model: str, timeout: float) -> dict:
+                        baseline_is_current: bool, base_url: str, model: str, timeout: float,
+                        task_description: str | None = None) -> dict:
     if not _slots.acquire(blocking=False):
         raise ComparisonBusy('历史对比繁忙，请稍后重试')
     started = time.perf_counter()
@@ -29,11 +30,13 @@ def compare_legacy_pair(first: Image.Image, second: Image.Image, *, one_to_many:
         second = ImageOps.exif_transpose(second).convert('RGB')
         current, history = (first, second) if one_to_many or baseline_is_current else (second, first)
         result = compare_geometry(np.asarray(history), np.asarray(current))
-        semantic = describe_changes(result, base_url=base_url, model=model, timeout=timeout)
+        semantic = (filter_task_changes(result, base_url=base_url, model=model, timeout=timeout,
+                                        task_description=task_description) if task_description else
+                    describe_changes(result, base_url=base_url, model=model, timeout=timeout))
         summary = result['diff_summary']
         if semantic['summary']:
             summary += f"。局部变化描述（{semantic['region_count']}处）：{semantic['summary']}"
-        elif semantic['error']:
+        if semantic['error']:
             summary += f"。{semantic['error']}"
         if not one_to_many:
             current_label, history_label = ('基准照片', '对比照片') if baseline_is_current else ('对比照片', '基准照片')

@@ -55,3 +55,30 @@ def test_overlay_refuses_unknown_source_and_keeps_legacy_branch():
     exec(patched, namespace)
     import asyncio
     assert asyncio.run(namespace['_compare_pair'](None, None, None, None)) == 'old_one'
+
+
+def test_overlay_passes_user_scope_to_registered_adapter(monkeypatch):
+    import asyncio
+    import json
+    import sys
+    from types import SimpleNamespace
+    path = Path(__file__).resolve().parents[2] / 'scripts/prepare_history_overlay.py'
+    spec = importlib.util.spec_from_file_location('history_overlay', path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    source = b'def _build_prompt(mode, req, extra_params):\n    return "old"\nasync def _compare_pair(prompt, current, history, client):\n    pass\nasync def _compare_baseline_compare_pair(prompt, baseline, compare, client):\n    pass\n'
+    calls = []
+    def compare(*args, **kwargs):
+        calls.append(kwargs)
+    monkeypatch.setitem(sys.modules, 'history_compare_runtime.services.history_compare_legacy',
+                        SimpleNamespace(ComparisonBusy=RuntimeError, compare_legacy_pair=compare))
+    namespace = {'asyncio': asyncio, 'json': json, '_env': lambda key, default: 'registered',
+                 '_env_float': lambda key, default: default}
+    exec(module.patch_router(source, hashlib.sha256(source).hexdigest()), namespace)
+    prompt = namespace['_build_prompt'](None, SimpleNamespace(task_description='对比光伏板'), None)
+    assert json.loads(prompt)['task_description'] == '对比光伏板'
+    image = SimpleNamespace(image=None)
+    client = SimpleNamespace(base_url='http://model.invalid', model='test')
+    for helper in ('_compare_pair', '_compare_baseline_compare_pair'):
+        asyncio.run(namespace[helper](prompt, image, image, client))
+    assert all(c['task_description'] == prompt and c['timeout'] == 60 for c in calls)

@@ -116,7 +116,8 @@ def compare_geometry(baseline: np.ndarray, current: np.ndarray) -> dict:
     return result
 
 
-def describe_changes(result: dict, *, base_url: str, model: str, timeout: float) -> dict:
+def describe_changes(result: dict, *, base_url: str, model: str, timeout: float,
+                     task_description: str | None = None) -> dict:
     if result['status'] != 'matched' or not result['polygons']:
         return {'status': 'not_needed', 'summary': None, 'error': None, 'region_count': 0}
     if not base_url:
@@ -138,12 +139,15 @@ def describe_changes(result: dict, *, base_url: str, model: str, timeout: float)
     buf = io.BytesIO()
     sheet.save(buf, format='JPEG', quality=85)
     prompt = Path(__file__).resolve().parents[1].joinpath('prompts/history_compare.txt').read_text(encoding='utf-8')
+    if task_description:
+        prompt = Path(__file__).resolve().parents[1].joinpath('prompts/history_compare_filter.txt').read_text(encoding='utf-8')
+        prompt += '\n用户要求：' + task_description + f'\n本批共{count}行。'
     try:
         with httpx.Client(timeout=timeout, trust_env=False) as client:
             response = client.post(f'{base_url.rstrip("/")}/api/chat', json={
                 'model': model, 'stream': False, 'think': False, 'format': 'json',
                 'messages': [{'role': 'user', 'content': prompt, 'images': [base64.b64encode(buf.getvalue()).decode()]}],
-                'options': {'temperature': 0, 'num_predict': 256},
+                'options': {'temperature': 0, 'num_predict': 1024 if task_description else 256},
             })
             response.raise_for_status()
             content = response.json()['message']['content']
@@ -151,13 +155,63 @@ def describe_changes(result: dict, *, base_url: str, model: str, timeout: float)
                 lines = content.strip().splitlines()
                 if len(lines) >= 3 and lines[-1].strip() == '```':
                     content = '\n'.join(lines[1:-1])
-            summary = json.loads(content).get('summary')
+            parsed = json.loads(content)
+            if task_description:
+                regions = parsed.get('regions')
+                if not isinstance(regions, list) or len(regions) != count:
+                    raise ValueError('missing region decisions')
+                decisions = {}
+                for region in regions:
+                    identifier = region.get('id')
+                    if type(identifier) is not int or not 1 <= identifier <= count or identifier in decisions:
+                        raise ValueError('invalid region id')
+                    if region.get('decision') not in {'keep', 'ignore', 'uncertain'}:
+                        raise ValueError('invalid region decision')
+                    if not isinstance(region.get('summary'), str) or not region['summary'].strip() or len(region['summary']) > 300:
+                        raise ValueError('invalid region summary')
+                    decisions[identifier] = region
+                kept = [i for i in range(1, count + 1) if decisions[i]['decision'] == 'keep']
+                return {'status': 'completed', 'summary': '；'.join(decisions[i]['summary'] for i in kept) or None,
+                        'error': None, 'region_count': len(kept), 'kept_indices': [i - 1 for i in kept],
+                        'uncertain_count': sum(r['decision'] == 'uncertain' for r in regions)}
+            summary = parsed.get('summary')
             if not isinstance(summary, str) or not summary.strip() or len(summary) > 1000:
                 raise ValueError('invalid summary')
         return {'status': 'completed', 'summary': summary.strip(), 'error': None, 'region_count': count}
     except (httpx.HTTPError, ValueError, KeyError, TypeError, AttributeError) as exc:
         logger.warning('History comparison description failed: %s', type(exc).__name__)
         return {'status': 'failed', 'summary': None, 'error': '语义描述请求失败或超时，变化区域已完成定位', 'region_count': 0}
+
+
+def filter_task_changes(result: dict, *, base_url: str, model: str, timeout: float,
+                        task_description: str) -> dict:
+    import time
+    if result['status'] != 'matched':
+        return {'summary': None, 'error': None, 'region_count': 0}
+    candidates = result['polygons']
+    retained = []
+    uncertain = 0
+    deadline = time.monotonic() + timeout
+    # Review every candidate in readable batches; an unfinished review is not "no change".
+    for start in range(0, len(candidates), 8):
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            uncertain += len(candidates) - start
+            break
+        batch = {**result, 'polygons': candidates[start:start + 8]}
+        review = describe_changes(batch, base_url=base_url, model=model, timeout=remaining,
+                                  task_description=task_description)
+        if review['status'] != 'completed':
+            uncertain += len(candidates) - start
+            break
+        retained.extend(batch['polygons'][i] for i in review['kept_indices'])
+        uncertain += review['uncertain_count']
+    error = f'{uncertain}处候选区域未能确认，需人工复核' if uncertain else None
+    result.update(polygons=retained, change_count=len(retained),
+                  status='not_found' if uncertain and not retained else 'matched',
+                  diff_summary=(f'检测到{len(retained)}处符合任务的明显变化' if retained else
+                                '未能确认目标变化，请人工复核' if uncertain else '没有明显变化'))
+    return {'summary': None, 'error': error, 'region_count': len(retained)}
 
 
 def compare_images(baseline: bytes, current: bytes, *, base_url: str, model: str, timeout: float) -> dict:
