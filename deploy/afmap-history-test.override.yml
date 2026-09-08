@@ -1,6 +1,6 @@
 services:
   yoloe_service_test:
-    image: yoloe_service_test:history-compare-20260908-v2
+    image: yoloe_service_test:history-compare-20260908-v3
     environment:
       VL_COMPARE_ENGINE: registered
       VL_COMPARE_BASELINE_IS_CURRENT: "true"

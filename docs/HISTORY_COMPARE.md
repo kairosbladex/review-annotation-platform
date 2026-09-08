@@ -85,4 +85,18 @@ AFMAP 的 `/ai-comparison/image/add` 经业务服务调用 8189 的 `/api/v1/vl-
 
 16 项相关测试通过。部署后的真实 HTTP 请求使用同一光伏照片对，耗时 9.84 秒返回 4 处变化，摘要为“基准照片相较对比照片，检测到4处可定位变化。局部变化描述（4处）：基准照片相较对比照片，屋面新增了大量深蓝色光伏板阵列，覆盖了大部分原本裸露的混凝土表面。”历史持久化记录未批量改写，需要重新对比才能生成新文案。
 
+### 任务范围和纯色差过滤（v3，2026-09-08）
+
+蓝色屋顶样本记录 880 原先返回两处区域，模型摘要明确说第二处“无变化”，但旧兼容层既未传递用户要求，也不根据模型判断筛除区域。v3 将请求的 `task_description`、`image_description`、`compare_goal` 直接传给区域复核，不再把旧整图提示词作为新引擎输入。用户明确指定的比较对象优先于“批量识别变化”等通用目标。
+
+几何层先排除近似恒定局部 RGB 偏移：轮廓内部腐蚀后至少 30 像素，扣除局部中位偏移的残差第 90 百分位小于 10 时视为纯外观变化。随后模型逐区域返回对象相关性和 keep/unrelated/color_only/unchanged/uncertain；只有明确相关且 keep 的区域出框。道路形状不变、仅颜色/明暗变化、无关对象和配准窄边不保留；光伏板新增/缺失等真实物体变化仍保留。
+
+**此策略取代上述 v1/v2 在 AFMAP 中的失败降级行为**：模型失败、漏答、非法行号或超时不会展示未经确认的候选框，也不会返回“无变化”，而是 `not_found` 加人工复核提示。每次最多复核面积最大的 8 处，超额或 uncertain 区域明确提示未确认；已确认区域仍可展示。独立平台未指定任务的描述接口仍沿用原失败保留几何结果行为。
+
+24 项相关测试通过，覆盖纯色差、真实物体变化、任务相关性、超时、漏答与非法返回。部署前完整兼容路由验证：同一蓝色屋顶照片对，屋顶任务只保留 1 处屋顶变化（9.313 秒），道路形状任务为 0 处（7.718 秒）；原光伏样本 4 处新增仍保留（最终提示词验证 13.491 秒）。这些是有限回归样例，不代表各场景准确率；其他路面样本仍需以原图验证。
+
+测试镜像为 `yoloe_service_test:history-compare-20260908-v3`，ID `sha256:39cc95ed734aeaadea81de194c4ab54fbe611c85c4f9650c664a54824ffb4f25`。第五份 override 使用 `/data/workspace/jzheng/review-test-releases/history-compare-20260908-v3/compose.override.yml`，其余四份保持不变。回退此过滤策略时将第五份 override 切回 v2，确认无活动任务后仅重建 8189。旧记录不回写，重新发起比较才能生成筛选后的区域。
+
+已部署且 8189 healthy。上线后真实 HTTP 复验：蓝色屋顶任务为 1 个屋顶框（8.785 秒），道路形状任务为 0 个框（7.642 秒）。8188 容器身份与启动时间核验未变动。
+
 远端部署目录：`/data/workspace/jzheng/review-test-releases/history-compare-20260908-v1`。旧镜像保留为 `yoloe_service_test:history-compare-base-20260908`（原镜像 ID `sha256:49c6f52ba9967f18f717c8fe647ac9769fc41476008bc19af83072c7a52a3106`）。原 Compose 配置依次为主项目 `docker-compose.yml`、`resnet18-20260907-v1/deploy/resnet-test/compose.override.yml`、`voice-perf-20260907-v2/compose.override.yml`、`human-20260907-v1/compose.model-test.yml`，部署时追加本次目录的 `compose.override.yml`。回退需在无活动任务时使用原四份配置、移除本次附加文件，仅重建 `yoloe_service_test`；不得删除共享网络或使用 `--remove-orphans`。

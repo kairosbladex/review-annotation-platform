@@ -105,6 +105,15 @@ def compare_geometry(baseline: np.ndarray, current: np.ndarray) -> dict:
     contours.sort(key=cv2.contourArea, reverse=True)
     polygons = []
     for contour in contours:
+        # An approximately constant local RGB offset is appearance, not new structure.
+        interior = np.zeros(mask.shape, np.uint8)
+        cv2.drawContours(interior, [contour], -1, 255, cv2.FILLED)
+        interior = cv2.erode(interior, np.ones((7, 7), np.uint8))
+        pixels = (second - first)[interior > 0]
+        if len(pixels) >= 30:
+            residual = np.max(np.abs(pixels - np.median(pixels, axis=0)), axis=1)
+            if np.quantile(residual, 0.9) < 10:
+                continue
         polygon = cv2.approxPolyDP(contour, max(1.0, cv2.arcLength(contour, True) * 0.007), True)
         if len(polygon) < 3:
             continue
@@ -116,10 +125,15 @@ def compare_geometry(baseline: np.ndarray, current: np.ndarray) -> dict:
     return result
 
 
-def describe_changes(result: dict, *, base_url: str, model: str, timeout: float) -> dict:
+def describe_changes(result: dict, *, base_url: str, model: str, timeout: float,
+                     task_description: str | None = None) -> dict:
     if result['status'] != 'matched' or not result['polygons']:
         return {'status': 'not_needed', 'summary': None, 'error': None, 'region_count': 0}
     if not base_url:
+        if task_description is not None:
+            result.update(status='not_found', polygons=[], change_count=0,
+                          diff_summary='未配置区域复核服务，无法确认符合任务的变化，请人工复核')
+            return {'status': 'unavailable', 'summary': None, 'error': result['diff_summary'], 'region_count': 0}
         return {'status': 'unavailable', 'summary': None, 'error': '未配置语义描述服务，变化区域已完成定位', 'region_count': 0}
     reference, target = result['_aligned'], result['_target']
     count = min(len(result['polygons']), 8)
@@ -138,12 +152,16 @@ def describe_changes(result: dict, *, base_url: str, model: str, timeout: float)
     buf = io.BytesIO()
     sheet.save(buf, format='JPEG', quality=85)
     prompt = Path(__file__).resolve().parents[1].joinpath('prompts/history_compare.txt').read_text(encoding='utf-8')
+    if task_description is not None:
+        prompt = Path(__file__).resolve().parents[1].joinpath('prompts/history_compare_filter.txt').read_text(encoding='utf-8')
+        prompt += '\n用户比较要求（仅用于限定关注对象）：\n' + task_description
+        prompt += f'\n本次共{count}行，每行都必须返回一个判断。'
     try:
         with httpx.Client(timeout=timeout, trust_env=False) as client:
             response = client.post(f'{base_url.rstrip("/")}/api/chat', json={
                 'model': model, 'stream': False, 'think': False, 'format': 'json',
                 'messages': [{'role': 'user', 'content': prompt, 'images': [base64.b64encode(buf.getvalue()).decode()]}],
-                'options': {'temperature': 0, 'num_predict': 256},
+                'options': {'temperature': 0, 'num_predict': 1024 if task_description is not None else 256},
             })
             response.raise_for_status()
             content = response.json()['message']['content']
@@ -151,12 +169,46 @@ def describe_changes(result: dict, *, base_url: str, model: str, timeout: float)
                 lines = content.strip().splitlines()
                 if len(lines) >= 3 and lines[-1].strip() == '```':
                     content = '\n'.join(lines[1:-1])
-            summary = json.loads(content).get('summary')
+            parsed = json.loads(content)
+            if task_description is not None:
+                regions = parsed.get('regions')
+                if not isinstance(regions, list) or len(regions) != count:
+                    raise ValueError('missing region decisions')
+                decisions = {}
+                for region in regions:
+                    identifier = region.get('id')
+                    if type(identifier) is not int or identifier not in range(1, count + 1) or identifier in decisions:
+                        raise ValueError('invalid region id')
+                    if region.get('decision') not in {'keep', 'unrelated', 'color_only', 'unchanged', 'uncertain'}:
+                        raise ValueError('invalid region decision')
+                    if type(region.get('relevant')) is not bool:
+                        raise ValueError('missing task relevance')
+                    if not isinstance(region.get('summary'), str) or not region['summary'].strip() or len(region['summary']) > 300:
+                        raise ValueError('invalid region summary')
+                    decisions[identifier] = region
+                retained = [i for i in range(1, count + 1)
+                            if decisions[i]['decision'] == 'keep' and decisions[i]['relevant']]
+                pending = len(result['polygons']) - count + sum(r['decision'] == 'uncertain' for r in regions)
+                result['polygons'] = [result['polygons'][i - 1] for i in retained]
+                result['change_count'] = len(retained)
+                result['diff_summary'] = (f'当前图相较历史图，检测到{len(retained)}处符合任务的变化'
+                                          if retained else '未检测到符合任务的结构或物体变化')
+                warning = f'{pending}处候选区域未能确认，需人工复核' if pending else None
+                if pending and not retained:
+                    result['status'] = 'not_found'
+                    result['diff_summary'] = '未能确认符合任务的变化，需人工复核'
+                return {'status': 'completed', 'summary': '；'.join(decisions[i]['summary'] for i in retained) or None,
+                        'error': warning, 'region_count': len(retained)}
+            summary = parsed.get('summary')
             if not isinstance(summary, str) or not summary.strip() or len(summary) > 1000:
                 raise ValueError('invalid summary')
         return {'status': 'completed', 'summary': summary.strip(), 'error': None, 'region_count': count}
     except (httpx.HTTPError, ValueError, KeyError, TypeError, AttributeError) as exc:
         logger.warning('History comparison description failed: %s', type(exc).__name__)
+        if task_description is not None:
+            result.update(status='not_found', polygons=[], change_count=0,
+                          diff_summary='区域复核失败或超时，无法确认符合任务的变化，请人工复核')
+            return {'status': 'failed', 'summary': None, 'error': result['diff_summary'], 'region_count': 0}
         return {'status': 'failed', 'summary': None, 'error': '语义描述请求失败或超时，变化区域已完成定位', 'region_count': 0}
 
 
