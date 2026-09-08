@@ -77,4 +77,12 @@ AFMAP 的 `/ai-comparison/image/add` 经业务服务调用 8189 的 `/api/v1/vl-
 
 共享 Ollama 的排队和模型切换仍可能使语义描述超过 20 秒；此时几何变化检测可正常完成，不能把提示解释为“无变化”。本次验证不构成跨季节、复杂视差或各行业场景的通用准确率评估。
 
+### AFMAP 结果称呼统一（2026-09-08）
+
+按用户调整，保留 AFMAP 前端“基准照片/对比照片”标签，仅在多对多兼容接口返回摘要时将几何结论和模型描述中的照片称呼统一为前端标签。AFMAP 的当前图对应“基准照片”，历史图对应“对比照片”；标准 baseline=历史图的调用按相反映射处理。一对多和独立平台仍保留当前/历史称呼，图片角色、变化方向、坐标不变。
+
+8189 已更新至 `yoloe_service_test:history-compare-20260908-v2`（镜像 ID `sha256:e3077572ea636a54d9576ed09aad3023887585eccc3584448a79c6e691fde851`）。部署目录为 `/data/workspace/jzheng/review-test-releases/history-compare-20260908-v2`，替换原第五份 Compose override，保留原四份配置。回退本次文案调整时，将第五份 override 切回 v1 目录，仅重建测试服务。切换前活动任务为零，环境变量、挂载、端口及 GPU 配置一致，8188 未变动。
+
+16 项相关测试通过。部署后的真实 HTTP 请求使用同一光伏照片对，耗时 9.84 秒返回 4 处变化，摘要为“基准照片相较对比照片，检测到4处可定位变化。局部变化描述（4处）：基准照片相较对比照片，屋面新增了大量深蓝色光伏板阵列，覆盖了大部分原本裸露的混凝土表面。”历史持久化记录未批量改写，需要重新对比才能生成新文案。
+
 远端部署目录：`/data/workspace/jzheng/review-test-releases/history-compare-20260908-v1`。旧镜像保留为 `yoloe_service_test:history-compare-base-20260908`（原镜像 ID `sha256:49c6f52ba9967f18f717c8fe647ac9769fc41476008bc19af83072c7a52a3106`）。原 Compose 配置依次为主项目 `docker-compose.yml`、`resnet18-20260907-v1/deploy/resnet-test/compose.override.yml`、`voice-perf-20260907-v2/compose.override.yml`、`human-20260907-v1/compose.model-test.yml`，部署时追加本次目录的 `compose.override.yml`。回退需在无活动任务时使用原四份配置、移除本次附加文件，仅重建 `yoloe_service_test`；不得删除共享网络或使用 `--remove-orphans`。

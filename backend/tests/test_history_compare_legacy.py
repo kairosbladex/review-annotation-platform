@@ -20,7 +20,8 @@ def test_adapter_uses_current_pixels_and_correct_semantic_direction(monkeypatch,
     def describe(result, **kwargs):
         assert result['_target'][140, 200].mean() == 0
         assert result['_aligned'][140, 200].mean() > 80
-        return {'status': 'completed', 'summary': '当前新增物体', 'error': None, 'region_count': 1}
+        return {'status': 'completed', 'summary': '当前图相较历史图，当前照片新增物体，历史图片无该物体',
+                'error': None, 'region_count': 1}
 
     monkeypatch.setattr('app.services.history_compare_legacy.describe_changes', describe)
     first, second = (current, history) if one_to_many or baseline_is_current else (history, current)
@@ -31,7 +32,12 @@ def test_adapter_uses_current_pixels_and_correct_semantic_direction(monkeypatch,
     assert len(result['polygons']) == 1
     x, y = np.mean(result['polygons'][0], axis=0)
     assert abs(x - 205) < 12 and abs(y - 145) < 12
-    assert '当前新增物体' in result['diff_summary']
+    current_label, history_label = ('当前照片', '历史图片') if one_to_many else (
+        ('基准照片', '对比照片') if baseline_is_current else ('对比照片', '基准照片'))
+    assert f'{current_label}新增物体，{history_label}无该物体' in result['diff_summary']
+    if not one_to_many:
+        assert result['diff_summary'].startswith(f'{current_label}相较{history_label}，检测到1处')
+        assert '当前' not in result['diff_summary'] and '历史' not in result['diff_summary']
 
 
 def test_overlay_refuses_unknown_source_and_keeps_legacy_branch():

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import threading
 import time
 
@@ -34,6 +35,11 @@ def compare_legacy_pair(first: Image.Image, second: Image.Image, *, one_to_many:
             summary += f"。局部变化描述（{semantic['region_count']}处）：{semantic['summary']}"
         elif semantic['error']:
             summary += f"。{semantic['error']}"
+        if not one_to_many:
+            current_label, history_label = ('基准照片', '对比照片') if baseline_is_current else ('对比照片', '基准照片')
+            summary = re.sub(r'当前(?:图片|照片|图像|图)|历史(?:图片|照片|图像|图)',
+                             lambda match: current_label if match[0].startswith('当前') else history_label,
+                             summary)
         polygons = [
             [[min(current.width - 1, round(x * current.width)),
               min(current.height - 1, round(y * current.height))] for x, y in polygon]
