@@ -50,3 +50,13 @@ docker compose --env-file .env.example -p review-history-test \
 该项目使用独立网络及 `review-history-test_*` 数据卷，MinIO 端口为 `127.0.0.1:9002/9003`。服务设置为 `unless-stopped`，Docker 恢复运行时自动启动。比较文件和结果仍不自动持久化，需要保留结果时在页面下载 JSON。
 
 部署验收：实际 Nginx 入口完成原图正反向对比，均为 4 处变化，桌面和手机截图无溢出；未认证为 401，无效图片为 422，超过 20 MiB 为 413，相同图片为零变化。新 PostgreSQL 已迁移至 `0004_agent_review_fingerprint`，样本/候选框/标注仍为零。原测试栈的全部已有表记录数与部署前一致，其 API、Worker、前端启动时间仍为 2026-09-02。本次未操作远端 8188/8189 服务。
+
+## AFMAP 兼容适配
+
+AFMAP 的 `/ai-comparison/image/add` 经业务服务调用 8189 的 `/api/v1/vl-compare/many-to-many`。2026-09-08 页面实测记录 850 显示：`baseline_images` 实际装载当前航拍照片，`compare_images` 装载历史照片；模型连续两次 60 秒超时后返回 `not_found`。该链路与本机独立测试栈不同。
+
+`scripts/prepare_history_overlay.py` 为已核验 SHA256 的旧路由生成可选适配补丁，复用本项目的配准服务。只在 `VL_COMPARE_ENGINE=registered` 时启用；默认仍走旧实现。`VL_COMPARE_BASELINE_IS_CURRENT=true` 专用于上述 AFMAP 入参约定，将输出坐标固定在当前航拍照片，即该调用的 baseline 图上。标准 baseline=历史图的调用方应保持此开关为 false。一对多仍按 current/history 的明确角色处理。
+
+适配保留原 URL、认证、响应模型、配对索引、图片 ID 和记录保存流程，返回的是像素坐标。`match_score` 为 null，不将几何重叠率伪装成模型置信度。语义描述最多等待 20 秒、不重试；失败时仍返回已定位区域，并在摘要中标明描述失败。无法配准仍为 `not_found`，不能解释为无变化。
+
+`deploy/vl-compare-overlay.Dockerfile` 在现有测试镜像上增加运行文件；`deploy/afmap-history-test.override.yml` 作为现有全部 Compose 配置之后的附加文件使用。旧路由 SHA256 不一致时准备脚本拒绝生成补丁。切换前需要确认测试服务无活动任务，保留旧镜像及原 Compose 文件列表供回退。
