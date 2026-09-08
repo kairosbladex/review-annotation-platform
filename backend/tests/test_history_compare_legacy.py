@@ -45,20 +45,13 @@ def test_overlay_refuses_unknown_source_and_keeps_legacy_branch():
     spec = importlib.util.spec_from_file_location('history_overlay', path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    source = b'def _build_prompt(mode, req, extra_params):\n    return "old_prompt"\n\nasync def _compare_pair(prompt, current, history, client):\n    return "old_one"\n\nasync def _compare_baseline_compare_pair(prompt, baseline, compare, client):\n    return "old_many"\n'
+    source = b'async def _compare_pair(prompt, current, history, client):\n    return "old_one"\n\nasync def _compare_baseline_compare_pair(prompt, baseline, compare, client):\n    return "old_many"\n'
     with pytest.raises(ValueError, match='digest changed'):
         module.patch_router(source)
     patched = module.patch_router(source, hashlib.sha256(source).hexdigest())
-    assert patched.count('VL_COMPARE_ENGINE') == 3
-    assert patched.count('task_description=prompt') == 2
+    assert patched.count('VL_COMPARE_ENGINE') == 2
     assert 'return "old_one"' in patched and 'return "old_many"' in patched
     namespace = {'_env': lambda key, default: default}
     exec(patched, namespace)
     import asyncio
     assert asyncio.run(namespace['_compare_pair'](None, None, None, None)) == 'old_one'
-    assert namespace['_build_prompt'](None, None, None) == 'old_prompt'
-    import json
-    from types import SimpleNamespace
-    namespace.update(_env=lambda key, default: 'registered', json=json)
-    req = SimpleNamespace(task_description='只比较蓝色屋顶', compare_goal='比较变化', image_description=None)
-    assert json.loads(namespace['_build_prompt']('many_to_many', req, {}))['task_description'] == '只比较蓝色屋顶'

@@ -28,7 +28,6 @@ def patch_router(source: bytes, expected_sha: str = LEGACY_SHA256) -> str:
             return await asyncio.to_thread(
                 compare_legacy_pair, {first}.image, {second}.image,
                 one_to_many={single!r},
-                task_description=prompt,
                 baseline_is_current=_env("VL_COMPARE_BASELINE_IS_CURRENT", "false").lower() == "true",
                 base_url=client.base_url, model=client.model,
                 timeout=max(1.0, min(20.0, _env_float("VL_COMPARE_SEMANTIC_TIMEOUT", 20.0))),
@@ -41,12 +40,6 @@ def patch_router(source: bytes, expected_sha: str = LEGACY_SHA256) -> str:
         edits.append((node.body[0].lineno - 1, injected))
     if len(edits) != len(names):
         raise ValueError('Expected comparison helpers were not found')
-    for node in tree.body:
-        if isinstance(node, ast.FunctionDef) and node.name == '_build_prompt':
-            edits.append((node.body[0].lineno - 1, '''    if _env("VL_COMPARE_ENGINE", "legacy") == "registered":
-        return json.dumps({key: getattr(req, key, None) for key in
-                           ("task_description", "image_description", "compare_goal")}, ensure_ascii=False)
-'''))
     lines = text.splitlines(keepends=True)
     for line, addition in sorted(edits, reverse=True):
         lines.insert(line, addition)
@@ -70,7 +63,6 @@ def main():
     for name in ('history_compare.py', 'history_compare_legacy.py'):
         shutil.copy2(root / 'backend/app/services' / name, runtime / 'services' / name)
     shutil.copy2(root / 'backend/app/prompts/history_compare.txt', runtime / 'prompts/history_compare.txt')
-    shutil.copy2(root / 'backend/app/prompts/history_compare_filter.txt', runtime / 'prompts/history_compare_filter.txt')
     print(f'Prepared overlay at {args.output}; source SHA256={LEGACY_SHA256}')
 
 
