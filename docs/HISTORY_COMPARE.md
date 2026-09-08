@@ -99,4 +99,16 @@ AFMAP 的 `/ai-comparison/image/add` 经业务服务调用 8189 的 `/api/v1/vl-
 
 已部署且 8189 healthy。上线后真实 HTTP 复验：蓝色屋顶任务为 1 个屋顶框（8.785 秒），道路形状任务为 0 个框（7.642 秒）。8188 容器身份与启动时间核验未变动。
 
+### 大面积土地变化（v4，2026-09-08）
+
+耕地样本记录 884 的两张图均为 4032×3024，因差异覆盖超过 40% 在语义复核前返回 `not_found`。这属于变化占比限制，不是输入分辨率限制。AFMAP 已有强制区域复核，因此 v4 在该路径允许大面积几何候选进入复核；无任务复核的独立几何调用仍保留面积保护，配准内点、空间分布、投影形状和有效重叠检查保持不变。
+
+为避免大片真实变化污染全图亮度估计，复核路径采用配准内点对应的稳定地物估计曝光偏移。纯色差统计只取轮廓内实际差分像素，防止环状差分把未变化的内部区域算入统计而误报。大面积候选仍需满足用户任务相关性及真实结构/物体变化判定；失败与不确定仍提示人工复核。
+
+部署前用 8189 运行环境验证用户原图：1696 个配准内点、有效重叠 95.29%，保留 1 处下方植被变为裸地的区域。macOS 本机 OpenCV 对这组图的内点分布略有不同（纵向覆盖 29.03%），触发既有 30% 配准保护；未为此放宽配准阈值，真实样例以部署环境验证为准。28 项本地回归测试通过，包括超过半幅的物理变化、超过半幅的纯色偏移和无法配准情况。
+
+镜像 `yoloe_service_test:history-compare-20260908-v4`，ID `sha256:69fa567d82389f0795433a75e2dbb5bf7f968e1e5b4b280844910247e6630755`。第五份 override 位于 `/data/workspace/jzheng/review-test-releases/history-compare-20260908-v4/compose.override.yml`。保留原四份配置，回退时将第五份切回 v3 并只重建无活动任务的测试服务。8188 未改动。
+
+已部署到 8189。真实 HTTP 验收使用“对比一下耕地的变化”，返回 1 处土地变化，推理耗时 4.306 秒；同接口回归蓝色屋顶为 1 处（8.118 秒）、光伏新增为 4 处（12.166 秒）。历史记录不重写，需要重新发起对比。
+
 远端部署目录：`/data/workspace/jzheng/review-test-releases/history-compare-20260908-v1`。旧镜像保留为 `yoloe_service_test:history-compare-base-20260908`（原镜像 ID `sha256:49c6f52ba9967f18f717c8fe647ac9769fc41476008bc19af83072c7a52a3106`）。原 Compose 配置依次为主项目 `docker-compose.yml`、`resnet18-20260907-v1/deploy/resnet-test/compose.override.yml`、`voice-perf-20260907-v2/compose.override.yml`、`human-20260907-v1/compose.model-test.yml`，部署时追加本次目录的 `compose.override.yml`。回退需在无活动任务时使用原四份配置、移除本次附加文件，仅重建 `yoloe_service_test`；不得删除共享网络或使用 `--remove-orphans`。

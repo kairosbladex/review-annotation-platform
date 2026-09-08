@@ -29,7 +29,8 @@ def compare_legacy_pair(first: Image.Image, second: Image.Image, *, one_to_many:
         first = ImageOps.exif_transpose(first).convert('RGB')
         second = ImageOps.exif_transpose(second).convert('RGB')
         current, history = (first, second) if one_to_many or baseline_is_current else (second, first)
-        result = compare_geometry(np.asarray(history), np.asarray(current))
+        result = compare_geometry(np.asarray(history), np.asarray(current),
+                                  allow_large_changes=task_description is not None)
         semantic = describe_changes(result, base_url=base_url, model=model, timeout=timeout,
                                     task_description=task_description)
         summary = result['diff_summary']

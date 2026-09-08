@@ -29,7 +29,7 @@ def decode_image(data: bytes) -> np.ndarray:
         raise ValueError('无法读取图片，请使用有效的JPEG或PNG图片') from exc
 
 
-def compare_geometry(baseline: np.ndarray, current: np.ndarray) -> dict:
+def compare_geometry(baseline: np.ndarray, current: np.ndarray, *, allow_large_changes: bool = False) -> dict:
     height, width = current.shape[:2]
     result = {
         'status': 'not_found', 'polygons': [], 'change_count': 0,
@@ -49,6 +49,7 @@ def compare_geometry(baseline: np.ndarray, current: np.ndarray) -> dict:
     gray_reference = cv2.cvtColor(reference, cv2.COLOR_RGB2GRAY)
     gray_target = cv2.cvtColor(target, cv2.COLOR_RGB2GRAY)
     transform = np.eye(3)
+    stable_points = None
     if np.array_equal(reference, target):
         result['alignment'] = {'method': 'identity', 'inliers': 0, 'overlap': 1.0}
     else:
@@ -78,6 +79,7 @@ def compare_geometry(baseline: np.ndarray, current: np.ndarray) -> dict:
         if not cv2.isContourConvex(projected) or not 0.6 < area_ratio < 1.6:
             return result
         result['alignment'] = {'method': 'orb_ransac', 'inliers': inliers, 'overlap': 0.0}
+        stable_points = np.rint(dst[inlier_mask.ravel().astype(bool)]).astype(int)
 
     aligned = cv2.warpPerspective(reference, transform, size)
     valid = cv2.warpPerspective(np.full(reference.shape[:2], 255, np.uint8), transform, size)
@@ -93,11 +95,15 @@ def compare_geometry(baseline: np.ndarray, current: np.ndarray) -> dict:
     first = cv2.GaussianBlur(aligned, (5, 5), 0).astype(np.float32)
     second = cv2.GaussianBlur(target, (5, 5), 0).astype(np.float32)
     offset = np.median((second - first)[valid > 0], axis=0)
+    if allow_large_changes and stable_points is not None:
+        # Stable matched landmarks remain an exposure reference when most land has changed.
+        x, y = stable_points.T
+        offset = np.median((second - first)[y, x], axis=0)
     delta = np.max(np.abs(second - first - offset), axis=2)
     mask = ((delta > 28) & (valid > 0)).astype(np.uint8) * 255
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, np.ones((7, 7), np.uint8))
-    if np.count_nonzero(mask) / max(np.count_nonzero(valid), 1) > 0.4:
+    if not allow_large_changes and np.count_nonzero(mask) / max(np.count_nonzero(valid), 1) > 0.4:
         result['diff_summary'] = '大范围外观差异，无法可靠区分场景变化与成像差异'
         return result
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -109,7 +115,7 @@ def compare_geometry(baseline: np.ndarray, current: np.ndarray) -> dict:
         interior = np.zeros(mask.shape, np.uint8)
         cv2.drawContours(interior, [contour], -1, 255, cv2.FILLED)
         interior = cv2.erode(interior, np.ones((7, 7), np.uint8))
-        pixels = (second - first)[interior > 0]
+        pixels = (second - first)[(interior > 0) & (mask > 0)]
         if len(pixels) >= 30:
             residual = np.max(np.abs(pixels - np.median(pixels, axis=0)), axis=1)
             if np.quantile(residual, 0.9) < 10:
