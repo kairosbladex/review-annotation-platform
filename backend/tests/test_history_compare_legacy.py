@@ -62,3 +62,30 @@ def test_overlay_refuses_unknown_source_and_keeps_legacy_branch():
     namespace.update(_env=lambda key, default: 'registered', json=json)
     req = SimpleNamespace(task_description='只比较蓝色屋顶', compare_goal='比较变化', image_description=None)
     assert json.loads(namespace['_build_prompt']('many_to_many', req, {}))['task_description'] == '只比较蓝色屋顶'
+
+
+@pytest.mark.parametrize('configured,expected', [(None, 60), (45, 45), (90, 90), (999, 120), (-1, 1)])
+def test_overlay_passes_configured_wait_to_both_helpers(monkeypatch, configured, expected):
+    import asyncio
+    import sys
+    from types import SimpleNamespace
+    path = Path(__file__).resolve().parents[2] / 'scripts/prepare_history_overlay.py'
+    spec = importlib.util.spec_from_file_location('history_overlay', path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    source = b'async def _compare_pair(prompt, current, history, client):\n    pass\n\nasync def _compare_baseline_compare_pair(prompt, baseline, compare, client):\n    pass\n'
+    calls = []
+    def compare(*args, **kwargs):
+        calls.append(kwargs)
+        return 'ok'
+    monkeypatch.setitem(sys.modules, 'history_compare_runtime.services.history_compare_legacy',
+                        SimpleNamespace(ComparisonBusy=RuntimeError, compare_legacy_pair=compare))
+    namespace = {'asyncio': asyncio, '_env': lambda key, default: 'registered',
+                 '_env_float': lambda key, default: default if configured is None else configured}
+    exec(module.patch_router(source, hashlib.sha256(source).hexdigest()), namespace)
+    image = SimpleNamespace(image=None)
+    client = SimpleNamespace(base_url='http://model.invalid', model='test')
+    for helper in ('_compare_pair', '_compare_baseline_compare_pair'):
+        assert asyncio.run(namespace[helper]('只比较道路', image, image, client)) == 'ok'
+    assert [call['timeout'] for call in calls] == [expected, expected]
+    assert all(call['task_description'] == '只比较道路' for call in calls)
