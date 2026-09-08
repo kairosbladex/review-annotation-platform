@@ -49,4 +49,4 @@ docker compose --env-file .env.example -p review-history-test \
 
 该项目使用独立网络及 `review-history-test_*` 数据卷，MinIO 端口为 `127.0.0.1:9002/9003`。服务设置为 `unless-stopped`，Docker 恢复运行时自动启动。比较文件和结果仍不自动持久化，需要保留结果时在页面下载 JSON。
 
-部署验收：实际 Nginx 入口完成原图正反向对比，均为 4 处变化，桌面和手机截图无溢出；未认证为 401，无效图片为 422，超过 20 MiB 为 413，相同图片为零变化。新 PostgreSQL 已迁移至 `0004_agent_review_fingerprint`，样本/候选框/标注仍为零。原测试栈的 16 张表记录数与部署前一致，其 API、Worker、前端启动时间仍为 2026-09-02。本次未操作远端 8188/8189 服务。
+部署验收：实际 Nginx 入口完成原图正反向对比，均为 4 处变化，桌面和手机截图无溢出；未认证为 401，无效图片为 422，超过 20 MiB 为 413，相同图片为零变化。新 PostgreSQL 已迁移至 `0004_agent_review_fingerprint`，样本/候选框/标注仍为零。原测试栈的全部已有表记录数与部署前一致，其 API、Worker、前端启动时间仍为 2026-09-02。本次未操作远端 8188/8189 服务。
