@@ -43,6 +43,7 @@ def test_all_eleven_candidates_reviewed_before_no_change(monkeypatch):
     assert all('光伏板' in c['messages'][0]['content'] for c in calls)
     assert data['polygons'] == [] and data['diff_summary'] == '没有明显变化'
     assert data['status'] == 'matched' and outcome['error'] is None
+    assert outcome['summary'] is None
 
 
 def test_relevant_change_in_second_batch_retained(monkeypatch):
@@ -69,6 +70,21 @@ def test_late_failure_preserves_only_reviewed_changes(monkeypatch):
     data = result(9)
     outcome = review(data)
     assert len(data['polygons']) == 1 and outcome['error']
+    assert outcome['summary'] == '1. 局部判断'
+
+
+def test_summary_contains_only_retained_regions_in_polygon_order(monkeypatch):
+    first = rows(['ignore', 'keep', 'uncertain', 'ignore', 'ignore', 'ignore', 'ignore', 'keep'])
+    first[1]['summary'] = '历史图无车辆，当前图出现白色车辆。'
+    first[7]['summary'] = '历史图路面可见，当前图被堆放物遮挡'
+    # Model output order need not match input order, but descriptions must match polygons.
+    mock_model(monkeypatch, [list(reversed(first)), rows(['keep'])])
+    data = result(9)
+    outcome = review(data)
+    assert len(data['polygons']) == 3
+    assert outcome['summary'] == ('1. 历史图无车辆，当前图出现白色车辆；'
+                                  '2. 历史图路面可见，当前图被堆放物遮挡；3. 局部判断')
+    assert outcome['error'] == '1处候选区域未能确认，需人工复核'
 
 
 def test_no_geometry_candidates_has_no_obvious_change():
