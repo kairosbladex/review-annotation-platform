@@ -1,14 +1,20 @@
 # Continue Here
 
-## 当前定位 Frontier：测试 Java 恢复阻塞（2026-09-09 18:51）
+## 当前定位 Frontier：测试环境稳定性修复已验收（2026-09-09 19:16）
 
-用户已授权测试环境整体修复和复测。目前 8181 稳定性版本已发布，测试 Java 启动退出后 192.168.110.23 不可访问；用户选择“我恢复110.23访问后通知你”。等待该通知，任务未完成，不重复询问实施授权，不运行结束交接。
+当前 Frontier：测试环境稳定性修复、发布及现有事件复测完成，待用户交接。2026-09-09 19:16。之前的“等待 110.23 恢复”阻塞已解除，不要重新发布或重复 apply。
 
-权威断点是 `docs/reports/afmap-geolocation-20260909/STABILITY_CURRENT_STATE.md`，验收入口是同目录 `ACCEPTANCE_GEO-STABILITY.md`。下方“方案待审阅”与单事件阶段内容仅作历史，不能据此重复执行旧 apply。当前 Java 候选含逐目标 Map 隔离和 TEXT 容量保护，16 项测试及 11 模块 package 通过，尚待在线恢复验证。
+权威断点：/Users/wangxiaolin/PycharmProjects/review-annotation-platform/docs/reports/afmap-geolocation-20260909/STABILITY_CURRENT_STATE.md。本仓库验收入口：docs/ACCEPTANCE_GEO-STABILITY.md。
 
-等待期间已增强 `verify-stability-new-events.py`：检查 API 和回放的目标 index 完整性，逐目标比对 API、存储与 HTTP 回放 quality。冻结的 4 事件/18 目标离线通过，旧共享 quality、API 质量错配、重复 index 均被拒绝；证据为 `stability-natural-verifier-offline-validation.json`。这不代表新 Java 已上线或自然回调已验收。
+8181 已发布 geo-stability-20260909-v2，108 测试、182 次 HTTP 验证通过；Java 已发布逐目标 Map 隔离与 TEXT 容量保护，16 项测试和 11 模块 package 通过。Java 活动 SHA256 dfd679d2aa48bbbedf3d68c1ccd48eec7c88eb3e62c1882651c0d70ff151fdcf，最后 PID 4884 / test / 18081。本机直连和平台 API 均已核验；两级原包保留。发布 PID 4466 曾关闭，另一会话随后启动 4884；没有继续重启覆盖该进程，关闭触发方未核实。最终证据在 Java docs/stability-capacity-final-runtime.json。
 
-恢复访问后先检查实际 Java 包 SHA、进程、18081、活动任务，按 Java 修复工作树 `docs/CONTINUE.md` 恢复/发布；再 apply 尚未写入的 4 事件/8 附件自然质量修正，刷新 `verify-stability-history.py` 快照并运行 `verify-stability-new-events.py`。186 事件历史已写入，不得重复 apply。不得影响 8188/8189/Triton，不制造正式预警或飞行。Git 分支 `codex/uncertain-recheck-training-data`，仅本次文件本地 commit，未 push，保留无关未跟踪内容。
+历史 186 事件/372 附件已修正、数据库和 API 验证通过，931 目标可绘制、77 不可用；6408 快照中其他 6036 行不变。自然质量小批次 4 事件/8 附件已 apply/verify，坐标不变。两个批次均不得重复 prepare/apply；不要用初次未压缩的失败备份重试。
+
+报告仓库 verify-stability-history.py 已刷新到最终 Java SHA；verify-stability-new-events.py 比对 index、API/存储/回放逐目标 quality 和坐标，通过已有 5 条自然事件（18 点可绘制、另 1 事件时间差 1.017 秒保留但不撒点）。这些自然事件均早于最终 Java 发布，最新 Java 自然回调还没有业务样本；不制造正式预警或飞行来验证。
+
+后续真实新事件验收：只读核对活动包，运行报告仓库 verify-stability-history.py --config-jar <私有配置jar> --java-jar-sha256 <真实活动SHA>（凭据经私有 stdin），刷新快照后运行 verify-stability-new-events.py。新失败类型或部分定位需按真实请求分析，不能修改脚本掩盖失败。约 20 米真实残差与斜拍精度仍无真值验收；3030 条缺原始输入的历史在报告待办 #8。
+
+Git：实现和证据仅本地 commit，不 push；原 /Users/wangxiaolin/IdeaProjects/ktd_backend 为干净 prod。保留无关 dirty/untracked。禁止更改 8188、8189、Triton；19:15 容器、启动时间和源码 SHA 复核未变。不要打印或提交配置 jar/密码。不要使用子代理或修改 memory。当前任务内没有新的实施授权问题，交接用 AskHuman；尚未取得结束批准。
 
 ## 历史定位阶段：整体审计与方案待审阅（2026-09-09）
 

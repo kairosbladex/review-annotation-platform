@@ -1,23 +1,21 @@
-当前任务未完成：测试Java接口尚未恢复，正在等待192.168.110.23的主机/SSH访问恢复。
+测试环境稳定性修复、发布及现有事件复测已完成，等待用户交接。最后核验：2026-09-09 19:16。不能将本批工程稳定性验收视作真实地理精度验收。
 
-用户最新选择：我恢复110.23访问后通知你。已在Java修复工作树记录待办#1，等待通知后继续，不将任务标为完成。
+8181 正在运行 geo-stability-20260909-v2；app.py SHA256 为 fdfac3f15644da4382583c1fea46eced6cd74e6e39c4b0afd7018eebd4de899e。108 项 Python 测试、182 次真实 HTTP 验证通过。19:15 再核对容器 ID、启动时间、活动源码 SHA，8188/8189/Triton 均保持不变；证据在 Python 仓库 docs/stability-final-runtime-verification.json。
 
-已完成：8181已发布geo-stability-20260909-v2；108项Python测试及182次真实HTTP验证通过。186事件/372附件已按新检查更新，931目标可绘制、77目标不可用；6408快照记录中其余6036逐字保持不变。5条自然新预警已验证：4条正常定位共18目标，1条姿态时差1.017秒，重试后仍保留事件、不输出目标坐标。
+Java 容量保护候选已发布，活动包 SHA256 为 dfd679d2aa48bbbedf3d68c1ccd48eec7c88eb3e62c1882651c0d70ff151fdcf。当前 PID 4884，19:11:33 启动，test/18081，日志 /data/ktd/project/ktd-backend/logs/app.log。19:16 的本机直连 Java API、19:15 的平台 186 事件接口均通过。16 项定向测试、11 模块 package 通过；运行包只变更 GeoFromBboxesUtil.class，其余 ZIP entry 内容不变。
 
-Java补丁：修复Fastjson JSONObject(Map)共享逐目标状态，15项定向测试和11模块package通过。活动包只改GeoFromBboxesUtil.class，其余entry内容不变。原检出ktd_backend仍为干净prod；实现工作树提交dde37aeb8a。
+恢复和重启经过：19:05 只读检查发现主机和 PID 2247 已恢复，运行包为 15fde7d9。空闲检查后发布容量包并启动 PID 4466。启动后首次 API 为 502，随后 19:11:19 验证正常；19:11:31 出现正常关闭流程，19:11:33 另一个登录会话启动 PID 4884，仍使用同一 dfd679d2 包。未再覆盖或重启该进程。当前服务已恢复；触发关闭的人或机制未核实，不能断言由定位补丁或主机故障导致。证据为 Java docs/stability-capacity-startup-investigation.json、stability-capacity-final-runtime.json。早期 live-health 只证明当时瞬时正常。
 
-发布后启动PID1175181提前消失，boot-apply.log为0字节，18081未监听。随后SSH也不可达：本机110.23:22连接被拒绝；从238侧到110.23:22和18081均超时。尚无证据证明主机为何失联，不将其归因于某个系统组件。
+回退包保留：/data/ktd/project/ktd-backend/geolocation-releases/20260909-stability-capacity/biz-visualization.before.jar 为 15fde7d9606bf271a191946e7a12e58621ac5965b69eada6df551159c0b6eb25；更早 20260909-stability-java-v2/biz-visualization.before.jar 为 be9b9ae409b1fcbda90c810758e85335fb75468a42ab805a8fb195092775fd76。恢复后的实际包与两级备份已重新核验。
 
-活动Java包SHA256：15fde7d9606bf271a191946e7a12e58621ac5965b69eada6df551159c0b6eb25。
+已完成历史批次：186 事件/372 附件的 v2 历史更新已 apply、数据库 verify、API 验证；931 目标可绘制、77 不可用，6408 条快照中其他 6036 条逐字不变。有效备份 stability-history-correction-v2.json SHA256 为 f937863041c92c6dd4f3e747b7f24aa358eb758f41d4f19010cbe74c72287bfb。不得重复 apply；初次未压缩候选 stability-history-correction.json 曾事务回滚，不得用于重试。
 
-原包SHA256：be9b9ae409b1fcbda90c810758e85335fb75468a42ab805a8fb195092775fd76；备份路径：/data/ktd/project/ktd-backend/geolocation-releases/20260909-stability-java-v2/biz-visualization.before.jar。
+已完成自然状态小批次：4 事件/8 附件的逐目标 quality 已 apply/verify，全部坐标不变。冻结备份 stability-natural-state-correction.json SHA256 为 1e36ac8728035760dfc8811b5fa38c5336d886b3da0340b920d3d1082d72b1d7。快照和备份先上传到服务器 20260909-stability-natural-state 并核对 SHA。此批位于旧 6408 行快照之外；不得重复 prepare/apply。
 
-已准备修正启动脚本：显式nohup、stdin=/dev/null并核对启动进程存活。尚未成功执行，因为SSH连接被拒绝。恢复访问后先确认没有重复进程及飞行任务，再启动test/18081并检查真实API；如补丁启动失败，使用已核验原包回退。
+19:15 刷新 verify-stability-history.py，186 事件 API、所有 6408 快照、活动包 SHA 一致。19:16 verify-stability-new-events.py 通过：4 条已有自然事件共 18 目标的 API/存储/实际 HTTP 回放坐标和各自 quality 一致，index 无缺漏或重复；1 条姿态时间差 1.017 秒的事件保留、重试完成而不撒点。没有人为创建飞行或正式预警。5 条自然事件都发生在最新 Java 发布之前；最新 Java 自然写入尚未观察到，不能把历史修正当作新回调验收。
 
-另有4条自然新事件、8附件的逐目标质量记录修正已准备，坐标不变，尚未apply。备份stability-natural-state-correction.json，SHA256为1e36ac8728035760dfc8811b5fa38c5336d886b3da0340b920d3d1082d72b1d7。
+离线验收器反例检查通过：修正候选的 4 事件/18 目标可通过，旧共享 quality、API 质量错配、重复 index 被拒绝。证据 stability-natural-verifier-offline-validation.json；在线逐目标结果另见 stability-natural-events-verification.json。
 
-等待期间又补齐了大批目标容量保护：200目标产生208833字节定位JSON时，原行为会超过TEXT容量；最新代码降为紧凑的不可用状态以保留预警。16项定向测试和11模块package通过。新候选/tmp/geolocation-runtime-dependencies/biz-visualization.stability-capacity.jar的SHA256为dfd679d2aa48bbbedf3d68c1ccd48eec7c88eb3e62c1882651c0d70ff151fdcf，尚未上传/发布。恢复连接后核对活动包仍为15fde7d9，使用--stability-capacity发布到独立目录，或先恢复15fde7d9再择空闲发布。保留所有回退包。
+真实约 20 米残差仍缺地面真值，未声称消除。斜拍旧 body+gimbal 模型仍被质量检查拒绝，需确认云台参考系和标定；screened 不等于测绘精度通过。地图视觉未由本轮浏览器验收。3030 条缺原输入历史已延期到报告工作树待办 #8。
 
-不能报告本任务完成，也不能报告约20米真实位置残差已消除；用户暂未提供目标真值。斜拍旧模型仍被质量检查拒绝，需确认云台角度参考系后再核验。
-
-18:51 等待期间增强了 verify-stability-new-events.py：逐目标检查 API/存储/回放 quality，并验证目标 index 无缺漏或重复。离线冻结回放中，修正候选的4事件/18目标通过；旧共享quality、API质量错配和重复index均被拦截。证据 stability-natural-verifier-offline-validation.json；没有调用在线API或修改冻结修正文件。恢复后仍须刷新历史API快照，再做真实HTTP验收。报告仓库 docs/CONTINUE.md 已更新，旧“方案待审阅”段落明确标为历史。
+后续如有真实新预警，按保留原请求回放核对 index、逐目标 quality、时间差和事件保留；不要制造正式事件。只有用户要求新精度任务后才安排真值/镜头/姿态标定。所有仓库仅本地提交，不 push；原 ktd_backend 保持干净 prod，无关 IDE、数据、模型和 pyc 不动。不使用子代理，不写 memory。交接前清理仓库外临时认证文件；配置 jar 和凭据不得入库。

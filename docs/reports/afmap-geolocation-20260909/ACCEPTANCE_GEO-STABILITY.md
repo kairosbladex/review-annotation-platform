@@ -1,37 +1,41 @@
-# 定位稳定性验收与恢复断点
+# 定位稳定性修复验收
 
-状态：未完成。2026-09-09 18:51，等待用户恢复 192.168.110.23 访问后继续。当前状态以 STABILITY_CURRENT_STATE.md 为准，早期 PRECISION/AUDIT 文档中的线上状态是历史快照。
+测试环境修复、发布和现有事件复测完成；最后核验于 2026-09-09 19:16。权威继续入口为 STABILITY_CURRENT_STATE.md，旧文档中的未恢复状态为历史快照。
 
-## 已实施和验证
+## 修复及发布
 
-8181 已发布 geo-stability-20260909-v2。108 项 Python 测试、182 次真实 HTTP 验证通过。垂直姿态 0.001 度微扰造成的约 69 米跳变已被修复；同航次 12 事件坐标保持不变。186 事件/372 附件历史修正已提交并核验，其他 6036 条快照记录逐字不变，禁止重复 apply。
+- 8181 使用连续垂直姿态矩阵、显式镜像、真实角度扰动和正反向闭合检查。原来 0.001 度微扰导致约 69 米跳变，修复后约 0.002 米；这表示数值稳定性，不代表毫米级地理精度。同航次 12 事件、77 点基准坐标保持不变。
+- Java 修复 JSONObject(Map) 共享状态导致的逐目标 quality/status 串扰；TEXT 超过 65535 字节时保存紧凑不可用状态，避免定位元数据溢出中断预警保存。16 项定向测试、11 模块 package 通过；Python 108 测试、182 次实际 HTTP 验证通过。
+- 最终 Java 包 SHA256：dfd679d2aa48bbbedf3d68c1ccd48eec7c88eb3e62c1882651c0d70ff151fdcf，仅变更 GeoFromBboxesUtil.class，其余 ZIP entry 内容不变。19:16 PID 4884 / test / 18081 正常，本机直连 Java 与平台接口通过。
+- 19:15 再次核对 8181 活动源码、容器 ID 和启动时间；8188、8189、Triton 均未改变。证据在 Python 修复仓库 docs/stability-final-runtime-verification.json。
 
-Java 已修复逐目标 JSONObject 包装共享 Map 的状态串扰，并补充 65535 字节 TEXT 容量保护。16 项定向测试和 11 模块 package 通过。最新候选 SHA256 为 dfd679d2aa48bbbedf3d68c1ccd48eec7c88eb3e62c1882651c0d70ff151fdcf，尚未发布。服务器最后确认包为 15fde7d9606bf271a191946e7a12e58621ac5965b69eada6df551159c0b6eb25；启动进程退出，后续 SSH 及 18081 不可达，原因尚未确认。
+## 数据和接口复测
 
-本报告仓库增强了 verify-stability-new-events.py：API 目标编号必须完整，API quality 必须与数据库相同，数据库逐目标 quality 必须与同编号的 HTTP 回放结果相同；保留坐标、版本、质量门限与事件保留检查。历史修正合法状态 time_corrected 与正常新写入 screened 均可接受。
+- 186 历史事件/372 附件已 apply/verify，931 目标可绘制、77 不可用；6408 快照中的其余 6036 条逐字不变。19:15 全部 186 事件的地图接口复测通过。
+- 4 条已有自然事件/8 附件的逐目标质量修正已 apply/verify，坐标未移动；冻结备份及快照已上传服务器并校验 SHA。
+- 19:16 实际 HTTP 回放核对 5 条已有自然事件：18 个可绘制目标的坐标、各自 quality、API/存储映射和 index 完整性均通过；另一事件姿态时差 1.017 秒，重试后仍保留事件、不提供目标坐标。
+- 离线反例证明验收器能拒绝旧共享 quality、API quality 错配和重复 index，修正的 4 事件/18 目标通过。
 
-离线验证使用已冻结的 stability-natural-state-correction.json，4 事件/18 目标修正候选通过；旧共享 quality、API 质量错误和重复回放 index 三种反例均被拒绝。输出为 stability-natural-verifier-offline-validation.json。没有覆盖已有在线验收证据。
+具体证据：stability-history-api-verification.json、stability-natural-state-apply-receipt.json、stability-natural-state-verify-receipt.json、stability-natural-events-verification.json、stability-natural-verifier-offline-validation.json。
 
-## 未完成和限制
+## 运行经过与限制
 
-- 测试 Java 服务恢复、最新候选发布、真实 API 健康和新 Java 自然回调验证仍未完成。
-- 4 事件/8 附件质量修正已经 prepare，尚未 apply，坐标不变。冻结备份 SHA256 为 1e36ac8728035760dfc8811b5fa38c5336d886b3da0340b920d3d1082d72b1d7。
-- 离线验证使用模拟 HTTP，只证明验收器可识别已知错误，不能证明线上修复完成。
-- 用户尚未提供地面真值，不能声称约 20 米残差消除。斜拍旧模型仍被拒绝可靠落点输出，地图视觉尚未验收。
-- 当前自然事件验证针对已有的正常事件和姿态时间不匹配事件；若恢复后出现其他失败类型或部分定位事件，应按其真实请求核验，不能忽略报错或直接改成通过。
+110.23 曾失联，19:05 已恢复。容量发布进程 PID 4466 在完成启动后曾于 19:11:19 返回正常 API，19:11:31 正常关闭；另一登录会话随后启动 PID 4884，仍为同一补丁。验收继续使用该进程，没有重复重启覆盖。触发关闭的人或机制未核实，不能据此认定补丁崩溃；最终证据在 Java 修复仓库 docs/stability-capacity-final-runtime.json，原瞬时健康记录仍作为历史保留。
 
-## 恢复后验收
+最新 Java 发布后尚无新的自然预警写入；当前 5 条自然业务样本发生在发布之前，修正和回放不能替代新回调验收。没有为了测试而制造正式预警或飞行。
 
-先读 Java 工作树 `/Users/wangxiaolin/IdeaProjects/ktd_backend-geolocation-fix/docs/CONTINUE.md`，核对用户可能自行恢复过的实际包、进程和飞行缓存，确保真实 API 健康后，再处理尚未写入的小批次。186 事件批次不得重复执行。
+真实约 20 米残差仍缺地面真值，未证明消除；斜拍旧模型因云台角度参考系未核验而拒绝可靠落点。screened 仅代表通过工程检查，accuracy_verified 保持 false。本轮没有地图浏览器视觉验收，3030 条缺原输入历史仍按用户决定延期。
 
-刷新 verify-stability-history.py 输出时传入真实活动 Java 包 SHA 和私有配置 jar，并从私有 stdin 传凭据。随后执行：
+## 如何复核和继续
+
+真实新事件到来后，先核对活动运行包，使用私有配置 jar 和 stdin 凭据刷新 verify-stability-history.py，再执行：
 
 ```bash
 python3 docs/reports/afmap-geolocation-20260909/verify-stability-new-events.py
 ```
 
-离线验证临时复跑入口为 `/tmp/geo-natural-verifier-check.py`，结果已落盘；临时文件不属于长期构建依赖。
+检查逐目标原请求、index、quality、时间差和失败事件保留。出现新失败类型或部分定位时应按真实请求排查，不能放宽断言掩盖错误。已有两批 apply 均已完成，禁止重复执行；原始备份、快照、回退包全部保留。部署前仍应核对实际包与活动任务缓存，不能按旧 PID 或早期状态操作。
 
 ## Git state
 
-分支 codex/uncertain-recheck-training-data。当前切片仅修改验收脚本、验收/继续文档和离线验证证据，本地提交，不 push。未修改无关 IDE、数据、模型、既有冻结修正文件或线上服务。Java、Python 实现分别位于独立工作树。
+报告分支 codex/uncertain-recheck-training-data，验收器修复提交 c0a3dd5；Java 实现位于独立分支 codex/geolocation-event-fix，容量保护提交 54ec6099dc；Python 分支 codex/geolocation-telemetry-cache，实现提交 f5f4e3a。所有实现和证据仅本地提交，未 push。原 ktd_backend 保持干净 prod，无关 IDE、数据、模型和 pyc 保留。凭据、私有配置 jar 未提交。
