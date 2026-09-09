@@ -1,0 +1,60 @@
+{
+  "checkedAt": "2026-09-09T03:37:20.265938+00:00",
+  "result": "PASS",
+  "scope": "deployed HTTP worker with a controlled log fixture",
+  "actualOriginalRequestReplayed": false,
+  "cases": {
+    "warm": 200,
+    "growingLog": 200,
+    "staleLog": 400,
+    "failedLogFetch": 400,
+    "singleBox": 200
+  },
+  "logFetchCount": 5,
+  "freshDebugContext": {
+    "used_target": {
+      "mode": "shot_time_ms",
+      "shot_time_ms": 1788775818000.0,
+      "requested_pose_time_shift_sec": 0.0,
+      "pose_time_shift_sec": 0.0,
+      "target_pose_time_ms": 1788775818000.0,
+      "hovering": false,
+      "selected_pose_index": 1,
+      "selected_pose_time_ms": 1788775818000.0,
+      "pose_time_delta_sec": 0.0,
+      "max_pose_time_delta_sec": 5.0,
+      "time_validation_applied": true
+    },
+    "camera_pose": {
+      "lat": 34.811697,
+      "lon": 113.478463,
+      "alt": 203.81
+    },
+    "geo_pose_debug": {},
+    "geo_calibration_debug": {
+      "mode": null,
+      "hit": false,
+      "params": null,
+      "request_mode": null
+    },
+    "request_mode": null,
+    "geo_mode": null,
+    "geo_device_mode": null,
+    "geo_mode_forced_off": true,
+    "code_version": "overlay_service_0624",
+    "resample": {
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "input_image_size": {
+        "width": 960,
+        "height": 720
+      },
+      "source_image_size": {
+        "width": 960,
+        "height": 720
+      }
+    }
+  },
+  "staleError": "TELEMETRY_TIME_MISMATCH: delta_sec=78.000, max_delta_sec=5.000, selected_pose_time_ms=1788775740000, target_pose_time_ms=1788775818000",
+  "temporaryLogServerClosedAfterCheck": true
+}
