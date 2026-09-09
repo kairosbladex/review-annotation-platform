@@ -1,0 +1,2680 @@
+{
+  "sourceSha256": "e16f0a97beb3b2109a3e595e5b251b5488ccd57848920d15c7964bf3f9dfe22e",
+  "supportSourceSha256": {
+    "args_helpers.py": "4a8fb068b8e8ad6869f05d17352b9679c6057dc6ca26a4e30618ca2c9e488797",
+    "project_kml_to_video_overlay.py": "7cbf8072dd58d5c36b6b0bee20fabf1390b9a0fe4101bccda69df94d8167a80d"
+  },
+  "environmentCalibration": {
+    "OVERLAY_SINGLE_IMAGE_CX_OFFSET_PX": "50",
+    "OVERLAY_SINGLE_IMAGE_CY_OFFSET_PX": "-100",
+    "OVERLAY_SINGLE_IMAGE_FX_SCALE": null,
+    "OVERLAY_SINGLE_IMAGE_FY_SCALE": "1.04"
+  },
+  "selectedPose": {
+    "t_sec": 170.49699997901917,
+    "lat": 34.811712,
+    "lon": 113.477694,
+    "alt": 203.77,
+    "agl_h": 109.9,
+    "yaw": 89.7,
+    "pitch": -23.8,
+    "roll": 3.7,
+    "pan": 91.8,
+    "tilt": -90.0,
+    "zoomFactor": 2.0
+  },
+  "selectedTime": {
+    "mode": "shot_time_ms",
+    "shot_time_ms": 1788775808000.0,
+    "requested_pose_time_shift_sec": 0.0,
+    "pose_time_shift_sec": 0.0,
+    "target_pose_time_ms": 1788775808000.0,
+    "hovering": false,
+    "selected_pose_index": 363,
+    "selected_pose_time_ms": 1788775808010.0,
+    "pose_time_delta_sec": 0.009999990463256836,
+    "max_pose_time_delta_sec": 1.0,
+    "time_validation_applied": true
+  },
+  "baselineResponse": {
+    "count": 2,
+    "metadata": {
+      "calculation_version": "geo-quality-20260909-v1",
+      "coordinate_system": "WGS84",
+      "selected_pose_time_ms": 1788775808010.0,
+      "pose_time_delta_sec": 0.009999990463256836,
+      "request_sha256": "3d9ad09fb251e4c2fb3c756dfed64ae473c63f1cfe4ec6c0015f8025713dc3ae",
+      "camera_parameters_sha256": "a8bb9b0a2416e020b6936cf0a81805956093a4ee3736cdb0dfa01776cd827ceb",
+      "quality_policy": {
+        "min_depression_deg": 10.0,
+        "max_range_m": 1000.0,
+        "max_sensitivity_m": 50.0,
+        "angle_allowance_deg": 1.0,
+        "height_allowance_m": 3.0
+      },
+      "quality_policy_sha256": "dbd0875e3ec073a7b6ba76dc8bdc42d337cb71ff876cef5ea218fdc0d4021433",
+      "accuracy_verified": false
+    },
+    "ok_count": 2,
+    "results": [
+      {
+        "index": 0,
+        "ok": true,
+        "quality": {
+          "depression_deg": 72.57553820492583,
+          "horizontal_range_m": 34.492107784795294,
+          "estimated_sensitivity_m": 4.0643082049670625,
+          "status": "screened",
+          "accuracy_verified": false
+        },
+        "lat": 34.811970583791094,
+        "lon": 113.47790331556732,
+        "alt": 93.87,
+        "anchor_uv": {
+          "u": 72.0,
+          "v": 228.0,
+          "mode": "center"
+        },
+        "anchor_uv_source": {
+          "u": 72.0,
+          "v": 228.0
+        },
+        "source_image_size": {
+          "width": 960,
+          "height": 720
+        },
+        "input_image_size": {
+          "width": 960,
+          "height": 720
+        },
+        "debug_info": {
+          "quality": {
+            "depression_deg": 72.57553820492583,
+            "horizontal_range_m": 34.492107784795294,
+            "estimated_sensitivity_m": 4.0643082049670625,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "pixel_transformed": {
+            "u": 72.0,
+            "v": 228.0
+          },
+          "pixel_raw_for_projection": {
+            "u": 888.0,
+            "v": 492.0
+          },
+          "yaw_src": "pan",
+          "yaw_used": 91.80000000000001,
+          "body_yaw_used": 89.69999999999999,
+          "attitude_mode": "image_style",
+          "attitude_mode_used": "image_style",
+          "gimbal_pan_mode": "relative",
+          "flip_y_effective": true,
+          "flip_x_effective": true,
+          "pose_tilt_raw": -90.0,
+          "pose_pan_raw": 91.8,
+          "pose_yaw_raw": 89.7,
+          "ignore_gimbal": false,
+          "ray_world": {
+            "x": 0.1662682422143154,
+            "y": 0.2490463340701083,
+            "z": -0.9541125694157905
+          },
+          "ground_h": 93.87,
+          "hit_enu": {
+            "east": 19.151702225740213,
+            "north": 28.68654390641218,
+            "up": -109.89999999960212
+          },
+          "distortion_enabled": false,
+          "round_trip": {
+            "ok": true,
+            "u": 71.99478933011187,
+            "v": 227.99755611343073,
+            "du": -0.005210669888128905,
+            "dv": -0.002443886569267306,
+            "err_px": 0.005755315998839544
+          },
+          "resample": {
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "input_image_size": {
+              "width": 960,
+              "height": 720
+            },
+            "source_image_size": {
+              "width": 960,
+              "height": 720
+            }
+          }
+        }
+      },
+      {
+        "index": 1,
+        "ok": true,
+        "quality": {
+          "depression_deg": 72.70235977491022,
+          "horizontal_range_m": 34.22507286131525,
+          "estimated_sensitivity_m": 4.05257170965119,
+          "status": "screened",
+          "accuracy_verified": false
+        },
+        "lat": 34.81140841940734,
+        "lon": 113.47762740836644,
+        "alt": 93.87,
+        "anchor_uv": {
+          "u": 844.0,
+          "v": 524.0,
+          "mode": "center"
+        },
+        "anchor_uv_source": {
+          "u": 844.0,
+          "v": 524.0
+        },
+        "source_image_size": {
+          "width": 960,
+          "height": 720
+        },
+        "input_image_size": {
+          "width": 960,
+          "height": 720
+        },
+        "debug_info": {
+          "quality": {
+            "depression_deg": 72.70235977491022,
+            "horizontal_range_m": 34.22507286131525,
+            "estimated_sensitivity_m": 4.05257170965119,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "pixel_transformed": {
+            "u": 844.0,
+            "v": 524.0
+          },
+          "pixel_raw_for_projection": {
+            "u": 116.0,
+            "v": 196.0
+          },
+          "yaw_src": "pan",
+          "yaw_used": 91.80000000000001,
+          "body_yaw_used": 89.69999999999999,
+          "attitude_mode": "image_style",
+          "attitude_mode_used": "image_style",
+          "gimbal_pan_mode": "relative",
+          "flip_y_effective": true,
+          "flip_x_effective": true,
+          "pose_tilt_raw": -90.0,
+          "pose_pan_raw": 91.8,
+          "pose_yaw_raw": 89.7,
+          "ignore_gimbal": false,
+          "ray_world": {
+            "x": -0.05293317910123833,
+            "y": -0.2925858994494799,
+            "z": -0.9547730463275421
+          },
+          "ground_h": 93.87,
+          "hit_enu": {
+            "east": -6.092920621901744,
+            "north": -33.67835997576993,
+            "up": -109.89999999960212
+          },
+          "distortion_enabled": false,
+          "round_trip": {
+            "ok": true,
+            "u": 844.0057403868354,
+            "v": 524.0011715463871,
+            "du": 0.0057403868354413135,
+            "dv": 0.0011715463871269094,
+            "err_px": 0.005858716750082568
+          },
+          "resample": {
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "input_image_size": {
+              "width": 960,
+              "height": 720
+            },
+            "source_image_size": {
+              "width": 960,
+              "height": 720
+            }
+          }
+        }
+      }
+    ],
+    "debug_context": {
+      "used_target": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788775808000.0,
+        "requested_pose_time_shift_sec": 0.0,
+        "pose_time_shift_sec": 0.0,
+        "target_pose_time_ms": 1788775808000.0,
+        "hovering": false,
+        "selected_pose_index": 363,
+        "selected_pose_time_ms": 1788775808010.0,
+        "pose_time_delta_sec": 0.009999990463256836,
+        "max_pose_time_delta_sec": 1.0,
+        "time_validation_applied": true
+      },
+      "camera_pose": {
+        "lat": 34.811712,
+        "lon": 113.477694,
+        "alt": 203.77
+      },
+      "geo_pose_debug": {},
+      "geo_calibration_debug": {
+        "mode": null,
+        "hit": false,
+        "params": null,
+        "request_mode": null
+      },
+      "request_mode": null,
+      "geo_mode": null,
+      "geo_device_mode": null,
+      "geo_mode_forced_off": true,
+      "code_version": "overlay_service_0624",
+      "resample": {
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "input_image_size": {
+          "width": 960,
+          "height": 720
+        },
+        "source_image_size": {
+          "width": 960,
+          "height": 720
+        }
+      }
+    }
+  },
+  "variants": [
+    {
+      "variant": "current",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {},
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47790331556732,
+            34.811970583791094
+          ],
+          "eastChangeMeters": 0.0,
+          "northChangeMeters": 0.0,
+          "displacementFromCurrentMeters": 0.0,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.57553820492583,
+            "horizontal_range_m": 34.492107784795294,
+            "estimated_sensitivity_m": 4.0643082049670625,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1662682422143154,
+            "y": 0.2490463340701083,
+            "z": -0.9541125694157905
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47762740836644,
+            34.81140841940734
+          ],
+          "eastChangeMeters": 0.0,
+          "northChangeMeters": 0.0,
+          "displacementFromCurrentMeters": 0.0,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.70235977491022,
+            "horizontal_range_m": 34.22507286131525,
+            "estimated_sensitivity_m": 4.05257170965119,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.05293317910123833,
+            "y": -0.2925858994494799,
+            "z": -0.9547730463275421
+          }
+        }
+      ]
+    },
+    {
+      "variant": "principal_point_zero",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "cx_offset_px": 0,
+        "cy_offset_px": 0
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.477592077919,
+            34.81201552360119
+          ],
+          "eastChangeMeters": -28.414282881638357,
+          "northChangeMeters": 4.997085789244049,
+          "displacementFromCurrentMeters": 28.850343811865248,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.36343353268116,
+            "horizontal_range_m": 34.939545846422654,
+            "estimated_sensitivity_m": 4.084049070315032,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 480.0,
+            "cy": 360.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": false,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.08086641729655097,
+            "y": 0.2919869658817805,
+            "z": -0.952997499634061
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47782464218655,
+            34.81144018004037
+          ],
+          "eastChangeMeters": 18.00648418378324,
+          "northChangeMeters": 3.531626137866824,
+          "displacementFromCurrentMeters": 18.349546475008587,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 73.55570993210132,
+            "horizontal_range_m": 32.43766237270647,
+            "estimated_sensitivity_m": 3.9748790448457427,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 480.0,
+            "cy": 360.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": false,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.10431660006984565,
+            "y": -0.2631615318069642,
+            "z": -0.9590954358805385
+          }
+        }
+      ]
+    },
+    {
+      "variant": "principal_zero_fixed_flip_y",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "cx_offset_px": 0,
+        "cy_offset_px": 0,
+        "geo_auto_flip_y_by_ray": false,
+        "auto_flip_y_by_ray": false,
+        "flip_y": true
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47781882870898,
+            34.812009646400604
+          ],
+          "eastChangeMeters": -7.7131847823070805,
+          "northChangeMeters": 4.343569998562155,
+          "displacementFromCurrentMeters": 8.85210821321242,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.36343353268116,
+            "horizontal_range_m": 34.93954584642266,
+            "estimated_sensitivity_m": 4.084049070315025,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 480.0,
+            "cy": 360.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.09904085917769717,
+            "y": 0.2863331519481661,
+            "z": -0.952997499634061
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47754292150809,
+            34.81144748201685
+          ],
+          "eastChangeMeters": -7.7132374048451595,
+          "northChangeMeters": 4.343569998562155,
+          "displacementFromCurrentMeters": 8.852154065305898,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 73.55570993210132,
+            "horizontal_range_m": 32.43766237270646,
+            "estimated_sensitivity_m": 3.97487904484575,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 480.0,
+            "cy": 360.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.12063480439075756,
+            "y": -0.2560921491235598,
+            "z": -0.9590954358805385
+          }
+        }
+      ]
+    },
+    {
+      "variant": "current_fixed_flip_y",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "geo_auto_flip_y_by_ray": false,
+        "auto_flip_y_by_ray": false,
+        "flip_y": true
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47790331556732,
+            34.811970583791094
+          ],
+          "eastChangeMeters": 0.0,
+          "northChangeMeters": 0.0,
+          "displacementFromCurrentMeters": 0.0,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.57553820492583,
+            "horizontal_range_m": 34.492107784795294,
+            "estimated_sensitivity_m": 4.0643082049670625,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1662682422143154,
+            "y": 0.2490463340701083,
+            "z": -0.9541125694157905
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47762740836644,
+            34.81140841940734
+          ],
+          "eastChangeMeters": 0.0,
+          "northChangeMeters": 0.0,
+          "displacementFromCurrentMeters": 0.0,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.70235977491022,
+            "horizontal_range_m": 34.22507286131525,
+            "estimated_sensitivity_m": 4.05257170965119,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.05293317910123833,
+            "y": -0.2925858994494799,
+            "z": -0.9547730463275421
+          }
+        }
+      ]
+    },
+    {
+      "variant": "scale_neutral",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "fx_scale": 1,
+        "fy_scale": 1
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47791128620115,
+            34.81197037719859
+          ],
+          "eastChangeMeters": 0.7276749636441845,
+          "northChangeMeters": -0.022972069958376848,
+          "displacementFromCurrentMeters": 0.7280374775468209,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.38998407223055,
+            "horizontal_range_m": 34.88347966952317,
+            "estimated_sensitivity_m": 4.08157026429118,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1343.9999999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.17242331780424885,
+            "y": 0.2485931252884435,
+            "z": -0.9531377956710663
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.4776252095709,
+            34.81140847639838
+          ],
+          "eastChangeMeters": -0.20073929071237068,
+          "northChangeMeters": 0.006337122610916274,
+          "displacementFromCurrentMeters": 0.20083929386126476,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.68802120336287,
+            "horizontal_range_m": 34.255245584215366,
+            "estimated_sensitivity_m": 4.053896149579224,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1343.9999999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.05467672157255805,
+            "y": -0.29250816501678933,
+            "z": -0.9546986066380257
+          }
+        }
+      ]
+    },
+    {
+      "variant": "principal_and_scale_neutral",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "cx_offset_px": 0,
+        "cy_offset_px": 0,
+        "fx_scale": 1,
+        "fy_scale": 1
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47758754290321,
+            34.8120156411452
+          ],
+          "eastChangeMeters": -28.82830484279466,
+          "northChangeMeters": 5.010156105073488,
+          "displacementFromCurrentMeters": 29.260431034185114,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.3040034441761,
+            "horizontal_range_m": 35.06510295583911,
+            "estimated_sensitivity_m": 4.089605602699187,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1343.9999999999998,
+            "cx": 480.0,
+            "cy": 360.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": false,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.08443666401749572,
+            "y": 0.2920035609513142,
+            "z": -0.9526827227158834
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47783027660012,
+            34.81144003400084
+          ],
+          "eastChangeMeters": 18.52087861550391,
+          "northChangeMeters": 3.5153872603368823,
+          "displacementFromCurrentMeters": 18.851548803224865,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 73.45578825263983,
+            "horizontal_range_m": 32.64612834889979,
+            "estimated_sensitivity_m": 3.983862751143832,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1343.9999999999998,
+            "cx": 480.0,
+            "cy": 360.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": false,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.10875945082190591,
+            "y": -0.2631669862575635,
+            "z": -0.9586002916758523
+          }
+        }
+      ]
+    },
+    {
+      "variant": "sensor_height_16_9_crop_hypothesis",
+      "status": 200,
+      "requestOverrides": {
+        "sensor_h_mm": 5.3999999999999995
+      },
+      "overlayParams": {},
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47785349910589,
+            34.811971874994256
+          ],
+          "eastChangeMeters": -4.547968521154437,
+          "northChangeMeters": 0.1435754392150767,
+          "displacementFromCurrentMeters": 4.550234233109047,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 73.61550177450727,
+            "horizontal_range_m": 32.31302170798383,
+            "estimated_sensitivity_m": 3.9695175202843274,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1863.68,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.12739774715819593,
+            "y": 0.25167441438837684,
+            "z": -0.9593903288866759
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47764115083856,
+            34.811408063213364
+          ],
+          "eastChangeMeters": 1.2546205653305897,
+          "northChangeMeters": -0.03960701809592599,
+          "displacementFromCurrentMeters": 1.2552455850680773,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.77949119207395,
+            "horizontal_range_m": 34.062845426746065,
+            "estimated_sensitivity_m": 4.045458056075823,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1863.68,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.04202696699649364,
+            "y": -0.29305173333777007,
+            "z": -0.9551724533469357
+          }
+        }
+      ]
+    },
+    {
+      "variant": "yaw_plus_3deg",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "yaw_offset_deg": 3
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47791943734588,
+            34.81196119435988
+          ],
+          "eastChangeMeters": 1.4718295776933623,
+          "northChangeMeters": -1.0440585570746077,
+          "displacementFromCurrentMeters": 1.8045333403330992,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.57553820492583,
+            "horizontal_range_m": 34.492107784795294,
+            "estimated_sensitivity_m": 4.0643082049670625,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 94.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1790744554093014,
+            "y": 0.2400032172756448,
+            "z": -0.9541125694157905
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.4776082356822,
+            34.811411709864245
+          ],
+          "eastChangeMeters": -1.7503724030713534,
+          "northChangeMeters": 0.3658826192790208,
+          "displacementFromCurrentMeters": 1.7882040265373136,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.70235977491022,
+            "horizontal_range_m": 34.22507286131525,
+            "estimated_sensitivity_m": 4.05257170965119,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 94.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.06817339884984053,
+            "y": -0.2894146120977403,
+            "z": -0.9547730463275421
+          }
+        }
+      ]
+    },
+    {
+      "variant": "yaw_minus_3deg",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "yaw_offset_deg": -3
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47788662006936,
+            34.81197926446212
+          ],
+          "eastChangeMeters": -1.5242069990631084,
+          "northChangeMeters": 0.9652479108708302,
+          "displacementFromCurrentMeters": 1.8041370528409055,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.57553820492583,
+            "horizontal_range_m": 34.492107784795294,
+            "estimated_sensitivity_m": 4.0643082049670625,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 88.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1530062993245839,
+            "y": 0.257406832173884,
+            "z": -0.9541125694157905
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47764676357372,
+            34.81140596104374
+          ],
+          "eastChangeMeters": 1.7670358634638201,
+          "northChangeMeters": -0.2733579381179904,
+          "displacementFromCurrentMeters": 1.7880548943193684,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.70235977491022,
+            "horizontal_range_m": 34.22507286131525,
+            "estimated_sensitivity_m": 4.05257170965119,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 88.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.03754787318805986,
+            "y": -0.2949552291882249,
+            "z": -0.9547730463275421
+          }
+        }
+      ]
+    },
+    {
+      "variant": "pitch_plus_1deg",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "pitch_offset_deg": 1
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.4775061825893,
+            34.811453581568564
+          ],
+          "eastChangeMeters": -36.256053340984366,
+          "northChangeMeters": -57.48810361514247,
+          "displacementFromCurrentMeters": 67.96604638442389,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 73.08374590715154,
+            "horizontal_range_m": 33.42423108740004,
+            "estimated_sensitivity_m": 4.017575533753288,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.14960079078463678,
+            "y": -0.249570129833002,
+            "z": -0.956731076996953
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47778161897604,
+            34.81201532632829
+          ],
+          "eastChangeMeters": 14.078675255479261,
+          "northChangeMeters": 67.48506376934648,
+          "displacementFromCurrentMeters": 68.93796435130649,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.52816764077787,
+            "horizontal_range_m": 34.59194608717308,
+            "estimated_sensitivity_m": 4.068704857643304,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.06958138915150307,
+            "y": 0.29206270837129467,
+            "z": -0.9538646678971662
+          }
+        }
+      ]
+    },
+    {
+      "variant": "pitch_minus_1deg",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "pitch_offset_deg": -1
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.4778818174107,
+            34.811970418431436
+          ],
+          "eastChangeMeters": -1.9626632791331042,
+          "northChangeMeters": -0.01838718048435402,
+          "displacementFromCurrentMeters": 1.9627494072508782,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 73.08374590715154,
+            "horizontal_range_m": 33.42423108740003,
+            "estimated_sensitivity_m": 4.017575533753295,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1496007907846367,
+            "y": 0.249570129833002,
+            "z": -0.956731076996953
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47760638102396,
+            34.81140867367171
+          ],
+          "eastChangeMeters": -1.9196936391009642,
+          "northChangeMeters": 0.02827294638108743,
+          "displacementFromCurrentMeters": 1.9199018275687356,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.52816764077787,
+            "horizontal_range_m": 34.591946087173085,
+            "estimated_sensitivity_m": 4.068704857643297,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.06958138915150316,
+            "y": -0.29206270837129467,
+            "z": -0.9538646678971662
+          }
+        }
+      ]
+    },
+    {
+      "variant": "pitch_plus_0_001deg",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "pitch_offset_deg": 0.001
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.4774847059924,
+            34.81145341641486
+          ],
+          "eastChangeMeters": -38.21674833698671,
+          "northChangeMeters": -57.50646789490977,
+          "displacementFromCurrentMeters": 69.04718461458704,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.5760670359026,
+            "horizontal_range_m": 34.49099351218873,
+            "estimated_sensitivity_m": 4.06425916147154,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.16625159800139402,
+            "y": -0.24904685713557162,
+            "z": -0.9541153332343406
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47776061264021,
+            34.81201558029221
+          ],
+          "eastChangeMeters": 12.16089942143975,
+          "northChangeMeters": 67.51330330762268,
+          "displacementFromCurrentMeters": 68.59980756711661,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.70221271928173,
+            "horizontal_range_m": 34.22538228728336,
+            "estimated_sensitivity_m": 4.052585289808512,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.05294983480520497,
+            "y": 0.29258537602289586,
+            "z": -0.9547722831815144
+          }
+        }
+      ]
+    },
+    {
+      "variant": "pitch_minus_0_001deg",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "pitch_offset_deg": -0.001
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.4779032940076,
+            34.81197058358514
+          ],
+          "eastChangeMeters": -0.001968283130759745,
+          "northChangeMeters": -2.2900717060060683e-05,
+          "displacementFromCurrentMeters": 0.0019684163496768788,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.5760670359026,
+            "horizontal_range_m": 34.49099351218872,
+            "estimated_sensitivity_m": 4.064259161471547,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1662515980013939,
+            "y": 0.2490468571355716,
+            "z": -0.9541153332343406
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47762738735979,
+            34.81140841970779
+          ],
+          "eastChangeMeters": -0.0019178050614523758,
+          "northChangeMeters": 3.3408104887617935e-05,
+          "displacementFromCurrentMeters": 0.0019180960234577759,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.70221271928173,
+            "horizontal_range_m": 34.22538228728337,
+            "estimated_sensitivity_m": 4.052585289808505,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.052949834805205064,
+            "y": -0.29258537602289586,
+            "z": -0.9547722831815144
+          }
+        }
+      ]
+    },
+    {
+      "variant": "pitch_plus_3deg",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "pitch_offset_deg": 3
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47754885099849,
+            34.81145367058954
+          ],
+          "eastChangeMeters": -32.36066261469983,
+          "northChangeMeters": -57.478204920236465,
+          "displacementFromCurrentMeters": 65.96178079551163,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 73.96499073373884,
+            "horizontal_range_m": 31.586003924577263,
+            "estimated_sensitivity_m": 3.938390107564956,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.1161415636072816,
+            "y": -0.2506216284078825,
+            "z": -0.9610930946464223
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47782383690155,
+            34.812015095702755
+          ],
+          "eastChangeMeters": 17.932965597727932,
+          "northChangeMeters": 67.45941934411995,
+          "displacementFromCurrentMeters": 69.8023245556702,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.02227971274746,
+            "horizontal_range_m": 35.6614338260571,
+            "estimated_sensitivity_m": 4.116097874089583,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.10281760013534991,
+            "y": 0.2910182183626433,
+            "z": -0.9511766069891753
+          }
+        }
+      ]
+    },
+    {
+      "variant": "pitch_minus_3deg",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "pitch_offset_deg": -3
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47783914900151,
+            34.81197032941046
+          ],
+          "eastChangeMeters": -5.858054005417636,
+          "northChangeMeters": -0.028285875390367084,
+          "displacementFromCurrentMeters": 5.858122294825895,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 73.96499073373884,
+            "horizontal_range_m": 31.586003924577273,
+            "estimated_sensitivity_m": 3.9383901075649455,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.11614156360728192,
+            "y": 0.2506216284078825,
+            "z": -0.9610930946464223
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47756416309845,
+            34.811408904297245
+          ],
+          "eastChangeMeters": -5.7739839813496365,
+          "northChangeMeters": 0.05391737160761605,
+          "displacementFromCurrentMeters": 5.774235715646121,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.02227971274749,
+            "horizontal_range_m": 35.66143382605709,
+            "estimated_sensitivity_m": 4.116097874089505,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.10281760013534957,
+            "y": -0.29101821836264335,
+            "z": -0.9511766069891754
+          }
+        }
+      ]
+    },
+    {
+      "variant": "ground_plus_10m",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "ground_h_offset_m": 10
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47788426956484,
+            34.811947054783715
+          ],
+          "eastChangeMeters": -1.7387951139750564,
+          "northChangeMeters": -2.616309863311885,
+          "displacementFromCurrentMeters": 3.1414146095742574,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.57553820492583,
+            "horizontal_range_m": 31.35360844115719,
+            "estimated_sensitivity_m": 3.7914286115175564,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1662682422143154,
+            "y": 0.2490463340701083,
+            "z": -0.9541125694157905
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47763346765976,
+            34.811436042755176
+          ],
+          "eastChangeMeters": 0.5531838765701182,
+          "northChangeMeters": 3.0715803786234344,
+          "displacementFromCurrentMeters": 3.120996383151,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.70235977491022,
+            "horizontal_range_m": 31.110871508895872,
+            "estimated_sensitivity_m": 3.780085968686162,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.05293317910123833,
+            "y": -0.2925858994494799,
+            "z": -0.9547730463275421
+          }
+        }
+      ]
+    },
+    {
+      "variant": "ground_minus_10m",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "ground_h_offset_m": -10
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47792236156981,
+            34.81199411279847
+          ],
+          "eastChangeMeters": 1.7387951152724288,
+          "northChangeMeters": 2.616309863311885,
+          "displacementFromCurrentMeters": 3.141414610292362,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.57553820492583,
+            "horizontal_range_m": 37.63060712827282,
+            "estimated_sensitivity_m": 4.33718779840261,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1662682422143154,
+            "y": 0.2490463340701083,
+            "z": -0.9541125694157905
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47762134907312,
+            34.81138079605951
+          ],
+          "eastChangeMeters": -0.5531838778675,
+          "northChangeMeters": -3.0715803786234344,
+          "displacementFromCurrentMeters": 3.1209963833809558,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.70235977491022,
+            "horizontal_range_m": 37.33927421357528,
+            "estimated_sensitivity_m": 4.32505745060228,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.05293317910123833,
+            "y": -0.2925858994494799,
+            "z": -0.9547730463275421
+          }
+        }
+      ]
+    },
+    {
+      "variant": "zoom_plus_10pct",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "zoom_scale": 1.1
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47788428687939,
+            34.81194707617372
+          ],
+          "eastChangeMeters": -1.737214391115863,
+          "northChangeMeters": -2.613931399657567,
+          "displacementFromCurrentMeters": 3.138558777976896,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 74.07559170108703,
+            "horizontal_range_m": 31.356461622541175,
+            "estimated_sensitivity_m": 3.928613926361706,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1478.4,
+            "fy": 1537.5359999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.2
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.15234300893140817,
+            "y": 0.22818830216941066,
+            "z": -0.9616245142376346
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47763346215132,
+            34.81143601764304
+          ],
+          "eastChangeMeters": 0.5526809829164813,
+          "northChangeMeters": 3.068788032604897,
+          "displacementFromCurrentMeters": 3.1181591136336455,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 74.1926936020429,
+            "horizontal_range_m": 31.113702601195676,
+            "estimated_sensitivity_m": 3.9183018456386023,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1478.4,
+            "fy": 1537.5359999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.2
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.04849455085908098,
+            "y": -0.26805157034618426,
+            "z": -0.9621832643378915
+          }
+        }
+      ]
+    },
+    {
+      "variant": "zoom_minus_10pct",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "zoom_scale": 0.9
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47792657285258,
+            34.81199931532344
+          ],
+          "eastChangeMeters": 2.123262035027581,
+          "northChangeMeters": 3.1948050444648532,
+          "displacementFromCurrentMeters": 3.836016285357446,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 70.77520509944613,
+            "horizontal_range_m": 38.324564205328116,
+            "estimated_sensitivity_m": 4.236459653409057,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1209.6,
+            "fy": 1257.984,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 1.8
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.18282972104029063,
+            "y": 0.27385308930766217,
+            "z": -0.944233963899297
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47762000929605,
+            34.81137468823038
+          ],
+          "eastChangeMeters": -0.6754989789759901,
+          "northChangeMeters": -3.7507409287393187,
+          "displacementFromCurrentMeters": 3.8110833610822388,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 70.91323513097402,
+            "horizontal_range_m": 38.02785873479472,
+            "estimated_sensitivity_m": 4.222883860657184,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1209.6,
+            "fy": 1257.984,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 1.8
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.058214124970304704,
+            "y": -0.3217761034629142,
+            "z": -0.9450244731720792
+          }
+        }
+      ]
+    },
+    {
+      "variant": "use_body_pitch",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "image_style_add_uav_pitch": true
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47714242714073,
+            34.812017786852216
+          ],
+          "eastChangeMeters": -69.4649220976197,
+          "northChangeMeters": 5.248748168734433,
+          "displacementFromCurrentMeters": 69.6629367696135,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 61.04379222985478,
+            "horizontal_range_m": 60.808803331486565,
+            "estimated_sensitivity_m": 5.387027557263394,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": false,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.40180389014347134,
+            "y": 0.2700854173024629,
+            "z": -0.8749900006435088
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47740280414129,
+            34.81141152381038
+          ],
+          "eastChangeMeters": -20.50526844592935,
+          "northChangeMeters": 0.34519434456308873,
+          "displacementFromCurrentMeters": 20.508173813753974,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 68.77910664821643,
+            "horizontal_range_m": 42.673512389766685,
+            "estimated_sensitivity_m": 4.4402307858991605,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": false,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.2259949134061849,
+            "y": -0.28274479055869445,
+            "z": -0.9321918700173538
+          }
+        }
+      ]
+    },
+    {
+      "variant": "use_body_roll",
+      "status": 200,
+      "requestOverrides": {},
+      "overlayParams": {
+        "image_style_use_uav_roll": true
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47792311177507,
+            34.81195890422765
+          ],
+          "eastChangeMeters": 1.8072847230796072,
+          "northChangeMeters": -1.2987099940939415,
+          "displacementFromCurrentMeters": 2.225516955459207,
+          "anchor": {
+            "u": 72.0,
+            "v": 228.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.57553820492583,
+            "horizontal_range_m": 34.4921077847953,
+            "estimated_sensitivity_m": 4.064308204967055,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1819932105278084,
+            "y": 0.23779755298274008,
+            "z": -0.9541125694157905
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47760379396023,
+            34.81141259644694
+          ],
+          "eastChangeMeters": -2.155879918749782,
+          "northChangeMeters": 0.4644662534094907,
+          "displacementFromCurrentMeters": 2.20534512596664,
+          "anchor": {
+            "u": 844.0,
+            "v": 524.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 72.70235977491022,
+            "horizontal_range_m": 34.22507286131525,
+            "estimated_sensitivity_m": 4.05257170965119,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.07170408960366705,
+            "y": -0.28856013851627915,
+            "z": -0.9547730463275421
+          }
+        }
+      ]
+    },
+    {
+      "variant": "bbox_top_left_to_center",
+      "status": 200,
+      "requestOverrides": {
+        "bboxes_xyxy": [
+          [
+            72,
+            228,
+            113,
+            324
+          ],
+          [
+            844,
+            524,
+            912,
+            633
+          ]
+        ],
+        "point_mode": "center"
+      },
+      "overlayParams": {},
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47786151267807,
+            34.81195654945018
+          ],
+          "eastChangeMeters": -3.8163735223724014,
+          "northChangeMeters": -1.5605496639895524,
+          "displacementFromCurrentMeters": 4.1231083075809485,
+          "anchor": {
+            "u": 92.5,
+            "v": 276.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 74.17047885705993,
+            "horizontal_range_m": 31.159733397738304,
+            "estimated_sensitivity_m": 3.920255040524193,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1341732480291884,
+            "y": 0.23749584754704656,
+            "z": -0.9620775758280659
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47757964362795,
+            34.81138458394299
+          ],
+          "eastChangeMeters": -4.360687268736044,
+          "northChangeMeters": -2.6503863712742675,
+          "displacementFromCurrentMeters": 5.102954180938037,
+          "anchor": {
+            "u": 878.0,
+            "v": 578.5,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 71.019575288692,
+            "horizontal_range_m": 37.799610237206025,
+            "estimated_sensitivity_m": 4.212468668235481,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.09003049868503162,
+            "y": -0.31253620872469107,
+            "z": -0.9456297518281248
+          }
+        }
+      ]
+    },
+    {
+      "variant": "bbox_top_left_to_bottom_center",
+      "status": 200,
+      "requestOverrides": {
+        "bboxes_xyxy": [
+          [
+            72,
+            228,
+            113,
+            324
+          ],
+          [
+            844,
+            524,
+            912,
+            633
+          ]
+        ],
+        "point_mode": "bottom_center"
+      },
+      "overlayParams": {},
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47782028526173,
+            34.8119576180321
+          ],
+          "eastChangeMeters": -7.580209539253205,
+          "northChangeMeters": -1.4417286112819514,
+          "displacementFromCurrentMeters": 7.716097332691849,
+          "anchor": {
+            "u": 92.5,
+            "v": 324.0,
+            "mode": "bottom_center"
+          },
+          "quality": {
+            "depression_deg": 74.9274368392079,
+            "horizontal_range_m": 29.596844595739224,
+            "estimated_sensitivity_m": 3.8544959683634055,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.1015212263408202,
+            "y": 0.23940626582759406,
+            "z": -0.9655972661957692
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47753283333229,
+            34.811385797228716
+          ],
+          "eastChangeMeters": -8.63423856919065,
+          "northChangeMeters": -2.515474967415816,
+          "displacementFromCurrentMeters": 8.993202431914618,
+          "anchor": {
+            "u": 878.0,
+            "v": 633.0,
+            "mode": "bottom_center"
+          },
+          "quality": {
+            "depression_deg": 70.42614192778423,
+            "horizontal_range_m": 39.07713764769444,
+            "estimated_sensitivity_m": 4.271080587221157,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.12642451121984838,
+            "y": -0.3102521370937113,
+            "z": -0.9422104087684487
+          }
+        }
+      ]
+    },
+    {
+      "variant": "bbox_center_neutral_principal",
+      "status": 200,
+      "requestOverrides": {
+        "bboxes_xyxy": [
+          [
+            72,
+            228,
+            113,
+            324
+          ],
+          [
+            844,
+            524,
+            912,
+            633
+          ]
+        ],
+        "point_mode": "center"
+      },
+      "overlayParams": {
+        "cx_offset_px": 0,
+        "cy_offset_px": 0
+      },
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47763272986248,
+            34.81199935209643
+          ],
+          "eastChangeMeters": -24.70298436765441,
+          "northChangeMeters": 3.1988940198392943,
+          "displacementFromCurrentMeters": 24.909242453730737,
+          "anchor": {
+            "u": 92.5,
+            "v": 276.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 73.58950857953246,
+            "horizontal_range_m": 32.36719709410166,
+            "estimated_sensitivity_m": 3.971847021187344,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 480.0,
+            "cy": 360.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": false,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.0489321583165347,
+            "y": 0.27824730441543316,
+            "z": -0.9592622589615578
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47787049803937,
+            34.81141391800457
+          ],
+          "eastChangeMeters": 22.1928995159564,
+          "northChangeMeters": 0.6114169596657427,
+          "displacementFromCurrentMeters": 22.20132022254318,
+          "anchor": {
+            "u": 878.0,
+            "v": 578.5,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 71.48645931675635,
+            "horizontal_range_m": 36.80090824883265,
+            "estimated_sensitivity_m": 4.167186723936538,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1397.7599999999998,
+            "cx": 480.0,
+            "cy": 360.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": false,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.13933822476041666,
+            "y": -0.2853232821618998,
+            "z": -0.9482486402716204
+          }
+        }
+      ]
+    },
+    {
+      "variant": "bbox_center_16_9_crop",
+      "status": 200,
+      "requestOverrides": {
+        "bboxes_xyxy": [
+          [
+            72,
+            228,
+            113,
+            324
+          ],
+          [
+            844,
+            524,
+            912,
+            633
+          ]
+        ],
+        "point_mode": "center",
+        "sensor_h_mm": 5.3999999999999995
+      },
+      "overlayParams": {},
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47782200307074,
+            34.81195757350786
+          ],
+          "eastChangeMeters": -7.423383038657953,
+          "northChangeMeters": -1.4466794879513758,
+          "displacementFromCurrentMeters": 7.563034925180092,
+          "anchor": {
+            "u": 92.5,
+            "v": 276.0,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 74.89964762544304,
+            "horizontal_range_m": 29.65402089322869,
+            "estimated_sensitivity_m": 3.856881424249181,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1863.68,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": 0.10288872694208911,
+            "y": 0.23933157448432485,
+            "z": -0.9654710287331725
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            113.47760508867398,
+            34.81138392442759
+          ],
+          "eastChangeMeters": -2.0376788782918034,
+          "northChangeMeters": -2.7237212391496732,
+          "displacementFromCurrentMeters": 3.401586776731056,
+          "anchor": {
+            "u": 878.0,
+            "v": 578.5,
+            "mode": "center"
+          },
+          "quality": {
+            "depression_deg": 71.25568979351279,
+            "horizontal_range_m": 37.293852194825604,
+            "estimated_sensitivity_m": 4.18947825055114,
+            "status": "screened",
+            "accuracy_verified": false
+          },
+          "intrinsics": {
+            "fx": 1344.0,
+            "fy": 1863.68,
+            "cx": 530.0,
+            "cy": 260.0,
+            "zoom_eff": 2.0
+          },
+          "projectionFlags": {
+            "flip_y_effective": true,
+            "flip_x_effective": true,
+            "attitude_mode_used": "image_style",
+            "yaw_used": 91.80000000000001
+          },
+          "rayWorld": {
+            "x": -0.07009673976038906,
+            "y": -0.3136069694951272,
+            "z": -0.946962045574714
+          }
+        }
+      ]
+    }
+  ],
+  "eventId": "c5354403ae3b44edb35b2dfc01ede1a4",
+  "checkedAt": "2026-09-09T09:04:25.638113+00:00",
+  "scope": "read-only parameter displacement; no ground truth supplied; displacement is not accuracy improvement",
+  "serviceOrDataChanged": false,
+  "calibrationValidated": false
+}
