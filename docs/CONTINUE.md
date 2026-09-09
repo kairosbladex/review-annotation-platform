@@ -1,6 +1,16 @@
 # Continue Here
 
-## 当前定位 Frontier：整体审计与方案待审阅（2026-09-09）
+## 当前定位 Frontier：测试 Java 恢复阻塞（2026-09-09 18:51）
+
+用户已授权测试环境整体修复和复测。目前 8181 稳定性版本已发布，测试 Java 启动退出后 192.168.110.23 不可访问；用户选择“我恢复110.23访问后通知你”。等待该通知，任务未完成，不重复询问实施授权，不运行结束交接。
+
+权威断点是 `docs/reports/afmap-geolocation-20260909/STABILITY_CURRENT_STATE.md`，验收入口是同目录 `ACCEPTANCE_GEO-STABILITY.md`。下方“方案待审阅”与单事件阶段内容仅作历史，不能据此重复执行旧 apply。当前 Java 候选含逐目标 Map 隔离和 TEXT 容量保护，16 项测试及 11 模块 package 通过，尚待在线恢复验证。
+
+等待期间已增强 `verify-stability-new-events.py`：检查 API 和回放的目标 index 完整性，逐目标比对 API、存储与 HTTP 回放 quality。冻结的 4 事件/18 目标离线通过，旧共享 quality、API 质量错配、重复 index 均被拒绝；证据为 `stability-natural-verifier-offline-validation.json`。这不代表新 Java 已上线或自然回调已验收。
+
+恢复访问后先检查实际 Java 包 SHA、进程、18081、活动任务，按 Java 修复工作树 `docs/CONTINUE.md` 恢复/发布；再 apply 尚未写入的 4 事件/8 附件自然质量修正，刷新 `verify-stability-history.py` 快照并运行 `verify-stability-new-events.py`。186 事件历史已写入，不得重复 apply。不得影响 8188/8189/Triton，不制造正式预警或飞行。Git 分支 `codex/uncertain-recheck-training-data`，仅本次文件本地 commit，未 push，保留无关未跟踪内容。
+
+## 历史定位阶段：整体审计与方案待审阅（2026-09-09）
 
 用户已确认 18:10:08 的两个点回到附近，随后要求“整体排查一下，然后给我一个解决方案”。本轮只读完成 3,155 事件/306 任务盘点、同航次 12/12 原坐标精确复现；另 10 条旧事件未更新。发布后新事件可接受 3.488 秒旧遥测（回放差约 87 米），运行 Java 轨迹写入器每 5 秒/100 条刷新，另有近水平交点、框顺序和失败处理风险。
 

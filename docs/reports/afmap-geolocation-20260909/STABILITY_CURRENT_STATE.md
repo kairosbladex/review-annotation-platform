@@ -19,3 +19,5 @@ Java补丁：修复Fastjson JSONObject(Map)共享逐目标状态，15项定向�
 等待期间又补齐了大批目标容量保护：200目标产生208833字节定位JSON时，原行为会超过TEXT容量；最新代码降为紧凑的不可用状态以保留预警。16项定向测试和11模块package通过。新候选/tmp/geolocation-runtime-dependencies/biz-visualization.stability-capacity.jar的SHA256为dfd679d2aa48bbbedf3d68c1ccd48eec7c88eb3e62c1882651c0d70ff151fdcf，尚未上传/发布。恢复连接后核对活动包仍为15fde7d9，使用--stability-capacity发布到独立目录，或先恢复15fde7d9再择空闲发布。保留所有回退包。
 
 不能报告本任务完成，也不能报告约20米真实位置残差已消除；用户暂未提供目标真值。斜拍旧模型仍被质量检查拒绝，需确认云台角度参考系后再核验。
+
+18:51 等待期间增强了 verify-stability-new-events.py：逐目标检查 API/存储/回放 quality，并验证目标 index 无缺漏或重复。离线冻结回放中，修正候选的4事件/18目标通过；旧共享quality、API质量错配和重复index均被拦截。证据 stability-natural-verifier-offline-validation.json；没有调用在线API或修改冻结修正文件。恢复后仍须刷新历史API快照，再做真实HTTP验收。报告仓库 docs/CONTINUE.md 已更新，旧“方案待审阅”段落明确标为历史。

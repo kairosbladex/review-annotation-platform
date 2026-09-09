@@ -23,10 +23,13 @@ for event, row in rows.items():
     expected = {f["properties"]["index"]: f for f in features if f.get("geometry")}
     assert main["id"] == event and main["eventTime"] == row["event_time"]
     assert len(targets) == len(expected)
+    assert {point["properties"]["index"] for point in targets} == set(expected), event
     for point in targets:
         index = point["properties"]["index"]; saved = expected[index]
         assert point["geometry"] == saved["geometry"]
         meta = saved["properties"]["geolocation"]
+        assert point["properties"]["geolocation"]["quality"] == meta["quality"], (event, index, "API target quality differs from storage")
+        assert meta["location_status"] in ("screened", "time_corrected") and not meta.get("error"), (event, index)
         assert meta["calculation_version"] == "geo-stability-20260909-v2"
         assert meta["quality"]["status"] == "screened" and meta["pose_time_delta_sec"] <= 1
         assert meta["quality"]["estimated_sensitivity_m"] <= 50
@@ -37,9 +40,13 @@ for event, row in rows.items():
     replay = session.post("http://192.168.130.238:8181/v1/geo/from-bboxes", json=req, timeout=15)
     if expected:
         assert main["geolocationStatus"] == "screened" and replay.status_code == 200
-        for result in replay.json()["results"]:
+        results = replay.json()["results"]
+        assert len(results) == request_count == len(expected), event
+        assert {result["index"] for result in results} == set(expected), event
+        for result in results:
             assert result["ok"]
             assert expected[result["index"]]["geometry"]["coordinates"][:2] == [result["lon"], result["lat"]]
+            assert expected[result["index"]]["properties"]["geolocation"]["quality"] == result["quality"], (event, result["index"], "stored target quality differs from replay")
     else:
         assert main["geolocationStatus"] == "unavailable" and targets == []
         assert metadata["retry_completed"] is True and metadata["retryable"] is False
@@ -48,7 +55,8 @@ for event, row in rows.items():
     checks.append({"eventId": event, "eventTime": row["event_time"], "detectedTargets": request_count,
         "drawableTargets": len(targets), "eventRetained": True, "status": main["geolocationStatus"],
         "poseTimeDeltaSec": metadata.get("pose_time_delta_sec"), "error": metadata.get("error"),
-        "retryCompleted": metadata.get("retry_completed"), "readOnlyReplayMatchesStoredCoordinates": True})
+        "retryCompleted": metadata.get("retry_completed"), "readOnlyReplayMatchesStoredCoordinates": True,
+        "targetIndexCoverageVerified": True, "perTargetQualityMatchesReplay": True if expected else None})
 output = {"result": "PASS", "checkedAt": datetime.now(timezone.utc).isoformat(), "events": checks,
     "naturalEvents": len(checks), "screenedTargets": sum(c["drawableTargets"] for c in checks),
     "unavailableEvents": sum(c["status"] == "unavailable" for c in checks),
