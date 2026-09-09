@@ -1,6 +1,6 @@
 # GEO-AUDIT 整体排查与方案验收
 
-状态：排查和方案已交付，实施方案尚待审阅。用户已验收此前 18:10:08 单事件地图修正。
+状态：本文件归档14:20时的只读审计阶段；用户随后已批准实施，Java/8181和历史两批更新已完成。**当前结果以[实施验收](ACCEPTANCE_GEO-RELEASE.md)为准**，下文“未做”描述仅适用于当时审计阶段。用户已验收此前18:10:08单事件地图修正。
 
 ## 做了什么
 
@@ -32,4 +32,4 @@
 
 报告仓库分支 `codex/uncertain-recheck-training-data`，本轮基线 `171a861`；只提交审计脚本、脱敏证据及方案/交接文档，未 push。Java 独立检出分支 `codex/geolocation-event-fix`，本轮基线 `a35fdeae3f`，仅文档改动。用 `git log -1 --oneline -- <本文件路径>` 查本次提交。
 
-下一步审阅方案及 `/Users/wangxiaolin/IdeaProjects/ktd_backend-geolocation-fix/docs/GEOLOCATION_IMPLEMENTATION_PLAN.md`，批准后按实施包执行。
+实施已获批准并完成可恢复输入批次；当前未解决输入清单见history-remediation-outcome.json，部署、验证、遗留与后端需确认事项见ACCEPTANCE_GEO-RELEASE.md。
