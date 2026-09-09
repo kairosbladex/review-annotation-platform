@@ -6,6 +6,11 @@ import assert from 'node:assert/strict';
 const fixture = JSON.parse(fs.readFileSync(new URL('./evidence.json', import.meta.url)));
 const args = process.argv.slice(2);
 const live = args.includes('--live');
+const save = args.includes('--save');
+const eventId = args.find(value => value.startsWith('--event-id='))?.slice('--event-id='.length) ?? fixture.eventId;
+const selectedCase = fixture.cases.find(item => item.eventId === eventId);
+assert(selectedCase, `Event ${eventId} is not in the captured evidence`);
+assert(!save || live, '--save requires --live');
 const limitArg = args.find(value => value.startsWith('--max-distance='));
 const limit = limitArg ? Number(limitArg.split('=')[1]) : null;
 assert(limit === null || (Number.isFinite(limit) && limit >= 0));
@@ -19,20 +24,30 @@ const get = url => {
 };
 const targetSource = fixture.sources.find(source => source.url.includes('/event/detail?'));
 const mainSource = fixture.sources.find(source => source.url.includes('/detail/event/'));
-let origin = fixture.sameTimeTelemetryCoordinates;
-let targets = fixture.cases.find(item => item.eventId === fixture.eventId).targets;
+const targetUrl = new URL(targetSource.url);
+targetUrl.searchParams.set('id', eventId);
+const mainUrl = new URL(`/gis_server_a/portal/task/situation/detail/event/${eventId}`, mainSource.url);
+let origin = selectedCase.eventCoordinates;
+let targets = selectedCase.targets;
 let traceId = null;
+let mainTraceId = null;
+let liveEventTime = null;
+let targetLocation = null;
 if (live) {
-  const response = get(targetSource.url);
-  const main = get(mainSource.url);
+  const response = get(targetUrl.href);
+  const main = get(mainUrl.href);
+  assert.equal(main.data.id, eventId);
+  assert.equal(main.data.eventTime, selectedCase.eventTime);
   origin = JSON.parse(main.data.lngLatAlt).geometry.coordinates;
-  assert.deepEqual(origin.slice(0, 2), fixture.sameTimeTelemetryCoordinates.slice(0, 2));
   targets = response.data.map(item => ({
     index: item.properties.index,
     coordinates: item.geometry.coordinates,
     imageBox: item.properties.imgxy,
   }));
   traceId = response.traceId;
+  mainTraceId = main.traceId;
+  liveEventTime = main.data.eventTime;
+  targetLocation = main.data.targetLocation;
 }
 assert(targets.length > 0);
 const distance = (a, b) => {
@@ -57,16 +72,27 @@ const results = targets.map(item => {
   };
 });
 const exceedsLimit = limit !== null && results.some(item => item.distanceMeters > limit);
-console.log(JSON.stringify({
+const savedCoordinates = selectedCase.targets.map(item => [item.index, item.coordinates]).sort((a, b) => a[0] - b[0]);
+const currentCoordinates = targets.map(item => [item.index, item.coordinates]).sort((a, b) => a[0] - b[0]);
+const output = {
   checkedAt: new Date().toISOString(),
   mode: live ? 'live-read-only' : 'saved-evidence',
-  eventId: fixture.eventId,
+  eventId,
+  eventTime: liveEventTime ?? selectedCase.eventTime,
+  targetLocation,
   traceId,
+  mainTraceId,
+  sourceUrls: live ? {main: mainUrl.href, targets: targetUrl.href} : null,
   sameCrsAssumed: true,
   surveyedAccuracyVerified: false,
   origin,
+  mainMatchesSavedCoordinates: JSON.stringify(origin) === JSON.stringify(selectedCase.eventCoordinates),
+  targetsMatchSavedCoordinates: JSON.stringify(currentCoordinates) === JSON.stringify(savedCoordinates),
   results,
   diagnosticLimitMeters: limit,
   verdict: limit === null ? 'MEASURED' : exceedsLimit ? 'OFFSET_REPRODUCED' : 'WITHIN_DIAGNOSTIC_LIMIT',
-}, null, 2));
+};
+const serialized = JSON.stringify(output, null, 2);
+console.log(serialized);
+if (save) fs.writeFileSync(new URL(`./live-${eventId}.json`, import.meta.url), `${serialized}\n`);
 if (exceedsLimit) process.exitCode = 1;
