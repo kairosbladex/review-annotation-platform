@@ -1,0 +1,390 @@
+{
+  "capturedOn": "2026-09-09",
+  "eventId": "f3c08bcb4efc4aa185eca7559e25b27f",
+  "eventNo": "Event-20260907181018",
+  "taskId": "5c0355c1ca2e4e56a319dfc181f58fd0",
+  "eventTime": "2026-09-07 18:10:18",
+  "mainCoordinates": [
+    113.478463,
+    34.811697,
+    0
+  ],
+  "sameTimeTelemetryCoordinates": [
+    113.478463,
+    34.811697,
+    203.81
+  ],
+  "sameTimeTelemetry": {
+    "rtkNum": 28,
+    "lng": 113.478463,
+    "elecricQuantity": "86",
+    "roll": 4.1,
+    "alt": 203.81,
+    "tilt": "-90.0",
+    "yaw": 91.6,
+    "disFromHome": "466.1111459009825",
+    "groundV": 7.1,
+    "airSpeed": 0,
+    "gpsLevel": 5,
+    "flySeconds": "247851.97446007654",
+    "pitch": 4.7,
+    "pan": "92.1",
+    "verticalSpeed": 0,
+    "lat": 34.811697,
+    "gpsNum": 32,
+    "height": 110
+  },
+  "associatedFacility": {
+    "name": "枫香街9号桩",
+    "type": "pipNode",
+    "coordinates": [
+      113.478551,
+      34.811696
+    ]
+  },
+  "sources": [
+    {
+      "method": "GET",
+      "url": "https://lxtest.zhuoyilingxi.com:8088/gis_server_a/portal/task/situation/event/detail?id=f3c08bcb4efc4aa185eca7559e25b27f",
+      "capturedAt": "2026-09-09T02:04:16.272Z",
+      "traceId": "04411f1a93014bc9b021ad83b237a085"
+    },
+    {
+      "method": "GET",
+      "url": "https://lxtest.zhuoyilingxi.com:8088/gis_server_a/portal/task/situation/detail/event/f3c08bcb4efc4aa185eca7559e25b27f",
+      "capturedAt": "2026-09-09T02:07:03.052Z",
+      "traceId": "ade8d4bf070341509fb9529138253941"
+    },
+    {
+      "method": "GET",
+      "url": "https://lxtest.zhuoyilingxi.com:8088/gis_server_a/inspectionResult/task/event/5c0355c1ca2e4e56a319dfc181f58fd0",
+      "capturedAt": "2026-09-09T02:08:54.651Z",
+      "traceId": "fe69f0deab314ab9974dd7df6377654d"
+    },
+    {
+      "method": "GET",
+      "url": "https://lxtest.zhuoyilingxi.com:8088/gis_server_a/inspectionResult/task/event/5c0355c1ca2e4e56a319dfc181f58fd0",
+      "capturedAt": "2026-09-09T02:08:54.652Z",
+      "traceId": "c831fd61455b4483ba8fd439e8eeebd1"
+    },
+    {
+      "method": "GET",
+      "url": "https://lxtest.zhuoyilingxi.com:8088/gis_server_a/inspectionResult/task/trail/5c0355c1ca2e4e56a319dfc181f58fd0",
+      "capturedAt": "2026-09-09T02:08:54.652Z",
+      "traceId": "f5e5375cdbf34516afd9cfb0d93875c9"
+    },
+    {
+      "method": "GET",
+      "url": "https://lxtest.zhuoyilingxi.com:8088/gis_server_a/inspectionResult/task/course/5c0355c1ca2e4e56a319dfc181f58fd0",
+      "capturedAt": "2026-09-09T02:08:54.652Z",
+      "traceId": "7064aea6e6d44667a6327ad6214be0d3"
+    }
+  ],
+  "eventCoordinateMatches": [
+    {
+      "eventId": "17e22e0135ab4a30ae7bf14b9d0b17d1",
+      "eventTime": "2026-09-07 18:08:58",
+      "matchingTelemetryTime": "2026-09-07 18:08:57"
+    },
+    {
+      "eventId": "360b83b1caa145eaaff27b3faea69d62",
+      "eventTime": "2026-09-07 18:09:08",
+      "matchingTelemetryTime": "2026-09-07 18:09:06"
+    },
+    {
+      "eventId": "b94b98f3e25142139c5076ec0b03dc3d",
+      "eventTime": "2026-09-07 18:09:18",
+      "matchingTelemetryTime": "2026-09-07 18:09:18"
+    },
+    {
+      "eventId": "9567285148df4b7fa93eacf1ed214520",
+      "eventTime": "2026-09-07 18:09:28",
+      "matchingTelemetryTime": "2026-09-07 18:09:27"
+    },
+    {
+      "eventId": "1cf0d8e1c8b744ed94585669eccc3391",
+      "eventTime": "2026-09-07 18:09:38",
+      "matchingTelemetryTime": "2026-09-07 18:09:36"
+    },
+    {
+      "eventId": "847075b4b5094d20b1c48261eadfccb7",
+      "eventTime": "2026-09-07 18:09:48",
+      "matchingTelemetryTime": "2026-09-07 18:09:48"
+    },
+    {
+      "eventId": "26f5758c999d4c03a0bfd39e1920ed60",
+      "eventTime": "2026-09-07 18:09:58",
+      "matchingTelemetryTime": "2026-09-07 18:09:57"
+    },
+    {
+      "eventId": "e49438b26182494a83f9c0378f1cad1a",
+      "eventTime": "2026-09-07 18:09:58",
+      "matchingTelemetryTime": "2026-09-07 18:09:57"
+    },
+    {
+      "eventId": "81dc5741bd544b208ce6c4fc02044c46",
+      "eventTime": "2026-09-07 18:10:08",
+      "matchingTelemetryTime": "2026-09-07 18:10:06"
+    },
+    {
+      "eventId": "c5354403ae3b44edb35b2dfc01ede1a4",
+      "eventTime": "2026-09-07 18:10:08",
+      "matchingTelemetryTime": "2026-09-07 18:10:06"
+    },
+    {
+      "eventId": "1cd73a7802f74de4a4d361c45c52fcb9",
+      "eventTime": "2026-09-07 18:10:18",
+      "matchingTelemetryTime": "2026-09-07 18:10:18"
+    },
+    {
+      "eventId": "f3c08bcb4efc4aa185eca7559e25b27f",
+      "eventTime": "2026-09-07 18:10:18",
+      "matchingTelemetryTime": "2026-09-07 18:10:18"
+    }
+  ],
+  "cases": [
+    {
+      "eventId": "26f5758c999d4c03a0bfd39e1920ed60",
+      "eventTime": "2026-09-07 18:09:58",
+      "eventCoordinates": [
+        113.476888,
+        34.811723,
+        0
+      ],
+      "matchedTelemetryTime": "2026-09-07 18:09:57",
+      "telemetry": {
+        "rtkNum": 26,
+        "lng": 113.476888,
+        "elecricQuantity": "87",
+        "roll": 3.3,
+        "alt": 203.82,
+        "tilt": "-90.0",
+        "yaw": 91.7,
+        "disFromHome": "356.76609171016645",
+        "groundV": 8,
+        "airSpeed": 0,
+        "gpsLevel": 5,
+        "flySeconds": "247831.194460541",
+        "pitch": -6.1,
+        "pan": "94.2",
+        "verticalSpeed": 0,
+        "lat": 34.811723,
+        "gpsNum": 32,
+        "height": 110
+      },
+      "targets": [
+        {
+          "index": 0,
+          "coordinates": [
+            113.47671430277774,
+            34.81410340743027,
+            0
+          ],
+          "imageBox": {
+            "frame_width": 960,
+            "isHotspotArea": true,
+            "confidence": 0.6206216216087341,
+            "x": 866,
+            "width": 61,
+            "y": 0,
+            "frame_height": 720,
+            "class_name": "违建",
+            "height": 17
+          },
+          "distanceFromEventMeters": 265.164
+        }
+      ]
+    },
+    {
+      "eventId": "c5354403ae3b44edb35b2dfc01ede1a4",
+      "eventTime": "2026-09-07 18:10:08",
+      "eventCoordinates": [
+        113.477653,
+        34.811713,
+        0
+      ],
+      "matchedTelemetryTime": "2026-09-07 18:10:06",
+      "telemetry": {
+        "rtkNum": 28,
+        "lng": 113.477653,
+        "elecricQuantity": "86",
+        "roll": 1.3,
+        "alt": 203.81,
+        "tilt": "-90.0",
+        "yaw": 91.2,
+        "disFromHome": "407.0481247011616",
+        "groundV": 4.8,
+        "airSpeed": 0,
+        "gpsLevel": 5,
+        "flySeconds": "247840.03446034342",
+        "pitch": 17.2,
+        "pan": "92.3",
+        "verticalSpeed": 0,
+        "lat": 34.811713,
+        "gpsNum": 32,
+        "height": 110
+      },
+      "targets": [
+        {
+          "index": 0,
+          "coordinates": [
+            113.47645109961962,
+            34.814665632799844,
+            0
+          ],
+          "imageBox": {
+            "frame_width": 960,
+            "isHotspotArea": true,
+            "confidence": 0.8840374946594238,
+            "x": 72,
+            "width": 41,
+            "y": 228,
+            "frame_height": 720,
+            "class_name": "违建",
+            "height": 96
+          },
+          "distanceFromEventMeters": 346.168
+        },
+        {
+          "index": 1,
+          "coordinates": [
+            113.4762864614635,
+            34.8140745540647,
+            0
+          ],
+          "imageBox": {
+            "frame_width": 960,
+            "isHotspotArea": true,
+            "confidence": 0.542863130569458,
+            "x": 844,
+            "width": 68,
+            "y": 524,
+            "frame_height": 720,
+            "class_name": "违建",
+            "height": 109
+          },
+          "distanceFromEventMeters": 290.722
+        }
+      ]
+    },
+    {
+      "eventId": "f3c08bcb4efc4aa185eca7559e25b27f",
+      "eventTime": "2026-09-07 18:10:18",
+      "eventCoordinates": [
+        113.478463,
+        34.811697,
+        0
+      ],
+      "matchedTelemetryTime": "2026-09-07 18:10:18",
+      "telemetry": {
+        "rtkNum": 28,
+        "lng": 113.478463,
+        "elecricQuantity": "86",
+        "roll": 4.1,
+        "alt": 203.81,
+        "tilt": "-90.0",
+        "yaw": 91.6,
+        "disFromHome": "466.1111459009825",
+        "groundV": 7.1,
+        "airSpeed": 0,
+        "gpsLevel": 5,
+        "flySeconds": "247851.97446007654",
+        "pitch": 4.7,
+        "pan": "92.1",
+        "verticalSpeed": 0,
+        "lat": 34.811697,
+        "gpsNum": 32,
+        "height": 110
+      },
+      "targets": [
+        {
+          "index": 0,
+          "coordinates": [
+            113.47634705389036,
+            34.81467730525617,
+            0
+          ],
+          "imageBox": {
+            "frame_width": 960,
+            "isHotspotArea": true,
+            "confidence": 0.8322356343269348,
+            "x": 33,
+            "width": 28,
+            "y": 346,
+            "frame_height": 720,
+            "class_name": "违建",
+            "height": 42
+          },
+          "distanceFromEventMeters": 383.586
+        },
+        {
+          "index": 1,
+          "coordinates": [
+            113.47634913575756,
+            34.814507723501386,
+            0
+          ],
+          "imageBox": {
+            "frame_width": 960,
+            "isHotspotArea": true,
+            "confidence": 0.85584956407547,
+            "x": 270,
+            "width": 25,
+            "y": 374,
+            "frame_height": 720,
+            "class_name": "违建",
+            "height": 75
+          },
+          "distanceFromEventMeters": 367.318
+        },
+        {
+          "index": 2,
+          "coordinates": [
+            113.4766344296301,
+            34.814294123483926,
+            0
+          ],
+          "imageBox": {
+            "frame_width": 960,
+            "isHotspotArea": true,
+            "confidence": 0.8025557994842529,
+            "x": 598,
+            "width": 267,
+            "y": 83,
+            "frame_height": 720,
+            "class_name": "违建",
+            "height": 31
+          },
+          "distanceFromEventMeters": 333.565
+        }
+      ]
+    }
+  ],
+  "frontend": {
+    "url": "https://lxtest.zhuoyilingxi.com:8088/AFMAP/assets/index-D05hFxG2.js",
+    "targetDrawingFunction": "CO=(t,e)=>{const i=le().cmap.getMap;if(!i||!Array.isArray(e))return;const n=i.getViewer(),r=bO(t);Bg(),xO(n),e.forEach((a,o)=>{const s=a?.geometry?.coordinates;if(!Array.isArray(s)||s.length<2)return;const l=a.properties.index?a.properties.index:0,c=Cesium.Cartesian3.fromDegrees(Number(s[0]),Number(s[1]),Number(s[2])||0),u=`warn-target-point-${l}`,f=n.entities.add({position:c,billboard:{image:r,verticalOrigin:Cesium.VerticalOrigin.BOTTOM,heightReference:Number(s[2])>0?Cesium.HeightReference.NONE:Cesium.HeightReference.CLAMP_TO_GROUND,scaleByDistance:new Cesium.NearFarScalar(1e4,1,3e5,.1),disableDepthTestDistance:Number.POSITIVE_INFINITY}});f.info={id:u,index:l,type:\"warnTarget\",hidePopup:!0,handleState:t,normalImage:r,selectedImage:tx,rawData:e},Qd.push(f)})}",
+    "popupCoordinateField": "info.lngLatAlt",
+    "targetCoordinateField": "geometry.coordinates"
+  },
+  "video": {
+    "source": "https://pull.zhuoyilingxi.com:10087/hls/1581F8DBW261700B376A/20260907/20260907180758/1581F8DBW261700B376A_record.m3u8",
+    "comparedSegments": [
+      "1581F8DBW261700B376A-20260907180902-19.ts",
+      "1581F8DBW261700B376A-20260907181016-42.ts"
+    ],
+    "observation": "The segment labelled 18:10:16, sampled two seconds in, contains the same building and roof layout as the event image. Segment labels do not prove subsecond camera clock synchronization."
+  },
+  "limits": [
+    "No GIS backend implementation or original geolocation input packet was obtained.",
+    "Telemetry height=110 does not independently establish terrain-relative AGL.",
+    "No surveyed ground-truth point or active overview basemap CRS was verified.",
+    "The screenshot 0.48 km measurement has not been independently tied to exact endpoints."
+  ],
+  "hashes": {
+    "index-D05hFxG2.js": "2a5b897373fa9972e2e46ca407df493edc6e08140b415c0aed3acc022d57bb0f",
+    "event.jpg": "19ab37f6be657766c886027de842779416026e0e865dbd9728434c0d56322953",
+    "frame-180903.jpg": "c26d24be2042a7564e244d88800d5a9270450c8fb11425f92b758bd4c58a2af0",
+    "frame-181018.jpg": "bb400e16e591c4acdd7f4d6227f07263cf25097d46255585ae9685442fcb3d84",
+    "flight.m3u8": "1bc30d554d91b0193ccd294e1e239d76eb83479018b313339577271a16717a4f"
+  }
+}
