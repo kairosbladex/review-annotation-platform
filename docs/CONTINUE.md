@@ -1,5 +1,17 @@
 # Continue Here
 
+## GEO-181008 定位修正（2026-09-09）
+
+本节独立于下方原标注任务。枫香街8号桩 18:10:08 事件的真实请求已恢复，旧版精确复现，修复后已更新两条附件的历史目标坐标；数据库与平台 API/实时回放一致。地图视觉和测绘精度未验收。
+
+验收入口：`docs/reports/afmap-geolocation-20260909/ACCEPTANCE_GEO-181008.md`。当前结果：两点距主标识 36.642/33.948 米，原为 346.168/290.722 米。
+
+继续先运行 `node docs/reports/afmap-geolocation-20260909/verify-corrected-event.mjs`，再重新加载平台该事件的目标图层。其他历史事件须分别查原请求，不能重复对本事件执行 `apply`。Java 的 `x/y` 语义需核对实际发送端；Java 独立检出 `/Users/wangxiaolin/IdeaProjects/ktd_backend-geolocation-fix` 当前只有诊断文档，没有业务改动，基线构建依赖未齐。
+
+Git：本仓库分支 `codex/uncertain-recheck-training-data`；仅本次证据与文档本地提交，未 push。定位修复已在独立仓库 `ec5e944` 发布；保留下方其他任务上下文。
+
+## 原标注任务上下文
+
 当前 Frontier：**用类别筛选标空类**。5173 队列已有「没戴头盔」等 class 下拉。完成图 35 张 / 104 框。没戴头盔还剩 10 张单框图。
 
 验收文档：

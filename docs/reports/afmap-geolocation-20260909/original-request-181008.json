@@ -1,0 +1,28 @@
+{
+  "eventId": "c5354403ae3b44edb35b2dfc01ede1a4",
+  "eventTime": "2026-09-07 18:10:08",
+  "host": "192.168.110.23",
+  "sourceLog": "/data/ktd/project/ktd-backend/logs/info.2026-09-07-19.log",
+  "requestLine": 8335,
+  "responseLine": 8336,
+  "request": {
+    "bboxes_xyxy": [[22, 178, 122, 278], [794, 474, 894, 574]],
+    "point_mode": "center",
+    "image_width": 960,
+    "image_height": 720,
+    "log_url": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/5c0355c1ca2e4e56a319dfc181f58fd0.log",
+    "shot_time_ms": 1788775808000,
+    "uav_height": "0",
+    "focal_mm": 6.72,
+    "sensor_w_mm": 9.6,
+    "sensor_h_mm": 7.2,
+    "zoom": 1
+  },
+  "originalResults": [
+    {"index": 0, "ok": true, "lon": 113.47645109961962, "lat": 34.814665632799844, "alt": 93.9},
+    {"index": 1, "ok": true, "lon": 113.4762864614635, "lat": 34.8140745540647, "alt": 93.9}
+  ],
+  "actualDetectionBoxesXywh": [[72, 228, 41, 96], [844, 524, 68, 109]],
+  "actualOriginalRequestRecovered": true,
+  "historicalWorkerCacheRecovered": false
+}

@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-09-09T06:06:51.512Z",
+  "mode": "live-read-only",
+  "eventId": "c5354403ae3b44edb35b2dfc01ede1a4",
+  "eventTime": "2026-09-07 18:10:08",
+  "targetLocation": "枫香街8号桩",
+  "traceId": "a639cc635d01458592b7a47188e132d1",
+  "mainTraceId": "9bc1d68436c24a858a4c2b833a797066",
+  "sourceUrls": {
+    "main": "https://lxtest.zhuoyilingxi.com:8088/gis_server_a/portal/task/situation/detail/event/c5354403ae3b44edb35b2dfc01ede1a4",
+    "targets": "https://lxtest.zhuoyilingxi.com:8088/gis_server_a/portal/task/situation/event/detail?id=c5354403ae3b44edb35b2dfc01ede1a4"
+  },
+  "sameCrsAssumed": true,
+  "surveyedAccuracyVerified": false,
+  "origin": [
+    113.477653,
+    34.811713,
+    0
+  ],
+  "mainMatchesSavedCoordinates": true,
+  "targetsMatchSavedCoordinates": false,
+  "results": [
+    {
+      "index": 0,
+      "coordinates": [
+        113.47790331556732,
+        34.811970583791094,
+        0
+      ],
+      "distanceMeters": 36.642,
+      "boxWithinDeclaredFrame": true,
+      "declaredFrame": [
+        960,
+        720
+      ]
+    },
+    {
+      "index": 1,
+      "coordinates": [
+        113.47762740836644,
+        34.81140841940734,
+        0
+      ],
+      "distanceMeters": 33.948,
+      "boxWithinDeclaredFrame": true,
+      "declaredFrame": [
+        960,
+        720
+      ]
+    }
+  ],
+  "diagnosticLimitMeters": 250,
+  "verdict": "PASS_STORED_COORDINATES_AND_ORIGINAL_REQUEST_REPLAY",
+  "originalRequestLiveReplay": {
+    "selected": {
+      "mode": "shot_time_ms",
+      "shot_time_ms": 1788775808000,
+      "requested_pose_time_shift_sec": 0,
+      "pose_time_shift_sec": 0,
+      "target_pose_time_ms": 1788775808000,
+      "hovering": false,
+      "selected_pose_index": 363,
+      "selected_pose_time_ms": 1788775808010,
+      "pose_time_delta_sec": 0.009999990463256836,
+      "max_pose_time_delta_sec": 5,
+      "time_validation_applied": true
+    },
+    "cameraPose": {
+      "lat": 34.811712,
+      "lon": 113.477694,
+      "alt": 203.77
+    }
+  },
+  "matchesPreparedReplacement": true,
+  "matchesLiveGeolocationResponse": true,
+  "visualAcceptanceVerified": false
+}
