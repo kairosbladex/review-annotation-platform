@@ -1,0 +1,837 @@
+{
+  "scope": "isolated read-only replay with current service code and archived logs; no event updates",
+  "results": [
+    {
+      "shotTimeMs": 1788934376000,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/ab77780b4aeb4be8b236248be431bd5b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788934376000,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788934376000,
+        "hovering": false,
+        "selected_pose_index": 89,
+        "selected_pose_time_ms": 1788934376013,
+        "pose_time_delta_sec": 0.013000011444091797,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 34.814146,
+        "lon": 113.474324,
+        "alt": 115.68
+      },
+      "count": 1,
+      "okCount": 1,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            113.47327227501269,
+            34.812336045998904,
+            93.88000000000001
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.000709537236808444,
+          "distanceFromCameraMeters": 222.988,
+          "rayWorldZ": -0.09744200066327609,
+          "poseTiltRaw": 0,
+          "groundHeight": 93.88000000000001,
+          "intrinsics": {
+            "fx": 1344,
+            "fy": 1397.7599999999998,
+            "cx": 530,
+            "cy": 260,
+            "zoom_eff": 2
+          }
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917791550,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917791550,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917791550,
+        "hovering": true,
+        "selected_pose_index": 38,
+        "selected_pose_time_ms": 1788917791170,
+        "pose_time_delta_sec": 0.37999987602233887,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.672504,
+        "lon": 106.351514,
+        "alt": 1187.43
+      },
+      "count": 8,
+      "okCount": 8,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.35211803898217,
+            38.67279818334304,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.025506794489949414,
+          "distanceFromCameraMeters": 61.805,
+          "rayWorldZ": -0.8933077426037581,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            106.3510227361157,
+            38.67253112356877,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 42.755,
+          "rayWorldZ": -0.9443175305311051,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 2,
+          "ok": true,
+          "coordinates": [
+            106.35098525956114,
+            38.67238873953191,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 47.657,
+          "rayWorldZ": -0.932194554730521,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 3,
+          "ok": true,
+          "coordinates": [
+            106.3513122645269,
+            38.67311450790254,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 70.108,
+          "rayWorldZ": -0.8690842185320962,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 4,
+          "ok": true,
+          "coordinates": [
+            106.35080149785745,
+            38.672780982435995,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 69.098,
+          "rayWorldZ": -0.8715071234843466,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 5,
+          "ok": true,
+          "coordinates": [
+            106.35262601404109,
+            38.67249767140759,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.009676377679895154,
+          "distanceFromCameraMeters": 96.54,
+          "rayWorldZ": -0.7859085689470553,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 6,
+          "ok": true,
+          "coordinates": [
+            106.35051972828187,
+            38.67264303932681,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 87.69,
+          "rayWorldZ": -0.8136254362785532,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 7,
+          "ok": true,
+          "coordinates": [
+            106.35218432478385,
+            38.67279702037009,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.022666165770118596,
+          "distanceFromCameraMeters": 66.694,
+          "rayWorldZ": -0.8787958807962933,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917798177,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917798177,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917798177,
+        "hovering": false,
+        "selected_pose_index": 42,
+        "selected_pose_time_ms": 1788917797172,
+        "pose_time_delta_sec": 1.005000114440918,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.672782,
+        "lon": 106.351651,
+        "alt": 1187.33
+      },
+      "count": 1,
+      "okCount": 1,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.35249541255395,
+            38.67271827293663,
+            1064.4299999999998
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 73.648,
+          "rayWorldZ": -0.8572347103928133,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.4299999999998,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917809211,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917809211,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917809211,
+        "hovering": false,
+        "selected_pose_index": 49,
+        "selected_pose_time_ms": 1788917809193,
+        "pose_time_delta_sec": 0.017999887466430664,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.673087,
+        "lon": 106.35181,
+        "alt": 1187.43
+      },
+      "count": 1,
+      "okCount": 1,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.34712843599199,
+            38.673599307921776,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.012287723195598232,
+          "distanceFromCameraMeters": 410.391,
+          "rayWorldZ": -0.2864779901180615,
+          "poseTiltRaw": -57.6,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917813638,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917813638,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917813638,
+        "hovering": false,
+        "selected_pose_index": 51,
+        "selected_pose_time_ms": 1788917813185,
+        "pose_time_delta_sec": 0.4530000686645508,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.67292,
+        "lon": 106.351766,
+        "alt": 1187.33
+      },
+      "count": 6,
+      "okCount": 4,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.34906404164973,
+            38.67281780385391,
+            1064.4299999999998
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.012072361803340925,
+          "distanceFromCameraMeters": 234.84,
+          "rayWorldZ": -0.4627977813819597,
+          "poseTiltRaw": -57.6,
+          "groundHeight": 1064.4299999999998,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            106.34838686997223,
+            38.672587209743746,
+            1064.4299999999998
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.01577703276793585,
+          "distanceFromCameraMeters": 295.677,
+          "rayWorldZ": -0.38304772706955603,
+          "poseTiltRaw": -57.6,
+          "groundHeight": 1064.4299999999998,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 2,
+          "ok": false,
+          "error": "intersection behind camera"
+        },
+        {
+          "index": 3,
+          "ok": true,
+          "coordinates": [
+            106.31026751504626,
+            38.64865484868461,
+            1064.4299999999998
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 4501.471,
+          "rayWorldZ": -0.027268871449791635,
+          "poseTiltRaw": -57.6,
+          "groundHeight": 1064.4299999999998,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 4,
+          "ok": true,
+          "coordinates": [
+            106.34888893190868,
+            38.67305007297502,
+            1064.4299999999998
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.011051211790629623,
+          "distanceFromCameraMeters": 250.185,
+          "rayWorldZ": -0.4400532618655898,
+          "poseTiltRaw": -57.6,
+          "groundHeight": 1064.4299999999998,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 5,
+          "ok": false,
+          "error": "intersection behind camera"
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917836283,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917836283,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917836283,
+        "hovering": false,
+        "selected_pose_index": 64,
+        "selected_pose_time_ms": 1788917837170,
+        "pose_time_delta_sec": 0.8870000839233398,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.672321,
+        "lon": 106.351611,
+        "alt": 1152.23
+      },
+      "count": 1,
+      "okCount": 1,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.35118906339875,
+            38.67196250933121,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 54.137,
+          "rayWorldZ": -0.8511518206440306,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917836283,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917836283,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917836283,
+        "hovering": false,
+        "selected_pose_index": 64,
+        "selected_pose_time_ms": 1788917837170,
+        "pose_time_delta_sec": 0.8870000839233398,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.672321,
+        "lon": 106.351611,
+        "alt": 1152.23
+      },
+      "count": 4,
+      "okCount": 4,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.35088739478866,
+            38.67213420739716,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 66.164,
+          "rayWorldZ": -0.7980430664832582,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            106.35083660673837,
+            38.67209157686954,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 71.905,
+          "rayWorldZ": -0.7730646763337564,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 2,
+          "ok": true,
+          "coordinates": [
+            106.35177893205221,
+            38.67253000169981,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.013604573191194902,
+          "distanceFromCameraMeters": 27.434,
+          "rayWorldZ": -0.954533526814739,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 3,
+          "ok": true,
+          "coordinates": [
+            106.35201804486822,
+            38.671989884716595,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.04331922441696179,
+          "distanceFromCameraMeters": 51.032,
+          "rayWorldZ": -0.8645029414803758,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917846626,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917846626,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917846626,
+        "hovering": true,
+        "selected_pose_index": 69,
+        "selected_pose_time_ms": 1788917847174,
+        "pose_time_delta_sec": 0.5480000972747803,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.672321,
+        "lon": 106.351609,
+        "alt": 1134.13
+      },
+      "count": 1,
+      "okCount": 1,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.35089294967149,
+            38.67213106187871,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 65.653,
+          "rayWorldZ": -0.727238509843155,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917857638,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917857638,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917857638,
+        "hovering": true,
+        "selected_pose_index": 74,
+        "selected_pose_time_ms": 1788917857171,
+        "pose_time_delta_sec": 0.46700000762939453,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.672321,
+        "lon": 106.351611,
+        "alt": 1134.13
+      },
+      "count": 1,
+      "okCount": 1,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.35089557203428,
+            38.67213137606739,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 65.59,
+          "rayWorldZ": -0.7275639853012705,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917868656,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917868656,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917868656,
+        "hovering": true,
+        "selected_pose_index": 81,
+        "selected_pose_time_ms": 1788917869180,
+        "pose_time_delta_sec": 0.5240001678466797,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.672321,
+        "lon": 106.351609,
+        "alt": 1134.13
+      },
+      "count": 1,
+      "okCount": 1,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.35089397473654,
+            38.67213224173661,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 65.526,
+          "rayWorldZ": -0.7278971391719923,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        }
+      ]
+    },
+    {
+      "shotTimeMs": 1788917880780,
+      "logUrl": "https://lxtest.zhuoyilingxi.com:8088/upload/trail_logs/8ff69e6352f341edb27dc0f1644dbc8b.log",
+      "status": 200,
+      "selected": {
+        "mode": "shot_time_ms",
+        "shot_time_ms": 1788917880780,
+        "requested_pose_time_shift_sec": 0,
+        "pose_time_shift_sec": 0,
+        "target_pose_time_ms": 1788917880780,
+        "hovering": false,
+        "selected_pose_index": 88,
+        "selected_pose_time_ms": 1788917881170,
+        "pose_time_delta_sec": 0.3900001049041748,
+        "max_pose_time_delta_sec": 5,
+        "time_validation_applied": true
+      },
+      "cameraPose": {
+        "lat": 38.672321,
+        "lon": 106.351611,
+        "alt": 1123.63
+      },
+      "count": 2,
+      "okCount": 2,
+      "points": [
+        {
+          "index": 0,
+          "ok": true,
+          "coordinates": [
+            106.35099565907718,
+            38.67215851064816,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": null,
+          "distanceFromCameraMeters": 56.393,
+          "rayWorldZ": -0.7233737766836338,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        },
+        {
+          "index": 1,
+          "ok": true,
+          "coordinates": [
+            106.35165015568154,
+            38.672337530804256,
+            1064.43
+          ],
+          "originalCoordinatesDifferenceDegrees": 0.026019716291848738,
+          "distanceFromCameraMeters": 3.864,
+          "rayWorldZ": -0.9978698614317667,
+          "poseTiltRaw": -90,
+          "groundHeight": 1064.43,
+          "intrinsics": {
+            "fx": 884.5528455284552,
+            "fy": 689.951219512195,
+            "cx": 690,
+            "cy": 260,
+            "zoom_eff": 1
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,16 @@
 # Continue Here
 
+## 当前定位 Frontier：整体审计与方案待审阅（2026-09-09）
+
+用户已确认 18:10:08 的两个点回到附近，随后要求“整体排查一下，然后给我一个解决方案”。本轮只读完成 3,155 事件/306 任务盘点、同航次 12/12 原坐标精确复现；另 10 条旧事件未更新。发布后新事件可接受 3.488 秒旧遥测（回放差约 87 米），运行 Java 轨迹写入器每 5 秒/100 条刷新，另有近水平交点、框顺序和失败处理风险。
+
+先读 `docs/reports/无人机预警定位整体排查与解决方案-20260909.md` 与 `docs/reports/afmap-geolocation-20260909/ACCEPTANCE_GEO-AUDIT.md`。执行清单在 Java 独立检出的 `docs/GEOLOCATION_IMPLEMENTATION_PLAN.md`，状态 Draft；未实施新增业务代码或批量数据写入。审阅方案是下一步，不重复请求已完成单事件修正的授权。
+
+验证入口：`node docs/reports/afmap-geolocation-20260909/replay-task-originals.mjs --baseline-repo=/Users/wangxiaolin/PycharmProjects/drone-overlay-geolocation-fix/overlay_service`。所有原请求、只读回放及盘点 JSON 均在同一证据目录。提交仅本地，未 push。
+
 ## GEO-181008 定位修正（2026-09-09）
 
-本节独立于下方原标注任务。枫香街8号桩 18:10:08 事件的真实请求已恢复，旧版精确复现，修复后已更新两条附件的历史目标坐标；数据库与平台 API/实时回放一致。地图视觉和测绘精度未验收。
+本节独立于下方原标注任务。枫香街8号桩 18:10:08 事件的真实请求已恢复，旧版精确复现，修复后已更新两条附件的历史目标坐标；数据库与平台 API/实时回放一致。用户地图视觉已确认，测绘精度未验收。
 
 验收入口：`docs/reports/afmap-geolocation-20260909/ACCEPTANCE_GEO-181008.md`。当前结果：两点距主标识 36.642/33.948 米，原为 346.168/290.722 米。
 
