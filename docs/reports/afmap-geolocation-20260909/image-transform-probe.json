@@ -1,0 +1,58 @@
+{
+  "eventSize": [
+    960,
+    720
+  ],
+  "videoSize": [
+    1920,
+    1080
+  ],
+  "ratioTestMatches": 781,
+  "ransacInliers": 439,
+  "medianInlierErrorPixels": 1.33818519115448,
+  "p95InlierErrorPixels": 2.7632412910461426,
+  "eventToVideoHomography": [
+    [
+      1.9974325171807057,
+      -0.00318211796052408,
+      -0.6906386024961132
+    ],
+    [
+      -0.00025235079077521737,
+      1.499056413480408,
+      51.61368607561683
+    ],
+    [
+      6.646809732466755e-07,
+      -1.946690227232409e-06,
+      1.0
+    ]
+  ],
+  "eventCornersAndCenterMappedToVideo": [
+    [
+      -0.6906386017799377,
+      51.613685607910156
+    ],
+    [
+      1915.6221923828125,
+      51.33866882324219
+    ],
+    [
+      1916.016357421875,
+      1131.5560302734375
+    ],
+    [
+      -2.9859488010406494,
+      1132.5216064453125
+    ],
+    [
+      957.296875,
+      591.378662109375
+    ]
+  ],
+  "sourceHashes": {
+    "event.jpg": "19ab37f6be657766c886027de842779416026e0e865dbd9728434c0d56322953",
+    "frame-181018.jpg": "bb400e16e591c4acdd7f4d6227f07263cf25097d46255585ae9685442fcb3d84"
+  },
+  "limits": "Different captured frames; registration is not camera calibration or proof of the preprocessing implementation."
+}

@@ -1,0 +1,108 @@
+{
+  "testScope": "isolated interpreter using deployed source and controlled growing-log fetch",
+  "originalHttpRequestRecovered": false,
+  "configuredCache": "1",
+  "warmRequestTime": "2026-09-07 18:09:02",
+  "secondRequestTime": "2026-09-07 18:10:18",
+  "underlyingFetchesForTwoCachedRequests": 1,
+  "cachedSelectedPoseTime": "2026-09-07 18:09:00",
+  "cachedPoseAgeSeconds": 78,
+  "cacheDisabledInProbeOnlySelectedPoseAgeSeconds": 0,
+  "oldToCurrentAircraftMeters": 354.1715241299041,
+  "targetsComparedWithOldPose": [
+    {
+      "index": 0,
+      "distanceToOldPoseMeters": 31.693991260916523
+    },
+    {
+      "index": 1,
+      "distanceToOldPoseMeters": 13.3609109093612
+    },
+    {
+      "index": 2,
+      "distanceToOldPoseMeters": 23.97299761817005
+    }
+  ],
+  "constantAffineFitsAcrossThreeEvents": [
+    {
+      "anchor": "top_left",
+      "pointCount": 6,
+      "rank": 3,
+      "rmsMeters": 0.5082693739037156,
+      "maxResidualMeters": 0.8743952084824155,
+      "impliedFrameCenterEastNorthFromOldPoseMeters": [
+        -1.7590873167304508,
+        -4.643480536998297
+      ],
+      "pixelToLocalAffine": [
+        [
+          0.009396696493802124,
+          -0.08102306870651556
+        ],
+        [
+          -0.0755041264748903,
+          -0.009880686803115768
+        ],
+        [
+          20.911983897205037,
+          37.80463969125084
+        ]
+      ]
+    },
+    {
+      "anchor": "center",
+      "pointCount": 6,
+      "rank": 3,
+      "rmsMeters": 3.001273252618171,
+      "maxResidualMeters": 5.548145801271614,
+      "impliedFrameCenterEastNorthFromOldPoseMeters": [
+        0.6267115389617679,
+        -1.4581580957749551
+      ],
+      "pixelToLocalAffine": [
+        [
+          0.009120029536945106,
+          -0.0775112187085295
+        ],
+        [
+          -0.06922926846691156,
+          -0.015590390242233132
+        ],
+        [
+          21.17163400931628,
+          41.35976737152314
+        ]
+      ]
+    },
+    {
+      "anchor": "bottom_center",
+      "pointCount": 6,
+      "rank": 3,
+      "rmsMeters": 3.2470919914906275,
+      "maxResidualMeters": 5.542019578443406,
+      "impliedFrameCenterEastNorthFromOldPoseMeters": [
+        2.957384875187415,
+        -0.9327703676088603
+      ],
+      "pixelToLocalAffine": [
+        [
+          0.009166428094125711,
+          -0.07749881522150244
+        ],
+        [
+          -0.06421287492733115,
+          -0.014446987937055455
+        ],
+        [
+          21.674134363846285,
+          41.467576596052275
+        ]
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "/app/overlay_service/app.py": "c4a652921da0dbd125f665654abec8a03f528b5a9874d8fa41d9f79d8d0f65fe",
+    "/app/overlay_service/project_kml_to_video_overlay.py": "7cbf8072dd58d5c36b6b0bee20fabf1390b9a0fe4101bccda69df94d8167a80d",
+    "/app/overlay_service/args_helpers.py": "4a8fb068b8e8ad6869f05d17352b9679c6057dc6ca26a4e30618ca2c9e488797"
+  }
+}

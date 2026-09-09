@@ -1,0 +1,69 @@
+{
+  "capturedOn": "2026-09-09",
+  "eventId": "f3c08bcb4efc4aa185eca7559e25b27f",
+  "businessTaskId": "5c0355c1ca2e4e56a319dfc181f58fd0",
+  "algorithmMessage": {
+    "host": "192.168.130.238",
+    "source": "/home/user/java-infer/jar/log/2026-09/infer.2026-09-04.0.log",
+    "line": 47190,
+    "logTime": "2026-09-07T18:10:18.289+08:00",
+    "logContext": "MQTT send failure; payload is evidence of generated fields, not successful delivery",
+    "taskId": "117887756371732626",
+    "timestamp": 1788775818289,
+    "frame": {"id": "3880", "width": 960, "height": 720, "flight": null},
+    "ruleId": "202607130174",
+    "ruleName": "房屋违建检测",
+    "objects": [
+      {"class_name": "违建", "confidence": 0.85584956407547, "x": 270, "y": 374, "width": 25, "height": 75},
+      {"class_name": "违建", "confidence": 0.8322356343269348, "x": 33, "y": 346, "width": 28, "height": 42},
+      {"class_name": "违建", "confidence": 0.8025557994842529, "x": 598, "y": 83, "width": 267, "height": 31}
+    ],
+    "originalObjectKeys": ["angle_px", "attr_image", "attr_name", "attr_text", "attrs", "class_id", "class_name", "confidence", "speed_px", "track_id", "x", "y", "width", "height"],
+    "geographicCoordinatesPresent": false
+  },
+  "positioningRuntime": {
+    "host": "192.168.130.238",
+    "container": "overlay-api-2",
+    "port": 8181,
+    "startedAt": "2026-09-04T06:26:47.955318063Z",
+    "imageId": "sha256:c43511b53bbd60a099a39f5eda6d5bd4289520f4e611c8ce8cb64bc3560b1d9c",
+    "hostSource": "/data/workspace/qzhang/code/infer_api/overlay_service_0624",
+    "containerSource": "/app/overlay_service",
+    "appFileModifiedAt": "2026-08-03T16:18:07.180977737+08:00",
+    "cacheEnvironmentOverridePresent": false,
+    "cacheDefault": "1",
+    "cacheFunction": {"file": "app.py", "line": 690, "name": "_get_cached_log_poses", "behavior": "lru_cache(maxsize=16), URL key, no expiration"},
+    "nearestPoseFunction": {"file": "app.py", "line": 189, "name": "_nearest_pose_index_by_abs_time", "behavior": "nearest absolute time, no maximum age check"},
+    "geoEndpointFunction": {"file": "app.py", "line": 1669, "name": "geo_from_bboxes"},
+    "requestBodyCaptured": false,
+    "accessLogClient": "192.168.110.23",
+    "accessLogPath": "/v1/geo/from-bboxes",
+    "accessLogStatus": 200,
+    "accessLogTimesUtc": [
+      "2026-09-07T10:09:02.260505546Z",
+      "2026-09-07T10:09:08.204059109Z",
+      "2026-09-07T10:09:18.241396103Z",
+      "2026-09-07T10:09:28.355280176Z",
+      "2026-09-07T10:09:38.453495921Z",
+      "2026-09-07T10:09:48.506468824Z",
+      "2026-09-07T10:09:58.179798726Z",
+      "2026-09-07T10:09:58.620814245Z",
+      "2026-09-07T10:10:08.290832955Z",
+      "2026-09-07T10:10:10.318125756Z",
+      "2026-09-07T10:10:18.305164180Z",
+      "2026-09-07T10:10:18.881057232Z"
+    ]
+  },
+  "frontend": {
+    "bundle": "https://lxtest.zhuoyilingxi.com:8088/AFMAP/assets/index-D05hFxG2.js",
+    "sha256": "2a5b897373fa9972e2e46ca407df493edc6e08140b415c0aed3acc022d57bb0f",
+    "sameAsInitialCapture": true,
+    "activeBasemapCrsVerified": false
+  },
+  "limits": [
+    "Access log timing is strong correlation, not an event ID or request body join.",
+    "The cache failure was reproduced in a separate interpreter, not by modifying the live HTTP worker.",
+    "Original geolocation HTTP request and cached log snapshot have not been recovered.",
+    "No deployed service source, environment, event record or runtime cache was changed."
+  ]
+}
