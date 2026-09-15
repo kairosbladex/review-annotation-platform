@@ -60,3 +60,11 @@ Java AiProcessingUtil.getLngLatAltAndPosition 从最近无人机轨迹取事件�
 verify-anchor-fix.py 在测试环境现有 v2 独立解释器中重新读取真实飞行日志，回放修正后的两个框并在中间插入无效框。结果：索引0/2成功、锚点分别为 (92.5,276) 和 (878,578.5)；索引1拒绝，无经纬度；后续目标索引不串位。app.py 哈希 fdfac3f15644da4382583c1fea46eced6cd74e6e39c4b0afd7018eebd4de899e。原始结果单独保留于 anchor-fix-live-replay-20260915.json，不提交内部遥测。
 
 仍未完成：Java测试环境部署、新产生预警的自然流量验收、绝对10米精度验收。当前 root@192.168.110.23 的 BatchMode SSH 登录被拒绝，不能把本地修复描述为已在新事件上生效。目标真值与可靠表面高度仍缺失。
+
+### 历史重算状态修复与干净构建
+
+Java 提交 6cf1113e5e：历史重算原来只保留成功经纬度，丢掉失败目标和质量状态；新回归在旧实现明确失败（2个目标仅保留1个）。改为统一 GeoFromBboxesUtil 序列化后，成功目标可按质量状态绘制，失败目标保留索引和原因且无几何。自动重试测试增加实际HTTP请求体断言：修改初始对象的嵌套框、时间、变焦后，重试仍使用冻结原值，供应商模式也保持不变。
+
+从 6cf1113e5e 导出干净源码至 /private/tmp/geolocation-clean-build.A0jsun，以JDK8执行Maven reactor编译及指定回归，退出码0，6个测试类共20项全部通过、无失败/错误/跳过。范围：DetectionBoxGeometryTest 3项、LingmouGeolocationChainTest 3项、GeoFromBboxesUtilTest 8项、ArGeolocationHttpTest 3项、EventGeolocationRetryServiceTest 1项、GeolocationOrderingTest 2项。
+
+先前GeoTools离线解析失败已通过临时settings修正：显式使用本机缓存目录，并声明与缓存来源一致的osgeo仓库ID。没有修改项目POM或用户全局Maven配置。该次测试是Java相关模块的干净编译和20项指定回归，不是全项目所有测试，也不是部署验收。此前“完整Maven测试受依赖阻塞”对这批指定回归已不再成立。
