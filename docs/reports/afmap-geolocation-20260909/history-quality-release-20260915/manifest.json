@@ -1,0 +1,67 @@
+{
+  "runtimeSha256": "bbbd00fb4916a38ab6d56c3a22d460fbc74bdad546e74c10bb3c31a9549c662d",
+  "releaseSha256": "4a8d3f770df30582ae02c26555d8bf39f1f61faf62cb59d36dca4fa7bea301b9",
+  "scope": "only enumerated geolocation classes; all other entry bytes identical",
+  "modules": {
+    "BOOT-INF/lib/biz-inspection-1.0.0-SNAPSHOT.jar": {
+      "beforeSha256": "cf74f5b9172e14e3163d9bcc67de78eccc65c9a1f8bb0a493aa111b2ccae1191",
+      "afterSha256": "ec5a71bbe38e96b93ec75b075718432cf524acd65ba329f4fc394050e6ac1580",
+      "sourceHashes": {
+        "com/fan/framework/inspection/ai/LingmouAiEventController.java": "170633ad922b991db8463cf290b7e07175916525dc415d18e89700dfc5c8c39a",
+        "com/fan/framework/inspection/ai/ZhimouAiEventController.java": "37c829ad6505b0bb050f511c0d12d1acbe94136a31b9d8b9f85ce5fb70e77a04",
+        "com/fan/framework/inspection/ai/after/callback/service/TaskAfterAiLingmouCallbackService.java": "1432c1e73d87c554904d143693617e2583403565f8b76341cef5fc80a5a083f2",
+        "com/fan/framework/inspection/ai/util/DetectionBoxGeometry.java": "69d8767fb62eead82fabfdbcd7196c71f874af4bf786c4cd6c1a8961c1c65c79",
+        "com/fan/framework/inspection/service/impl/TaskEventServiceImpl.java": "9f54cb98db788a6e6e7878ba6ed61bde2f341c6d1f7f1cf33cb50b7a8dd984e3",
+        "com/fan/framework/inspection/ar/api/bean/ArGeoFromBboxesRequest.java": "f67c025a8d999dd2cfed3d8cbcc2fcc3a125ff5b10083c433522df0cd1648aaf",
+        "com/fan/framework/inspection/ar/api/ArApiUtil.java": "22a953f42a527a12d6cbfaada7a53bac673f820d684ba7780cd7c230b770601f",
+        "com/fan/framework/inspection/ai/service/EventGeolocationRetryService.java": "f911689aa922e2db652172dff8bd0cde622a6a4be5692e56ea435a463f0be0b9"
+      },
+      "classHashes": {
+        "com/fan/framework/inspection/ai/LingmouAiEventController.class": "220348721f612d3172ad3a0e0b8b67dd354fc13ac3616216b8bbb9bb5d9214cd",
+        "com/fan/framework/inspection/ai/ZhimouAiEventController.class": "dec5942bd38c37fe4a38bda2689a373890d6d3c462e4d96aa1362fbf828f57d7",
+        "com/fan/framework/inspection/ai/after/callback/service/TaskAfterAiLingmouCallbackService.class": "34dd3251214ce237727a58b3597f14a76960ddb38097e113ecabeba4001a27b2",
+        "com/fan/framework/inspection/ai/util/DetectionBoxGeometry.class": "4498ad6db62ba6b149218d238c155a60df73798184d5d723aed0b35891fc70f8",
+        "com/fan/framework/inspection/service/impl/TaskEventServiceImpl.class": "1609cb86821ca5c923471d8d3ec132f0a44e0d82f7348500d616fc6d4064bf37",
+        "com/fan/framework/inspection/service/impl/TaskEventServiceImpl$4.class": "8ab52c2c3cb81c6e05fcede8656169abf2e7ead7d62dd0de4ffe68bf9a72671a",
+        "com/fan/framework/inspection/service/impl/TaskEventServiceImpl$2.class": "df8fb292e84c42697cad663c21b027d10ca8d622f1f4043c1faca260f8996f68",
+        "com/fan/framework/inspection/service/impl/TaskEventServiceImpl$5.class": "eaf7bd925f4df361f34987db203ea2d14a7453bb0ddc2fe2a914bd6805de256c",
+        "com/fan/framework/inspection/service/impl/TaskEventServiceImpl$3.class": "26c76856aef9192e6ab2495fd0a6cbeff5448c69657f01a8e6311bf9bae89c22",
+        "com/fan/framework/inspection/service/impl/TaskEventServiceImpl$1.class": "4591d76e465ded08cb88ae0a33e2dec1f0477b964a9c4feec3782387430ff8ab",
+        "com/fan/framework/inspection/ar/api/bean/ArGeoFromBboxesRequest.class": "0fde87c29fcba83853110da67b5c5a8025f9d0f36f3705a861bcf2cae57368d3",
+        "com/fan/framework/inspection/ar/api/ArApiUtil.class": "cba90379da61adaad9c13d3856ab34e80b45bbedfdf3fea55bc642f9469cf156",
+        "com/fan/framework/inspection/ar/api/ArApiUtil$HttpUtil.class": "fe8028e00503ae43566c818ea33402890e154c033947454efedf27450bcdf457",
+        "com/fan/framework/inspection/ai/service/EventGeolocationRetryService.class": "14048605cfe9a7242170153391cb69455c13d446428c0998e005386e0bca6101",
+        "com/fan/framework/inspection/ai/service/EventGeolocationRetryService$1.class": "a5b3ecd1c429199dcfa48a236a11bb6be4494f1dc83756daef35c60e6e871be6"
+      },
+      "unchangedEntriesVerified": 3230
+    },
+    "BOOT-INF/lib/biz-ai-1.0.0-SNAPSHOT.jar": {
+      "beforeSha256": "3c47c238807edc99bd90314c44d7a3b536058d479fee3298cd613d272ec82fad",
+      "afterSha256": "aaa3bbb0c7c441b31cc40f3e3a19a1d2609ad9a1adfdb0516eb1c2c7bb553913",
+      "sourceHashes": {
+        "com/fan/framework/ai/common/dto/FrameGeometryDTO.java": "398814fca2c81bf596f557a4b788679633a75aa7c496e3515d5355738ca6b5ee",
+        "com/fan/framework/ai/lingmou/vo/LingmouTaskEventDataDTO.java": "393cb95aa006c6e6f50d90ce0357d62ebbd4a198e6b0232aafaf017688848aac",
+        "com/fan/framework/ai/gdd/vo/ZhimouTaskEventDataDTO.java": "bc067f34f2d5188c99b800369bd28683578054451b5d8e8a105f74d021c73081"
+      },
+      "classHashes": {
+        "com/fan/framework/ai/common/dto/FrameGeometryDTO.class": "9c764fa86ebdce7fe82dd40454064a91025ebfeffe3ea1bda159be50154f4ad6",
+        "com/fan/framework/ai/common/dto/FrameGeometryDTO$FrameClock.class": "3f27cc0c5b6bd24f058070d0702e39ef6d0332ef8d29d053331e685f8060fbdb",
+        "com/fan/framework/ai/lingmou/vo/LingmouTaskEventDataDTO.class": "471fe4e241c37c384651885c660a58ea7b4b5b09d58d15b8382bb40edc7a18b8",
+        "com/fan/framework/ai/lingmou/vo/LingmouTaskEventDataDTO$EventDataFrame.class": "710389d1053cd7c563f0f25093fee6890f25e845bdee5b57e3be68f1fae09afc",
+        "com/fan/framework/ai/lingmou/vo/LingmouTaskEventDataDTO$EventDataRuleObjectAttr.class": "d4e695672c6c238d0f3194e873cda4f9c4afa89ffe320303881cf99b9f32c932",
+        "com/fan/framework/ai/lingmou/vo/LingmouTaskEventDataDTO$EventDataRuleObject.class": "e441f0e1f346fed6730bf768f26535f274e246dd4ad4c43fd4c95f9cdebd4c7b",
+        "com/fan/framework/ai/lingmou/vo/LingmouTaskEventDataDTO$EventDataFrameFlight.class": "533f61211b741d97e17ce636ee9d4550c328c958b522a389c64b97abe4b80212",
+        "com/fan/framework/ai/lingmou/vo/LingmouTaskEventDataDTO$EventDataRule.class": "721d298e5e9ee3f8d3c6f26d9b066968f20a762b1d214efe12dc221d377b22ee",
+        "com/fan/framework/ai/gdd/vo/ZhimouTaskEventDataDTO.class": "d3d793537dd14513f9cde3256e3f8cb7a58f8b3bdb1dcaa5a0e137698207db3f",
+        "com/fan/framework/ai/gdd/vo/ZhimouTaskEventDataDTO$EventDataFrame.class": "70532bc1468a78ec310426ebf5391763fdcc06011deeb31ea0287ac1532c1cb9",
+        "com/fan/framework/ai/gdd/vo/ZhimouTaskEventDataDTO$EventDataRuleObjectAttr.class": "204e53be63a3efff6a77827819220cab420948818252bf943ee1e72a8570f647",
+        "com/fan/framework/ai/gdd/vo/ZhimouTaskEventDataDTO$EventDataFrameFlight.class": "d8d53536baa164cac14fd19e6388b14912321d587201999a90775de10933957d",
+        "com/fan/framework/ai/gdd/vo/ZhimouTaskEventDataDTO$EventDataRuleObject.class": "c38811b27db2c8816ba84a7690bd56a8683bebd5e252ed01ab7d5d75abd318f3",
+        "com/fan/framework/ai/gdd/vo/ZhimouTaskEventDataDTO$EventDataRule.class": "b915b545d2e8ee0fd717252d9de8b8f576acd72e4ecf75e3eb7d9d19e8a01d53",
+        "com/fan/framework/ai/gdd/vo/ZhimouTaskEventDataDTO$EventDataAppObject.class": "bd3923f95beba944fba95f0dd1b4369422d891a6036f11346fdafb158ecd70a7",
+        "com/fan/framework/ai/gdd/vo/ZhimouTaskEventDataDTO$EventDataApp.class": "309a63d90c4c7601648cefa0573366855b997ba0be215020bc4a9af55970e19d"
+      },
+      "unchangedEntriesVerified": 214
+    }
+  }
+}
