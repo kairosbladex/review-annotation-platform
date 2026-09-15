@@ -1,0 +1,313 @@
+{
+  "scope": "same-flight event-frame road reference residuals, not alert object accuracy or independent surveyed control points",
+  "frozen_native_geometry": {
+    "version": 1,
+    "active_lens": "wide",
+    "calibration_id": "exploratory-wide-native-K-20260915",
+    "source_id": "frozen-flight-20260907",
+    "native_width": 1920,
+    "native_height": 1080,
+    "fx": 1344,
+    "fy": 1344,
+    "cx": 960,
+    "cy": 540,
+    "image_to_native": [
+      2,
+      0,
+      0,
+      0,
+      1.5,
+      0
+    ],
+    "distortion": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "utc_mapping": "legacy event time unchanged in all variants",
+  "flight_log_sha256": "43335934b773edc2b37adca39e724b26b3718323af50ac22e0b243d2725845f3",
+  "events": [
+    {
+      "event_id": "17e22e0135ab4a30ae7bf14b9d0b17d1",
+      "time": "2026-09-07 18:08:58",
+      "n": 0,
+      "status": "no_valid_reference_correspondences"
+    },
+    {
+      "event_id": "360b83b1caa145eaaff27b3faea69d62",
+      "time": "2026-09-07 18:09:08",
+      "n": 0,
+      "status": "no_valid_reference_correspondences"
+    },
+    {
+      "event_id": "b94b98f3e25142139c5076ec0b03dc3d",
+      "time": "2026-09-07 18:09:18",
+      "n": 0,
+      "status": "no_valid_reference_correspondences"
+    },
+    {
+      "event_id": "9567285148df4b7fa93eacf1ed214520",
+      "time": "2026-09-07 18:09:28",
+      "n": 0,
+      "status": "no_valid_reference_correspondences"
+    },
+    {
+      "event_id": "1cf0d8e1c8b744ed94585669eccc3391",
+      "time": "2026-09-07 18:09:38",
+      "n": 0,
+      "status": "no_valid_reference_correspondences"
+    },
+    {
+      "event_id": "847075b4b5094d20b1c48261eadfccb7",
+      "time": "2026-09-07 18:09:48",
+      "n": 8,
+      "status": "evaluated",
+      "reference_point_ids": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "image_matching_inliers": 17,
+      "variants": {
+        "current": {
+          "median_m": 9.517097381912867,
+          "p95_m": 12.417532249099372,
+          "errors_m": [
+            5.279581234269018,
+            3.2398462175462734,
+            6.638652612427768,
+            9.063348096497077,
+            10.680395120065205,
+            9.970846667328658,
+            11.381094967081976,
+            12.975613862493354
+          ]
+        },
+        "historical": {
+          "median_m": 8.444535204000475,
+          "p95_m": 14.04236563288931,
+          "errors_m": [
+            4.766098346066278,
+            5.295802679209228,
+            11.646967634497331,
+            14.056648831685521,
+            3.314720652555467,
+            4.345829496569716,
+            11.593267728791723,
+            14.015839692267773
+          ]
+        },
+        "native": {
+          "median_m": 4.2916246649603735,
+          "p95_m": 4.743796621729858,
+          "errors_m": [
+            4.143446778479626,
+            4.361326479788965,
+            4.598488724661981,
+            4.822039335535639,
+            3.1155086715722753,
+            3.311413604816454,
+            4.221922850131783,
+            4.452264945063716
+          ]
+        }
+      },
+      "reduction_vs_current_pct": 54.906160011385865,
+      "reduction_vs_historical_pct": 49.17867518715205,
+      "reached_79pct_vs_historical": false
+    },
+    {
+      "event_id": "26f5758c999d4c03a0bfd39e1920ed60",
+      "time": "2026-09-07 18:09:58",
+      "n": 8,
+      "status": "evaluated",
+      "reference_point_ids": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "image_matching_inliers": 375,
+      "variants": {
+        "current": {
+          "median_m": 13.919627028943694,
+          "p95_m": 18.11785618810973,
+          "errors_m": [
+            17.93175646754461,
+            16.384601751200226,
+            11.227505886518047,
+            9.63682814460532,
+            18.218063729952487,
+            16.69204530520062,
+            11.45465230668716,
+            9.977918583578228
+          ]
+        },
+        "historical": {
+          "median_m": 22.165211150086343,
+          "p95_m": 26.909208701497995,
+          "errors_m": [
+            27.475122108881475,
+            25.858226659214395,
+            20.409304004096025,
+            18.745579543021147,
+            25.65840301586679,
+            23.921118296076664,
+            17.975140755916346,
+            16.155792575588702
+          ]
+        },
+        "native": {
+          "median_m": 4.53969510167218,
+          "p95_m": 5.290109812804191,
+          "errors_m": [
+            4.743668010541881,
+            4.736556241362035,
+            5.3445449655224655,
+            5.189015957755968,
+            4.162608830300893,
+            4.07312787771792,
+            4.342833961982326,
+            4.270367692653285
+          ]
+        }
+      },
+      "reduction_vs_current_pct": 67.38637398665502,
+      "reduction_vs_historical_pct": 79.51882763068335,
+      "reached_79pct_vs_historical": true
+    },
+    {
+      "event_id": "e49438b26182494a83f9c0378f1cad1a",
+      "time": "2026-09-07 18:09:58",
+      "n": 8,
+      "status": "evaluated",
+      "reference_point_ids": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "image_matching_inliers": 106,
+      "variants": {
+        "current": {
+          "median_m": 13.271044363541368,
+          "p95_m": 17.457098939275117,
+          "errors_m": [
+            17.224649008969305,
+            15.680831293135077,
+            10.541064392745666,
+            8.967805547633672,
+            17.58226428636286,
+            16.06423361979729,
+            10.86125743394766,
+            9.416692514688961
+          ]
+        },
+        "historical": {
+          "median_m": 21.50220264936232,
+          "p95_m": 26.241803834071593,
+          "errors_m": [
+            26.806140785094282,
+            25.193749496458032,
+            19.76219690752088,
+            18.108941951656274,
+            24.98167967036592,
+            23.24220839120376,
+            17.278495036735578,
+            15.453397229879542
+          ]
+        },
+        "native": {
+          "median_m": 3.4751847901635644,
+          "p95_m": 4.209669266829631,
+          "errors_m": [
+            3.6740987666003115,
+            3.665690483026997,
+            4.26483458202116,
+            4.10721939575965,
+            3.284679097300131,
+            3.167172806517142,
+            3.2682426363529324,
+            3.176535441507035
+          ]
+        }
+      },
+      "reduction_vs_current_pct": 73.81378062671011,
+      "reduction_vs_historical_pct": 83.83800559024763,
+      "reached_79pct_vs_historical": true
+    },
+    {
+      "event_id": "c5354403ae3b44edb35b2dfc01ede1a4",
+      "time": "2026-09-07 18:10:08",
+      "n": 0,
+      "status": "no_valid_reference_correspondences"
+    },
+    {
+      "event_id": "81dc5741bd544b208ce6c4fc02044c46",
+      "time": "2026-09-07 18:10:08",
+      "n": 0,
+      "status": "no_valid_reference_correspondences"
+    },
+    {
+      "event_id": "f3c08bcb4efc4aa185eca7559e25b27f",
+      "time": "2026-09-07 18:10:18",
+      "n": 0,
+      "status": "no_valid_reference_correspondences"
+    },
+    {
+      "event_id": "1cd73a7802f74de4a4d361c45c52fcb9",
+      "time": "2026-09-07 18:10:18",
+      "n": 0,
+      "status": "no_valid_reference_correspondences"
+    }
+  ],
+  "method": {
+    "reference": "same 8 static road crosswalk endpoints held out in original analysis",
+    "matching": "SIFT on aspect-restored 960x540 frames; target road-only source ROI; ratio 0.7; RANSAC 2px; at least12 inliers; native input positions recovered; visibility and hull support filtered; visually inspected",
+    "independence": "different event frames share reference points; not independent geographic sites",
+    "historical_baseline": "fixed fy_scale=1.04,cx_offset_px=50,cy_offset_px=-100 with telemetry zoom retained",
+    "target_threshold": "100*(1-new_median/historical_median)>=79",
+    "no_per_event_calibration": true,
+    "no_time_adjustment": true,
+    "no_alert_object_ground_truth": true
+  },
+  "code_commit": "a4ff81a",
+  "artifacts_sha256": {
+    "84707-historical.json": "e933af16c737d7ae4edee1d804534fc69c8074535d859823a6282943f38723d4",
+    "summary.json": "007a128d12605fb72ca31f46284a163047eee48acc87c10f6dd518a06cc790ab",
+    "26f57-current.json": "ce131780e9a5b49d2abf5c7221e450ce84dc9682ad67de70b19d79333db0e432",
+    "26f57-points.jpg": "e0964ec53dc1604cef1e8c9576c4a84d04fbafb6bb2925dfedb2426eae011fe3",
+    "e4943-current.json": "6ce66d0016ee0781ebc6d24a96c8a5e3b8538531a3701936964b7bc74382bbd5",
+    "26f57-historical.json": "80e4cda205de6082515f43c276801495c9ad1f1514c5c85bfea172f458d2385a",
+    "84707-native.json": "e2545258526075d2a69dcb2e513a1e7ed406f0dee1046a2cb261bc5ab370fde7",
+    "replay.py": "4e06dff7d0d1e38806fb7a67bb0b4a2c644b8eeda0518e47acf5ea1f0bfc4094",
+    "e4943-native.json": "24da106e780d1eed69be1e66bece0797be1442f8657a26fd506a79df5fc169dc",
+    "26f57-native.json": "90d2cb8e3f465b8162b0d97548f679ae6e5bf7e5a75e0e5c1b09285613826a1d",
+    "e4943-points.jpg": "c5d463264eae96869e33420564fe653b535e061bffc7595508ec09a5007e3a17",
+    "e4943-historical.json": "3787e8f51160349d33f728974803c7d72ecb1a74a6508b8f8d225a494c5df2cb",
+    "84707-points.jpg": "07de5ca823f89a63e0dff60978f946fcb7c4926e253d849950fad705b15cd81c",
+    "matches.json": "ce009ea2f95e469cb6fc45f59edca1ffa9154fff2c5882c7e9adb5f3b0c63651",
+    "84707-current.json": "dde4c2bee5a3a83e4605da2ab08bd9adc93592ca8f53b07102fa76c30dc3f75d",
+    "match.py": "6839b5a49c463bbbaeb09a6b026de3de069ac1fd4d862fbaca781bcbd191b9b2",
+    "84707-grid.jpg": "633cb29ecdcb67a0119d630d34fd0f9103a76e69acbe4501ae92e70270996823"
+  },
+  "other_events_evaluable": 2,
+  "other_events_reached_79pct": 1,
+  "other_events_without_reference": 9
+}
