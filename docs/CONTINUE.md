@@ -115,3 +115,6 @@ PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190
 - HEAD: `e104c27` `fix: target deployed Kimi review service by default`
 - KTD-ADVANCE-NEXT-BOX 未单独 commit、未 push
 - 工作区还有 annex 导入、`agent/`、object_store、前端角标等其他人的未提交改动
+# 光伏组件身份匹配（2026-09-17）
+
+P0 已冻结真实 7 图／27 框，P1 配准接口和简化逐步点角页已实现，95 项测试通过。入口 `http://127.0.0.1:8196/?case=4e95d41793e143969a61cbc66d285343`。无真实人工角点，H3/l10 精度尚未通过，GPU／Java 集成／部署未执行。统一记录见 `ACCEPTANCE_PV-COMPONENT-MATCH.md`；用户追加 Hermes 本地模型调研，尚未安装，代理生成候选不能冒充人工锚点。保留下方原有任务交接。
