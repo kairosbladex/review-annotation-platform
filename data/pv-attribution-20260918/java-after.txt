@@ -1,0 +1,87 @@
+JUnit version 4.12
+...........13:19:49,991 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [jar:file:/private/tmp/solar-release-20260917/deps/sys-core-1.0.0-SNAPSHOT.jar!/logback-test.xml]
+13:19:50,002 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@7a3793c7 - URL [jar:file:/private/tmp/solar-release-20260917/deps/sys-core-1.0.0-SNAPSHOT.jar!/logback-test.xml] is not of type file
+13:19:50,060 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+13:19:50,066 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+13:19:50,068 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [CONSOLE-LOG]
+13:19:50,071 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:19:50,089 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+13:19:50,091 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [DEBUG-LOG]
+13:19:50,093 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:19:50,098 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1119072377 - Archive files will be limited to [100 MB] each.
+13:19:50,100 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1119072377 - No compression will be used
+13:19:50,100 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1119072377 - Will use the pattern ./logs/debug.%d-%i.log for the active file
+13:19:50,102 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@651aed93 - The date pattern is 'yyyy-MM-dd' from file name pattern './logs/debug.%d-%i.log'.
+13:19:50,102 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@651aed93 - Roll-over at midnight.
+13:19:50,105 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@651aed93 - Setting initial period to Fri Sep 18 13:19:50 CST 2026
+13:19:50,107 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1119072377 - Cleaning on start up
+13:19:50,109 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[DEBUG-LOG] - Active log file name: ./logs/debug.2026-09-18-0.log
+13:19:50,109 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+13:19:50,109 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[DEBUG-LOG] - File property is set to [null]
+13:19:50,109 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+13:19:50,109 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+13:19:50,109 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [INFO-LOG]
+13:19:50,109 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:19:50,110 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1305935114 - Archive files will be limited to [100 MB] each.
+13:19:50,110 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1305935114 - No compression will be used
+13:19:50,110 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1305935114 - Will use the pattern ./logs/info.%d-%i.log for the active file
+13:19:50,111 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@bb9e6dc - The date pattern is 'yyyy-MM-dd' from file name pattern './logs/info.%d-%i.log'.
+13:19:50,111 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@bb9e6dc - Roll-over at midnight.
+13:19:50,111 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@bb9e6dc - Setting initial period to Fri Sep 18 13:19:50 CST 2026
+13:19:50,111 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1305935114 - Cleaning on start up
+13:19:50,111 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+13:19:50,111 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[INFO-LOG] - Active log file name: ./logs/info.2026-09-18-0.log
+13:19:50,111 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[INFO-LOG] - File property is set to [null]
+13:19:50,111 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+13:19:50,111 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [ERROR-LOG]
+13:19:50,112 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+13:19:50,112 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:19:50,113 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1414967210 - Archive files will be limited to [100 MB] each.
+13:19:50,113 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1414967210 - No compression will be used
+13:19:50,113 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1414967210 - Will use the pattern ./logs/error.%d-%i.log for the active file
+13:19:50,113 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6692b6c6 - The date pattern is 'yyyy-MM-dd' from file name pattern './logs/error.%d-%i.log'.
+13:19:50,113 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6692b6c6 - Roll-over at midnight.
+13:19:50,113 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6692b6c6 - Setting initial period to Fri Sep 18 13:19:50 CST 2026
+13:19:50,114 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1414967210 - Cleaning on start up
+13:19:50,114 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[ERROR-LOG] - Active log file name: ./logs/error.2026-09-18-0.log
+13:19:50,114 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[ERROR-LOG] - File property is set to [null]
+13:19:50,114 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+13:19:50,114 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+13:19:50,114 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+13:19:50,114 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [CONSOLE-LOG] to Logger[ROOT]
+13:19:50,114 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [DEBUG-LOG] to Logger[ROOT]
+13:19:50,114 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [INFO-LOG] to Logger[ROOT]
+13:19:50,114 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [ERROR-LOG] to Logger[ROOT]
+13:19:50,115 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.fan.framework] to INFO
+13:19:50,115 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [springfox] to OFF
+13:19:50,115 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+13:19:50,115 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [deviceAppender]
+13:19:50,115 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:19:50,116 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@483797427 - No compression will be used
+13:19:50,116 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@483797427 - Will use the pattern ./logs/device.%d-%i.log for the active file
+13:19:50,116 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@589da3f3 - The date pattern is 'yyyy-MM-dd' from file name pattern './logs/device.%d-%i.log'.
+13:19:50,116 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@589da3f3 - Roll-over at midnight.
+13:19:50,116 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@589da3f3 - Setting initial period to Fri Sep 18 13:19:50 CST 2026
+13:19:50,117 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@589da3f3 - SizeAndTimeBasedFNATP is deprecated. Use SizeAndTimeBasedRollingPolicy instead
+13:19:50,117 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@589da3f3 - For more information see http://logback.qos.ch/manual/appenders.html#SizeAndTimeBasedRollingPolicy
+13:19:50,117 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@483797427 - Cleaning on start up
+13:19:50,117 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[deviceAppender] - Active log file name: ./logs/device.2026-09-18-0.log
+13:19:50,117 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[deviceAppender] - File property is set to [null]
+13:19:50,117 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [deviceLog] to INFO
+13:19:50,117 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [deviceLog] to false
+13:19:50,117 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [deviceAppender] to Logger[deviceLog]
+13:19:50,117 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+13:19:50,117 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+13:19:50,117 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+13:19:50,118 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@39d76cb5 - Registering current configuration as safe fallback point
+
+..................
+Time: 0.823
+
+OK (29 tests)
+
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/private/tmp/solar-release-20260917/deps/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/wangxiaolin/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
