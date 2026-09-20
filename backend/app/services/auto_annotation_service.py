@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 
 from ..models import Annotation, AnnotationTask, Asset, AuditEvent, AutoAnnotationItem, AutoAnnotationRun, Candidate, Job, Sample, new_id, utc_now
 from .auto_annotation_prompts import ROLE_ORDER, merge_agent_results
+from .review_policy import apply_review_policy, normalize_scene
 
 
 AUTO_ANNOTATION_CONFIDENCE_FLOOR = 0.6
@@ -110,6 +111,7 @@ def _normalise_decisions(result: Any, candidates: list[Candidate]) -> dict[int, 
         decisions = [{"target_index": 0, "votes": result["votes"]}]
     if not isinstance(decisions, list):
         raise ValueError("auto annotation response has no decisions")
+    response_scene = normalize_scene(result.get("scene"))
     expected = {candidate.target_index for candidate in candidates}
     parsed: dict[int, dict[str, Any]] = {}
     for position, decision in enumerate(decisions):
@@ -167,6 +169,19 @@ def _normalise_decisions(result: Any, candidates: list[Candidate]) -> dict[int, 
             "votes": normalized_votes,
             "votes_by_role": dict(zip(ROLE_ORDER, normalized_votes, strict=True)) if vote_roles else None,
             "consensus": decision.get("consensus"),
+            "scene": normalize_scene(decision.get("scene", response_scene)),
+            "evidence": decision.get("evidence") if isinstance(decision.get("evidence"), dict) else {
+                key: decision[key]
+                for key in (
+                    "red_overlay_occlusion",
+                    "overlay_obscures",
+                    "background_only",
+                    "target_visible",
+                    "occlusion_type",
+                    "evidence_reason",
+                )
+                if key in decision
+            },
         }
     if set(parsed) != expected:
         missing = sorted(expected - set(parsed))
@@ -194,6 +209,32 @@ def decision_from_votes(votes: list[dict[str, Any]], *, votes_by_role: dict[str,
     if counts["false"] >= 2 and counts["false"] > counts["true"]:
         return "false"
     return "uncertain"
+
+
+def _model_confidence(
+    votes: list[dict[str, Any]],
+    *,
+    votes_by_role: dict[str, dict[str, Any]] | None = None,
+    consensus: Any = None,
+) -> float | None:
+    """Return the local merge confidence without trusting model consensus."""
+    if votes_by_role is not None:
+        strict_votes = {
+            role: {key: vote[key] for key in ("label", "confidence", "reason")}
+            for role, vote in votes_by_role.items()
+        }
+        merged = merge_agent_results({
+            "votes": strict_votes,
+            "consensus": consensus if isinstance(consensus, dict) else {
+                "label": None,
+                "confidence": 0.0,
+                "reason": "local recomputation",
+            },
+        })
+        return float(merged["confidence"]) if merged is not None else None
+    label = decision_from_votes(votes)
+    agreeing = [vote["confidence"] for vote in votes if vote.get("label") == label and vote.get("confidence", 0) >= AUTO_ANNOTATION_CONFIDENCE_FLOOR]
+    return min(agreeing) if agreeing else None
 
 
 def _audit(session: Session, *, action: str, sample_id: str, candidate_id: str | None, payload: dict[str, Any]) -> None:
@@ -233,11 +274,30 @@ def _process_item(session: Session, item: AutoAnnotationItem, *, adapter: Any, o
     for candidate in candidates:
         decision = decisions[candidate.target_index]
         votes = decision["votes"]
-        label = decision_from_votes(votes, votes_by_role=decision.get("votes_by_role"), consensus=decision.get("consensus"))
+        model_label = decision_from_votes(votes, votes_by_role=decision.get("votes_by_role"), consensus=decision.get("consensus"))
+        model_confidence = _model_confidence(
+            votes,
+            votes_by_role=decision.get("votes_by_role"),
+            consensus=decision.get("consensus"),
+        )
+        policy = apply_review_policy(
+            class_name=candidate.class_name,
+            model_label=model_label,
+            model_confidence=model_confidence,
+            scene=decision.get("scene"),
+            evidence=decision.get("evidence"),
+            rooftop_confidence_threshold=options.get("rooftop_scene_confidence_threshold", 0.8),
+        )
+        label = policy.label
         audit_payload = {
             "target_index": candidate.target_index,
             "votes": votes,
             "model_consensus": decision.get("consensus"),
+            "model_label": model_label,
+            "model_confidence": model_confidence,
+            "scene": policy.scene,
+            "evidence": policy.evidence,
+            "policy": policy.as_dict(),
             "local_decision": label,
             "confidence_floor": AUTO_ANNOTATION_CONFIDENCE_FLOOR,
         }
@@ -254,7 +314,7 @@ def _process_item(session: Session, item: AutoAnnotationItem, *, adapter: Any, o
         else:
             annotation.revision = (annotation.revision or 0) + 1
         annotation.label = label
-        annotation.note = "auto annotation consensus: " + "; ".join(
+        annotation.note = f"auto annotation {policy.reason_code}: " + "; ".join(
             f"{vote['role']}={vote['label']} ({vote['confidence']:.2f})" for vote in votes
         )
         annotation.labeled_by = None

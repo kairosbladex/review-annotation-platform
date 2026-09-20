@@ -561,3 +561,110 @@ def test_second_pass_outputs_training_views_with_first_pass_evidence(tmp_path):
     assert (tmp_path / "second" / "yolo_labels" / "image-a.txt").read_text(encoding="utf-8") == "0 0.15000000 0.15000000 0.10000000 0.10000000\n"
     image_manifest = [json.loads(line) for line in (tmp_path / "second" / "yolo_image_manifest.jsonl").read_text(encoding="utf-8").splitlines()]
     assert image_manifest[0]["label_rows"] == 1
+
+
+def test_apply_results_does_not_overwrite_human_confirmed_candidate(tmp_path):
+    store = RecheckStore(tmp_path / "recheck.sqlite3")
+    image = GroupedImage(
+        image_id="image-human",
+        file_path="images/human.jpg",
+        source_row_ids=["row-human"],
+        candidates=[GroupedCandidate(
+            candidate_key="human-key",
+            payload=_candidate(),
+            source_row_ids=["row-human"],
+        )],
+        conflict=False,
+        source_rows=[{"source_row_id": "row-human", "source_payload": {"id": "row-human"}}],
+    )
+    store.create_or_validate_run(
+        run_id="human-run",
+        output_dir=tmp_path / "human",
+        images=[image],
+        provider_order=["gpt"],
+        batch_size=1,
+        concurrency=1,
+        resume=False,
+    )
+    with store.connect() as connection:
+        connection.execute(
+            "UPDATE candidates SET human_confirmed=1, auto_label='true', label_source='human_gold', decision_json=? "
+            "WHERE run_id=? AND image_id=? AND candidate_index=0",
+            (json.dumps({"human_label": "true"}), "human-run", "image-human"),
+        )
+
+    store.apply_results(
+        run_id="human-run",
+        image_ids=["image-human"],
+        results={"image-human": {0: _decision(0, "false")}},
+        provider="gpt",
+        model="gpt-test",
+        sha256_by_image={"image-human": "human-sha"},
+    )
+
+    row = store.rows_for_output("human-run")["candidates"][0]
+    assert row["human_confirmed"] == 1
+    assert row["auto_label"] == "true"
+    assert row["label_source"] == "human_gold"
+    assert json.loads(row["decision_json"]) == {"human_label": "true"}
+
+
+def test_write_outputs_keeps_policy_ticket_and_human_empty_gold_fields(tmp_path):
+    store = RecheckStore(tmp_path / "recheck.sqlite3")
+    image = GroupedImage(
+        image_id="image-policy",
+        file_path="images/policy.jpg",
+        source_row_ids=["row-policy"],
+        candidates=[GroupedCandidate(
+            candidate_key="policy-key",
+            payload=_candidate(),
+            source_row_ids=["row-policy"],
+        )],
+        conflict=False,
+        source_rows=[{"source_row_id": "row-policy", "source_payload": {"id": "row-policy"}}],
+    )
+    store.create_or_validate_run(
+        run_id="policy-run",
+        output_dir=tmp_path / "policy",
+        images=[image],
+        provider_order=["gpt"],
+        batch_size=1,
+        concurrency=1,
+        resume=False,
+    )
+    decision = _decision(0, "uncertain")
+    decision.update({
+        "scene": {"label": "ground", "confidence": 0.95, "reason": "road"},
+        "evidence": {
+            "red_overlay_occlusion": True,
+            "overlay_obscures": True,
+            "background_only": False,
+            "target_visible": "occluded",
+            "occlusion_type": "red_overlay",
+        },
+    })
+    store.apply_results(
+        run_id="policy-run",
+        image_ids=["image-policy"],
+        results={"image-policy": {0: decision}},
+        provider="gpt",
+        model="gpt-test",
+        sha256_by_image={"image-policy": "policy-sha"},
+        view_sha256_by_image={"image-policy": {"masked": "masked-sha", "roi_0": "roi-sha"}},
+    )
+
+    summary = write_outputs(store, "policy-run", tmp_path / "policy")
+    candidate = json.loads((tmp_path / "policy" / "candidate_results.jsonl").read_text(encoding="utf-8").splitlines()[0])
+    gold = json.loads((tmp_path / "policy" / "gold_review_manifest.jsonl").read_text(encoding="utf-8").splitlines()[0])
+
+    assert candidate["model_label"] == "uncertain"
+    assert candidate["policy"]["reason_code"] == "red_overlay_occlusion_exempt"
+    assert candidate["scene"]["label"] == "ground"
+    assert candidate["evidence"]["red_overlay_occlusion"] is True
+    assert candidate["view_sha256"] == {"masked": "masked-sha", "roi_0": "roi-sha"}
+    assert gold["human_label"] is None
+    assert gold["presence"] is None
+    assert gold["class_match"] is None
+    assert gold["box_fit"] is None
+    assert gold["model_evidence"]["red_overlay_occlusion"] is True
+    assert summary["gold_review"]["human_fields_prefilled"] == 0

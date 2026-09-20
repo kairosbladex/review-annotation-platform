@@ -2,11 +2,14 @@ from __future__ import annotations
 
 import json
 
+from sqlalchemy import select
+
 from fastapi.testclient import TestClient
 
 from app.adapters.codex_responses import CodexResponsesVisionAdapter
 from app.config import Settings
 from app.main import create_app
+from app.models import AuditEvent
 
 from .test_annotation_flow import _login, _review_event
 from .test_imports import MemoryObjectStore
@@ -170,3 +173,76 @@ def test_auto_annotation_requires_two_confident_votes_and_is_inline(tmp_path):
     sample = client.get(f"/api/v1/samples/{sample_id}", headers=_login(client)).json()
     assert sample["candidates"][0]["annotation"]["label"] == "true"
     assert sample["candidates"][1]["annotation"]["label"] is None
+
+
+def test_auto_annotation_applies_shared_rooftop_and_red_overlay_policy_and_audits_it(tmp_path):
+    def votes(label: str):
+        return [
+            {"role": "target_presence_fit", "label": label, "confidence": 0.9, "reason": "visual evidence"},
+            {"role": "class_scene", "label": label, "confidence": 0.9, "reason": "class evidence"},
+            {"role": "adversarial", "label": label, "confidence": 0.9, "reason": "adversarial check"},
+        ]
+
+    adapter = FakeAutoAnnotationAdapter([
+        {
+            "target_index": 0,
+            "votes": votes("uncertain"),
+            "consensus": "uncertain",
+            "scene": {"label": "ground", "confidence": 0.95, "reason": "road"},
+            "evidence": {
+                "red_overlay_occlusion": True,
+                "overlay_obscures": True,
+                "background_only": False,
+                "target_visible": "occluded",
+                "occlusion_type": "red_overlay",
+            },
+        },
+        {
+            "target_index": 1,
+            "votes": votes("true"),
+            "consensus": "true",
+            "scene": {"label": "rooftop", "confidence": 0.95, "reason": "roof"},
+            "evidence": {
+                "red_overlay_occlusion": True,
+                "overlay_obscures": True,
+                "background_only": False,
+                "target_visible": "occluded",
+                "occlusion_type": "red_overlay",
+            },
+        },
+    ])
+    store = MemoryObjectStore()
+    event = _review_event("auto-annotation-policy-001")
+    store.put_bytes(event["image"]["bucket"], event["image"]["object_key"], b"image", "image/jpeg")
+    app = create_app(_settings(tmp_path), object_store=store, auto_annotation_adapter=adapter)
+    app.state.auto_annotation_dispatcher = InlineDispatcher(app.state.run_auto_annotation_job)
+    client = TestClient(app)
+    ingest = client.post(
+        "/api/v1/ingest/review-events",
+        json=event,
+        headers={"X-Service-Key": "service-secret"},
+    )
+    assert ingest.status_code == 201, ingest.text
+    sample_id = ingest.json()["sample_id"]
+
+    response = client.post(
+        "/api/v1/auto-annotations",
+        json={"sample_ids": [sample_id]},
+        headers=_login(client),
+    )
+
+    assert response.status_code == 202, response.text
+    sample = client.get(f"/api/v1/samples/{sample_id}", headers=_login(client)).json()
+    assert sample["candidates"][0]["annotation"]["label"] == "true"
+    assert sample["candidates"][1]["annotation"]["label"] == "false"
+    with app.state.session_factory() as session:
+        audits = session.scalars(
+            select(AuditEvent).where(AuditEvent.action == "auto_annotation.applied")
+        ).all()
+    assert len(audits) == 2
+    payloads = [json.loads(item.payload_json) for item in audits]
+    assert {payload["policy"]["reason_code"] for payload in payloads} == {
+        "red_overlay_occlusion_exempt",
+        "rooftop_vehicle_rule",
+    }
+    assert all("votes" in payload and "model_label" in payload and "local_decision" in payload for payload in payloads)

@@ -20,11 +20,12 @@ from pathlib import Path
 from typing import Any
 
 import httpx
-from PIL import Image, ImageDraw
 
 from .object_store import ObjectStore
 from ..services.auto_annotation_prompts import render_batch_prompt
 from ..services.auto_annotation_prompts import ROLE_ORDER
+from ..services.review_policy import normalize_scene
+from ..services.review_views import build_visual_views, masked_bytes, overlay_bytes, roi_context_bytes
 
 
 class CodexResponsesError(RuntimeError):
@@ -133,6 +134,7 @@ def _normalise_decisions(data: dict[str, Any]) -> list[dict[str, Any]]:
         raise CodexResponsesError("Responses output has no decisions")
 
     normalized: list[dict[str, Any]] = []
+    scene = normalize_scene(data.get("scene"))
     for position, decision in enumerate(decisions):
         if not isinstance(decision, dict):
             raise CodexResponsesError(f"decision {position} is not an object")
@@ -185,7 +187,32 @@ def _normalise_decisions(data: dict[str, Any]) -> list[dict[str, Any]]:
         consensus = str(decision.get("consensus") or "uncertain").strip().lower()
         if consensus not in {"true", "false", "uncertain"}:
             consensus = "uncertain"
-        normalized.append({"target_index": target_index, "votes": normalized_votes, "consensus": consensus})
+        evidence = decision.get("evidence")
+        if evidence is not None and not isinstance(evidence, dict):
+            raise CodexResponsesError(f"decision {position} evidence is invalid")
+        direct_evidence = {
+            key: decision[key]
+            for key in (
+                "red_overlay_occlusion",
+                "overlay_obscures",
+                "background_only",
+                "target_visible",
+                "occlusion_type",
+                "evidence_reason",
+            )
+            if key in decision
+        }
+        if evidence is None:
+            evidence = direct_evidence
+        elif direct_evidence:
+            evidence = {**evidence, **direct_evidence}
+        normalized.append({
+            "target_index": target_index,
+            "votes": normalized_votes,
+            "consensus": consensus,
+            "scene": normalize_scene(decision.get("scene", scene)),
+            "evidence": evidence,
+        })
     return normalized
 
 
@@ -229,34 +256,27 @@ class CodexResponsesVisionAdapter:
     def _overlay_bytes(image_bytes: bytes, candidates: list[dict[str, Any]]) -> bytes:
         """Render numbered candidate boxes so the vision model can localize them."""
         try:
-            from io import BytesIO
-
-            image = Image.open(BytesIO(image_bytes)).convert("RGB")
-        except Exception as exc:
+            return overlay_bytes(image_bytes, candidates)
+        except ValueError as exc:
             raise CodexResponsesError("original image cannot be rendered for overlay") from exc
-        draw = ImageDraw.Draw(image)
-        width, height = image.size
-        line_width = max(2, min(width, height) // 300)
-        for position, candidate in enumerate(candidates, start=1):
-            bbox = candidate.get("bbox") if isinstance(candidate, dict) else None
-            if not isinstance(bbox, (list, tuple)) or len(bbox) != 4:
-                continue
-            try:
-                x1, y1, x2, y2 = (float(value) for value in bbox)
-            except (TypeError, ValueError):
-                continue
-            left = max(0, min(width - 1, round(x1 * width)))
-            top = max(0, min(height - 1, round(y1 * height)))
-            right = max(left + 1, min(width - 1, round(x2 * width)))
-            bottom = max(top + 1, min(height - 1, round(y2 * height)))
-            draw.rectangle((left, top, right, bottom), outline=(238, 56, 68), width=line_width)
-            label = str(candidate.get("target_index", position - 1))
-            text_top = max(0, top - 14)
-            draw.rectangle((left, text_top, left + max(16, 7 * len(label) + 6), top), fill=(238, 56, 68))
-            draw.text((left + 3, text_top + 1), label, fill=(255, 255, 255))
-        output = BytesIO()
-        image.save(output, format="JPEG", quality=88, optimize=True)
-        return output.getvalue()
+
+    @staticmethod
+    def _masked_bytes(image_bytes: bytes) -> bytes:
+        try:
+            return masked_bytes(image_bytes)
+        except ValueError as exc:
+            raise CodexResponsesError("original image cannot be rendered for red-overlay mask") from exc
+
+    @staticmethod
+    def _roi_context_bytes(image_bytes: bytes, candidate: dict[str, Any]) -> bytes:
+        try:
+            return roi_context_bytes(image_bytes, candidate)
+        except ValueError as exc:
+            raise CodexResponsesError("candidate ROI cannot be rendered") from exc
+
+    @classmethod
+    def _visual_views(cls, image_bytes: bytes, candidates: list[dict[str, Any]]) -> dict[str, bytes]:
+        return build_visual_views(image_bytes, candidates)
 
     def _ensure_cli_home(self) -> Path:
         """Create an ephemeral Codex home and authenticate once per worker."""
@@ -310,6 +330,16 @@ class CodexResponsesVisionAdapter:
             "additionalProperties": False,
             "required": ["decisions"],
             "properties": {
+                "scene": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "required": ["label", "confidence", "reason"],
+                    "properties": {
+                        "label": {"type": "string", "enum": ["rooftop", "ground", "unknown"]},
+                        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+                        "reason": {"type": "string"},
+                    },
+                },
                 "decisions": {
                     "type": "array",
                     "items": {
@@ -335,6 +365,18 @@ class CodexResponsesVisionAdapter:
                                 },
                             },
                             "consensus": {"type": "string", "enum": ["true", "false", "uncertain"]},
+                            "evidence": {
+                                "type": "object",
+                                "additionalProperties": False,
+                                "properties": {
+                                    "red_overlay_occlusion": {"type": "boolean"},
+                                    "overlay_obscures": {"type": "boolean"},
+                                    "background_only": {"type": "boolean"},
+                                    "target_visible": {"type": "string"},
+                                    "occlusion_type": {"type": "string"},
+                                    "reason": {"type": "string"},
+                                },
+                            },
                         },
                     },
                 },
@@ -374,6 +416,20 @@ class CodexResponsesVisionAdapter:
             overlay = work / "overlay.jpg"
             original.write_bytes(image_bytes)
             overlay.write_bytes(self._overlay_bytes(image_bytes, candidates))
+            attachments = [original, overlay]
+            try:
+                masked = work / "masked.jpg"
+                masked.write_bytes(self._masked_bytes(image_bytes))
+                attachments.append(masked)
+            except CodexResponsesError:
+                pass
+            for position, candidate in enumerate(candidates):
+                try:
+                    roi = work / f"roi-{candidate.get('target_index', position)}.jpg"
+                    roi.write_bytes(self._roi_context_bytes(image_bytes, candidate))
+                    attachments.append(roi)
+                except CodexResponsesError:
+                    continue
             schema = self._schema_file(home)
             prompt = render_batch_prompt(candidates, options)
             command = [
@@ -389,14 +445,14 @@ class CodexResponsesVisionAdapter:
                 "read-only",
                 "-m",
                 self.model,
-                "-i",
-                str(original),
-                "-i",
-                str(overlay),
                 "--output-schema",
                 str(schema),
                 "-",
             ]
+            attachment_args: list[str] = []
+            for attachment in attachments:
+                attachment_args.extend(["-i", str(attachment)])
+            command[command.index("--output-schema"):command.index("--output-schema")] = attachment_args
             try:
                 result = subprocess.run(
                     command,
@@ -411,7 +467,8 @@ class CodexResponsesVisionAdapter:
                 raise CodexResponsesError("Codex CLI vision request failed") from exc
             if result.returncode != 0:
                 raise CodexResponsesError("Codex CLI vision request failed")
-            return {"decisions": _normalise_decisions(self._parse_cli_output(result.stdout))}
+            parsed = self._parse_cli_output(result.stdout)
+            return {"scene": normalize_scene(parsed.get("scene")), "decisions": _normalise_decisions(parsed)}
         finally:
             shutil.rmtree(work, ignore_errors=True)
 
@@ -432,13 +489,13 @@ class CodexResponsesVisionAdapter:
             {"type": "input_text", "text": prompt},
             {"type": "input_image", "image_url": f"data:{mime_type};base64,{encoded}", "detail": "high"},
         ]
-        try:
-            overlay_encoded = base64.b64encode(self._overlay_bytes(image_bytes, candidates)).decode("ascii")
-            content.append({"type": "input_image", "image_url": f"data:image/jpeg;base64,{overlay_encoded}", "detail": "high"})
-        except CodexResponsesError:
-            # Keep the raw HTTP fallback usable for non-image test doubles or
-            # gateways that receive a source format PIL cannot decode.
-            pass
+        for _view_name, view_bytes in self._visual_views(image_bytes, candidates).items():
+            encoded_view = base64.b64encode(view_bytes).decode("ascii")
+            content.append({
+                "type": "input_image",
+                "image_url": f"data:image/jpeg;base64,{encoded_view}",
+                "detail": "high",
+            })
         payload = {
             "model": self.model,
             "input": [{
@@ -467,7 +524,7 @@ class CodexResponsesVisionAdapter:
             raise CodexResponsesError(f"Codex Responses returned error: {message}")
         # A gateway may return decisions directly, without output text.
         data = body if isinstance(body, dict) and (body.get("decisions") or body.get("votes")) else _parse_json_text(_extract_output_text(body))
-        return {"decisions": _normalise_decisions(data)}
+        return {"scene": normalize_scene(data.get("scene")), "decisions": _normalise_decisions(data)}
 
     def review(self, image: dict[str, Any], candidates: list[dict[str, Any]], options: dict[str, Any] | None = None) -> dict[str, Any]:
         merged = dict(options or {})
