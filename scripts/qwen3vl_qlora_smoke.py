@@ -12,7 +12,7 @@ import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Sequence
 
 import torch
 from torch.utils.data import Dataset
@@ -22,6 +22,11 @@ from transformers import (
     Qwen3VLForConditionalGeneration,
     Trainer,
     TrainingArguments,
+)
+
+from qwen_training_provenance import (
+    validate_human_gold_dataset,
+    validate_supervision_lengths,
 )
 
 
@@ -61,11 +66,27 @@ def _messages(row: dict[str, Any], root: Path) -> list[dict[str, Any]]:
 
 
 class QwenVerifierDataset(Dataset[dict[str, Any]]):
-    def __init__(self, path: Path, processor: Any, max_length: int):
-        self.rows = _read_jsonl(path)
+    def __init__(
+        self,
+        path: Path,
+        processor: Any,
+        max_length: int,
+        *,
+        require_human_gold: bool = False,
+        provenance_root: Path | None = None,
+        rows: Sequence[dict[str, Any]] | None = None,
+    ):
+        self.rows = list(rows) if rows is not None else _read_jsonl(path)
         self.root = path.parent
         self.processor = processor
         self.max_length = max_length
+        self.provenance_summary = None
+        if require_human_gold:
+            self.provenance_summary = validate_human_gold_dataset(
+                self.rows,
+                dataset_path=path,
+                provenance_root=provenance_root or Path.cwd(),
+            )
 
     def __len__(self) -> int:
         return len(self.rows)
@@ -73,6 +94,8 @@ class QwenVerifierDataset(Dataset[dict[str, Any]]):
     def __getitem__(self, index: int) -> dict[str, Any]:
         row = self.rows[index]
         messages = _messages(row, self.root)
+        if len(messages) < 2:
+            raise ValueError(f"row {row.get('id')} has no user/assistant training pair")
         full = self.processor.apply_chat_template(
             messages,
             tokenize=True,
@@ -93,20 +116,23 @@ class QwenVerifierDataset(Dataset[dict[str, Any]]):
             input_ids = input_ids.unsqueeze(0)
         if prompt_ids.ndim == 1:
             prompt_ids = prompt_ids.unsqueeze(0)
-        if input_ids.shape[-1] > self.max_length:
-            input_ids = input_ids[:, : self.max_length]
+        supervised_tokens = validate_supervision_lengths(
+            sequence_length=int(input_ids.shape[-1]),
+            prompt_length=int(prompt_ids.shape[-1]),
+            max_length=self.max_length,
+            row_id=str(row.get("id", index)),
+        )
         labels = input_ids.clone()
-        labels[:, : min(prompt_ids.shape[-1], labels.shape[-1])] = -100
-        full["input_ids"] = input_ids
+        labels[:, : prompt_ids.shape[-1]] = -100
+        if int((labels != -100).sum().item()) != supervised_tokens:
+            raise ValueError(f"row {row.get('id')} lost assistant supervision tokens")
         full["labels"] = labels
-        if "attention_mask" in full:
-            full["attention_mask"] = full["attention_mask"][:, : input_ids.shape[-1]]
         return {key: value for key, value in full.items() if torch.is_tensor(value)}
 
 
 @dataclass
 class SingleSampleCollator:
-    """Keep smoke batches at one sample to avoid variable image patch padding."""
+    """Keep batches at one sample to avoid variable image patch padding."""
 
     def __call__(self, features: list[dict[str, Any]]) -> dict[str, Any]:
         if len(features) != 1:
