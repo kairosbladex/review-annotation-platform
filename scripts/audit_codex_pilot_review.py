@@ -88,22 +88,48 @@ def _comparison_status(suggestion: str, action: str, label: Any) -> str:
 def _local_source_metadata(
     manifest: Mapping[str, Any], source_root: Path | None
 ) -> dict[str, Any]:
+    declared_task_id = manifest.get("source_task_id") or manifest.get("task_id")
+    declared_object_key = manifest.get("source_object_key")
+    source_original = manifest.get("source_original")
+    if source_original in (None, ""):
+        raise ValueError("pilot manifest has no source image path")
+    source_event_group = (
+        str(declared_task_id)
+        if declared_task_id not in (None, "")
+        else str(manifest["source_group"])
+    )
     fallback = {
-        "source_task_id": None,
-        "source_event_group": str(manifest["source_group"]),
-        "image_object_key": str(manifest["source_original"]),
+        "source_task_id": (
+            str(declared_task_id) if declared_task_id not in (None, "") else None
+        ),
+        "source_event_group": source_event_group,
+        "image_object_key": (
+            str(declared_object_key)
+            if declared_object_key not in (None, "")
+            else None
+        ),
         "canonical_source_image": None,
         "detail_file": None,
     }
     if source_root is None:
+        if fallback["image_object_key"] is None:
+            raise ValueError(
+                "pilot manifest has no source_object_key; --source-root is required "
+                "to resolve it from detail.json"
+            )
         return fallback
-    source_image = (source_root / str(manifest["source_original"])).resolve()
+    source_image = (source_root / str(source_original)).resolve()
     if not source_image.is_file():
         raise ValueError(f"declared source image is unavailable: {source_image}")
     if _sha256(source_image) != str(manifest["original_sha256"]):
         raise ValueError(f"declared source image SHA-256 mismatch: {source_image}")
     detail_file = source_image.parent / "detail.json"
     if not detail_file.is_file():
+        if fallback["image_object_key"] is None:
+            raise ValueError(
+                "pilot manifest has no source_object_key and source image has no "
+                f"detail.json: {source_image}"
+            )
         return {**fallback, "canonical_source_image": str(source_image)}
     detail = json.loads(detail_file.read_text(encoding="utf-8"))
     data = detail.get("data") if isinstance(detail, Mapping) else None
@@ -150,6 +176,9 @@ def audit_review_export(
     review_rows = _read_jsonl(review_export)
     manifest_rows = _read_jsonl(manifest_path)
     prelabel_rows = _read_jsonl(prelabel_path)
+    pilot_summary = json.loads(pilot_summary_path.read_text(encoding="utf-8"))
+    if not isinstance(pilot_summary, Mapping):
+        raise ValueError("pilot summary is not a JSON object")
     if expected_count is not None and len(review_rows) != expected_count:
         raise ValueError(
             f"review export has {len(review_rows)} rows; expected {expected_count}"
@@ -259,6 +288,12 @@ def audit_review_export(
 
         eligible = label in {"true", "false"} and action != "issue"
         source_metadata = _local_source_metadata(manifest, source_root)
+        declared_split = str(manifest.get("split") or "")
+        audited_split = (
+            declared_split
+            if declared_split.startswith("train_candidate_")
+            else "train_candidate_single_source_group"
+        )
         comparison = {
             "batch_id": batch_id,
             "candidate_id": candidate_id,
@@ -278,7 +313,18 @@ def audit_review_export(
             "sample_id": str(manifest["event_id"]),
             "source_event_id": source_metadata["source_event_group"],
             "source_task_id": source_metadata["source_task_id"],
-            "source_capture_group": str(manifest["source_group"]),
+            "source_capture_group": manifest.get(
+                "source_capture_group", manifest["source_group"]
+            ),
+            "source_group_kind": str(
+                manifest.get("source_group_kind")
+                or (
+                    "task_id"
+                    if source_metadata["source_task_id"] not in (None, "")
+                    else "source_group"
+                )
+            ),
+            "capture_group_status": manifest.get("capture_group_status"),
             "target_index": candidate_id,
             "class_name": str(manifest["class_name"]),
             "bbox": list(manifest["bbox_norm"]),
@@ -307,7 +353,7 @@ def audit_review_export(
             "codex_model": prelabel.get("codex_model"),
             "codex_box_fit": prelabel.get("box_fit"),
             "source_row_ordinals": list(manifest.get("source_row_ordinals", [])),
-            "split": "train_candidate_single_source_group",
+            "split": audited_split,
             "training_task": "candidate_roi_binary_verifier",
             "training_eligible": eligible,
             "qwen_training_eligible": eligible,
@@ -408,6 +454,24 @@ def audit_review_export(
         for row in binary_comparisons
     )
     source_groups = sorted({row["source_event_id"] for row in training_candidates})
+    source_capture_groups = sorted(
+        {
+            str(row["source_capture_group"])
+            for row in training_candidates
+            if row.get("source_capture_group") not in (None, "")
+        }
+    )
+    partitions = sorted({str(row["split"]) for row in training_candidates})
+    pilot_limitations = [
+        str(item)
+        for item in pilot_summary.get("limitations", [])
+        if str(item).strip()
+    ]
+    audit_limitations = [
+        "The saved action window is not an active-time measurement.",
+        "Codex/human agreement in this assisted annotation workflow is not an independent accuracy result.",
+    ]
+    limitations = list(dict.fromkeys(pilot_limitations + audit_limitations))
     summary = {
         "schema_version": 1,
         "batch_id": batch_id,
@@ -456,8 +520,11 @@ def audit_review_export(
         ),
         "source_images": len({row["image_sha256"] for row in human_gold}),
         "source_groups": source_groups,
-        "source_capture_groups": sorted(
-            {row["source_capture_group"] for row in training_candidates}
+        "source_capture_groups": source_capture_groups,
+        "source_capture_group_available": bool(training_candidates)
+        and all(
+            row.get("source_capture_group") not in (None, "")
+            for row in training_candidates
         ),
         "classes": dict(sorted(Counter(row["class_name"] for row in human_gold).items())),
         "first_saved_action_at": action_times[0].isoformat(),
@@ -470,14 +537,9 @@ def audit_review_export(
             if action_gaps
             else None
         ),
-        "training_partition": "train_candidate_single_source_group",
+        "training_partition": partitions[0] if len(partitions) == 1 else partitions,
         "accuracy_evaluated": False,
-        "limitations": [
-            "All candidates belong to one source capture group and must remain in one split.",
-            "This pilot contains vehicle candidates only and has no person-class coverage.",
-            "The saved action window is not an active-time measurement.",
-            "Codex/human agreement on this workflow pilot is not an independent accuracy result.",
-        ],
+        "limitations": limitations,
     }
     input_receipt = {
         "schema_version": 1,
