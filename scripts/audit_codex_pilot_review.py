@@ -85,6 +85,72 @@ def _comparison_status(suggestion: str, action: str, label: Any) -> str:
     return "human_flagged_box_issue"
 
 
+def _partition_role(
+    manifest_rows: Sequence[Mapping[str, Any]], requested: str
+) -> str:
+    if requested not in {"auto", "train", "validation"}:
+        raise ValueError(f"unsupported partition mode: {requested!r}")
+    declared_splits = [str(row.get("split") or "") for row in manifest_rows]
+    declared_roles = {
+        "validation"
+        if split.startswith("validation_candidate_")
+        else "train"
+        if split.startswith("train_candidate_")
+        else "unknown"
+        for split in declared_splits
+    }
+    if "train" in declared_roles and "validation" in declared_roles:
+        raise ValueError("pilot manifest mixes train and validation candidate splits")
+    if requested == "validation":
+        if declared_roles != {"validation"}:
+            raise ValueError(
+                "validation mode requires every manifest split to start with "
+                "validation_candidate_"
+            )
+        return "validation"
+    if requested == "train":
+        if "validation" in declared_roles:
+            raise ValueError("train mode conflicts with a validation manifest split")
+        return "train"
+    if "validation" in declared_roles:
+        if declared_roles != {"validation"}:
+            raise ValueError(
+                "auto mode cannot infer validation from partially declared splits"
+            )
+        return "validation"
+    return "train"
+
+
+def _audited_split(declared_split: Any, partition_role: str) -> str:
+    prefix = f"{partition_role}_candidate_"
+    value = str(declared_split or "")
+    return value if value.startswith(prefix) else f"{prefix}single_source_group"
+
+
+def _suggestion_visibility(
+    *,
+    candidate_id: str,
+    review: Mapping[str, Any],
+    prelabel: Mapping[str, Any],
+    require_explicit: bool,
+) -> bool:
+    field = "suggestion_visible_during_review"
+    review_declared = field in review
+    prelabel_declared = field in prelabel
+    if require_explicit or review_declared or prelabel_declared:
+        if not review_declared or not prelabel_declared:
+            raise ValueError(
+                f"{candidate_id} must declare {field} in both review and prelabel"
+            )
+        review_value = review.get(field)
+        prelabel_value = prelabel.get(field)
+        if not isinstance(review_value, bool) or not isinstance(prelabel_value, bool):
+            raise ValueError(f"{candidate_id} {field} must be boolean")
+        _require_equal(candidate_id, field, review_value, prelabel_value)
+        return review_value
+    return prelabel.get("blind_test") is not True
+
+
 def _local_source_metadata(
     manifest: Mapping[str, Any], source_root: Path | None
 ) -> dict[str, Any]:
@@ -161,6 +227,7 @@ def audit_review_export(
     reviewer_id: str,
     expected_count: int | None = None,
     source_root: Path | None = None,
+    partition_mode: str = "auto",
 ) -> dict[str, Any]:
     if not reviewer_id.strip():
         raise ValueError("reviewer_id must be non-empty")
@@ -192,6 +259,7 @@ def audit_review_export(
     expected_ids = set(manifest_by_id)
     if set(review_by_id) != expected_ids or set(prelabel_by_id) != expected_ids:
         raise ValueError("candidate IDs differ across review, manifest, and prelabels")
+    partition_role = _partition_role(manifest_rows, partition_mode)
 
     batch_ids = {str(row.get("batch_id") or "") for row in review_rows}
     prelabel_batch_ids = {str(row.get("batch_id") or "") for row in prelabel_rows}
@@ -201,10 +269,14 @@ def audit_review_export(
 
     human_gold: list[dict[str, Any]] = []
     training_candidates: list[dict[str, Any]] = []
+    validation_candidates: list[dict[str, Any]] = []
     training_admission: list[dict[str, Any]] = []
+    validation_admission: list[dict[str, Any]] = []
     hard_negatives: list[dict[str, Any]] = []
     qwen_training_fragment: list[dict[str, Any]] = []
-    exclusions: list[dict[str, Any]] = []
+    qwen_validation_fragment: list[dict[str, Any]] = []
+    training_exclusions: list[dict[str, Any]] = []
+    validation_exclusions: list[dict[str, Any]] = []
     comparisons: list[dict[str, Any]] = []
     timestamps: list[datetime] = []
 
@@ -255,6 +327,23 @@ def audit_review_export(
             raise ValueError(f"{candidate_id} has an unexpected review label_source")
         if review.get("is_training_eligible") is not False:
             raise ValueError(f"{candidate_id} was prematurely marked training eligible")
+        if partition_role == "validation" and review.get("is_validation_eligible") is not False:
+            raise ValueError(
+                f"{candidate_id} was prematurely marked validation eligible"
+            )
+        if "dataset_partition" in review:
+            _require_equal(
+                candidate_id,
+                "dataset_partition",
+                review.get("dataset_partition"),
+                manifest.get("split"),
+            )
+        suggestion_visible_during_review = _suggestion_visibility(
+            candidate_id=candidate_id,
+            review=review,
+            prelabel=prelabel,
+            require_explicit=partition_role == "validation",
+        )
 
         action = str(review.get("human_action") or "")
         label = review.get("human_label")
@@ -273,6 +362,10 @@ def audit_review_export(
                 raise ValueError(f"{candidate_id} box issue must not have a binary label")
         else:
             raise ValueError(f"{candidate_id} has an unsupported human_action: {action!r}")
+        if not suggestion_visible_during_review and action == "confirm":
+            raise ValueError(
+                f"{candidate_id} cannot confirm a suggestion hidden during review"
+            )
 
         reviewed_at = _parse_timestamp(review.get("reviewed_at"), candidate_id)
         timestamps.append(reviewed_at)
@@ -287,13 +380,10 @@ def audit_review_export(
                 raise ValueError(f"{candidate_id} {view_name} view SHA-256 mismatch")
 
         eligible = label in {"true", "false"} and action != "issue"
+        training_eligible = eligible and partition_role == "train"
+        validation_eligible = eligible and partition_role == "validation"
         source_metadata = _local_source_metadata(manifest, source_root)
-        declared_split = str(manifest.get("split") or "")
-        audited_split = (
-            declared_split
-            if declared_split.startswith("train_candidate_")
-            else "train_candidate_single_source_group"
-        )
+        audited_split = _audited_split(manifest.get("split"), partition_role)
         comparison = {
             "batch_id": batch_id,
             "candidate_id": candidate_id,
@@ -301,6 +391,8 @@ def audit_review_export(
             "human_action": action,
             "human_label": label,
             "human_note": str(review.get("human_comment") or ""),
+            "suggestion_visible_during_review": suggestion_visible_during_review,
+            "visibility": prelabel.get("visibility"),
             "comparison_status": _comparison_status(suggestion, action, label),
             "reviewed_at": str(review["reviewed_at"]),
         }
@@ -352,41 +444,69 @@ def audit_review_export(
             "codex_prompt_version": prelabel.get("prompt_version"),
             "codex_model": prelabel.get("codex_model"),
             "codex_box_fit": prelabel.get("box_fit"),
+            "visibility": prelabel.get("visibility"),
+            "suggestion_visible_during_review": suggestion_visible_during_review,
             "source_row_ordinals": list(manifest.get("source_row_ordinals", [])),
             "split": audited_split,
+            "partition_role": partition_role,
             "training_task": "candidate_roi_binary_verifier",
-            "training_eligible": eligible,
-            "qwen_training_eligible": eligible,
+            "training_eligible": training_eligible,
+            "qwen_training_eligible": training_eligible,
             "detector_training_eligible": False,
             "detector_training_reason": (
                 "candidate truth was reviewed; detector box quality and image-level "
                 "annotation completeness were not independently adjudicated"
             ),
-            "validation_eligible": False,
+            "validation_eligible": validation_eligible,
+            "qwen_validation_eligible": validation_eligible,
             "locked_test_eligible": False,
         }
-        training_admission.append(
-            {
-                "batch_id": batch_id,
-                "candidate_id": candidate_id,
-                "human_label": label,
-                "qwen_training_eligible": eligible,
-                "qwen_reason": (
-                    "binary human confirmation with verified image/box lineage"
-                    if eligible
-                    else "human result is uncertain or the candidate box is invalid"
-                ),
-                "detector_training_eligible": False,
-                "detector_reason": common["detector_training_reason"],
-                "validation_eligible": False,
-                "locked_test_eligible": False,
-                "source_event_id": common["source_event_id"],
-                "source_capture_group": common["source_capture_group"],
-            }
-        )
+        admission = {
+            "batch_id": batch_id,
+            "candidate_id": candidate_id,
+            "partition_role": partition_role,
+            "human_label": label,
+            "training_eligible": training_eligible,
+            "qwen_training_eligible": training_eligible,
+            "training_reason": (
+                "binary human confirmation with verified image/box lineage"
+                if training_eligible
+                else "reserved for validation; excluded from training"
+                if validation_eligible
+                else "human result is uncertain or the candidate box is invalid"
+            ),
+            "qwen_reason": (
+                "binary human confirmation with verified image/box lineage"
+                if training_eligible
+                else "reserved for validation; excluded from training"
+                if validation_eligible
+                else "human result is uncertain or the candidate box is invalid"
+            ),
+            "detector_training_eligible": False,
+            "detector_reason": common["detector_training_reason"],
+            "validation_eligible": validation_eligible,
+            "qwen_validation_eligible": validation_eligible,
+            "validation_reason": (
+                "binary human confirmation with verified image/box lineage"
+                if validation_eligible
+                else "assigned to training; excluded from validation"
+                if training_eligible
+                else "human result is uncertain or the candidate box is invalid"
+            ),
+            "locked_test_eligible": False,
+            "source_event_id": common["source_event_id"],
+            "source_capture_group": common["source_capture_group"],
+        }
+        if partition_role == "train":
+            training_admission.append(admission)
+        else:
+            validation_admission.append(admission)
         if eligible:
             human_gold.append(common)
-            training_candidates.append(common)
+            if partition_role == "train":
+                training_candidates.append(common)
+            else:
+                validation_candidates.append(common)
             decision = "CONFIRMED" if label == "true" else "REJECTED"
             prompt = (
                 "<image>\n<image>\n"
@@ -396,48 +516,63 @@ def audit_review_export(
                 '只输出 JSON：{"decision":"CONFIRMED"} 或 '
                 '{"decision":"REJECTED"}。'
             )
-            qwen_training_fragment.append(
-                {
-                    "id": candidate_id,
-                    "image": [
-                        f"media/{candidate_id}-context.jpg",
-                        f"media/{candidate_id}-roi.jpg",
-                    ],
-                    "conversations": [
-                        {"from": "human", "value": prompt},
-                        {
-                            "from": "gpt",
-                            "value": json.dumps({"decision": decision}),
-                        },
-                    ],
-                    "meta": {
-                        "label_source": "human_gold",
-                        "label_field": "human_label",
-                        "labeled_by": reviewer_id,
-                        "source_run_id": batch_id,
-                        "image_id": common["sample_id"],
-                        "image_object_key": common["image_object_key"],
-                        "image_sha256": common["image_sha256"],
-                        "candidate_index": candidate_id,
-                        "class_name": common["class_name"],
-                        "bbox": common["bbox"],
-                        "source_image": f"source_images/{common['sample_id']}.jpg",
-                        "source_file": "human_gold_annotations.jsonl",
+            qwen_row = {
+                "id": candidate_id,
+                "image": [
+                    f"media/{candidate_id}-context.jpg",
+                    f"media/{candidate_id}-roi.jpg",
+                ],
+                "conversations": [
+                    {"from": "human", "value": prompt},
+                    {
+                        "from": "gpt",
+                        "value": json.dumps({"decision": decision}),
                     },
-                }
-            )
-            if label == "false":
+                ],
+                "meta": {
+                    "label_source": "human_gold",
+                    "label_field": "human_label",
+                    "labeled_by": reviewer_id,
+                    "source_run_id": batch_id,
+                    "partition_role": partition_role,
+                    "training_eligible": training_eligible,
+                    "qwen_training_eligible": training_eligible,
+                    "validation_eligible": validation_eligible,
+                    "qwen_validation_eligible": validation_eligible,
+                    "image_id": common["sample_id"],
+                    "image_object_key": common["image_object_key"],
+                    "image_sha256": common["image_sha256"],
+                    "candidate_index": candidate_id,
+                    "class_name": common["class_name"],
+                    "bbox": common["bbox"],
+                    "source_image": f"source_images/{common['sample_id']}.jpg",
+                    "source_file": "human_gold_annotations.jsonl",
+                },
+            }
+            if partition_role == "train":
+                qwen_training_fragment.append(qwen_row)
+            else:
+                qwen_validation_fragment.append(qwen_row)
+            if partition_role == "train" and label == "false":
                 hard_negatives.append(common)
         else:
-            exclusions.append(
-                {
-                    **common,
-                    "exclusion_reason": (
-                        "human_uncertain" if action == "uncertain" else "box_issue"
-                    ),
-                }
-            )
+            exclusion = {
+                **common,
+                "exclusion_reason": (
+                    "human_uncertain" if action == "uncertain" else "box_issue"
+                ),
+            }
+            if partition_role == "train":
+                training_exclusions.append(exclusion)
+            else:
+                validation_exclusions.append(exclusion)
 
+    partition_candidates = (
+        training_candidates if partition_role == "train" else validation_candidates
+    )
+    partition_exclusions = (
+        training_exclusions if partition_role == "train" else validation_exclusions
+    )
     action_times = sorted(timestamps)
     action_gaps = [
         (right - left).total_seconds()
@@ -453,15 +588,17 @@ def audit_review_export(
         row["codex_suggestion"] == row["human_label"]
         for row in binary_comparisons
     )
-    source_groups = sorted({row["source_event_id"] for row in training_candidates})
+    source_groups = sorted({row["source_event_id"] for row in partition_candidates})
     source_capture_groups = sorted(
         {
             str(row["source_capture_group"])
-            for row in training_candidates
+            for row in partition_candidates
             if row.get("source_capture_group") not in (None, "")
         }
     )
-    partitions = sorted({str(row["split"]) for row in training_candidates})
+    partitions = sorted(
+        {_audited_split(row.get("split"), partition_role) for row in manifest_rows}
+    )
     pilot_limitations = [
         str(item)
         for item in pilot_summary.get("limitations", [])
@@ -476,6 +613,8 @@ def audit_review_export(
         "schema_version": 1,
         "batch_id": batch_id,
         "audit_status": "passed",
+        "partition_mode_requested": partition_mode,
+        "partition_role": partition_role,
         "reviewer_id": reviewer_id,
         "reviewer_identity_status": "session_attributed_workspace_account",
         "reviewer_attribution": "workspace user who submitted the export in the current Codex conversation",
@@ -486,14 +625,33 @@ def audit_review_export(
         "reviewed_rows": len(review_rows),
         "unique_candidates": len(review_by_id),
         "human_gold_rows": len(human_gold),
-        "excluded_rows": len(exclusions),
+        "eligible_rows": len(partition_candidates),
+        "excluded_rows": len(partition_exclusions),
+        "training_eligible_rows": len(training_candidates),
+        "validation_eligible_rows": len(validation_candidates),
         "qwen_training_candidate_rows": len(training_candidates),
         "qwen_training_fragment_rows": len(qwen_training_fragment),
+        "qwen_validation_candidate_rows": len(validation_candidates),
+        "qwen_validation_fragment_rows": len(qwen_validation_fragment),
         "detector_training_candidate_rows": 0,
         "hard_negative_rows": len(hard_negatives),
+        "validation_negative_rows": sum(
+            row["human_label"] == "false" for row in validation_candidates
+        ),
         "human_labels": dict(sorted(Counter(row["human_label"] for row in human_gold).items())),
         "human_actions": dict(sorted(Counter(str(row["human_action"]) for row in review_rows).items())),
         "codex_suggestions": dict(sorted(Counter(str(row["codex_suggestion"]) for row in review_rows).items())),
+        "hidden_suggestion_rows": sum(
+            not row["suggestion_visible_during_review"] for row in comparisons
+        ),
+        "visible_suggestion_rows": sum(
+            row["suggestion_visible_during_review"] for row in comparisons
+        ),
+        "visibility": dict(
+            sorted(
+                Counter(str(row.get("visibility") or "unknown") for row in comparisons).items()
+            )
+        ),
         "comparison": dict(sorted(comparison_counts.items())),
         "workflow_comparison": {
             "codex_binary_suggestions": len(binary_comparisons),
@@ -521,10 +679,10 @@ def audit_review_export(
         "source_images": len({row["image_sha256"] for row in human_gold}),
         "source_groups": source_groups,
         "source_capture_groups": source_capture_groups,
-        "source_capture_group_available": bool(training_candidates)
+        "source_capture_group_available": bool(partition_candidates)
         and all(
             row.get("source_capture_group") not in (None, "")
-            for row in training_candidates
+            for row in partition_candidates
         ),
         "classes": dict(sorted(Counter(row["class_name"] for row in human_gold).items())),
         "first_saved_action_at": action_times[0].isoformat(),
@@ -537,13 +695,24 @@ def audit_review_export(
             if action_gaps
             else None
         ),
-        "training_partition": partitions[0] if len(partitions) == 1 else partitions,
+        "partition": partitions[0] if len(partitions) == 1 else partitions,
+        "training_partition": (
+            partitions[0] if len(partitions) == 1 else partitions
+        )
+        if partition_role == "train"
+        else None,
+        "validation_partition": (
+            partitions[0] if len(partitions) == 1 else partitions
+        )
+        if partition_role == "validation"
+        else None,
         "accuracy_evaluated": False,
         "limitations": limitations,
     }
     input_receipt = {
         "schema_version": 1,
         "batch_id": batch_id,
+        "partition_role": partition_role,
         "files": [
             {"role": "human_review_export", "path": str(review_export), "sha256": _sha256(review_export)},
             {"role": "pilot_manifest", "path": str(manifest_path), "sha256": _sha256(manifest_path)},
@@ -557,7 +726,7 @@ def audit_review_export(
                 "sha256": row["image_sha256"],
             }
             for row in {
-                row["sample_id"]: row for row in training_candidates
+                row["sample_id"]: row for row in partition_candidates
             }.values()
         ],
     }
@@ -568,7 +737,7 @@ def audit_review_export(
     media_dir.mkdir(exist_ok=True)
     source_image_dir.mkdir(exist_ok=True)
     copied_source_ids: set[str] = set()
-    for row in training_candidates:
+    for row in partition_candidates:
         candidate_id = str(row["candidate_id"])
         for view_name, source_field in (
             ("context", "context_image"),
@@ -595,12 +764,22 @@ def audit_review_export(
         raise AssertionError("copied review export hash differs from the submitted file")
     _write_jsonl(output_dir / "human_gold_annotations.jsonl", human_gold)
     _write_jsonl(output_dir / "training_candidates.jsonl", training_candidates)
+    _write_jsonl(output_dir / "validation_candidates.jsonl", validation_candidates)
     _write_jsonl(output_dir / "training_admission.jsonl", training_admission)
+    _write_jsonl(output_dir / "validation_admission.jsonl", validation_admission)
     _write_jsonl(output_dir / "hard_negative.jsonl", hard_negatives)
     _write_jsonl(
         output_dir / "qwen_training_fragment.jsonl", qwen_training_fragment
     )
-    _write_jsonl(output_dir / "excluded_from_training.jsonl", exclusions)
+    _write_jsonl(
+        output_dir / "qwen_validation_fragment.jsonl", qwen_validation_fragment
+    )
+    _write_jsonl(
+        output_dir / "excluded_from_training.jsonl", training_exclusions
+    )
+    _write_jsonl(
+        output_dir / "excluded_from_validation.jsonl", validation_exclusions
+    )
     _write_jsonl(output_dir / "codex_human_comparison.jsonl", comparisons)
     (output_dir / "input_receipt.json").write_text(
         json.dumps(input_receipt, ensure_ascii=False, indent=2) + "\n",
@@ -609,18 +788,32 @@ def audit_review_export(
     (output_dir / "summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    if partition_role == "train":
+        partition_lines = (
+            f"- Qwen 候选复核训练准入：{len(training_candidates)} 条\n"
+            f"- 自包含 Qwen 训练片段：{len(qwen_training_fragment)} 条\n"
+            "- Qwen 验证准入：0 条；本批冻结为训练候选。\n"
+            "- 整个来源任务组冻结为训练候选，不拆到验证集或盲测集。\n"
+        )
+    else:
+        partition_lines = (
+            "- Qwen 候选复核训练准入：0 条；本批不得进入训练。\n"
+            f"- Qwen 验证准入：{len(validation_candidates)} 条\n"
+            f"- 自包含 Qwen 验证片段：{len(qwen_validation_fragment)} 条\n"
+            "- 整个来源任务组冻结为验证候选，不拆到训练集或盲测集。\n"
+        )
     (output_dir / "README.md").write_text(
-        "# KTD Codex 试批人工确认审计\n\n"
+        "# KTD Codex 人工确认审计\n\n"
         f"- 批次：`{batch_id}`\n"
+        f"- 分区角色：`{partition_role}`\n"
         f"- 已审计人工二态标签：{len(human_gold)} 条\n"
-        f"- 排除：{len(exclusions)} 条\n"
+        f"- 排除：{len(partition_exclusions)} 条\n"
         f"- 人工标签：{summary['human_labels']}\n"
+        f"- 隐藏建议复核：{summary['hidden_suggestion_rows']} 条\n"
         f"- Codex/人工对比：{summary['comparison']}\n"
-        f"- Qwen 候选复核训练准入：{len(training_candidates)} 条\n"
-        f"- 自包含 Qwen 训练片段：{len(qwen_training_fragment)} 条\n"
-        "- 检测器训练准入：0 条；本次人工动作没有独立确认框质量与整图标注完整性。\n"
-        "- 整个来源任务组冻结为训练候选，不拆到验证集或盲测集。\n"
-        "- 本试批不是独立准确率基准。\n",
+        + partition_lines
+        + "- 检测器训练准入：0 条；本次人工动作没有独立确认框质量与整图标注完整性。\n"
+        "- 本批不是独立准确率基准。\n",
         encoding="utf-8",
     )
     return summary
@@ -634,6 +827,15 @@ def main() -> int:
     parser.add_argument("--reviewer-id", required=True)
     parser.add_argument("--expected-count", type=int)
     parser.add_argument(
+        "--partition",
+        choices=("auto", "train", "validation"),
+        default="auto",
+        help=(
+            "Audit output role. Auto infers validation from validation_candidate_* "
+            "manifest splits and otherwise preserves legacy train behavior."
+        ),
+    )
+    parser.add_argument(
         "--source-root",
         type=Path,
         help="Optional root used to verify canonical images and local detail.json lineage.",
@@ -646,6 +848,7 @@ def main() -> int:
         reviewer_id=args.reviewer_id,
         expected_count=args.expected_count,
         source_root=args.source_root,
+        partition_mode=args.partition,
     )
     print(json.dumps(summary, ensure_ascii=False))
     return 0
