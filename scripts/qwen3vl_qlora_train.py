@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import math
+import re
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -256,6 +257,65 @@ def _expected_epoch_checkpoints(epochs: float) -> int:
     return math.ceil(epochs)
 
 
+def _resolve_resume_checkpoint(
+    output_dir: Path, resume_from_checkpoint: Path | None
+) -> tuple[Path | None, dict[str, Any]]:
+    if resume_from_checkpoint is None:
+        return None, {
+            "enabled": False,
+            "checkpoint_path": None,
+            "starting_global_step": None,
+            "starting_epoch": None,
+        }
+    resolved_output = output_dir.expanduser().resolve()
+    checkpoint = resume_from_checkpoint.expanduser().resolve()
+    if checkpoint.parent != resolved_output or re.fullmatch(
+        r"checkpoint-(\d+)", checkpoint.name
+    ) is None:
+        raise ValueError(
+            "--resume-from-checkpoint must be an output-dir direct child named checkpoint-N"
+        )
+    if not checkpoint.is_dir():
+        raise FileNotFoundError(checkpoint)
+    trainer_state_path = checkpoint / "trainer_state.json"
+    if not trainer_state_path.is_file():
+        raise ValueError(
+            "resume checkpoint is missing trainer_state.json: "
+            + str(trainer_state_path)
+        )
+    try:
+        trainer_state = json.loads(trainer_state_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            "resume checkpoint trainer_state.json is invalid JSON"
+        ) from exc
+    if not isinstance(trainer_state, dict):
+        raise ValueError("resume checkpoint trainer_state.json must be an object")
+    global_step = trainer_state.get("global_step")
+    epoch = trainer_state.get("epoch")
+    if (
+        isinstance(global_step, bool)
+        or not isinstance(global_step, int)
+        or global_step < 0
+    ):
+        raise ValueError("resume checkpoint has an invalid global_step")
+    checkpoint_step = int(checkpoint.name.removeprefix("checkpoint-"))
+    if checkpoint_step != global_step:
+        raise ValueError(
+            "resume checkpoint directory step differs from trainer_state global_step"
+        )
+    if isinstance(epoch, bool) or not isinstance(epoch, (int, float)) or epoch < 0:
+        raise ValueError("resume checkpoint has an invalid epoch")
+    return checkpoint, {
+        "enabled": True,
+        "checkpoint_path": str(checkpoint),
+        "trainer_state_path": str(trainer_state_path),
+        "trainer_state_sha256": _file_sha256(trainer_state_path),
+        "starting_global_step": global_step,
+        "starting_epoch": epoch,
+    }
+
+
 def _load_dataset_contract(
     train_path: Path,
     val_path: Path,
@@ -335,6 +395,11 @@ def main() -> int:
     parser.add_argument("--train", type=Path, required=True)
     parser.add_argument("--val", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--resume-from-checkpoint",
+        type=Path,
+        help="Resume from an output-dir direct child named checkpoint-N.",
+    )
     parser.add_argument("--epochs", type=float, default=3.0)
     parser.add_argument("--max-length", type=int, default=2048)
     parser.add_argument("--min-pixels", type=int, default=28 * 28 * 64)
@@ -354,6 +419,9 @@ def main() -> int:
         help="Root containing the declared human annotation exports and source images.",
     )
     args = parser.parse_args()
+    resume_checkpoint, resume_manifest = _resolve_resume_checkpoint(
+        args.output_dir, args.resume_from_checkpoint
+    )
 
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA is required; formal training must execute on the GPU server")
@@ -447,7 +515,11 @@ def main() -> int:
             f"requires at least {args.min_free_gb:.1f} GiB. "
             "No process was stopped; release GPU resources or choose a suitable host."
         )
-    if args.output_dir.exists() and any(args.output_dir.iterdir()):
+    if (
+        resume_checkpoint is None
+        and args.output_dir.exists()
+        and any(args.output_dir.iterdir())
+    ):
         raise FileExistsError(
             f"output directory is not empty; refusing to overwrite: {args.output_dir}"
         )
@@ -561,7 +633,9 @@ def main() -> int:
             sampler_seed=args.seed,
         )
     trainer = trainer_class(**trainer_kwargs)
-    result = trainer.train()
+    result = trainer.train(
+        resume_from_checkpoint=str(resume_checkpoint) if resume_checkpoint else None
+    )
     eval_metrics = trainer.evaluate(eval_dataset=val_dataset)
     trainer.save_model(str(args.output_dir))
     processor.save_pretrained(str(args.output_dir))
@@ -597,6 +671,7 @@ def main() -> int:
             "maximum_epochs": 3,
             "purpose": "retain every epoch checkpoint for comparison and rollback",
         },
+        "resume": resume_manifest,
         "gpu": {
             "device_name": torch.cuda.get_device_name(0),
             "total_memory_gib": round(total_gb, 2),
@@ -678,6 +753,7 @@ def main() -> int:
                 "expected_checkpoint_count": expected_checkpoint_count,
                 "actual_checkpoint_count": len(checkpoints),
             },
+            "resume": resume_manifest,
             "train_loss": result.training_loss,
             "eval_loss": eval_metrics.get("eval_loss"),
         },
