@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 
 import pytest
+from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 
@@ -45,19 +46,22 @@ def _source_fixture(tmp_path: Path) -> tuple[Path, Path]:
             "source_task_id": task_id,
             "class_name": class_name,
             "human_label": label,
-            "bbox_px": [1, 2, 30, 40],
+            "bbox_px": [10, 12, 30, 40],
+            "annotated_image_size": [80, 64],
             "has_clean_source": has_clean,
             "clean_match_status": status,
             "clean_source_kind": "primary" if has_clean else None,
         }
-        for role in ("annotated_context", "annotated_roi", "clean_context", "clean_roi"):
-            path = source / f"{candidate_id}-{role}.jpg"
-            path.write_bytes(f"{candidate_id}:{role}".encode())
-            row[role] = path.name
-            row[role + "_sha256"] = _sha(path)
+        annotated_dir = source / "event_annotated_frames"
+        annotated_dir.mkdir(exist_ok=True)
+        annotated_frame = annotated_dir / f"{event_id}.jpg"
+        color_seed = sum(candidate_id.encode("utf-8")) % 200
+        Image.new("RGB", (80, 64), (50 + color_seed % 100, 20, 10)).save(annotated_frame)
         clean_frame = source / f"{candidate_id}-clean-frame.jpg"
-        clean_frame.write_bytes(f"{candidate_id}:clean-frame".encode())
+        Image.new("RGB", (100, 80), (10, 55 + color_seed % 120, 30)).save(clean_frame)
         row["clean_frame"] = clean_frame.name
+        row["clean_frame_size"] = [100, 80]
+        row["projected_clean_bbox_px"] = [12, 10, 44, 42]
         pairs.append(row)
         gold.append(
             {
@@ -97,6 +101,8 @@ def test_builds_self_contained_four_view_dataset_and_preserves_partition(tmp_pat
         "clean_context",
         "clean_roi",
     ]
+    assert contract["view_generation"] == "service_crop_v1_lossless_png"
+    assert contract["crop_spec"]["clean_roi"]["output_size"] == 512
     assert contract["strict_output"]["allowed_decisions"] == [
         "CONFIRMED",
         "REJECTED",
@@ -109,6 +115,7 @@ def test_builds_self_contained_four_view_dataset_and_preserves_partition(tmp_pat
     assert len(contract["prompt_template_sha256"]) == 64
     assert summary["partition_rows"] == {"train": 1, "validation": 1}
     assert summary["isolation"] == {
+        "annotated_frame_sha256_overlap": [],
         "clean_frame_sha256_overlap": [],
         "source_task_id_overlap": [],
         "event_id_overlap": [],
@@ -117,7 +124,12 @@ def test_builds_self_contained_four_view_dataset_and_preserves_partition(tmp_pat
     assert validation[0]["meta"]["partition"] == "validation"
     assert train[0]["meta"]["view_schema"] == VIEW_SCHEMA
     assert len(train[0]["image"]) == 4
+    assert all(path.endswith(".png") for path in train[0]["image"])
     assert all((output / path).is_file() for path in train[0]["image"])
+    assert [Image.open(output / path).size for path in train[0]["image"]] == [
+        (768, 768), (512, 512), (768, 768), (512, 512)
+    ]
+    assert (output / train[0]["meta"]["annotated_frame"]).is_file()
     assert sum(row["eligible"] for row in lineage) == 2
     assert next(row for row in lineage if row["candidate_id"] == "excluded")["exclusion_reason"]
 
@@ -139,6 +151,7 @@ def test_four_view_provenance_hashes_and_split_isolation_are_enforced(tmp_path: 
     assert train_summary["view_schemas"] == [VIEW_SCHEMA]
     assert train_summary["unique_image_sha256"] == 1
     assert len(train_summary["view_sha256s"]) == 4
+    assert len(train_summary["annotated_frame_sha256s"]) == 1
     assert len(train_summary["clean_frame_sha256s"]) == 1
 
     (output / train_rows[0]["image"][2]).write_bytes(b"tampered")

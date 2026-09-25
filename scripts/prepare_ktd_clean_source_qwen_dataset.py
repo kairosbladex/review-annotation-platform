@@ -9,7 +9,11 @@ import json
 import shutil
 from collections import Counter
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, Iterable, Sequence
+
+import cv2
+import numpy as np
+from PIL import Image
 
 
 VIEW_SCHEMA = "annotated_locator_plus_clean_original_v1"
@@ -23,6 +27,16 @@ ELIGIBLE_MATCH_STATUSES = {"strong", "usable"}
 PARTITION_OUTPUTS = {"train": "train.jsonl", "validation": "validation.jsonl"}
 PROCESSOR_MIN_PIXELS = 28 * 28 * 64
 PROCESSOR_MAX_PIXELS = 28 * 28 * 256
+NORMALIZED_BBOX_MARGIN = 0.05
+CROP_SPEC = {
+    "annotated_context": {"factor": 12.0, "min_side": 320, "output_size": 768},
+    "annotated_roi": {"factor": 4.0, "min_side": 96, "output_size": 512},
+    "clean_context": {"factor": 12.0, "min_side": 320, "output_size": 768},
+    "clean_roi": {"factor": 4.0, "min_side": 96, "output_size": 512},
+    "padding": "cv2.BORDER_REFLECT_101",
+    "downscale": "cv2.INTER_AREA",
+    "upscale": "cv2.INTER_LANCZOS4",
+}
 PROMPT_TEMPLATE = (
     "<image>\n图1：带初审定位信息的上下文图。\n"
     "<image>\n图2：带初审定位信息的候选区域图。\n"
@@ -87,53 +101,159 @@ def _validate_gold(pair: dict[str, Any], gold: dict[str, Any]) -> None:
         raise ValueError(f"candidate {candidate_id} has unsupported partition {pair.get('partition')!r}")
 
 
-def _copy_verified_view(
-    *,
-    source_root: Path,
-    output_dir: Path,
-    candidate_id: str,
-    role: str,
-    declared_path: Any,
-    declared_sha256: Any,
-) -> tuple[str, str]:
-    if not isinstance(declared_path, str) or not declared_path:
-        raise ValueError(f"candidate {candidate_id} is missing {role}")
-    source = (source_root / declared_path).resolve()
-    if not source.is_file():
-        raise ValueError(f"candidate {candidate_id} {role} file is unavailable: {source}")
-    actual_sha256 = _sha256(source)
-    if actual_sha256 != str(declared_sha256 or "").lower():
-        raise ValueError(f"candidate {candidate_id} {role} SHA-256 mismatch")
-    suffix = source.suffix.lower() or ".jpg"
-    destination = output_dir / "media" / role / f"{candidate_id}{suffix}"
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(source, destination)
-    if _sha256(destination) != actual_sha256:
-        raise RuntimeError(f"copied {role} SHA-256 mismatch for candidate {candidate_id}")
-    return str(destination.relative_to(output_dir)), actual_sha256
+def _validated_size(value: Any, *, candidate_id: str, field: str) -> tuple[int, int]:
+    if (
+        not isinstance(value, (list, tuple))
+        or len(value) != 2
+        or isinstance(value[0], bool)
+        or isinstance(value[1], bool)
+    ):
+        raise ValueError(f"candidate {candidate_id} has invalid {field}")
+    try:
+        width, height = int(value[0]), int(value[1])
+    except (TypeError, ValueError) as exc:
+        raise ValueError(f"candidate {candidate_id} has invalid {field}") from exc
+    if width <= 0 or height <= 0:
+        raise ValueError(f"candidate {candidate_id} has invalid {field}")
+    return width, height
 
 
-def _copy_clean_frame(
+def _normalized_bbox(
+    value: Any,
     *,
-    source_root: Path,
-    output_dir: Path,
+    image_size: tuple[int, int],
     candidate_id: str,
-    declared_path: Any,
+    field: str,
+) -> tuple[float, float, float, float]:
+    if isinstance(value, (str, bytes)) or not isinstance(value, Sequence) or len(value) != 4:
+        raise ValueError(f"candidate {candidate_id} has invalid {field}")
+    try:
+        x1, y1, x2, y2 = (float(part) for part in value)
+    except (TypeError, ValueError) as exc:
+        raise ValueError(f"candidate {candidate_id} has invalid {field}") from exc
+    if not all(np.isfinite(part) for part in (x1, y1, x2, y2)):
+        raise ValueError(f"candidate {candidate_id} has invalid {field}")
+    width, height = image_size
+    normalized = (x1 / width, y1 / height, x2 / width, y2 / height)
+    nx1, ny1, nx2, ny2 = normalized
+    if not (nx1 < nx2 and ny1 < ny2):
+        raise ValueError(f"candidate {candidate_id} has invalid {field}")
+    if not (
+        -NORMALIZED_BBOX_MARGIN <= nx1
+        and -NORMALIZED_BBOX_MARGIN <= ny1
+        and nx2 <= 1.0 + NORMALIZED_BBOX_MARGIN
+        and ny2 <= 1.0 + NORMALIZED_BBOX_MARGIN
+        and nx2 > 0.0
+        and ny2 > 0.0
+        and nx1 < 1.0
+        and ny1 < 1.0
+    ):
+        raise ValueError(f"candidate {candidate_id} has invalid {field}")
+    return normalized
+
+
+def _crop_square(
+    image: Image.Image,
+    bbox: tuple[float, float, float, float],
+    *,
+    factor: float,
+    min_side: int,
+    output_size: int,
+) -> Image.Image:
+    array = np.asarray(image.convert("RGB"))
+    width, height = image.size
+    x1, y1, x2, y2 = (
+        bbox[0] * width,
+        bbox[1] * height,
+        bbox[2] * width,
+        bbox[3] * height,
+    )
+    box_w = max(1.0, x2 - x1)
+    box_h = max(1.0, y2 - y1)
+    center_x = (x1 + x2) / 2.0
+    center_y = (y1 + y2) / 2.0
+    side = max(float(min_side), max(box_w, box_h) * factor)
+    side_int = max(8, int(round(side)))
+    left = int(round(center_x - side_int / 2.0))
+    top = int(round(center_y - side_int / 2.0))
+    right = left + side_int
+    bottom = top + side_int
+    pad_top = max(0, -top)
+    pad_left = max(0, -left)
+    pad_bottom = max(0, bottom - array.shape[0])
+    pad_right = max(0, right - array.shape[1])
+    crop = array[
+        max(0, top):min(array.shape[0], bottom),
+        max(0, left):min(array.shape[1], right),
+    ]
+    if crop.size == 0:
+        raise ValueError("generated view crop is empty")
+    if any((pad_top, pad_left, pad_bottom, pad_right)):
+        crop = cv2.copyMakeBorder(
+            crop,
+            pad_top,
+            pad_bottom,
+            pad_left,
+            pad_right,
+            cv2.BORDER_REFLECT_101,
+        )
+    interpolation = cv2.INTER_LANCZOS4 if max(crop.shape[:2]) < output_size else cv2.INTER_AREA
+    resized = cv2.resize(crop, (output_size, output_size), interpolation=interpolation)
+    return Image.fromarray(resized)
+
+
+def _copy_source_frame(
+    *,
+    source: Path,
+    output_dir: Path,
+    kind: str,
+    expected_size: tuple[int, int],
+    candidate_id: str,
 ) -> tuple[str, str]:
-    if not isinstance(declared_path, str) or not declared_path:
-        raise ValueError(f"candidate {candidate_id} is missing clean_frame")
-    source = (source_root / declared_path).resolve()
+    source = source.resolve()
     if not source.is_file():
-        raise ValueError(f"candidate {candidate_id} clean frame is unavailable: {source}")
+        raise ValueError(f"candidate {candidate_id} {kind} frame is unavailable: {source}")
+    with Image.open(source) as image:
+        if image.size != expected_size:
+            raise ValueError(f"candidate {candidate_id} {kind} frame size mismatch")
+        image.verify()
     digest = _sha256(source)
     suffix = source.suffix.lower() or ".jpg"
-    destination = output_dir / "clean_frames" / f"{digest}{suffix}"
+    destination = output_dir / "source_frames" / kind / f"{digest}{suffix}"
     destination.parent.mkdir(parents=True, exist_ok=True)
     if not destination.exists():
         shutil.copy2(source, destination)
     if _sha256(destination) != digest:
-        raise RuntimeError(f"copied clean-frame SHA-256 mismatch for candidate {candidate_id}")
+        raise RuntimeError(f"copied {kind}-frame SHA-256 mismatch for candidate {candidate_id}")
     return str(destination.relative_to(output_dir)), digest
+
+
+def _save_generated_views(
+    *,
+    annotated_source: Path,
+    clean_source: Path,
+    annotated_bbox: tuple[float, float, float, float],
+    clean_bbox: tuple[float, float, float, float],
+    output_dir: Path,
+    candidate_id: str,
+) -> tuple[list[str], dict[str, str]]:
+    with Image.open(annotated_source) as annotated_image, Image.open(clean_source) as clean_image:
+        views = (
+            _crop_square(annotated_image, annotated_bbox, factor=12.0, min_side=320, output_size=768),
+            _crop_square(annotated_image, annotated_bbox, factor=4.0, min_side=96, output_size=512),
+            _crop_square(clean_image, clean_bbox, factor=12.0, min_side=320, output_size=768),
+            _crop_square(clean_image, clean_bbox, factor=4.0, min_side=96, output_size=512),
+        )
+    image_paths: list[str] = []
+    view_shas: dict[str, str] = {}
+    for role, view in zip(VIEW_ROLES, views):
+        destination = output_dir / "media" / role / f"{candidate_id}.png"
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        view.save(destination, format="PNG")
+        relative = str(destination.relative_to(output_dir))
+        image_paths.append(relative)
+        view_shas[role] = _sha256(destination)
+    return image_paths, view_shas
 
 
 def _training_prompt(class_name: str) -> str:
@@ -216,24 +336,50 @@ def build_dataset(
         if not pair.get("source_task_id") or not pair.get("event_id"):
             raise ValueError(f"candidate {candidate_id} lacks task/event lineage")
 
-        image_paths: list[str] = []
-        view_shas: dict[str, str] = {}
-        for role in VIEW_ROLES:
-            relative_path, digest = _copy_verified_view(
-                source_root=source_root,
-                output_dir=output_dir,
-                candidate_id=candidate_id,
-                role=role,
-                declared_path=pair.get(role),
-                declared_sha256=pair.get(role + "_sha256"),
-            )
-            image_paths.append(relative_path)
-            view_shas[role] = digest
-        clean_frame_path, clean_frame_sha256 = _copy_clean_frame(
-            source_root=source_root,
+        annotated_size = _validated_size(
+            pair.get("annotated_image_size"), candidate_id=candidate_id, field="annotated_image_size"
+        )
+        clean_size = _validated_size(
+            pair.get("clean_frame_size"), candidate_id=candidate_id, field="clean_frame_size"
+        )
+        annotated_source = source_root / "event_annotated_frames" / f"{pair['event_id']}.jpg"
+        clean_source_value = pair.get("clean_frame")
+        if not isinstance(clean_source_value, str) or not clean_source_value:
+            raise ValueError(f"candidate {candidate_id} is missing clean_frame")
+        clean_source = source_root / clean_source_value
+        annotated_frame_path, annotated_frame_sha256 = _copy_source_frame(
+            source=annotated_source,
+            output_dir=output_dir,
+            kind="annotated",
+            expected_size=annotated_size,
+            candidate_id=candidate_id,
+        )
+        clean_frame_path, clean_frame_sha256 = _copy_source_frame(
+            source=clean_source,
+            output_dir=output_dir,
+            kind="clean",
+            expected_size=clean_size,
+            candidate_id=candidate_id,
+        )
+        normalized_review_bbox = _normalized_bbox(
+            pair.get("bbox_px"),
+            image_size=annotated_size,
+            candidate_id=candidate_id,
+            field="bbox_px",
+        )
+        normalized_clean_bbox = _normalized_bbox(
+            pair.get("projected_clean_bbox_px"),
+            image_size=clean_size,
+            candidate_id=candidate_id,
+            field="projected_clean_bbox_px",
+        )
+        image_paths, view_shas = _save_generated_views(
+            annotated_source=annotated_source,
+            clean_source=clean_source,
+            annotated_bbox=normalized_review_bbox,
+            clean_bbox=normalized_clean_bbox,
             output_dir=output_dir,
             candidate_id=candidate_id,
-            declared_path=pair.get("clean_frame"),
         )
         decision = "CONFIRMED" if gold_row["human_label"] == "true" else "REJECTED"
         prompt = _training_prompt(str(pair["class_name"]))
@@ -265,8 +411,15 @@ def build_dataset(
                 "source_event_id": pair["event_id"],
                 "source_task_id": pair["source_task_id"],
                 "image_sha256": view_shas["annotated_context"],
-                "image_object_key": str(pair.get("annotated_context") or ""),
+                "image_object_key": str(Path("event_annotated_frames") / f"{pair['event_id']}.jpg"),
                 "source_image": image_paths[0],
+                "view_generation": "service_crop_v1_lossless_png",
+                "annotated_frame": annotated_frame_path,
+                "annotated_frame_sha256": annotated_frame_sha256,
+                "annotated_image_size": list(annotated_size),
+                "clean_frame_size": list(clean_size),
+                "normalized_review_bbox": list(normalized_review_bbox),
+                "normalized_clean_bbox": list(normalized_clean_bbox),
                 "candidate_pairs_file": "provenance/candidate_pairs.jsonl",
                 "candidate_pairs_sha256": input_shas["candidate_pairs"],
                 "gold_file": "provenance/gold_labels.jsonl",
@@ -283,8 +436,11 @@ def build_dataset(
         lineage.update(
             view_schema=VIEW_SCHEMA,
             views=[{"role": role, "path": path, "sha256": view_shas[role]} for role, path in zip(VIEW_ROLES, image_paths)],
+            annotated_frame=annotated_frame_path,
+            annotated_frame_sha256=annotated_frame_sha256,
             clean_frame=clean_frame_path,
             clean_frame_sha256=clean_frame_sha256,
+            view_generation="service_crop_v1_lossless_png",
         )
         lineage_rows.append(lineage)
         class_counts[str(pair["class_name"])] += 1
@@ -312,6 +468,10 @@ def build_dataset(
     train = output_rows["train"]
     validation = output_rows["validation"]
     isolation = {
+        "annotated_frame_sha256_overlap": sorted(
+            {row["meta"]["annotated_frame_sha256"] for row in train}
+            & {row["meta"]["annotated_frame_sha256"] for row in validation}
+        ),
         "clean_frame_sha256_overlap": sorted(
             {row["meta"]["clean_frame_sha256"] for row in train}
             & {row["meta"]["clean_frame_sha256"] for row in validation}
@@ -335,6 +495,9 @@ def build_dataset(
             "view_schema": VIEW_SCHEMA,
             "view_roles": list(VIEW_ROLES),
             "prompt_template": PROMPT_TEMPLATE,
+            "crop_spec": CROP_SPEC,
+            "view_generation": "service_crop_v1_lossless_png",
+            "normalized_bbox_margin": NORMALIZED_BBOX_MARGIN,
             "prompt_template_sha256": hashlib.sha256(PROMPT_TEMPLATE.encode("utf-8")).hexdigest(),
             "strict_output": {
                 "json_object_keys": ["decision"],
@@ -369,6 +532,7 @@ def build_dataset(
         "label_counts": dict(sorted(label_counts.items())),
         "clean_match_status_counts": dict(sorted(match_counts.items())),
         "clean_source_kind_counts": dict(sorted(source_kind_counts.items())),
+        "unique_annotated_frames": len({row["meta"]["annotated_frame_sha256"] for row in train + validation}),
         "unique_clean_frames": len({row["meta"]["clean_frame_sha256"] for row in train + validation}),
         "unique_source_tasks": len({row["meta"]["source_task_id"] for row in train + validation}),
         "unique_events": len({row["meta"]["event_id"] for row in train + validation}),

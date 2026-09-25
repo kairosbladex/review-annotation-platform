@@ -176,6 +176,7 @@ def validate_human_gold_dataset(
     ] = defaultdict(list)
     image_shas: set[str] = set()
     view_shas: set[str] = set()
+    annotated_frame_shas: set[str] = set()
     clean_frame_shas: set[str] = set()
     source_group_ids: set[str] = set()
     source_task_ids: set[str] = set()
@@ -205,8 +206,15 @@ def validate_human_gold_dataset(
                 "candidate_pairs_sha256",
                 "gold_file",
                 "gold_sha256",
+                "view_generation",
+                "annotated_frame",
+                "annotated_frame_sha256",
+                "annotated_image_size",
+                "normalized_review_bbox",
                 "clean_frame",
                 "clean_frame_sha256",
+                "clean_frame_size",
+                "normalized_clean_bbox",
                 "prompt_template_sha256",
                 "prompt_sha256",
                 "source_task_id",
@@ -323,11 +331,6 @@ def validate_human_gold_dataset(
                     raise ValueError(
                         f"row {row_number} {role} training-view SHA-256 mismatch"
                     )
-                source_declared = str(pair.get(role + "_sha256") or "").lower()
-                if declared != source_declared:
-                    raise ValueError(
-                        f"row {row_number} {role} SHA-256 differs from candidate pairs"
-                    )
                 actual_view_shas[role] = actual
             if str(meta["source_image"]) != str(image_paths[0]):
                 raise ValueError("source_image must be the annotated context view")
@@ -359,6 +362,27 @@ def validate_human_gold_dataset(
                     contract.get("view_roles") or []
                 ) != list(_CLEAN_SOURCE_VIEW_ROLES):
                     raise ValueError("view contract differs from clean-source schema")
+                if contract.get("view_generation") != "service_crop_v1_lossless_png":
+                    raise ValueError("view-generation contract differs from clean-source schema")
+                if meta.get("view_generation") != contract.get("view_generation"):
+                    raise ValueError("row view generation differs from dataset contract")
+                if not isinstance(contract.get("crop_spec"), Mapping):
+                    raise ValueError("dataset contract lacks crop_spec")
+
+            annotated_frame = _resolve_file(
+                meta["annotated_frame"],
+                roots=(dataset_dir,),
+                dataset_dir=dataset_dir,
+                purpose="annotated frame",
+            )
+            if annotated_frame not in image_hash_cache:
+                image_hash_cache[annotated_frame] = _file_sha256(annotated_frame)
+            annotated_frame_digest = str(meta["annotated_frame_sha256"]).lower()
+            if (
+                not _valid_sha256(annotated_frame_digest)
+                or image_hash_cache[annotated_frame] != annotated_frame_digest
+            ):
+                raise ValueError(f"row {row_number} annotated-frame SHA-256 mismatch")
 
             clean_frame = _resolve_file(
                 meta["clean_frame"],
@@ -385,6 +409,7 @@ def validate_human_gold_dataset(
             )
             image_shas.add(digest)
             view_shas.update(actual_view_shas.values())
+            annotated_frame_shas.add(annotated_frame_digest)
             clean_frame_shas.add(clean_frame_digest)
             source_group_ids.add(str(meta["event_id"]))
             source_event_ids.add(str(meta["event_id"]))
@@ -543,6 +568,7 @@ def validate_human_gold_dataset(
         "view_schemas": sorted(view_schemas),
         "image_sha256s": image_shas,
         "view_sha256s": view_shas,
+        "annotated_frame_sha256s": annotated_frame_shas,
         "clean_frame_sha256s": clean_frame_shas,
         "source_group_ids": source_group_ids,
         "source_event_ids": source_event_ids,
@@ -560,6 +586,7 @@ def validate_disjoint_image_splits(
     checks = (
         ("image_sha256s", "source image SHA-256 group"),
         ("view_sha256s", "training-view SHA-256"),
+        ("annotated_frame_sha256s", "annotated-frame SHA-256"),
         ("clean_frame_sha256s", "clean-frame SHA-256"),
         ("source_task_ids", "source task"),
         ("source_event_ids", "source event"),
@@ -594,6 +621,7 @@ def validate_disjoint_image_splits(
         val_summary.get("view_schemas", ())
     ):
         for field, label in (
+            ("annotated_frame_sha256s", "annotated-frame SHA-256"),
             ("clean_frame_sha256s", "clean-frame SHA-256"),
             ("source_task_ids", "source task"),
             ("source_event_ids", "source event"),

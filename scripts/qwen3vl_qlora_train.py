@@ -156,6 +156,7 @@ def _json_provenance_summary(summary: dict) -> dict:
     set_fields = {
         "image_sha256s",
         "view_sha256s",
+        "annotated_frame_sha256s",
         "clean_frame_sha256s",
         "source_group_ids",
         "source_event_ids",
@@ -165,6 +166,7 @@ def _json_provenance_summary(summary: dict) -> dict:
     result.update(
         unique_source_images=len(summary.get("image_sha256s", ())),
         unique_training_views=len(summary.get("view_sha256s", ())),
+        unique_annotated_frames=len(summary.get("annotated_frame_sha256s", ())),
         unique_clean_frames=len(summary.get("clean_frame_sha256s", ())),
         unique_source_event_task_groups=len(summary.get("source_group_ids", ())),
         unique_source_events=len(summary.get("source_event_ids", ())),
