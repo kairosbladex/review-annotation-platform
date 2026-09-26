@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-09-26T20:17:06.075923+08:00",
+  "readOnly": true,
+  "containers": [
+    {
+      "name": "/yoloe_service_test",
+      "image": "yoloe_service_test:clean-source-qwen-20260926-v8",
+      "imageId": "sha256:0837b17d0f1835122543a2d0304aa9fd59d45f5219e0990fb4dd3fa848ffaf49",
+      "state": "running",
+      "health": "healthy",
+      "startedAt": "2026-09-26T06:03:53.073543935Z"
+    },
+    {
+      "name": "/yoloe_service",
+      "image": "yoloe_service:vehicle-context-20260908-v1",
+      "imageId": "sha256:83c93ecf8da7e6159550a903e98be3d64b297c7ec30702dd465a5ad59e577d5b",
+      "state": "running",
+      "health": "healthy",
+      "startedAt": "2026-09-16T07:11:21.411458229Z"
+    }
+  ]
+}
