@@ -1,0 +1,4919 @@
+{
+  "title": "原图辅助视觉复检：真假目标核验报告",
+  "reportDate": "2026-09-27",
+  "scope": "真实测试环境已检出候选；含原图辅助改动的批量观察及最新回调接入发布复测。",
+  "accuracyMeasured": false,
+  "usesHistoricalHumanGold": false,
+  "humanConfirmedCountInThisReport": 0,
+  "visualAssessmentType": "Codex image review; not independent human truth",
+  "currentReadback": {
+    "capturedAt": "2026-09-27T10:38:31+08:00",
+    "readOnly": true,
+    "events": [
+      {
+        "eventId": "03b2af909d474a96aaafddf39766d12e",
+        "eventNo": "Event-20260910084422-2",
+        "status": "2",
+        "recheckTime": "2026-09-26 13:03:58",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "bb9be8f6ebf264a43150de853101b19c74560f1720affe8d6a7c2e72c56ecefa",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "04933aa6944e4294a47e76b4aa49180e",
+        "eventNo": "Event-20260910084419",
+        "status": "2",
+        "recheckTime": "2026-09-26 13:10:12",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "7ea360d8a1e6a3cb8d9f2e8efdfef473f166e61caff8230a8fc2e3c848d78f4d",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "uncertain"
+          },
+          {
+            "index": 4,
+            "decision": "uncertain"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          },
+          {
+            "index": 6,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "056e69a5e2ba4f07be90392cf5afd4dd",
+        "eventNo": "Event-20260915172554-5",
+        "status": "2",
+        "recheckTime": "2026-09-26 11:31:40",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "b5a1a91209ff5d4a324e09c719c015c66bd9d0e051d6bd09fa92a7972bf3ee33",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "076067aca9fd4c13af9e471f6a38c096",
+        "eventNo": "Event-20260723105701-4",
+        "status": "2",
+        "recheckTime": "2026-09-26 13:10:19",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "afd8dd03881e2132fb943ea5ff989ec3394c53f7bb3a928a725074c6e56ab759",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          },
+          {
+            "index": 2,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+        "eventNo": "Event-20260910084420",
+        "status": "2",
+        "recheckTime": "2026-09-26 13:23:03",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "351b57a67bed48fc9d8a68ed7a775b445b9dc70c75035c8561c161532f02dd07",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "uncertain"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          },
+          {
+            "index": 6,
+            "decision": "confirmed"
+          },
+          {
+            "index": 7,
+            "decision": "confirmed"
+          },
+          {
+            "index": 8,
+            "decision": "confirmed"
+          },
+          {
+            "index": 9,
+            "decision": "confirmed"
+          },
+          {
+            "index": 10,
+            "decision": "confirmed"
+          },
+          {
+            "index": 11,
+            "decision": "confirmed"
+          },
+          {
+            "index": 12,
+            "decision": "confirmed"
+          },
+          {
+            "index": 13,
+            "decision": "confirmed"
+          },
+          {
+            "index": 14,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "1093c997a8ca434fafa4c256b02277f0",
+        "eventNo": "Event-20260723105651-5",
+        "status": "2",
+        "recheckTime": "2026-09-27 10:25:09",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "cf5980950ac35dea8ff3ca5582ef3c040e92bcd3a0070a1947a5fdd286333c68",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "rejected"
+          },
+          {
+            "index": 2,
+            "decision": "rejected"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "1679d30c1c204528886cf81618dd132a",
+        "eventNo": "Event-20260918104011",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:34:46",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "a890d7753917d8e20804939fca658d95b7935b7b5535cc44b8061ed7dbf132cf",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "1886bb7db7ad48869cfb3e4d98679bee",
+        "eventNo": "Event-20260910105112-1",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:06:09",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "19c12c9eae3aaa7534a146b7f65ebce2bbe391c67bb0c267e324a3ed25208c7a",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "2180878f378f4b59b97583f7f0a2dfbc",
+        "eventNo": "Event-20260910105113-1",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:51:49",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "45b571b77e86f127c62432bfd18ba706c436e0ce43e03baeb81027be4372d40c",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          },
+          {
+            "index": 2,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "21efd374c2774895ad80fe6fa1a394fe",
+        "eventNo": "Event-20260910105112-3",
+        "status": "2",
+        "recheckTime": "2026-09-26 11:38:03",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "a85fb10e6e1cfb77cf8c095df77f1531e4e972be29822b9fbc1fb5fc32f40782",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+        "eventNo": "Event-20260910105113-2",
+        "status": "2",
+        "recheckTime": "2026-09-26 11:49:20",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "066b326b180031940e4b9992a297ce6e77eea06e2545c1f170971675dc633c53",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          },
+          {
+            "index": 6,
+            "decision": "confirmed"
+          },
+          {
+            "index": 7,
+            "decision": "confirmed"
+          },
+          {
+            "index": 8,
+            "decision": "confirmed"
+          },
+          {
+            "index": 9,
+            "decision": "confirmed"
+          },
+          {
+            "index": 10,
+            "decision": "confirmed"
+          },
+          {
+            "index": 11,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "2cec4713bf8d4f86b77577bb7a186790",
+        "eventNo": "Event-20260910084422-1",
+        "status": "2",
+        "recheckTime": "2026-09-26 13:24:37",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "a043d6ecb61fc52e4d2ce2768a6aed4e4ae9e13bac0240206b3c8b799458fbbf",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "2dc4fae0e6f94ee4ab7de7fadf35ecf6",
+        "eventNo": "Event-20260915160625",
+        "status": "2",
+        "recheckTime": "2026-09-26 11:33:14",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "ca30a7cf6c00dde95a6de8a3dbaee269c2230043d255a6810dfadde00ce78fbe",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "359badf3d76c42da9e71469f87c5a19c",
+        "eventNo": "Event-20260915144735",
+        "status": "2",
+        "recheckTime": "2026-09-26 11:34:01",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "2a767a7521cd98fd264e0b95586afecbdc7925e4263f580fb10c1b83b6520261",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "35d69abd520849d6abafeea580c376a7",
+        "eventNo": "Event-20260918104012-1",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:21:18",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "58576236e3cb551b008feebad415cff846a18f40d3338d9dd919dad28c811081",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          },
+          {
+            "index": 6,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "3ce94d76e4bf481bb27152ab7112d311",
+        "eventNo": "Event-20260910084422-3",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:58:50",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "748f96d0ca10badd419abadd1a449e8480746188658dfc3c82b793f4eff776eb",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "rejected"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "4906bd009c9b4cef8a2df345dc3a8fe7",
+        "eventNo": "Event-20260914161314",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:49:08",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "bfec6bde6cd58210baed685cb418b11aa831b790a88b130b9d91b200976d1be7",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "593ef732be51427090e5bb4396a63d7c",
+        "eventNo": "Event-20260915160627-5",
+        "status": "2",
+        "recheckTime": "2026-09-26 11:32:27",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "a393326bc8363451725292dcbeb3cad27a02c50636e69986ea0ba1abc256a8bf",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+        "eventNo": "Event-20260910084422-6",
+        "status": "2",
+        "recheckTime": "2026-09-26 13:37:37",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "7a53be92584a70c21a56b007c4513771d5943c369cebf1977884d4e9d5316033",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          },
+          {
+            "index": 6,
+            "decision": "confirmed"
+          },
+          {
+            "index": 7,
+            "decision": "confirmed"
+          },
+          {
+            "index": 8,
+            "decision": "confirmed"
+          },
+          {
+            "index": 9,
+            "decision": "confirmed"
+          },
+          {
+            "index": 10,
+            "decision": "confirmed"
+          },
+          {
+            "index": 11,
+            "decision": "confirmed"
+          },
+          {
+            "index": 12,
+            "decision": "confirmed"
+          },
+          {
+            "index": 13,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "5d8d7ca962814912a7365cfa344ab9d4",
+        "eventNo": "Event-20260918104011-1",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:29:22",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "cbaa920cce564277a9f34174932b2905bd92f13e68b55df954fa73522b7dce71",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          },
+          {
+            "index": 6,
+            "decision": "confirmed"
+          },
+          {
+            "index": 7,
+            "decision": "confirmed"
+          },
+          {
+            "index": 8,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "61b6a8b48d6846b1aca70f777558012d",
+        "eventNo": "Event-20260910105113",
+        "status": "2",
+        "recheckTime": "2026-09-26 11:55:31",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "7da2840892474d1a627bcca170ee38c63a784e03fe94248dfcae852fe7d6073a",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          },
+          {
+            "index": 6,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+        "eventNo": "Event-20260910084419-1",
+        "status": "2",
+        "recheckTime": "2026-09-26 14:15:32",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "9dda82e34d4499a8d4999fe426aa75c05c51f237b9ff8de28a8c85047717e415",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          },
+          {
+            "index": 2,
+            "decision": "uncertain"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "uncertain"
+          },
+          {
+            "index": 6,
+            "decision": "confirmed"
+          },
+          {
+            "index": 7,
+            "decision": "uncertain"
+          },
+          {
+            "index": 8,
+            "decision": "uncertain"
+          },
+          {
+            "index": 9,
+            "decision": "confirmed"
+          },
+          {
+            "index": 10,
+            "decision": "uncertain"
+          },
+          {
+            "index": 11,
+            "decision": "confirmed"
+          },
+          {
+            "index": 12,
+            "decision": "uncertain"
+          },
+          {
+            "index": 13,
+            "decision": "uncertain"
+          },
+          {
+            "index": 14,
+            "decision": "uncertain"
+          },
+          {
+            "index": 15,
+            "decision": "uncertain"
+          },
+          {
+            "index": 16,
+            "decision": "uncertain"
+          },
+          {
+            "index": 17,
+            "decision": "uncertain"
+          },
+          {
+            "index": 18,
+            "decision": "confirmed"
+          },
+          {
+            "index": 19,
+            "decision": "uncertain"
+          },
+          {
+            "index": 20,
+            "decision": "confirmed"
+          },
+          {
+            "index": 21,
+            "decision": "uncertain"
+          },
+          {
+            "index": 22,
+            "decision": "uncertain"
+          },
+          {
+            "index": 23,
+            "decision": "confirmed"
+          },
+          {
+            "index": 24,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "793fb6c7c071476bbfdf367eb5b80c2a",
+        "eventNo": "Event-20260915172554-6",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:47:30",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "630b220eb8715e2b426419081f36ac4bb85bdaeff7c0b2a5316ff28cf7e6db96",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "79718c3d282047f7916f4d5500dc363c",
+        "eventNo": "Event-20260915174219",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:45:10",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "8d25c12759a38e9ff6053defd8212d4ff8419b6588fac2264acde7dd7e1c429c",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "7e0072d4de4248528f0f875b3fa396c4",
+        "eventNo": "Event-20260914160417",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:49:59",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "582169dc0af836a3c37a8c812a6cc00597bae638dc0426a103c5ad1c60d73b14",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "856fe21c1e874d7fa25a0fad2d977156",
+        "eventNo": "Event-20260915174219-1",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:45:57",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "97e4635e50edbf82c4a3a7e221e718c5a966d3e911e3dd902a52bdcfdb85e3a6",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "9445753540594af59061e297b0dbf615",
+        "eventNo": "Event-20260915144526",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:48:18",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "bfb30f6dfacf82650c8be9dd249cd4edb2f40c29a99e689b3175d5b89d13134d",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "9a08f456f365438da66be0f9806176f4",
+        "eventNo": "Event-20260910084422-5",
+        "status": "2",
+        "recheckTime": "2026-09-26 13:50:59",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "a160fb28ddc1bb5111116bccb45cf53b2012c65e514b49c0643e7d205c953f0a",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          },
+          {
+            "index": 2,
+            "decision": "uncertain"
+          },
+          {
+            "index": 3,
+            "decision": "uncertain"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "9f06a36f6aaa46d4ac0ac06391384a26",
+        "eventNo": "Event-20260910105112-2",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:00:48",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "fb3660ac02dd571675a4c9c95e330d0b3ac6eb6be283575d19737d4269452118",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+        "eventNo": "Event-20260910084422-4",
+        "status": "2",
+        "recheckTime": "2026-09-26 14:01:46",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "a1067c6d998c523088c52b233cf8ddc0d03e504513bf87e9cf6a418d10d39d58",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "uncertain"
+          },
+          {
+            "index": 5,
+            "decision": "uncertain"
+          },
+          {
+            "index": 6,
+            "decision": "uncertain"
+          },
+          {
+            "index": 7,
+            "decision": "confirmed"
+          },
+          {
+            "index": 8,
+            "decision": "uncertain"
+          },
+          {
+            "index": 9,
+            "decision": "confirmed"
+          },
+          {
+            "index": 10,
+            "decision": "confirmed"
+          },
+          {
+            "index": 11,
+            "decision": "uncertain"
+          },
+          {
+            "index": 12,
+            "decision": "uncertain"
+          },
+          {
+            "index": 13,
+            "decision": "uncertain"
+          },
+          {
+            "index": 14,
+            "decision": "confirmed"
+          },
+          {
+            "index": 15,
+            "decision": "confirmed"
+          },
+          {
+            "index": 16,
+            "decision": "confirmed"
+          },
+          {
+            "index": 17,
+            "decision": "uncertain"
+          },
+          {
+            "index": 18,
+            "decision": "uncertain"
+          },
+          {
+            "index": 19,
+            "decision": "uncertain"
+          },
+          {
+            "index": 20,
+            "decision": "confirmed"
+          },
+          {
+            "index": 21,
+            "decision": "uncertain"
+          },
+          {
+            "index": 22,
+            "decision": "uncertain"
+          },
+          {
+            "index": 23,
+            "decision": "uncertain"
+          },
+          {
+            "index": 24,
+            "decision": "uncertain"
+          },
+          {
+            "index": 25,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "b26d89a903a14838bad3505ec7268b2d",
+        "eventNo": "Event-20260915172553-2",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:46:43",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "9df9605c610bc51b439643c920009ab2eb80c52d9c4011302cde202bbc493662",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "b3ac0a6c3cd34dc2be9821bf41614558",
+        "eventNo": "Event-20260923180729",
+        "status": "2",
+        "recheckTime": "2026-09-27 10:26:05",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "4fa8bbf9c2974aa009d5013710e469ebe3757b773017e3398e7a80c84835cb78",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "rejected"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "rejected"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          },
+          {
+            "index": 6,
+            "decision": "rejected"
+          },
+          {
+            "index": 7,
+            "decision": "rejected"
+          },
+          {
+            "index": 8,
+            "decision": "rejected"
+          },
+          {
+            "index": 9,
+            "decision": "confirmed"
+          },
+          {
+            "index": 10,
+            "decision": "rejected"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": null
+      },
+      {
+        "eventId": "ba0131e19c1d4c368fad538e53acf09e",
+        "eventNo": "Event-20260910084419-2",
+        "status": "2",
+        "recheckTime": "2026-09-26 13:00:48",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "74d9cbaf53620feccb2d4abaeddb3aa10452cfdd3bb87bf2a2e9fac094d42098",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "rejected"
+          },
+          {
+            "index": 2,
+            "decision": "rejected"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "d4358e429fe14aa39a709a39f8780396",
+        "eventNo": "Event-20260727151442-4",
+        "status": "2",
+        "recheckTime": "2026-09-26 14:16:25",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "a013707455e706af13f7df84463472f45455057518c16b4619b74f8f9aef2aac",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+        "eventNo": "Event-20260918104012",
+        "status": "2",
+        "recheckTime": "2026-09-26 12:44:04",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "bdee1726de2adf60f1b181fc2b29a8664daa3b75221e3b3128447423675836af",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "confirmed"
+          },
+          {
+            "index": 3,
+            "decision": "confirmed"
+          },
+          {
+            "index": 4,
+            "decision": "confirmed"
+          },
+          {
+            "index": 5,
+            "decision": "confirmed"
+          },
+          {
+            "index": 6,
+            "decision": "confirmed"
+          },
+          {
+            "index": 7,
+            "decision": "confirmed"
+          },
+          {
+            "index": 8,
+            "decision": "confirmed"
+          },
+          {
+            "index": 9,
+            "decision": "confirmed"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "e26672f26bd24f009d50d067814285d8",
+        "eventNo": "Event-20260910084422",
+        "status": "2",
+        "recheckTime": "2026-09-26 14:03:12",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "643efcedca7ab2ae6e61fb9c3596e1c962d1a68da88135fb01162db701cd0e1b",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "confirmed"
+          },
+          {
+            "index": 2,
+            "decision": "uncertain"
+          },
+          {
+            "index": 3,
+            "decision": "uncertain"
+          },
+          {
+            "index": 4,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      },
+      {
+        "eventId": "feb66a418f40409e949d0797105ff240",
+        "eventNo": "Event-20260918104011-2",
+        "status": "2",
+        "recheckTime": "2026-09-26 11:20:40",
+        "capturedAt": "2026-09-27T10:38:31+08:00",
+        "snapshotSha256": "cd453c59955d9d8618e54c153d3882dd9596ea3222e33612327cc2e51ba8e4ab",
+        "candidates": [
+          {
+            "index": 1,
+            "decision": "rejected"
+          },
+          {
+            "index": 2,
+            "decision": "uncertain"
+          },
+          {
+            "index": 3,
+            "decision": "uncertain"
+          },
+          {
+            "index": 4,
+            "decision": "rejected"
+          },
+          {
+            "index": 5,
+            "decision": "uncertain"
+          }
+        ],
+        "matchesFrozenCandidateDecisions": true
+      }
+    ]
+  },
+  "historicalMetrics": {
+    "scope": "historical mixed baseline versus latest persisted rollout results; candidate-level",
+    "accuracyMeasured": false,
+    "usesHumanGold": false,
+    "visualReviewType": "assistant interpretation of original imagery; not independent blind ground truth",
+    "eventCount": 36,
+    "candidateCount": 180,
+    "pairedCandidateCount": 175,
+    "liveCapturedAt": "2026-09-26T20:04:11+08:00",
+    "liveMatchedEvents": 36,
+    "allBefore": {
+      "uncertain": 36,
+      "confirmed": 135,
+      "missing": 5,
+      "rejected": 4
+    },
+    "allAfter": {
+      "confirmed": 112,
+      "uncertain": 61,
+      "rejected": 7
+    },
+    "pairedBefore": {
+      "uncertain": 36,
+      "confirmed": 135,
+      "rejected": 4
+    },
+    "pairedAfter": {
+      "confirmed": 112,
+      "uncertain": 56,
+      "rejected": 7
+    },
+    "autoCoverageBefore": 0.7942857142857143,
+    "autoCoverageAfter": 0.68,
+    "transitions": {
+      "uncertain -> confirmed": 16,
+      "confirmed -> uncertain": 38,
+      "uncertain -> uncertain": 18,
+      "None -> uncertain": 5,
+      "confirmed -> confirmed": 96,
+      "rejected -> rejected": 4,
+      "uncertain -> rejected": 2,
+      "confirmed -> rejected": 1
+    },
+    "classes": {
+      "人员": {
+        "total": 16,
+        "before": {
+          "missing": 5,
+          "uncertain": 9,
+          "rejected": 2
+        },
+        "after": {
+          "uncertain": 14,
+          "rejected": 2
+        }
+      },
+      "车": {
+        "total": 164,
+        "before": {
+          "uncertain": 27,
+          "confirmed": 135,
+          "rejected": 2
+        },
+        "after": {
+          "confirmed": 112,
+          "uncertain": 47,
+          "rejected": 5
+        }
+      }
+    },
+    "versions": {
+      "v6": {
+        "events": 22,
+        "candidates": 77
+      },
+      "v7": {
+        "events": 11,
+        "candidates": 76
+      },
+      "v8": {
+        "events": 3,
+        "candidates": 27
+      }
+    },
+    "baselineEvents": {
+      "resnet": 16,
+      "missing": 5,
+      "other": 5,
+      "qwen": 10
+    },
+    "baselineCandidates": {
+      "resnet": 129,
+      "other": 6,
+      "qwen": 40
+    },
+    "baselineSummaryMismatchEvents": [
+      "03b2af909d474a96aaafddf39766d12e",
+      "04933aa6944e4294a47e76b4aa49180e",
+      "1886bb7db7ad48869cfb3e4d98679bee",
+      "2cec4713bf8d4f86b77577bb7a186790",
+      "3ce94d76e4bf481bb27152ab7112d311",
+      "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "6d883f3200b64054ae2ea624ddd9a04f",
+      "9a08f456f365438da66be0f9806176f4",
+      "9f06a36f6aaa46d4ac0ac06391384a26",
+      "af0e6c77c03f4bbaa96665878578bfd6",
+      "ba0131e19c1d4c368fad538e53acf09e",
+      "e26672f26bd24f009d50d067814285d8"
+    ],
+    "modelApplied": 143,
+    "geometryBlocked": 37,
+    "geometryRecoveryApplied": 66,
+    "reasonCounts": {
+      "clean_source_consensus_confirmed": 112,
+      "clean_source_vehicle_surface_requires_manual": 10,
+      "clean_source_base_adapter_disagree": 8,
+      "clean_match_not_passed": 37,
+      "clean_source_consensus_rejected": 7,
+      "clean_source_person_confirmation_requires_manual": 6
+    },
+    "visualCounts": {
+      "target": 119,
+      "indeterminate": 11,
+      "non_target": 13
+    },
+    "visualCrosstab": [
+      {
+        "visual": "target",
+        "before": "uncertain",
+        "after": "confirmed",
+        "count": 16
+      },
+      {
+        "visual": "target",
+        "before": "confirmed",
+        "after": "uncertain",
+        "count": 3
+      },
+      {
+        "visual": "target",
+        "before": "uncertain",
+        "after": "uncertain",
+        "count": 3
+      },
+      {
+        "visual": "indeterminate",
+        "before": null,
+        "after": "uncertain",
+        "count": 4
+      },
+      {
+        "visual": "target",
+        "before": "confirmed",
+        "after": "confirmed",
+        "count": 96
+      },
+      {
+        "visual": "non_target",
+        "before": "rejected",
+        "after": "rejected",
+        "count": 4
+      },
+      {
+        "visual": "non_target",
+        "before": "uncertain",
+        "after": "uncertain",
+        "count": 3
+      },
+      {
+        "visual": "non_target",
+        "before": "confirmed",
+        "after": "uncertain",
+        "count": 3
+      },
+      {
+        "visual": "non_target",
+        "before": "uncertain",
+        "after": "rejected",
+        "count": 2
+      },
+      {
+        "visual": "indeterminate",
+        "before": "uncertain",
+        "after": "uncertain",
+        "count": 6
+      },
+      {
+        "visual": "indeterminate",
+        "before": "confirmed",
+        "after": "uncertain",
+        "count": 1
+      },
+      {
+        "visual": "non_target",
+        "before": "confirmed",
+        "after": "rejected",
+        "count": 1
+      },
+      {
+        "visual": "target",
+        "before": null,
+        "after": "uncertain",
+        "count": 1
+      }
+    ],
+    "oldVisualFalseConfirmed": [
+      {
+        "sampleId": "2180878f378f4b59b97583f7f0a2dfbc:2",
+        "visualId": "N037",
+        "eventNo": "Event-20260910105113-1",
+        "candidateIndex": 2,
+        "class": "车",
+        "visualAssessment": "non_target",
+        "visualReason": "屋顶长桌和周围座椅，重复排列，非车辆。",
+        "assessmentType": "assistant_visual_review_not_human_gold",
+        "beforeDecision": "confirmed",
+        "afterDecision": "uncertain",
+        "reasonCode": "clean_source_vehicle_surface_requires_manual",
+        "releaseVersion": "v6",
+        "humanGold": false
+      },
+      {
+        "sampleId": "ba0131e19c1d4c368fad538e53acf09e:2",
+        "visualId": "N127",
+        "eventNo": "Event-20260910084419-2",
+        "candidateIndex": 2,
+        "class": "车",
+        "visualAssessment": "non_target",
+        "visualReason": "屋顶桌面及周围座椅，非车辆。",
+        "assessmentType": "assistant_visual_review_not_human_gold",
+        "beforeDecision": "confirmed",
+        "afterDecision": "rejected",
+        "reasonCode": "clean_source_consensus_rejected",
+        "releaseVersion": "v7",
+        "humanGold": false
+      },
+      {
+        "sampleId": "feb66a418f40409e949d0797105ff240:2",
+        "visualId": "N140",
+        "eventNo": "Event-20260918104011-2",
+        "candidateIndex": 2,
+        "class": "车",
+        "visualAssessment": "non_target",
+        "visualReason": "顶部开口的固定设备/设施，非车辆。",
+        "assessmentType": "assistant_visual_review_not_human_gold",
+        "beforeDecision": "confirmed",
+        "afterDecision": "uncertain",
+        "reasonCode": "clean_source_vehicle_surface_requires_manual",
+        "releaseVersion": "v6",
+        "humanGold": false
+      },
+      {
+        "sampleId": "feb66a418f40409e949d0797105ff240:3",
+        "visualId": "N141",
+        "eventNo": "Event-20260918104011-2",
+        "candidateIndex": 3,
+        "class": "车",
+        "visualAssessment": "non_target",
+        "visualReason": "带红白边界的固定屋顶设备，非车辆。",
+        "assessmentType": "assistant_visual_review_not_human_gold",
+        "beforeDecision": "confirmed",
+        "afterDecision": "uncertain",
+        "reasonCode": "clean_source_vehicle_surface_requires_manual",
+        "releaseVersion": "v6",
+        "humanGold": false
+      }
+    ],
+    "visuallySupportedTargetsMovedToManual": [
+      {
+        "sampleId": "04933aa6944e4294a47e76b4aa49180e:3",
+        "visualId": "N006",
+        "eventNo": "Event-20260910084419",
+        "candidateIndex": 3,
+        "class": "车",
+        "visualAssessment": "target",
+        "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+        "assessmentType": "assistant_visual_review_not_human_gold",
+        "beforeDecision": "confirmed",
+        "afterDecision": "uncertain",
+        "reasonCode": "clean_source_vehicle_surface_requires_manual",
+        "releaseVersion": "v7",
+        "humanGold": false
+      },
+      {
+        "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:24",
+        "visualId": "N100",
+        "eventNo": "Event-20260910084419-1",
+        "candidateIndex": 24,
+        "class": "车",
+        "visualAssessment": "target",
+        "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+        "assessmentType": "assistant_visual_review_not_human_gold",
+        "beforeDecision": "confirmed",
+        "afterDecision": "uncertain",
+        "reasonCode": "clean_source_vehicle_surface_requires_manual",
+        "releaseVersion": "v8",
+        "humanGold": false
+      },
+      {
+        "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:25",
+        "visualId": "N124",
+        "eventNo": "Event-20260910084422-4",
+        "candidateIndex": 25,
+        "class": "车",
+        "visualAssessment": "target",
+        "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+        "assessmentType": "assistant_visual_review_not_human_gold",
+        "beforeDecision": "confirmed",
+        "afterDecision": "uncertain",
+        "reasonCode": "clean_source_vehicle_surface_requires_manual",
+        "releaseVersion": "v7",
+        "humanGold": false
+      }
+    ],
+    "visuallySupportedTargetsNewlyConfirmed": [
+      "03b2af909d474a96aaafddf39766d12e:1",
+      "03b2af909d474a96aaafddf39766d12e:2",
+      "03b2af909d474a96aaafddf39766d12e:3",
+      "04933aa6944e4294a47e76b4aa49180e:1",
+      "04933aa6944e4294a47e76b4aa49180e:2",
+      "04933aa6944e4294a47e76b4aa49180e:5",
+      "04933aa6944e4294a47e76b4aa49180e:6",
+      "1886bb7db7ad48869cfb3e4d98679bee:3",
+      "1886bb7db7ad48869cfb3e4d98679bee:5",
+      "2cec4713bf8d4f86b77577bb7a186790:1",
+      "5beb5c74b682416d9b0afc5a72eb0fd4:2",
+      "6d883f3200b64054ae2ea624ddd9a04f:3",
+      "9a08f456f365438da66be0f9806176f4:4",
+      "9f06a36f6aaa46d4ac0ac06391384a26:5",
+      "af0e6c77c03f4bbaa96665878578bfd6:3",
+      "e26672f26bd24f009d50d067814285d8:1"
+    ]
+  },
+  "candidates": [
+    {
+      "sampleId": "03b2af909d474a96aaafddf39766d12e:1",
+      "eventId": "03b2af909d474a96aaafddf39766d12e",
+      "eventNo": "Event-20260910084422-2",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:03:58",
+      "cleanApplied": true,
+      "visualId": "N001",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "03b2af909d474a96aaafddf39766d12e:2",
+      "eventId": "03b2af909d474a96aaafddf39766d12e",
+      "eventNo": "Event-20260910084422-2",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:03:58",
+      "cleanApplied": true,
+      "visualId": "N002",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "03b2af909d474a96aaafddf39766d12e:3",
+      "eventId": "03b2af909d474a96aaafddf39766d12e",
+      "eventNo": "Event-20260910084422-2",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:03:58",
+      "cleanApplied": true,
+      "visualId": "N003",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "04933aa6944e4294a47e76b4aa49180e:1",
+      "eventId": "04933aa6944e4294a47e76b4aa49180e",
+      "eventNo": "Event-20260910084419",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:10:12",
+      "cleanApplied": true,
+      "visualId": "N004",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "04933aa6944e4294a47e76b4aa49180e:2",
+      "eventId": "04933aa6944e4294a47e76b4aa49180e",
+      "eventNo": "Event-20260910084419",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:10:12",
+      "cleanApplied": true,
+      "visualId": "N005",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "04933aa6944e4294a47e76b4aa49180e:3",
+      "eventId": "04933aa6944e4294a47e76b4aa49180e",
+      "eventNo": "Event-20260910084419",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:10:12",
+      "cleanApplied": true,
+      "visualId": "N006",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "04933aa6944e4294a47e76b4aa49180e:4",
+      "eventId": "04933aa6944e4294a47e76b4aa49180e",
+      "eventNo": "Event-20260910084419",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:10:12",
+      "cleanApplied": true,
+      "visualId": "N007",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "04933aa6944e4294a47e76b4aa49180e:5",
+      "eventId": "04933aa6944e4294a47e76b4aa49180e",
+      "eventNo": "Event-20260910084419",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:10:12",
+      "cleanApplied": true,
+      "visualId": "N008",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "04933aa6944e4294a47e76b4aa49180e:6",
+      "eventId": "04933aa6944e4294a47e76b4aa49180e",
+      "eventNo": "Event-20260910084419",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:10:12",
+      "cleanApplied": true,
+      "visualId": "N009",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "056e69a5e2ba4f07be90392cf5afd4dd:1",
+      "eventId": "056e69a5e2ba4f07be90392cf5afd4dd",
+      "eventNo": "Event-20260915172554-5",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": null,
+      "decision": "uncertain",
+      "reasonCode": "clean_source_base_adapter_disagree",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:31:40",
+      "cleanApplied": true,
+      "visualId": "N010",
+      "visualAssessment": "indeterminate",
+      "visualReason": "热成像/低细节局部不足以可靠判断人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "076067aca9fd4c13af9e471f6a38c096:1",
+      "eventId": "076067aca9fd4c13af9e471f6a38c096",
+      "eventNo": "Event-20260723105701-4",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:10:19",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "076067aca9fd4c13af9e471f6a38c096:2",
+      "eventId": "076067aca9fd4c13af9e471f6a38c096",
+      "eventNo": "Event-20260723105701-4",
+      "candidateIndex": 2,
+      "class": "人员",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:10:19",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:1",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N011",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:2",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N012",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:3",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N013",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:4",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:5",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N014",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:6",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N015",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:7",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 7,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N016",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:8",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 8,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N017",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:9",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 9,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N018",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:10",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 10,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N019",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:11",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 11,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N020",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:12",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 12,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N021",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:13",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 13,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N022",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "0988413b0ce3428aaa3d444e62d5d7fb:14",
+      "eventId": "0988413b0ce3428aaa3d444e62d5d7fb",
+      "eventNo": "Event-20260910084420",
+      "candidateIndex": 14,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:23:03",
+      "cleanApplied": true,
+      "visualId": "N023",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1093c997a8ca434fafa4c256b02277f0:1",
+      "eventId": "1093c997a8ca434fafa4c256b02277f0",
+      "eventNo": "Event-20260723105651-5",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": "rejected",
+      "decision": "rejected",
+      "reasonCode": "clean_source_consensus_rejected",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:06:27",
+      "cleanApplied": true,
+      "visualId": "N024",
+      "visualAssessment": "non_target",
+      "visualReason": "沿广场弧线重复排列的固定杆件和底部结构，未见人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1093c997a8ca434fafa4c256b02277f0:2",
+      "eventId": "1093c997a8ca434fafa4c256b02277f0",
+      "eventNo": "Event-20260723105651-5",
+      "candidateIndex": 2,
+      "class": "人员",
+      "beforeDecision": "rejected",
+      "decision": "rejected",
+      "reasonCode": "clean_source_consensus_rejected",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:06:27",
+      "cleanApplied": true,
+      "visualId": "N025",
+      "visualAssessment": "non_target",
+      "visualReason": "同场景固定杆件，与周围杆件形态一致，未见人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1679d30c1c204528886cf81618dd132a:1",
+      "eventId": "1679d30c1c204528886cf81618dd132a",
+      "eventNo": "Event-20260918104011",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:34:46",
+      "cleanApplied": true,
+      "visualId": "N026",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1679d30c1c204528886cf81618dd132a:2",
+      "eventId": "1679d30c1c204528886cf81618dd132a",
+      "eventNo": "Event-20260918104011",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:34:46",
+      "cleanApplied": true,
+      "visualId": "N027",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1679d30c1c204528886cf81618dd132a:3",
+      "eventId": "1679d30c1c204528886cf81618dd132a",
+      "eventNo": "Event-20260918104011",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:34:46",
+      "cleanApplied": true,
+      "visualId": "N028",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1679d30c1c204528886cf81618dd132a:4",
+      "eventId": "1679d30c1c204528886cf81618dd132a",
+      "eventNo": "Event-20260918104011",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:34:46",
+      "cleanApplied": true,
+      "visualId": "N029",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1679d30c1c204528886cf81618dd132a:5",
+      "eventId": "1679d30c1c204528886cf81618dd132a",
+      "eventNo": "Event-20260918104011",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:34:46",
+      "cleanApplied": true,
+      "visualId": "N030",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1886bb7db7ad48869cfb3e4d98679bee:1",
+      "eventId": "1886bb7db7ad48869cfb3e4d98679bee",
+      "eventNo": "Event-20260910105112-1",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:06:09",
+      "cleanApplied": true,
+      "visualId": "N031",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1886bb7db7ad48869cfb3e4d98679bee:2",
+      "eventId": "1886bb7db7ad48869cfb3e4d98679bee",
+      "eventNo": "Event-20260910105112-1",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:06:09",
+      "cleanApplied": true,
+      "visualId": "N032",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1886bb7db7ad48869cfb3e4d98679bee:3",
+      "eventId": "1886bb7db7ad48869cfb3e4d98679bee",
+      "eventNo": "Event-20260910105112-1",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:06:09",
+      "cleanApplied": true,
+      "visualId": "N033",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1886bb7db7ad48869cfb3e4d98679bee:4",
+      "eventId": "1886bb7db7ad48869cfb3e4d98679bee",
+      "eventNo": "Event-20260910105112-1",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:06:09",
+      "cleanApplied": true,
+      "visualId": "N034",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "1886bb7db7ad48869cfb3e4d98679bee:5",
+      "eventId": "1886bb7db7ad48869cfb3e4d98679bee",
+      "eventNo": "Event-20260910105112-1",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:06:09",
+      "cleanApplied": true,
+      "visualId": "N035",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2180878f378f4b59b97583f7f0a2dfbc:1",
+      "eventId": "2180878f378f4b59b97583f7f0a2dfbc",
+      "eventNo": "Event-20260910105113-1",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_base_adapter_disagree",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:51:49",
+      "cleanApplied": true,
+      "visualId": "N036",
+      "visualAssessment": "non_target",
+      "visualReason": "屋顶长桌和周围座椅，重复排列，非车辆。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2180878f378f4b59b97583f7f0a2dfbc:2",
+      "eventId": "2180878f378f4b59b97583f7f0a2dfbc",
+      "eventNo": "Event-20260910105113-1",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:51:49",
+      "cleanApplied": true,
+      "visualId": "N037",
+      "visualAssessment": "non_target",
+      "visualReason": "屋顶长桌和周围座椅，重复排列，非车辆。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "21efd374c2774895ad80fe6fa1a394fe:1",
+      "eventId": "21efd374c2774895ad80fe6fa1a394fe",
+      "eventNo": "Event-20260910105112-3",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:38:03",
+      "cleanApplied": true,
+      "visualId": "N038",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "21efd374c2774895ad80fe6fa1a394fe:2",
+      "eventId": "21efd374c2774895ad80fe6fa1a394fe",
+      "eventNo": "Event-20260910105112-3",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:38:03",
+      "cleanApplied": true,
+      "visualId": "N039",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "21efd374c2774895ad80fe6fa1a394fe:3",
+      "eventId": "21efd374c2774895ad80fe6fa1a394fe",
+      "eventNo": "Event-20260910105112-3",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:38:03",
+      "cleanApplied": true,
+      "visualId": "N040",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "21efd374c2774895ad80fe6fa1a394fe:4",
+      "eventId": "21efd374c2774895ad80fe6fa1a394fe",
+      "eventNo": "Event-20260910105112-3",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:38:03",
+      "cleanApplied": true,
+      "visualId": "N041",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:1",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N042",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:2",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N043",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:3",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N044",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:4",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N045",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:5",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N046",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:6",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N047",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:7",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 7,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N048",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:8",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 8,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N049",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:9",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 9,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N050",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:10",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 10,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N051",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2269bdd2293b438fb017ddaaeb23d86d:11",
+      "eventId": "2269bdd2293b438fb017ddaaeb23d86d",
+      "eventNo": "Event-20260910105113-2",
+      "candidateIndex": 11,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:49:20",
+      "cleanApplied": true,
+      "visualId": "N052",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2cec4713bf8d4f86b77577bb7a186790:1",
+      "eventId": "2cec4713bf8d4f86b77577bb7a186790",
+      "eventNo": "Event-20260910084422-1",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:24:37",
+      "cleanApplied": true,
+      "visualId": "N053",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "2dc4fae0e6f94ee4ab7de7fadf35ecf6:1",
+      "eventId": "2dc4fae0e6f94ee4ab7de7fadf35ecf6",
+      "eventNo": "Event-20260915160625",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": null,
+      "decision": "uncertain",
+      "reasonCode": "clean_source_person_confirmation_requires_manual",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:33:14",
+      "cleanApplied": true,
+      "visualId": "N054",
+      "visualAssessment": "indeterminate",
+      "visualReason": "热成像/低细节局部不足以可靠判断人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "359badf3d76c42da9e71469f87c5a19c:1",
+      "eventId": "359badf3d76c42da9e71469f87c5a19c",
+      "eventNo": "Event-20260915144735",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": null,
+      "decision": "uncertain",
+      "reasonCode": "clean_source_base_adapter_disagree",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:34:01",
+      "cleanApplied": true,
+      "visualId": "N055",
+      "visualAssessment": "indeterminate",
+      "visualReason": "热成像/低细节局部不足以可靠判断人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "35d69abd520849d6abafeea580c376a7:1",
+      "eventId": "35d69abd520849d6abafeea580c376a7",
+      "eventNo": "Event-20260918104012-1",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:21:18",
+      "cleanApplied": true,
+      "visualId": "N056",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "35d69abd520849d6abafeea580c376a7:2",
+      "eventId": "35d69abd520849d6abafeea580c376a7",
+      "eventNo": "Event-20260918104012-1",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:21:18",
+      "cleanApplied": true,
+      "visualId": "N057",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "35d69abd520849d6abafeea580c376a7:3",
+      "eventId": "35d69abd520849d6abafeea580c376a7",
+      "eventNo": "Event-20260918104012-1",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:21:18",
+      "cleanApplied": true,
+      "visualId": "N058",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "35d69abd520849d6abafeea580c376a7:4",
+      "eventId": "35d69abd520849d6abafeea580c376a7",
+      "eventNo": "Event-20260918104012-1",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:21:18",
+      "cleanApplied": true,
+      "visualId": "N059",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "35d69abd520849d6abafeea580c376a7:5",
+      "eventId": "35d69abd520849d6abafeea580c376a7",
+      "eventNo": "Event-20260918104012-1",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:21:18",
+      "cleanApplied": true,
+      "visualId": "N060",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "35d69abd520849d6abafeea580c376a7:6",
+      "eventId": "35d69abd520849d6abafeea580c376a7",
+      "eventNo": "Event-20260918104012-1",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:21:18",
+      "cleanApplied": true,
+      "visualId": "N061",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "3ce94d76e4bf481bb27152ab7112d311:1",
+      "eventId": "3ce94d76e4bf481bb27152ab7112d311",
+      "eventNo": "Event-20260910084422-3",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "rejected",
+      "reasonCode": "clean_source_consensus_rejected",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 12:58:50",
+      "cleanApplied": true,
+      "visualId": "N062",
+      "visualAssessment": "non_target",
+      "visualReason": "地面树影，缺少实体车身。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "4906bd009c9b4cef8a2df345dc3a8fe7:1",
+      "eventId": "4906bd009c9b4cef8a2df345dc3a8fe7",
+      "eventNo": "Event-20260914161314",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_person_confirmation_requires_manual",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:49:08",
+      "cleanApplied": true,
+      "visualId": "N063",
+      "visualAssessment": "indeterminate",
+      "visualReason": "车斗内白色局部形态，无法可靠辨认人体结构，保留未判定。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "593ef732be51427090e5bb4396a63d7c:1",
+      "eventId": "593ef732be51427090e5bb4396a63d7c",
+      "eventNo": "Event-20260915160627-5",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": null,
+      "decision": "uncertain",
+      "reasonCode": "clean_source_base_adapter_disagree",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:32:27",
+      "cleanApplied": true,
+      "visualId": "N064",
+      "visualAssessment": "indeterminate",
+      "visualReason": "热成像/低细节局部不足以可靠判断人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:1",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N065",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:2",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N066",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:3",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N067",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:4",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N068",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:5",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N069",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:6",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N070",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:7",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 7,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N071",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:8",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 8,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N072",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:9",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 9,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N073",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:10",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 10,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N074",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:11",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 11,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N075",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:12",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 12,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N076",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5beb5c74b682416d9b0afc5a72eb0fd4:13",
+      "eventId": "5beb5c74b682416d9b0afc5a72eb0fd4",
+      "eventNo": "Event-20260910084422-6",
+      "candidateIndex": 13,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:37:37",
+      "cleanApplied": true,
+      "visualId": "N077",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5d8d7ca962814912a7365cfa344ab9d4:1",
+      "eventId": "5d8d7ca962814912a7365cfa344ab9d4",
+      "eventNo": "Event-20260918104011-1",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:29:22",
+      "cleanApplied": true,
+      "visualId": "N078",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5d8d7ca962814912a7365cfa344ab9d4:2",
+      "eventId": "5d8d7ca962814912a7365cfa344ab9d4",
+      "eventNo": "Event-20260918104011-1",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:29:22",
+      "cleanApplied": true,
+      "visualId": "N079",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5d8d7ca962814912a7365cfa344ab9d4:3",
+      "eventId": "5d8d7ca962814912a7365cfa344ab9d4",
+      "eventNo": "Event-20260918104011-1",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:29:22",
+      "cleanApplied": true,
+      "visualId": "N080",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5d8d7ca962814912a7365cfa344ab9d4:4",
+      "eventId": "5d8d7ca962814912a7365cfa344ab9d4",
+      "eventNo": "Event-20260918104011-1",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:29:22",
+      "cleanApplied": true,
+      "visualId": "N081",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5d8d7ca962814912a7365cfa344ab9d4:5",
+      "eventId": "5d8d7ca962814912a7365cfa344ab9d4",
+      "eventNo": "Event-20260918104011-1",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:29:22",
+      "cleanApplied": true,
+      "visualId": "N082",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5d8d7ca962814912a7365cfa344ab9d4:6",
+      "eventId": "5d8d7ca962814912a7365cfa344ab9d4",
+      "eventNo": "Event-20260918104011-1",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:29:22",
+      "cleanApplied": true,
+      "visualId": "N083",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5d8d7ca962814912a7365cfa344ab9d4:7",
+      "eventId": "5d8d7ca962814912a7365cfa344ab9d4",
+      "eventNo": "Event-20260918104011-1",
+      "candidateIndex": 7,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:29:22",
+      "cleanApplied": true,
+      "visualId": "N084",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "5d8d7ca962814912a7365cfa344ab9d4:8",
+      "eventId": "5d8d7ca962814912a7365cfa344ab9d4",
+      "eventNo": "Event-20260918104011-1",
+      "candidateIndex": 8,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:29:22",
+      "cleanApplied": true,
+      "visualId": "N085",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "61b6a8b48d6846b1aca70f777558012d:1",
+      "eventId": "61b6a8b48d6846b1aca70f777558012d",
+      "eventNo": "Event-20260910105113",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:55:31",
+      "cleanApplied": true,
+      "visualId": "N086",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "61b6a8b48d6846b1aca70f777558012d:2",
+      "eventId": "61b6a8b48d6846b1aca70f777558012d",
+      "eventNo": "Event-20260910105113",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:55:31",
+      "cleanApplied": true,
+      "visualId": "N087",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "61b6a8b48d6846b1aca70f777558012d:3",
+      "eventId": "61b6a8b48d6846b1aca70f777558012d",
+      "eventNo": "Event-20260910105113",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:55:31",
+      "cleanApplied": true,
+      "visualId": "N088",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "61b6a8b48d6846b1aca70f777558012d:4",
+      "eventId": "61b6a8b48d6846b1aca70f777558012d",
+      "eventNo": "Event-20260910105113",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:55:31",
+      "cleanApplied": true,
+      "visualId": "N089",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "61b6a8b48d6846b1aca70f777558012d:5",
+      "eventId": "61b6a8b48d6846b1aca70f777558012d",
+      "eventNo": "Event-20260910105113",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:55:31",
+      "cleanApplied": true,
+      "visualId": "N090",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "61b6a8b48d6846b1aca70f777558012d:6",
+      "eventId": "61b6a8b48d6846b1aca70f777558012d",
+      "eventNo": "Event-20260910105113",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:55:31",
+      "cleanApplied": true,
+      "visualId": "N091",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:1",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:2",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:3",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": true,
+      "visualId": "N092",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:4",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": true,
+      "visualId": "N093",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:5",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:6",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": true,
+      "visualId": "N094",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:7",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 7,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:8",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 8,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:9",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 9,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": true,
+      "visualId": "N095",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:10",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 10,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:11",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 11,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": true,
+      "visualId": "N096",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:12",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 12,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:13",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 13,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:14",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 14,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:15",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 15,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:16",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 16,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:17",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 17,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:18",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 18,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": true,
+      "visualId": "N097",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:19",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 19,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:20",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 20,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": true,
+      "visualId": "N098",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:21",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 21,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:22",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 22,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:23",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 23,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": true,
+      "visualId": "N099",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "6d883f3200b64054ae2ea624ddd9a04f:24",
+      "eventId": "6d883f3200b64054ae2ea624ddd9a04f",
+      "eventNo": "Event-20260910084419-1",
+      "candidateIndex": 24,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:15:32",
+      "cleanApplied": true,
+      "visualId": "N100",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "793fb6c7c071476bbfdf367eb5b80c2a:1",
+      "eventId": "793fb6c7c071476bbfdf367eb5b80c2a",
+      "eventNo": "Event-20260915172554-6",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_base_adapter_disagree",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:47:30",
+      "cleanApplied": true,
+      "visualId": "N101",
+      "visualAssessment": "indeterminate",
+      "visualReason": "热成像/低细节局部不足以可靠判断人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "79718c3d282047f7916f4d5500dc363c:1",
+      "eventId": "79718c3d282047f7916f4d5500dc363c",
+      "eventNo": "Event-20260915174219",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_base_adapter_disagree",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:45:10",
+      "cleanApplied": true,
+      "visualId": "N102",
+      "visualAssessment": "indeterminate",
+      "visualReason": "热成像/低细节局部不足以可靠判断人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "7e0072d4de4248528f0f875b3fa396c4:1",
+      "eventId": "7e0072d4de4248528f0f875b3fa396c4",
+      "eventNo": "Event-20260914160417",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_person_confirmation_requires_manual",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:49:59",
+      "cleanApplied": true,
+      "visualId": "N103",
+      "visualAssessment": "target",
+      "visualReason": "货车旁可见头部、上身、手臂和双腿，支持人员。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "856fe21c1e874d7fa25a0fad2d977156:1",
+      "eventId": "856fe21c1e874d7fa25a0fad2d977156",
+      "eventNo": "Event-20260915174219-1",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_person_confirmation_requires_manual",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:45:57",
+      "cleanApplied": true,
+      "visualId": "N104",
+      "visualAssessment": "indeterminate",
+      "visualReason": "热成像/低细节局部不足以可靠判断人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9445753540594af59061e297b0dbf615:1",
+      "eventId": "9445753540594af59061e297b0dbf615",
+      "eventNo": "Event-20260915144526",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_base_adapter_disagree",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:48:18",
+      "cleanApplied": true,
+      "visualId": "N105",
+      "visualAssessment": "indeterminate",
+      "visualReason": "热成像/低细节局部不足以可靠判断人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9a08f456f365438da66be0f9806176f4:1",
+      "eventId": "9a08f456f365438da66be0f9806176f4",
+      "eventNo": "Event-20260910084422-5",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:50:59",
+      "cleanApplied": true,
+      "visualId": "N106",
+      "visualAssessment": "non_target",
+      "visualReason": "屋顶桌椅设施，非车辆。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9a08f456f365438da66be0f9806176f4:2",
+      "eventId": "9a08f456f365438da66be0f9806176f4",
+      "eventNo": "Event-20260910084422-5",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:50:59",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9a08f456f365438da66be0f9806176f4:3",
+      "eventId": "9a08f456f365438da66be0f9806176f4",
+      "eventNo": "Event-20260910084422-5",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:50:59",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9a08f456f365438da66be0f9806176f4:4",
+      "eventId": "9a08f456f365438da66be0f9806176f4",
+      "eventNo": "Event-20260910084422-5",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:50:59",
+      "cleanApplied": true,
+      "visualId": "N107",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9a08f456f365438da66be0f9806176f4:5",
+      "eventId": "9a08f456f365438da66be0f9806176f4",
+      "eventNo": "Event-20260910084422-5",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:50:59",
+      "cleanApplied": true,
+      "visualId": "N108",
+      "visualAssessment": "indeterminate",
+      "visualReason": "白色遮盖/块状物缺少可辨车轮、车窗，物体身份不清，保留未判定。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9f06a36f6aaa46d4ac0ac06391384a26:1",
+      "eventId": "9f06a36f6aaa46d4ac0ac06391384a26",
+      "eventNo": "Event-20260910105112-2",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:00:48",
+      "cleanApplied": true,
+      "visualId": "N109",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9f06a36f6aaa46d4ac0ac06391384a26:2",
+      "eventId": "9f06a36f6aaa46d4ac0ac06391384a26",
+      "eventNo": "Event-20260910105112-2",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:00:48",
+      "cleanApplied": true,
+      "visualId": "N110",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9f06a36f6aaa46d4ac0ac06391384a26:3",
+      "eventId": "9f06a36f6aaa46d4ac0ac06391384a26",
+      "eventNo": "Event-20260910105112-2",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:00:48",
+      "cleanApplied": true,
+      "visualId": "N111",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9f06a36f6aaa46d4ac0ac06391384a26:4",
+      "eventId": "9f06a36f6aaa46d4ac0ac06391384a26",
+      "eventNo": "Event-20260910105112-2",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:00:48",
+      "cleanApplied": true,
+      "visualId": "N112",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "9f06a36f6aaa46d4ac0ac06391384a26:5",
+      "eventId": "9f06a36f6aaa46d4ac0ac06391384a26",
+      "eventNo": "Event-20260910105112-2",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:00:48",
+      "cleanApplied": true,
+      "visualId": "N113",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:1",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:2",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N114",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:3",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N115",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:4",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:5",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:6",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:7",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 7,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N116",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:8",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 8,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:9",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 9,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N117",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:10",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 10,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N118",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:11",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 11,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:12",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 12,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:13",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 13,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:14",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 14,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N119",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:15",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 15,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N120",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:16",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 16,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N121",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:17",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 17,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:18",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 18,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:19",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 19,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:20",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 20,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N122",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:21",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 21,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:22",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 22,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:23",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 23,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:24",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 24,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N123",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "af0e6c77c03f4bbaa96665878578bfd6:25",
+      "eventId": "af0e6c77c03f4bbaa96665878578bfd6",
+      "eventNo": "Event-20260910084422-4",
+      "candidateIndex": 25,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:01:46",
+      "cleanApplied": true,
+      "visualId": "N124",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "b26d89a903a14838bad3505ec7268b2d:1",
+      "eventId": "b26d89a903a14838bad3505ec7268b2d",
+      "eventNo": "Event-20260915172553-2",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_person_confirmation_requires_manual",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:46:43",
+      "cleanApplied": true,
+      "visualId": "N125",
+      "visualAssessment": "indeterminate",
+      "visualReason": "热成像/低细节局部不足以可靠判断人体。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "ba0131e19c1d4c368fad538e53acf09e:1",
+      "eventId": "ba0131e19c1d4c368fad538e53acf09e",
+      "eventNo": "Event-20260910084419-2",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "rejected",
+      "reasonCode": "clean_source_consensus_rejected",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:00:48",
+      "cleanApplied": true,
+      "visualId": "N126",
+      "visualAssessment": "non_target",
+      "visualReason": "场景边缘的绿化/固定装饰形态，未见车身结构。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "ba0131e19c1d4c368fad538e53acf09e:2",
+      "eventId": "ba0131e19c1d4c368fad538e53acf09e",
+      "eventNo": "Event-20260910084419-2",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "rejected",
+      "reasonCode": "clean_source_consensus_rejected",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 13:00:48",
+      "cleanApplied": true,
+      "visualId": "N127",
+      "visualAssessment": "non_target",
+      "visualReason": "屋顶桌面及周围座椅，非车辆。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "d4358e429fe14aa39a709a39f8780396:1",
+      "eventId": "d4358e429fe14aa39a709a39f8780396",
+      "eventNo": "Event-20260727151442-4",
+      "candidateIndex": 1,
+      "class": "人员",
+      "beforeDecision": null,
+      "decision": "uncertain",
+      "reasonCode": "clean_source_person_confirmation_requires_manual",
+      "releaseVersion": "v8",
+      "recheckTime": "2026-09-26 14:16:25",
+      "cleanApplied": true,
+      "visualId": "N128",
+      "visualAssessment": "target",
+      "visualReason": "可见骑行者头部、上身及双臂，支持人员。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "de89e3ca580749fb8da517ffb141a5c9:1",
+      "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+      "eventNo": "Event-20260918104012",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:44:04",
+      "cleanApplied": true,
+      "visualId": "N129",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "de89e3ca580749fb8da517ffb141a5c9:2",
+      "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+      "eventNo": "Event-20260918104012",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:44:04",
+      "cleanApplied": true,
+      "visualId": "N130",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "de89e3ca580749fb8da517ffb141a5c9:3",
+      "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+      "eventNo": "Event-20260918104012",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:44:04",
+      "cleanApplied": true,
+      "visualId": "N131",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "de89e3ca580749fb8da517ffb141a5c9:4",
+      "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+      "eventNo": "Event-20260918104012",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:44:04",
+      "cleanApplied": true,
+      "visualId": "N132",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "de89e3ca580749fb8da517ffb141a5c9:5",
+      "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+      "eventNo": "Event-20260918104012",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:44:04",
+      "cleanApplied": true,
+      "visualId": "N133",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "de89e3ca580749fb8da517ffb141a5c9:6",
+      "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+      "eventNo": "Event-20260918104012",
+      "candidateIndex": 6,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:44:04",
+      "cleanApplied": true,
+      "visualId": "N134",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "de89e3ca580749fb8da517ffb141a5c9:7",
+      "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+      "eventNo": "Event-20260918104012",
+      "candidateIndex": 7,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:44:04",
+      "cleanApplied": true,
+      "visualId": "N135",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "de89e3ca580749fb8da517ffb141a5c9:8",
+      "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+      "eventNo": "Event-20260918104012",
+      "candidateIndex": 8,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:44:04",
+      "cleanApplied": true,
+      "visualId": "N136",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "de89e3ca580749fb8da517ffb141a5c9:9",
+      "eventId": "de89e3ca580749fb8da517ffb141a5c9",
+      "eventNo": "Event-20260918104012",
+      "candidateIndex": 9,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 12:44:04",
+      "cleanApplied": true,
+      "visualId": "N137",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "e26672f26bd24f009d50d067814285d8:1",
+      "eventId": "e26672f26bd24f009d50d067814285d8",
+      "eventNo": "Event-20260910084422",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "confirmed",
+      "reasonCode": "clean_source_consensus_confirmed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:03:12",
+      "cleanApplied": true,
+      "visualId": "N138",
+      "visualAssessment": "target",
+      "visualReason": "可辨车体轮廓、车窗/车顶或覆盖车体，停车/道路上下文一致。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "e26672f26bd24f009d50d067814285d8:2",
+      "eventId": "e26672f26bd24f009d50d067814285d8",
+      "eventNo": "Event-20260910084422",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:03:12",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "e26672f26bd24f009d50d067814285d8:3",
+      "eventId": "e26672f26bd24f009d50d067814285d8",
+      "eventNo": "Event-20260910084422",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:03:12",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "e26672f26bd24f009d50d067814285d8:4",
+      "eventId": "e26672f26bd24f009d50d067814285d8",
+      "eventNo": "Event-20260910084422",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_match_not_passed",
+      "releaseVersion": "v7",
+      "recheckTime": "2026-09-26 14:03:12",
+      "cleanApplied": false,
+      "visualId": null,
+      "visualAssessment": "not_located",
+      "visualReason": "定位或画面匹配条件不满足，未强行判定真假。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "feb66a418f40409e949d0797105ff240:1",
+      "eventId": "feb66a418f40409e949d0797105ff240",
+      "eventNo": "Event-20260918104011-2",
+      "candidateIndex": 1,
+      "class": "车",
+      "beforeDecision": "rejected",
+      "decision": "rejected",
+      "reasonCode": "clean_source_consensus_rejected",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:20:40",
+      "cleanApplied": true,
+      "visualId": "N139",
+      "visualAssessment": "non_target",
+      "visualReason": "靠建筑外墙的固定设备结构，非车辆。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "feb66a418f40409e949d0797105ff240:2",
+      "eventId": "feb66a418f40409e949d0797105ff240",
+      "eventNo": "Event-20260918104011-2",
+      "candidateIndex": 2,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:20:40",
+      "cleanApplied": true,
+      "visualId": "N140",
+      "visualAssessment": "non_target",
+      "visualReason": "顶部开口的固定设备/设施，非车辆。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "feb66a418f40409e949d0797105ff240:3",
+      "eventId": "feb66a418f40409e949d0797105ff240",
+      "eventNo": "Event-20260918104011-2",
+      "candidateIndex": 3,
+      "class": "车",
+      "beforeDecision": "confirmed",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_vehicle_surface_requires_manual",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:20:40",
+      "cleanApplied": true,
+      "visualId": "N141",
+      "visualAssessment": "non_target",
+      "visualReason": "带红白边界的固定屋顶设备，非车辆。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "feb66a418f40409e949d0797105ff240:4",
+      "eventId": "feb66a418f40409e949d0797105ff240",
+      "eventNo": "Event-20260918104011-2",
+      "candidateIndex": 4,
+      "class": "车",
+      "beforeDecision": "rejected",
+      "decision": "rejected",
+      "reasonCode": "clean_source_consensus_rejected",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:20:40",
+      "cleanApplied": true,
+      "visualId": "N142",
+      "visualAssessment": "non_target",
+      "visualReason": "桌面及周围座椅，非车辆。",
+      "humanGold": false
+    },
+    {
+      "sampleId": "feb66a418f40409e949d0797105ff240:5",
+      "eventId": "feb66a418f40409e949d0797105ff240",
+      "eventNo": "Event-20260918104011-2",
+      "candidateIndex": 5,
+      "class": "车",
+      "beforeDecision": "uncertain",
+      "decision": "uncertain",
+      "reasonCode": "clean_source_base_adapter_disagree",
+      "releaseVersion": "v6",
+      "recheckTime": "2026-09-26 11:20:40",
+      "cleanApplied": true,
+      "visualId": "N143",
+      "visualAssessment": "non_target",
+      "visualReason": "同一排桌面及座椅，非车辆。",
+      "humanGold": false
+    }
+  ],
+  "latestBusinessVerification": {
+    "checkedAt": "2026-09-27T10:26:59.579582+08:00",
+    "health": {
+      "details": {},
+      "status": {
+        "code": "UP",
+        "description": ""
+      }
+    },
+    "events": [
+      {
+        "event": "1093c997a8ca434fafa4c256b02277f0",
+        "eventNo": "Event-20260723105651-5",
+        "submittedOnce": true,
+        "elapsedSeconds": 102.4,
+        "status": "2",
+        "beforeTime": "2026-09-26 14:06:27",
+        "afterTime": "2026-09-27 10:25:09",
+        "freshCompleted": true,
+        "resultKeys": [
+          "conclusion",
+          "doubtfulCount",
+          "elapsedSeconds",
+          "falseCount",
+          "labeledImageUrl",
+          "originalUrl",
+          "resultList",
+          "results",
+          "sessionId",
+          "sourceAnnexId",
+          "sourceFilePath",
+          "summary",
+          "targetTypeStats",
+          "total",
+          "trueCount"
+        ],
+        "accuracyMeasured": false,
+        "conclusion": "共2个目标，驳回2",
+        "total": 2,
+        "trueCount": 0,
+        "falseCount": 2,
+        "doubtfulCount": 0,
+        "targets": [
+          {
+            "targetClass": "人员",
+            "decision": "rejected",
+            "reasonCode": "clean_source_consensus_rejected",
+            "cleanRequested": true,
+            "cleanApplied": true,
+            "cleanReasonCode": "clean_source_consensus_rejected",
+            "originalSize": [
+              4032,
+              3024
+            ],
+            "annotatedSize": [
+              1440,
+              1080
+            ],
+            "matchPassed": true,
+            "viewOrder": [
+              "annotated_context",
+              "annotated_roi",
+              "clean_context",
+              "clean_roi"
+            ],
+            "modelId": "Qwen/Qwen3-VL-8B-Instruct"
+          },
+          {
+            "targetClass": "人员",
+            "decision": "rejected",
+            "reasonCode": "clean_source_consensus_rejected",
+            "cleanRequested": true,
+            "cleanApplied": true,
+            "cleanReasonCode": "clean_source_consensus_rejected",
+            "originalSize": [
+              4032,
+              3024
+            ],
+            "annotatedSize": [
+              1440,
+              1080
+            ],
+            "matchPassed": true,
+            "viewOrder": [
+              "annotated_context",
+              "annotated_roi",
+              "clean_context",
+              "clean_roi"
+            ],
+            "modelId": "Qwen/Qwen3-VL-8B-Instruct"
+          }
+        ],
+        "platformApi": {
+          "code": 200,
+          "recheckStatus": "2",
+          "recheckStatusName": "复核完成",
+          "recheckTime": "2026-09-27 10:25:09"
+        },
+        "preReleaseDecisions": [
+          "rejected",
+          "rejected"
+        ],
+        "sameAsPreReleaseDecisions": true,
+        "snapshotBasis": "2026-09-27 post-deployment business execution"
+      },
+      {
+        "event": "b3ac0a6c3cd34dc2be9821bf41614558",
+        "eventNo": "Event-20260923180729",
+        "submittedOnce": true,
+        "elapsedSeconds": 1.7,
+        "status": "2",
+        "beforeTime": "2026-09-26 00:54:01",
+        "afterTime": "2026-09-27 10:26:05",
+        "freshCompleted": true,
+        "resultKeys": [
+          "conclusion",
+          "doubtfulCount",
+          "elapsedSeconds",
+          "falseCount",
+          "labeledImageUrl",
+          "originalUrl",
+          "resultList",
+          "results",
+          "sessionId",
+          "sourceAnnexId",
+          "sourceFilePath",
+          "summary",
+          "targetTypeStats",
+          "total",
+          "trueCount"
+        ],
+        "accuracyMeasured": false,
+        "conclusion": "共10个目标，确认4、驳回6",
+        "total": 10,
+        "trueCount": 4,
+        "falseCount": 6,
+        "doubtfulCount": 0,
+        "targets": [
+          {
+            "targetClass": "人员",
+            "decision": "rejected",
+            "reasonCode": "crop_verifier_false",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          },
+          {
+            "targetClass": "人员",
+            "decision": "confirmed",
+            "reasonCode": "crop_verifier_true",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          },
+          {
+            "targetClass": "人员",
+            "decision": "confirmed",
+            "reasonCode": "crop_verifier_true",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          },
+          {
+            "targetClass": "人员",
+            "decision": "rejected",
+            "reasonCode": "crop_verifier_false",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          },
+          {
+            "targetClass": "人员",
+            "decision": "confirmed",
+            "reasonCode": "crop_verifier_true",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          },
+          {
+            "targetClass": "人员",
+            "decision": "rejected",
+            "reasonCode": "crop_verifier_false",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          },
+          {
+            "targetClass": "人员",
+            "decision": "rejected",
+            "reasonCode": "crop_verifier_false",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          },
+          {
+            "targetClass": "人员",
+            "decision": "rejected",
+            "reasonCode": "crop_verifier_false",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          },
+          {
+            "targetClass": "人员",
+            "decision": "confirmed",
+            "reasonCode": "crop_verifier_true",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          },
+          {
+            "targetClass": "人员",
+            "decision": "rejected",
+            "reasonCode": "crop_verifier_false",
+            "cleanRequested": null,
+            "cleanApplied": null,
+            "cleanReasonCode": null,
+            "originalSize": null,
+            "annotatedSize": null,
+            "matchPassed": null,
+            "viewOrder": null,
+            "modelId": null
+          }
+        ],
+        "platformApi": {
+          "code": 200,
+          "recheckStatus": "2",
+          "recheckStatusName": "复核完成",
+          "recheckTime": "2026-09-27 10:26:05"
+        },
+        "preReleaseDecisions": [
+          "rejected",
+          "confirmed",
+          "confirmed",
+          "rejected",
+          "confirmed",
+          "rejected",
+          "rejected",
+          "rejected",
+          "confirmed",
+          "rejected"
+        ],
+        "sameAsPreReleaseDecisions": true,
+        "snapshotBasis": "2026-09-27 post-deployment business execution"
+      }
+    ],
+    "liveZhimouCallbackPersistenceVerified": false,
+    "liveZhimouCallbackReason": "No new natural callback has been used for end-to-end ingestion acceptance in this release. Existing events verify the shared original-image review route and single-image fallback.",
+    "accuracyMeasured": false,
+    "databaseWrites": "Only the two specified event rechecks were requested through the existing business API; verification database connections were read-only."
+  },
+  "release": {
+    "testBranchSha": "60620f56ccb99b4c3f219677df56a351ae52cdc2",
+    "javaFeatureSha": "e61ae57a3e977ab6f2d0f4ca135c5210970ee26a",
+    "prodBase": "6b01e1a2f6bd111ff4585a9e60fa7273cda9a953",
+    "deployedJarSha256": "f41f3d674537e9de139e9bd198a22161111b0834f4ebd4231ecc83fd3062bb81",
+    "releaseDirectory": "/data/ktd/project/ktd-backend/clean-source-releases/20260927-zhimou-original-18f9ae7",
+    "jarEvidence": "previous deployment observed receipt; not rehashed during this report",
+    "currentHealth": "UP",
+    "currentGpuImage": "yoloe_service_test:clean-source-qwen-20260926-v8",
+    "currentGpuState": "running / healthy",
+    "runtimeCheckDate": "2026-09-27",
+    "modelWeightsChangedByCallbackRelease": false,
+    "newNaturalCallbackVerified": false
+  },
+  "sourceCoverageSnapshot": {
+    "frozenEligibleEvents": 358,
+    "eventsWithDownloadableLinkedImagePairs": 36,
+    "eventsOutsideExecutableSourceScope": 322,
+    "legacySingleImageRequests": "Remain on the existing single-image route when no clean image or clean matching fields are supplied; they must not be represented as completed original-image review.",
+    "explicitlyProvidedEvent": "b3ac0a6c3cd34dc2be9821bf41614558",
+    "originalForExplicitEventAvailable": false,
+    "evidence": "original-event-source-gap.json",
+    "accuracyMeasured": false
+  },
+  "sources": [
+    {
+      "file": "真实样本复核结果.jsonl",
+      "sha256": "8c4690b03fe4f510ad8bef85fd7484529a2238d453240aedbb09103e58dc6978"
+    },
+    {
+      "file": "visual-observations.jsonl",
+      "sha256": "7a549d73ef2efe6b072e699f8709ecc65e61b3724c2319ca7f309a6c67f1fd8c"
+    },
+    {
+      "file": "metrics.json",
+      "sha256": "9be05e8b35ea25a5794fa6f6608c4e52de6cac150c1e86616c2098e3cc695bc1"
+    },
+    {
+      "file": "current-readback.json",
+      "sha256": "c452b7e761431d7f5d84a469669a9be925e76ecfc39f95fb7924d04f2c858fbd"
+    },
+    {
+      "file": "business-verification.json",
+      "sha256": "c5982496fe09d7905296068c713d1409311014faded8f3cad39aafd1e9646d9d"
+    }
+  ]
+}
