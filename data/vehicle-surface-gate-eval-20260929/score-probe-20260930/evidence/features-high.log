@@ -1,0 +1,13 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/439 [00:00<?, ?it/s]Loading weights:  24%|██▍       | 105/439 [00:00<00:00, 1046.66it/s]Loading weights:  49%|████▉     | 215/439 [00:00<00:00, 1071.38it/s]Loading weights:  74%|███████▎  | 323/439 [00:00<00:00, 1069.92it/s]Loading weights:  98%|█████████▊| 430/439 [00:00<00:00, 1021.24it/s]Loading weights: 100%|██████████| 439/439 [00:00<00:00, 1050.09it/s]
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49406. This may result in unexpected behavior.
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49407. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  16%|█▌        | 138/888 [00:00<00:00, 1002.87it/s]Loading weights:  27%|██▋       | 239/888 [00:00<00:00, 929.09it/s] Loading weights:  37%|███▋      | 332/888 [00:00<00:00, 687.64it/s]Loading weights:  46%|████▌     | 405/888 [00:00<00:00, 683.06it/s]Loading weights:  54%|█████▎    | 476/888 [00:00<00:00, 680.57it/s]Loading weights:  61%|██████▏   | 546/888 [00:00<00:00, 667.88it/s]Loading weights:  70%|███████   | 624/888 [00:00<00:00, 699.51it/s]Loading weights:  79%|███████▊  | 699/888 [00:00<00:00, 712.29it/s]Loading weights:  87%|████████▋ | 771/888 [00:01<00:00, 669.99it/s]Loading weights:  94%|█████████▍| 839/888 [00:01<00:00, 588.14it/s]Loading weights: 100%|██████████| 888/888 [00:01<00:00, 700.91it/s]
+50/394 17.6s
+100/394 34.9s
+150/394 51.3s
+200/394 67.6s
+250/394 83.7s
+300/394 99.8s
+350/394 120.3s
+{"rows": 394, "manifest_sha256": "9b5741a94babdb58930eb34a255d0b909d14adf066da782cb420ed9da8047284", "factors": [2.0, 4.0], "gpu_uuid": "GPU-c977647c-baa1-4f69-87ba-1e384cfa6de3", "seconds": 137.4, "keys": ["dino_cls_f2", "dino_cls_f4", "dino_patch_f2", "dino_patch_f4", "siglip_f2", "siglip_f4"]}

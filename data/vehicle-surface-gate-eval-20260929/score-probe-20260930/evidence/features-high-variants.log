@@ -1,0 +1,13 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/439 [00:00<?, ?it/s]Loading weights:  29%|██▊       | 126/439 [00:00<00:00, 1259.56it/s]Loading weights:  57%|█████▋    | 252/439 [00:00<00:00, 1175.07it/s]Loading weights:  84%|████████▍ | 370/439 [00:00<00:00, 848.62it/s] Loading weights: 100%|██████████| 439/439 [00:00<00:00, 876.89it/s]
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49406. This may result in unexpected behavior.
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49407. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  17%|█▋        | 154/888 [00:00<00:00, 993.69it/s]Loading weights:  29%|██▊       | 254/888 [00:00<00:00, 909.58it/s]Loading weights:  39%|███▊      | 344/888 [00:00<00:00, 675.83it/s]Loading weights:  47%|████▋     | 415/888 [00:00<00:00, 662.41it/s]Loading weights:  54%|█████▍    | 483/888 [00:00<00:00, 543.58it/s]Loading weights:  61%|██████▏   | 545/888 [00:00<00:00, 562.08it/s]Loading weights:  68%|██████▊   | 604/888 [00:00<00:00, 563.96it/s]Loading weights:  75%|███████▍  | 663/888 [00:01<00:00, 566.71it/s]Loading weights:  81%|████████  | 721/888 [00:01<00:00, 565.54it/s]Loading weights:  88%|████████▊ | 783/888 [00:01<00:00, 580.72it/s]Loading weights:  95%|█████████▍| 842/888 [00:01<00:00, 577.36it/s]Loading weights: 100%|██████████| 888/888 [00:01<00:00, 605.75it/s]
+50/394 14.3s
+100/394 30.4s
+150/394 45.2s
+200/394 59.9s
+250/394 74.8s
+300/394 88.5s
+350/394 108.6s
+{"rows": 394, "manifest_sha256": "9b5741a94babdb58930eb34a255d0b909d14adf066da782cb420ed9da8047284", "factors": {"tight": [1.25, false], "ctxmask_f4": [4.0, true]}, "gpu_uuid": "GPU-c977647c-baa1-4f69-87ba-1e384cfa6de3", "seconds": 125.4, "keys": ["dino_cls_ctxmask_f4", "dino_cls_tight", "dino_patch_ctxmask_f4", "dino_patch_tight", "siglip_ctxmask_f4", "siglip_tight"]}
