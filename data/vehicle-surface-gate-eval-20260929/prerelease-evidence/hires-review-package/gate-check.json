@@ -1,0 +1,38 @@
+{
+  "schema": "vehicle_surface_gate_check_v1",
+  "label_source": "hires-review-package/annotations.csv",
+  "candidates": 91,
+  "label_counts": {
+    "屋顶设施": 26,
+    "真车": 50,
+    "看不清": 15
+  },
+  "labels_changed_from_lowres": 9,
+  "label_changes": {
+    "看不清->真车": 3,
+    "真车->看不清": 1,
+    "屋顶设施->看不清": 2,
+    "看不清->屋顶设施": 3
+  },
+  "gates": {
+    "roof_facility": {
+      "count": 26,
+      "threshold": 30,
+      "gap": 4
+    },
+    "real_vehicle_in_roof_or_unclear_pool": {
+      "count": 27,
+      "threshold": 30,
+      "gap": 3
+    }
+  },
+  "v3_in_scope_counts": {
+    "note": "只计四视图一致确认且支撑面为楼顶/未知的候选；其余候选 v3 部件规则不会运行",
+    "roof_facility": 16,
+    "real_vehicle_in_roof_or_unclear_pool": 18,
+    "supplement_in_scope": 2,
+    "supplement_total": 31
+  },
+  "gates_passed": false,
+  "v3_metrics": "withheld: quantity gates not met"
+}
