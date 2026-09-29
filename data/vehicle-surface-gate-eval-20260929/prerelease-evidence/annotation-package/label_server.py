@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import argparse
 import json
 import os
 import tempfile
@@ -92,8 +93,15 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def main() -> None:
-    server = ThreadingHTTPServer(("127.0.0.1", 8786), Handler)
-    print("标注页: http://127.0.0.1:8786/")
+    global ROOT, CSV_PATH
+    parser = argparse.ArgumentParser(description="启动本机标注页")
+    parser.add_argument("--root", type=Path, default=ROOT, help="标注包目录")
+    parser.add_argument("--port", type=int, default=8786, help="本机端口")
+    args = parser.parse_args()
+    ROOT = args.root.resolve()
+    CSV_PATH = ROOT / "annotations.csv"
+    server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
+    print(f"标注页: http://127.0.0.1:{args.port}/")
     print("数据文件:", CSV_PATH)
     try:
         server.serve_forever()

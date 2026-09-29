@@ -1,0 +1,31 @@
+{
+  "schema": "vehicle_surface_prerelease_supplement_v1",
+  "status": "awaiting_human_labels",
+  "selected": 31,
+  "selection_rule": "screen.jsonl building_roof candidates excluding current package and holdout candidate IDs",
+  "selection_counts": {
+    "rejected": 21,
+    "uncertain": 8,
+    "confirmed": 2
+  },
+  "labels_prefilled": 0,
+  "labels_allowed": [
+    "真车",
+    "屋顶设施",
+    "看不清"
+  ],
+  "current_counts": {
+    "屋顶设施": 16,
+    "真车": 38,
+    "看不清": 6
+  },
+  "current_gap": {
+    "roof_facility_to_30": 14,
+    "roof_or_unclear_to_30": 8
+  },
+  "excluded": {
+    "current_package_candidate_ids": 60,
+    "holdout_candidate_ids": 100,
+    "group_a_event_ids": 6
+  }
+}
