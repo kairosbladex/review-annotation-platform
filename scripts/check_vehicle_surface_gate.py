@@ -3,7 +3,8 @@
 
 门槛口径（f09df00）：
   1. 人工标为屋顶设施 >= 30；
-  2. 首批抽样层 facility_or_unclear_candidate 与补充包中人工标为真车 >= 30。
+  2. 首批抽样层 facility_or_unclear_candidate、补充包与新事件包中人工标为真车 >= 30。
+新事件包（09-24 快照之后）只收 v3 作用范围内的候选，未按部件结果分层，计入门槛 2。
 另外按 v3 实际作用范围（四视图一致确认 + 支撑面楼顶/未知）单独统计有效样本数。
 门槛未满足时不计算 v3 放过数、上界和找回率。
 """
@@ -31,10 +32,26 @@ def load_rows(evidence: Path) -> list[dict]:
             rows.append({
                 "candidate_id": sel["candidate_id"],
                 "package": package,
+                "event_id": sel["event_id"],
                 "stratum": sel.get("selection_stratum"),
                 "v3_in_scope": sel["binary_outcome"] == "confirmed" and sel["surface"] in ("building_roof", "unknown"),
                 "label": label["label"],
                 "lowres_label": label["lowres_label"],
+            })
+    new_events = evidence / "new-events-hires-package"
+    if new_events.is_dir():
+        with (new_events / "annotations.csv").open(encoding="utf-8-sig", newline="") as handle:
+            new_labels = {row["candidate_id"]: row for row in csv.DictReader(handle)}
+        for line in (new_events / "selected.jsonl").read_text(encoding="utf-8").splitlines():
+            sel = json.loads(line)
+            rows.append({
+                "candidate_id": sel["candidate_id"],
+                "package": "new-events-hires-package",
+                "event_id": sel["event_id"],
+                "stratum": None,
+                "v3_in_scope": sel["binary_outcome"] == "confirmed" and sel["surface"] in ("building_roof", "unknown"),
+                "label": new_labels[sel["candidate_id"]]["label"],
+                "lowres_label": None,
             })
     return rows
 
@@ -52,7 +69,8 @@ def main() -> None:
     def count(pred) -> int:
         return sum(1 for r in rows if pred(r))
 
-    real_pool = lambda r: r["package"] == "supplement-annotation-package" or r["stratum"] == "facility_or_unclear_candidate"
+    real_pool = lambda r: (r["package"] in ("supplement-annotation-package", "new-events-hires-package")
+                           or r["stratum"] == "facility_or_unclear_candidate")
     facility = count(lambda r: r["label"] == "屋顶设施")
     real = count(lambda r: r["label"] == "真车" and real_pool(r))
     facility_scope = count(lambda r: r["label"] == "屋顶设施" and r["v3_in_scope"])
@@ -60,12 +78,15 @@ def main() -> None:
     passed = facility >= THRESHOLD and real >= THRESHOLD
     result = {
         "schema": "vehicle_surface_gate_check_v1",
-        "label_source": "hires-review-package/annotations.csv",
+        "label_source": ["hires-review-package/annotations.csv", "new-events-hires-package/annotations.csv"],
         "candidates": len(rows),
         "label_counts": dict(collections.Counter(r["label"] for r in rows)),
-        "labels_changed_from_lowres": count(lambda r: r["label"] != r["lowres_label"]),
+        "label_counts_by_package": {pkg: dict(collections.Counter(r["label"] for r in rows if r["package"] == pkg))
+                                    for pkg in dict.fromkeys(r["package"] for r in rows)},
+        "labels_changed_from_lowres": count(lambda r: r["lowres_label"] is not None and r["label"] != r["lowres_label"]),
         "label_changes": {f"{a}->{b}": n for (a, b), n in collections.Counter(
-            (r["lowres_label"], r["label"]) for r in rows if r["label"] != r["lowres_label"]).items()},
+            (r["lowres_label"], r["label"]) for r in rows
+            if r["lowres_label"] is not None and r["label"] != r["lowres_label"]).items()},
         "gates": {
             "roof_facility": {"count": facility, "threshold": THRESHOLD, "gap": max(0, THRESHOLD - facility)},
             "real_vehicle_in_roof_or_unclear_pool": {"count": real, "threshold": THRESHOLD, "gap": max(0, THRESHOLD - real)},
@@ -76,6 +97,9 @@ def main() -> None:
             "real_vehicle_in_roof_or_unclear_pool": real_scope,
             "supplement_in_scope": count(lambda r: r["package"] == "supplement-annotation-package" and r["v3_in_scope"]),
             "supplement_total": count(lambda r: r["package"] == "supplement-annotation-package"),
+            "roof_facility_events": len({r["event_id"] for r in rows if r["label"] == "屋顶设施" and r["v3_in_scope"]}),
+            "real_vehicle_events": len({r["event_id"] for r in rows
+                                        if r["label"] == "真车" and real_pool(r) and r["v3_in_scope"]}),
         },
         "gates_passed": passed,
         "v3_metrics": "gates met; compute v3 metrics next" if passed else "withheld: quantity gates not met",

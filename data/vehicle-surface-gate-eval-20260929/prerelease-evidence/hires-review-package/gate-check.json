@@ -1,11 +1,29 @@
 {
   "schema": "vehicle_surface_gate_check_v1",
-  "label_source": "hires-review-package/annotations.csv",
-  "candidates": 91,
+  "label_source": [
+    "hires-review-package/annotations.csv",
+    "new-events-hires-package/annotations.csv"
+  ],
+  "candidates": 108,
   "label_counts": {
     "屋顶设施": 26,
-    "真车": 50,
+    "真车": 67,
     "看不清": 15
+  },
+  "label_counts_by_package": {
+    "annotation-package": {
+      "屋顶设施": 16,
+      "真车": 39,
+      "看不清": 5
+    },
+    "supplement-annotation-package": {
+      "看不清": 10,
+      "真车": 11,
+      "屋顶设施": 10
+    },
+    "new-events-hires-package": {
+      "真车": 17
+    }
   },
   "labels_changed_from_lowres": 9,
   "label_changes": {
@@ -21,17 +39,19 @@
       "gap": 4
     },
     "real_vehicle_in_roof_or_unclear_pool": {
-      "count": 27,
+      "count": 44,
       "threshold": 30,
-      "gap": 3
+      "gap": 0
     }
   },
   "v3_in_scope_counts": {
     "note": "只计四视图一致确认且支撑面为楼顶/未知的候选；其余候选 v3 部件规则不会运行",
     "roof_facility": 16,
-    "real_vehicle_in_roof_or_unclear_pool": 18,
+    "real_vehicle_in_roof_or_unclear_pool": 35,
     "supplement_in_scope": 2,
-    "supplement_total": 31
+    "supplement_total": 31,
+    "roof_facility_events": 16,
+    "real_vehicle_events": 22
   },
   "gates_passed": false,
   "v3_metrics": "withheld: quantity gates not met"
