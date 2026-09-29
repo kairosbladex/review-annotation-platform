@@ -40,16 +40,48 @@ def warp_high(src: np.ndarray, homography: list, low_w: int, low_h: int) -> tupl
     return cv2.warpPerspective(src, m, (low_w * k, low_h * k), flags=cv2.INTER_CUBIC), k
 
 
+def prepare_from_jobs(jobs_path: Path, work_root: Path, frames: Path, out: Path) -> dict:
+    """通用模式：jobs 里给出低清干净帧、低清截图、单应矩阵；高清帧取 extract 输出的对齐原帧。"""
+    events = {}
+    for job in read_jsonl(jobs_path):
+        event = job["event_id"]
+        low = cv2.imread(str(work_root / job["low_clean"]))
+        ann = cv2.imread(str(work_root / job["low_annotated"]))
+        src = cv2.imread(str(frames / f"{event}.jpg"))
+        if low is None or ann is None or src is None or ann.shape != low.shape:
+            raise SystemExit(f"输入缺失或尺寸不一致：{event}")
+        high, k = warp_high(src, job["homography"], low.shape[1], low.shape[0])
+        cv2.imwrite(str(out / "low_clean" / f"{event}.png"), low)
+        cv2.imwrite(str(out / "annotated" / f"{event}.png"), ann)
+        cv2.imwrite(str(out / "high_clean" / f"{event}.jpg"), high, [cv2.IMWRITE_JPEG_QUALITY, 97])
+        back = cv2.resize(high, (low.shape[1], low.shape[0]), interpolation=cv2.INTER_AREA)
+        events[event] = {"event_id": event, "low_size": [low.shape[1], low.shape[0]],
+                         "high_size": [high.shape[1], high.shape[0]], "scale": k,
+                         "low_origin": "recorded_low_res", "high_vs_low_ncc": round(gray_ncc(back, low), 5)}
+    return events
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--rows", type=Path, required=True)
+    parser.add_argument("--rows", type=Path)
+    parser.add_argument("--jobs", type=Path, help="通用模式：extract 用的 jobs.jsonl（含 low_clean/low_annotated）")
+    parser.add_argument("--work-root", type=Path)
+    parser.add_argument("--frames", type=Path, help="通用模式：extract 输出的 frames 目录")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
+    for arm in ("low_clean", "high_clean", "annotated"):
+        (args.out / arm).mkdir(parents=True, exist_ok=True)
+    if args.jobs:
+        events = prepare_from_jobs(args.jobs, args.work_root, args.frames, args.out)
+        (args.out / "inputs.jsonl").write_text("".join(json.dumps(v, ensure_ascii=False) + "\n" for v in events.values()),
+                                               encoding="utf-8")
+        scores = [v["high_vs_low_ncc"] for v in events.values()]
+        print(json.dumps({"events": len(events), "min_ncc": min(scores),
+                          "scales": sorted({str(v["scale"]) for v in events.values()})}, ensure_ascii=False))
+        return
     rows = read_jsonl(args.rows)
     old_jobs = {job["event_id"]: job for job in read_jsonl(OLD_HIRES / "jobs.jsonl")}
     new_jobs = {job["event_id"]: job for job in read_jsonl(NEW_ROOT / "package/jobs.jsonl")}
-    for arm in ("low_clean", "high_clean", "annotated"):
-        (args.out / arm).mkdir(parents=True, exist_ok=True)
 
     events = {}
     for row in rows:
