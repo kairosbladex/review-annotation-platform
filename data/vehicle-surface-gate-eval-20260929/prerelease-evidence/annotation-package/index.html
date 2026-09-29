@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>车辆支撑面补标</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+    body { margin: 0; background: #f5f6f8; color: #202124; }
+    header { padding: 20px 28px 14px; background: #fff; border-bottom: 1px solid #dfe1e5; position: sticky; top: 0; z-index: 2; }
+    h1 { margin: 0 0 6px; font-size: 22px; }
+    .meta { color: #5f6368; font-size: 14px; }
+    main { max-width: 1120px; margin: 0 auto; padding: 22px 20px 50px; }
+    .toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+    .toolbar button, .label-button { border: 1px solid #c7cbd1; background: #fff; border-radius: 7px; padding: 10px 16px; font-size: 16px; cursor: pointer; }
+    .toolbar button:hover, .label-button:hover { border-color: #3867d6; }
+    .toolbar button:disabled { opacity: .45; cursor: not-allowed; }
+    .count { margin-left: auto; font-size: 14px; color: #5f6368; }
+    .card { background: #fff; border: 1px solid #dfe1e5; border-radius: 8px; padding: 18px; }
+    .card-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; margin-bottom: 14px; }
+    .candidate { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; }
+    .images { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+    figure { margin: 0; }
+    figure img { display: block; width: 100%; max-height: 62vh; object-fit: contain; background: #eef0f2; border: 1px solid #e2e4e7; border-radius: 5px; image-rendering: auto; }
+    figure img[hidden] { display: none; }
+    figcaption { margin-top: 7px; color: #6b7075; font-size: 13px; }
+    .actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+    .label-button { min-height: 48px; font-weight: 600; }
+    .label-button.car { border-color: #2f6fed; color: #174ea6; }
+    .label-button.facility { border-color: #d69200; color: #8a5b00; }
+    .label-button.unclear { border-color: #7b61a8; color: #5d3f8f; }
+    .label-button.selected { box-shadow: 0 0 0 3px #20212422; background: #f1f3f4; }
+    .note { width: 100%; box-sizing: border-box; margin-top: 12px; padding: 10px; border: 1px solid #dfe1e5; border-radius: 5px; font: inherit; resize: vertical; }
+    .status { min-height: 22px; margin-top: 12px; color: #18794e; font-size: 14px; }
+    .error { color: #b3261e; }
+    @media (max-width: 720px) { .images { grid-template-columns: 1fr; } .count { margin-left: 0; width: 100%; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>车辆支撑面补标</h1>
+    <div class="meta">逐张查看裁图，选择：真车、屋顶设施或看不清。点击后自动保存。</div>
+  </header>
+  <main>
+    <div class="toolbar">
+      <button id="prev" type="button">上一张</button>
+      <button id="next" type="button">下一张</button>
+      <button id="unlabeled" type="button">跳到未标</button>
+      <span id="count" class="count"></span>
+    </div>
+    <section class="card">
+      <div class="card-head"><span id="candidate" class="candidate"></span><span id="source" class="meta"></span></div>
+      <div class="images">
+        <figure><img id="crop" alt="候选裁图"><figcaption>候选裁图（黄色框位置已包含在裁图中）</figcaption></figure>
+        <figure><img id="original" alt="服务器原图" hidden><figcaption id="original-caption">服务器原图路径只作为记录，当前页面使用本地裁图。</figcaption></figure>
+      </div>
+      <div class="actions">
+        <button class="label-button car" data-label="真车">真车</button>
+        <button class="label-button facility" data-label="屋顶设施">屋顶设施</button>
+        <button class="label-button unclear" data-label="看不清">看不清</button>
+      </div>
+      <textarea id="note" class="note" rows="2" placeholder="可选：补充判断原因"></textarea>
+      <div id="status" class="status"></div>
+    </section>
+  </main>
+  <script>
+    const state = { rows: [], index: 0 };
+    const $ = (id) => document.getElementById(id);
+    function labeledCount() { return state.rows.filter((row) => row.label).length; }
+    function render() {
+      const row = state.rows[state.index];
+      if (!row) { $('candidate').textContent = '没有待标样本'; return; }
+      $('candidate').textContent = `${state.index + 1} / ${state.rows.length}  ·  ${row.candidate_id}`;
+      $('source').textContent = `${row.event_id}  ·  原图 ${row.original_image_path}`;
+      $('crop').src = `/crops/${encodeURIComponent(row.crop_path.split('/').pop())}`;
+      $('original').hidden = true;
+      $('note').value = row.note || '';
+      $('count').textContent = `已标 ${labeledCount()} / ${state.rows.length}`;
+      document.querySelectorAll('[data-label]').forEach((button) => button.classList.toggle('selected', button.dataset.label === row.label));
+      $('prev').disabled = state.index === 0;
+      $('next').disabled = state.index >= state.rows.length - 1;
+      $('status').textContent = row.label ? `当前已保存：${row.label}` : '尚未标注';
+      $('status').className = 'status';
+    }
+    async function load() {
+      const response = await fetch('/api/rows');
+      const payload = await response.json();
+      state.rows = payload.rows;
+      const first = state.rows.findIndex((row) => !row.label);
+      state.index = first < 0 ? 0 : first;
+      render();
+    }
+    async function save(label) {
+      const row = state.rows[state.index];
+      if (!row) return;
+      const response = await fetch('/api/label', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({candidate_id: row.candidate_id, label, note: $('note').value}) });
+      const payload = await response.json();
+      if (!response.ok) { $('status').textContent = payload.error || '保存失败'; $('status').className = 'status error'; return; }
+      row.label = label; row.note = $('note').value;
+      $('status').textContent = `已保存：${label}`;
+      state.index = Math.min(state.index + 1, state.rows.length - 1);
+      render();
+    }
+    document.querySelectorAll('[data-label]').forEach((button) => button.addEventListener('click', () => save(button.dataset.label)));
+    $('prev').addEventListener('click', () => { state.index = Math.max(0, state.index - 1); render(); });
+    $('next').addEventListener('click', () => { state.index = Math.min(state.rows.length - 1, state.index + 1); render(); });
+    $('unlabeled').addEventListener('click', () => { const next = state.rows.findIndex((row) => !row.label); if (next >= 0) { state.index = next; render(); } });
+    document.addEventListener('keydown', (event) => { if (event.target.matches('textarea')) return; if (event.key === '1') save('真车'); if (event.key === '2') save('屋顶设施'); if (event.key === '3') save('看不清'); if (event.key === 'ArrowLeft') $('prev').click(); if (event.key === 'ArrowRight') $('next').click(); });
+    load().catch((error) => { $('status').textContent = `加载失败：${error}`; $('status').className = 'status error'; });
+  </script>
+</body>
+</html>
