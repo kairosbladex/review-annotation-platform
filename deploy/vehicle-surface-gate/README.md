@@ -7,7 +7,7 @@
 - 输入基线：`docs/vehicle-surface-prerelease-evidence` 的 `c108aeb`；人工标签来自 `data/vehicle-surface-gate-eval-20260929/prerelease-evidence/annotation-package/annotations.csv`。
 - 首批校验：60/60 行均已填写，且只使用 `真车`、`屋顶设施`、`看不清`。
 - 首批数量：真车 38、屋顶设施 16、看不清 6。
-- 门槛缺口：屋顶设施距离 30 个还缺 14 个；屋顶设施与看不清合计 22 个，距离 30 个还缺 8 个真车样本。
+- 门槛缺口：屋顶设施距离 30 个还缺 14 个；首批抽样层“屋顶/看不清候选”中的真车为 14 个，距离 30 个还缺 16 个。
 - 因门槛未满足，本轮没有计算 v3 的屋顶设施放过数、单侧 95% 上界、看不清误确认数或真车找回率，也没有与 holdout 合并调参。
 
 已按规则从同一 `screen.jsonl` 的其余 `building_roof` 候选中生成补充包：
