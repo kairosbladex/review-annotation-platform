@@ -1,0 +1,116 @@
+{
+  "schema": "vehicle_surface_prerelease_evidence_v1",
+  "holdout": {
+    "scope": {
+      "real_vehicle_and_unclear": "holdout only; reported without rule design",
+      "roof_facility": "holdout 6 plus group A 4",
+      "holdout_not_used_for_rule_search": true
+    },
+    "categories": {
+      "真车": {
+        "count": 68,
+        "combination_counts": {
+          "not_run": 8,
+          "not_visible/not_visible/not_visible": 15,
+          "not_visible/not_visible/visible": 37,
+          "not_visible/visible/visible": 8
+        },
+        "parts_not_run": 8,
+        "parts_parse_failures": 0,
+        "parse_failures_any_stage": 0,
+        "runtime_exceptions_any_stage": 0,
+        "unexpected_errors": 0,
+        "confirmed": 8
+      },
+      "屋顶设施": {
+        "count": 10,
+        "combination_counts": {
+          "not_run": 3,
+          "not_visible/not_visible/not_visible": 3,
+          "not_visible/not_visible/visible": 4
+        },
+        "parts_not_run": 3,
+        "parts_parse_failures": 0,
+        "parse_failures_any_stage": 0,
+        "runtime_exceptions_any_stage": 0,
+        "unexpected_errors": 0,
+        "confirmed": 0
+      },
+      "看不清": {
+        "count": 26,
+        "combination_counts": {
+          "not_run": 15,
+          "not_visible/not_visible/not_visible": 6,
+          "not_visible/not_visible/visible": 5
+        },
+        "parts_not_run": 15,
+        "parts_parse_failures": 0,
+        "parse_failures_any_stage": 0,
+        "runtime_exceptions_any_stage": 0,
+        "unexpected_errors": 0,
+        "confirmed": 0
+      }
+    },
+    "missed_real_vehicle": {
+      "count": 60,
+      "blocked_by": {
+        "body_outline_only": 37,
+        "four_view_consensus_not_confirmed": 8,
+        "no_visible_vehicle_part": 15
+      }
+    }
+  },
+  "bc_exploration": {
+    "status": "exploratory; requires acceptance on new samples",
+    "bc_rows": 205,
+    "bc_roof_or_unknown_after_four_view_consensus": 0,
+    "bc_labeled_true_branch_rows": 0,
+    "variants": {
+      "v3": {
+        "bc_branch_true_vehicles_recovered": 0,
+        "bc_branch_true_vehicle_denominator": 0,
+        "c_known_false_parts_matching": 0,
+        "c_known_false_parts_denominator": 7
+      },
+      "any_two": {
+        "bc_branch_true_vehicles_recovered": 0,
+        "bc_branch_true_vehicle_denominator": 0,
+        "c_known_false_parts_matching": 0,
+        "c_known_false_parts_denominator": 7
+      },
+      "body_only": {
+        "bc_branch_true_vehicles_recovered": 0,
+        "bc_branch_true_vehicle_denominator": 0,
+        "c_known_false_parts_matching": 2,
+        "c_known_false_parts_denominator": 7
+      }
+    },
+    "conclusion": "B/C contain no labeled real vehicle that reached the building_roof/unknown branch, so no rule variant has measurable additional recovery. Body-outline-only matches two known-false C part outputs and is not a safe candidate."
+  },
+  "traffic": {
+    "observed_snapshot": {
+      "vehicle_boxes": 4343,
+      "clear_source_eligible_boxes": 2882,
+      "clear_source_eligible_share": 0.6635965922173612,
+      "surface_screened_boxes": 513,
+      "surface_roof_or_unknown_before_consensus": 100,
+      "roof_or_unknown_after_four_view_consensus": 74,
+      "v3_confirmed_from_branch": 8
+    },
+    "per_1000_clear_source_eligible_vehicle_boxes": {
+      "roof_or_unknown_branch": 144.24951267056528,
+      "manual_reviews_avoided": 15.594541910331383,
+      "additional_inference_seconds": 375.04873294346976
+    },
+    "per_1000_all_vehicle_boxes": {
+      "roof_or_unknown_branch": 95.72348503720221,
+      "manual_reviews_avoided": 10.348484868886725,
+      "additional_inference_seconds": 248.88106109672574
+    },
+    "limitations": [
+      "The 513 surface-screened boxes are a deterministic event round-robin prefix stopped at 100 hits, not a random production sample.",
+      "The clear-source eligibility share is from the 2026-09-24 real-event snapshot; live traffic mix may differ.",
+      "Manual-review reduction uses the same 100 selected branch candidates later labeled as holdout; it is an estimate, not live acceptance."
+    ]
+  }
+}

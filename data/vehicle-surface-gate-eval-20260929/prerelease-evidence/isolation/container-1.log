@@ -1,0 +1,229 @@
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights:   0%|          | 1/750 [00:00<02:57,  4.22it/s]Loading weights:   0%|          | 2/750 [00:00<03:14,  3.85it/s]Loading weights:   1%|          | 6/750 [00:00<01:02, 11.95it/s]Loading weights:   3%|▎         | 21/750 [00:00<00:16, 45.49it/s]Loading weights:   5%|▍         | 34/750 [00:00<00:10, 66.97it/s]Loading weights:   6%|▌         | 45/750 [00:00<00:09, 78.19it/s]Loading weights:   8%|▊         | 57/750 [00:01<00:07, 89.43it/s]Loading weights:   9%|▉         | 70/750 [00:01<00:07, 96.52it/s]Loading weights:  11%|█         | 82/750 [00:01<00:06, 98.81it/s]Loading weights:  13%|█▎        | 94/750 [00:01<00:06, 100.94it/s]Loading weights:  15%|█▍        | 111/750 [00:01<00:05, 117.92it/s]Loading weights:  17%|█▋        | 125/750 [00:01<00:05, 119.10it/s]Loading weights:  18%|█▊        | 138/750 [00:01<00:05, 111.11it/s]Loading weights:  20%|██        | 153/750 [00:01<00:05, 118.45it/s]Loading weights:  22%|██▏       | 166/750 [00:01<00:04, 121.20it/s]Loading weights:  24%|██▍       | 180/750 [00:02<00:04, 120.63it/s]Loading weights:  26%|██▌       | 193/750 [00:02<00:05, 110.93it/s]Loading weights:  28%|██▊       | 209/750 [00:02<00:04, 123.67it/s]Loading weights:  30%|██▉       | 224/750 [00:02<00:04, 123.34it/s]Loading weights:  32%|███▏      | 237/750 [00:02<00:04, 115.80it/s]Loading weights:  34%|███▍      | 254/750 [00:02<00:03, 127.81it/s]Loading weights:  36%|███▌      | 268/750 [00:02<00:03, 126.83it/s]Loading weights:  37%|███▋      | 281/750 [00:02<00:04, 116.56it/s]Loading weights:  40%|███▉      | 298/750 [00:03<00:03, 128.53it/s]Loading weights:  42%|████▏     | 312/750 [00:03<00:03, 128.37it/s]Loading weights:  43%|████▎     | 326/750 [00:03<00:03, 121.19it/s]Loading weights:  46%|████▌     | 342/750 [00:03<00:03, 129.35it/s]Loading weights:  47%|████▋     | 356/750 [00:03<00:03, 130.78it/s]Loading weights:  49%|████▉     | 370/750 [00:03<00:03, 101.14it/s]Loading weights:  51%|█████     | 384/750 [00:03<00:03, 106.99it/s]Loading weights:  53%|█████▎    | 396/750 [00:03<00:03, 108.09it/s]Loading weights:  65%|██████▌   | 491/750 [00:04<00:00, 320.27it/s]Loading weights:  83%|████████▎ | 623/750 [00:04<00:00, 583.25it/s]Loading weights:  92%|█████████▏| 688/750 [00:04<00:00, 552.94it/s]Loading weights: 100%|█████████▉| 748/750 [00:04<00:00, 469.12it/s]Loading weights: 100%|██████████| 750/750 [00:04<00:00, 169.17it/s]
+41/1286 738a692ce92c474381c08e1fc6215f19:002 surface=building_roof binary=rejected stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+42/1286 f8efcd6168614adca9c939dfd0673387:003 surface=building_roof binary=confirmed stratum=body_only_ambiguous_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+46/1286 7b7e5a94c61e44399a49f30bdc9c8e9a:004 surface=building_roof binary=confirmed stratum=body_only_ambiguous_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+47/1286 8225b48574674d8eae7632c581aa239b:010 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+48/1286 ae38c607ea2545dea9e399e67fef18f7:003 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+49/1286 f357be64aa62461ba8a049efe28969ee:010 surface=building_roof binary=confirmed stratum=facility_or_unclear_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+50/1286 29ba2174de9143cabf218f7a17e6a00f:004 surface=building_roof binary=rejected stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+51/1286 f8ee49f9a23b40ae82937bc0235319c9:001 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+53/1286 19513ff167ca48db91c9ad604ff41e55:004 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+54/1286 a9cd7f483f6b41fe9d63cd53b6455314:005 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+55/1286 ceb320d55bbe4a71af7292aab31aa95c:003 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+56/1286 872529aad96e4330b83db65dc8a90a4e:011 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+57/1286 eec44512105b46a2ab48ebe98eed1589:007 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+59/1286 782aded0ef8344608a6b9a331b89b819:004 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+62/1286 8868bb9375194376a22bbd3b1c8e8ae0:006 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+63/1286 1ff2d9981126461291881a5b638b3ab8:019 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+66/1286 710af93e1e3b4c7798d29ee656391101:005 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+69/1286 0b97d6eeb7d34027811edf81bd63ca99:002 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+71/1286 fc4efb887a794efbacd57c0b2a1981e7:005 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+73/1286 4f63543e5bae47728ed68f9de1fd9539:002 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+75/1286 b7710baf65474271bf12925ae3f6b034:015 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+77/1286 dad1a08978b047dbb36f20a8665a3ca8:004 surface=building_roof binary=confirmed stratum=facility_or_unclear_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+78/1286 a4a0e9bcd8ba490284cc9d7ba51418ab:015 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+79/1286 842383d4f73e43febc83689f8e9392a3:010 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+80/1286 72aa876839cf4001989ac1377c7b4871:006 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+81/1286 11aaed33769241c88303c4f0b6c458a4:006 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+83/1286 4f582c0c2ac740cda31a7a40be9b9a82:004 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+85/1286 e56b680d147343e99eff68ff39209ffd:002 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+86/1286 d2cf0171bec148719afc96251c5e4030:006 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+87/1286 f35d6b119cf4431496bc8af60c485c98:010 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+88/1286 7c521f5d9d15469dbb3d83ce4491c521:005 surface=building_roof binary=confirmed stratum=facility_or_unclear_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+89/1286 651e2c020de8420782128828702a2ea9:008 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+90/1286 b08bce95a2c24490a0bab6915c385a2a:005 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+91/1286 f1333b84946740649a65abc730b7c094:002 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+92/1286 08b36d086c4648ee97f28ad7bd49e328:005 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+93/1286 01a7d369f5df408682b8eaa88c59ae03:010 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+95/1286 00668af1b48b49349a105a4b71611213:004 surface=ground binary=not_run stratum=None
+97/1286 6bacd6e8c685468a94a85a6f999d7b66:016 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+98/1286 3e368a840db140b7bcb20a07fcc9df89:003 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+99/1286 7f4cf1aacc274ed680f10843c5b94a44:005 surface=building_roof binary=confirmed stratum=facility_or_unclear_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+100/1286 3b88253a7ad34074b378ea029e1025ce:017 surface=building_roof binary=confirmed stratum=body_only_ambiguous_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+101/1286 9c44f4996f9a40f79ad44cd79f121433:018 surface=building_roof binary=confirmed stratum=body_only_ambiguous_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+102/1286 0c827f646cdc401b87f95a90f8006449:018 surface=building_roof binary=confirmed stratum=body_only_ambiguous_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+103/1286 759f69db6c054025bdff2b84fddeb5a0:018 surface=building_roof binary=confirmed stratum=body_only_ambiguous_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+104/1286 fd0479f3c75b4e12807d5c58213af776:011 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+105/1286 fab0db36aeb444d2ac291d2ae84959e3:003 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+106/1286 4bce9c07d4a748f1a2bcbd7545233c92:004 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+107/1286 53e37760721a4741838d94a2756b645f:004 surface=ground binary=not_run stratum=None
+108/1286 125769a7556e4ceba228f961923e56ff:005 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+109/1286 fec4b65f8269497f85bf5716cffa5a6d:001 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+111/1286 b68d7ad32faa4df6b601fdcc560104ae:004 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+113/1286 f24adba80cd64f79a85653bf3145b435:013 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+114/1286 8feb998e8e194fb2bccb31ae06b79452:004 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+115/1286 ed6ba6437fdd44b8a1af1429dfc553e6:006 surface=ground binary=not_run stratum=None
+117/1286 77ee903889cc495c87152157ffad3eb1:002 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+119/1286 3e4bcf56a5fc4a889a60e7911fc93326:006 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+120/1286 336f8ed8d20f41d5b3d6ec392bbd8d85:003 surface=ground binary=not_run stratum=None
+121/1286 e69acd6b46474afebbf37d0a3f999c89:002 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+122/1286 fbeaa2a9dc8045d9b8d6e10b54178c78:004 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+124/1286 8c6403a541ae4a218a1300f45baa79c9:010 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+126/1286 7c16d494422849e596c8d699676e621a:005 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+129/1286 e3ba860ba39e4b40bc6976880eee613b:006 surface=ground binary=not_run stratum=None
+138/1286 4bbfe1788b4245229ccc5fc0543a08ce:003 surface=ground binary=not_run stratum=None
+139/1286 60dc37364c34420cbc3af629e066b9de:003 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+145/1286 e3b1630d80f648b995c20ab25c3ba087:004 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+146/1286 5289109e552a404b918d0b4c243c8dd1:003 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+148/1286 6cd35df5547941e79d0bb61f219e26b1:003 surface=ground binary=not_run stratum=None
+153/1286 969829ff57a64255acc4e48a71c692e2:002 surface=ground binary=not_run stratum=None
+165/1286 47ce05cfa551435a8946aa574fe65090:002 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+169/1286 cab48fa525c84882b870278d74da6665:004 surface=ground binary=not_run stratum=None
+173/1286 fbf737d227e047018d51a80276851c91:001 surface=ground binary=not_run stratum=None
+178/1286 b5ee8de76607444ab0119e0e47faf364:005 surface=ground binary=not_run stratum=None
+180/1286 cd42c2a4c97d478e84a2b061899c9f98:001 surface=ground binary=not_run stratum=None
+189/1286 0d429d612f6e4a3499719722cc2c6133:004 surface=ground binary=not_run stratum=None
+193/1286 1ec0be2aaba04063923927800e2de4e2:002 surface=ground binary=not_run stratum=None
+194/1286 9ff405cac93d4703a113d381af44112e:002 surface=ground binary=not_run stratum=None
+195/1286 795dc2005b4545688081278388f741e5:002 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+202/1286 155f1d0fb5d04247a183de44dde09dbc:003 surface=building_roof binary=confirmed stratum=body_only_ambiguous_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+205/1286 9934f9485dd840ed8b8a878117cc264e:003 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+208/1286 80d244bd5c7243f884081df5ae768702:003 surface=building_roof binary=confirmed stratum=body_only_ambiguous_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+210/1286 a8f2626d28c6499e9ef6f1c1bfa1e2f9:002 surface=building_roof binary=confirmed stratum=facility_or_unclear_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+211/1286 0ff1eadfd37d4144870b0f452a8e22b7:016 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+212/1286 0817018399294bc094e222207daf4f4b:003 surface=building_roof binary=confirmed stratum=facility_or_unclear_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+213/1286 050c0225148447599f271d45797e1b41:010 surface=building_roof binary=confirmed stratum=body_only_ambiguous_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+215/1286 9e965212671f4c7c9a589c3209e91941:004 surface=building_roof binary=confirmed stratum=facility_or_unclear_candidate
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(
+216/1286 58a7ebf8a4f54f698031091a32eba7e3:004 surface=ground binary=not_run stratum=None
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/backends/cuda/ops.py:957: UserWarning: inner dimension (4304) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+  warn(

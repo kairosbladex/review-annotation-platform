@@ -1,0 +1,29 @@
+{
+  "schema": "vehicle_surface_supplement_isolation_v1",
+  "candidate_image": "yoloe_service_test:vehicle-surface-v3-20260929-v1",
+  "gpu_uuid": "GPU-c977647c-baa1-4f69-87ba-1e384cfa6de3",
+  "gpu_name": "NVIDIA L20",
+  "shared_service_gpu_forbidden": "GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7",
+  "screening_containers": [
+    "3515addbf3e06fa24011d74ebdcf555f606569dcb090f41ed564a2f9fdd1238d",
+    "4c09b5c2296ef1fd09cdae6108ad4fe9c7c8aae55d3eae52de6e2ff41732ab6c"
+  ],
+  "network_mode": "none",
+  "database_enabled": false,
+  "worker_enabled": false,
+  "ollama_enabled": false,
+  "mqtt_config_cleared": true,
+  "minio_config_cleared": true,
+  "writable_mounts": [
+    "/out"
+  ],
+  "shared_service_unchanged": true,
+  "shared_service_id": "5a67385603153f173ce4daf7744cb669636940dd92da0c428d43de334c7161d9",
+  "shared_service_image": "yoloe_service_test:zhimou-callback-20260928-fb25741",
+  "shared_service_started_at": "2026-09-28T01:34:20.095780337Z",
+  "shared_gpu_memory_before_mib": 10578,
+  "shared_gpu_memory_during_mib": 10578,
+  "shared_gpu_memory_after_mib": 10578,
+  "temporary_containers_removed": true,
+  "original_paths_and_sha256_verified": 60
+}
