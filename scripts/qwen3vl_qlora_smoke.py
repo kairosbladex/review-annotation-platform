@@ -141,14 +141,51 @@ class SingleSampleCollator:
 
 
 def _configure_processor(processor: Any, min_pixels: int, max_pixels: int) -> None:
+    """Apply and verify the pixel budget across dict and SizeDict processors."""
     image_processor = processor.image_processor
+    size = getattr(image_processor, "size", None)
+    configured_min = False
+    configured_max = False
+
     if hasattr(image_processor, "min_pixels"):
         image_processor.min_pixels = min_pixels
+        configured_min = True
     if hasattr(image_processor, "max_pixels"):
         image_processor.max_pixels = max_pixels
-    if isinstance(getattr(image_processor, "size", None), dict):
-        image_processor.size["shortest_edge"] = min_pixels
-        image_processor.size["longest_edge"] = max_pixels
+        configured_max = True
+
+    if size is not None:
+        if hasattr(size, "shortest_edge"):
+            size.shortest_edge = min_pixels
+            configured_min = True
+        elif hasattr(size, "__setitem__"):
+            size["shortest_edge"] = min_pixels
+            configured_min = True
+        if hasattr(size, "longest_edge"):
+            size.longest_edge = max_pixels
+            configured_max = True
+        elif hasattr(size, "__setitem__"):
+            size["longest_edge"] = max_pixels
+            configured_max = True
+
+    observed_min = getattr(image_processor, "min_pixels", None)
+    observed_max = getattr(image_processor, "max_pixels", None)
+    if observed_min is None and size is not None:
+        observed_min = getattr(size, "shortest_edge", None)
+        if observed_min is None and hasattr(size, "get"):
+            observed_min = size.get("shortest_edge")
+    if observed_max is None and size is not None:
+        observed_max = getattr(size, "longest_edge", None)
+        if observed_max is None and hasattr(size, "get"):
+            observed_max = size.get("longest_edge")
+
+    if not configured_min or not configured_max:
+        raise RuntimeError("image processor exposes no supported pixel-budget fields")
+    if observed_min != min_pixels or observed_max != max_pixels:
+        raise RuntimeError(
+            "image processor pixel budget differs after configuration: "
+            f"min={observed_min!r}, max={observed_max!r}"
+        )
 
 
 def main() -> int:

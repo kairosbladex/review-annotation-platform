@@ -1,0 +1,501 @@
+{
+  "capturedAt": "2026-09-26T20:38:11.748066+08:00",
+  "scope": "Previously frozen 358-event test cohort, not all events in the test database",
+  "readOnly": true,
+  "eventCount": 358,
+  "taskCount": 78,
+  "attachmentSnapshotCount": 1581,
+  "sourceTargetRelationCount": 453,
+  "eventGroups": {
+    "same_primary_and_shot_no_direct_relation": 301,
+    "direct_shot_relation": 40,
+    "different_primary_no_direct_relation": 8,
+    "no_shot": 9
+  },
+  "additionalOriginalLineageEvents": 8,
+  "additionalOriginalObjectCount": 2,
+  "additionalOriginalPixels": [
+    [
+      4032,
+      3024
+    ]
+  ],
+  "newFullyValidatedRecheckPairs": 0,
+  "targetedMinioAttachmentChecks": 30,
+  "targetedMinioUniqueKeys": 21,
+  "targetedMinioStatuses": {
+    "s3_error": 12,
+    "exists": 18
+  },
+  "taskMediaChecked": 188,
+  "taskMediaStatuses": {
+    "exists": 176,
+    "s3_error": 12
+  },
+  "taskCameraPhotosWithResolutionMetadata": 126,
+  "taskCameraPhotoDeclaredResolutions": {
+    "4032x3024": 80,
+    "1280x1024": 23,
+    "640x512": 14,
+    "3840x2160": 8,
+    "14400x7200": 1
+  },
+  "taskVideoObjects": 36,
+  "eventsWithSameTaskPhotos": 54,
+  "eventsWithSameTaskVideo": 161,
+  "eventsWithEitherSameTaskMedia": 173,
+  "sameTaskMediaIsNotExactFrameMapping": true,
+  "annexEventRelationCount": 0,
+  "taskFilePathRows": 0,
+  "upstreamArchiveRows": 0,
+  "samePathAliasesAcrossDatabase": 784,
+  "extraAliasRelationCount": 0,
+  "nonemptyCallbackParams": 0,
+  "videoProbe": [
+    {
+      "taskId": "1aca50ed2df945bcb56f610e179f0ba7",
+      "annexId": "e8d21bc9a0f145fb9067648f14a84628",
+      "objectKey": "ktdTest/AF5AFA566B175B72867FD565F9E5436B/20260907/468912848584843520/DJI_20260907135838_0010_T.MP4",
+      "size": 16385572,
+      "status": "probed",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "hevc",
+            "codec_type": "video",
+            "width": 1280,
+            "height": 1024,
+            "r_frame_rate": "30/1",
+            "duration": "15.200000"
+          },
+          {
+            "codec_type": "data",
+            "r_frame_rate": "0/0",
+            "duration": "15.200000"
+          },
+          {
+            "codec_name": "mov_text",
+            "codec_type": "subtitle",
+            "r_frame_rate": "0/0",
+            "duration": "15.200000"
+          },
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 960,
+            "height": 768,
+            "r_frame_rate": "90000/1",
+            "duration": "15.200000"
+          }
+        ],
+        "format": {
+          "duration": "15.200000",
+          "tags": {
+            "creation_time": "2026-09-07T05:58:38.000000Z"
+          }
+        }
+      }
+    },
+    {
+      "taskId": "199c277c129141538e86ea48d3f7f6ca",
+      "annexId": "3889de1c0e06478a8e8adfe2c9f1d854",
+      "objectKey": "ktdTest/7CTXN5900B0ADT/20260908/468937486281220352/DJI_202609081546_004_468937486281220352/DJI_20260908160636_0006_V.mp4",
+      "size": 60225864,
+      "status": "probed",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 3840,
+            "height": 2160,
+            "r_frame_rate": "30000/1001",
+            "duration": "5.338667"
+          },
+          {
+            "codec_type": "data",
+            "r_frame_rate": "0/0",
+            "duration": "5.338667"
+          },
+          {
+            "codec_type": "data",
+            "r_frame_rate": "0/0",
+            "duration": "5.338667"
+          },
+          {
+            "codec_name": "mov_text",
+            "codec_type": "subtitle",
+            "r_frame_rate": "0/0",
+            "duration": "5.338667"
+          },
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 960,
+            "height": 540,
+            "r_frame_rate": "90000/1",
+            "duration": "5.338667"
+          }
+        ],
+        "format": {
+          "duration": "5.338667",
+          "tags": {
+            "creation_time": "2026-09-08T08:06:37.000000Z"
+          }
+        }
+      }
+    },
+    {
+      "taskId": "1aca50ed2df945bcb56f610e179f0ba7",
+      "annexId": "4c31591ca450420f92fd62418e82dd5f",
+      "objectKey": "ktdTest/AF5AFA566B175B72867FD565F9E5436B/20260907/468912848584843520/DJI_20260907135838_0010_W.MP4",
+      "size": 82992193,
+      "status": "probed",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "hevc",
+            "codec_type": "video",
+            "width": 3840,
+            "height": 2160,
+            "r_frame_rate": "30000/1001",
+            "duration": "15.181833"
+          },
+          {
+            "codec_type": "data",
+            "r_frame_rate": "0/0",
+            "duration": "15.181833"
+          },
+          {
+            "codec_type": "data",
+            "r_frame_rate": "0/0",
+            "duration": "15.181833"
+          },
+          {
+            "codec_name": "mov_text",
+            "codec_type": "subtitle",
+            "r_frame_rate": "0/0",
+            "duration": "15.181833"
+          },
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 960,
+            "height": 540,
+            "r_frame_rate": "90000/1",
+            "duration": "15.181833"
+          }
+        ],
+        "format": {
+          "duration": "15.181833",
+          "tags": {
+            "creation_time": "2026-09-07T05:58:38.000000Z"
+          }
+        }
+      }
+    },
+    {
+      "taskId": "5535fb8c26e849afb8b74a925b660ff6",
+      "annexId": "0bebe79c031a40cca9ab96d74d09ce24",
+      "objectKey": "ktdTest/AF5AFA566B175B72867FD565F9E5436B/20260910/468981088360603904/468981088360603904.mp4",
+      "size": 113204950,
+      "status": "probed",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "duration": "235.971333"
+          }
+        ],
+        "format": {
+          "duration": "235.971333",
+          "tags": {}
+        }
+      },
+      "sampleFrameSaved": true
+    }
+  ],
+  "videoRecoveryExperiment": {
+    "eventId": "062d97ceb7464760b4bdac8780a73867",
+    "taskId": "5535fb8c26e849afb8b74a925b660ff6",
+    "videoAnnexId": "0bebe79c031a40cca9ab96d74d09ce24",
+    "videoSize": [
+      1920,
+      1080
+    ],
+    "shotSize": [
+      960,
+      720
+    ],
+    "durationSeconds": 235.97133333333335,
+    "bestCandidate": {
+      "seconds": 140.5,
+      "matches": 284,
+      "inliers": 247,
+      "medianErrorPxAt960Width": 1.008559226989746,
+      "homographyShotToVideoResized960x720": [
+        [
+          1.000676988178191,
+          0.0019284817840913224,
+          -1.2709973181931737
+        ],
+        [
+          0.001367212549685228,
+          1.005453645548892,
+          11.572355561612166
+        ],
+        [
+          -4.3896901989553607e-07,
+          5.622519138481062e-06,
+          1.0
+        ]
+      ]
+    },
+    "topCandidates": [
+      {
+        "seconds": 140.5,
+        "matches": 284,
+        "inliers": 247,
+        "medianErrorPxAt960Width": 1.008559226989746,
+        "homographyShotToVideoResized960x720": [
+          [
+            1.000676988178191,
+            0.0019284817840913224,
+            -1.2709973181931737
+          ],
+          [
+            0.001367212549685228,
+            1.005453645548892,
+            11.572355561612166
+          ],
+          [
+            -4.3896901989553607e-07,
+            5.622519138481062e-06,
+            1.0
+          ]
+        ]
+      },
+      {
+        "seconds": 140.25,
+        "matches": 273,
+        "inliers": 234,
+        "medianErrorPxAt960Width": 1.0703946352005005,
+        "homographyShotToVideoResized960x720": [
+          [
+            1.0015840210328533,
+            -0.0003875109918799142,
+            -0.5911270318532981
+          ],
+          [
+            -0.002293763869200371,
+            0.9939530587060239,
+            -15.38814037148398
+          ],
+          [
+            1.9579948737250895e-06,
+            -2.7292740563551213e-06,
+            0.9999999999999999
+          ]
+        ]
+      },
+      {
+        "seconds": 140,
+        "matches": 244,
+        "inliers": 156,
+        "medianErrorPxAt960Width": 1.2492693662643433,
+        "homographyShotToVideoResized960x720": [
+          [
+            1.00487652505803,
+            -0.000147170635829926,
+            -0.704628062136837
+          ],
+          [
+            -0.007447938072394509,
+            0.9883026645062237,
+            -29.670956204844675
+          ],
+          [
+            5.504428189122729e-06,
+            -1.5239881289795964e-06,
+            1.0
+          ]
+        ]
+      },
+      {
+        "seconds": 140.0,
+        "matches": 244,
+        "inliers": 156,
+        "medianErrorPxAt960Width": 1.2492693662643433,
+        "homographyShotToVideoResized960x720": [
+          [
+            1.00487652505803,
+            -0.000147170635829926,
+            -0.704628062136837
+          ],
+          [
+            -0.007447938072394509,
+            0.9883026645062237,
+            -29.670956204844675
+          ],
+          [
+            5.504428189122729e-06,
+            -1.5239881289795964e-06,
+            1.0
+          ]
+        ]
+      },
+      {
+        "seconds": 138.5,
+        "matches": 211,
+        "inliers": 127,
+        "medianErrorPxAt960Width": 1.325618028640747,
+        "homographyShotToVideoResized960x720": [
+          [
+            0.9861849203195854,
+            -0.006885543545441084,
+            8.336798224839157
+          ],
+          [
+            -0.01193088706406707,
+            0.9687446832864196,
+            -33.79492875454808
+          ],
+          [
+            -3.6765849468671897e-06,
+            -2.3635067580629484e-05,
+            1.0
+          ]
+        ]
+      },
+      {
+        "seconds": 139.75,
+        "matches": 209,
+        "inliers": 127,
+        "medianErrorPxAt960Width": 1.2892663478851318,
+        "homographyShotToVideoResized960x720": [
+          [
+            0.995701596744476,
+            -0.005116372993890672,
+            2.1884949939065454
+          ],
+          [
+            -0.009476940825423087,
+            0.9780233269239065,
+            -38.31016618146131
+          ],
+          [
+            -6.472466647852267e-08,
+            -1.700945668967509e-05,
+            1.0
+          ]
+        ]
+      },
+      {
+        "seconds": 139.5,
+        "matches": 205,
+        "inliers": 124,
+        "medianErrorPxAt960Width": 1.2317225933074951,
+        "homographyShotToVideoResized960x720": [
+          [
+            1.0014938309586154,
+            -0.006184123307843764,
+            1.6776687835865183
+          ],
+          [
+            -0.007174271173632808,
+            0.9740533061319646,
+            -38.60177991157553
+          ],
+          [
+            9.429657766778884e-06,
+            -2.5459116672291197e-05,
+            1.0
+          ]
+        ]
+      },
+      {
+        "seconds": 138.75,
+        "matches": 185,
+        "inliers": 115,
+        "medianErrorPxAt960Width": 1.5329852104187012,
+        "homographyShotToVideoResized960x720": [
+          [
+            0.9970106148359125,
+            -0.00529713543386576,
+            4.5516955352572355
+          ],
+          [
+            -0.007506002727044912,
+            0.9785298916602264,
+            -37.90483462761239
+          ],
+          [
+            4.701736409304532e-06,
+            -2.0105425501528656e-05,
+            1.0
+          ]
+        ]
+      },
+      {
+        "seconds": 139.0,
+        "matches": 201,
+        "inliers": 115,
+        "medianErrorPxAt960Width": 1.4934288263320923,
+        "homographyShotToVideoResized960x720": [
+          [
+            1.000932360596862,
+            -0.011015713695112162,
+            3.2511459565287106
+          ],
+          [
+            -0.005739444808264392,
+            0.9681474537500526,
+            -38.25515430248163
+          ],
+          [
+            1.4437585813935985e-05,
+            -4.600081523922458e-05,
+            1.0
+          ]
+        ]
+      },
+      {
+        "seconds": 139.25,
+        "matches": 187,
+        "inliers": 112,
+        "medianErrorPxAt960Width": 1.3415155410766602,
+        "homographyShotToVideoResized960x720": [
+          [
+            1.0079078123808576,
+            -0.0008422735170302688,
+            1.291122804013141
+          ],
+          [
+            -0.004486022421899409,
+            0.9943387233289538,
+            -41.5327347973397
+          ],
+          [
+            1.3734991739138895e-05,
+            -3.1411760408032837e-06,
+            1.0
+          ]
+        ]
+      }
+    ],
+    "method": "CLAHE-SIFT on unmarked background, aspect-ratio-normalized video, RANSAC homography; read-only exploratory retrieval; timestamp identity and object consistency require verification",
+    "sameFrameConfirmed": false
+  }
+}

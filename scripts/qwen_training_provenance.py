@@ -12,6 +12,13 @@ from typing import Any, Mapping, Sequence
 
 _HEX_SHA256 = set("0123456789abcdef")
 _VERDICT_TO_LABEL = {"CONFIRMED": "true", "REJECTED": "false"}
+_CLEAN_SOURCE_VIEW_SCHEMA = "annotated_locator_plus_clean_original_v1"
+_CLEAN_SOURCE_VIEW_ROLES = (
+    "annotated_context",
+    "annotated_roi",
+    "clean_context",
+    "clean_roi",
+)
 
 
 def _resolve_file(
@@ -69,6 +76,49 @@ def _read_source_annotations(path: Path) -> dict[tuple[str, str], dict[str, Any]
     return by_candidate
 
 
+def _read_candidate_rows(path: Path, *, purpose: str) -> dict[str, dict[str, Any]]:
+    by_candidate: dict[str, dict[str, Any]] = {}
+    with path.open(encoding="utf-8") as stream:
+        for line_no, line in enumerate(stream, start=1):
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError as exc:
+                raise ValueError(f"invalid {purpose} JSONL at {path}:{line_no}") from exc
+            candidate_id = str(row.get("candidate_id") or "")
+            if not candidate_id or candidate_id in by_candidate:
+                raise ValueError(f"duplicate or incomplete {purpose} candidate_id: {candidate_id!r}")
+            by_candidate[candidate_id] = row
+    return by_candidate
+
+
+def _file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _valid_sha256(value: Any) -> bool:
+    digest = str(value or "").lower()
+    return len(digest) == 64 and not any(char not in _HEX_SHA256 for char in digest)
+
+
+def _human_prompt(row: Mapping[str, Any]) -> str:
+    turns = row.get("conversations")
+    if not isinstance(turns, list):
+        raise ValueError("training row has no conversations")
+    for turn in turns:
+        if isinstance(turn, Mapping) and turn.get("from") in {"human", "user"}:
+            value = turn.get("value")
+            if not isinstance(value, str) or not value:
+                raise ValueError("training row has no human prompt text")
+            return value
+    raise ValueError("training row has no human prompt")
+
+
 def _assistant_verdict(row: Mapping[str, Any]) -> str:
     turns = row.get("conversations")
     if not isinstance(turns, list):
@@ -117,12 +167,21 @@ def validate_human_gold_dataset(
     dataset_dir = dataset_path.parent
     roots = (provenance_root.resolve(), dataset_dir, dataset_dir.parent)
     source_cache: dict[Path, dict[tuple[str, str], dict[str, Any]]] = {}
+    candidate_pair_cache: dict[Path, dict[str, dict[str, Any]]] = {}
+    gold_cache: dict[Path, dict[str, dict[str, Any]]] = {}
+    provenance_files: set[Path] = set()
     image_hash_cache: dict[Path, str] = {}
     candidate_groups: dict[
         tuple[str, str, tuple[float, ...]], list[dict[str, Any]]
     ] = defaultdict(list)
     image_shas: set[str] = set()
+    view_shas: set[str] = set()
+    annotated_frame_shas: set[str] = set()
+    clean_frame_shas: set[str] = set()
     source_group_ids: set[str] = set()
+    source_task_ids: set[str] = set()
+    source_event_ids: set[str] = set()
+    view_schemas: set[str] = set()
     class_counts: Counter[str] = Counter()
     label_counts: Counter[str] = Counter()
 
@@ -132,6 +191,233 @@ def validate_human_gold_dataset(
             raise ValueError("row " + str(row_number) + " has no metadata")
         if meta.get("label_source") != "human_gold" or meta.get("label_field") != "human_label":
             raise ValueError("row " + str(row_number) + " is not declared human gold")
+
+        if meta.get("view_schema") == _CLEAN_SOURCE_VIEW_SCHEMA:
+            required = (
+                "candidate_id",
+                "image_id",
+                "candidate_index",
+                "class_name",
+                "bbox",
+                "image_sha256",
+                "image_object_key",
+                "source_image",
+                "candidate_pairs_file",
+                "candidate_pairs_sha256",
+                "gold_file",
+                "gold_sha256",
+                "view_generation",
+                "annotated_frame",
+                "annotated_frame_sha256",
+                "annotated_image_size",
+                "normalized_review_bbox",
+                "clean_frame",
+                "clean_frame_sha256",
+                "clean_frame_size",
+                "normalized_clean_bbox",
+                "prompt_template_sha256",
+                "prompt_sha256",
+                "source_task_id",
+                "event_id",
+            )
+            missing = [key for key in required if meta.get(key) in (None, "")]
+            if missing:
+                raise ValueError(
+                    "row "
+                    + str(row_number)
+                    + " lacks required clean-source provenance fields: "
+                    + ", ".join(missing)
+                )
+            candidate_id = str(meta["candidate_id"])
+            if str(meta["image_id"]) != candidate_id:
+                raise ValueError("clean-source candidate_id and image_id differ")
+
+            pairs_file = _resolve_file(
+                meta["candidate_pairs_file"],
+                roots=roots,
+                dataset_dir=dataset_dir,
+                purpose="candidate pairs",
+            )
+            gold_file = _resolve_file(
+                meta["gold_file"],
+                roots=roots,
+                dataset_dir=dataset_dir,
+                purpose="gold labels",
+            )
+            provenance_files.update((pairs_file, gold_file))
+            for source_path, sha_field, purpose in (
+                (pairs_file, "candidate_pairs_sha256", "candidate pairs"),
+                (gold_file, "gold_sha256", "gold labels"),
+            ):
+                declared_sha = str(meta[sha_field]).lower()
+                if not _valid_sha256(declared_sha):
+                    raise ValueError(f"row {row_number} has an invalid {purpose} SHA-256")
+                if _file_sha256(source_path) != declared_sha:
+                    raise ValueError(f"row {row_number} {purpose} SHA-256 mismatch")
+            if pairs_file not in candidate_pair_cache:
+                candidate_pair_cache[pairs_file] = _read_candidate_rows(
+                    pairs_file, purpose="candidate pairs"
+                )
+            if gold_file not in gold_cache:
+                gold_cache[gold_file] = _read_candidate_rows(
+                    gold_file, purpose="gold labels"
+                )
+            pair = candidate_pair_cache[pairs_file].get(candidate_id)
+            gold = gold_cache[gold_file].get(candidate_id)
+            if pair is None or gold is None:
+                raise ValueError(
+                    f"row {row_number} does not resolve to candidate/gold lineage: {candidate_id}"
+                )
+            for field in ("human_label", "class_name", "partition", "event_id"):
+                if str(pair.get(field) or "") != str(gold.get(field) or ""):
+                    raise ValueError(
+                        f"candidate {candidate_id} differs between pair and gold for {field}"
+                    )
+            human_label = gold.get("human_label")
+            if human_label not in {"true", "false"}:
+                raise ValueError("gold source is not a binary human label")
+            if not pair.get("has_clean_source") or pair.get("clean_match_status") not in {
+                "strong",
+                "usable",
+            }:
+                raise ValueError("clean-source training row is not strong or usable")
+            expected_meta = {
+                "class_name": pair.get("class_name"),
+                "event_id": pair.get("event_id"),
+                "source_task_id": pair.get("source_task_id"),
+                "partition": pair.get("partition"),
+                "human_label": human_label,
+            }
+            for field, expected in expected_meta.items():
+                if str(meta.get(field) or "") != str(expected or ""):
+                    raise ValueError(
+                        f"clean-source metadata differs from provenance for {field}"
+                    )
+            if not _same_bbox(pair.get("bbox_px"), meta.get("bbox")):
+                raise ValueError("candidate box differs from the candidate-pair source")
+            if _assistant_verdict(row) != (
+                "CONFIRMED" if human_label == "true" else "REJECTED"
+            ):
+                raise ValueError("training target differs from the human annotation")
+
+            image_paths = row.get("image")
+            roles = meta.get("view_roles")
+            declared_view_shas = meta.get("view_sha256")
+            if not isinstance(image_paths, list) or len(image_paths) != 4:
+                raise ValueError(
+                    "row " + str(row_number) + " must contain four ordered training views"
+                )
+            if (
+                list(roles) if isinstance(roles, (list, tuple)) else None
+            ) != list(_CLEAN_SOURCE_VIEW_ROLES):
+                raise ValueError("clean-source view_roles are missing or out of order")
+            if not isinstance(declared_view_shas, Mapping):
+                raise ValueError("clean-source view_sha256 must map every view role")
+            if set(declared_view_shas) != set(_CLEAN_SOURCE_VIEW_ROLES):
+                raise ValueError("clean-source view_sha256 roles are incomplete")
+            actual_view_shas: dict[str, str] = {}
+            for role, image_path in zip(_CLEAN_SOURCE_VIEW_ROLES, image_paths):
+                view = _resolve_file(
+                    image_path,
+                    roots=(dataset_dir,),
+                    dataset_dir=dataset_dir,
+                    purpose="training view",
+                )
+                if view not in image_hash_cache:
+                    image_hash_cache[view] = _file_sha256(view)
+                actual = image_hash_cache[view]
+                declared = str(declared_view_shas[role]).lower()
+                if not _valid_sha256(declared) or actual != declared:
+                    raise ValueError(
+                        f"row {row_number} {role} training-view SHA-256 mismatch"
+                    )
+                actual_view_shas[role] = actual
+            if str(meta["source_image"]) != str(image_paths[0]):
+                raise ValueError("source_image must be the annotated context view")
+            if str(meta["image_sha256"]).lower() != actual_view_shas["annotated_context"]:
+                raise ValueError("source image SHA-256 differs from annotated context")
+            prompt = _human_prompt(row)
+            prompt_sha256 = str(meta["prompt_sha256"]).lower()
+            prompt_template_sha256 = str(meta["prompt_template_sha256"]).lower()
+            if not _valid_sha256(prompt_sha256) or hashlib.sha256(
+                prompt.encode("utf-8")
+            ).hexdigest() != prompt_sha256:
+                raise ValueError(f"row {row_number} prompt SHA-256 mismatch")
+            if not _valid_sha256(prompt_template_sha256):
+                raise ValueError(f"row {row_number} has an invalid prompt-template SHA-256")
+            dataset_manifest_path = dataset_dir / "dataset_manifest.json"
+            if dataset_manifest_path.is_file():
+                dataset_manifest = json.loads(
+                    dataset_manifest_path.read_text(encoding="utf-8")
+                )
+                contract = dataset_manifest.get("deployment_contract")
+                if not isinstance(contract, Mapping):
+                    raise ValueError("dataset manifest lacks deployment_contract")
+                template = contract.get("prompt_template")
+                if not isinstance(template, str) or hashlib.sha256(
+                    template.encode("utf-8")
+                ).hexdigest() != prompt_template_sha256:
+                    raise ValueError("prompt-template SHA-256 differs from dataset contract")
+                if contract.get("view_schema") != _CLEAN_SOURCE_VIEW_SCHEMA or list(
+                    contract.get("view_roles") or []
+                ) != list(_CLEAN_SOURCE_VIEW_ROLES):
+                    raise ValueError("view contract differs from clean-source schema")
+                if contract.get("view_generation") != "service_crop_v1_lossless_png":
+                    raise ValueError("view-generation contract differs from clean-source schema")
+                if meta.get("view_generation") != contract.get("view_generation"):
+                    raise ValueError("row view generation differs from dataset contract")
+                if not isinstance(contract.get("crop_spec"), Mapping):
+                    raise ValueError("dataset contract lacks crop_spec")
+
+            annotated_frame = _resolve_file(
+                meta["annotated_frame"],
+                roots=(dataset_dir,),
+                dataset_dir=dataset_dir,
+                purpose="annotated frame",
+            )
+            if annotated_frame not in image_hash_cache:
+                image_hash_cache[annotated_frame] = _file_sha256(annotated_frame)
+            annotated_frame_digest = str(meta["annotated_frame_sha256"]).lower()
+            if (
+                not _valid_sha256(annotated_frame_digest)
+                or image_hash_cache[annotated_frame] != annotated_frame_digest
+            ):
+                raise ValueError(f"row {row_number} annotated-frame SHA-256 mismatch")
+
+            clean_frame = _resolve_file(
+                meta["clean_frame"],
+                roots=(dataset_dir,),
+                dataset_dir=dataset_dir,
+                purpose="clean frame",
+            )
+            if clean_frame not in image_hash_cache:
+                image_hash_cache[clean_frame] = _file_sha256(clean_frame)
+            clean_frame_digest = str(meta["clean_frame_sha256"]).lower()
+            if not _valid_sha256(clean_frame_digest) or image_hash_cache[clean_frame] != clean_frame_digest:
+                raise ValueError(f"row {row_number} clean-frame SHA-256 mismatch")
+
+            digest = actual_view_shas["annotated_context"]
+            bbox_key = tuple(round(float(value), 6) for value in meta["bbox"])
+            candidate_key = (digest, str(meta["class_name"]), bbox_key)
+            candidate_groups[candidate_key].append(
+                {
+                    "row_id": str(row.get("id", "")),
+                    "label": str(human_label),
+                    "image_id": str(meta["image_id"]),
+                    "candidate_index": str(meta["candidate_index"]),
+                }
+            )
+            image_shas.add(digest)
+            view_shas.update(actual_view_shas.values())
+            annotated_frame_shas.add(annotated_frame_digest)
+            clean_frame_shas.add(clean_frame_digest)
+            source_group_ids.add(str(meta["event_id"]))
+            source_event_ids.add(str(meta["event_id"]))
+            source_task_ids.add(str(meta["source_task_id"]))
+            view_schemas.add(_CLEAN_SOURCE_VIEW_SCHEMA)
+            class_counts[str(meta["class_name"])] += 1
+            label_counts[str(human_label)] += 1
+            continue
 
         required = (
             "labeled_by",
@@ -237,6 +523,8 @@ def validate_human_gold_dataset(
         )
         image_shas.add(digest)
         source_group_ids.add(str(source_group_id))
+        source_event_ids.add(str(source_group_id))
+        view_schemas.add("context_plus_roi_v1")
         class_counts[str(meta["class_name"])] += 1
         label_counts[str(human_label)] += 1
 
@@ -269,16 +557,22 @@ def validate_human_gold_dataset(
         "unique_image_sha256": len(image_shas),
         "class_counts": dict(sorted(class_counts.items())),
         "label_counts": dict(sorted(label_counts.items())),
-        "source_annotation_files": len(source_cache),
+        "source_annotation_files": len(set(source_cache) | provenance_files),
         "source_annotation_sha256": [
             {
                 "path": str(path),
-                "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                "sha256": _file_sha256(path),
             }
-            for path in sorted(source_cache)
+            for path in sorted(set(source_cache) | provenance_files)
         ],
+        "view_schemas": sorted(view_schemas),
         "image_sha256s": image_shas,
+        "view_sha256s": view_shas,
+        "annotated_frame_sha256s": annotated_frame_shas,
+        "clean_frame_sha256s": clean_frame_shas,
         "source_group_ids": source_group_ids,
+        "source_event_ids": source_event_ids,
+        "source_task_ids": source_task_ids,
         "duplicate_groups": len(duplicate_groups),
         "duplicate_extra_rows": sum(len(members) - 1 for _, members in duplicate_groups),
         "conflict_groups": len(conflict_groups),
@@ -289,13 +583,27 @@ def validate_disjoint_image_splits(
     train_summary: Mapping[str, Any],
     val_summary: Mapping[str, Any],
 ) -> None:
-    overlap = set(train_summary["image_sha256s"]) & set(val_summary["image_sha256s"])
-    if overlap:
-        raise ValueError(
-            "train and validation sets share "
-            + str(len(overlap))
-            + " source image SHA-256 group(s)"
-        )
+    checks = (
+        ("image_sha256s", "source image SHA-256 group"),
+        ("view_sha256s", "training-view SHA-256"),
+        ("annotated_frame_sha256s", "annotated-frame SHA-256"),
+        ("clean_frame_sha256s", "clean-frame SHA-256"),
+        ("source_task_ids", "source task"),
+        ("source_event_ids", "source event"),
+    )
+    for field, label in checks:
+        train_values = set(train_summary.get(field, ()))
+        val_values = set(val_summary.get(field, ()))
+        overlap = train_values & val_values
+        if overlap:
+            raise ValueError(
+                "train and validation sets share "
+                + str(len(overlap))
+                + " "
+                + label
+                + "(s)"
+            )
+
     train_groups = set(train_summary.get("source_group_ids", ()))
     val_groups = set(val_summary.get("source_group_ids", ()))
     if not train_groups or not val_groups:
@@ -307,6 +615,21 @@ def validate_disjoint_image_splits(
             + str(len(group_overlap))
             + " source event/task group(s)"
         )
+
+    clean_schema = _CLEAN_SOURCE_VIEW_SCHEMA
+    if clean_schema in set(train_summary.get("view_schemas", ())) | set(
+        val_summary.get("view_schemas", ())
+    ):
+        for field, label in (
+            ("annotated_frame_sha256s", "annotated-frame SHA-256"),
+            ("clean_frame_sha256s", "clean-frame SHA-256"),
+            ("source_task_ids", "source task"),
+            ("source_event_ids", "source event"),
+        ):
+            if not train_summary.get(field) or not val_summary.get(field):
+                raise ValueError(
+                    "clean-source train and validation require " + label + " lineage"
+                )
 
 
 def deduplicate_human_gold_rows(
