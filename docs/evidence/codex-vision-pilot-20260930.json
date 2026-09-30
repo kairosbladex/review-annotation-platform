@@ -1,0 +1,757 @@
+{
+  "date": "2026-09-30",
+  "baseline_commit": "20d281ce00c9aedaa1e9bd6bb8762434eb4da81b",
+  "host": "192.168.130.238",
+  "cli_version": "0.155.1",
+  "cli_sha256": "0753dfe1d8b87a52436deb13eb1c549661ef4c84fee2c5aa688385eebeccb761",
+  "image_id": "sha256:b2bb53ac7b6fbe78a48c95b7c15130ea21de1674fc683fbc93158b0c23826823",
+  "image_digest": "python@sha256:8d9d0b8bcf6506481eae4907c18f5e3e7902e629f5f6d684f9e7c32e85e3ddf0",
+  "requested_model": "gpt-5.6-sol",
+  "upstream_model_identity_verified": false,
+  "inference_calls": 18,
+  "successful_calls": 18,
+  "usage": {
+    "input_tokens": 230240,
+    "cached_input_tokens": 167936,
+    "output_tokens": 4778,
+    "reasoning_output_tokens": 3559
+  },
+  "pricing_verified": false,
+  "review": {
+    "count": 12,
+    "tasks": 3,
+    "confusion": {
+      "true_to_true": 7,
+      "true_to_false": 0,
+      "true_to_uncertain": 2,
+      "false_to_true": 1,
+      "false_to_false": 2,
+      "false_to_uncertain": 0
+    },
+    "correct": 9,
+    "min_seconds": 18.25,
+    "median_seconds": 22.22,
+    "max_seconds": 31.29,
+    "representative_of_live_traffic": false
+  },
+  "geolocation": {
+    "same_image_control_passed": true,
+    "wrong_location_control_passed": false,
+    "independent_absolute_accuracy_available": false,
+    "automatic_coordinate_correction_accepted": false
+  },
+  "isolation": {
+    "memory_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "cpus": 2,
+    "pids_limit": 128,
+    "container_user": "1000:1000",
+    "read_only": true,
+    "gpu_devices": [],
+    "published_ports": [],
+    "concurrency": 1,
+    "concurrent_second_request_exit": 75,
+    "sampled_container_memory_mib": [
+      41.79,
+      40.04,
+      43.41,
+      45.2
+    ],
+    "host_available_memory_gib_range": [
+      60,
+      64
+    ],
+    "tool_calls": 0,
+    "shared_before": [
+      "/overlay-geolocation-8181 0747fe51c20bce673fcaafbd20f164f9907d80c521b88d8d995b4d427357f1bf 2026-09-30T02:55:36.325670583Z 0",
+      "/yoloe_service 341a5147098fe7904457ba2df7306af10556f7d5142b6eb6c89903b9f04d181d 2026-09-16T07:11:21.411458229Z 0",
+      "/yoloe_service_test 5a67385603153f173ce4daf7744cb669636940dd92da0c428d43de334c7161d9 2026-09-28T01:34:20.095780337Z 0",
+      "/review-annotation-test-api-1 e332813451cc3e12af2a37a8b34ff1dd545ae2119287a9d5eaea1723d77670d8 2026-09-19T06:01:33.725297161Z 0",
+      "/review-annotation-test-worker-1 f82183f4ae9f7aa0ecbba843551519eef52ebf6fdc98e7d33aefb1ffd0213b08 2026-09-19T06:01:34.494304281Z 0"
+    ],
+    "shared_after": [
+      "/overlay-geolocation-8181 0747fe51c20bce673fcaafbd20f164f9907d80c521b88d8d995b4d427357f1bf 2026-09-30T02:55:36.325670583Z 0",
+      "/yoloe_service 341a5147098fe7904457ba2df7306af10556f7d5142b6eb6c89903b9f04d181d 2026-09-16T07:11:21.411458229Z 0",
+      "/yoloe_service_test 5a67385603153f173ce4daf7744cb669636940dd92da0c428d43de334c7161d9 2026-09-28T01:34:20.095780337Z 0",
+      "/review-annotation-test-api-1 e332813451cc3e12af2a37a8b34ff1dd545ae2119287a9d5eaea1723d77670d8 2026-09-19T06:01:33.725297161Z 0",
+      "/review-annotation-test-worker-1 f82183f4ae9f7aa0ecbba843551519eef52ebf6fdc98e7d33aefb1ffd0213b08 2026-09-19T06:01:34.494304281Z 0"
+    ],
+    "shared_unchanged": true
+  },
+  "side_effects": {
+    "shared_deployments": 0,
+    "business_writes": 0,
+    "coordinate_writes": 0,
+    "device_actions": 0,
+    "mqtt": 0
+  },
+  "smoke": {
+    "task": "smoke",
+    "requested_model": "gpt-5.6-sol",
+    "business_writes": 0,
+    "device_actions": 0,
+    "exit_code": 0,
+    "usage": [
+      {
+        "input_tokens": 12118,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 37,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "tool_calls": [],
+    "answer": {
+      "decision": "red_square_blue_circle",
+      "reason": "From left to right, the image shows a red square and a blue circle."
+    },
+    "elapsed_seconds": 17.24,
+    "image_sha256": "92e12bc5e0686b279f1cb395f782c80517fc6c0b10ec8dfaf4c4cdffe889b9ca"
+  },
+  "manifest": [
+    {
+      "job": "review-R045",
+      "task": "review",
+      "human_label": "true",
+      "source_task_id": "6875a85fe4bc4e778b788e2158f1008c",
+      "candidate_id": "R045",
+      "source_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "6ccd50ab2ceacf8bd47995dc0edda3f068250672a9a2fbb017194bde6cb2862e",
+        "target.jpg": "d4592a5d548406c347bfe5958c817e11251fed3f88c371d53a89d7493085f998"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R046",
+      "task": "review",
+      "human_label": "true",
+      "source_task_id": "6875a85fe4bc4e778b788e2158f1008c",
+      "candidate_id": "R046",
+      "source_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "1a98f7f34fbca1d8ad62ceaa0851663807e191c16abc29ab7e1c694280940d4e",
+        "target.jpg": "8ceec5207b23c3e8ef7dad13ecf05ea31c72cca2913fe6bdf9431c0407399282"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R047",
+      "task": "review",
+      "human_label": "true",
+      "source_task_id": "6875a85fe4bc4e778b788e2158f1008c",
+      "candidate_id": "R047",
+      "source_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "4198fb01db6ff216df5c59b2994632499f9d96cf6406a304fd6cb38b3ff723ab",
+        "target.jpg": "f150f96d488f5c77c2eb0b173e498efa861464b04dd2b49cf86d163438b9bb64"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R048",
+      "task": "review",
+      "human_label": "true",
+      "source_task_id": "6875a85fe4bc4e778b788e2158f1008c",
+      "candidate_id": "R048",
+      "source_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "6c6db3757b135b421bb76aca647e7d63bcaa2d3cf8e529982241387b146912cf",
+        "target.jpg": "26aee7e62d258c29f2baece37e237d2ba6a0d4ae6348b243a7c6c41d756e713b"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R049",
+      "task": "review",
+      "human_label": "true",
+      "source_task_id": "6875a85fe4bc4e778b788e2158f1008c",
+      "candidate_id": "R049",
+      "source_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "6fa3232bb59dfb6d478f64c2e14539e03cb08ce5a5f837e0033183f7680063af",
+        "target.jpg": "d7b2c9936e872df2f2acc8e6007f8c00185b6154fa20cde82ba6a76ddb43ac97"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R050",
+      "task": "review",
+      "human_label": "true",
+      "source_task_id": "6875a85fe4bc4e778b788e2158f1008c",
+      "candidate_id": "R050",
+      "source_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "03796ce3b84abeda6438bd76cad93297e660940bfad21f48d08bc0ad0910826f",
+        "target.jpg": "d8e43fd9bd970a5d3444ef1fc01632d70cbc7a4d592c17cc888bd81665218968"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R051",
+      "task": "review",
+      "human_label": "false",
+      "source_task_id": "6875a85fe4bc4e778b788e2158f1008c",
+      "candidate_id": "R051",
+      "source_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "f100ccd79cae8e812f2e40edb9df2c51a2a5ccc387a222b1399ea989756b776f",
+        "target.jpg": "799312ddb93a44f26b1ee84830381d22bca1467dcefbb9e463bdf19720f16314"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R052",
+      "task": "review",
+      "human_label": "false",
+      "source_task_id": "ace84764be894d0487e0f8149c9c269e",
+      "candidate_id": "R052",
+      "source_sha256": "816d0167608c3db0de5b36c6b54d039c1bdfd5c2470d35e5d83eb2297492f2be",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "992a600770497e4ee4fdec48963dba3777d8a1d73bf047cdf80a5cea8fc87cd0",
+        "target.jpg": "2f66deb32e9f8fc548aece1ff71834b578592ee6df76aa76843e2aa3c7e86f13"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R053",
+      "task": "review",
+      "human_label": "true",
+      "source_task_id": "ace84764be894d0487e0f8149c9c269e",
+      "candidate_id": "R053",
+      "source_sha256": "816d0167608c3db0de5b36c6b54d039c1bdfd5c2470d35e5d83eb2297492f2be",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "5dab133ae204fd41d3292582222db5be94c80c8ac60afa682a0a42737e00b6aa",
+        "target.jpg": "bd225231693a97f2895853740de138fe860e4bdf28476af4d8288752cd232df8"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R054",
+      "task": "review",
+      "human_label": "true",
+      "source_task_id": "ace84764be894d0487e0f8149c9c269e",
+      "candidate_id": "R054",
+      "source_sha256": "816d0167608c3db0de5b36c6b54d039c1bdfd5c2470d35e5d83eb2297492f2be",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "d2b81344f321677348d585dbeffda3129e127ad023f7d05c14158617d266b908",
+        "target.jpg": "76b534d4de89dfcd4138e28483f3d2b247f6aad9347aa53ca4e8ca61b577026e"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R055",
+      "task": "review",
+      "human_label": "true",
+      "source_task_id": "d1101964c6df4174989fdff74423df33",
+      "candidate_id": "R055",
+      "source_sha256": "91cab76db85c9b6a84d741c37ef62daccad8aeb2ac096de183f6b0b132e741ea",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "9f89df71f704c33aa6dd7954ec54dcb5eebad3cdb07261359df031ea7c94f273",
+        "target.jpg": "aa13b400c8e392da37c699d4fdd7757ba659bdd38e2786bd6409f9ec0805c8c0"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "review-R056",
+      "task": "review",
+      "human_label": "false",
+      "source_task_id": "d1101964c6df4174989fdff74423df33",
+      "candidate_id": "R056",
+      "source_sha256": "91cab76db85c9b6a84d741c37ef62daccad8aeb2ac096de183f6b0b132e741ea",
+      "label_source": "wxl_hires_web_20260930",
+      "images": {
+        "context.jpg": "6dd6dfaafa0707f8d40112d5d07fed6bc01f43d8dc5bfc56b953ef5a97602797",
+        "target.jpg": "5630aa14781f872e74abdcad78bb46acc393b743800df4c724bdf200cb22a071"
+      },
+      "request_sha256": "2bd254aaf1edb33dd04e96b4f2d932351965c47e4e676e26fd10c65c6b548aa2"
+    },
+    {
+      "job": "geo-case01",
+      "task": "geolocation",
+      "images": {
+        "comparison.jpg": "528bd0b55d5fb52311f08a304f25ad628ad4fcc4cde7fd6888250b1d83eb3cda"
+      },
+      "request_sha256": "7cb08620f614c3fb7be3cf1a4ed3eccddc2adc14b205a957409ea7871448581e",
+      "expected": "B",
+      "absolute_truth_available": false
+    },
+    {
+      "job": "geo-case02",
+      "task": "geolocation",
+      "images": {
+        "comparison.jpg": "02dd74a78b3e09093a3defd8d9fd09f7a61be563ffccc551cc5e33e2477a530e"
+      },
+      "request_sha256": "7cb08620f614c3fb7be3cf1a4ed3eccddc2adc14b205a957409ea7871448581e",
+      "expected": null,
+      "absolute_truth_available": false
+    },
+    {
+      "job": "geo-case03",
+      "task": "geolocation",
+      "images": {
+        "comparison.jpg": "ce2568676b53e03b8c5948d98d658748881d2e3b8c7991da30bb8fb4062ae6ce"
+      },
+      "request_sha256": "7cb08620f614c3fb7be3cf1a4ed3eccddc2adc14b205a957409ea7871448581e",
+      "expected": null,
+      "absolute_truth_available": false
+    },
+    {
+      "job": "geo-case04",
+      "task": "geolocation",
+      "images": {
+        "comparison.jpg": "728dfa0b9f06b0de3b2b6712d27d03038971b95e84c22a763cefcc1e76af4389"
+      },
+      "request_sha256": "7cb08620f614c3fb7be3cf1a4ed3eccddc2adc14b205a957409ea7871448581e",
+      "expected": "neither_or_uncertain",
+      "absolute_truth_available": false
+    }
+  ],
+  "results": [
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12387,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 142,
+          "reasoning_output_tokens": 87
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "true",
+        "reason": "框内可见浅色车身轮廓及深色车窗区域，结构与车辆一致，虽有树木遮挡但证据足够。"
+      },
+      "elapsed_seconds": 21.9,
+      "job": "review-R045",
+      "expected": "true"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12425,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 139,
+          "reasoning_output_tokens": 72
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "uncertain",
+        "reason": "框内目标被树冠严重遮挡，仅见局部灰色斑块，无法确认车身、车窗或车轮等车辆结构；证据不足，邻近清晰车辆不计入。"
+      },
+      "elapsed_seconds": 25.65,
+      "job": "review-R046",
+      "expected": "true"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12447,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 50,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "true",
+        "reason": "框内可见完整的白色车辆轮廓，车身、深色车窗及前后结构清晰，与局部图一致。"
+      },
+      "elapsed_seconds": 19.74,
+      "job": "review-R047",
+      "expected": "true"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12469,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 73,
+          "reasoning_output_tokens": 23
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "true",
+        "reason": "黄色框内可见完整的浅色车辆轮廓，车身、深色车窗及前后结构清晰可辨。"
+      },
+      "elapsed_seconds": 20.04,
+      "job": "review-R048",
+      "expected": "true"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12505,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 50,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "true",
+        "reason": "框内目标可见完整的矩形车身轮廓、深色前后车窗及浅色车顶，结构与车辆一致。"
+      },
+      "elapsed_seconds": 18.25,
+      "job": "review-R049",
+      "expected": "true"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12502,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 207,
+          "reasoning_output_tokens": 147
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "true",
+        "reason": "框内可见一辆被树冠部分遮挡的深色车辆，具有较连续的车身轮廓和明显的亮色车窗/挡风玻璃结构。"
+      },
+      "elapsed_seconds": 24.63,
+      "job": "review-R050",
+      "expected": "true"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12505,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 288,
+          "reasoning_output_tokens": 236
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "false",
+        "reason": "框内目标呈机械支架/屋顶设施结构，未见可辨认的车身、车窗或车轮等车辆特征。"
+      },
+      "elapsed_seconds": 31.29,
+      "job": "review-R051",
+      "expected": "false"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12486,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 83,
+          "reasoning_output_tokens": 26
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "false",
+        "reason": "黄色框内是道路上的白色转向箭头标线，可见其平面涂装形状，没有车身、车窗或车轮等车辆结构。"
+      },
+      "elapsed_seconds": 22.54,
+      "job": "review-R052",
+      "expected": "false"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12370,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 132,
+          "reasoning_output_tokens": 69
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "true",
+        "reason": "框内可见细长的完整车身轮廓、浅色车顶及前后深色车窗区域，结构与俯视车辆一致，证据足以确认是车辆。"
+      },
+      "elapsed_seconds": 20.65,
+      "job": "review-R053",
+      "expected": "true"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12357,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 246,
+          "reasoning_output_tokens": 184
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "uncertain",
+        "reason": "框内仅见模糊的浅色狭长区域，疑似有车身和深色车窗，但分辨率过低且遮挡明显，无法确认车辆结构。"
+      },
+      "elapsed_seconds": 25.58,
+      "job": "review-R054",
+      "expected": "true"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12502,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 50,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "true",
+        "reason": "框内可见完整的白色车身轮廓、深色前后车窗及车辆侧边结构，足以确认是车辆。"
+      },
+      "elapsed_seconds": 18.33,
+      "job": "review-R055",
+      "expected": "true"
+    },
+    {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 12444,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 323,
+          "reasoning_output_tokens": 257
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "true",
+        "reason": "框内目标可见较完整的长条形车身轮廓，中央深色区域与车窗相符，前后车体分区也较明显，具备足够车辆结构证据。"
+      },
+      "elapsed_seconds": 30.95,
+      "job": "review-R056",
+      "expected": "false"
+    },
+    {
+      "task": "geolocation",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 13730,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 183,
+          "reasoning_output_tokens": 88
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "B",
+        "reason": "三幅图中道路交叉口、斑马线、绿地边界和建筑布局一致，属于同地且视角尺度基本相同。B的1-4号点与SOURCE对应位置整体更贴合；A的各点普遍向右下偏移，尤其1号偏差明显。车辆变化不作为依据。"
+      },
+      "elapsed_seconds": 23.88,
+      "job": "geo-case01",
+      "expected": "B"
+    },
+    {
+      "task": "geolocation",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 13730,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 636,
+          "reasoning_output_tokens": 516
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "A",
+        "reason": "稳定道路交叉口及周边地物按约180°旋转后，SOURCE中1位于交叉口远侧、2和3靠近路口、4沿同一路侧更远的相对排列与A一致；B把2、3布到纵向道路旁，和SOURCE的沿横向分布不符。A的1落在黑色无影像区，无法直接核验，但其相对位置仍更合理。"
+      },
+      "elapsed_seconds": 49.66,
+      "job": "geo-case02",
+      "expected": null
+    },
+    {
+      "task": "geolocation",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 13730,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1224,
+          "reasoning_output_tokens": 1113
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "B",
+        "reason": "B更符合稳定地物关系：撒点位于废墟狭长地块南端、主干道西侧，邻近右侧建筑南缘；与SOURCE中空地、废墟带、道路及建筑的相对位置一致。A位于更北侧且跨到主干道及建筑侧，明显不符。日期差异导致的植被和车辆变化不作为依据。"
+      },
+      "elapsed_seconds": 80.06,
+      "job": "geo-case03",
+      "expected": null
+    },
+    {
+      "task": "geolocation",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 13730,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 591,
+          "reasoning_output_tokens": 487
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "B",
+        "reason": "SOURCE中撒点整体位于道路及路缘带，跨越路口两侧；考虑旋转和尺度后，B的点位落在道路—人行道连续带上，较符合稳定道路关系。A则主要落在施工地/建筑边缘，缺少对应道路依据。日期差异较大，植被与施工变化使判断仍有局限。"
+      },
+      "elapsed_seconds": 50.65,
+      "job": "geo-case04",
+      "expected": "neither_or_uncertain"
+    }
+  ],
+  "post_hoc_diagnostic": {
+    "manifest": {
+      "job": "diagnostic-R056-wide",
+      "baseline_job": "review-R056",
+      "post_hoc": true,
+      "change": "add full-frame context; same prompt plus image description; same model and reasoning effort",
+      "expected": "false",
+      "images": {
+        "wide.jpg": "4345d75e7b5a479d1266fb8d08e8544bd7e3b6a5009cf73390cdc9aac27f2610",
+        "target.jpg": "5630aa14781f872e74abdcad78bb46acc393b743800df4c724bdf200cb22a071",
+        "context.jpg": "6dd6dfaafa0707f8d40112d5d07fed6bc01f43d8dc5bfc56b953ef5a97602797"
+      },
+      "request_sha256": "4960108f547b051e7fdac73d7ec193fcf46a16a92b345f54ec918dff33e637ad"
+    },
+    "result": {
+      "task": "review",
+      "requested_model": "gpt-5.6-sol",
+      "business_writes": 0,
+      "device_actions": 0,
+      "exit_code": 0,
+      "usage": [
+        {
+          "input_tokens": 13803,
+          "cached_input_tokens": 10496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 324,
+          "reasoning_output_tokens": 254
+        }
+      ],
+      "tool_calls": [],
+      "answer": {
+        "decision": "uncertain",
+        "reason": "框内目标具有近似车辆的长方形轮廓和深浅分区，但分辨率过低，无法确认车窗、车轮或明确车身结构，也可能是屋顶设备，证据不足。"
+      },
+      "elapsed_seconds": 30.75
+    },
+    "included_in_primary_score": false
+  },
+  "scripts_sha256": {
+    "scripts/codex_vision_job.py": "0be6952daabb6f7fb17d20e447e53b897b7f8e7bfda20232edeecc6ab9af667b",
+    "scripts/run_codex_vision_job.sh": "795dc5849cb42b0bc9b56ace50e51f807ed2f66581231d1ddfb7fbea8ce420bf",
+    "scripts/prepare_codex_vision_pilot.py": "b3a1552659d223c4752355ab2c28272673ca66991004e47c643b10f73192ff59"
+  },
+  "cleanup": {
+    "temporary_containers_remaining": 0,
+    "remote_input_directories_removed": 18,
+    "local_temporary_directory_removed": true,
+    "partial_download_removed_bytes": 149946368,
+    "retained": "Existing CLI unchanged; dedicated runner scripts and sanitized evidence only; no resident service or listening port"
+  }
+}
