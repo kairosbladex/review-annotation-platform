@@ -87,6 +87,36 @@ def _balanced_sampling_manifest(rows: list[dict[str, Any]], seed: int) -> tuple[
     }
 
 
+def _capped_sampling_manifest(
+    rows: list[dict[str, Any]], seed: int, cap: float
+) -> tuple[list[float], dict[str, Any]]:
+    """等权抽样的折中：每个“类别|标签”分组的放大倍数不超过 cap，再整体归一化到平均权重 1。
+
+    cap 越小越接近自然比例，越大越接近完全等权（balanced_stratum）。
+    """
+    if not cap > 0:
+        raise ValueError("stratum weight cap must be positive")
+    strata = [_training_stratum(row) for row in rows]
+    counts = Counter(strata)
+    raw = {
+        stratum: min(len(rows) / (len(counts) * count), cap)
+        for stratum, count in counts.items()
+    }
+    scale = len(rows) / sum(raw[stratum] for stratum in strata)
+    per_stratum = {stratum: raw[stratum] * scale for stratum in raw}
+    weights = [per_stratum[stratum] for stratum in strata]
+    return weights, {
+        "strategy": "deterministic_weighted_replacement_by_class_and_human_label_capped",
+        "seed": seed,
+        "replacement": True,
+        "stratum_weight_cap": cap,
+        "samples_per_epoch": len(rows),
+        "validation_sampling": "natural_original_partition",
+        "stratum_counts": dict(sorted(counts.items())),
+        "per_row_weight_by_stratum": dict(sorted(per_stratum.items())),
+    }
+
+
 class DeterministicBalancedTrainer(Trainer):
     """Use an audited seeded sampler without changing the held-out distribution."""
 
@@ -407,10 +437,17 @@ def main() -> int:
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument(
         "--train-sampling",
-        choices=("balanced_stratum", "natural"),
+        choices=("balanced_stratum", "capped_stratum", "natural"),
         default="balanced_stratum",
-        help="Balance class_name x human_label strata for train only, or keep natural order.",
+        help="Balance class_name x human_label strata for train only, cap the balancing boost, or keep natural order.",
     )
+    parser.add_argument(
+        "--stratum-weight-cap",
+        type=float,
+        default=2.0,
+        help="capped_stratum only: maximum per-stratum weight before renormalization.",
+    )
+    parser.add_argument("--learning-rate", type=float, default=2e-5)
     parser.add_argument("--min-free-gb", type=float, default=24.0)
     parser.add_argument(
         "--provenance-root",
@@ -427,6 +464,8 @@ def main() -> int:
         raise RuntimeError("CUDA is required; formal training must execute on the GPU server")
     if not 0.0 < args.epochs <= 3.0:
         raise ValueError("formal training epochs must be greater than 0 and at most 3")
+    if not 1e-6 <= args.learning_rate <= 1e-4:
+        raise ValueError("--learning-rate must be within [1e-6, 1e-4]")
     if args.min_free_gb < 0:
         raise ValueError("--min-free-gb must be non-negative")
     for path in (args.train, args.val):
@@ -532,6 +571,10 @@ def main() -> int:
         train_sample_weights, sampling_manifest = _balanced_sampling_manifest(
             train_rows, args.seed
         )
+    elif args.train_sampling == "capped_stratum":
+        train_sample_weights, sampling_manifest = _capped_sampling_manifest(
+            train_rows, args.seed, args.stratum_weight_cap
+        )
     else:
         train_sample_weights = []
         sampling_manifest = {
@@ -595,7 +638,7 @@ def main() -> int:
         per_device_train_batch_size=1,
         per_device_eval_batch_size=1,
         gradient_accumulation_steps=1,
-        learning_rate=2e-5,
+        learning_rate=args.learning_rate,
         weight_decay=0.01,
         warmup_ratio=0.05,
         lr_scheduler_type="cosine",
@@ -614,11 +657,8 @@ def main() -> int:
         dataloader_num_workers=0,
         ddp_find_unused_parameters=False,
     )
-    trainer_class = (
-        DeterministicBalancedTrainer
-        if args.train_sampling == "balanced_stratum"
-        else Trainer
-    )
+    weighted = args.train_sampling in {"balanced_stratum", "capped_stratum"}
+    trainer_class = DeterministicBalancedTrainer if weighted else Trainer
     trainer_kwargs: dict[str, Any] = {
         "model": model,
         "args": training_args,
@@ -627,7 +667,7 @@ def main() -> int:
         "data_collator": SingleSampleCollator(),
         "processing_class": processor.tokenizer,
     }
-    if args.train_sampling == "balanced_stratum":
+    if weighted:
         trainer_kwargs.update(
             train_sample_weights=train_sample_weights,
             sampler_seed=args.seed,
@@ -665,6 +705,7 @@ def main() -> int:
         "per_device_train_batch_size": 1,
         "per_device_eval_batch_size": 1,
         "train_sampling": sampling_manifest,
+        "learning_rate": args.learning_rate,
         "checkpoint_policy": {
             "save_strategy": "epoch",
             "save_total_limit": 3,

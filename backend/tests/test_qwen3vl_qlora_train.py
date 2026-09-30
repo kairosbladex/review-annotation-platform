@@ -141,3 +141,33 @@ def test_configure_processor_rejects_unverifiable_pixel_budget():
 
     with pytest.raises(RuntimeError, match="no supported pixel-budget fields"):
         _configure_processor(Processor(), 50176, 200704)
+
+
+def test_capped_sampling_limits_boost_and_keeps_mean_weight():
+    from qwen3vl_qlora_train import _capped_sampling_manifest
+
+    rows = (
+        [_row("车", "true") for _ in range(92)]
+        + [_row("车", "false") for _ in range(18)]
+        + [_row("人员", "true") for _ in range(8)]
+        + [_row("人员", "false") for _ in range(17)]
+    )
+    weights, manifest = _capped_sampling_manifest(rows, seed=42, cap=1.0)
+    assert sum(weights) == pytest.approx(len(rows))
+    per = manifest["per_row_weight_by_stratum"]
+    # cap=1：小组不再被放大，三个小组权重相同，大组被压低
+    assert per["车|false"] == pytest.approx(per["人员|true"])
+    assert per["人员|false"] == pytest.approx(per["人员|true"])
+    assert per["车|true"] < per["车|false"]
+    assert manifest["stratum_weight_cap"] == 1.0
+
+    balanced, _ = _balanced_sampling_manifest(rows, seed=42)
+    capped_large, _ = _capped_sampling_manifest(rows, seed=42, cap=1000.0)
+    assert capped_large == pytest.approx(balanced)
+
+
+def test_capped_sampling_rejects_non_positive_cap():
+    from qwen3vl_qlora_train import _capped_sampling_manifest
+
+    with pytest.raises(ValueError):
+        _capped_sampling_manifest([_row("车", "true")], seed=42, cap=0)

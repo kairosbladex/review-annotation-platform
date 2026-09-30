@@ -29,7 +29,7 @@
    e. 结束本轮。
 5. 以上都不满足，且 submitted_today 小于 daily_limit：
    a. 调用 list_experiment_space。
-   b. 选一个 tried 里没有的 train_sampling 与 epochs 组合，用 submit_training 提交；hypothesis 里写明改了哪个参数、预期哪项数字怎么变。
+   b. 选一个 tried 里没有的参数组合，用 submit_training 提交；hypothesis 里写明改了哪个参数、预期哪项数字怎么变。
    c. 结束本轮。
 6. 其他情况：写一句“今日无可做事项”，结束本轮。
 

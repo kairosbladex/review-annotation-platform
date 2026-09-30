@@ -118,10 +118,13 @@ def list_experiment_space() -> dict:
 
 
 @mcp.tool()
-def submit_training(train_sampling: str, epochs: int, hypothesis: str) -> dict:
-    """提交一次训练。train_sampling 与 epochs 必须取 list_experiment_space 中 knobs 列出的值；
+def submit_training(train_sampling: str, epochs: int, learning_rate: float, stratum_weight_cap: float,
+                    hypothesis: str) -> dict:
+    """提交一次训练。各参数必须取 list_experiment_space 中 knobs 列出的值；
+    stratum_weight_cap 只在 train_sampling=capped_stratum 时有意义，其他抽样方式必须填 0。
     hypothesis 写明改了哪个参数、预期哪项数字怎么变。"""
-    config = {"train_sampling": train_sampling, "epochs": epochs}
+    config = {"train_sampling": train_sampling, "epochs": epochs, "learning_rate": learning_rate,
+              "stratum_weight_cap": stratum_weight_cap}
     reason = _stop_reason()
     if reason:
         _audit("submit_training", rejected=reason)
@@ -131,6 +134,8 @@ def submit_training(train_sampling: str, epochs: int, hypothesis: str) -> dict:
     problems = [f"不允许的参数 {k}" for k in config if k not in knobs]
     problems += [f"{k} 的取值 {v!r} 不在允许范围 {knobs[k]}" for k, v in config.items() if k in knobs and v not in knobs[k]]
     problems += [f"缺少参数 {k}" for k in knobs if k not in config]
+    if (train_sampling == "capped_stratum") != (stratum_weight_cap > 0):
+        problems.append("只有 capped_stratum 需要 stratum_weight_cap>0，其他抽样方式填 0")
     jobs = _jobs()
     if any(j["status"] in ACTIVE for j in jobs):
         problems.append("已有任务在运行")
