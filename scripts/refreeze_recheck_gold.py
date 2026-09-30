@@ -54,6 +54,15 @@ def refreeze(out, source):
                   frozen_at=timestamp, regression_audit={'path': 'exact_12_found', 'mapped': 12, 'exposed_groups': len(exposed)},
                   unresolved_exposure_manifests=[])
     report['limitations'][0] = '12个回归样本全部唯一映射，3个任务组整体标记GPT曝光；只读会话核对。'
+    locked_sources=collections.defaultdict(lambda: {'groups':set(),'boxes':set(),'population':collections.defaultdict(set)})
+    from consolidate_recheck_gold import population
+    for g in gold:
+        if g['split']!='locked_test_gpt':continue
+        for provenance in g['provenance']:
+            name=provenance['source_file'];v=locked_sources[name]
+            v['groups'].add(g['group_id']);v['boxes'].add(g['gold_id']);v['population'][population(name)].add(g['gold_id'])
+    report['locked_test_gpt_sources']=[{'source':name,'groups':len(v['groups']),'boxes':len(v['boxes']),'population':{k:len(ids) for k,ids in v['population'].items()}} for name,v in sorted(locked_sources.items())]
+
     comparison = {'baseline_commit': 'bba595e', 'before': before, 'after': report['classes'],
                   'rates': {str(flag): {'locked': sum(s['locked_groups'] for s in audit if s['has_false']==flag),
                                         'eligible': sum(s['eligible_groups'] for s in audit if s['has_false']==flag)} for flag in (True, False)}}
