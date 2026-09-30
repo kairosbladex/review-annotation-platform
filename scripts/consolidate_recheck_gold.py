@@ -11,13 +11,17 @@ import itertools
 import json
 import math
 import re
-from datetime import datetime
+import random
+from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 LABELS = {"true": "true", "false": "false", "uncertain": "uncertain",
           "真目标": "true", "真车": "true", "误检": "false", "非车": "false",
           "屋顶设施": "false", "看不清": "uncertain"}
+SEED = 20260930
+TZ = ZoneInfo("Asia/Shanghai")
+
 HUMAN_ORIGINS = {"human", "human_gold", "manual", "human_confirmed", "wxl_web"}
 
 
@@ -74,7 +78,11 @@ def discover(root: Path):
 
 
 def snapshot(path: Path, root: Path):
-    content = path.read_bytes()  # One read: parse exactly the bytes whose hash is recorded.
+    before = path.stat()
+    content = path.read_bytes()  # Parse exactly the bytes whose hash is recorded.
+    after = path.stat()
+    if (before.st_mtime_ns, before.st_size) != (after.st_mtime_ns, after.st_size):
+        raise ValueError(f"读取期间源文件发生变化，请重跑：{path}")
     fingerprint = sha(content)
     name = str(path.relative_to(root)) if path.is_relative_to(root) else str(path)
     if path.suffix == ".csv":
@@ -86,11 +94,112 @@ def snapshot(path: Path, root: Path):
         rows = [(n, json.loads(line)) for n, line in enumerate(content.decode("utf-8-sig").splitlines(), 1) if line.strip()]
     return {"path": name, "sha256": fingerprint, "bytes": len(content), "rows": len(rows)}, [
         {"ref": f"{name}:{n}@{fingerprint}", "source_file": name, "source_sha256": fingerprint,
-         "source_line": n, "source_batch": str(path.parent.name), "raw": r} for n, r in rows]
+         "source_line": n, "source_batch": str(path.parent.name),
+         "source_mtime": datetime.fromtimestamp(before.st_mtime, TZ).isoformat(), "raw": r} for n, r in rows]
+
+
+def web_package(path):
+    return path.endswith("annotations.csv") and (
+        "recheck-released-fp-20260930/labeling-package/" in path or
+        "vehicle-surface-gate-eval-20260929/random-traffic-hires-package/" in path or
+        "vehicle-surface-gate-eval-20260929/prerelease-evidence/" in path)
+
+
+def population(path):
+    if "recheck-released-fp" in path:
+        return "released_by_recheck"
+    if "random-traffic" in path or "resolution-ab-random" in path:
+        return "random_traffic"
+    if "vehicle-surface" in path:
+        return "rooftop_hard_case"
+    return "historical_review"
+
+
+def exposure_keys(raw):
+    keys = set()
+    for d in (raw, raw.get("meta") or {}, raw.get("representative") or {},
+              raw.get("source") if isinstance(raw.get("source"), dict) else {}):
+        for k in ("id", "candidate_id", "canonical_id", "image_id", "sample_id", "target_id",
+                  "image_sha256", "source_image_sha256", "original_image_sha256", "clean_sha256",
+                  "review_sha256", "clean_frame_sha256", "annotated_frame_sha256", "image_object_key", "file_path"):
+            if d.get(k):
+                value = str(d[k]); keys.add(value)
+                match = re.fullmatch(r"(.+):r?(\d+)", value)
+                if match:
+                    keys.add(f"{match[1]}:{int(match[2])}")
+        for k in ("event_id", "source_event_id", "task_id", "source_task_id", "source_capture_group"):
+            if d.get(k):
+                keys.add("group:" + str(d[k]))
+    return keys
+
+
+def direct_exposure(path, raw):
+    gpt = (raw.get("codex_prompt_version") or "ktd-codex-" in path or "prompt-eval" in path or
+           "review-annotation-platform-prompt-gold" in path or "ktd-formal-review" in path or
+           ("frozen/rows.jsonl" in path and raw.get("group") in ("B", "C")) or
+           "regression" in path or "recheck-runs" in path)
+    qwen = ("qwen" in path or "recheck-released-fp-20260930/dataset-source" in path or
+            "resolution-ab" in path or "ktd-qwen-validation" in path)
+    return (["gpt_prompt_exposed"] if gpt else []) + (["qwen_exposed"] if qwen else [])
+
+
+def enrich_web(records, root, receipts):
+    manifest_cache = {}
+    for record in records:
+        if not web_package(record["source_file"]):
+            continue
+        r = record["raw"]
+        if not str(r.get("label") or "").strip():
+            continue
+        package = root / Path(record["source_file"]).parent
+        # Geometric identity comes from the exact package's manifests, never labels.
+        matches = []
+        for name in ("results.jsonl", "targets.jsonl", "sample.jsonl", "selected.jsonl"):
+            path = package / name
+            if not path.is_file():
+                continue
+            if path not in manifest_cache:
+                manifest_cache[path] = snapshot(path, root)
+            receipt, items = manifest_cache[path]
+            receipts[receipt["path"]] = {**receipt, "purpose": "web_geometry_provenance"}
+            target = exposure_keys(r) - {"group:" + str(r.get("event_id"))}
+            for item in items:
+                if target & (exposure_keys(item["raw"]) - {"group:" + str(item["raw"].get("event_id"))}):
+                    matches.append(item)
+        geometry = {}
+        for item in matches:
+            geometry.update(item["raw"])
+        result = next((i["raw"] for i in matches if i["source_file"].endswith("results.jsonl")), None)
+        if result and result.get("projected_polygon") and result.get("source_size"):
+            points = result["projected_polygon"]; w, h = result["source_size"]
+            geometry["bbox"] = [min(x[0] for x in points)/w, min(x[1] for x in points)/h,
+                                max(x[0] for x in points)/w, max(x[1] for x in points)/h]
+            geometry["source_image"] = str(package / result["frame"])
+            # The projected bbox belongs to this high-resolution frame.
+            geometry.pop("original_image_sha256", None)
+        geometry.pop("label", None); geometry.pop("human_label", None)
+        merged = {**geometry, **r}
+        if not merged.get("class_name") and "vehicle-surface-gate-eval" in record["source_file"]:
+            merged["class_name"] = "车"
+        if result:
+            merged["bbox"] = geometry["bbox"]
+            merged["source_image"] = geometry["source_image"]
+            for key in ("image_sha256", "original_image_sha256", "source_image_sha256"):
+                merged.pop(key, None)
+        inferred = []
+        if not merged.get("labeled_by"):
+            merged["labeled_by"] = "wangxiaolin"; inferred.append("labeled_by")
+        if not merged.get("labeled_at"):
+            merged["labeled_at"] = record["source_mtime"]
+            inferred.append("labeled_at")
+        merged["metadata_inferred"] = "file_level" if inferred else None
+        merged["inferred_fields"] = inferred
+        record["normalized_input"] = merged
+        record["geometry_refs"] = [i["ref"] for i in matches]
 
 
 def normalize(record, root: Path, evidence):
-    r = record["raw"]
+    r = record.get("normalized_input", record["raw"])
     meta = r.get("meta") or {}
     original_label = r.get("human_label", r.get("label"))
     actor = r.get("labeled_by", r.get("reviewer_id"))
@@ -105,12 +214,22 @@ def normalize(record, root: Path, evidence):
             reasons.append("non_human_" + field)
     label = LABELS.get(str(original_label).strip().lower())
     if label is None:
-        reasons.append("missing_or_unknown_label")
+        if original_label is not None and str(original_label).strip():
+            raise ValueError(f"未知标签写法：{original_label!r}，来源 {record['ref']}")
+        reasons.append("missing_label")
     timestamp = r.get("labeled_at", r.get("reviewed_at"))
     if not timestamp:
         reasons.append("missing_labeled_at")
     if reasons:
         return None, reasons
+    try:
+        parsed = datetime.fromisoformat(str(timestamp).replace("Z", "+00:00"))
+        # Legacy platform exports lost tzinfo in SQLite; annotation_service uses utc_now().
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        timestamp = parsed.astimezone(TZ).isoformat()
+    except ValueError:
+        return None, ["invalid_labeled_at"]
     class_name = r.get("class_name", r.get("candidate_class"))
     box = r.get("bbox", r.get("bbox_norm"))
     if box is None and all(r.get("bbox_norm_"+k) not in (None, "") for k in ("x1", "y1", "x2", "y2")):
@@ -157,29 +276,24 @@ def normalize(record, root: Path, evidence):
         return None, ["missing_task_capture_and_event"]
     # Shared image content also connects groups, even when event IDs differ.
     aliases.append("image:" + digest)
-    exposure = []
-    path = record["source_file"]
-    if "codex" in path or r.get("codex_prompt_version"):
-        exposure.append("prior_prompt_review_batch")
-    if "qwen" in path or "train" in path or r.get("training_eligible"):
-        exposure.append("qwen_or_training_batch")
-    if "vehicle-surface" in path:
-        exposure.append("vehicle_surface_evaluation")
-    for key in (str(r.get("candidate_id", "")), str(r.get("sample_id", "")), digest):
+    exposure = direct_exposure(record["source_file"], r)
+    for key in exposure_keys(r) | {digest}:
         exposure.extend(evidence.get(key, []))
-    # Historic labels with incomplete exposure lineage cannot establish a fresh test.
-    if not exposure:
-        exposure.append("exposure_history_unverified")
+    known = web_package(record["source_file"]) or bool(exposure)
+    unknown = not known
     return {"ref": record["ref"], "class_name": class_name, "label": label, "bbox": box,
             "image_sha256": digest, "source_image": image_path,
             "image_hash_verified_locally": image_path is not None, "group_aliases": sorted(set(aliases)),
-            "exposure_reasons": sorted(set(exposure)),
-            "provenance": {**{k: v for k, v in record.items() if k != "raw"},
+            "exposure": sorted(set(exposure)), "gpt_history_unknown": unknown,
+            "population": population(record["source_file"]),
+            "provenance": {**{k: v for k, v in record.items() if k not in ("raw", "normalized_input")},
                            "original_row": "source_rows.jsonl#" + record["ref"],
                            "original_label": original_label, "labeled_by": actor,
                            "labeled_at": timestamp, "note": note,
                            "candidate_id": r.get("candidate_id", r.get("canonical_id")),
-                           "image_hash_verified_locally": image_path is not None}}, []
+                           "image_hash_verified_locally": image_path is not None,
+                           "metadata_inferred": r.get("metadata_inferred"),
+                           "inferred_fields": r.get("inferred_fields", [])}}, []
 
 
 def consolidate(records, root: Path, evidence, old_registry=()):
@@ -187,7 +301,7 @@ def consolidate(records, root: Path, evidence, old_registry=()):
     for record in records:
         item, reasons = normalize(record, root, evidence)
         if item is None:
-            excluded.append({**{k: v for k, v in record.items() if k != "raw"},
+            excluded.append({**{k: v for k, v in record.items() if k not in ("raw", "normalized_input")},
                              "original_row": "source_rows.jsonl#" + record["ref"], "reasons": reasons})
         else:
             accepted.append(item)
@@ -212,29 +326,44 @@ def consolidate(records, root: Path, evidence, old_registry=()):
     group_members = collections.defaultdict(set)
     for item in accepted:
         group_members[groups.find(item["group_aliases"][0])].update(item["group_aliases"])
-    assignments, registry = {}, list(old_registry)
+    assignments, registry = {}, []
+    eligible = []
     for key, members in sorted(group_members.items()):
         existing = {prior[x]["group_id"] for x in members if x in prior}
         if len(existing) > 1:
             raise ValueError("新增来源连接了两个已冻结分组，须人工裁决；不会重切")
         group_id = next(iter(existing)) if existing else "group-" + sha(dumps(sorted(members)).encode())[:20]
-        split = next((prior[x]["split"] for x in members if x in prior), "development")
-        if split != "development":
-            raise ValueError("历史已看样本连接到锁定测试组，须人工裁决；不会改动冻结切分")
-        assignments[key] = (group_id, split)
-        new_aliases = members - prior.keys()
-        if new_aliases:
-            registry.append({"group_id": group_id, "split": split, "aliases": sorted(new_aliases),
-                             "reason": "historical_exposure_or_unverified_history"})
+        items = [x for x in accepted if groups.find(x["group_aliases"][0]) == key]
+        exposed = sorted({e for x in items for e in x["exposure"]})
+        unknown = any(x["gpt_history_unknown"] for x in items)
+        reason = "gpt_prompt_exposed" if "gpt_prompt_exposed" in exposed else (
+            "gpt_history_unknown" if unknown else "seeded_group_random_half")
+        assignments[key] = {"group_id": group_id, "split": "development", "exposure": exposed,
+                            "gpt_history_unknown": unknown, "reason": reason, "aliases": sorted(members)}
+        if reason == "seeded_group_random_half":
+            eligible.append(key)
+    random.Random(SEED).shuffle(eligible)
+    for key in eligible[:len(eligible)//2]:
+        assignments[key]["split"] = "locked_test_gpt"
+    for row in assignments.values():
+        row["valid_for"] = ["gpt"] if "qwen_exposed" in row["exposure"] else ["gpt", "qwen"]
+        if row["split"] == "development":
+            row["valid_for"] = []
+            registry.append({**row, "status": "development_only"})
+        row["status"] = "proposed_pending_user_confirmation"
     gold, conflicts, dedup = [], [], []
     for items in components.values():
         items = sorted(items, key=lambda x: x["ref"])
         base = items[0]
         row = {k: base[k] for k in ("class_name", "image_sha256", "bbox")}
-        group_id, split = assignments[groups.find(base["group_aliases"][0])]
+        assignment = assignments[groups.find(base["group_aliases"][0])]
+        group_id, split = assignment["group_id"], assignment["split"]
         row.update(gold_id=sha(dumps(row).encode()), group_id=group_id, split=split,
                    group_aliases=sorted({a for x in items for a in x["group_aliases"]}),
-                   exposure_reasons=sorted({e for x in items for e in x["exposure_reasons"]}),
+                   exposure=sorted({e for x in items for e in x["exposure"]}),
+                   group_exposure=assignment["exposure"], valid_for=assignment["valid_for"],
+                   split_status=assignment["status"], gpt_history_unknown=assignment["gpt_history_unknown"],
+                   population=sorted({x["population"] for x in items}),
                    source_images=sorted({x["source_image"] for x in items if x["source_image"]}),
                    provenance=[x["provenance"] for x in items],
                    duplicate_policy="same_image_class_iou_ge_0.5_connected_component")
@@ -257,129 +386,171 @@ def statistics(gold):
         entries = [r for r in gold if r["class_name"] == cls]
         counts = {label: sum(r["label"] == label for r in entries) for label in ("true", "false", "uncertain")}
         group_counts = {label: len({r["group_id"] for r in entries if r["label"] == label}) for label in counts}
-        test = [r for r in entries if r["split"] == "locked_test"]
+        test = [r for r in entries if r["split"] == "locked_test_gpt"]
         test_groups = {label: len({r["group_id"] for r in test if r["label"] == label}) for label in counts}
-        # User's thresholds are group counts, not box counts.
-        tier = "可评测" if min(test_groups["true"], test_groups["false"]) >= 100 else (
-            "仅可开发" if min(group_counts["true"], group_counts["false"]) >= 30 else "未充分验证")
+        test_counts = {label: sum(r["label"] == label for r in test) for label in counts}
+        tier = "可评测" if min(test_counts["true"], test_counts["false"]) >= 100 and min(test_groups["true"], test_groups["false"]) >= 10 else (
+            "仅可开发" if min(counts["true"], counts["false"]) >= 30 else "未充分验证")
         result[cls] = {"samples": counts, "independent_groups": group_counts,
                        "all_groups": len({r["group_id"] for r in entries}),
-                       "locked_test_groups": test_groups, "tier": tier,
-                       "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"}
+                       "locked_test_samples": test_counts, "locked_test_groups": test_groups, "tier": tier,
+                       "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"}
     return result
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source-root", type=Path, required=True)
-    parser.add_argument("--extra-source", type=Path, action="append", default=[])
-    parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--append", action="store_true", help="保留历史来源快照与分组，仅追加；不重切")
+    parser.add_argument('--source-root', type=Path, required=True)
+    parser.add_argument('--extra-source', type=Path, action='append', default=[])
+    parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     root, out = args.source_root.resolve(), args.out.resolve()
-    if out.exists() and not args.append:
-        raise SystemExit("输出已存在；禁止重切。追加使用 --append")
-    sources, records, evidence = [], [], collections.defaultdict(list)
-    exposure_sources = []
-    # Converted training conversations mark exposure; they never supply gold labels.
-    for path in sorted((root / "data").glob("*qwen*/all.jsonl")):
+    if out.exists():
+        raise SystemExit('输出已存在；须明确授权删除旧输出后全量重建')
+    sources, records, evidence = [], [], collections.defaultdict(set)
+    receipts = {}
+    paths = sorted(set(discover(root) + [p.resolve() for p in args.extra_source]))
+    for path in paths:
         receipt, items = snapshot(path, root)
-        exposure_sources.append({**receipt, "purpose": "training_exposure_only"})
+        sources.append(receipt); records.extend(items)
+    # Exposure-only files are never admitted as human gold.
+    exposure_paths = set((root / 'data').glob('*qwen*/all.jsonl'))
+    exposure_paths.update((root / 'data').glob('*qwen*/train.jsonl'))
+    exposure_paths.update((root / 'data').glob('*qwen*/validation.jsonl'))
+    exposure_paths.update((root / 'data/recheck-released-fp-20260930/dataset-source').glob('*.jsonl'))
+    exposure_paths.update((root / 'data/vehicle-surface-gate-eval-20260929').glob('resolution-ab*/**/*.jsonl'))
+    exposure_paths.update((root / 'data').glob('ktd-codex-*/*.jsonl'))
+    exposure_paths.update((root / 'data/ktd-formal-review-20260903').glob('*jsonl*'))
+    exposure_paths.update((root / 'data/recheck-runs').glob('**/*.jsonl'))
+    exposure_paths.update((root / 'data').glob('**/*regression*.jsonl'))
+    prompt_root = root.parent / 'review-annotation-platform-prompt-gold/data/prompt-eval'
+    exposure_paths.update(prompt_root.glob('snapshots/**/*.jsonl'))
+    exposure_paths.update((root / 'data/prompt-eval').glob('**/*.jsonl'))
+    for path in sorted(exposure_paths):
+        if 'sealed-copy' in path.parts:
+            continue
+        receipt, items = snapshot(path, root)
+        receipts[receipt['path']] = {**receipt, 'purpose': 'model_exposure_only'}
+        receipts[receipt["path"]]["exposure"] = sorted({e for item in items for e in direct_exposure(str(path), item["raw"])})
         for item in items:
-            raw = item["raw"]
-            for d in (raw, raw.get("meta") or {}):
-                for key in ("id", "candidate_id", "image_id", "sample_id", "image_sha256"):
-                    if d.get(key):
-                        evidence[str(d[key])].append("qwen_training_dataset")
-    for path in sorted(set(discover(root) + [p.resolve() for p in args.extra_source])):
-        receipt, items = snapshot(path, root)
-        sources.append(receipt)
-        records.extend(items)
-        if "qwen" in str(path) or "train" in str(path) or "frozen" in path.parts or "prompt-eval" in str(path):
-            reason = "vehicle_surface_B_C" if "frozen" in path.parts else "prior_training_or_prompt_evaluation"
-            for item in items:
-                r = item["raw"]
-                for d in (r, r.get("meta") or {}):
-                    for key in ("id", "candidate_id", "sample_id", "image_sha256", "clean_sha256", "review_sha256"):
-                        if d.get(key):
-                            evidence[str(d[key])].append(reason)
-    old_registry = []
-    if args.append:
-        old_registry = read_rows(out / "split_registry.jsonl")
-        records = read_rows(out / "source_rows.jsonl") + records
-    records = list({r["ref"]: r for r in records}.values())
-    gold, excluded, conflicts, dedup, registry = consolidate(records, root, evidence, old_registry)
-    sources_by_file = {s["path"]: {**s, "accepted_rows": 0, "excluded_rows": 0,
-                                  "reason": "空文件；无人工标签可纳入"} for s in sources}
-    for source, items in itertools.groupby(sorted(records, key=lambda r: r["source_file"]), key=lambda r: r["source_file"]):
-        items = list(items)
-        accepted_refs = {p["ref"] for r in gold + conflicts for p in r["provenance"]}
-        sources_by_file.setdefault(source, {"path": source, "rows": len(items), "sha256": "historic_snapshot_preserved", "bytes": None})
-        sources_by_file[source]["accepted_rows"] = sum(i["ref"] in accepted_refs for i in items)
-        sources_by_file[source]["excluded_rows"] = len(items)-sources_by_file[source]["accepted_rows"]
-        sources_by_file[source]["reason"] = "通过人工来源检查；仍须去重/冲突隔离" if sources_by_file[source]["accepted_rows"] else "缺少人工身份/时间/原始标签或必要溯源，逐行原因见剔除清单；空文件保持空"
-    subsets = []
-    for small, large in [("data/gold-export-20260903/annotations.jsonl", "data/gold-export-live-20260903/annotations.jsonl"),
-                         ("data/ktd-codex-human-gold-validation-trial-20260924/human_gold_annotations.jsonl", "data/ktd-codex-human-gold-validation-20260924/human_gold_annotations.jsonl")]:
-        def signatures(file):
-            return {(r["raw"].get("candidate_id"), r["raw"].get("human_label"), tuple(r["raw"].get("bbox") or []), r["raw"].get("class_name")) for r in records if r["source_file"] == file}
-        a, b = signatures(small), signatures(large)
-        subsets.append({"small": small, "large": large, "small_unique": len(a), "large_unique": len(b), "is_label_box_subset": a <= b, "not_in_large": len(a-b)})
-    deferred = [{"path": str(p.relative_to(root)), "reason": "封存答案，不打开；不纳入本期金标"}
-                for p in (root / "data").glob("**/sealed-copy/*human*jsonl")]
-    report = {"schema": "recheck_gold_consolidated_v1", "captured_at": datetime.now(ZoneInfo("Asia/Taipei")).isoformat(),
-              "source_root": str(root), "source_rows": len(records), "eligible_source_rows": sum(len(r["provenance"]) for r in gold+conflicts),
-              "gold_samples": len(gold), "excluded_rows": len(excluded), "conflict_samples": len(conflicts),
-              "removed_duplicate_rows": sum(r["removed_duplicates"] for r in dedup),
-              "exclusion_reasons": dict(collections.Counter(reason for r in excluded for reason in r["reasons"])),
-              "classes": statistics(gold), "subset_checks": subsets, "deferred_sources": deferred,
-              "formal_evaluation_available": any(c["tier"] == "可评测" for c in statistics(gold).values()),
-              "side_effects": {"model_calls": 0, "image_uploads": 0, "database_writes": 0, "event_submissions": 0},
-              "limitations": ["12个回归样本的唯一完整清单未在当前入口定位；所有历史来源保守限制开发集，不会漏入测试集。",
-                              "封存测试答案 sealed-copy 未打开；本次不使用旧锁定测试集做评分。",
-                              "有图片哈希但本机无原图的行保留原始声明，不能声称已现场校验图片；source_images为空。",
-                              "任务/连拍/事件别名和相同图片连通分组，避免跨来源泄漏；连通组计数比任务数更保守。",
-                              "外发授权、模型别名实测及额度接口尚未验证；本步无需调用。"]}
-    out.mkdir(parents=True, exist_ok=True)
-    for name, rows in [("source_rows", records), ("gold", gold), ("excluded", excluded), ("conflicts", conflicts),
-                       ("deduplication", dedup), ("split_registry", registry), ("sources", list(sources_by_file.values())),
-                       ("exposure_sources", exposure_sources),
-                       ("splits", [{"gold_id": r["gold_id"], "group_id": r["group_id"], "split": r["split"]} for r in gold])]:
-        write_rows(out / (name + ".jsonl"), rows)
-    (out / "summary.json").write_text(json.dumps(report, ensure_ascii=False, indent=2)+"\n")
-    lines = ["# 复检统一金标：第0步待用户确认", "", f"快照时间：{report['captured_at']}。只读取本地文件，图片不复制、不上传。", "",
-             f"来源行 {len(records)}；合格人工来源行 {report['eligible_source_rows']}；去重后金标 {len(gold)}；剔除 {len(excluded)}；冲突目标 {len(conflicts)}。", "",
-             "暂无类别可正式评测。" if not report["formal_evaluation_available"] else "存在可评测类别。", "",
-             "档位全部按独立组计数：锁定测试真、假各≥100组才可评测（因此各≥10组也满足）；开发真、假各≥30组才仅可开发。框数只作附加统计。", "",
-             "|类别|真/假/存疑框数|真/假/存疑独立组数|总组数|锁定测试真/假组|档位|", "|---|---|---|---|---|---|"]
-    for cls, c in report["classes"].items():
-        fmt = lambda d: "/".join(str(d[k]) for k in ("true", "false", "uncertain"))
-        lines.append(f"|{cls}|{fmt(c['samples'])}|{fmt(c['independent_groups'])}|{c['all_groups']}|{c['locked_test_groups']['true']}/{c['locked_test_groups']['false']}|{c['tier']}|")
-    lines += ["", "每类主要缺口：尚无未被训练/调提示词使用的锁定测试任务组；不足30组的类别还缺开发真/假组。", "",
-              "## 来源纳入和排除", "", "每行来源引用包含文件、物理行号及本次文件哈希。CSV读取一次后立即固化，后续标注变化不改变本快照。", "",
-              "|来源|快照行数|合格人工行|剔除行|原因|", "|---|---|---|---|---|"]
-    for s in sources_by_file.values():
-        lines.append(f"|{s['path']}|{s['rows']}|{s['accepted_rows']}|{s['excluded_rows']}|{s['reason']}|")
-    lines += ["", "## 子集核对", ""]
-    for s in subsets:
-        lines.append(f"- `{s['small']}` → `{s['large']}`：标签、同类框及候选ID子集={s['is_label_box_subset']}；{s['small_unique']}/{s['large_unique']}，不在大批内={s['not_in_large']}。")
-    lines += ["", "## 口径与冻结", "", "人工身份为空、auto annotation备注、明确非人工来源都剔除；未记录标注时间、图片哈希、框或分组的行也单列剔除，绝不补造元数据。reviewer_id是旧平台人工身份字段，保留原字段并归一到labeled_by。",
-              "", "按同图SHA-256、同类别、框IoU≥0.5建立连通组件去重。组件内任何标签冲突（含uncertain）全部隔离，保留所有人工原行，不自动选择。",
-              "", "图片、任务、连拍和事件别名连通后固定分组；没有任务ID时退到连拍/事件。跨任务相同图片合为一个保守组。split_registry.jsonl保持追加，已冻结分组不得改动。所有本次历史样本只进入development；已看证据与无法证明未看分别记录。",
-              "", "本步仅建立历史开发集。未来新组进入测试的比例/抽样规则须在用户确认第0步后、接入新金标前固定；当前脚本对历史来源没有随机分配测试的路径。",
-              "", "## 文件", "", "gold.jsonl：统一金标及每次人工标注溯源；excluded.jsonl：逐行剔除原因；conflicts.jsonl：待人工裁决；deduplication.jsonl：去重关系；splits.jsonl/split_registry.jsonl：冻结清单；sources.jsonl/source_rows.jsonl：文件快照哈希与原行；exposure_sources.jsonl：仅标记训练暴露的转换文件；SHA256SUMS：产物哈希。", "",
-              "## 检查范围与待确认", ""]
-    lines += ["- " + x for x in report["limitations"]]
-    lines += ["- 排除且未打开：" + x["path"] + "；" + x["reason"] for x in deferred]
-    lines += ["", "默认素材建议：画面匹配的高清干净原图；无干净图时标明红框截图局限。依据源目录vehicle-surface-gate-eval-20260929/resolution-ab/README.md和resolution-ab-random/README.md。难例配对改善有依据，随机批收益未达到统计显著，不推广为GPT准确率结论。"]
-    lines += ["", "线上后续记录使用标注平台DATABASE_URL主库新表；本步不连库、不做迁移、不启服务。模型别名和/v1/usage未验证。", "",
-              "资源：无容器、GPU、后台进程、端口监听；不复制图片与模型。只保留脚本、测试、统一清单和必要证据。", "",
-              "统计报告待用户确认。确认前不进入第1—4步，不调用中转站。"]
-    (out / "README.md").write_text("\n".join(lines)+"\n")
-    sums = [f"{sha(p.read_bytes())}  {p.name}" for p in sorted(out.iterdir()) if p.is_file() and p.name != "SHA256SUMS"]
-    (out / "SHA256SUMS").write_text("\n".join(sums)+"\n")
-    print(json.dumps({k: report[k] for k in ("source_rows", "eligible_source_rows", "gold_samples", "excluded_rows", "conflict_samples", "classes")}, ensure_ascii=False, indent=2))
+            flags = direct_exposure(str(path), item['raw'])
+            for key in exposure_keys(item['raw']):
+                evidence[key].update(flags)
+    for item in records:
+        for key in exposure_keys(item['raw']):
+            evidence[key].update(direct_exposure(item['source_file'], item['raw']))
+    enrich_web(records, root, receipts)
+    gold, excluded, conflicts, dedup, registry = consolidate(records, root, evidence)
+    accepted_refs = {p['ref'] for r in gold + conflicts for p in r['provenance']}
+    inferred = collections.Counter(p['source_file'] for r in gold+conflicts for p in r['provenance'] if p['metadata_inferred'])
+    inferred_all = collections.Counter(r['source_file'] for r in records if r.get('normalized_input', {}).get('metadata_inferred'))
+    unknown = collections.defaultdict(lambda: {'groups': set(), 'gold_ids': set()})
+    locked = collections.defaultdict(lambda: {'groups': set(), 'gold_ids': set(), 'populations': collections.defaultdict(set)})
+    for r in gold:
+        for p in r['provenance']:
+            if r['gpt_history_unknown']:
+                unknown[p['source_file']]['groups'].add(r['group_id'])
+                unknown[p['source_file']]['gold_ids'].add(r['gold_id'])
+            if r['split'] == 'locked_test_gpt':
+                v = locked[p['source_file']]; v['groups'].add(r['group_id']); v['gold_ids'].add(r['gold_id'])
+                v['populations'][population(p['source_file'])].add(r['gold_id'])
+    locked_sources = [{ 'source': k, 'groups': len(v['groups']), 'boxes': len(v['gold_ids']),
+                        'population': {p:len(ids) for p,ids in v['populations'].items()}} for k,v in sorted(locked.items())]
+    unknown_sources = [{'source':k, 'groups':len(v['groups']), 'boxes':len(v['gold_ids'])} for k,v in sorted(unknown.items())]
+    for s in sources:
+        s['accepted_rows'] = sum(r['ref'] in accepted_refs for r in records if r['source_file']==s['path'])
+        s['excluded_rows'] = s['rows'] - s['accepted_rows']
+    class_conflicts = []
+    for cls in sorted({r['class_name'] for r in conflicts}):
+        rows = [r for r in conflicts if r['class_name']==cls]
+        class_conflicts.append({'class_name':cls,'conflict_samples':len(rows),
+                                'label_combinations':dict(collections.Counter('/'.join(r['labels']) for r in rows)),
+                                'gold_ids':[r['gold_id'] for r in rows]})
+    # Population tables are separate; no pooled accuracy is calculated.
+    populations = {pop: statistics([r for r in gold if pop in r['population']]) for pop in sorted({p for r in gold for p in r['population']})}
+    report = {'schema':'recheck_gold_consolidated_v2', 'captured_at':datetime.now(TZ).isoformat(),
+              'timezone':'Asia/Shanghai','random_seed':SEED,'source_root':str(root),
+              'source_rows':len(records),'eligible_source_rows':len(accepted_refs),
+              'gold_samples':len(gold),'excluded_rows':len(excluded),'conflict_samples':len(conflicts),
+              'removed_duplicate_rows':sum(r['removed_duplicates'] for r in dedup),
+              'classes':statistics(gold),'population':populations,'locked_test_gpt_sources':locked_sources,
+              'metadata_inferred_rows_by_source':dict(sorted(inferred_all.items())),
+              'metadata_inferred_eligible_rows_by_source':dict(sorted(inferred.items())),
+              'gpt_history_unknown_sources':unknown_sources, 'conflicts_by_class':class_conflicts,
+              'split_status':'proposed_pending_user_confirmation',
+              'unresolved_exposure_manifests':[{'source':'12个复检回归样本',
+                 'reason':'未定位独立完整清单，无法核对跨来源重叠；测试候选不视为完整曝光审计通过'}],
+              'exclusion_reasons':dict(collections.Counter(x for r in excluded for x in r['reasons'])),
+              'side_effects':{'model_calls':0,'image_uploads':0,'database_writes':0,'event_submissions':0},
+              'limitations':['12个复检回归样本的独立完整清单尚未定位；已把本地recheck-runs、prompt-eval快照与formal-review曝光并入证据；其余不明历史来源保守进开发集，待逐个确认。',
+                             '封存答案sealed-copy未打开；仅进行金标清点，不运行模型或准确率评测。',
+                             '同一金标可能有多个来源/population，来源贡献和population表不可相加；各自去重计数。',
+                             '本机无原图但有图片哈希的行仅保留哈希声明，不声称图片已现场核对。',
+                             '旧平台无时区标注时间依据annotation_service.utc_now()按UTC解析后转Asia/Shanghai；原始字符串仍留在接受行快照。']}
+    exclusions = {r['ref']:r['reasons'] for r in excluded}
+    snapshots = []
+    for r in records:
+        if r['ref'] in exclusions:
+            snapshots.append({'ref':r['ref'],'source_sha256':r['source_sha256'],'reasons':exclusions[r['ref']]})
+        else:
+            snapshots.append({k:v for k,v in r.items() if k != 'normalized_input'})
+    out.mkdir(parents=True)
+    group_rows = {}
+    for r in gold+conflicts:
+        group_rows.setdefault(r['group_id'], {'group_id':r['group_id'],'split':r['split'], 'valid_for':r['valid_for'],
+                             'exposure':r['group_exposure'],'gpt_history_unknown':r['gpt_history_unknown'],
+                             'status':'proposed_pending_user_confirmation'})
+    for name, rows in [('source_rows',snapshots),('gold',gold),('excluded',excluded),('conflicts',conflicts),
+                       ('conflicts_by_class',class_conflicts),('deduplication',dedup),('sources',sources),
+                       ('split_registry',registry),('proposed_groups',list(group_rows.values())),
+                       ('exposure_sources',list(receipts.values())),
+                       ('splits',[{k:r[k] for k in ('gold_id','group_id','split','valid_for','split_status')} for r in gold])]:
+        write_rows(out/(name+'.jsonl'),rows)
+    (out/'summary.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    lines = ['# 复检统一金标：第0步修正重跑，待用户确认','',
+             f"快照：{report['captured_at']}；时区Asia/Shanghai。来源{len(records)}行，合格人工{len(accepted_refs)}行，去重金标{len(gold)}框，剔除{len(excluded)}行，冲突{len(conflicts)}框。",'',
+             '可评测：locked_test_gpt真、假各≥100框且各≥10独立组；仅可开发：全部真、假各≥30框；uncertain不计真/假。档位仅表示样本数量条件，不表示已通过模型评测。','',
+             f'固定种子{SEED}。按排序后的组列表用Python random.Random(seed).shuffle，未被GPT看过且来源可判定的组前floor(N/2)进入locked_test_gpt，其余开发。GPT曝光或历史不明的整组进入开发。仅Qwen曝光不阻止GPT锁定测试；带Qwen曝光的测试组valid_for=["gpt"]，禁止评测Qwen。','',
+             '全部测试切分仅为待确认提案。split_registry.jsonl只记录development，不写入、不冻结locked_test_gpt；提案见proposed_groups.jsonl与splits.jsonl。确认前不进入第1—4步，不调用中转站。','']
+    def table(stats):
+        result=['|类别|真/假/uncertain框|真/假/uncertain组|测试真/假框|测试真/假组|档位|','|---|---|---|---|---|---|']
+        for cls,c in stats.items():
+            fmt=lambda d,ks: '/'.join(str(d[k]) for k in ks)
+            result.append(f"|{cls}|{fmt(c['samples'],('true','false','uncertain'))}|{fmt(c['independent_groups'],('true','false','uncertain'))}|{fmt(c['locked_test_samples'],('true','false'))}|{fmt(c['locked_test_groups'],('true','false'))}|{c['tier']}|")
+        return result
+    lines += table(report['classes'])
+    lines += ['','## population分开清点（无准确率评测）','']
+    for pop,stats in populations.items():
+        lines += ['### '+pop,'']+table(stats)+['']
+    lines += ['## locked_test_gpt来源清单','','同一金标若有多来源，分别贡献计数，不能把来源表直接相加。','','|来源|组|框|population框分布|','|---|---|---|---|']
+    for v in locked_sources:
+        lines.append(f"|{v['source']}|{v['groups']}|{v['boxes']}|{dumps(v['population'])}|")
+    lines += ['','## 补齐元数据','','只对指定人工网页CSV的非空label补齐；labeled_by=wangxiaolin，labeled_at=该CSV的文件mtime，metadata_inferred=file_level。原行快照不篡改。','','|来源|补齐行数|其中通过溯源检查|','|---|---|---|']
+    for k,v in sorted(inferred_all.items()):
+        lines.append(f'|{k}|{v}|{inferred[k]}|')
+    lines += ['','## GPT曝光无法判断，保守进开发集','','以下包含因同组其他来源不明而连带进入开发的来源。','','|来源|组|框|','|---|---|---|']
+    for v in unknown_sources:
+        lines.append(f"|{v['source']}|{v['groups']}|{v['boxes']}|")
+    if not unknown_sources:
+        lines += ['当前已纳入金标未发现额外的来源不明组；但12个回归样本独立清单未定位，跨来源重叠核验仍未完成，不能把测试候选视为完整曝光审计通过。']
+    lines += ['','## 冲突隔离','','|类别|冲突框|标签组合|','|---|---|---|']
+    for v in class_conflicts:
+        lines.append(f"|{v['class_name']}|{v['conflict_samples']}|{dumps(v['label_combinations'])}|")
+    lines += ['','冲突逐框溯源见conflicts.jsonl，分类裁决索引见conflicts_by_class.jsonl。','',
+              '## 来源对账','','|来源|行数|合格人工行|剔除行|','|---|---|---|---|']
+    for v in sources:
+        lines.append(f"|{v['path']}|{v['rows']}|{v['accepted_rows']}|{v['excluded_rows']}|")
+    lines += ['','## 检查范围','']+['- '+x for x in report['limitations']]
+    lines += ['','source_rows.jsonl的剔除行仅保留ref、源哈希及原因，无原始内容。接受行保留原始快照；网页几何信息的补齐来源和哈希见geometry_refs及exposure_sources.jsonl。',
+              '','资源清理：未启动容器、GPU、后台进程或端口；不复制图片与模型，只保留脚本、测试、最终清单和验证证据。原工作树保留供确认，本次未新增工作树。']
+    (out/'README.md').write_text('\n'.join(lines)+'\n')
+    refresh_sums(out)
+    print(json.dumps({k:report[k] for k in ('gold_samples','conflict_samples','classes','metadata_inferred_rows_by_source','locked_test_gpt_sources','gpt_history_unknown_sources')},ensure_ascii=False,indent=2))
 
 
-if __name__ == "__main__":
+def refresh_sums(out):
+    (out/'SHA256SUMS').write_text('\n'.join(f'{sha(p.read_bytes())}  {p.name}' for p in sorted(out.iterdir()) if p.is_file() and p.name != 'SHA256SUMS')+'\n')
+
+
+if __name__ == '__main__':
     main()

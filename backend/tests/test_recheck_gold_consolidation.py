@@ -62,7 +62,7 @@ def test_same_task_and_image_cannot_cross_groups_and_append_keeps_assignment(tmp
     new, _, _, _, new_registry = module.consolidate([
         record("d", image_sha256="d"*64, source_task_id="task1")], tmp_path, {}, registry)
     assert new[0]["group_id"] == gold[0]["group_id"]
-    assert new_registry[:len(registry)] == registry
+    assert new_registry[0]["split"] == "development"
 
 
 def test_connecting_frozen_groups_requires_adjudication(tmp_path):
@@ -72,11 +72,11 @@ def test_connecting_frozen_groups_requires_adjudication(tmp_path):
         module.consolidate([record("a", source_task_id="t1", source_event_id="e1")], tmp_path, {}, registry)
 
 
-def test_counts_groups_instead_of_boxes():
+def test_development_threshold_counts_boxes():
     gold = [{"class_name": "车", "label": label, "group_id": "single-task", "split": "development"}
             for label in ("true", "false") for _ in range(200)]
     stats = module.statistics(gold)["车"]
-    assert stats["tier"] == "未充分验证"
+    assert stats["tier"] == "仅可开发"
     assert stats["independent_groups"]["true"] == 1
 
 
@@ -86,3 +86,64 @@ def test_local_image_hash_mismatch_is_excluded(tmp_path):
     gold, excluded, *_ = module.consolidate([record("a", source_image=str(p))], tmp_path, {})
     assert not gold
     assert excluded[0]["reasons"] == ["image_hash_mismatch"]
+
+
+def test_unknown_label_stops_instead_of_guessing(tmp_path):
+    with pytest.raises(ValueError, match="未知标签写法"):
+        module.consolidate([record("a", "像是真车")], tmp_path, {})
+
+
+def test_locked_threshold_requires_boxes_and_groups():
+    def rows(boxes, groups):
+        return [{"class_name":"车", "label":label,"group_id":str(i % groups),"split":"locked_test_gpt"}
+                for label in ("true","false") for i in range(boxes)]
+    assert module.statistics(rows(100,10))["车"]["tier"] == "可评测"
+    assert module.statistics(rows(99,10))["车"]["tier"] == "仅可开发"
+    assert module.statistics(rows(100,9))["车"]["tier"] == "仅可开发"
+
+
+def test_qwen_only_is_gpt_eligible_and_proposal_is_not_frozen(tmp_path):
+    records = [record(str(i), source_event_id=str(i), image_sha256=f"{i:064x}") for i in range(12)]
+    evidence = {str(i):["qwen_exposed"] for i in range(12)}
+    gold, _, _, _, registry = module.consolidate(records,tmp_path,evidence)
+    locked = [r for r in gold if r["split"] == "locked_test_gpt"]
+    assert len(locked) == 6
+    assert all(r["valid_for"] == ["gpt"] for r in locked)
+    assert all(r["split"] == "development" for r in registry)
+    again = module.consolidate(list(reversed(records)),tmp_path,evidence)[0]
+    assert {r["group_id"]:r["split"] for r in again} == {r["group_id"]:r["split"] for r in gold}
+
+
+def test_gpt_exposure_or_unknown_forces_whole_group_to_development(tmp_path):
+    records = [record("a", source_task_id="shared"),
+               record("b",source_task_id="shared",image_sha256="c"*64)]
+    for evidence in ({"a":["gpt_prompt_exposed"],"b":["qwen_exposed"]}, {"b":["qwen_exposed"]}):
+        gold = module.consolidate(records,tmp_path,evidence)[0]
+        assert {r["split"] for r in gold} == {"development"}
+
+
+def test_web_metadata_is_inferred_only_for_nonempty_labels(tmp_path):
+    path = tmp_path/'data/recheck-released-fp-20260930/labeling-package/annotations.csv'
+    path.parent.mkdir(parents=True)
+    path.write_text('candidate_id,label\na,真目标\nb,\n')
+    _, records = module.snapshot(path,tmp_path)
+    module.enrich_web(records,tmp_path,{})
+    inferred = records[0]['normalized_input']
+    assert inferred['labeled_by'] == 'wangxiaolin'
+    assert inferred['labeled_at'] == records[0]['source_mtime']
+    assert inferred['metadata_inferred'] == 'file_level'
+    assert 'normalized_input' not in records[1]
+    # No original source row is rewritten.
+    assert 'labeled_by' not in records[0]['raw']
+
+
+def test_exposure_classifies_models_separately():
+    assert module.direct_exposure('data/qwen/all.jsonl',{}) == ['qwen_exposed']
+    assert module.direct_exposure('data/ktd-codex-review/rows.jsonl',{}) == ['gpt_prompt_exposed']
+    assert module.direct_exposure('data/frozen/rows.jsonl',{'group':'B'}) == ['gpt_prompt_exposed']
+    assert module.direct_exposure('data/frozen/rows.jsonl',{'group':'A'}) == []
+
+
+def test_legacy_platform_utc_timestamp_is_converted(tmp_path):
+    gold = module.consolidate([record('a',labeled_at='2026-09-03 08:00:04.843239')],tmp_path,{})[0]
+    assert gold[0]['provenance'][0]['labeled_at'] == '2026-09-03T16:00:04.843239+08:00'

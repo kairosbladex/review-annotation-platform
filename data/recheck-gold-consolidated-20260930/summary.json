@@ -1,60 +1,65 @@
 {
-  "schema": "recheck_gold_consolidated_v1",
-  "captured_at": "2026-09-30T15:38:35.681875+08:00",
+  "schema": "recheck_gold_consolidated_v2",
+  "captured_at": "2026-09-30T16:07:31.577709+08:00",
+  "timezone": "Asia/Shanghai",
+  "random_seed": 20260930,
   "source_root": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform",
   "source_rows": 7402,
-  "eligible_source_rows": 1673,
-  "gold_samples": 677,
-  "excluded_rows": 5729,
-  "conflict_samples": 4,
-  "removed_duplicate_rows": 992,
-  "exclusion_reasons": {
-    "missing_labeled_by": 5729,
-    "auto_annotation_note": 12,
-    "missing_labeled_at": 5141,
-    "non_human_label_source": 188,
-    "missing_or_unknown_label": 880
-  },
+  "eligible_source_rows": 2517,
+  "gold_samples": 1453,
+  "excluded_rows": 4885,
+  "conflict_samples": 5,
+  "removed_duplicate_rows": 1059,
   "classes": {
     "三轮车": {
       "samples": {
+        "true": 3,
+        "false": 6,
+        "uncertain": 0
+      },
+      "independent_groups": {
+        "true": 2,
+        "false": 6,
+        "uncertain": 0
+      },
+      "all_groups": 8,
+      "locked_test_samples": {
+        "true": 1,
+        "false": 2,
+        "uncertain": 0
+      },
+      "locked_test_groups": {
+        "true": 1,
+        "false": 2,
+        "uncertain": 0
+      },
+      "tier": "未充分验证",
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+    },
+    "两轮车": {
+      "samples": {
+        "true": 29,
+        "false": 8,
+        "uncertain": 0
+      },
+      "independent_groups": {
+        "true": 17,
+        "false": 7,
+        "uncertain": 0
+      },
+      "all_groups": 23,
+      "locked_test_samples": {
+        "true": 2,
+        "false": 4,
+        "uncertain": 0
+      },
+      "locked_test_groups": {
         "true": 2,
         "false": 3,
         "uncertain": 0
       },
-      "independent_groups": {
-        "true": 1,
-        "false": 3,
-        "uncertain": 0
-      },
-      "all_groups": 4,
-      "locked_test_groups": {
-        "true": 0,
-        "false": 0,
-        "uncertain": 0
-      },
       "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
-    },
-    "两轮车": {
-      "samples": {
-        "true": 27,
-        "false": 3,
-        "uncertain": 0
-      },
-      "independent_groups": {
-        "true": 15,
-        "false": 3,
-        "uncertain": 0
-      },
-      "all_groups": 17,
-      "locked_test_groups": {
-        "true": 0,
-        "false": 0,
-        "uncertain": 0
-      },
-      "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     },
     "人员": {
       "samples": {
@@ -68,13 +73,18 @@
         "uncertain": 0
       },
       "all_groups": 59,
+      "locked_test_samples": {
+        "true": 0,
+        "false": 0,
+        "uncertain": 0
+      },
       "locked_test_groups": {
         "true": 0,
         "false": 0,
         "uncertain": 0
       },
-      "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "tier": "仅可开发",
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     },
     "光伏板": {
       "samples": {
@@ -88,13 +98,18 @@
         "uncertain": 0
       },
       "all_groups": 7,
+      "locked_test_samples": {
+        "true": 0,
+        "false": 0,
+        "uncertain": 0
+      },
       "locked_test_groups": {
         "true": 0,
         "false": 0,
         "uncertain": 0
       },
       "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     },
     "光斑": {
       "samples": {
@@ -108,53 +123,68 @@
         "uncertain": 0
       },
       "all_groups": 10,
+      "locked_test_samples": {
+        "true": 0,
+        "false": 0,
+        "uncertain": 0
+      },
       "locked_test_groups": {
         "true": 0,
         "false": 0,
         "uncertain": 0
       },
       "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     },
     "公交车": {
       "samples": {
         "true": 7,
-        "false": 6,
+        "false": 7,
         "uncertain": 0
       },
       "independent_groups": {
         "true": 7,
-        "false": 5,
+        "false": 6,
         "uncertain": 0
       },
-      "all_groups": 12,
+      "all_groups": 13,
+      "locked_test_samples": {
+        "true": 0,
+        "false": 0,
+        "uncertain": 0
+      },
       "locked_test_groups": {
         "true": 0,
         "false": 0,
         "uncertain": 0
       },
       "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     },
     "卡车": {
       "samples": {
         "true": 3,
-        "false": 4,
-        "uncertain": 0
+        "false": 12,
+        "uncertain": 1
       },
       "independent_groups": {
         "true": 3,
+        "false": 12,
+        "uncertain": 1
+      },
+      "all_groups": 16,
+      "locked_test_samples": {
+        "true": 0,
         "false": 4,
         "uncertain": 0
       },
-      "all_groups": 7,
       "locked_test_groups": {
         "true": 0,
-        "false": 0,
+        "false": 4,
         "uncertain": 0
       },
       "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     },
     "没戴头盔": {
       "samples": {
@@ -168,33 +198,43 @@
         "uncertain": 0
       },
       "all_groups": 5,
+      "locked_test_samples": {
+        "true": 0,
+        "false": 0,
+        "uncertain": 0
+      },
       "locked_test_groups": {
         "true": 0,
         "false": 0,
         "uncertain": 0
       },
       "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     },
     "车": {
       "samples": {
-        "true": 310,
-        "false": 21,
-        "uncertain": 0
+        "true": 958,
+        "false": 95,
+        "uncertain": 26
       },
       "independent_groups": {
-        "true": 63,
-        "false": 9,
-        "uncertain": 0
+        "true": 241,
+        "false": 45,
+        "uncertain": 14
       },
-      "all_groups": 66,
+      "all_groups": 268,
+      "locked_test_samples": {
+        "true": 251,
+        "false": 29,
+        "uncertain": 16
+      },
       "locked_test_groups": {
-        "true": 0,
-        "false": 0,
-        "uncertain": 0
+        "true": 74,
+        "false": 15,
+        "uncertain": 9
       },
-      "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "tier": "仅可开发",
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     },
     "车牌": {
       "samples": {
@@ -208,60 +248,731 @@
         "uncertain": 0
       },
       "all_groups": 4,
+      "locked_test_samples": {
+        "true": 0,
+        "false": 0,
+        "uncertain": 0
+      },
       "locked_test_groups": {
         "true": 0,
         "false": 0,
         "uncertain": 0
       },
       "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     },
     "违建": {
       "samples": {
-        "true": 71,
+        "true": 78,
         "false": 61,
         "uncertain": 0
       },
       "independent_groups": {
-        "true": 26,
+        "true": 31,
         "false": 48,
         "uncertain": 0
       },
-      "all_groups": 70,
-      "locked_test_groups": {
-        "true": 0,
+      "all_groups": 75,
+      "locked_test_samples": {
+        "true": 4,
         "false": 0,
         "uncertain": 0
       },
-      "tier": "未充分验证",
-      "gap": "缺少未被使用过的锁定测试任务组；真、假各需100组"
+      "locked_test_groups": {
+        "true": 3,
+        "false": 0,
+        "uncertain": 0
+      },
+      "tier": "仅可开发",
+      "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
     }
   },
-  "subset_checks": [
+  "population": {
+    "historical_review": {
+      "三轮车": {
+        "samples": {
+          "true": 2,
+          "false": 3,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 1,
+          "false": 3,
+          "uncertain": 0
+        },
+        "all_groups": 4,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "两轮车": {
+        "samples": {
+          "true": 27,
+          "false": 3,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 15,
+          "false": 3,
+          "uncertain": 0
+        },
+        "all_groups": 17,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "人员": {
+        "samples": {
+          "true": 59,
+          "false": 40,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 41,
+          "false": 22,
+          "uncertain": 0
+        },
+        "all_groups": 59,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "仅可开发",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "光伏板": {
+        "samples": {
+          "true": 23,
+          "false": 1,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 6,
+          "false": 1,
+          "uncertain": 0
+        },
+        "all_groups": 7,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "光斑": {
+        "samples": {
+          "true": 15,
+          "false": 12,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 5,
+          "false": 8,
+          "uncertain": 0
+        },
+        "all_groups": 10,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "公交车": {
+        "samples": {
+          "true": 7,
+          "false": 6,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 7,
+          "false": 5,
+          "uncertain": 0
+        },
+        "all_groups": 12,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "卡车": {
+        "samples": {
+          "true": 3,
+          "false": 4,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 3,
+          "false": 4,
+          "uncertain": 0
+        },
+        "all_groups": 7,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "没戴头盔": {
+        "samples": {
+          "true": 3,
+          "false": 2,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 3,
+          "false": 2,
+          "uncertain": 0
+        },
+        "all_groups": 5,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "车": {
+        "samples": {
+          "true": 310,
+          "false": 21,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 63,
+          "false": 9,
+          "uncertain": 0
+        },
+        "all_groups": 66,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "车牌": {
+        "samples": {
+          "true": 4,
+          "false": 0,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 4,
+          "false": 0,
+          "uncertain": 0
+        },
+        "all_groups": 4,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "违建": {
+        "samples": {
+          "true": 71,
+          "false": 61,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 26,
+          "false": 48,
+          "uncertain": 0
+        },
+        "all_groups": 70,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "仅可开发",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      }
+    },
+    "random_traffic": {
+      "三轮车": {
+        "samples": {
+          "true": 0,
+          "false": 3,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 0,
+          "false": 3,
+          "uncertain": 0
+        },
+        "all_groups": 3,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 2,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 2,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "公交车": {
+        "samples": {
+          "true": 0,
+          "false": 1,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 0,
+          "false": 1,
+          "uncertain": 0
+        },
+        "all_groups": 1,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "卡车": {
+        "samples": {
+          "true": 0,
+          "false": 2,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 0,
+          "false": 2,
+          "uncertain": 0
+        },
+        "all_groups": 2,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 1,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 1,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "车": {
+        "samples": {
+          "true": 172,
+          "false": 11,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 113,
+          "false": 11,
+          "uncertain": 0
+        },
+        "all_groups": 122,
+        "locked_test_samples": {
+          "true": 83,
+          "false": 5,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 57,
+          "false": 5,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      }
+    },
+    "released_by_recheck": {
+      "三轮车": {
+        "samples": {
+          "true": 1,
+          "false": 0,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 1,
+          "false": 0,
+          "uncertain": 0
+        },
+        "all_groups": 1,
+        "locked_test_samples": {
+          "true": 1,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 1,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "两轮车": {
+        "samples": {
+          "true": 2,
+          "false": 5,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 2,
+          "false": 4,
+          "uncertain": 0
+        },
+        "all_groups": 6,
+        "locked_test_samples": {
+          "true": 2,
+          "false": 4,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 2,
+          "false": 3,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "卡车": {
+        "samples": {
+          "true": 0,
+          "false": 6,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 0,
+          "false": 6,
+          "uncertain": 0
+        },
+        "all_groups": 6,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 3,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 3,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "车": {
+        "samples": {
+          "true": 399,
+          "false": 16,
+          "uncertain": 2
+        },
+        "independent_groups": {
+          "true": 52,
+          "false": 7,
+          "uncertain": 2
+        },
+        "all_groups": 53,
+        "locked_test_samples": {
+          "true": 153,
+          "false": 1,
+          "uncertain": 2
+        },
+        "locked_test_groups": {
+          "true": 15,
+          "false": 1,
+          "uncertain": 2
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "违建": {
+        "samples": {
+          "true": 7,
+          "false": 0,
+          "uncertain": 0
+        },
+        "independent_groups": {
+          "true": 5,
+          "false": 0,
+          "uncertain": 0
+        },
+        "all_groups": 5,
+        "locked_test_samples": {
+          "true": 4,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 3,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      }
+    },
+    "rooftop_hard_case": {
+      "卡车": {
+        "samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 1
+        },
+        "independent_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 1
+        },
+        "all_groups": 1,
+        "locked_test_samples": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "locked_test_groups": {
+          "true": 0,
+          "false": 0,
+          "uncertain": 0
+        },
+        "tier": "未充分验证",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      },
+      "车": {
+        "samples": {
+          "true": 107,
+          "false": 51,
+          "uncertain": 24
+        },
+        "independent_groups": {
+          "true": 49,
+          "false": 26,
+          "uncertain": 12
+        },
+        "all_groups": 75,
+        "locked_test_samples": {
+          "true": 33,
+          "false": 24,
+          "uncertain": 14
+        },
+        "locked_test_groups": {
+          "true": 17,
+          "false": 12,
+          "uncertain": 7
+        },
+        "tier": "仅可开发",
+        "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框"
+      }
+    }
+  },
+  "locked_test_gpt_sources": [
     {
-      "small": "data/gold-export-20260903/annotations.jsonl",
-      "large": "data/gold-export-live-20260903/annotations.jsonl",
-      "small_unique": 104,
-      "large_unique": 854,
-      "is_label_box_subset": true,
-      "not_in_large": 0
+      "source": "data/recheck-released-fp-20260930/labeling-package/annotations.csv",
+      "groups": 23,
+      "boxes": 170,
+      "population": {
+        "released_by_recheck": 170
+      }
     },
     {
-      "small": "data/ktd-codex-human-gold-validation-trial-20260924/human_gold_annotations.jsonl",
-      "large": "data/ktd-codex-human-gold-validation-20260924/human_gold_annotations.jsonl",
-      "small_unique": 6,
-      "large_unique": 40,
-      "is_label_box_subset": true,
-      "not_in_large": 0
-    }
-  ],
-  "deferred_sources": [
+      "source": "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/annotation-package/annotations.csv",
+      "groups": 15,
+      "boxes": 16,
+      "population": {
+        "rooftop_hard_case": 16
+      }
+    },
     {
-      "path": "data/vehicle-surface-gate-eval-20260929/holdout/sealed-copy/human_labels.server.jsonl",
-      "reason": "封存答案，不打开；不纳入本期金标"
+      "source": "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/hires-review-package/annotations.csv",
+      "groups": 21,
+      "boxes": 24,
+      "population": {
+        "rooftop_hard_case": 24
+      }
+    },
+    {
+      "source": "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/new-events-hires-package/annotations.csv",
+      "groups": 3,
+      "boxes": 10,
+      "population": {
+        "rooftop_hard_case": 10
+      }
+    },
+    {
+      "source": "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/supplement-annotation-package/annotations.csv",
+      "groups": 12,
+      "boxes": 21,
+      "population": {
+        "rooftop_hard_case": 21
+      }
+    },
+    {
+      "source": "data/vehicle-surface-gate-eval-20260929/random-traffic-hires-package/annotations.csv",
+      "groups": 64,
+      "boxes": 91,
+      "population": {
+        "random_traffic": 91
+      }
     }
   ],
-  "formal_evaluation_available": false,
+  "metadata_inferred_rows_by_source": {
+    "data/recheck-released-fp-20260930/labeling-package/annotations.csv": 480,
+    "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/annotation-package/annotations.csv": 60,
+    "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/hires-review-package/annotations.csv": 91,
+    "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/new-events-hires-package/annotations.csv": 17,
+    "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/supplement-annotation-package/annotations.csv": 31,
+    "data/vehicle-surface-gate-eval-20260929/random-traffic-hires-package/annotations.csv": 200
+  },
+  "metadata_inferred_eligible_rows_by_source": {
+    "data/recheck-released-fp-20260930/labeling-package/annotations.csv": 464,
+    "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/annotation-package/annotations.csv": 60,
+    "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/hires-review-package/annotations.csv": 81,
+    "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/new-events-hires-package/annotations.csv": 17,
+    "data/vehicle-surface-gate-eval-20260929/prerelease-evidence/supplement-annotation-package/annotations.csv": 31,
+    "data/vehicle-surface-gate-eval-20260929/random-traffic-hires-package/annotations.csv": 191
+  },
+  "gpt_history_unknown_sources": [],
+  "conflicts_by_class": [
+    {
+      "class_name": "两轮车",
+      "conflict_samples": 1,
+      "label_combinations": {
+        "false/true": 1
+      },
+      "gold_ids": [
+        "d25b20856970cab3bb64cd4b2885b437569733c600a44e48079ca6b6b485e9ca"
+      ]
+    },
+    {
+      "class_name": "光斑",
+      "conflict_samples": 1,
+      "label_combinations": {
+        "false/true": 1
+      },
+      "gold_ids": [
+        "39894dc6679ab1747b1c96e197db31d58ecde4dc44f392eec344fcb7a0af3c0d"
+      ]
+    },
+    {
+      "class_name": "车",
+      "conflict_samples": 2,
+      "label_combinations": {
+        "false/true": 1,
+        "false/uncertain": 1
+      },
+      "gold_ids": [
+        "a88a54f35ba0b4748a3230df06c340cff5c332ae2fe4cfede5d3433118ca2af4",
+        "8c07b838a50f9ab92ae5725a2201424b0182bdbb55adcc9a3cbed4745e0d72d7"
+      ]
+    },
+    {
+      "class_name": "违建",
+      "conflict_samples": 1,
+      "label_combinations": {
+        "false/true": 1
+      },
+      "gold_ids": [
+        "5140668b9d294e1f2a7cf7047595c1cf6c334ecb02749169fa6a2cd938865c34"
+      ]
+    }
+  ],
+  "split_status": "proposed_pending_user_confirmation",
+  "unresolved_exposure_manifests": [
+    {
+      "source": "12个复检回归样本",
+      "reason": "未定位独立完整清单，无法核对跨来源重叠；测试候选不视为完整曝光审计通过"
+    }
+  ],
+  "exclusion_reasons": {
+    "missing_labeled_by": 4850,
+    "auto_annotation_note": 12,
+    "missing_labeled_at": 4262,
+    "non_human_label_source": 188,
+    "missing_label": 880,
+    "missing_or_invalid_normalized_box": 35
+  },
   "side_effects": {
     "model_calls": 0,
     "image_uploads": 0,
@@ -269,10 +980,10 @@
     "event_submissions": 0
   },
   "limitations": [
-    "12个回归样本的唯一完整清单未在当前入口定位；所有历史来源保守限制开发集，不会漏入测试集。",
-    "封存测试答案 sealed-copy 未打开；本次不使用旧锁定测试集做评分。",
-    "有图片哈希但本机无原图的行保留原始声明，不能声称已现场校验图片；source_images为空。",
-    "任务/连拍/事件别名和相同图片连通分组，避免跨来源泄漏；连通组计数比任务数更保守。",
-    "外发授权、模型别名实测及额度接口尚未验证；本步无需调用。"
+    "12个复检回归样本的独立完整清单尚未定位；已把本地recheck-runs、prompt-eval快照与formal-review曝光并入证据；其余不明历史来源保守进开发集，待逐个确认。",
+    "封存答案sealed-copy未打开；仅进行金标清点，不运行模型或准确率评测。",
+    "同一金标可能有多个来源/population，来源贡献和population表不可相加；各自去重计数。",
+    "本机无原图但有图片哈希的行仅保留哈希声明，不声称图片已现场核对。",
+    "旧平台无时区标注时间依据annotation_service.utc_now()按UTC解析后转Asia/Shanghai；原始字符串仍留在接受行快照。"
   ]
 }
