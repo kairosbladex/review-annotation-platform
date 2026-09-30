@@ -198,6 +198,8 @@ def view_error_samples(job_id: str, kind: str) -> dict:
     _audit("view_error_samples", job_id=job_id, kind=kind, available=meta is not None)
     if meta is None:
         return {"available": False}
+    if not meta.get("shown"):
+        return {"available": False, "reason": "本次没有此类样本", **meta}
     return {"available": True, "image_path": str(ROOT / "samples" / job_id / f"{kind}.jpg"), **meta}
 
 
