@@ -6,12 +6,15 @@ Run: PYTHONPATH=backend python3 -m pytest backend/tests/test_prompt_eval_data.py
 
 from __future__ import annotations
 
+import hashlib
 import json
 import sqlite3
 import struct
 import sys
 import zlib
 from pathlib import Path
+
+import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
@@ -20,7 +23,11 @@ if str(REPO_ROOT) not in sys.path:
 from tools.prompt_eval_data import CLASS_MAP, CLASS_NAME_TO_ID  # noqa: E402
 from tools.prompt_eval_data.auditor import audit  # noqa: E402
 from tools.prompt_eval_data.canon import canonical_id, pixel_bbox, suspect_note  # noqa: E402
-from tools.prompt_eval_data.exporter import build_snapshot, write_snapshot  # noqa: E402
+from tools.prompt_eval_data.exporter import (  # noqa: E402
+    SNAPSHOT_IDENTITY_FILE,
+    build_snapshot,
+    write_snapshot,
+)
 from tools.prompt_eval_data.scorer import (  # noqa: E402
     extract_decisions,
     judge,
@@ -48,16 +55,45 @@ def make_png(width: int = W, height: int = H, seed: int = 0) -> bytes:
     return b"\x89PNG\r\n\x1a\n" + ihdr + chunk(b"IDAT", zlib.compress(raw)) + chunk(b"IEND", b"")
 
 
+def verified_clean_payload(object_key: str, image_sha: str, frame_id: str) -> dict:
+    return {
+        "overlay_status": "clean",
+        "clean_object_key": object_key,
+        "clean_object_version": "fixture-v1",
+        "clean_sha256": image_sha,
+        "clean_width": W,
+        "clean_height": H,
+        "annotated_object_key": object_key,
+        "annotated_object_version": "fixture-v1",
+        "annotated_sha256": image_sha,
+        "annotated_width": W,
+        "annotated_height": H,
+        "overlay_check_method": "fixture-human-review",
+        "overlay_check_version": "1",
+        "overlay_evidence_sha256": hashlib.sha256(b"fixture-overlay-evidence").hexdigest(),
+        "mapping_method": "same_asset",
+        "mapping_version": "1",
+        "geometry_transform": "identity",
+        "source_system": "fixture",
+        "source_table": "samples",
+        "source_row_id": frame_id,
+        "frame_id": frame_id,
+    }
+
+
 def build_fixture(tmp_path: Path) -> tuple[Path, Path]:
     db_path = tmp_path / "fixture.sqlite3"
     images = tmp_path / "images"
     con = sqlite3.connect(db_path)
     con.executescript(
         """
-        CREATE TABLE samples (id VARCHAR(32) PRIMARY KEY, source_event_id VARCHAR(255),
-                              rule_code VARCHAR(120));
+        CREATE TABLE samples (id VARCHAR(32) PRIMARY KEY, source_type VARCHAR(40),
+                              source_event_id VARCHAR(255), source_service VARCHAR(120),
+                              session_id VARCHAR(120), capture_time DATETIME,
+                              camera_id VARCHAR(120), rule_code VARCHAR(120),
+                              metadata_json TEXT);
         CREATE TABLE assets (id VARCHAR(32) PRIMARY KEY, sample_id VARCHAR(32), kind VARCHAR(40),
-                             bucket VARCHAR(255), object_key VARCHAR(1024));
+                             bucket VARCHAR(255), object_key VARCHAR(1024), sha256 VARCHAR(128));
         CREATE TABLE candidates (id VARCHAR(32) PRIMARY KEY, sample_id VARCHAR(32), model_run_id VARCHAR(32),
                                  target_index INTEGER, class_id INTEGER, class_name VARCHAR(160),
                                  confidence FLOAT, x1 FLOAT, y1 FLOAT, x2 FLOAT, y2 FLOAT,
@@ -75,8 +111,15 @@ def build_fixture(tmp_path: Path) -> tuple[Path, Path]:
     object_keys = {"s1": "a/1.png", "s2": "a/1.png", "s3": "b/2.png", "s4": "b/2.png",
                    "s5": "c/3.png", "s6": "d/4.png", "s7": "e/5.png"}
     for i, (sample, key) in enumerate(sorted(object_keys.items())):
-        con.execute("INSERT INTO samples VALUES (?, ?, ?)", (sample, f"event-{sample}", "ktd-test"))
-        con.execute("INSERT INTO assets VALUES (?, ?, 'original', 'minio-src', ?)", (f"asset-{sample}", sample, key))
+        con.execute(
+            "INSERT INTO samples VALUES (?, 'review_service', ?, 'fixture', NULL, "
+            "'2026-09-03 10:00:00', NULL, 'ktd-test', '{}')",
+            (sample, f"event-{sample}"),
+        )
+        con.execute(
+            "INSERT INTO assets VALUES (?, ?, 'original', 'minio-src', ?, NULL)",
+            (f"asset-{sample}", sample, key),
+        )
         if key != "e/5.png":
             target = images / key
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -171,6 +214,8 @@ def test_canonical_id_stable():
 
 def test_export_funnel_alias_merge_quarantine(tmp_path):
     snapshot_id, files, manifest, _ = export(tmp_path)
+    assert snapshot_id.startswith("pg2-")
+    assert manifest["schema_version"] == "prompt-gold/2"
     counts = manifest["counts"]
     assert counts["raw_candidates"] == 10
     assert counts["excluded_image_unavailable"] == 1
@@ -185,6 +230,10 @@ def test_export_funnel_alias_merge_quarantine(tmp_path):
     # unlabeled: 光伏板 (auto only) + 卡车 (no annotation) = 2
     assert counts["unlabeled_canonical"] == 2
     assert counts["authoring_auto_excluded"] == 1
+    assert counts["source_pixels_clean_images"] == 0
+    assert counts["source_pixels_unknown_images"] == 4
+    assert manifest["readiness"]["formal_training_ready"] is False
+    assert json.loads(files["source_readiness.json"]) == manifest["readiness"]
 
     gold = read_jsonl(files["gold_records.jsonl"])
     by_class = {row["class_name"]: row for row in gold}
@@ -199,6 +248,9 @@ def test_export_funnel_alias_merge_quarantine(tmp_path):
     assert merged["prior_qwen"]["attempts"][0]["decision"] == "CONFIRMED"
     assert merged["prior_yolo"]["raw_decision"] == "uncertain"
     assert counts["prior_gpt_matched"] >= 1 and counts["prior_qwen_matched"] >= 1
+    assert merged["provenance"]["grouping"]["status"] == "grouping_unavailable"
+    assert merged["provenance"]["source_pixels"]["status"] == "unknown"
+    assert merged["source"]["provenance"]["source_event_semantics"] == "upstream_event_id"
 
     quarantine = read_jsonl(files["quarantine.jsonl"])
     reasons = {tuple(sorted(row["quarantine_reasons"])) for row in quarantine}
@@ -230,6 +282,60 @@ def test_split_disjoint_and_inputs_free_of_gold(tmp_path):
     results = audit(str(target))
     assert results, "auditor returned no checks"
     assert all(ok for _, ok, _ in results), [r for r in results if not r[1]]
+    protected_results = audit(str(target), include_protected_gold=True)
+    assert all(ok for _, ok, _ in protected_results), [r for r in protected_results if not r[1]]
+
+
+def test_auditor_does_not_open_locked_gold_by_default(tmp_path):
+    _, _, _, target = export(tmp_path)
+    poison = b"not-json-and-must-not-be-parsed\n"
+    protected_names = {"gold_records.jsonl", "locked_test_gold.jsonl"}
+    for name in protected_names:
+        (target / name).write_bytes(poison)
+
+    sums_path = target / "SHA256SUMS"
+    lines = []
+    for line in sums_path.read_text(encoding="utf-8").splitlines():
+        sha, name = line.split("  ", 1)
+        if name in protected_names:
+            sha = hashlib.sha256(poison).hexdigest()
+        lines.append(f"{sha}  {name}")
+    sums_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    manifest_path = target / "snapshot_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    for entry in manifest["files"]:
+        if entry["path"] in protected_names:
+            entry["sha256"] = hashlib.sha256(poison).hexdigest()
+            entry["bytes"] = len(poison)
+        elif entry["path"] == "SHA256SUMS":
+            payload = sums_path.read_bytes()
+            entry["sha256"] = hashlib.sha256(payload).hexdigest()
+            entry["bytes"] = len(payload)
+    sums = {
+        name: sha
+        for sha, name in (
+            line.split("  ", 1)
+            for line in sums_path.read_text(encoding="utf-8").splitlines()
+        )
+    }
+    snapshot_id = "pg2-" + hashlib.sha256(
+        "".join(f"{name}:{sums[name]}\n" for name in sorted(sums)).encode()
+    ).hexdigest()[:12]
+    manifest["snapshot_id"] = snapshot_id
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    renamed_target = target.parent / snapshot_id
+    target.rename(renamed_target)
+    target = renamed_target
+
+    results = audit(str(target))
+
+    assert all(ok for _, ok, _ in results), [result for result in results if not result[1]]
+    assert (
+        "protected_label_content_skipped",
+        True,
+        "not opened; recorded hashes compared only",
+    ) in results
 
 
 def test_export_byte_identical_across_runs(tmp_path):
@@ -247,9 +353,623 @@ def test_export_byte_identical_across_runs(tmp_path):
         assert (target1 / path).read_bytes() == (target2 / path).read_bytes()
 
 
+def test_snapshot_identity_changes_when_only_funnel_counts_change(tmp_path):
+    inputs = make_inputs(tmp_path)
+    baseline_id, baseline_files, _ = build_snapshot(**inputs)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "INSERT INTO candidates VALUES "
+        "('c-unknown-extra', 's6', 'run-extra', 0, NULL, 'UNKNOWN', 0.9, "
+        "0.1, 0.1, 0.2, 0.2, 'uncertain', 'uncertain', 'model_conflict')"
+    )
+    con.commit()
+    con.close()
+
+    changed_id, changed_files, changed_manifest = build_snapshot(**inputs)
+
+    assert changed_id != baseline_id
+    unchanged_members = set(baseline_files) - {
+        SNAPSHOT_IDENTITY_FILE,
+        "SHA256SUMS",
+        "snapshot_manifest.json",
+    }
+    assert all(baseline_files[name] == changed_files[name] for name in unchanged_members)
+    identity = json.loads(changed_files[SNAPSHOT_IDENTITY_FILE])
+    assert identity == {
+        key: changed_manifest[key]
+        for key in (
+            "schema_version",
+            "class_map",
+            "source",
+            "counts",
+            "determinism",
+            "readiness",
+        )
+    }
+    assert identity["counts"]["raw_candidates"] == 11
+    assert identity["counts"]["excluded_unknown_class"] == 1
+
+
+def test_write_snapshot_is_idempotent_but_rejects_same_id_with_different_bytes(tmp_path):
+    snapshot_id, files, _ = build_snapshot(**make_inputs(tmp_path))
+    output_root = tmp_path / "out"
+    target = write_snapshot(files, str(output_root), snapshot_id)
+
+    assert write_snapshot(files, str(output_root), snapshot_id) == target
+    conflicting_files = dict(files)
+    conflicting_files["source_readiness.json"] += b"\n"
+    with pytest.raises(FileExistsError, match="different content"):
+        write_snapshot(conflicting_files, str(output_root), snapshot_id)
+
+
 def test_assign_split_deterministic():
     assert assign_split("ab" * 32) == assign_split("ab" * 32)
     assert assign_split("ab" * 32) in {"selection", "locked_test"}
+
+
+def test_synthetic_annex_event_is_not_treated_as_leakage_group(tmp_path):
+    inputs = make_inputs(tmp_path)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET source_event_id=?, metadata_json=? WHERE id='s6'",
+        ("ktd-annex-annex-6", json.dumps({"annex_id": "annex-6"})),
+    )
+    con.commit()
+    con.close()
+
+    _, files, manifest = build_snapshot(**inputs)
+    inference = read_jsonl(files["inference_records.jsonl"])
+    rows = [row for row in inference if row["image_object_key"] == "d/4.png"]
+    assert rows
+    assert all(row["provenance"]["grouping"]["status"] == "grouping_unavailable" for row in rows)
+    record = rows[0]["provenance"]["source_records"][0]
+    assert record["source_event_semantics"] == "synthetic_import_row_id"
+    assert manifest["counts"]["grouping_unavailable_images"] == 4
+
+
+def test_synthetic_annex_metadata_event_is_not_treated_as_group_evidence(tmp_path):
+    inputs = make_inputs(tmp_path)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET source_event_id=NULL, metadata_json=? WHERE id='s6'",
+        (json.dumps({"annex_id": "annex-6", "event_id": "ktd-annex-annex-6"}),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, _ = build_snapshot(**inputs)
+    row = next(
+        row
+        for row in read_jsonl(files["inference_records.jsonl"])
+        if row["image_object_key"] == "d/4.png"
+    )
+
+    assert row["provenance"]["grouping"]["component_identities"] == []
+    assert row["provenance"]["grouping"]["status"] == "grouping_unavailable"
+
+
+def test_event_only_identity_is_not_a_formal_source_group(tmp_path):
+    inputs = make_inputs(tmp_path)
+
+    _, files, manifest = build_snapshot(**inputs)
+
+    inference = read_jsonl(files["inference_records.jsonl"])
+    assert inference
+    assert all(
+        row["provenance"]["grouping"]["status"] == "grouping_unavailable"
+        for row in inference
+    )
+    assert manifest["readiness"]["formal_training_ready"] is False
+    assert "grouping_unavailable" in manifest["readiness"]["blockers"]
+
+
+def test_session_video_and_track_are_connection_evidence_not_formal_anchors(tmp_path):
+    inputs = make_inputs(tmp_path)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET session_id=?, metadata_json=? WHERE id='s6'",
+        (
+            "session-only",
+            json.dumps({"video_id": "video-only", "track_id": "track-only"}),
+        ),
+    )
+    con.commit()
+    con.close()
+
+    _, files, _ = build_snapshot(**inputs)
+    row = next(
+        row
+        for row in read_jsonl(files["inference_records.jsonl"])
+        if row["image_object_key"] == "d/4.png"
+    )
+    grouping = row["provenance"]["grouping"]
+
+    assert grouping["status"] == "grouping_unavailable"
+    assert grouping["anchor_identities"] == []
+    assert {identity.split(":", 1)[0] for identity in grouping["component_identities"]} == {
+        "event",
+        "session",
+        "track",
+        "video",
+    }
+
+
+def test_task_split_key_is_stable_when_lower_scope_ids_are_added(tmp_path):
+    inputs = make_inputs(tmp_path)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s6'",
+        (json.dumps({"task_id": "task-stable"}),),
+    )
+    con.commit()
+
+    _, baseline_files, _ = build_snapshot(**inputs)
+    baseline = next(
+        row
+        for row in read_jsonl(baseline_files["inference_records.jsonl"])
+        if row["image_object_key"] == "d/4.png"
+    )
+
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s6'",
+        (
+            json.dumps(
+                {
+                    "task_id": "task-stable",
+                    "video_id": "video-later",
+                    "track_id": "track-later",
+                    "event_id": "event-later",
+                }
+            ),
+        ),
+    )
+    con.commit()
+    con.execute("UPDATE samples SET session_id='session-later' WHERE id='s6'")
+    con.commit()
+    con.close()
+
+    _, enriched_files, _ = build_snapshot(**inputs)
+    enriched = next(
+        row
+        for row in read_jsonl(enriched_files["inference_records.jsonl"])
+        if row["image_object_key"] == "d/4.png"
+    )
+
+    assert enriched["provenance"]["grouping"]["split_key"] == baseline["provenance"]["grouping"]["split_key"]
+    assert enriched["provenance"]["grouping"]["anchor_identities"] == ["task:task-stable"]
+
+
+def test_connected_task_ids_conflict_and_grouping_counts_are_exclusive(tmp_path):
+    inputs = make_inputs(tmp_path)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET session_id='shared-session', metadata_json=? WHERE id='s1'",
+        (json.dumps({"task_id": "task-a"}),),
+    )
+    con.execute(
+        "UPDATE samples SET session_id='shared-session', metadata_json=? WHERE id='s6'",
+        (json.dumps({"task_id": "task-b"}),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, manifest = build_snapshot(**inputs)
+    inference = read_jsonl(files["inference_records.jsonl"])
+    conflicted = {
+        row["image_object_key"]
+        for row in inference
+        if row["provenance"]["grouping"]["status"] == "source_group_conflict"
+    }
+    counts = manifest["counts"]
+
+    assert conflicted == {"a/1.png", "d/4.png"}
+    assert counts["source_group_images"] == 0
+    assert counts["grouping_unavailable_images"] == 2
+    assert counts["source_group_conflict_images"] == 2
+    assert (
+        counts["source_group_images"]
+        + counts["grouping_unavailable_images"]
+        + counts["source_group_conflict_images"]
+        == counts["unique_image_sha256"]
+    )
+    assert "grouping_unavailable" in manifest["readiness"]["blockers"]
+    assert "source_group_conflict" in manifest["readiness"]["blockers"]
+
+
+def test_excluded_source_row_still_connects_task_components(tmp_path):
+    inputs = make_inputs(tmp_path)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s1'",
+        (json.dumps({"task_id": "task-a", "video_id": "video-bridge"}),),
+    )
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s2'",
+        (json.dumps({"task_id": "task-a"}),),
+    )
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s6'",
+        (json.dumps({"task_id": "task-b", "track_id": "track-bridge"}),),
+    )
+    # s7 has no readable image and is excluded from canonical rows, but its
+    # upstream identities still prove that the two included task anchors connect.
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s7'",
+        (json.dumps({"video_id": "video-bridge", "track_id": "track-bridge"}),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, manifest = build_snapshot(**inputs)
+    inference = read_jsonl(files["inference_records.jsonl"])
+    bridged = [
+        row
+        for row in inference
+        if row["image_object_key"] in {"a/1.png", "d/4.png"}
+    ]
+
+    assert bridged
+    assert all(
+        row["provenance"]["grouping"]["status"] == "source_group_conflict"
+        for row in bridged
+    )
+    assert all(
+        row["provenance"]["grouping"]["anchor_identities"]
+        == ["task:task-a", "task:task-b"]
+        for row in bridged
+    )
+    assert manifest["counts"]["source_group_conflict_images"] == 2
+
+
+def test_rounded_zero_area_bbox_is_rejected(tmp_path):
+    inputs = make_inputs(tmp_path)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE candidates SET x1=0.100, y1=0.200, x2=0.104, y2=0.300 WHERE id='c-f1'"
+    )
+    con.commit()
+    con.close()
+
+    with pytest.raises(ValueError, match="bbox_px must have positive width and height"):
+        build_snapshot(**inputs)
+
+
+def test_clean_pixel_status_requires_hash_dimensions_and_identity_mapping(tmp_path):
+    inputs = make_inputs(tmp_path)
+    image_path = Path(inputs["image_root"]) / "d/4.png"
+    image_sha = hashlib.sha256(image_path.read_bytes()).hexdigest()
+    source_pixels = verified_clean_payload("d/4.png", image_sha, "frame-s6")
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute("UPDATE assets SET sha256=? WHERE sample_id='s6'", (image_sha,))
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s6'",
+        (json.dumps({"event_time": "2026-09-03T10:00:00Z", "source_pixels": source_pixels}),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, manifest = build_snapshot(**inputs)
+    inference = read_jsonl(files["inference_records.jsonl"])
+    rows = [row for row in inference if row["image_object_key"] == "d/4.png"]
+    assert rows
+    assert all(row["provenance"]["source_pixels"]["status"] == "clean" for row in rows)
+    assert manifest["counts"]["source_pixels_clean_images"] == 1
+    assert manifest["counts"]["source_pixels_unknown_images"] == 3
+    assert manifest["counts"]["upstream_time_images"] == 1
+
+
+def test_clean_status_requires_consistent_declarations_for_every_alias_sample(tmp_path):
+    inputs = make_inputs(tmp_path)
+    image_path = Path(inputs["image_root"]) / "a/1.png"
+    image_sha = hashlib.sha256(image_path.read_bytes()).hexdigest()
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute("UPDATE assets SET sha256=? WHERE sample_id='s1'", (image_sha,))
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s1'",
+        (
+            json.dumps(
+                {
+                    "event_time": "2026-09-03T10:00:00Z",
+                    "source_pixels": verified_clean_payload("a/1.png", image_sha, "frame-a"),
+                }
+            ),
+        ),
+    )
+    con.commit()
+    con.close()
+
+    _, files, _ = build_snapshot(**inputs)
+    rows = [
+        row
+        for row in read_jsonl(files["inference_records.jsonl"])
+        if row["image_object_key"] == "a/1.png"
+    ]
+
+    assert rows
+    assert all(row["provenance"]["source_pixels"]["status"] == "unknown" for row in rows)
+    assert all(
+        "missing_source_pixel_declaration_for_sample:s2"
+        in row["provenance"]["source_pixels"]["blocking_reasons"]
+        for row in rows
+    )
+
+
+def test_clean_status_requires_scalar_frame_identity(tmp_path):
+    inputs = make_inputs(tmp_path)
+    image_path = Path(inputs["image_root"]) / "d/4.png"
+    image_sha = hashlib.sha256(image_path.read_bytes()).hexdigest()
+    source_pixels = verified_clean_payload("d/4.png", image_sha, "frame-s6")
+    source_pixels["frame_id"] = False
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute("UPDATE assets SET sha256=? WHERE sample_id='s6'", (image_sha,))
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s6'",
+        (
+            json.dumps(
+                {
+                    "event_time": "2026-09-03T10:00:00Z",
+                    "source_pixels": source_pixels,
+                    "task_id": "task-frame-check",
+                }
+            ),
+        ),
+    )
+    con.commit()
+    con.close()
+
+    _, files, _ = build_snapshot(**inputs)
+    row = next(
+        row
+        for row in read_jsonl(files["inference_records.jsonl"])
+        if row["image_object_key"] == "d/4.png"
+    )
+
+    assert row["provenance"]["source_pixels"]["status"] == "unknown"
+    assert (
+        "missing_capture_or_frame_identity"
+        in row["provenance"]["source_pixels"]["blocking_reasons"]
+    )
+
+
+def test_upstream_time_must_cover_every_alias_sample(tmp_path):
+    inputs = make_inputs(tmp_path)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s1'",
+        (json.dumps({"event_time": "2026-09-03T10:00:00Z"}),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, _ = build_snapshot(**inputs)
+    row = next(
+        row
+        for row in read_jsonl(files["inference_records.jsonl"])
+        if row["image_object_key"] == "a/1.png"
+    )
+
+    assert row["provenance"]["temporal"]["status"] == "incomplete_upstream_time"
+    assert row["provenance"]["temporal"]["missing_samples"] == ["s2"]
+
+
+def test_conflict_in_non_selected_temporal_field_blocks_formal_time(tmp_path):
+    inputs = make_inputs(tmp_path)
+    common_frame_time = "2026-09-03T09:00:00Z"
+    con = sqlite3.connect(inputs["db_path"])
+    for sample_id, event_time in (
+        ("s1", "2026-09-03T10:00:00Z"),
+        ("s2", "2026-09-03T11:00:00Z"),
+    ):
+        con.execute(
+            "UPDATE samples SET metadata_json=? WHERE id=?",
+            (
+                json.dumps(
+                    {
+                        "event_time": event_time,
+                        "source_pixels": {"frame_timestamp": common_frame_time},
+                    }
+                ),
+                sample_id,
+            ),
+        )
+    con.commit()
+
+    _, conflicted_files, _ = build_snapshot(**inputs)
+    conflicted = next(
+        row
+        for row in read_jsonl(conflicted_files["inference_records.jsonl"])
+        if row["image_object_key"] == "a/1.png" and row["class_name"] == "车"
+    )
+    assert conflicted["provenance"]["temporal"]["selected_field"] == (
+        "metadata.source_pixels.frame_timestamp"
+    )
+    assert conflicted["provenance"]["temporal"]["status"] == "conflicting_upstream_times"
+    assert conflicted["provenance"]["temporal"]["conflicting_fields"] == [
+        "metadata.event_time"
+    ]
+
+    # Different timestamp kinds may describe different instants. Each kind only
+    # needs to agree across aliases; kinds are not forced to equal one another.
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s2'",
+        (
+            json.dumps(
+                {
+                    "event_time": "2026-09-03T10:00:00Z",
+                    "source_pixels": {"frame_timestamp": common_frame_time},
+                }
+            ),
+        ),
+    )
+    con.commit()
+    con.close()
+    _, consistent_files, _ = build_snapshot(**inputs)
+    consistent = next(
+        row
+        for row in read_jsonl(consistent_files["inference_records.jsonl"])
+        if row["image_object_key"] == "a/1.png" and row["class_name"] == "车"
+    )
+    assert consistent["provenance"]["temporal"]["status"] == "upstream_time_available"
+    assert consistent["provenance"]["temporal"]["conflicting_fields"] == []
+
+
+def test_self_declared_clean_and_invalid_time_do_not_pass_formal_gates(tmp_path):
+    inputs = make_inputs(tmp_path)
+    image_path = Path(inputs["image_root"]) / "d/4.png"
+    image_sha = hashlib.sha256(image_path.read_bytes()).hexdigest()
+    source_pixels = {
+        "overlay_status": "clean",
+        "clean_object_key": "d/4.png",
+        "clean_sha256": image_sha,
+        "clean_width": W,
+        "clean_height": H,
+        "annotated_object_key": "d/4.png",
+        "annotated_sha256": image_sha,
+        "mapping_method": "arbitrary-claim",
+        "mapping_version": "1",
+        "geometry_transform": "identity",
+        "source_system": "fixture",
+        "source_table": "samples",
+        "source_row_id": "s6",
+        "frame_id": "frame-s6",
+    }
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s6'",
+        (json.dumps({"event_time": "not-a-timestamp", "source_pixels": source_pixels}),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, manifest = build_snapshot(**inputs)
+    row = next(
+        row
+        for row in read_jsonl(files["inference_records.jsonl"])
+        if row["image_object_key"] == "d/4.png"
+    )
+
+    assert row["provenance"]["source_pixels"]["status"] == "unknown"
+    assert row["provenance"]["source_pixels"]["formal_input_allowed"] is False
+    assert row["provenance"]["temporal"]["status"] == "invalid_upstream_time"
+    assert manifest["readiness"]["formal_training_ready"] is False
+
+
+def test_inference_provenance_allowlists_metadata_and_hashes_raw_source(tmp_path):
+    inputs = make_inputs(tmp_path)
+    metadata = {
+        "task_id": "task-safe",
+        "event_time": "2026-09-03T10:00:00+08:00",
+        "source_task_id": {"token": "SECRET-NESTED-MARKER"},
+        "label": "SECRET-LABEL-MARKER",
+        "token": "SECRET-TOKEN-MARKER",
+        "signed_url": "https://example.invalid/SECRET-URL-MARKER",
+        "source_file_path": "https://example.invalid/image?token=SECRET-SOURCE-FILE-MARKER",
+    }
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s6'",
+        (json.dumps(metadata, sort_keys=True),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, _ = build_snapshot(**inputs)
+    inference_bytes = files["inference_records.jsonl"]
+    assert b"SECRET-LABEL-MARKER" not in inference_bytes
+    assert b"SECRET-TOKEN-MARKER" not in inference_bytes
+    assert b"SECRET-URL-MARKER" not in inference_bytes
+    assert b"SECRET-SOURCE-FILE-MARKER" not in inference_bytes
+    assert b"SECRET-NESTED-MARKER" not in inference_bytes
+
+    row = next(
+        row
+        for row in read_jsonl(inference_bytes)
+        if row["image_object_key"] == "d/4.png"
+    )
+    record = row["provenance"]["source_records"][0]
+    assert record["metadata"] == {
+        "event_time": "2026-09-03T10:00:00+08:00",
+        "task_id": "task-safe",
+    }
+    assert record["metadata_sha256"] == hashlib.sha256(
+        json.dumps(metadata, sort_keys=True).encode("utf-8")
+    ).hexdigest()
+    assert "metadata_json" not in record
+
+
+def test_url_or_query_like_task_identity_is_not_exported_or_used_as_anchor(tmp_path):
+    inputs = make_inputs(tmp_path)
+    metadata = {
+        "task_id": "https://example.invalid/task?token=SECRET-GROUP-MARKER#fragment",
+        "source_task_id": float("nan"),
+        "source_pixels": {
+            "overlay_status": "https://example.invalid/status?token=SECRET-STATUS-MARKER"
+        },
+    }
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s6'",
+        (json.dumps(metadata),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, _ = build_snapshot(**inputs)
+    inference_bytes = files["inference_records.jsonl"]
+    assert b"SECRET-GROUP-MARKER" not in inference_bytes
+    assert b"SECRET-STATUS-MARKER" not in inference_bytes
+    row = next(
+        row
+        for row in read_jsonl(inference_bytes)
+        if row["image_object_key"] == "d/4.png"
+    )
+    grouping = row["provenance"]["grouping"]
+
+    assert row["provenance"]["source_records"][0]["metadata"] == {}
+    assert grouping["status"] == "grouping_unavailable"
+    assert grouping["anchor_identities"] == []
+    assert all("nan" not in identity.lower() for identity in grouping["component_identities"])
+    assert row["provenance"]["source_pixels"]["status"] == "unknown"
+
+
+def test_uri_scheme_task_identity_is_not_exported_or_used_as_anchor(tmp_path):
+    inputs = make_inputs(tmp_path)
+    marker = "data:text/plain,SECRET-DATA-URL-MARKER"
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id='s6'",
+        (json.dumps({"task_id": marker}),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, _ = build_snapshot(**inputs)
+    assert marker.encode() not in files["inference_records.jsonl"]
+    row = next(
+        row
+        for row in read_jsonl(files["inference_records.jsonl"])
+        if row["image_object_key"] == "d/4.png"
+    )
+    assert row["provenance"]["source_records"][0]["metadata"] == {}
+    assert row["provenance"]["grouping"]["status"] == "grouping_unavailable"
+    assert row["provenance"]["grouping"]["anchor_identities"] == []
+
+
+def test_same_upstream_group_keeps_different_images_in_one_split(tmp_path):
+    inputs = make_inputs(tmp_path)
+    con = sqlite3.connect(inputs["db_path"])
+    con.execute(
+        "UPDATE samples SET metadata_json=? WHERE id IN ('s1', 's2', 's6')",
+        (json.dumps({"task_id": "task-one"}),),
+    )
+    con.commit()
+    con.close()
+
+    _, files, _ = build_snapshot(**inputs)
+    gold = read_jsonl(files["gold_records.jsonl"])
+    grouped = [row for row in gold if row["image_object_key"] in {"a/1.png", "d/4.png"}]
+    assert len({row["split"] for row in grouped}) == 1
+    assert len({row["provenance"]["grouping"]["split_key"] for row in grouped}) == 1
 
 
 def test_suspect_note_tokens():
