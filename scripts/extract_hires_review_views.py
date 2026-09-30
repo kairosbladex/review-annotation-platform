@@ -11,7 +11,7 @@
   frames/<event>.boxed.jpg              匹配原帧（画出本事件全部待复核框）
   crops/<slug>.jpg / <slug>.boxed.jpg   原生像素局部，放大显示（无框/有框）
   neighbors/<slug>.<offset>.jpg         相邻时刻同一原始像素区域（仅参考）
-  clips/<slug>.mp4                      匹配时刻前后局部短视频（仅参考）
+  clips/<slug>.mp4                      匹配时刻前后局部短视频（仅参考，需 --with-clips）
   results.jsonl                         每个候选的投影坐标与对齐核验分数
 只读取原视频和原图，不修改任何源文件。
 """
@@ -162,8 +162,9 @@ def main() -> None:
     parser.add_argument("--jobs", type=Path, required=True)
     parser.add_argument("--work-root", type=Path, required=True, help="source_path/clean_frame 的相对根目录")
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--with-clips", action="store_true", help="额外生成匹配时刻前后 4 秒局部短视频（默认只出图片）")
     args = parser.parse_args()
-    for sub in ("frames", "crops", "neighbors", "clips"):
+    for sub in ("frames", "crops", "neighbors") + (("clips",) if args.with_clips else ()):
         (args.out / sub).mkdir(parents=True, exist_ok=True)
 
     results = []
@@ -212,7 +213,7 @@ def main() -> None:
                 cv2.imwrite(str(args.out / "neighbors" / name), ncrop, [cv2.IMWRITE_JPEG_QUALITY, 92])
                 neighbors.append({"offset_seconds": off, "file": f"neighbors/{name}"})
             clip = None
-            if job["source_kind"] == "video" and write_clip(src_path, frame_time, rect, args.out / "clips" / f"{slug}.mp4"):
+            if args.with_clips and job["source_kind"] == "video" and write_clip(src_path, frame_time, rect, args.out / "clips" / f"{slug}.mp4"):
                 clip = f"clips/{slug}.mp4"
             px1, py1 = poly.min(axis=0)
             px2, py2 = poly.max(axis=0)
