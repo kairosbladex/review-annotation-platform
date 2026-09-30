@@ -51,7 +51,7 @@ def build(root, gold_path, released_path, out):
     package=root/'data/recheck-released-fp-20260930/labeling-package'
     labels={r['candidate_id']:r['label'] for r in csv.DictReader((package/'annotations.csv').open(encoding='utf-8-sig'))}
     for r in read_rows(package/'results.jsonl'):
-        if labels.get(r['candidate_id']):continue
+        if labels.get(r['candidate_id']) or not r.get('frame') or not r.get('source_size'):continue
         frame=package/r['frame'];size=r['source_size']
         if not frame.exists() or min(size)<1000:continue
         digest=hashlib.sha256(frame.read_bytes()).hexdigest();points=r['projected_polygon']
