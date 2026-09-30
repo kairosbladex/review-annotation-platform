@@ -342,7 +342,9 @@ def build_dataset(
         clean_size = _validated_size(
             pair.get("clean_frame_size"), candidate_id=candidate_id, field="clean_frame_size"
         )
-        annotated_source = source_root / "event_annotated_frames" / f"{pair['event_id']}.jpg"
+        # 旧数据按事件共用截图；新增样本可在 pair 中显式给出自己的截图路径
+        annotated_relative = pair.get("annotated_frame") or str(Path("event_annotated_frames") / f"{pair['event_id']}.jpg")
+        annotated_source = source_root / annotated_relative
         clean_source_value = pair.get("clean_frame")
         if not isinstance(clean_source_value, str) or not clean_source_value:
             raise ValueError(f"candidate {candidate_id} is missing clean_frame")
@@ -411,7 +413,7 @@ def build_dataset(
                 "source_event_id": pair["event_id"],
                 "source_task_id": pair["source_task_id"],
                 "image_sha256": view_shas["annotated_context"],
-                "image_object_key": str(Path("event_annotated_frames") / f"{pair['event_id']}.jpg"),
+                "image_object_key": annotated_relative,
                 "source_image": image_paths[0],
                 "view_generation": "service_crop_v1_lossless_png",
                 "annotated_frame": annotated_frame_path,

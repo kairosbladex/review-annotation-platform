@@ -1,0 +1,134 @@
+{
+  "class_counts": {
+    "人员": 40,
+    "车": 142
+  },
+  "clean_match_status_counts": {
+    "strong": 180,
+    "usable": 2
+  },
+  "clean_source_kind_counts": {
+    "hires_still_matched": 3,
+    "hires_video_frame": 44,
+    "original_primary": 9,
+    "primary": 75,
+    "still": 4,
+    "video_reused_verified": 29,
+    "video_search": 18
+  },
+  "deployment_contract": {
+    "crop_spec": {
+      "annotated_context": {
+        "factor": 12.0,
+        "min_side": 320,
+        "output_size": 768
+      },
+      "annotated_roi": {
+        "factor": 4.0,
+        "min_side": 96,
+        "output_size": 512
+      },
+      "clean_context": {
+        "factor": 12.0,
+        "min_side": 320,
+        "output_size": 768
+      },
+      "clean_roi": {
+        "factor": 4.0,
+        "min_side": 96,
+        "output_size": 512
+      },
+      "downscale": "cv2.INTER_AREA",
+      "padding": "cv2.BORDER_REFLECT_101",
+      "upscale": "cv2.INTER_LANCZOS4"
+    },
+    "normalized_bbox_margin": 0.05,
+    "processor": {
+      "max_pixels": 200704,
+      "max_sequence_length": 2048,
+      "min_pixels": 50176
+    },
+    "prompt_template": "<image>\n图1：带初审定位信息的上下文图。\n<image>\n图2：带初审定位信息的候选区域图。\n<image>\n图3：同一现场的清晰无标注原图上下文。\n<image>\n图4：从清晰原图投影得到的候选区域。\n初审类别：{class_name}。结合四张图判断红框所指候选是否确为该类别。只能输出一个 JSON 对象，不得输出解释或 Markdown：{\"decision\":\"CONFIRMED\"} 或 {\"decision\":\"REJECTED\"}。",
+    "prompt_template_sha256": "c4a4bc35c60bd87296c1122c686a8449942e969f0f006fce58e82c1af0810e29",
+    "quantization": {
+      "bnb_4bit_compute_dtype": "bfloat16",
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "load_in_4bit": true
+    },
+    "strict_output": {
+      "allowed_decisions": [
+        "CONFIRMED",
+        "REJECTED"
+      ],
+      "invalid_output": "uncertain",
+      "json_object_keys": [
+        "decision"
+      ]
+    },
+    "view_generation": "service_crop_v1_lossless_png",
+    "view_roles": [
+      "annotated_context",
+      "annotated_roi",
+      "clean_context",
+      "clean_roi"
+    ],
+    "view_schema": "annotated_locator_plus_clean_original_v1"
+  },
+  "eligible_candidates": 182,
+  "excluded_candidates": 16,
+  "input_candidates": 198,
+  "isolation": {
+    "annotated_frame_sha256_overlap": [],
+    "clean_frame_sha256_overlap": [],
+    "event_id_overlap": [],
+    "source_task_id_overlap": []
+  },
+  "label_counts": {
+    "false": 47,
+    "true": 135
+  },
+  "limitations": [
+    "normalized gold_labels.jsonl does not retain labeled_by or labeled_at; this manifest pins its SHA-256 but does not independently re-attest reviewer identity or timestamp"
+  ],
+  "outputs": {
+    "lineage": {
+      "path": "lineage_manifest.jsonl",
+      "rows": 198,
+      "sha256": "aca89eb74a7494f909b31fe95aa85355377394f3a87a150d9458f025e83d2d20"
+    },
+    "train": {
+      "path": "train.jsonl",
+      "rows": 135,
+      "sha256": "d3ecbbb2cecd157862b37205a8b24fdd8821f858f461bf2a0ae70398dbb0a1ea"
+    },
+    "validation": {
+      "path": "validation.jsonl",
+      "rows": 47,
+      "sha256": "d642ff9bb7c44bcbab993ff64cd8659c5684f279ae1aa15639eab5526c936254"
+    }
+  },
+  "partition_rows": {
+    "train": 135,
+    "validation": 47
+  },
+  "schema_version": 1,
+  "selection_policy": "has_clean_source=true and clean_match_status in {strong,usable}; preserve source partition",
+  "source": {
+    "candidate_pairs": {
+      "path": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform/data/recheck-released-fp-20260930/dataset-source/candidate_pairs.jsonl",
+      "rows": 198,
+      "sha256": "e1342ec36f9028e24ce570756b8f60ae05c53f35d2aefe6a23456e95a3bb7fa6"
+    },
+    "gold_labels": {
+      "path": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform/data/recheck-released-fp-20260930/dataset-source/gold_labels.jsonl",
+      "rows": 198,
+      "sha256": "d6055dd45715f3adb92f6273fb5ed7faa6154859398fd8456e7279c39319dff7"
+    }
+  },
+  "unique_annotated_frames": 70,
+  "unique_clean_frames": 70,
+  "unique_events": 70,
+  "unique_source_tasks": 32,
+  "view_schema": "annotated_locator_plus_clean_original_v1"
+}

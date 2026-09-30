@@ -1,0 +1,52 @@
+{
+  "audit": {
+    "excluded_duplicate_of_existing": 58,
+    "excluded_eval_set": 32,
+    "excluded_unclear": 3,
+    "excluded_other_class": 24
+  },
+  "new_usable_after_dedupe": 363,
+  "new_selected": {
+    "train/true": 33,
+    "train/false": 11,
+    "validation/true": 9,
+    "validation/false": 3
+  },
+  "reserve": {
+    "train/true": 170,
+    "validation/true": 137
+  },
+  "old": {
+    "train/true": 67,
+    "train/false": 35,
+    "validation/false": 11,
+    "validation/true": 29
+  },
+  "new_task_partitions": {
+    "009c331bdbe04283b638cf4c92746151": "train",
+    "2a665f91c46e4e708fb2a7d02986fa21": "train",
+    "3269d31c7ce94e23a1d5aad31e75b0da": "validation",
+    "6875a85fe4bc4e778b788e2158f1008c": "validation",
+    "92e90e8561c4447abe3b0b07bf5afa10": "train",
+    "a088e3200ee74eaaa794a28db7b7eb34": "train",
+    "ace84764be894d0487e0f8149c9c269e": "validation",
+    "d1101964c6df4174989fdff74423df33": "validation",
+    "f036e9c4a4424cf7b006d3e16b2d5be7": "train",
+    "fcbad542f6ac400988917ce2df0632f6": "train"
+  },
+  "new_selected_by_class": {
+    "车/true": 42,
+    "车/false": 14
+  },
+  "other_class": {
+    "三轮车/true": 1,
+    "两轮车/true": 2,
+    "两轮车/false": 5,
+    "公交车/true": 1,
+    "卡车/false": 6,
+    "违建/true": 9
+  },
+  "classes": "车",
+  "pos_per_neg": 3,
+  "seed": 20260930
+}
