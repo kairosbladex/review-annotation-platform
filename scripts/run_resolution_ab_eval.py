@@ -39,17 +39,23 @@ def main() -> None:
     parser.add_argument("--verifier", type=Path, required=True)
     parser.add_argument("--base-model", type=Path, required=True)
     parser.add_argument("--adapter", type=Path, required=True)
+    parser.add_argument("--adapter-sha256", default=ADAPTER_SHA256, help="adapter_model.safetensors 的 SHA-256")
+    parser.add_argument("--models", default="base,adapter", help="逗号分隔，只跑其中几路（比较新微调模型时可只跑 adapter）")
     parser.add_argument("--expect-gpu", required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--shard-count", type=int, default=1)
+    parser.add_argument("--allow-service-gpu", default="",
+                        help="用户明确授权占用共享服务 GPU 时填写授权说明；为空则禁止")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
 
     used, free, uuid, name = nvidia()
     pre = {"gpu_uuid": uuid, "gpu_name": name, "memory_used_mib": used, "memory_free_mib": free,
-           "expect_gpu": args.expect_gpu, "service_gpu_forbidden": SERVICE_GPU}
-    if uuid == SERVICE_GPU or uuid != args.expect_gpu or "L20" not in name.upper() or free < MIN_FREE_MIB:
+           "expect_gpu": args.expect_gpu, "service_gpu_forbidden": SERVICE_GPU,
+           "service_gpu_authorization": args.allow_service_gpu or None}
+    service_blocked = uuid == SERVICE_GPU and not args.allow_service_gpu
+    if service_blocked or uuid != args.expect_gpu or "L20" not in name.upper() or free < MIN_FREE_MIB:
         pre["stopped"] = "gpu_preflight_failed"
     (args.out / "preflight.json").write_text(json.dumps(pre, ensure_ascii=False, indent=2) + "\n")
     if pre.get("stopped"):
@@ -64,8 +70,10 @@ def main() -> None:
     spec.loader.exec_module(module)
     engine = module.CleanSourceQwenVerifier(base_model_path=args.base_model, adapter_path=args.adapter,
                                             device="cuda:0", base_model_sha256=BASE_SHA256,
-                                            adapter_sha256=ADAPTER_SHA256)
+                                            adapter_sha256=args.adapter_sha256)
     engine._load()
+    pre.update(adapter=str(args.adapter), adapter_sha256=args.adapter_sha256, models=args.models)
+    (args.out / "preflight.json").write_text(json.dumps(pre, ensure_ascii=False, indent=2) + "\n")
 
     rows = [json.loads(line) for line in args.rows.read_text(encoding="utf-8").splitlines() if line.strip()]
     rows = [r for r in rows
@@ -90,6 +98,8 @@ def main() -> None:
                       "clean_size": list(clean.size)}
             try:
                 for name, adapter in (("base", False), ("adapter", True)):
+                    if name not in args.models.split(","):
+                        continue
                     started = time.perf_counter()
                     raw, error, decision = "", None, None
                     try:
