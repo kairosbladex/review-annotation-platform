@@ -1,0 +1,24 @@
+{
+  "scope": "第0步本地金标整理；未执行线上验收",
+  "tests": {
+    "command": "python -m pytest backend/tests/test_recheck_gold_consolidation.py -q",
+    "passed": 13
+  },
+  "artifact_checks": {
+    "all_sha256_match": true,
+    "source_row_accounting": true,
+    "conflicts_removed_from_gold": true,
+    "same_input_rebuild_preserves_frozen_groups": true,
+    "no_credential_fields_detected": true
+  },
+  "git_baseline": "20d281ce00c9aedaa1e9bd6bb8762434eb4da81b",
+  "branch": "feature/recheck-gold-consolidation",
+  "ci_review": "已有流水线为测试/构建；容器集成为手动任务，无自动共享部署步骤",
+  "script_sha256": "0441f567d70ef48167b59416458fd84852504a607fe135788f813de543cf337e",
+  "side_effects": {
+    "model_calls": 0,
+    "uploads": 0,
+    "database_writes": 0,
+    "services_started": 0
+  }
+}
