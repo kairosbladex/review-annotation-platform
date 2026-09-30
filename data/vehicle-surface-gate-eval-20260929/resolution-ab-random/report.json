@@ -1,0 +1,285 @@
+{
+  "schema": "vehicle_recheck_resolution_ab_v1",
+  "candidates": 200,
+  "label_counts": {
+    "真车": 180,
+    "非车": 19,
+    "看不清": 1
+  },
+  "overall": {
+    "n": 199,
+    "base": {
+      "low_correct": 184,
+      "high_correct": 187,
+      "low_only_correct": 0,
+      "high_only_correct": 3,
+      "mcnemar_p": 0.25
+    },
+    "adapter": {
+      "low_correct": 186,
+      "high_correct": 191,
+      "low_only_correct": 0,
+      "high_only_correct": 5,
+      "mcnemar_p": 0.0625
+    },
+    "consensus": {
+      "low": {
+        "auto_correct": 184,
+        "auto_wrong": 13,
+        "manual": 2
+      },
+      "high": {
+        "auto_correct": 187,
+        "auto_wrong": 8,
+        "manual": 4
+      },
+      "low_only_correct": 0,
+      "high_only_correct": 3,
+      "mcnemar_p": 0.25
+    }
+  },
+  "by_label": {
+    "真车": {
+      "n": 180,
+      "base": {
+        "low_correct": 179,
+        "high_correct": 179,
+        "low_only_correct": 0,
+        "high_only_correct": 0,
+        "mcnemar_p": null
+      },
+      "adapter": {
+        "low_correct": 179,
+        "high_correct": 179,
+        "low_only_correct": 0,
+        "high_only_correct": 0,
+        "mcnemar_p": null
+      },
+      "consensus": {
+        "low": {
+          "auto_correct": 179,
+          "auto_wrong": 1,
+          "manual": 0
+        },
+        "high": {
+          "auto_correct": 179,
+          "auto_wrong": 1,
+          "manual": 0
+        },
+        "low_only_correct": 0,
+        "high_only_correct": 0,
+        "mcnemar_p": null
+      }
+    },
+    "非车": {
+      "n": 19,
+      "base": {
+        "low_correct": 5,
+        "high_correct": 8,
+        "low_only_correct": 0,
+        "high_only_correct": 3,
+        "mcnemar_p": 0.25
+      },
+      "adapter": {
+        "low_correct": 7,
+        "high_correct": 12,
+        "low_only_correct": 0,
+        "high_only_correct": 5,
+        "mcnemar_p": 0.0625
+      },
+      "consensus": {
+        "low": {
+          "auto_correct": 5,
+          "auto_wrong": 12,
+          "manual": 2
+        },
+        "high": {
+          "auto_correct": 8,
+          "auto_wrong": 7,
+          "manual": 4
+        },
+        "low_only_correct": 0,
+        "high_only_correct": 3,
+        "mcnemar_p": 0.25
+      }
+    }
+  },
+  "by_package": {
+    "snapshot-20260924": {
+      "n": 190,
+      "base": {
+        "low_correct": 175,
+        "high_correct": 178,
+        "low_only_correct": 0,
+        "high_only_correct": 3,
+        "mcnemar_p": 0.25
+      },
+      "adapter": {
+        "low_correct": 177,
+        "high_correct": 182,
+        "low_only_correct": 0,
+        "high_only_correct": 5,
+        "mcnemar_p": 0.0625
+      },
+      "consensus": {
+        "low": {
+          "auto_correct": 175,
+          "auto_wrong": 13,
+          "manual": 2
+        },
+        "high": {
+          "auto_correct": 178,
+          "auto_wrong": 8,
+          "manual": 4
+        },
+        "low_only_correct": 0,
+        "high_only_correct": 3,
+        "mcnemar_p": 0.25
+      }
+    },
+    "new-events-video-20260928": {
+      "n": 9,
+      "base": {
+        "low_correct": 9,
+        "high_correct": 9,
+        "low_only_correct": 0,
+        "high_only_correct": 0,
+        "mcnemar_p": null
+      },
+      "adapter": {
+        "low_correct": 9,
+        "high_correct": 9,
+        "low_only_correct": 0,
+        "high_only_correct": 0,
+        "mcnemar_p": null
+      },
+      "consensus": {
+        "low": {
+          "auto_correct": 9,
+          "auto_wrong": 0,
+          "manual": 0
+        },
+        "high": {
+          "auto_correct": 9,
+          "auto_wrong": 0,
+          "manual": 0
+        },
+        "low_only_correct": 0,
+        "high_only_correct": 0,
+        "mcnemar_p": null
+      }
+    }
+  },
+  "by_low_box_size": {
+    "under_20px": {
+      "n": 7,
+      "base": {
+        "low_correct": 4,
+        "high_correct": 6,
+        "low_only_correct": 0,
+        "high_only_correct": 2,
+        "mcnemar_p": 0.5
+      },
+      "adapter": {
+        "low_correct": 4,
+        "high_correct": 6,
+        "low_only_correct": 0,
+        "high_only_correct": 2,
+        "mcnemar_p": 0.5
+      },
+      "consensus": {
+        "low": {
+          "auto_correct": 4,
+          "auto_wrong": 3,
+          "manual": 0
+        },
+        "high": {
+          "auto_correct": 6,
+          "auto_wrong": 1,
+          "manual": 0
+        },
+        "low_only_correct": 0,
+        "high_only_correct": 2,
+        "mcnemar_p": 0.5
+      }
+    },
+    "20_to_40px": {
+      "n": 157,
+      "base": {
+        "low_correct": 148,
+        "high_correct": 148,
+        "low_only_correct": 0,
+        "high_only_correct": 0,
+        "mcnemar_p": null
+      },
+      "adapter": {
+        "low_correct": 148,
+        "high_correct": 150,
+        "low_only_correct": 0,
+        "high_only_correct": 2,
+        "mcnemar_p": 0.5
+      },
+      "consensus": {
+        "low": {
+          "auto_correct": 148,
+          "auto_wrong": 9,
+          "manual": 0
+        },
+        "high": {
+          "auto_correct": 148,
+          "auto_wrong": 7,
+          "manual": 2
+        },
+        "low_only_correct": 0,
+        "high_only_correct": 0,
+        "mcnemar_p": null
+      }
+    },
+    "40px_plus": {
+      "n": 35,
+      "base": {
+        "low_correct": 32,
+        "high_correct": 33,
+        "low_only_correct": 0,
+        "high_only_correct": 1,
+        "mcnemar_p": 1.0
+      },
+      "adapter": {
+        "low_correct": 34,
+        "high_correct": 35,
+        "low_only_correct": 0,
+        "high_only_correct": 1,
+        "mcnemar_p": 1.0
+      },
+      "consensus": {
+        "low": {
+          "auto_correct": 32,
+          "auto_wrong": 1,
+          "manual": 2
+        },
+        "high": {
+          "auto_correct": 33,
+          "auto_wrong": 0,
+          "manual": 2
+        },
+        "low_only_correct": 0,
+        "high_only_correct": 1,
+        "mcnemar_p": 1.0
+      }
+    }
+  },
+  "unclear_consensus": {
+    "low": {
+      "CONFIRMED": 1
+    },
+    "high": {
+      "CONFIRMED": 1
+    }
+  },
+  "control_identical_input": [],
+  "reproducibility_low_vs_recorded": {
+    "compared": 0,
+    "matched": 0
+  },
+  "parse_errors": 0
+}

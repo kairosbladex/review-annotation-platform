@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """用 108 个高清人工标签统计复检四视图判定在低清/高清输入下的准确率差异。
 
-真车应判 CONFIRMED，屋顶设施应判 REJECTED；看不清不计准确率，单独列分布。
+真车应判 CONFIRMED，屋顶设施/非车应判 REJECTED；看不清不计准确率，单独列分布。
+--labels 可指定其他标注包（如随机流量包）；默认读取楼顶难例的两个高清包。
 两路一致为自动结论，不一致为转人工（与线上四视图一致性规则相同）。
 """
 
@@ -15,7 +16,7 @@ from math import comb
 from pathlib import Path
 
 EVIDENCE = Path(__file__).resolve().parents[1] / "data/vehicle-surface-gate-eval-20260929/prerelease-evidence"
-EXPECTED = {"真车": "CONFIRMED", "屋顶设施": "REJECTED"}
+EXPECTED = {"真车": "CONFIRMED", "屋顶设施": "REJECTED", "非车": "REJECTED"}
 
 
 def mcnemar_exact(b: int, c: int) -> float | None:
@@ -34,8 +35,14 @@ def consensus(pred: dict) -> str:
     return "MANUAL"
 
 
-def load_labels(evidence: Path) -> dict[str, dict]:
+def load_labels(evidence: Path, extra: list[Path] | None = None) -> dict[str, dict]:
     labels = {}
+    if extra:
+        for path in extra:
+            with path.open(encoding="utf-8-sig", newline="") as handle:
+                for row in csv.DictReader(handle):
+                    labels[row["candidate_id"]] = row
+        return labels
     for package in ("hires-review-package", "new-events-hires-package"):
         with (evidence / package / "annotations.csv").open(encoding="utf-8-sig", newline="") as handle:
             for row in csv.DictReader(handle):
@@ -48,9 +55,10 @@ def main() -> None:
     parser.add_argument("--predictions", type=Path, nargs="+", required=True)
     parser.add_argument("--inputs", type=Path, required=True, help="prepare 阶段的 inputs.jsonl")
     parser.add_argument("--rows", type=Path, required=True)
+    parser.add_argument("--labels", type=Path, nargs="*", help="标注 CSV；不指定时用楼顶难例的两个高清包")
     parser.add_argument("--out", type=Path)
     args = parser.parse_args()
-    labels = load_labels(EVIDENCE)
+    labels = load_labels(EVIDENCE, args.labels)
     inputs = {json.loads(l)["event_id"]: json.loads(l) for l in args.inputs.read_text().splitlines() if l.strip()}
     rows = {json.loads(l)["candidate_id"]: json.loads(l) for l in args.rows.read_text().splitlines() if l.strip()}
     preds = collections.defaultdict(dict)
@@ -70,7 +78,7 @@ def main() -> None:
         box_w = (row["bbox"][2] - row["bbox"][0]) * inputs[row["event_id"]]["low_size"][0]
         box_h = (row["bbox"][3] - row["bbox"][1]) * inputs[row["event_id"]]["low_size"][1]
         items.append({
-            "candidate_id": cid, "label": lab["label"], "package": row["package"],
+            "candidate_id": cid, "label": lab["label"], "package": row.get("package") or row.get("population"),
             "scale": inputs[row["event_id"]]["scale"], "low_origin": inputs[row["event_id"]]["low_origin"],
             "low_box_max_px": round(max(box_w, box_h), 1),
             "recorded": row.get("recorded_binary_outcome"),
@@ -109,7 +117,8 @@ def main() -> None:
         "candidates": len(items),
         "label_counts": dict(collections.Counter(i["label"] for i in items)),
         "overall": evaluate(changed),
-        "by_label": {lab: evaluate([i for i in changed if i["label"] == lab]) for lab in EXPECTED},
+        "by_label": {lab: evaluate([i for i in changed if i["label"] == lab])
+                     for lab in EXPECTED if any(i["label"] == lab for i in changed)},
         "by_package": {pkg: evaluate([i for i in changed if i["package"] == pkg])
                        for pkg in dict.fromkeys(i["package"] for i in changed)},
         "by_low_box_size": {
