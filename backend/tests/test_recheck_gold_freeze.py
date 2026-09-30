@@ -34,8 +34,8 @@ def test_mixed_groups_are_not_split_and_exposure_stays_conservative():
             row('gpt', exposure=['gpt_prompt_exposed']), row('unknown', unknown=True),
             row('uncertain', 'uncertain')]
     assignments, audit = module.stratified_assignments(rows)
-    assert audit[0]['classes'] == ['卡车', '车']
-    assert audit[0]['population'] == ['random_traffic', 'rooftop_hard_case']
+    assert audit[0]['classes'] == ['卡车']
+    assert audit[0]['population'] == ['random_traffic']
     assert audit[0]['has_false']
     for gid in ('gpt', 'unknown', 'uncertain'):
         assert assignments[gid]['split'] == 'development'
@@ -71,3 +71,10 @@ def test_frozen_snapshot_registry_and_side_effects_are_consistent():
     with pytest.raises(ValueError, match='已冻结'):
         module.freeze(out)
     assert (out / 'SHA256SUMS').read_bytes() == before
+
+
+def test_small_strata_use_largest_remainder():
+    rows = [row(str(i), 'false', cls=str(i)) for i in range(10)]
+    assignments, audit = module.stratified_assignments(rows)
+    assert sum(a['split'] == 'locked_test_gpt' for a in assignments.values()) == 7
+    assert sum(s['locked_groups'] for s in audit) == 7

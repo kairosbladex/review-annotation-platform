@@ -20,33 +20,45 @@ def stratified_assignments(gold):
         exposure = sorted({e for r in rows for e in r['group_exposure']})
         unknown = any(r['gpt_history_unknown'] for r in rows)
         classes = sorted({r['class_name'] for r in rows})
+        primary_class = sorted(collections.Counter(r['class_name'] for r in rows).items(), key=lambda x: (-x[1], x[0]))[0][0]
         populations = sorted({p for r in rows for p in r['population']})
         has_false = any(r['label'] == 'false' for r in rows)
         labels = {r['label'] for r in rows}
-        key = (tuple(classes), tuple(populations), has_false)
+        primary_population = sorted(collections.Counter(p for r in rows for p in r['population']).items(), key=lambda x: (-x[1], x[0]))[0][0]
+        key = (primary_class, primary_population, has_false)
         reason = ('gpt_prompt_exposed' if 'gpt_prompt_exposed' in exposure else
                   'gpt_history_unknown' if unknown else
                   'uncertain_only' if labels == {'uncertain'} else 'stratified_group_random')
         assignments[gid] = {'group_id': gid, 'split': 'development', 'exposure': exposure,
                             'gpt_history_unknown': unknown, 'reason': reason,
                             'aliases': sorted({a for r in rows for a in r['group_aliases']}),
-                            'stratum': {'classes': classes, 'population': populations, 'has_false': has_false},
+                            'stratum': {'classes': [primary_class], 'population': [primary_population], 'has_false': has_false},
                             'status': 'development_only', 'valid_for': []}
         if reason == 'stratified_group_random':
             strata[key].append(gid)
     rng = random.Random(SEED)
     audit = []
+    quotas = {}
+    for has_false in (False, True):
+        keys = sorted(k for k in strata if k[2] == has_false)
+        numerator = 7 if has_false else 5
+        # Round the overall group target to nearest integer, ties upward.
+        target = (sum(len(strata[k]) for k in keys) * numerator + 5) // 10
+        quotas.update({k: len(strata[k]) * numerator // 10 for k in keys})
+        remaining = target - sum(quotas[k] for k in keys)
+        ranked = sorted(keys, key=lambda k: (-(len(strata[k]) * numerator % 10), k))
+        for key in ranked[:remaining]:
+            quotas[key] += 1
     for key, ids in sorted(strata.items()):
-        rng.shuffle(ids)  # sorted groups and strata make input order irrelevant
-        numerator = 7 if key[2] else 5
-        count = len(ids) * numerator // 10
+        rng.shuffle(ids)
+        count = quotas[key]
         for gid in ids[:count]:
             row = assignments[gid]
             row.update(split='locked_test_gpt', status='frozen',
                        valid_for=['gpt'] if 'qwen_exposed' in row['exposure'] else ['gpt', 'qwen'])
-        audit.append({'classes': list(key[0]), 'population': list(key[1]), 'has_false': key[2],
+        audit.append({'classes': [key[0]], 'population': [key[1]], 'has_false': key[2],
                       'eligible_groups': len(ids), 'locked_groups': count,
-                      'locked_fraction': numerator / 10, 'rounding': 'floor'})
+                      'locked_fraction': 0.7 if key[2] else 0.5, 'rounding': 'largest_remainder'})
     return assignments, audit
 
 

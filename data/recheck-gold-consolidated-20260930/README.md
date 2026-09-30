@@ -1,100 +1,46 @@
-# 复检统一金标：第0步切分已冻结
+# 复检统一金标：评测前最后一次重冻
 
-冻结时间：2026-09-30T16:19:35.268966+08:00。人工金标 1453 框；冲突 5 框继续隔离，不阻塞冻结。
+修正小层向下取整偏差 + 12 样本曝光核对，评测前重冻
 
-固定种子20260930。分层键为类别 × population × 组内是否含false。按排序后的组ID、排序后的分层，使用同一个Python random.Random(seed)逐层shuffle；含false组70%进入locked_test_gpt，只含true的组50%；组数向下取整floor(N×比例)。跨类别或population的组以完整类别集合、population集合为独立分层，不拆组。true与uncertain混合但无false的组按50%；只有uncertain的组保留development。
+找到12个回归样本：R045～R056。会话证据 /Users/wangxiaolin/.codex/sessions/2026/09/30/rollout-2026-09-30T14-13-57-01a0f0f2-c708-7932-a95e-62c05f4206e7.jsonl:362（样本选择）及 :667（仅开发回归）。逐条映射见 regression_exposure.jsonl，12/12唯一对应金标，3个整组标记 gpt_prompt_exposed。采用精确核对路径，未采用全输入保守兜底。
 
-GPT已曝光或历史不明的整组继续进入development，原有曝光规则不变。仅Qwen曝光不阻止GPT锁定测试，valid_for=["gpt"]，禁止用于Qwen评测。冲突框隔离，不计入分层标签和评测框数。
+主类别按组内框数最多确定；主population按出现框数最多确定；并列按字符串排序。种子20260930。分层键：主类别 × 主population × 是否含false。含false与无false分别计算总名额，四舍五入到最近整数；每层先floor，按余数降序补齐，并列按分层键排序。uncertain-only、GPT曝光、历史未知继续只进开发集；冲突继续隔离；valid_for不变。
 
-split_registry.jsonl保留旧记录并追加本次冻结记录；同一group_id按最后一条记录解释当前切分。locked_test_gpt现已冻结，不得重新随机切分。proposed_groups.jsonl是历史提案，当前权威为split_registry.jsonl与splits.jsonl。
+本次为尚未评测的最后一次重冻。后续已有组不重切；新组独立按同一规则分配并追加registry。新增来源连接两个既有组时停止并请人工裁决。
 
-12个复检回归样本ID尚未提供。收到完整ID清单后按candidate_id/gold_id及来源追溯核对；若命中locked_test_gpt，将所在整组移回development，清空valid_for，在split_registry追加原切分、新切分、触发ID、原因和时间，并同步gold/splits/统计/校验和。禁止只移单框，也不补抽其他组。不明或一对多ID须先核清。
+对比bba595e见 refreeze_comparison.json。比例分母为符合GPT锁定条件的组，曝光组不参与分配。
 
-车类当前只能正式评测“真目标被误判为假的比例”。“假目标判假率”要等locked_test_gpt中车类假目标达到100条后才给通过结论；现阶段只报告数字和置信区间。通用完整评测样本门槛仍是真/假各100框、各10独立组；uncertain不计真/假。样本档位不表示模型已通过。比例报告给出分子/分母和95%置信区间，并注明同组相关性，不能把每个框都当作独立样本。
-
-第1～3步线上复检链路尚未开始，必须等待用户确认数据外发授权。当前model_calls、image_uploads、database_writes、event_submissions均为0。
+车类只对真目标误判假率给出通过/不通过；锁定集假目标达到100条前，假目标判假率只报告数字与置信区间。
 
 |类别|全量 true/false/uncertain 框|locked true/false/uncertain 框|locked true/false/uncertain 组|locked 总组数|档位|
 |---|---|---|---|---|---|
-|三轮车|3/6/0|0/1/0|0/1/0|1|未充分验证|
-|两轮车|29/8/0|0/2/0|0/1/0|1|未充分验证|
+|三轮车|3/6/0|1/2/0|1/2/0|3|未充分验证|
+|两轮车|29/8/0|1/3/0|1/3/0|4|未充分验证|
 |人员|59/40/0|0/0/0|0/0/0|0|仅可开发|
 |光伏板|23/1/0|0/0/0|0/0/0|0|未充分验证|
 |光斑|15/12/0|0/0/0|0/0/0|0|未充分验证|
-|公交车|7/7/0|0/0/0|0/0/0|0|未充分验证|
-|卡车|3/12/1|0/2/0|0/2/0|2|未充分验证|
+|公交车|7/7/0|0/1/0|0/1/0|1|未充分验证|
+|卡车|3/12/1|0/6/1|0/6/1|7|未充分验证|
 |没戴头盔|3/2/0|0/0/0|0/0/0|0|未充分验证|
-|车|958/95/26|196/34/8|71/20/5|85|仅可开发|
+|车|958/95/26|218/46/12|79/22/5|93|仅可开发|
 |车牌|4/0/0|0/0/0|0/0/0|0|未充分验证|
-|违建|78/61/0|3/0/0|2/0/0|2|仅可开发|
+|违建|78/61/0|2/0/0|2/0/0|2|仅可开发|
 
-## 车类 locked_test_gpt population 分布
+## 车类锁定集 population
 
-|population|true框|false框|uncertain框|true组|false组|uncertain组|总组数|
+|population|true框|false框|uncertain框|true组|false组|uncertain组|总组|
 |---|---|---|---|---|---|---|---|
 |historical_review|0|0|0|0|0|0|0|
-|random_traffic|76|7|0|53|7|0|60|
-|released_by_recheck|84|1|0|10|1|0|10|
-|rooftop_hard_case|45|27|8|22|15|5|36|
+|random_traffic|76|6|0|55|6|0|60|
+|released_by_recheck|93|9|0|13|2|0|14|
+|rooftop_hard_case|59|35|12|28|19|5|44|
 
-同一框或组可能包含多个population，各行不可直接相加。
+population可重叠，不可相加。
 
-## population分开清点（无准确率评测）
+## 实际分配比例
 
-### historical_review
-
-|类别|全量 true/false/uncertain 框|locked true/false/uncertain 框|locked true/false/uncertain 组|locked 总组数|档位|
-|---|---|---|---|---|---|
-|三轮车|2/3/0|0/0/0|0/0/0|0|未充分验证|
-|两轮车|27/3/0|0/0/0|0/0/0|0|未充分验证|
-|人员|59/40/0|0/0/0|0/0/0|0|仅可开发|
-|光伏板|23/1/0|0/0/0|0/0/0|0|未充分验证|
-|光斑|15/12/0|0/0/0|0/0/0|0|未充分验证|
-|公交车|7/6/0|0/0/0|0/0/0|0|未充分验证|
-|卡车|3/4/0|0/0/0|0/0/0|0|未充分验证|
-|没戴头盔|3/2/0|0/0/0|0/0/0|0|未充分验证|
-|车|310/21/0|0/0/0|0/0/0|0|未充分验证|
-|车牌|4/0/0|0/0/0|0/0/0|0|未充分验证|
-|违建|71/61/0|0/0/0|0/0/0|0|仅可开发|
-
-### random_traffic
-
-|类别|全量 true/false/uncertain 框|locked true/false/uncertain 框|locked true/false/uncertain 组|locked 总组数|档位|
-|---|---|---|---|---|---|
-|三轮车|0/3/0|0/1/0|0/1/0|1|未充分验证|
-|公交车|0/1/0|0/0/0|0/0/0|0|未充分验证|
-|卡车|0/2/0|0/0/0|0/0/0|0|未充分验证|
-|车|172/11/0|76/7/0|53/7/0|60|未充分验证|
-
-### released_by_recheck
-
-|类别|全量 true/false/uncertain 框|locked true/false/uncertain 框|locked true/false/uncertain 组|locked 总组数|档位|
-|---|---|---|---|---|---|
-|三轮车|1/0/0|0/0/0|0/0/0|0|未充分验证|
-|两轮车|2/5/0|0/2/0|0/1/0|1|未充分验证|
-|卡车|0/6/0|0/2/0|0/2/0|2|未充分验证|
-|车|399/16/2|84/1/0|10/1/0|10|未充分验证|
-|违建|7/0/0|3/0/0|2/0/0|2|未充分验证|
-
-### rooftop_hard_case
-
-|类别|全量 true/false/uncertain 框|locked true/false/uncertain 框|locked true/false/uncertain 组|locked 总组数|档位|
-|---|---|---|---|---|---|
-|卡车|0/0/1|0/0/0|0/0/0|0|未充分验证|
-|车|107/51/24|45/27/8|22/15/5|36|仅可开发|
-
-## locked_test_gpt来源清单
-
-同一金标若有多来源，分别计数，不可相加。
-
-|来源|组|框|population框分布|
-|---|---|---|---|
-|data/recheck-released-fp-20260930/labeling-package/annotations.csv|15|92|{"released_by_recheck":92}|
-|data/vehicle-surface-gate-eval-20260929/prerelease-evidence/annotation-package/annotations.csv|25|28|{"rooftop_hard_case":28}|
-|data/vehicle-surface-gate-eval-20260929/prerelease-evidence/hires-review-package/annotations.csv|32|38|{"rooftop_hard_case":38}|
-|data/vehicle-surface-gate-eval-20260929/prerelease-evidence/new-events-hires-package/annotations.csv|2|2|{"rooftop_hard_case":2}|
-|data/vehicle-surface-gate-eval-20260929/prerelease-evidence/supplement-annotation-package/annotations.csv|11|12|{"rooftop_hard_case":12}|
-|data/vehicle-surface-gate-eval-20260929/random-traffic-hires-package/annotations.csv|61|84|{"random_traffic":84}|
+含false=True: 31/44 = 70.45%
+含false=False: 72/143 = 50.35%
 
 ## 补齐元数据
 
@@ -115,7 +61,7 @@ split_registry.jsonl保留旧记录并追加本次冻结记录；同一group_id�
 
 |来源|组|框|
 |---|---|---|
-当前已纳入金标未发现额外的来源不明组；12个回归样本ID待用户提供，跨来源重叠核验仍未完成。
+当前已纳入金标未发现额外的来源不明组；12个回归样本核对已完成，详见回归曝光映射。
 
 ## 冲突隔离
 

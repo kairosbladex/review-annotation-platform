@@ -24,18 +24,18 @@
       },
       "all_groups": 8,
       "locked_test_samples": {
-        "true": 0,
-        "false": 1,
+        "true": 1,
+        "false": 2,
         "uncertain": 0
       },
       "locked_test_groups": {
-        "true": 0,
-        "false": 1,
+        "true": 1,
+        "false": 2,
         "uncertain": 0
       },
       "tier": "未充分验证",
       "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-      "locked_all_groups": 1
+      "locked_all_groups": 3
     },
     "两轮车": {
       "samples": {
@@ -50,18 +50,18 @@
       },
       "all_groups": 23,
       "locked_test_samples": {
-        "true": 0,
-        "false": 2,
+        "true": 1,
+        "false": 3,
         "uncertain": 0
       },
       "locked_test_groups": {
-        "true": 0,
-        "false": 1,
+        "true": 1,
+        "false": 3,
         "uncertain": 0
       },
       "tier": "未充分验证",
       "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-      "locked_all_groups": 1
+      "locked_all_groups": 4
     },
     "人员": {
       "samples": {
@@ -155,17 +155,17 @@
       "all_groups": 13,
       "locked_test_samples": {
         "true": 0,
-        "false": 0,
+        "false": 1,
         "uncertain": 0
       },
       "locked_test_groups": {
         "true": 0,
-        "false": 0,
+        "false": 1,
         "uncertain": 0
       },
       "tier": "未充分验证",
       "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-      "locked_all_groups": 0
+      "locked_all_groups": 1
     },
     "卡车": {
       "samples": {
@@ -181,17 +181,17 @@
       "all_groups": 16,
       "locked_test_samples": {
         "true": 0,
-        "false": 2,
-        "uncertain": 0
+        "false": 6,
+        "uncertain": 1
       },
       "locked_test_groups": {
         "true": 0,
-        "false": 2,
-        "uncertain": 0
+        "false": 6,
+        "uncertain": 1
       },
       "tier": "未充分验证",
       "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-      "locked_all_groups": 2
+      "locked_all_groups": 7
     },
     "没戴头盔": {
       "samples": {
@@ -232,18 +232,18 @@
       },
       "all_groups": 268,
       "locked_test_samples": {
-        "true": 196,
-        "false": 34,
-        "uncertain": 8
+        "true": 218,
+        "false": 46,
+        "uncertain": 12
       },
       "locked_test_groups": {
-        "true": 71,
-        "false": 20,
+        "true": 79,
+        "false": 22,
         "uncertain": 5
       },
       "tier": "仅可开发",
       "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-      "locked_all_groups": 85
+      "locked_all_groups": 93
     },
     "车牌": {
       "samples": {
@@ -284,7 +284,7 @@
       },
       "all_groups": 75,
       "locked_test_samples": {
-        "true": 3,
+        "true": 2,
         "false": 0,
         "uncertain": 0
       },
@@ -602,17 +602,17 @@
         "all_groups": 3,
         "locked_test_samples": {
           "true": 0,
-          "false": 1,
+          "false": 2,
           "uncertain": 0
         },
         "locked_test_groups": {
           "true": 0,
-          "false": 1,
+          "false": 2,
           "uncertain": 0
         },
         "tier": "未充分验证",
         "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-        "locked_all_groups": 1
+        "locked_all_groups": 2
       },
       "公交车": {
         "samples": {
@@ -628,17 +628,17 @@
         "all_groups": 1,
         "locked_test_samples": {
           "true": 0,
-          "false": 0,
+          "false": 1,
           "uncertain": 0
         },
         "locked_test_groups": {
           "true": 0,
-          "false": 0,
+          "false": 1,
           "uncertain": 0
         },
         "tier": "未充分验证",
         "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-        "locked_all_groups": 0
+        "locked_all_groups": 1
       },
       "卡车": {
         "samples": {
@@ -654,17 +654,17 @@
         "all_groups": 2,
         "locked_test_samples": {
           "true": 0,
-          "false": 0,
+          "false": 1,
           "uncertain": 0
         },
         "locked_test_groups": {
           "true": 0,
-          "false": 0,
+          "false": 1,
           "uncertain": 0
         },
         "tier": "未充分验证",
         "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-        "locked_all_groups": 0
+        "locked_all_groups": 1
       },
       "车": {
         "samples": {
@@ -680,12 +680,12 @@
         "all_groups": 122,
         "locked_test_samples": {
           "true": 76,
-          "false": 7,
+          "false": 6,
           "uncertain": 0
         },
         "locked_test_groups": {
-          "true": 53,
-          "false": 7,
+          "true": 55,
+          "false": 6,
           "uncertain": 0
         },
         "tier": "未充分验证",
@@ -707,18 +707,18 @@
         },
         "all_groups": 1,
         "locked_test_samples": {
-          "true": 0,
+          "true": 1,
           "false": 0,
           "uncertain": 0
         },
         "locked_test_groups": {
-          "true": 0,
+          "true": 1,
           "false": 0,
           "uncertain": 0
         },
         "tier": "未充分验证",
         "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-        "locked_all_groups": 0
+        "locked_all_groups": 1
       },
       "两轮车": {
         "samples": {
@@ -733,18 +733,18 @@
         },
         "all_groups": 6,
         "locked_test_samples": {
-          "true": 0,
-          "false": 2,
+          "true": 1,
+          "false": 3,
           "uncertain": 0
         },
         "locked_test_groups": {
-          "true": 0,
-          "false": 1,
+          "true": 1,
+          "false": 3,
           "uncertain": 0
         },
         "tier": "未充分验证",
         "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-        "locked_all_groups": 1
+        "locked_all_groups": 4
       },
       "卡车": {
         "samples": {
@@ -760,17 +760,17 @@
         "all_groups": 6,
         "locked_test_samples": {
           "true": 0,
-          "false": 2,
+          "false": 5,
           "uncertain": 0
         },
         "locked_test_groups": {
           "true": 0,
-          "false": 2,
+          "false": 5,
           "uncertain": 0
         },
         "tier": "未充分验证",
         "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-        "locked_all_groups": 2
+        "locked_all_groups": 5
       },
       "车": {
         "samples": {
@@ -785,18 +785,18 @@
         },
         "all_groups": 53,
         "locked_test_samples": {
-          "true": 84,
-          "false": 1,
+          "true": 93,
+          "false": 9,
           "uncertain": 0
         },
         "locked_test_groups": {
-          "true": 10,
-          "false": 1,
+          "true": 13,
+          "false": 2,
           "uncertain": 0
         },
         "tier": "未充分验证",
         "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-        "locked_all_groups": 10
+        "locked_all_groups": 14
       },
       "违建": {
         "samples": {
@@ -811,7 +811,7 @@
         },
         "all_groups": 5,
         "locked_test_samples": {
-          "true": 3,
+          "true": 2,
           "false": 0,
           "uncertain": 0
         },
@@ -841,16 +841,16 @@
         "locked_test_samples": {
           "true": 0,
           "false": 0,
-          "uncertain": 0
+          "uncertain": 1
         },
         "locked_test_groups": {
           "true": 0,
           "false": 0,
-          "uncertain": 0
+          "uncertain": 1
         },
         "tier": "未充分验证",
         "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-        "locked_all_groups": 0
+        "locked_all_groups": 1
       },
       "车": {
         "samples": {
@@ -865,18 +865,18 @@
         },
         "all_groups": 75,
         "locked_test_samples": {
-          "true": 45,
-          "false": 27,
-          "uncertain": 8
+          "true": 59,
+          "false": 35,
+          "uncertain": 12
         },
         "locked_test_groups": {
-          "true": 22,
-          "false": 15,
+          "true": 28,
+          "false": 19,
           "uncertain": 5
         },
         "tier": "仅可开发",
         "gap": "可评测需要锁定测试真/假各100框、各10组；仅可开发需要全量真/假各30框",
-        "locked_all_groups": 36
+        "locked_all_groups": 44
       }
     }
   },
@@ -992,12 +992,7 @@
     }
   ],
   "split_status": "locked_test_gpt_frozen",
-  "unresolved_exposure_manifests": [
-    {
-      "source": "12个复检回归样本",
-      "reason": "用户将另行提供ID；先冻结，收到后核对，命中locked_test_gpt则整组退回development并追加registry记录"
-    }
-  ],
+  "unresolved_exposure_manifests": [],
   "exclusion_reasons": {
     "missing_labeled_by": 4850,
     "auto_annotation_note": 12,
@@ -1013,13 +1008,13 @@
     "event_submissions": 0
   },
   "limitations": [
-    "12个复检回归样本ID待用户提供；冻结不代表这12个样本的重叠核对已经通过。收到后整组退回规则见README。",
+    "12个回归样本全部唯一映射，3个任务组整体标记GPT曝光；只读会话核对。",
     "封存答案sealed-copy未打开；仅进行金标清点，不运行模型或准确率评测。",
     "同一金标可能有多个来源/population，来源贡献和population表不可相加；各自去重计数。",
     "本机无原图但有图片哈希的行仅保留哈希声明，不声称图片已现场核对。",
     "旧平台无时区标注时间依据annotation_service.utc_now()按UTC解析后转Asia/Shanghai；原始字符串仍留在接受行快照。"
   ],
-  "frozen_at": "2026-09-30T16:19:35.268966+08:00",
+  "frozen_at": "2026-09-30T16:32:44.803181+08:00",
   "stratified_split": [
     {
       "classes": [
@@ -1029,38 +1024,23 @@
         "random_traffic"
       ],
       "has_false": true,
-      "eligible_groups": 2,
-      "locked_groups": 1,
+      "eligible_groups": 3,
+      "locked_groups": 2,
       "locked_fraction": 0.7,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
-        "三轮车",
-        "卡车"
-      ],
-      "population": [
-        "random_traffic"
-      ],
-      "has_false": true,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "三轮车",
-        "卡车"
+        "三轮车"
       ],
       "population": [
         "released_by_recheck"
       ],
       "has_false": true,
       "eligible_groups": 1,
-      "locked_groups": 0,
+      "locked_groups": 1,
       "locked_fraction": 0.7,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
@@ -1073,68 +1053,7 @@
       "eligible_groups": 2,
       "locked_groups": 1,
       "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "两轮车",
-        "卡车",
-        "车"
-      ],
-      "population": [
-        "released_by_recheck",
-        "rooftop_hard_case"
-      ],
-      "has_false": true,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "两轮车",
-        "车"
-      ],
-      "population": [
-        "random_traffic",
-        "released_by_recheck"
-      ],
-      "has_false": false,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.5,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "两轮车",
-        "车"
-      ],
-      "population": [
-        "random_traffic",
-        "released_by_recheck",
-        "rooftop_hard_case"
-      ],
-      "has_false": true,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "两轮车",
-        "车"
-      ],
-      "population": [
-        "released_by_recheck"
-      ],
-      "has_false": false,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.5,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
@@ -1145,176 +1064,74 @@
       ],
       "has_false": true,
       "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "卡车"
-      ],
-      "population": [
-        "random_traffic"
-      ],
-      "has_false": true,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "卡车"
-      ],
-      "population": [
-        "released_by_recheck"
-      ],
-      "has_false": true,
-      "eligible_groups": 3,
-      "locked_groups": 2,
-      "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "卡车",
-        "车"
-      ],
-      "population": [
-        "released_by_recheck",
-        "rooftop_hard_case"
-      ],
-      "has_false": true,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "卡车",
-        "车"
-      ],
-      "population": [
-        "rooftop_hard_case"
-      ],
-      "has_false": false,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.5,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "车"
-      ],
-      "population": [
-        "random_traffic"
-      ],
-      "has_false": false,
-      "eligible_groups": 79,
-      "locked_groups": 39,
-      "locked_fraction": 0.5,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "车"
-      ],
-      "population": [
-        "random_traffic"
-      ],
-      "has_false": true,
-      "eligible_groups": 3,
-      "locked_groups": 2,
-      "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "车"
-      ],
-      "population": [
-        "random_traffic",
-        "released_by_recheck"
-      ],
-      "has_false": false,
-      "eligible_groups": 8,
-      "locked_groups": 4,
-      "locked_fraction": 0.5,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "车"
-      ],
-      "population": [
-        "random_traffic",
-        "released_by_recheck"
-      ],
-      "has_false": true,
-      "eligible_groups": 2,
       "locked_groups": 1,
       "locked_fraction": 0.7,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
-        "车"
+        "卡车"
       ],
       "population": [
-        "random_traffic",
-        "released_by_recheck",
+        "random_traffic"
+      ],
+      "has_false": true,
+      "eligible_groups": 1,
+      "locked_groups": 1,
+      "locked_fraction": 0.7,
+      "rounding": "largest_remainder"
+    },
+    {
+      "classes": [
+        "卡车"
+      ],
+      "population": [
+        "released_by_recheck"
+      ],
+      "has_false": true,
+      "eligible_groups": 3,
+      "locked_groups": 2,
+      "locked_fraction": 0.7,
+      "rounding": "largest_remainder"
+    },
+    {
+      "classes": [
+        "卡车"
+      ],
+      "population": [
         "rooftop_hard_case"
       ],
       "has_false": false,
       "eligible_groups": 1,
-      "locked_groups": 0,
+      "locked_groups": 1,
       "locked_fraction": 0.5,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
         "车"
       ],
       "population": [
-        "random_traffic",
-        "released_by_recheck",
-        "rooftop_hard_case"
-      ],
-      "has_false": true,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "车"
-      ],
-      "population": [
-        "random_traffic",
-        "rooftop_hard_case"
+        "random_traffic"
       ],
       "has_false": false,
-      "eligible_groups": 13,
-      "locked_groups": 6,
+      "eligible_groups": 85,
+      "locked_groups": 43,
       "locked_fraction": 0.5,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
         "车"
       ],
       "population": [
-        "random_traffic",
-        "rooftop_hard_case"
+        "random_traffic"
       ],
       "has_false": true,
-      "eligible_groups": 12,
-      "locked_groups": 8,
+      "eligible_groups": 3,
+      "locked_groups": 2,
       "locked_fraction": 0.7,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
@@ -1324,37 +1141,23 @@
         "released_by_recheck"
       ],
       "has_false": false,
-      "eligible_groups": 7,
+      "eligible_groups": 20,
+      "locked_groups": 10,
+      "locked_fraction": 0.5,
+      "rounding": "largest_remainder"
+    },
+    {
+      "classes": [
+        "车"
+      ],
+      "population": [
+        "released_by_recheck"
+      ],
+      "has_false": true,
+      "eligible_groups": 4,
       "locked_groups": 3,
-      "locked_fraction": 0.5,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "车"
-      ],
-      "population": [
-        "released_by_recheck"
-      ],
-      "has_false": true,
-      "eligible_groups": 1,
-      "locked_groups": 0,
       "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "车"
-      ],
-      "population": [
-        "released_by_recheck",
-        "rooftop_hard_case"
-      ],
-      "has_false": false,
-      "eligible_groups": 4,
-      "locked_groups": 2,
-      "locked_fraction": 0.5,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
@@ -1364,10 +1167,10 @@
         "rooftop_hard_case"
       ],
       "has_false": false,
-      "eligible_groups": 23,
-      "locked_groups": 11,
+      "eligible_groups": 32,
+      "locked_groups": 16,
       "locked_fraction": 0.5,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
@@ -1377,25 +1180,10 @@
         "rooftop_hard_case"
       ],
       "has_false": true,
-      "eligible_groups": 14,
-      "locked_groups": 9,
+      "eligible_groups": 26,
+      "locked_groups": 18,
       "locked_fraction": 0.7,
-      "rounding": "floor"
-    },
-    {
-      "classes": [
-        "车",
-        "违建"
-      ],
-      "population": [
-        "random_traffic",
-        "released_by_recheck"
-      ],
-      "has_false": false,
-      "eligible_groups": 1,
-      "locked_groups": 0,
-      "locked_fraction": 0.5,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     },
     {
       "classes": [
@@ -1405,15 +1193,20 @@
         "released_by_recheck"
       ],
       "has_false": false,
-      "eligible_groups": 4,
+      "eligible_groups": 5,
       "locked_groups": 2,
       "locked_fraction": 0.5,
-      "rounding": "floor"
+      "rounding": "largest_remainder"
     }
   ],
   "vehicle_evaluation_policy": {
     "formal_metric": "真目标被误判为假的比例",
     "false_target_pass_minimum": 100,
     "below_minimum": "只报告数字和置信区间，不给通过结论"
+  },
+  "regression_audit": {
+    "path": "exact_12_found",
+    "mapped": 12,
+    "exposed_groups": 3
   }
 }
