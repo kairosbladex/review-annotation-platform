@@ -131,7 +131,7 @@ population可重叠，不可相加。
 
 ## 检查范围
 
-- 12个复检回归样本的独立完整清单尚未定位；已把本地recheck-runs、prompt-eval快照与formal-review曝光并入证据；其余不明历史来源保守进开发集，待逐个确认。
+- 12个复检回归样本已唯一映射；本地recheck-runs、prompt-eval快照与formal-review曝光也已并入证据；其余不明历史来源保守进开发集。
 - 封存答案sealed-copy未打开；仅进行金标清点，不运行模型或准确率评测。
 - 同一金标可能有多个来源/population，来源贡献和population表不可相加；各自去重计数。
 - 本机无原图但有图片哈希的行仅保留哈希声明，不声称图片已现场核对。
