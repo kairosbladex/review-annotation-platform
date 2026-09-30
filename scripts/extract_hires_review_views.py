@@ -196,6 +196,12 @@ def main() -> None:
         for cand in job["candidates"]:
             slug = cand["slug"]
             poly = project(h, cand["bbox_px"])
+            cx, cy = poly.mean(axis=0)
+            if not (0 <= cx < fw and 0 <= cy < fh):
+                # 匹配的原片没有拍到该框位置，不能当作该目标的高清来源
+                results.append({"candidate_id": cand["candidate_id"], "event_id": event,
+                                "error": "projected_outside_source"})
+                continue
             boxed_full = draw_outline(boxed_full, poly, thick)
             rect = context_rect(poly, fw, fh)
             rx1, ry1, rx2, ry2 = rect
