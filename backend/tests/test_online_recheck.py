@@ -153,3 +153,12 @@ def test_broker_failure_keeps_committed_outbox_and_successful_intake(env):
     env[3].state.recheck_dispatcher=BrokenBroker()
     rid=ingest(env)
     assert record(env,rid).status=='queued'
+
+
+def test_database_rejects_done_without_a_decision(env):
+    from sqlalchemy.exc import IntegrityError
+    rid=ingest(env)
+    with env[3].state.session_factory() as s:
+        r=s.get(RecheckRecord,rid);r.status='done'
+        with pytest.raises(IntegrityError):s.commit()
+        s.rollback()

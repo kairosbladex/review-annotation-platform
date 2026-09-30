@@ -274,7 +274,7 @@ class RecheckRecord(Base):
     __table_args__ = (
         UniqueConstraint("candidate_id", "config_version", name="uq_recheck_candidate_config"),
         CheckConstraint("status IN ('queued','running','done','waiting_quota','failed','skipped')", name="ck_recheck_status"),
-        CheckConstraint("(status = 'done' AND decision IN ('true','false','uncertain')) OR (status <> 'done' AND decision IS NULL)", name="ck_recheck_decision"),
+        CheckConstraint("(status = 'done' AND decision IS NOT NULL AND decision IN ('true','false','uncertain')) OR (status <> 'done' AND decision IS NULL)", name="ck_recheck_decision"),
     )
     id: Mapped[str] = mapped_column(String(32), primary_key=True, default=new_id)
     candidate_id: Mapped[str] = mapped_column(ForeignKey("candidates.id", ondelete="CASCADE"), index=True)

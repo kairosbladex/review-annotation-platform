@@ -25,5 +25,11 @@
     "passed": 28,
     "evidence": "............................                                             [100%]\n28 passed in 0.11s\n",
     "scope": "4 append safety tests and 24 freeze/consolidation regressions"
+  },
+  "database_done_constraint": {
+    "scope": "online_recheck and migration regression after strengthening SQL NULL constraint",
+    "expected": "done cannot have missing decision; migration preserves previous data",
+    "passed": 20,
+    "skipped": 1
   }
 }
