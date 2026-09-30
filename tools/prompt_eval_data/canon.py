@@ -12,6 +12,7 @@ from typing import Any
 from . import CLASS_NAME_TO_ID
 from .common import sha256_text
 from .priors import prior_key
+from .provenance import attach_provenance, source_record
 
 # Contract section 3.2: deterministic suspicion token lists (heuristic sentinel,
 # only routes rows to human review, never decides a label).
@@ -112,6 +113,16 @@ def build_canonical(
         result_boxes[cid] = box
         _attach_priors(box, gpt_priors, qwen_priors)
 
+    counts.update(
+        attach_provenance(
+            result_boxes,
+            source_rows=rows,
+            image_sha_by_object_key={
+                object_key: image["sha256"] for object_key, image in images.items()
+            },
+        )
+    )
+
     # Fill authoring inclusion flags now that verdicts are known.
     gold_cids = {cid for cid, b in result_boxes.items() if b["verdict"] == "gold"}
     reason_by_cid = {
@@ -171,6 +182,7 @@ def _authoring_row(row, ann, class_id, cid, exclusion_reason) -> dict[str, Any]:
         "source": "human" if ann["labeled_by"] else "auto_annotation",
         "included_in_gold": False,
         "exclusion_reason": exclusion_reason,
+        "provenance": source_record(row),
     }
 
 
@@ -244,6 +256,7 @@ def _verdict(box) -> tuple[str, dict[str, Any]]:
             "model_run_id": primary_row["model_run_id"],
             "source_event_id": primary_row["source_event_id"],
             "rule_code": primary_row["rule_code"],
+            "provenance": source_record(primary_row),
         },
     }
 

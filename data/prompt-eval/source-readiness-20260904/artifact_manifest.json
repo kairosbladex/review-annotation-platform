@@ -1,0 +1,21 @@
+{
+  "audit_date": "2026-09-04",
+  "files": [
+    {
+      "bytes": 5031,
+      "path": "README.md",
+      "sha256": "a1b930067884a536c80db0a16e9c435c15620adbfe99c362387d6f5f2ec350e6"
+    },
+    {
+      "bytes": 4648,
+      "path": "report.json",
+      "sha256": "211b76ee0d501e51ac7d25afe0c81fa4cbcc110e157198ea7f37d68d2ff265d2"
+    }
+  ],
+  "limitations": [
+    "This manifest detects drift in the checked-in report files; it is not a replayable copy of upstream databases or object bytes.",
+    "Color-screen counts describe Pillow JPEG quality=95 derivatives, not immutable upstream object bytes.",
+    "A legacy auditor invocation opened protected gold content without printing or using labels; the remediated default does not open those files."
+  ],
+  "schema_version": "source-readiness-artifact/1"
+}

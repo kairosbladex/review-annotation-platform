@@ -61,7 +61,7 @@ At the trainer's fixed threshold `p_true >= 0.5`:
 | False accept rate | 10/24 = 41.67% |
 
 The 95% Wilson intervals are recorded in `metrics.json`. A separate 12 epoch
-run ended at 79/94 accuracy, 7/70 dangerous misses, and 12/24 false accepts;
+run ended at 75/94 accuracy, 7/70 dangerous misses, and 12/24 false accepts;
 the 6 epoch run is retained as the current experiment candidate because the
 longer run did not improve the final checkpoint.
 

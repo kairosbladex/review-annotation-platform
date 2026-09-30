@@ -1,0 +1,955 @@
+{
+  "blocked_source_boxes": 2273,
+  "blocked_source_by_reason": {
+    "snapshot_schema_not_prompt_gold_2": 2273,
+    "source_grouping_unavailable": 2273,
+    "source_pixels_unknown": 2273,
+    "temporal_provenance_unavailable_or_conflicting": 2273
+  },
+  "blocked_source_by_status": {
+    "overlay": 0,
+    "unknown": 2273
+  },
+  "blocked_source_images": 421,
+  "candidate_boxes_after_existing_image_exclusion": 2773,
+  "candidate_by_planned_split": {
+    "locked_test": 500,
+    "selection": 2273
+  },
+  "candidate_by_source_grouping_status": {
+    "grouping_unavailable": 2273
+  },
+  "candidate_by_source_pixel_status": {
+    "clean": 0,
+    "overlay": 0,
+    "unknown": 2273
+  },
+  "candidate_by_temporal_provenance_status": {
+    "temporal_provenance_unavailable": 2273
+  },
+  "candidate_selection_boxes_after_locked_exclusion": 2273,
+  "eligible_by_class": {},
+  "eligible_source_groups": 0,
+  "eligible_unlabeled_boxes": 0,
+  "existing_gold_boxes": 535,
+  "existing_gold_images_excluded": 215,
+  "existing_source_group_boxes_excluded": 0,
+  "existing_source_group_images_excluded": 0,
+  "locked_test_input_boxes_excluded": 97,
+  "management_only": {
+    "blind_annotation_files": [
+      "queue.jsonl"
+    ],
+    "contains_human_label_aggregates": true,
+    "must_not_be_included_in_blind_annotation_package": true
+  },
+  "pending_label_policy": {
+    "can_prebalance_true_false": false,
+    "label_state": "unknown_until_human_review",
+    "required_follow_up": "rebuild coverage after human labeling, then sample remaining deficits"
+  },
+  "planned_locked_boxes_excluded": 500,
+  "planned_locked_images_excluded": 104,
+  "quarantine_boxes": 7,
+  "quarantine_images_excluded": 7,
+  "schema_version": "gold-expansion-queue/2",
+  "selected_boxes": 0,
+  "selected_by_class": {},
+  "selected_by_size_bin": {
+    "large_ge96": 0,
+    "medium_48_95": 0,
+    "small_16_47": 0,
+    "tiny_lt16": 0
+  },
+  "selected_images": 0,
+  "selected_source_groups": 0,
+  "selection_gold_boxes": 438,
+  "selection_human_gold_coverage": {
+    "boxes": 438,
+    "by_label": {
+      "false": 81,
+      "true": 357
+    },
+    "by_size_bin": {
+      "large_ge96": 88,
+      "medium_48_95": 85,
+      "small_16_47": 208,
+      "tiny_lt16": 57
+    },
+    "class_label_size_cells": [
+      {
+        "boxes": 0,
+        "class_name": "三轮车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 2,
+        "class_name": "三轮车",
+        "images": 2,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "三轮车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "三轮车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "三轮车",
+        "images": 0,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 0,
+        "class_name": "三轮车",
+        "images": 0,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 1,
+        "class_name": "三轮车",
+        "images": 1,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 1,
+        "class_name": "三轮车",
+        "images": 1,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "两轮车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 1,
+        "class_name": "两轮车",
+        "images": 1,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "两轮车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "两轮车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 2,
+        "class_name": "两轮车",
+        "images": 2,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 18,
+        "class_name": "两轮车",
+        "images": 11,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 5,
+        "class_name": "两轮车",
+        "images": 2,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "两轮车",
+        "images": 0,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "人员",
+        "images": 0,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 1,
+        "class_name": "人员",
+        "images": 1,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "人员",
+        "images": 0,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "人员",
+        "images": 0,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 5,
+        "class_name": "人员",
+        "images": 4,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 22,
+        "class_name": "人员",
+        "images": 19,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 1,
+        "class_name": "人员",
+        "images": 1,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 4,
+        "class_name": "人员",
+        "images": 4,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光伏板",
+        "images": 0,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光伏板",
+        "images": 0,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光伏板",
+        "images": 0,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光伏板",
+        "images": 0,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光伏板",
+        "images": 0,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光伏板",
+        "images": 0,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 6,
+        "class_name": "光伏板",
+        "images": 4,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 17,
+        "class_name": "光伏板",
+        "images": 6,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 8,
+        "class_name": "光斑",
+        "images": 7,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 4,
+        "class_name": "光斑",
+        "images": 4,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光斑",
+        "images": 0,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光斑",
+        "images": 0,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 14,
+        "class_name": "光斑",
+        "images": 4,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光斑",
+        "images": 0,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光斑",
+        "images": 0,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "光斑",
+        "images": 0,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 1,
+        "class_name": "公交车",
+        "images": 1,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 2,
+        "class_name": "公交车",
+        "images": 2,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 1,
+        "class_name": "公交车",
+        "images": 1,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "公交车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "公交车",
+        "images": 0,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 1,
+        "class_name": "公交车",
+        "images": 1,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 4,
+        "class_name": "公交车",
+        "images": 4,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 1,
+        "class_name": "公交车",
+        "images": 1,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "卡车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 1,
+        "class_name": "卡车",
+        "images": 1,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 1,
+        "class_name": "卡车",
+        "images": 1,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "卡车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "卡车",
+        "images": 0,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 2,
+        "class_name": "卡车",
+        "images": 2,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "卡车",
+        "images": 0,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "卡车",
+        "images": 0,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "没戴头盔",
+        "images": 0,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 2,
+        "class_name": "没戴头盔",
+        "images": 2,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "没戴头盔",
+        "images": 0,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "没戴头盔",
+        "images": 0,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "没戴头盔",
+        "images": 0,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 0,
+        "class_name": "没戴头盔",
+        "images": 0,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 2,
+        "class_name": "没戴头盔",
+        "images": 2,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 1,
+        "class_name": "没戴头盔",
+        "images": 1,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 5,
+        "class_name": "车",
+        "images": 3,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 7,
+        "class_name": "车",
+        "images": 2,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "车",
+        "images": 0,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 1,
+        "class_name": "车",
+        "images": 1,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 22,
+        "class_name": "车",
+        "images": 10,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 123,
+        "class_name": "车",
+        "images": 28,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 20,
+        "class_name": "车",
+        "images": 7,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 20,
+        "class_name": "车",
+        "images": 7,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "车牌",
+        "images": 0,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 0,
+        "class_name": "车牌",
+        "images": 0,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 0,
+        "class_name": "车牌",
+        "images": 0,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "车牌",
+        "images": 0,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "车牌",
+        "images": 0,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 0,
+        "class_name": "车牌",
+        "images": 0,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 3,
+        "class_name": "车牌",
+        "images": 3,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 0,
+        "class_name": "车牌",
+        "images": 0,
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "违建",
+        "images": 0,
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 0,
+        "class_name": "违建",
+        "images": 0,
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 24,
+        "class_name": "违建",
+        "images": 19,
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 20,
+        "class_name": "违建",
+        "images": 18,
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "boxes": 0,
+        "class_name": "违建",
+        "images": 0,
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "boxes": 22,
+        "class_name": "违建",
+        "images": 14,
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "boxes": 17,
+        "class_name": "违建",
+        "images": 9,
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "boxes": 23,
+        "class_name": "违建",
+        "images": 10,
+        "label": "true",
+        "size_bin": "large_ge96"
+      }
+    ],
+    "gap_cells": 46,
+    "gap_definition": "zero human-gold boxes in a class_name x label x original-pixel-long-edge cell",
+    "gaps": [
+      {
+        "class_name": "三轮车",
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "三轮车",
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "三轮车",
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "三轮车",
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "三轮车",
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "class_name": "两轮车",
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "两轮车",
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "两轮车",
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "两轮车",
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "人员",
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "人员",
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "人员",
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "光伏板",
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "光伏板",
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "class_name": "光伏板",
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "光伏板",
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "光伏板",
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "光伏板",
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "class_name": "光斑",
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "光斑",
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "光斑",
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "class_name": "光斑",
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "光斑",
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "公交车",
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "公交车",
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "卡车",
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "卡车",
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "卡车",
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "卡车",
+        "label": "true",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "卡车",
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "没戴头盔",
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "没戴头盔",
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "没戴头盔",
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "没戴头盔",
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "没戴头盔",
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "class_name": "车",
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "车牌",
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "车牌",
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "class_name": "车牌",
+        "label": "false",
+        "size_bin": "medium_48_95"
+      },
+      {
+        "class_name": "车牌",
+        "label": "false",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "车牌",
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "车牌",
+        "label": "true",
+        "size_bin": "small_16_47"
+      },
+      {
+        "class_name": "车牌",
+        "label": "true",
+        "size_bin": "large_ge96"
+      },
+      {
+        "class_name": "违建",
+        "label": "false",
+        "size_bin": "tiny_lt16"
+      },
+      {
+        "class_name": "违建",
+        "label": "false",
+        "size_bin": "small_16_47"
+      },
+      {
+        "class_name": "违建",
+        "label": "true",
+        "size_bin": "tiny_lt16"
+      }
+    ],
+    "images": 166
+  },
+  "selection_policy": {
+    "coverage_priority": "uncovered class_name x pixel_size_bin first; pending true/false remains unknown",
+    "existing_gold_images": "selection_inputs and locked_test_inputs image_sha256 excluded",
+    "formal_source_gate": "hash-verified prompt-gold/2; validated alias-complete clean evidence, one source-group anchor, and alias-complete timezone-aware upstream time",
+    "locked_test": "always excluded before any row-level queue or blocker output",
+    "max_per_class": 20,
+    "max_per_image": 2,
+    "max_per_source_group": 1,
+    "model_priors_in_queue": false,
+    "ordering": "class, pixel_size_bin, sha256(gold-expansion-v2|canonical_id), canonical_id",
+    "planned_split": "assign_split(provenance.grouping.split_key); image_sha256 only as explicit fallback",
+    "size_bins": [
+      "tiny_lt16",
+      "small_16_47",
+      "medium_48_95",
+      "large_ge96"
+    ],
+    "size_measure": "max(bbox_px width, bbox_px height)",
+    "snapshot_integrity": "manifest schema/id and every queue dependency sha256/bytes verified"
+  },
+  "snapshot_id": "pg1-bc8c818184d8",
+  "snapshot_schema_version": "prompt-gold/1"
+}

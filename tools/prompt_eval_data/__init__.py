@@ -3,7 +3,7 @@
 Implements docs/PROMPT_GOLD_CONTRACT.md. No backend imports; stdlib only.
 """
 
-SCHEMA_VERSION = "prompt-gold/1"
+SCHEMA_VERSION = "prompt-gold/2"
 SCORE_SCHEMA_VERSION = "prompt-gold-score/1"
 
 # Fixed class map; 0-9 matches data/ktd-formal-review-20260903/classes.txt,

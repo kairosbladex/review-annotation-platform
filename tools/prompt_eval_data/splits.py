@@ -1,4 +1,4 @@
-"""Deterministic split assignment: image-level, hash-based, zero intersection."""
+"""Deterministic split assignment for an opaque image or source-group key."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ SELECTION = "selection"
 LOCKED_TEST = "locked_test"
 
 
-def assign_split(image_sha256: str) -> str:
-    """~20% of images land in locked_test; all boxes of an image share one split."""
-    digest = int(sha256_text(f"{SPLIT_SALT}|{image_sha256}"), 16)
+def assign_split(split_key: str) -> str:
+    """~20% of source groups land in locked_test for a stable split key."""
+    digest = int(sha256_text(f"{SPLIT_SALT}|{split_key}"), 16)
     return LOCKED_TEST if digest % 5 == 0 else SELECTION

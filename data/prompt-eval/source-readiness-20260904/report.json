@@ -1,0 +1,127 @@
+{
+  "accuracy_improvement_claim_ready": false,
+  "audit_date": "2026-09-04",
+  "blockers": [
+    {
+      "code": "clean_bytes_missing",
+      "detail": "No independently addressable clean-frame bytes are present in the audited snapshot or platform data."
+    },
+    {
+      "code": "clean_hash_missing",
+      "detail": "The platform asset records do not contain immutable SHA-256 provenance for a clean frame."
+    },
+    {
+      "code": "clean_annotated_pair_missing",
+      "detail": "No deterministic clean-to-annotated object mapping or mapping version is available."
+    },
+    {
+      "code": "overlay_status_unverified",
+      "detail": "Overlay status is not recorded as clean, overlay, or unknown with auditable evidence."
+    },
+    {
+      "code": "geometry_mapping_missing",
+      "detail": "No verified transform maps annotated-image candidate coordinates to clean-frame pixels."
+    },
+    {
+      "code": "clean_sha_split_unproven",
+      "detail": "Dataset isolation cannot be proven by clean-frame SHA-256 until clean provenance exists."
+    },
+    {
+      "code": "source_group_context_missing",
+      "detail": "The local import dropped the upstream task relationship; generated annex row IDs are not event, video, or track groups."
+    },
+    {
+      "code": "task_split_contamination",
+      "detail": "Input-only audit found 22 of 30 recoverable tasks on both selection and locked-test sides, affecting 198 of 215 gold-input images."
+    },
+    {
+      "code": "temporal_provenance_unverified",
+      "detail": "Stored capture_time is attachment create_time rather than the available upstream event_time."
+    }
+  ],
+  "boundaries": {
+    "protected_gold_access_incident": {
+      "content_exposed_in_output": false,
+      "files_opened_by_legacy_auditor": [
+        "gold_records.jsonl",
+        "locked_test_gold.jsonl"
+      ],
+      "labels_used_for_conclusions_or_model_work": false,
+      "remediation": "The auditor no longer opens authoring, full gold, locked gold, or quarantine files by default; it only compares recorded manifest/SHA256SUMS digests and stat sizes. --include-protected-gold is required to open, parse, and verify protected content."
+    },
+    "production_data_written": false,
+    "training_run": false
+  },
+  "evidence": {
+    "cache": {
+      "cached_byte_sha_matches_filename": {
+        "denominator": 744,
+        "numerator": 0
+      },
+      "encoding": "Pillow JPEG quality=95 derivative; filename is upstream payload SHA-256, not cached-byte SHA-256",
+      "full_frame_files": 744,
+      "note": "Color screening used re-encoded pixel derivatives, not immutable upstream object bytes; the cache is not proof that the source is clean."
+    },
+    "color_screen": {
+      "advisory_only": true,
+      "flagged_frames": 743,
+      "flagged_ratio": {
+        "denominator": 744,
+        "numerator": 743
+      },
+      "frames_above_250_pixels": 709,
+      "mask": {
+        "green_max": 145,
+        "red_min": 160,
+        "red_minus_blue_min": 70,
+        "red_minus_green_min": 70
+      },
+      "sole_unflagged_manual_review": "overlay_present"
+    },
+    "grouping": {
+      "gold_input_images": 215,
+      "gold_input_tasks": 30,
+      "images_in_cross_split_tasks": 198,
+      "local_images_with_recoverable_task": 755,
+      "local_recoverable_tasks": 80,
+      "local_task_context_synced": false,
+      "tasks_crossing_selection_and_locked": 22
+    },
+    "mapping": {
+      "import_export_chain": {
+        "clean_frame_resolution": false,
+        "import_source": "file_path",
+        "snapshot_asset_kind": "original"
+      },
+      "mysql_local_copy": {
+        "alternate_clean_path_found": false,
+        "event_id_nonempty": 0,
+        "file_finish_path_nonempty": 0,
+        "file_lit_path_differs_from_file_path": 0,
+        "img_param_nonempty": 0,
+        "local_tables": 1,
+        "rows": 1510
+      },
+      "sqlite": {
+        "asset_rows": 1510,
+        "assets_with_sha256": 0,
+        "comparison_assets": 0,
+        "ingestion_events_with_comparison_image": 0,
+        "original_assets": 1510,
+        "unique_object_keys": 755
+      }
+    }
+  },
+  "formal_training_ready": false,
+  "required_gate": [
+    "retrievable_clean_bytes_with_matching_sha256_and_object_version",
+    "immutable_clean_and_annotated_pair_provenance",
+    "auditable_capture_or_frame_identity",
+    "verified_annotated_to_clean_coordinate_transform",
+    "overlay_status_with_versioned_evidence",
+    "image_level_split_isolation_by_clean_sha256",
+    "task_or_broader_source_group_isolation",
+    "upstream_event_or_frame_time_provenance"
+  ],
+  "schema_version": "source-readiness/1"
+}

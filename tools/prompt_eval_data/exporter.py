@@ -34,13 +34,25 @@ INPUT_ALLOWED_KEYS = [
     "image_width",
     "image_height",
     "detector_confidence",
+    "split_group_key",
+    "grouping_status",
+    "source_pixel_status",
 ]
 SPLIT_GOLD_KEYS = ["canonical_id", "class_id", "class_name", "label"]
+SNAPSHOT_IDENTITY_FILE = "snapshot_identity.json"
 
 
 def _input_row(box: dict) -> dict:
     """Model-input view of a box: no label/note/reviewer/priors (contract section 6)."""
-    return {key: box[key] for key in INPUT_ALLOWED_KEYS}
+    row = {key: box[key] for key in INPUT_ALLOWED_KEYS if key in box}
+    row.update(
+        {
+            "split_group_key": box["provenance"]["grouping"]["split_key"],
+            "grouping_status": box["provenance"]["grouping"]["status"],
+            "source_pixel_status": box["provenance"]["source_pixels"]["status"],
+        }
+    )
+    return row
 
 
 def _inference_row(box: dict) -> dict:
@@ -61,6 +73,7 @@ def _inference_row(box: dict) -> dict:
         "alias_count": len(box["aliases"]),
         "aliases": box["aliases"],
         "has_human_gold": box["verdict"] == "gold",
+        "provenance": box["provenance"],
     }
 
 
@@ -85,6 +98,7 @@ def _gold_row(box: dict, split: str) -> dict:
         "bbox_norm": box["bbox_norm"],
         "bbox_px": box["bbox_px"],
         "split": split,
+        "provenance": box["provenance"],
     }
 
 
@@ -100,6 +114,7 @@ def _quarantine_row(box: dict) -> dict:
         "image_object_key": box["image_object_key"],
         "bbox_norm": box["bbox_norm"],
         "bbox_px": box["bbox_px"],
+        "provenance": box["provenance"],
     }
 
 
@@ -130,6 +145,7 @@ def build_snapshot(
     gold_rows, quarantine_rows, inference_rows = [], [], []
     selection_inputs, selection_gold, locked_inputs, locked_gold = [], [], [], []
     split_images = {"selection": set(), "locked_test": set()}
+    split_groups = {"selection": set(), "locked_test": set()}
 
     for cid in sorted(boxes):
         box = boxes[cid]
@@ -137,8 +153,10 @@ def build_snapshot(
         if box["verdict"] == "quarantine":
             quarantine_rows.append(_quarantine_row(box))
         elif box["verdict"] == "gold":
-            split = assign_split(box["image_sha256"])
+            split_key = box["provenance"]["grouping"]["split_key"]
+            split = assign_split(split_key)
             split_images[split].add(box["image_sha256"])
+            split_groups[split].add(split_key)
             gold_rows.append(_gold_row(box, split))
             input_row = _input_row(box)
             gold_ref = {key: box[key] for key in SPLIT_GOLD_KEYS}
@@ -156,6 +174,67 @@ def build_snapshot(
     counts["selection_boxes"] = len(selection_gold)
     counts["locked_test_images"] = len(split_images["locked_test"])
     counts["locked_test_boxes"] = len(locked_gold)
+    counts["selection_source_groups"] = len(split_groups["selection"])
+    counts["locked_test_source_groups"] = len(split_groups["locked_test"])
+    counts["unique_image_sha256"] = len({box["image_sha256"] for box in boxes.values()})
+
+    readiness = {
+        "formal_training_ready": counts["formal_training_ready"],
+        "blockers": counts["formal_training_blockers"],
+        "source_grouping": {
+            "available_images": counts["source_group_images"],
+            "unavailable_images": counts["grouping_unavailable_images"],
+            "conflict_images": counts["source_group_conflict_images"],
+            "source_groups": counts["source_groups"],
+            "fallback": "image_sha256; this proves only exact-image separation, not adjacent-frame separation",
+        },
+        "source_pixels": {
+            "clean_images": counts["source_pixels_clean_images"],
+            "overlay_images": counts["source_pixels_overlay_images"],
+            "unknown_images": counts["source_pixels_unknown_images"],
+            "formal_policy": "only status=clean may enter formal training or evaluation",
+        },
+        "temporal_provenance": {
+            "available_images": counts["upstream_time_images"],
+            "unavailable_images": counts["temporal_provenance_unavailable_images"],
+            "incomplete_images": counts["temporal_provenance_incomplete_images"],
+            "conflict_images": counts["temporal_provenance_conflict_images"],
+            "invalid_images": counts["temporal_provenance_invalid_images"],
+            "metadata_error_images": counts["metadata_error_images"],
+            "formal_policy": "attachment create_time alone is not upstream event/frame time",
+        },
+    }
+
+    source = {
+        "database": str(Path(db_path).resolve()),
+        "image_base_url": None if image_root else image_base_url,
+        "image_root": str(Path(image_root).resolve()) if image_root else None,
+        "prior_gpt_paths": [str(Path(p).resolve()) for p in prior_gpt_paths or []],
+        "prior_qwen_paths": [str(Path(p).resolve()) for p in prior_qwen_paths or []],
+        "max_labeled_at": counts.pop("max_labeled_at"),
+    }
+    determinism = {
+        "bbox_pixel_rule": "px = floor(norm * size + 0.5), clamp [0, size]",
+        "canonical_id": "sha256(image_sha256|class_id|x1|y1|x2|y2) over integer pixel bbox",
+        "json": "utf-8, sort_keys, compact separators, LF endings, rows sorted by canonical_id",
+        "split_rule": (
+            "sha256('prompt-gold-split-v1|' + split_group_key) mod 5 == 0 -> locked_test; "
+            "split_group_key is an explicit upstream-identity connected component, or image_sha256 fallback"
+        ),
+        "snapshot_id": (
+            "pg2- + first 12 hex of sha256(path:sha256\\n for every identity member, "
+            "sorted by path); SHA256SUMS and snapshot_manifest.json are excluded"
+        ),
+        "wall_clock": "no wall-clock timestamps are written anywhere",
+    }
+    identity = {
+        "schema_version": SCHEMA_VERSION,
+        "class_map": {str(cid): name for cid, name in CLASS_MAP},
+        "source": source,
+        "counts": counts,
+        "determinism": determinism,
+        "readiness": readiness,
+    }
 
     files: dict[str, bytes] = {
         "inference_records.jsonl": jsonl_bytes(inference_rows),
@@ -166,13 +245,15 @@ def build_snapshot(
         "selection_gold.jsonl": jsonl_bytes(selection_gold),
         "locked_test_inputs.jsonl": jsonl_bytes(locked_inputs),
         "locked_test_gold.jsonl": jsonl_bytes(locked_gold),
+        "source_readiness.json": json_bytes(readiness),
+        SNAPSHOT_IDENTITY_FILE: json_bytes(identity),
     }
     if image_errors:
         files["image_errors.jsonl"] = jsonl_bytes(
             {"image_object_key": key, "error": image_errors[key]} for key in sorted(image_errors)
         )
 
-    snapshot_id = "pg1-" + sha256_bytes(
+    snapshot_id = "pg2-" + sha256_bytes(
         "".join(f"{path}:{sha256_bytes(data)}\n" for path, data in sorted(files.items())).encode("utf-8")
     )[:12]
 
@@ -182,25 +263,8 @@ def build_snapshot(
     files["SHA256SUMS"] = sums
 
     manifest = {
-        "schema_version": SCHEMA_VERSION,
+        **identity,
         "snapshot_id": snapshot_id,
-        "class_map": {str(cid): name for cid, name in CLASS_MAP},
-        "source": {
-            "database": str(Path(db_path).resolve()),
-            "image_base_url": None if image_root else image_base_url,
-            "image_root": str(Path(image_root).resolve()) if image_root else None,
-            "prior_gpt_paths": [str(Path(p).resolve()) for p in prior_gpt_paths or []],
-            "prior_qwen_paths": [str(Path(p).resolve()) for p in prior_qwen_paths or []],
-            "max_labeled_at": counts.pop("max_labeled_at"),
-        },
-        "counts": counts,
-        "determinism": {
-            "bbox_pixel_rule": "px = floor(norm * size + 0.5), clamp [0, size]",
-            "canonical_id": "sha256(image_sha256|class_id|x1|y1|x2|y2) over integer pixel bbox",
-            "json": "utf-8, sort_keys, compact separators, LF endings, rows sorted by canonical_id",
-            "split_rule": "sha256('prompt-gold-split-v1|' + image_sha256) mod 5 == 0 -> locked_test",
-            "wall_clock": "no wall-clock timestamps are written anywhere",
-        },
         "files": [
             {"path": path, "sha256": sha256_bytes(data), "bytes": len(data)}
             for path, data in sorted(files.items())
@@ -212,7 +276,24 @@ def build_snapshot(
 
 def write_snapshot(files: dict[str, bytes], output_root: str, snapshot_id: str) -> Path:
     target = Path(output_root) / snapshot_id
-    target.mkdir(parents=True, exist_ok=True)
+    if target.exists() or target.is_symlink():
+        expected_names = set(files)
+        actual_names = {path.name for path in target.iterdir()} if target.is_dir() else set()
+        identical = (
+            target.is_dir()
+            and not target.is_symlink()
+            and actual_names == expected_names
+            and all(
+                not (target / path).is_symlink()
+                and (target / path).is_file()
+                and (target / path).read_bytes() == data
+                for path, data in files.items()
+            )
+        )
+        if not identical:
+            raise FileExistsError(f"snapshot target exists with different content: {target}")
+        return target
+    target.mkdir(parents=True, exist_ok=False)
     for path, data in sorted(files.items()):
         (target / path).write_bytes(data)
     return target
@@ -238,7 +319,17 @@ def explain(counts: dict) -> str:
             f"priors: gpt_matched={counts['prior_gpt_matched']}, qwen_matched={counts['prior_qwen_matched']}",
             f"splits: selection={counts['selection_boxes']} boxes/{counts['selection_images']} images, "
             f"locked_test={counts['locked_test_boxes']} boxes/{counts['locked_test_images']} images "
-            f"(image SHA 交集恒为 0)",
+            f"(split group 与 image SHA 交集恒为 0)",
+            f"provenance: grouped_images={counts['source_group_images']}, "
+            f"grouping_unavailable={counts['grouping_unavailable_images']}; "
+            f"pixels clean={counts['source_pixels_clean_images']}, "
+            f"overlay={counts['source_pixels_overlay_images']}, "
+            f"unknown={counts['source_pixels_unknown_images']}",
+            f"temporal: upstream={counts['upstream_time_images']}, "
+            f"unavailable={counts['temporal_provenance_unavailable_images']}, "
+            f"conflict={counts['temporal_provenance_conflict_images']}",
+            f"formal_training_ready={counts['formal_training_ready']} "
+            f"blockers={','.join(counts['formal_training_blockers']) or 'none'}",
         ]
     )
 

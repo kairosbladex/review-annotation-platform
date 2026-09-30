@@ -1,6 +1,7 @@
 # PROMPT_GOLD_CONTRACT — KTD 提示词优化人工金标快照与评分契约
 
-核心快照版本：`prompt-gold/1`。本契约定义 `tools/prompt_eval_data/` 的行为与产物格式。
+核心快照版本：`prompt-gold/2`。`prompt-gold/1` 快照保持不可变，只能作为历史探索证据。
+本契约定义 `tools/prompt_eval_data/` 的行为与产物格式。
 快照格式改动必须同时更新本文件、`SCHEMA_VERSION` 与快照
 `schema_version`；第 11 节之后的独立派生产物各自维护子 schema，不倒推修改核心快照版本。
 
@@ -37,12 +38,18 @@
 - 图片按 `object_key` 下载，计算 `image_sha256`（字节级 SHA-256）并用内嵌解析器读取
   像素尺寸（支持 JPEG/PNG，无第三方依赖）。
 - 像素 bbox：`px = floor(norm * size + 0.5)`（半值向上），clamp 到 `[0, size]`；
-  输出为整数 `[x1, y1, x2, y2]`。
+  输出为整数 `[x1, y1, x2, y2]`。归一化框即使宽高为正，取整后也必须满足
+  `x2 > x1 && y2 > y1`；退化框立即拒绝，不能进入 canonical、训练或评测产物。
 - `canonical_id = sha256("{image_sha256}|{class_id}|{x1}|{y1}|{x2}|{y2}")` 的 hex。
   同一图片内容 + 类别 + 整数像素框的任意多条 DB 记录合并为一个 canonical 框。
 - 合并（alias merge）：映射到同一 canonical_id 的所有 candidate 互为 aliases，
   全量列在 `aliases[]`（按 candidate_id 排序）； canonical 的 `detector_confidence`
   取 aliases 最大值，`prior_yolo` 取 primary alias（candidate_id 最小者）的 DB 列。
+- v2 同时保留每个 alias 的 sample/asset/source provenance。`metadata_json` 只导出
+  task/video/track/event/time 与 pixel 契约白名单字段，原字符串只保留 SHA-256，避免标签、
+  用户信息、签名 URL 或 token 进入 inference；`source_file_path` 不在白名单内，且任何形似
+  URI scheme、URL、query 或 fragment 的标量值都会丢弃，也不能参与来源分组。解析错误写入
+  `metadata_error` 并阻断正式门禁。
 
 ## 3. 金标判定与隔离区（quarantine）
 
@@ -78,30 +85,47 @@ quarantine 记录携带 `evidence.annotations[]`（全部人工与自动标注�
 先验只是参照结论，**永远不参与 gold 的 label/note**，scorer 把它们当作一个
 "被评模型"的决策来源而非标签来源。
 
-## 5. Split（按图隔离，零交集）
+## 5. Split（按显式来源组隔离）
 
 - 仅 gold 记录参与 split。
-- 规则：`sha256("prompt-gold-split-v1|" + image_sha256)` 整数 `mod 5 == 0` → `locked_test`，
-  否则 → `selection`（约 8:2）。同一 `image_sha256` 的全部 canonical 框同属一个 split。
-- 因此两个 split 的 image SHA 集合交集恒为空；auditor 每次校验。
+- 从 `metadata.source_task_id/task_id/video_id/track_id/event_id`、`session_id` 与真实
+  `source_event_id` 收集显式上游 ID；`ktd-annex-<annex_id>` 仅是导入幂等键，不是业务事件，
+  无论位于 sample 列还是 metadata 都禁止参与分组。共享图片或共享 ID 的记录构成确定性连通分量。
+  连通图纳入 DB 查询得到的全部来源行，包括因未知类别或图片不可读取而不进入 canonical
+  产物的行；这类行仍可能通过 video/track/event 等 ID 证明两个正式样本属于同一来源分量。
+- session/video/track/event 只用于连接，不能单独充当防泄漏来源组。每个连通分量必须
+  **恰有一个 task 锚点**；没有 task 记录 `grouping_unavailable`，出现多个 task 记录
+  `source_group_conflict`，二者分别计数并阻断正式门禁。后补连接 ID 不改变已有 task key。
+- 规则：`sha256("prompt-gold-split-v1|" + split_group_key)` 整数 `mod 5 == 0` →
+  `locked_test`，否则 → `selection`。`split_group_key` 是所选锚点的哈希，不暴露原始 ID。
+- 没有唯一 task 锚点时只回退到 `image_sha256`，并按实际原因记录
+  `grouping_unavailable` 或 `source_group_conflict`。该回退只证明完全相同图片不跨 split，**不能**证明
+  相邻帧、同任务或同航线不泄漏，也不满足正式准确率评测门禁。
+- auditor 同时校验两个 split 的 `image_sha256` 与 `split_group_key` 集合零交集。
 
 ## 6. 快照文件布局
 
-`data/prompt-eval/snapshots/<snapshot_id>/`，其中
-`snapshot_id = "pg1-" + sha256(全部数据文件 sha256 按路径排序拼接)[:12]`（内容寻址，
-同输入必得同 id）：
+`data/prompt-eval/snapshots/<snapshot_id>/`。先把 manifest 中除 `snapshot_id/files` 外的
+`schema_version/class_map/source/counts/determinism/readiness` 投影以规范 JSON 写入
+`snapshot_identity.json`；再对包括该文件在内、但不包括派生的 `SHA256SUMS` 与
+`snapshot_manifest.json` 的每个成员计算 SHA-256，按路径排序拼接
+`"<path>:<sha256>\n"`。最终
+`snapshot_id = "pg2-" + sha256(该拼接字节)[:12]`。因此来源、计数或门禁变化都会改变 ID，
+同 ID 的既有目录只允许字节级幂等写入，任何不同内容都必须拒绝：
 
 | 文件 | 内容 |
 |---|---|
 | `snapshot_manifest.json` | 单一 JSON 对象：schema_version、snapshot_id、class_map、source、counts（raw→canonical→clean/quarantine 全漏斗）、determinism 规则、files[]（除自身外每个文件的 sha256+bytes） |
 | `SHA256SUMS` | 除自身与 manifest 外每个文件的 `<sha256>  <relpath>`，按路径排序 |
-| `inference_records.jsonl` | 全部 canonical 框的模型侧事实：canonical_id、类别、norm/px bbox、image_sha256/object_key/尺寸、detector_confidence、prior_yolo/gpt/qwen、aliases[]、has_human_gold。**不含** label/note/reviewer |
-| `gold_records.jsonl` | 干净金标：canonical_id、label、note、reviewer、reviewer_id、revision、labeled_at、source（sample/candidate/run/event）、aliases[]、三个 prior 字段、split |
-| `quarantine.jsonl` | 冲突/疑似冲突记录与全部证据 |
-| `authoring.jsonl` | 每条 DB Annotation 一行（人工与自动）：完整 provenance + `included_in_gold` + `exclusion_reason` |
-| `selection_inputs.jsonl` | 模型输入：canonical_id、类别、bbox、image 引用/尺寸、detector_confidence。**禁止**出现 label/note/reviewer/labeled_at/prior_* |
+| `inference_records.jsonl` | 全部 canonical 框的模型侧事实与 `provenance`：source_records、来源连通分组、source_pixels、temporal。**不含** label/note/reviewer |
+| `gold_records.jsonl` | 干净金标、完整 provenance、三个 prior 字段与 split |
+| `quarantine.jsonl` | 冲突/疑似冲突记录、全部标注证据与 provenance |
+| `authoring.jsonl` | 每条 DB Annotation 一行（人工与自动）：sample/asset、白名单 metadata、metadata 原文 SHA-256 + `included_in_gold` + `exclusion_reason` |
+| `selection_inputs.jsonl` | 模型输入：canonical_id、类别、bbox、image 引用/尺寸、detector_confidence，以及不含原始上游 ID 的 split_group_key/grouping_status/source_pixel_status。**禁止**出现 label/note/reviewer/labeled_at/prior_* |
 | `selection_gold.jsonl` | 仅 canonical_id、class_id、class_name、label |
 | `locked_test_inputs.jsonl` / `locked_test_gold.jsonl` | 同上，locked_test split |
+| `source_readiness.json` | 无标签数据门禁：来源分组覆盖、clean/overlay/unknown 像素覆盖、上游时间覆盖及 blockers；内容哈希纳入快照 |
+| `snapshot_identity.json` | manifest 的规范身份投影；自身哈希参与 snapshot ID，防止仅 counts/source 改变却复用同一 ID |
 
 序列化规则：UTF-8、`\n` 行尾、JSONL 每行一个对象、`sort_keys=True`、紧凑分隔符、
 每行按 canonical_id 排序、文件以 `\n` 结尾；不写入任何墙钟时间戳。
@@ -115,7 +139,12 @@ canonical_boxes ──> unlabeled（无人工标注）
                 ──> gold_clean（人工标签唯一）
                 ──> quarantine（label_conflict + note_label_suspect）
 raw_annotations = human（进 authoring，可进 gold）+ auto（进 authoring，排除）
+formal_training_ready = 100% 唯一来源锚点 + 100% alias clean 证据 + 100% alias 上游时间 + 0 metadata error
 ```
+
+每一种已声明的上游时间字段都必须在 aliases 内各自一致；不同字段种类（例如 event time 与
+frame time）允许表示不同时间点，不要求彼此相等。优先字段必须覆盖全部 alias sample，任一
+已声明字段内部冲突都记为 `conflicting_upstream_times` 并阻断正式门禁。
 
 ## 8. 统一 scorer
 
@@ -146,16 +175,28 @@ gold 文件（selection_gold / locked_test_gold / gold_records 均可）。
 ## 9. Auditor
 
 `python3 -m tools.prompt_eval_data.auditor <snapshot_dir>` 校验：
-manifest files[] 与 SHA256SUMS 逐项 sha256 一致；selection/locked_test 的
-image_sha256 集合交集为空；`*_inputs.jsonl` 不含禁用键
-（label/note/reviewer/reviewer_id/labeled_at/prior_*）；split gold ⊆ gold_records；
+manifest files[] 和 SHA256SUMS 的完整路径集、记录哈希与内容寻址 snapshot ID 一致，
+禁止绝对路径、`..` 和 symlink 逃逸；未受保护成员实际字节与清单哈希一致；
+selection/locked_test 的 image_sha256、split_group_key 与 canonical_id 集合交集为空，
+且每行实际 split 与 `assign_split` 一致；`*_inputs.jsonl` 不含禁用键
+（label/note/reviewer/reviewer_id/labeled_at/prior_*）；selection gold 与 selection inputs
+严格对齐并拒绝重复。默认运行不打开任何 protected label 承载文件：
+`authoring.jsonl`、`gold_records.jsonl`、`locked_test_gold.jsonl` 与 `quarantine.jsonl`；
+只比较 manifest/SHA256SUMS 中已记录的哈希并以 stat 检查字节数；
+因此默认模式不宣称验证 protected 文件的当前内容。仅在已授权的最终评估边界中显式传入
+`--include-protected-gold` 时，才解析并校验 locked gold schema、locked input 对齐以及
+selection/locked 互斥、split gold 与 full gold 的 ID/类别/标签逐项一致。
 全部通过打印 `AUDIT PASS`，任一失败非零退出。
 
 ## 10. 验收映射
 
 - 运行输出第 7 节漏斗计数（raw→canonical→clean/quarantine）。
-- `auditor` 证明 split SHA 交集为 0、输入文件无 gold/note/reviewer。
-- `backend/tests/test_prompt_eval_data.py` 固定夹具下重复导出字节级一致。
+- `auditor` 证明 split group 与图片 SHA 交集均为 0、输入文件无 gold/note/reviewer，
+  默认不打开 protected label 文件，并验证 `source_readiness.json` 与 manifest 一致。
+- `backend/tests/test_prompt_eval_data.py` 固定夹具下重复导出字节级一致；
+  同时覆盖 excluded-row 来源桥、每种时间字段的 alias 冲突、URI scheme 脱敏，以及仅漏斗
+  counts 改变时 snapshot ID 也必须改变；`backend/tests/test_prompt_eval_auditor.py` 覆盖
+  no-open、空清单、路径逃逸、重复与标签漂移反例。
 - `PYTHONPATH=backend python3 -m pytest backend/tests -q` 通过。
 
 ## 11. 部署服务适配器与失败分析（2026-09-03 增补，不改既有行为）
@@ -184,6 +225,10 @@ prompt-gold 快照的 selection 分区构建裁剪图数据集。人工标签只
 `selection_gold.jsonl` 读取；构建器不打开 `gold_records.jsonl` 或
 `locked_test_gold.jsonl`。GPT 教师候选仍只来自
 `inference_records.jsonl.prior_gpt`。
+
+> 该 cd2 路径是历史探索路径：其 source pixel 为 `unverified_overlay_risk`，split 也只有
+> image-SHA 隔离，因此不得继续用于正式训练或准确率结论。只有后续构建器显式校验
+> prompt-gold/2 的 `source_readiness.formal_training_ready=true` 后，才能恢复正式训练。
 
 - **双视图裁剪**：tight view 使用原始 `bbox_px`；context view 默认按框尺寸
   `pad_ratio=1.0` 每边外扩并 clamp 到图内。两视图分别写入 `.tight.jpg` 与
@@ -261,3 +306,28 @@ Wilson CI，只新增成对对齐与门禁。
   仅在传入对应 run 目录（attempts.jsonl + prompt_manifest.json，同版本后缀、按
   (attempt_no, attempt_id) 取最新）时填充，否则为 null。
 - 验收：`backend/tests/test_paired_scorer.py` 通过；同输入重复运行字节级一致。
+
+## 14. 分层人工 gold 扩展队列（2026-09-04）
+
+`tools/prompt_eval_data/build_gold_expansion_queue.py`（schema
+`gold-expansion-queue/2`）只读取 `selection_gold.jsonl`、`selection_inputs.jsonl`、
+`locked_test_inputs.jsonl`、`inference_records.jsonl` 与 `quarantine.jsonl`；禁止打开
+`gold_records.jsonl` 或 `locked_test_gold.jsonl`。
+
+- 原框像素长边按 `<16 / 16-47 / 48-95 / >=96` 分桶，与训练指标口径一致。
+- 构建前必须验证快照 schema、目录 snapshot ID、manifest 中全部依赖文件的 SHA-256/bytes，
+  v2 还要求 `source_readiness.json` 与 manifest 完全一致。
+- 只允许经过结构验证的 `source_pixels.status=clean`、唯一且非 event 的来源锚点，以及覆盖
+  全部 alias sample 的带时区 ISO-8601 上游时间进入人工队列；其余 selection 候选写入
+  `blocked_sources.jsonl`，`label` 保持 null。
+- 每项在标注前计算 `planned_split`；planned locked 在生成任何逐条 queue/blocker 明细前排除，
+  只输出聚合计数。v2 快照按来源组 key，
+  v1 快照因无 provenance 只会进入 blocked，不得恢复旧 image-only 标注流程。
+- summary 输出 selection 人工 gold 的完整 class × human label × pixel-size 覆盖矩阵。
+  首批优先未覆盖的 class × pixel-size，每个来源组最多一框；待标候选真实 label 未知，
+  禁止用模型预测伪装成正负配额。完成人工 blind tranche 后才能按真实标签缺口生成下一批。
+- CLI 以临时目录完整写入后原子发布，并生成 `artifact_manifest.json`，记录来源快照 manifest
+  与依赖成员哈希，以及 queue/blocker/summary 的哈希和字节数；既有输出目录一律拒绝覆盖。
+- 2026-09-04 当前产物为 `gold-expansion-20260904-v3-source-gated`：正式队列 0，
+  2,273 框 / 421 图因 clean、来源组、上游时间均未闭环而进入公开 blocker inventory；
+  另有 planned locked 500 框 / 104 图在明细生成前排除。旧 v2 队列已废止。

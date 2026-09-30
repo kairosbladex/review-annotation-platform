@@ -1,0 +1,87 @@
+{
+  "files": [
+    {
+      "audience": "all_operators",
+      "bytes": 1031,
+      "path": "README.md",
+      "sha256": "f108d5978e120656c498e07283d4b679ebcc74da2ff1ad900ed0fbfdbc9869f4"
+    },
+    {
+      "audience": "source_recovery",
+      "bytes": 2031511,
+      "path": "blocked_sources.jsonl",
+      "sha256": "83d09623233bc5723a9bc7d62ceb7bb455723d213e8b82d0c20fbd3bada24f78"
+    },
+    {
+      "audience": "blind_annotator",
+      "bytes": 0,
+      "path": "queue.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "audience": "management_only",
+      "bytes": 21879,
+      "path": "summary.json",
+      "sha256": "7c65661929295a01cd623d0469ff401e159c16c3fd10c0bb62fb6dc79f2e0a58"
+    }
+  ],
+  "generator": "tools.prompt_eval_data.build_gold_expansion_queue",
+  "policy": {
+    "coverage_priority": "uncovered class_name x pixel_size_bin first; pending true/false remains unknown",
+    "existing_gold_images": "selection_inputs and locked_test_inputs image_sha256 excluded",
+    "formal_source_gate": "hash-verified prompt-gold/2; validated alias-complete clean evidence, one source-group anchor, and alias-complete timezone-aware upstream time",
+    "locked_test": "always excluded before any row-level queue or blocker output",
+    "max_per_class": 20,
+    "max_per_image": 2,
+    "max_per_source_group": 1,
+    "model_priors_in_queue": false,
+    "ordering": "class, pixel_size_bin, sha256(gold-expansion-v2|canonical_id), canonical_id",
+    "planned_split": "assign_split(provenance.grouping.split_key); image_sha256 only as explicit fallback",
+    "size_bins": [
+      "tiny_lt16",
+      "small_16_47",
+      "medium_48_95",
+      "large_ge96"
+    ],
+    "size_measure": "max(bbox_px width, bbox_px height)",
+    "snapshot_integrity": "manifest schema/id and every queue dependency sha256/bytes verified"
+  },
+  "schema_version": "gold-expansion-artifact/1",
+  "source_snapshot": {
+    "manifest_sha256": "4c15c3892c69eea10f28c3cd1fbc381ed6b34c7690922a34af189d5c2cd752b2",
+    "members": [
+      {
+        "bytes": 696,
+        "path": "SHA256SUMS",
+        "sha256": "715272d6c83a442030ae38b894aa9547ba24215507fa2d522a9ebb5ff7b34209"
+      },
+      {
+        "bytes": 4530427,
+        "path": "inference_records.jsonl",
+        "sha256": "a166f280b77ed80dd76ae40347b381bb147628ded4a0eb7b7d0e15cebe1349f9"
+      },
+      {
+        "bytes": 46617,
+        "path": "locked_test_inputs.jsonl",
+        "sha256": "84ce4e9b32d78a13c5b539ff64eee9c9f94ee3aaa4596cc9e7d509d5de13c027"
+      },
+      {
+        "bytes": 7025,
+        "path": "quarantine.jsonl",
+        "sha256": "49c9e081152433ebddb9121c0e422df0cda493fac3590d578295a66af784bb2e"
+      },
+      {
+        "bytes": 58401,
+        "path": "selection_gold.jsonl",
+        "sha256": "599b4dac080c3acd59665ebab47f95846a5a206a0d208c484e5120a898dc29de"
+      },
+      {
+        "bytes": 211010,
+        "path": "selection_inputs.jsonl",
+        "sha256": "30d099da07ada885580424012255e5930f37cff23f655842c3d16f2b9568d3d5"
+      }
+    ],
+    "schema_version": "prompt-gold/1",
+    "snapshot_id": "pg1-bc8c818184d8"
+  }
+}

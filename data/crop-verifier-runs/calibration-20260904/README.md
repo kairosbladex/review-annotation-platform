@@ -45,8 +45,11 @@ probability claim. It has not been integrated into the service.
 
 ## Gate for formal calibration
 
-1. Human-review `data/prompt-eval/gold-expansion-20260904-v2/queue.jsonl`.
-2. Export a new read-only prompt-gold snapshot after labels are persisted.
+1. Resolve the clean-pixel, task-anchor, and upstream-time blockers in
+   `data/prompt-eval/gold-expansion-20260904-v3-source-gated/`; its formal queue is
+   currently empty, and the old v2 queue must not be labeled.
+2. Build a new source-gated queue, complete blind human review, then export a
+   new read-only prompt-gold snapshot after labels are persisted.
 3. Rebuild image-isolated train/validation data; keep locked_test untouched.
 4. Train multiple seeds and select thresholds using dmr, far, coverage, and
    per-class denominators together.
