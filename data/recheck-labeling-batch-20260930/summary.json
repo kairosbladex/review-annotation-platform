@@ -1,0 +1,33 @@
+{
+  "counts": {
+    "rooftop_hard_case": {
+      "available": 248,
+      "selected": 80,
+      "requested": 80
+    },
+    "released_by_recheck": {
+      "available": 0,
+      "selected": 0,
+      "requested": 80
+    },
+    "random_traffic": {
+      "available": 803,
+      "selected": 40,
+      "requested": 40
+    }
+  },
+  "excluded": {
+    "no_verified_hires": 1002,
+    "duplicate_gold_or_batch": 549,
+    "outside_original": 45
+  },
+  "historical_false_rates": {
+    "rooftop_hard_case": 0.3227848101265823,
+    "released_by_recheck": 0.03855421686746988,
+    "random_traffic": 0.060109289617486336
+  },
+  "expected_new_false": 28.2,
+  "expected_locked_false_upper_estimate": 19.8,
+  "selection": "seeded pool selection; population determined from source events; not model suggestion",
+  "database_writes": 0
+}
