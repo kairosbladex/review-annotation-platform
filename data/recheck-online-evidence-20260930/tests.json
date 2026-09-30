@@ -1,0 +1,29 @@
+{
+  "backend_current_scope": {
+    "passed": 195,
+    "skipped": 1,
+    "scope": "backend/tests except existing audit test file and torch-dependent QLoRA file",
+    "evidence": "..........s............................................................. [ 36%]\n........................................................................ [ 73%]\n....................................................                     [100%]\n=============================== warnings summary ===============================\n../review-annotation-platform/.venv/lib/python3.13/site-packages/starlette/testclient.py:53\n  /Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/lib/python3.13/site-packages/starlette/testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.\n    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]\n\nbackend/tests/test_agent_api_migration.py::test_legacy_agent_review_table_is_upgraded_without_losing_requests\n  /Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/lib/python3.13/site-packages/alembic/config.py:604: DeprecationWarning: No path_separator found in configuration; falling back to legacy splitting on spaces, commas, and colons for prepend_sys_path.  Consider adding path_separator=os to Alembic config.\n    util.warn_deprecated(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n195 passed, 1 skipped, 2 warnings in 16.37s\n"
+  },
+  "relay_transport_additional": {
+    "passed": 6,
+    "evidence": "......                                                                   [100%]\n6 passed in 0.07s\n"
+  },
+  "gold_phase": {
+    "passed": 24
+  },
+  "frontend_build": {
+    "status": "passed",
+    "evidence": "\n> review-annotation-platform-frontend@0.1.0 build\n> tsc -b && vite build\n\nvite v8.2.2 building client environment for production...\ntransforming...\n✓ 1828 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                        0.54 kB │ gzip:  0.35 kB\ndist/workbench.html                    0.54 kB │ gzip:  0.35 kB\ndist/assets/workbench-VcSbR5Wo.css    17.38 kB │ gzip:  4.46 kB\ndist/assets/index-Ig3jye_1.css        21.05 kB │ gzip:  5.53 kB\ndist/assets/workbench-BsRIHmht.js     23.76 kB │ gzip:  8.40 kB\ndist/assets/index-CqQHyvPe.js         42.21 kB │ gzip: 13.53 kB\ndist/assets/jsx-runtime-CmBlKLlq.js  193.55 kB │ gzip: 61.32 kB\n\n✓ built in 198ms\n"
+  },
+  "baseline_failures": {
+    "audit_codex_pilot_review": "gold-consolidation branch reproduced: 2 failed, 1 passed; missing source_object_key/source_root fixture",
+    "qlora_collection": "torch not installed; heavy training dependency not installed"
+  },
+  "postgres": "not verified; isolated TEST_POSTGRES_URL unavailable",
+  "gold_append_and_freeze": {
+    "passed": 28,
+    "evidence": "............................                                             [100%]\n28 passed in 0.11s\n",
+    "scope": "4 append safety tests and 24 freeze/consolidation regressions"
+  }
+}

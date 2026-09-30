@@ -12,7 +12,7 @@ def snapshot(tmp):
     return out
 
 def row(i,exposure=()):
-    return {'candidate_id':str(i),'event_id':str(i),'image_sha256':format(i,'064x'),'bbox':[.1,.1,.2,.2],'class_name':'车','label':'false','label_source':'human_confirmed','labeled_by':'person','labeled_at':'2026-09-30T10:00:00+00:00','population':['random_traffic'],'exposure':list(exposure)}
+    return {'candidate_id':str(i),'event_id':str(i),'image_sha256':format(i,'064x'),'bbox':[.1,.1,.2,.2],'class_name':'车','label':'false','label_source':'human_confirmed','labeled_by':'person','labeled_at':'2026-09-30T10:00:00+00:00','population':['random_traffic'],'exposure':list(exposure),'gpt_history_unknown':False}
 
 def test_append_keeps_existing_group_splits_and_exposed_gold_development(tmp_path):
     out=snapshot(tmp_path);incoming=tmp_path/'incoming.jsonl';incoming.write_text(''.join(json.dumps(row(i))+'\n' for i in range(1,11)));module.append(out,incoming)
@@ -37,3 +37,10 @@ def test_gpt_exposure_of_duplicate_locked_gold_never_silently_changes_holdout(tm
     before=(out/'gold.jsonl').read_bytes()
     with pytest.raises(ValueError,match='locked'):module.append(out,incoming)
     assert (out/'gold.jsonl').read_bytes()==before
+
+
+def test_missing_history_proof_keeps_new_human_gold_out_of_locked_test(tmp_path):
+    out=snapshot(tmp_path);incoming=tmp_path/'incoming.jsonl';r=row(1);r.pop('gpt_history_unknown')
+    incoming.write_text(json.dumps(r)+'\n');module.append(out,incoming)
+    gold=module.read_rows(out/'gold.jsonl')[0]
+    assert gold['gpt_history_unknown'] and gold['split']=='development'

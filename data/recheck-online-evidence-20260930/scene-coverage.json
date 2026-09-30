@@ -1,0 +1,64 @@
+[
+  {
+    "scene": "屋顶设备",
+    "gold_id": "aa9ee17b7599caf826591f0e86b5ab57ebbeccf0ca322bedeaf730d4e771bd6d",
+    "status": "checked",
+    "result": "人工查看目标局部：模型把该假目标判真，存在问题",
+    "local_source": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform/data/recheck-released-fp-20260930/labeling-package/frames/b201b01ce6ae4c989c68d17baddcf5d0.jpg",
+    "box_size_px": [
+      28.0,
+      45.0
+    ]
+  },
+  {
+    "scene": "遮挡",
+    "gold_id": "295fd5c3af81b6f5f4c55cb8e24d9f5f1ed0561c00d8da391c8a90917049b959",
+    "status": "checked",
+    "result": "人工查看树木遮挡：真车被判假，存在问题",
+    "local_source": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform/data/vehicle-surface-gate-eval-20260929/prerelease-evidence/new-events-hires-package/frames/20fa04f6b36a46d88298db1e1d20a02f.jpg",
+    "box_size_px": [
+      70.0,
+      128.0
+    ]
+  },
+  {
+    "scene": "小目标",
+    "gold_id": "01adc258af82bfcc11658454c39cd44aa7408aab601d9b638996e8b1aaf5df2e",
+    "status": "checked",
+    "result": "约18×22像素；仅证明链路运行，不证明小目标整体能力",
+    "local_source": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform/data/recheck-released-fp-20260930/labeling-package/frames/c5575e66402949adbfdb55819350ded2.jpg",
+    "box_size_px": [
+      17.990000000000123,
+      22.49000000000001
+    ]
+  },
+  {
+    "scene": "红框遮挡/无干净原图",
+    "gold_id": "2201b953a4ebea3d91af3ed05f8a4e7eeddd973240b791c782fb00349e09caa7",
+    "status": "checked",
+    "result": "历史截图有定位框，独立干净高清来源未核验",
+    "local_source": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform/data/ktd-person-candidates-20260924-source/images/02d220a7babf4c11bc44bd67ba72e3b1.jpg",
+    "box_size_px": [
+      15.0,
+      36.0
+    ]
+  },
+  {
+    "scene": "道路标线",
+    "status": "checked",
+    "gold_id": "62bef5c41ce60e3ea79a4cd20360ce760108e4848ba4e20d31c65a6989d8b3f3",
+    "evidence": "live-chain/result.json",
+    "result": "真实本地Celery→GPT链路给出false，未产生人工金标"
+  },
+  {
+    "scene": "屋顶停车场",
+    "status": "missing_sample",
+    "result": "本轮未找到独立确认的屋顶停车真车样本，无法验证"
+  },
+  {
+    "scene": "图片与事件错配",
+    "status": "checked",
+    "evidence": "backend/tests/test_online_recheck.py::test_clean_image_event_mismatch_rejected; acceptance wrong_image",
+    "result": "拒绝明确事件ID不一致和图片哈希不匹配；无法识别所有语义错配"
+  }
+]

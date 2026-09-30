@@ -1,0 +1,58 @@
+{
+  "ports": [
+    {
+      "port": 8197,
+      "released": true
+    },
+    {
+      "port": 8198,
+      "released": true
+    },
+    {
+      "port": 6397,
+      "released": true
+    },
+    {
+      "port": 6398,
+      "released": true
+    },
+    {
+      "port": 5197,
+      "released": true
+    },
+    {
+      "port": 8796,
+      "released": true
+    }
+  ],
+  "stopped": [
+    "isolated API",
+    "dedicated Celery workers",
+    "private Redis",
+    "Vite previews",
+    "isolated headless Chrome",
+    "one-shot CLI loopback bridges"
+  ],
+  "gpu_used": false,
+  "shared_services_changed": false,
+  "worktrees": {
+    "gold": "removed after clean status and remote SHA 915b67729a6d64c2328281d469f6789cc3e802db verified",
+    "online": "retained at /Users/wangxiaolin/PycharmProjects/review-annotation-platform-recheck-online-loop for user local acceptance; no running services"
+  },
+  "retained": [
+    {
+      "path": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform/data/recheck-labeling-batch-20260930",
+      "size": "73 MB",
+      "reason": "120-frame human labeling package; image originals reused by symlink"
+    },
+    {
+      "path": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform-recheck-online-loop/data/recheck-online-evidence-20260930",
+      "reason": "final evidence, screenshots and one isolated replay SQLite; no credentials"
+    },
+    {
+      "path": "frontend/node_modules",
+      "reason": "symlink to existing main checkout dependencies; no duplicated install"
+    }
+  ],
+  "temporary_files": "deleted task-created .tmp output and wrong-root .vite cache; final evidence already preserved"
+}

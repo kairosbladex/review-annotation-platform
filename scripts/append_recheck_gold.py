@@ -46,9 +46,9 @@ def append(out,incoming):
             row={'gold_id':sha(dumps([r['image_sha256'],r['class_name'],r['bbox']]).encode()),'group_id':gid,'group_aliases':members,
                  'bbox':r['bbox'],'class_name':r['class_name'],'label':r['label'],'image_sha256':r['image_sha256'],
                  'source_images':[r['source_image']] if r.get('source_image') else [],'population':r.get('population',['historical_review']),
-                 'exposure':r.get('exposure',[]),'group_exposure':exposed,'gpt_history_unknown':False,
+                 'exposure':r.get('exposure',[]),'group_exposure':exposed,'gpt_history_unknown':r.get('gpt_history_unknown',True) is not False,
                  'duplicate_policy':'same_image_class_iou_ge_0.5_connected_component',
-                 'provenance':[{'source_file':str(incoming),'source_sha256':sha(incoming.read_bytes()),'candidate_id':r['candidate_id'],'labeled_by':r['labeled_by'],'labeled_at':r['labeled_at'],'original_label':r['label'],'note':r.get('note',''),'revision':r.get('revision')}]} 
+                 'provenance':[{'source_file':str(incoming),'source_sha256':sha(incoming.read_bytes()),'candidate_id':r['candidate_id'],'labeled_by':r['labeled_by'],'labeled_at':r['labeled_at'],'original_label':r['label'],'note':r.get('note',''),'revision':r.get('revision')}]}
             if existing:
                 old=latest[gid];row.update(split=old['split'],valid_for=old['valid_for'],split_status=old['status'])
             else:newgroups.append(row)

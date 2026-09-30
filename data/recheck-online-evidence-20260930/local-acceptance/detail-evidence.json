@@ -1,0 +1,36 @@
+{
+  "gpt_advice": [
+    {
+      "id": "bfe6eef5527d4090aec6f875b5ae0ffa",
+      "event_id": "replay-duplicate",
+      "candidate_id": "c6283ae72c9545d89c0d6edc06c0431b",
+      "image_sha256": "385647f21393c2d9165e8f971f2b47fc5f372e87ff3a8138140e402215b3a22b",
+      "class_name": "车",
+      "provider": "gpt",
+      "requested_model": "gpt-5.6-luna",
+      "actual_model": "injected-local-test",
+      "config_version": "879d799dbd4423d3bd68f73268a03a2e02df93bbfdfa734dde3e7ba126684741",
+      "prompt_version": "online-baseline-v1",
+      "rule_version": "conservative-v1",
+      "crop_version": "clean-three-view-v1",
+      "status": "done",
+      "decision": "true",
+      "reasoning": "injected local advice；injected local advice；injected local advice",
+      "scene": "ground",
+      "image_limitation": "",
+      "elapsed_seconds": 0.43083041699719615,
+      "error": null,
+      "attempts": 1,
+      "created_at": "2026-09-30T09:53:05.319964",
+      "completed_at": "2026-09-30T09:53:05.815758"
+    }
+  ],
+  "annotation": {
+    "annotation_id": "622eb456be2a43baaca619464fa2868d",
+    "label": "true",
+    "note": "isolated human simulation",
+    "labeled_by": "37aefae1892b41658d3aefcd7252b2b8",
+    "labeled_at": "2026-09-30T09:53:11.196160",
+    "revision": 2
+  }
+}

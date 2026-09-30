@@ -1,0 +1,84 @@
+{
+  "baseline-development": {
+    "samples": 24,
+    "groups": 22,
+    "car_samples": 9,
+    "car_groups": 9,
+    "car_false_reject": {
+      "numerator": 0,
+      "denominator": 5,
+      "rate": 0.0,
+      "wilson95": [
+        5.551115123125783e-17,
+        0.4344824647831612
+      ]
+    },
+    "car_false_target_reject": {
+      "numerator": 1,
+      "denominator": 3,
+      "rate": 0.3333333333333333,
+      "wilson95": [
+        0.061491944720398706,
+        0.7923403991979452
+      ]
+    },
+    "car_uncertain": {
+      "numerator": 1,
+      "denominator": 9,
+      "rate": 0.1111111111111111,
+      "wilson95": [
+        0.019890887638545657,
+        0.43499970557664625
+      ]
+    },
+    "missing_source_images": 132,
+    "elapsed_seconds": 337.40341183388955,
+    "total_tokens": 434603,
+    "model": [
+      "gpt-5.6-luna"
+    ],
+    "gate": "不通过真目标保护证据门槛",
+    "scope": "分层限量样本，不是全量测试或线上总体估计"
+  },
+  "baseline-locked": {
+    "samples": 64,
+    "groups": 41,
+    "car_samples": 50,
+    "car_groups": 32,
+    "car_false_reject": {
+      "numerator": 3,
+      "denominator": 28,
+      "rate": 0.10714285714285714,
+      "wilson95": [
+        0.03711836682930103,
+        0.271958515486716
+      ]
+    },
+    "car_false_target_reject": {
+      "numerator": 8,
+      "denominator": 20,
+      "rate": 0.4,
+      "wilson95": [
+        0.2188065323728209,
+        0.6134184992377415
+      ]
+    },
+    "car_uncertain": {
+      "numerator": 3,
+      "denominator": 50,
+      "rate": 0.06,
+      "wilson95": [
+        0.020614970348974512,
+        0.16217091688837793
+      ]
+    },
+    "missing_source_images": 55,
+    "elapsed_seconds": 931.518143081048,
+    "total_tokens": 1316395,
+    "model": [
+      "gpt-5.6-luna"
+    ],
+    "gate": "不通过真目标保护证据门槛",
+    "scope": "分层限量样本，不是全量测试或线上总体估计"
+  }
+}

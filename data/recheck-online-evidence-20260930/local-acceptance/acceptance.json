@@ -1,0 +1,137 @@
+{
+  "checks": [
+    {
+      "case": "重复推送/重复Celery投递",
+      "status": "passed",
+      "calls": 1,
+      "evidence": "SQLite unique record + calls.jsonl; injected relay"
+    },
+    {
+      "case": "low_balance",
+      "status": "passed",
+      "task_status": "waiting_quota",
+      "decision": null,
+      "calls": 0,
+      "evidence": "real local Celery with injected relay fault"
+    },
+    {
+      "case": "usage_auth_failed",
+      "status": "passed",
+      "task_status": "waiting_quota",
+      "decision": null,
+      "calls": 0,
+      "evidence": "real local Celery with injected relay fault"
+    },
+    {
+      "case": "usage_unavailable",
+      "status": "passed",
+      "task_status": "waiting_quota",
+      "decision": null,
+      "calls": 0,
+      "evidence": "real local Celery with injected relay fault"
+    },
+    {
+      "case": "rate_limited",
+      "status": "passed",
+      "task_status": "failed",
+      "decision": null,
+      "calls": 2,
+      "evidence": "real local Celery with injected relay fault"
+    },
+    {
+      "case": "execution_unknown",
+      "status": "passed",
+      "task_status": "failed",
+      "decision": null,
+      "calls": 1,
+      "evidence": "real local Celery with injected relay fault"
+    },
+    {
+      "case": "unsupported",
+      "status": "passed",
+      "task_status": "skipped",
+      "calls": 0
+    },
+    {
+      "case": "human",
+      "status": "passed",
+      "task_status": "skipped",
+      "calls": 0
+    },
+    {
+      "case": "wrong_image",
+      "status": "passed",
+      "task_status": "failed",
+      "calls": 0
+    },
+    {
+      "case": "真实worker被杀/重启/重复投递",
+      "status": "passed",
+      "task_status": "failed",
+      "calls": 1,
+      "evidence": "SIGKILL local worker; durable running record recovered as unknown failure; no automatic resend"
+    },
+    {
+      "case": "建议与人工金标隔离/修订历史/导出",
+      "status": "passed",
+      "exported": 1,
+      "evidence": "isolated simulation only; not appended to formal gold"
+    },
+    {
+      "case": "浏览器对照展示",
+      "status": "passed",
+      "evidence": "browser_passed\n"
+    }
+  ],
+  "processes": [
+    {
+      "name": "redis",
+      "memory_limit_mb": 128,
+      "cpu_limit": 1,
+      "stopped": true
+    },
+    {
+      "name": "api",
+      "memory_limit_mb": 512,
+      "cpu_limit": 1,
+      "stopped": true
+    },
+    {
+      "name": "worker",
+      "memory_limit_mb": 1024,
+      "cpu_limit": 1,
+      "stopped": true
+    },
+    {
+      "name": "frontend",
+      "memory_limit_mb": 512,
+      "cpu_limit": 1,
+      "stopped": true
+    },
+    {
+      "name": "worker-restarted",
+      "memory_limit_mb": 1024,
+      "cpu_limit": 1,
+      "stopped": true
+    }
+  ],
+  "ports": [
+    {
+      "port": 8197,
+      "released": true
+    },
+    {
+      "port": 6397,
+      "released": true
+    },
+    {
+      "port": 5197,
+      "released": true
+    }
+  ],
+  "shared_database_writes": 0,
+  "shared_push_config_changes": 0,
+  "device_actions": 0,
+  "real_model_calls": 0,
+  "limitation": "故障验收使用注入的中转站，验证状态和请求次数，不证明真实供应商在超时后未扣费；未知状态一律不重发。实际模型能力见独立基线评测。"
+}

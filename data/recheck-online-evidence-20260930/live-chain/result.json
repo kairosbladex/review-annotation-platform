@@ -1,0 +1,40 @@
+{
+  "event_id": "61b6a8b48d6846b1aca70f777558012d",
+  "gold_id": "62bef5c41ce60e3ea79a4cd20360ce760108e4848ba4e20d31c65a6989d8b3f3",
+  "human_reference_local_only": "false",
+  "advice": {
+    "id": "9b5501a0c85245018845c50895c8a7eb",
+    "event_id": "61b6a8b48d6846b1aca70f777558012d",
+    "candidate_id": "97a007b5ded74cdca5dd8b0628de334f",
+    "image_sha256": "276ee3e24ecca6efc6c736170520c2d19544cac53865f580b4345ff9864e641f",
+    "class_name": "车",
+    "provider": "gpt",
+    "requested_model": "gpt-5.6-luna",
+    "actual_model": "gpt-5.6-luna",
+    "config_version": "879d799dbd4423d3bd68f73268a03a2e02df93bbfdfa734dde3e7ba126684741",
+    "prompt_version": "online-baseline-v1",
+    "rule_version": "conservative-v1",
+    "crop_version": "clean-three-view-v1",
+    "status": "done",
+    "decision": "false",
+    "reasoning": "框内是道路与斑马线区域，没有可辨认的车辆。；可见物为道路标线，不符合“车”类别。；该框明显落在斑马线和路面上，属于道路标线误检。",
+    "scene": "ground",
+    "image_limitation": "",
+    "elapsed_seconds": 16.26849562500138,
+    "error": null,
+    "attempts": 1,
+    "created_at": "2026-09-30T09:18:12.278222",
+    "completed_at": "2026-09-30T09:18:28.594625"
+  },
+  "annotation": {
+    "annotation_id": null,
+    "label": null,
+    "note": null,
+    "labeled_by": null,
+    "labeled_at": null,
+    "revision": 0
+  },
+  "duplicate_http_status": 200,
+  "shared_writes": 0,
+  "calls_expected_once": true
+}
