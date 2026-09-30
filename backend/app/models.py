@@ -3,7 +3,7 @@ from __future__ import annotations
 import uuid
 from datetime import datetime, timezone
 
-from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String, Text, UniqueConstraint
+from sqlalchemy import CheckConstraint, Boolean, DateTime, Float, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .db import Base
@@ -266,3 +266,40 @@ class AuditEvent(Base):
     entity_id: Mapped[str] = mapped_column(String(120), index=True)
     payload_json: Mapped[str] = mapped_column(Text, default="{}")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, index=True)
+
+
+class RecheckRecord(Base):
+    """Advice only: never writes Annotation. One durable outbox item per config."""
+    __tablename__ = "recheck_records"
+    __table_args__ = (
+        UniqueConstraint("candidate_id", "config_version", name="uq_recheck_candidate_config"),
+        CheckConstraint("status IN ('queued','running','done','waiting_quota','failed','skipped')", name="ck_recheck_status"),
+        CheckConstraint("(status = 'done' AND decision IN ('true','false','uncertain')) OR (status <> 'done' AND decision IS NULL)", name="ck_recheck_decision"),
+    )
+    id: Mapped[str] = mapped_column(String(32), primary_key=True, default=new_id)
+    candidate_id: Mapped[str] = mapped_column(ForeignKey("candidates.id", ondelete="CASCADE"), index=True)
+    event_id: Mapped[str] = mapped_column(String(255), index=True)
+    image_sha256: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    class_name: Mapped[str] = mapped_column(String(160))
+    provider: Mapped[str] = mapped_column(String(16), default="gpt")
+    requested_model: Mapped[str] = mapped_column(String(160))
+    actual_model: Mapped[str | None] = mapped_column(String(160), nullable=True)
+    config_version: Mapped[str] = mapped_column(String(64))
+    prompt_version: Mapped[str] = mapped_column(String(64))
+    rule_version: Mapped[str] = mapped_column(String(64))
+    crop_version: Mapped[str] = mapped_column(String(64))
+    status: Mapped[str] = mapped_column(String(24), default="queued", index=True)
+    decision: Mapped[str | None] = mapped_column(String(16), nullable=True)
+    reasoning: Mapped[str] = mapped_column(Text, default="")
+    scene: Mapped[str] = mapped_column(String(64), default="unknown")
+    image_limitation: Mapped[str] = mapped_column(Text, default="")
+    elapsed_seconds: Mapped[float | None] = mapped_column(Float, nullable=True)
+    usage_json: Mapped[str] = mapped_column(Text, default="{}")
+    error: Mapped[str | None] = mapped_column(Text, nullable=True)
+    attempts: Mapped[int] = mapped_column(Integer, default=0)
+    response_id: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    next_attempt_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)

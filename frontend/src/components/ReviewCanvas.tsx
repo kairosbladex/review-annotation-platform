@@ -4,18 +4,22 @@ import type { Candidate } from "../types";
 
 interface ReviewCanvasProps {
   imageUrl: string | null;
+  cleanImageUrl?: string | null;
+  cleanBboxes?: Record<string, [number,number,number,number]>;
   candidates: Candidate[];
   selectedId: string | null;
   onSelect: (id: string) => void;
 }
 
-export function ReviewCanvas({ imageUrl, candidates, selectedId, onSelect }: ReviewCanvasProps) {
+export function ReviewCanvas({ imageUrl, cleanImageUrl, cleanBboxes, candidates, selectedId, onSelect }: ReviewCanvasProps) {
   const [scale, setScale] = useState(1);
+  const [showClean, setShowClean] = useState(false);
+  const activeUrl = showClean && cleanImageUrl ? cleanImageUrl : imageUrl;
   return <section className="canvas-panel panel">
-    <div className="canvas-toolbar"><div className="canvas-label"><Crosshair size={15} /><span>模型候选框</span><span className="canvas-count">{selectedId ? `${candidates.findIndex((item) => item.candidate_id === selectedId) + 1}/${candidates.length}` : `${candidates.length} targets`}</span></div><div className="zoom-actions"><button onClick={() => setScale((value) => Math.max(0.5, Number((value - 0.25).toFixed(2))))} title="缩小"><ZoomOut size={15} /></button><span>{Math.round(scale * 100)}%</span><button onClick={() => setScale((value) => Math.min(4, Number((value + 0.25).toFixed(2))))} title="放大"><ZoomIn size={15} /></button></div></div>
+    <div className="canvas-toolbar"><div className="canvas-label"><Crosshair size={15} /><span>模型候选框</span><span className="canvas-count">{selectedId ? `${candidates.findIndex((item) => item.candidate_id === selectedId) + 1}/${candidates.length}` : `${candidates.length} targets`}</span></div><div className="zoom-actions">{cleanImageUrl && <button onClick={() => setShowClean((v) => !v)}>{showClean ? "查看接入截图" : "查看干净原图"}</button>}<button onClick={() => setScale((value) => Math.max(0.5, Number((value - 0.25).toFixed(2))))} title="缩小"><ZoomOut size={15} /></button><span>{Math.round(scale * 100)}%</span><button onClick={() => setScale((value) => Math.min(4, Number((value + 0.25).toFixed(2))))} title="放大"><ZoomIn size={15} /></button></div></div>
     <div className="image-stage">
-      {imageUrl ? <div className="image-zoom" style={{ transform: `scale(${scale})` }}><img src={imageUrl} alt="待复核原图" />{candidates.map((candidate) => {
-        const [x1, y1, x2, y2] = candidate.bbox;
+      {activeUrl ? <div className="image-zoom" style={{ transform: `scale(${scale})` }}><img src={activeUrl} alt="待复核原图" />{candidates.map((candidate) => {
+        const [x1, y1, x2, y2] = showClean && cleanImageUrl ? cleanBboxes?.[String(candidate.target_index)] ?? candidate.bbox : candidate.bbox;
         const selected = candidate.candidate_id === selectedId;
         const tiny = x2 - x1 < 0.04 || y2 - y1 < 0.04;
         const labelBelow = y1 < 0.04;

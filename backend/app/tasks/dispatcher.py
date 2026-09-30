@@ -10,6 +10,9 @@ class CeleryDispatcher:
     def dispatch(self, job_id: str) -> None:
         self.celery.send_task("review_annotation_platform.execute_model_job", args=[job_id])
 
+    def dispatch_recheck(self, record_id: str, countdown: float = 0) -> None:
+        self.celery.send_task("review_annotation_platform.execute_recheck", args=[record_id], countdown=countdown, queue="recheck", retry=False)
+
     def dispatch_export(self, job_id: str) -> None:
         self.celery.send_task("review_annotation_platform.execute_export_job", args=[job_id])
 

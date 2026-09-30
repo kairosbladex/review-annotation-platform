@@ -8,8 +8,9 @@ from collections.abc import Iterable
 from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
 
-from ..models import AgentReviewRequest, Annotation, AnnotationTask, Asset, AuditEvent, Candidate, ImportBatch, IngestionEvent, ModelRun, ModelRunSample, Sample, User, new_id, utc_now
+from ..models import AgentReviewRequest, Annotation, AnnotationTask, Asset, AuditEvent, Candidate, RecheckRecord, ImportBatch, IngestionEvent, ModelRun, ModelRunSample, Sample, User, new_id, utc_now
 from .dataset_queue import DatasetQueueIndex, V2_DATASET_TAG
+from .online_recheck import serialize_record
 
 
 def _counts(session: Session, task_id: str) -> dict[str, int]:
@@ -102,7 +103,10 @@ def serialize_sample(session: Session, sample: Sample, dataset_queue: DatasetQue
                 "status": run.status if run else None,
                 "parameters": json.loads(run.parameters_json or "{}") if run else {},
             },
-            "candidates": [_candidate_payload(candidate, annotations.get(candidate.id), dataset_queue) for candidate in candidates],
+            "candidates": [{**_candidate_payload(candidate, annotations.get(candidate.id), dataset_queue),
+                            "gpt_advice": [serialize_record(r)
+                            for r in session.scalars(select(RecheckRecord).where(RecheckRecord.candidate_id==candidate.id).order_by(RecheckRecord.created_at.desc())).all()]}
+                           for candidate in candidates],
         })
     active = task_payloads[0] if task_payloads else {"annotation_task_id": None, "status": "imported", "counts": {"total": 0, "labeled": 0, "pending": 0, "true": 0, "false": 0}, "candidates": []}
     active_candidates = active.get("candidates", [])
@@ -142,6 +146,11 @@ def ingest_review_event(session: Session, payload, object_store) -> tuple[Sample
 
     image_exists = object_store.exists(payload.image.bucket, payload.image.object_key)
     comparison_exists = bool(payload.comparison_image and object_store.exists(payload.comparison_image.bucket, payload.comparison_image.object_key))
+    metadata = dict(payload.metadata)
+    if payload.clean_image:
+        if payload.clean_event_id != payload.event_id or any(t.clean_bbox is None for t in payload.targets):
+            raise ValueError("干净原图事件或目标坐标未核验")
+        metadata.update(clean_event_id=payload.clean_event_id, clean_bboxes={str(t.target_index): t.clean_bbox for t in payload.targets})
     sample = Sample(
         source_type="review_service",
         source_event_id=payload.event_id,
@@ -150,12 +159,15 @@ def ingest_review_event(session: Session, payload, object_store) -> tuple[Sample
         capture_time=payload.capture_time,
         camera_id=payload.camera_id,
         rule_code=payload.rule_code,
-        metadata_json=json.dumps(payload.metadata, ensure_ascii=False),
+        metadata_json=json.dumps(metadata, ensure_ascii=False),
         asset_status="ready" if image_exists else "asset_missing",
     )
     session.add(sample)
     session.flush()
     session.add(Asset(sample_id=sample.id, kind="original", bucket=payload.image.bucket, object_key=payload.image.object_key, sha256=payload.image.sha256, status="ready" if image_exists else "missing"))
+    if payload.clean_image:
+        ref=payload.clean_image
+        session.add(Asset(sample_id=sample.id, kind="clean_original", bucket=ref.bucket, object_key=ref.object_key, sha256=ref.sha256, status="ready" if object_store.exists(ref.bucket,ref.object_key) else "missing"))
     if payload.comparison_image:
         session.add(Asset(sample_id=sample.id, kind="comparison", bucket=payload.comparison_image.bucket, object_key=payload.comparison_image.object_key, sha256=payload.comparison_image.sha256, status="ready" if comparison_exists else "missing"))
 
@@ -203,6 +215,8 @@ def update_annotation(session: Session, candidate: Candidate, user: User, payloa
         session.flush()
     if payload.expected_revision is not None and annotation.revision != payload.expected_revision:
         raise ValueError("annotation revision conflict")
+    previous = {"label": annotation.label, "note": annotation.note, "labeled_by": annotation.labeled_by,
+                "labeled_at": annotation.labeled_at.isoformat() if annotation.labeled_at else None, "revision": annotation.revision}
     annotation.label = payload.label
     annotation.note = payload.note
     annotation.labeled_by = user.id if payload.label is not None else None
@@ -225,7 +239,7 @@ def update_annotation(session: Session, candidate: Candidate, user: User, payloa
     if task is None:
         raise ValueError("annotation task not found")
     counts = refresh_task_status(session, task)
-    session.add(AuditEvent(action="annotation.updated", user_id=user.id, entity_type="candidate", entity_id=candidate.id, payload_json=json.dumps({"label": payload.label, "note": payload.note, "revision": annotation.revision}, ensure_ascii=False)))
+    session.add(AuditEvent(action="annotation.updated", user_id=user.id, entity_type="candidate", entity_id=candidate.id, payload_json=json.dumps({"label": payload.label, "note": payload.note, "revision": annotation.revision, "previous": previous}, ensure_ascii=False)))
     return session.get(Sample, candidate.sample_id)
 
 

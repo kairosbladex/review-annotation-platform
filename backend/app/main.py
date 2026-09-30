@@ -7,7 +7,7 @@ import threading
 from contextlib import contextmanager
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, File, Header, HTTPException, Request, UploadFile, status
+from fastapi import BackgroundTasks, Depends, FastAPI, File, Header, HTTPException, Request, UploadFile, status
 from fastapi.responses import JSONResponse
 from sqlalchemy import select
 
@@ -26,9 +26,10 @@ from .services.export_service import execute_export_job
 from .services.auto_annotation_service import create_auto_annotation_run, execute_auto_annotation_job
 from .services.agent_api import create_agent_review_request, list_agent_candidates, list_human_gold
 from .tasks.dispatcher import CeleryDispatcher
+from .services.online_recheck import create_records, pending_review
 
 
-def create_app(settings: Settings | None = None, *, object_store: ObjectStore | None = None, model_adapter=None, task_dispatcher=None, export_dispatcher=None, auto_annotation_adapter=None, auto_annotation_dispatcher=None) -> FastAPI:
+def create_app(settings: Settings | None = None, *, object_store: ObjectStore | None = None, model_adapter=None, task_dispatcher=None, export_dispatcher=None, auto_annotation_adapter=None, auto_annotation_dispatcher=None, recheck_dispatcher=None) -> FastAPI:
     settings = settings or Settings.from_env()
     engine = build_engine(settings.database_url)
     Base.metadata.create_all(engine)
@@ -56,6 +57,7 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
     app.state.dataset_queue = DatasetQueueIndex.from_jsonl(settings.v2_queue_map_path)
     app.state.model_adapter = model_adapter or build_model_adapter(settings, object_store)
     app.state.auto_annotation_adapter = auto_annotation_adapter or build_codex_vision_adapter(settings, object_store)
+    app.state.recheck_dispatcher = recheck_dispatcher or CeleryDispatcher(settings.redis_url)
     app.state.task_dispatcher = task_dispatcher or CeleryDispatcher(settings.redis_url)
     app.state.export_dispatcher = export_dispatcher or app.state.task_dispatcher
     app.state.auto_annotation_dispatcher = auto_annotation_dispatcher or app.state.task_dispatcher
@@ -235,12 +237,22 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             return {"access_token": token, "token_type": "bearer", "user": {"id": user.id, "username": user.username}}
 
     @app.post("/api/v1/ingest/review-events", status_code=status.HTTP_201_CREATED)
-    def ingest(payload: ReviewEventInput, _: None = Depends(service_auth)):
+    def ingest(payload: ReviewEventInput, background_tasks: BackgroundTasks, _: None = Depends(service_auth)):
         with session_scope() as session:
-            sample, created = ingest_review_event(session, payload, app.state.object_store)
+            try:
+                sample, created = ingest_review_event(session, payload, app.state.object_store)
+            except ValueError as exc:
+                raise HTTPException(status_code=422, detail=str(exc)) from exc
+            records = create_records(session, sample, settings) if created else []
             if created:
                 session.add(AuditEvent(action="ingest.review_event", user_id=None, entity_type="sample", entity_id=sample.id, payload_json=json.dumps({"event_id": payload.event_id, "source_service": payload.source_service}, ensure_ascii=False)))
             session.commit()
+            def enqueue(record_id):
+                try:app.state.recheck_dispatcher.dispatch_recheck(record_id)
+                except Exception:pass # durable outbox; explicitly retry enqueue-due later
+            for record in records:
+                if record.status == "queued":
+                    background_tasks.add_task(enqueue, record.id)
             result = serialize_sample(session, sample, app.state.dataset_queue)
             return JSONResponse(
                 status_code=status.HTTP_201_CREATED if created else status.HTTP_200_OK,
@@ -251,6 +263,12 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
                     "status": result["status"],
                 },
             )
+
+    @app.get("/api/v1/recheck/pending")
+    def recheck_pending(limit: int = 100, _: User = Depends(current_user)):
+        if not 1 <= limit <= 500:raise HTTPException(status_code=422,detail="limit must be 1..500")
+        with session_scope() as session:
+            return {"items": pending_review(session, settings.recheck_agreement_sample_rate, limit)}
 
     @app.post("/api/v1/model-profiles", status_code=status.HTTP_201_CREATED)
     def create_model_profile(payload: ModelProfileCreate, _: User = Depends(current_user)):
@@ -533,12 +551,18 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
         dataset_filter: str = "all",
         _: User = Depends(current_user),
     ):
-        if status_filter not in {"all", "imported", "pending", "in_progress", "completed", "no_candidates", "needs_review"}:
+        if status_filter not in {"all", "imported", "pending", "in_progress", "completed", "no_candidates", "needs_review", "gpt_pending"}:
             raise HTTPException(status_code=400, detail="status_filter 无效")
         if dataset_filter not in {"all", V2_DATASET_TAG, "other"}:
             raise HTTPException(status_code=400, detail="dataset_filter 无效")
         with session_scope() as session:
             all_samples = session.scalars(select(Sample).order_by(Sample.created_at.desc())).all()
+            advice_queue = pending_review(session, settings.recheck_agreement_sample_rate, 100000) if status_filter == "gpt_pending" else []
+            advice_order = {}
+            for item in advice_queue:
+                advice_order.setdefault(item["sample_id"], len(advice_order))
+            if status_filter == "gpt_pending":
+                all_samples = sorted((s for s in all_samples if s.id in advice_order), key=lambda s: advice_order[s.id])
             samples: list[dict] = []
             for sample in all_samples:
                 serialized = serialize_sample(session, sample, app.state.dataset_queue)
@@ -562,7 +586,7 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
                             continue
                     elif serialized["status"] not in {"pending", "in_progress"}:
                         continue
-                elif status_filter != "all" and serialized["status"] != status_filter:
+                elif status_filter not in {"all", "gpt_pending"} and serialized["status"] != status_filter:
                     continue
                 if source_type and serialized["source_type"] != source_type:
                     continue

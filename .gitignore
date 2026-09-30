@@ -20,3 +20,9 @@ minio-data/
 /data/ktd-review-workbench/
 
 .tmp/
+
+# Local isolated preview and image evidence stay on this machine.
+/frontend/node_modules
+.vite/
+/data/recheck-online-evidence-20260930/**/*.png
+/data/recheck-online-evidence-20260930/**/*.jpg

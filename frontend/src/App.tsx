@@ -1,7 +1,7 @@
 import { Activity, Archive, ChevronDown, Database, Download, LoaderCircle, Play, RefreshCw, Settings2, ShieldCheck, Sparkles, UploadCloud } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createAutoAnnotations, createExport, createModelRun, createProfile, getAssetUrl, getJob, getSample, labelCandidate, listProfiles, listSamples, login, uploadImages } from "./api";
-import { Inspector } from "./components/Inspector";
+import { Inspector, RecheckComparison } from "./components/Inspector";
 import { QueuePanel } from "./components/QueuePanel";
 import { ReviewCanvas } from "./components/ReviewCanvas";
 import { HistoryCompare } from "./components/HistoryCompare";
@@ -65,6 +65,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [classFilter, setClassFilter] = useState("");
   const [datasetFilter, setDatasetFilter] = useState("all");
+  const [cleanImageUrl, setCleanImageUrl] = useState<string | null>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [profiles, setProfiles] = useState<ModelProfile[]>([]);
   const [profileId, setProfileId] = useState("");
@@ -110,6 +111,7 @@ function App() {
     const requestId = ++detailRequestRef.current;
     setSample(null);
     setImageUrl(null);
+    setCleanImageUrl(null);
     setSelectedCandidateId(null);
     try {
       const result = await getSample(token, sampleId);
@@ -121,6 +123,10 @@ function App() {
         if (currentItem && currentItem.annotation.label === null) return current;
         return nextPendingCandidateId(candidates, current) ?? candidates[0]?.candidate_id ?? null;
       });
+      const clean = result.assets.find((asset) => asset.kind === "clean_original");
+      if (clean?.status === "ready") {
+        try { const asset = await getAssetUrl(token, clean.asset_id); if (requestId === detailRequestRef.current) setCleanImageUrl(asset.url); } catch { setCleanImageUrl(null); }
+      }
       const original = result.assets.find((asset) => asset.kind === "original");
       if (original?.status === "ready") {
         try {
@@ -313,7 +319,7 @@ function App() {
       <section className="metric-strip"><div><span>待复核目标</span><strong>{stats.pending}</strong><small>当前页</small></div><div><span>已完成人工判断</span><strong>{stats.labeled}</strong><small>当前页</small></div><div><span>真目标</span><strong className="positive">{stats.true}</strong><small>当前页人工标注</small></div><div><span>假目标</span><strong className="negative">{stats.false}</strong><small>当前页人工标注</small></div><div className="metric-note"><Activity size={17} /><div><strong>一期评估口径</strong><span>候选框 precision · 不代表完整召回率</span></div></div></section>
       {autoAnnotationJob && <div className={`notice auto-annotation-notice ${autoAnnotationFailed ? "error" : ""}`}><Sparkles size={16} /><div className="auto-annotation-copy"><strong>AI 自动标注 · {autoAnnotationStatusLabel(autoAnnotationJob.status)}</strong><span>{autoAnnotationJob.completed}/{autoAnnotationJob.total} 个样本已处理{autoAnnotationJob.failed > 0 ? ` · 失败 ${autoAnnotationJob.failed}` : ""}</span><small>模型仅自动写入高置信多数结论；冲突/不确定保留待复核。</small>{autoAnnotationJob.error_summary && <small>任务信息：{autoAnnotationJob.error_summary}</small>}</div>{autoAnnotationTerminal && <button onClick={() => setAutoAnnotationJob(null)} aria-label="关闭 AI 自动标注状态">×</button>}</div>}
       {(error || actionMessage || job) && <div className={`notice ${error ? "error" : ""}`}>{error || actionMessage || `${job?.status === "running" ? "任务执行中" : "任务已创建"} · ${job?.completed ?? 0}/{job?.total ?? 0}`}<button onClick={() => { setError(""); setActionMessage(""); }}>×</button></div>}
-      <div className="review-layout"><QueuePanel samples={samples} selectedId={selectedId} statusFilter={statusFilter} classFilter={classFilter} datasetFilter={datasetFilter} classOptions={CLASS_FILTERS} query={query} pageOffset={queuePage * QUEUE_PAGE_SIZE} pageSize={QUEUE_PAGE_SIZE} total={queueTotal} onSelect={setSelectedId} onFilter={(value) => { setQueuePage(0); setSelectedId(null); setStatusFilter(value); }} onClassFilter={(value) => { setQueuePage(0); setSelectedId(null); setClassFilter(value); }} onDatasetFilter={(value) => { setQueuePage(0); setSelectedId(null); setDatasetFilter(value); }} onQuery={(value) => { setQueuePage(0); setQuery(value); }} onPageChange={(page) => { setQueuePage(page); setSelectedId(null); }} onUpload={handleUpload} uploading={uploading} /><div className="review-main">{loading && <div className="loading-overlay">加载队列…</div>}{sample ? <><div className="sample-context"><div><span className="eyebrow">SAMPLE DETAIL</span><h2>{sample.session_id ?? sample.sample_id}</h2><span>{sample.source_service ?? sample.source_type} · {sample.rule_code ?? "未指定规则"} · {sample.capture_time ? new Date(sample.capture_time).toLocaleString("zh-CN") : "时间未知"}</span></div><div className="context-actions">{sample.dataset_tags.includes("v2") && <span className="dataset-badge">V2 {sample.v2_pending_count}/{sample.v2_target_count}</span>}<span className="run-pill"><Archive size={13} />{activeRun?.model_run.model_version ?? "无模型版本"}</span><span className={`status-text ${sample.status}`}>{sample.status === "completed" ? "已完成" : sample.status === "in_progress" ? "进行中" : "待标注"}</span></div></div><div className="detail-layout"><ReviewCanvas imageUrl={imageUrl} candidates={visibleCandidates} selectedId={selectedCandidateId} onSelect={setSelectedCandidateId} /><Inspector key={selectedCandidateId ?? "none"} candidate={candidate} candidates={visibleCandidates} onSelect={setSelectedCandidateId} onLabel={saveLabel} saving={saving} /></div></> : <div className="no-sample"><UploadCloud size={34} /><h2>选择一个样本开始复核</h2><p>左侧队列会展示来自复检服务、MinIO 导入或页面上传的图片。</p></div>}</div></div>
+      <div className="review-layout"><QueuePanel samples={samples} selectedId={selectedId} statusFilter={statusFilter} classFilter={classFilter} datasetFilter={datasetFilter} classOptions={CLASS_FILTERS} query={query} pageOffset={queuePage * QUEUE_PAGE_SIZE} pageSize={QUEUE_PAGE_SIZE} total={queueTotal} onSelect={setSelectedId} onFilter={(value) => { setQueuePage(0); setSelectedId(null); setStatusFilter(value); }} onClassFilter={(value) => { setQueuePage(0); setSelectedId(null); setClassFilter(value); }} onDatasetFilter={(value) => { setQueuePage(0); setSelectedId(null); setDatasetFilter(value); }} onQuery={(value) => { setQueuePage(0); setQuery(value); }} onPageChange={(page) => { setQueuePage(page); setSelectedId(null); }} onUpload={handleUpload} uploading={uploading} /><div className="review-main">{loading && <div className="loading-overlay">加载队列…</div>}{sample ? <><div className="sample-context"><div><span className="eyebrow">SAMPLE DETAIL</span><h2>{sample.session_id ?? sample.sample_id}</h2><span>{sample.source_service ?? sample.source_type} · {sample.rule_code ?? "未指定规则"} · {sample.capture_time ? new Date(sample.capture_time).toLocaleString("zh-CN") : "时间未知"}</span></div><div className="context-actions">{sample.dataset_tags.includes("v2") && <span className="dataset-badge">V2 {sample.v2_pending_count}/{sample.v2_target_count}</span>}<span className="run-pill"><Archive size={13} />{activeRun?.model_run.model_version ?? "无模型版本"}</span><span className={`status-text ${sample.status}`}>{sample.status === "completed" ? "已完成" : sample.status === "in_progress" ? "进行中" : "待标注"}</span></div></div><RecheckComparison candidate={candidate} /><div className="detail-layout"><ReviewCanvas imageUrl={imageUrl} cleanImageUrl={cleanImageUrl} cleanBboxes={sample.metadata.clean_bboxes as Record<string, [number,number,number,number]> | undefined} candidates={visibleCandidates} selectedId={selectedCandidateId} onSelect={setSelectedCandidateId} /><Inspector key={selectedCandidateId ?? "none"} candidate={candidate} candidates={visibleCandidates} onSelect={setSelectedCandidateId} onLabel={saveLabel} saving={saving} /></div></> : <div className="no-sample"><UploadCloud size={34} /><h2>选择一个样本开始复核</h2><p>左侧队列会展示来自复检服务、MinIO 导入或页面上传的图片。</p></div>}</div></div>
     </main>}<footer className="app-footer"><span>RAP v0.1 · 数据由 PostgreSQL / MinIO 管理</span><span><ShieldCheck size={14} />所有标注操作均已审计</span></footer>
   </div>;
 }

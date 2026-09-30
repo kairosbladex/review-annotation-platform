@@ -53,3 +53,25 @@ def execute_auto_annotation_job_task(self, job_id: str):
         )
     except Exception as exc:
         raise self.retry(exc=exc, countdown=10)
+
+
+# Dedicated queue: normal inference/export workers do not consume this queue.
+@celery_app.task(name="review_annotation_platform.execute_recheck", acks_late=True, reject_on_worker_lost=True)
+def execute_recheck_task(record_id: str):
+    from ..services.online_recheck import execute
+    from ..adapters.recheck_relay import RecheckRelay
+    from .dispatcher import CeleryDispatcher
+    if not settings.recheck_enabled:return
+    factory=build_session_factory(build_engine(settings.database_url))
+    delay=execute(record_id,factory=factory,settings=settings,store=build_object_store(settings),relay=_recheck_relay())
+    if delay is not None:CeleryDispatcher(settings.redis_url).dispatch_recheck(record_id,countdown=delay)
+
+
+_relay_instance=None
+
+def _recheck_relay():
+    global _relay_instance
+    if _relay_instance is None:
+        from ..adapters.recheck_relay import RecheckRelay
+        _relay_instance=RecheckRelay(settings)
+    return _relay_instance

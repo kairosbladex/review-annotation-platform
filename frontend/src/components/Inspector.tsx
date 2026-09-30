@@ -36,3 +36,18 @@ export function Inspector({ candidate, candidates, onSelect, onLabel, saving }: 
     <div className="inspector-footer"><span>revision {candidate.annotation.revision}</span><button className="ghost-button" disabled={saving || candidate.annotation.label === null} onClick={() => save(null, false)}><RotateCcw size={14} />撤销标注</button></div>
   </aside>;
 }
+
+export function RecheckComparison({ candidate }: { candidate: Candidate | null }) {
+  if (!candidate) return null;
+  const labelText = candidate.annotation.label === "true" ? "真目标" : candidate.annotation.label === "false" ? "假目标" : "待判断";
+  const advice = candidate.gpt_advice?.[0];
+  const decisionText = (v: string | null | undefined) => v === "true" || v === "confirmed" ? "真目标" : v === "false" || v === "rejected" ? "假目标" : v === "uncertain" ? "看不清，需人工判断" : v ?? "未判断";
+  const statusText: Record<string,string> = { queued: "等待复检", running: "正在复检", done: "复检完成", waiting_quota: "等待账号或额度恢复", failed: "复检失败，未形成判断", skipped: "已跳过" };
+  return (
+<div className="recheck-comparison" aria-label="复检判断对照">
+      <div><strong>初审</strong><p>{decisionText(candidate.raw_decision)}</p></div>
+      <div><strong>GPT 建议</strong><p>{advice?.status === "done" ? decisionText(advice.decision) : advice ? statusText[advice.status] ?? advice.status : "尚无复检记录"}</p><small>{advice?.reasoning}</small>{advice && <small>模型 {advice.actual_model ?? advice.requested_model} · 提示词 {advice.prompt_version} · 规则 {advice.rule_version} · 裁图 {advice.crop_version}</small>}{advice?.image_limitation && <small>{advice.image_limitation}</small>}{advice?.error && <small>{advice.error}</small>}</div>
+      <div><strong>人工结论</strong><p>{labelText}</p><small>{candidate.annotation.labeled_by ? `确认人 ${candidate.annotation.labeled_by} · ${candidate.annotation.labeled_at}` : "确认后才计入人工金标"}</small></div>
+    </div>
+  );
+}

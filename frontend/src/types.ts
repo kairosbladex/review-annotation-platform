@@ -33,6 +33,7 @@ export interface Candidate {
   reason_code: string | null;
   error_code: string | null;
   reasoning: string;
+  gpt_advice?: { id: string; status: string; decision: "true" | "false" | "uncertain" | null; reasoning: string; actual_model: string | null; requested_model: string; prompt_version: string; rule_version: string; crop_version: string; image_limitation: string; error: string | null }[];
   annotation: Annotation;
 }
 

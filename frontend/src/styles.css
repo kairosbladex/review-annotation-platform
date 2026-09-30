@@ -67,3 +67,13 @@ button:disabled { cursor: not-allowed; opacity: .45; }
 .history-warning { color: #edc573; }
 .history-metadata { display: flex; flex-wrap: wrap; gap: 18px; color: #9ba9b7; font-size: 12px; }
 @media (max-width: 900px) { .history-panes { grid-template-columns: minmax(0, 1fr); } .workspace-tabs { padding: 0 13px; } .history-actions { gap: 6px; } .history-heading h1 { font-size: 22px; } }
+
+.recheck-comparison { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 10px; padding: 12px; border: 1px solid #dbe4ec; border-radius: 8px; margin: 12px 0; }
+.recheck-comparison > div { border-bottom: 1px solid #e9edf2; padding-bottom: 8px; }
+.recheck-comparison small { display: block; line-height: 1.5; color: #64748b; overflow-wrap: anywhere; }
+.recheck-comparison p { margin: 6px 0; }
+
+@media (max-width: 900px) { .recheck-comparison { grid-template-columns: 1fr; } }
+
+.queue-tools .filter-row { flex-wrap: wrap; }
+.queue-tools .filter-row select { min-width: 0; flex: 1 1 100px; max-width: 100%; }

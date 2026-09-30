@@ -16,6 +16,7 @@ class CandidateInput(BaseModel):
     target_index: int = Field(ge=0)
     class_id: int | None = None
     class_name: str = Field(min_length=1, max_length=160)
+    clean_bbox: list[float] | None = Field(default=None, min_length=4, max_length=4)
     confidence: float | None = Field(default=None, ge=0, le=1)
     bbox: list[float] = Field(min_length=4, max_length=4)
     raw_decision: str | None = None
@@ -25,9 +26,11 @@ class CandidateInput(BaseModel):
     error_code: str | None = None
     reasoning: str = ""
 
-    @field_validator("bbox")
+    @field_validator("bbox", "clean_bbox")
     @classmethod
     def normalized_bbox(cls, value: list[float]) -> list[float]:
+        if value is None:
+            return value
         if any(item < 0 or item > 1 for item in value):
             raise ValueError("bbox must use normalized coordinates between 0 and 1")
         if value[2] <= value[0] or value[3] <= value[1]:
@@ -43,6 +46,8 @@ class ReviewEventInput(BaseModel):
     camera_id: str | None = Field(default=None, max_length=120)
     rule_code: str | None = Field(default=None, max_length=120)
     image: ImageReference
+    clean_image: ImageReference | None = None
+    clean_event_id: str | None = None
     comparison_image: ImageReference | None = None
     targets: list[CandidateInput] = Field(default_factory=list, max_length=1000)
     metadata: dict[str, Any] = Field(default_factory=dict)

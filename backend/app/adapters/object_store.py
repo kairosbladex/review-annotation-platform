@@ -194,7 +194,32 @@ def _http_prefix_store(settings) -> HttpPrefixObjectStore | None:
     )
 
 
+class LocalReadonlyObjectStore(ObjectStore):
+    """Isolated SQLite replay only. Resolves files beneath an explicit root."""
+    def __init__(self,root):
+        from pathlib import Path
+        self.root=Path(root).resolve()
+    def path(self,key):
+        p=(self.root/key).resolve()
+        if not p.is_relative_to(self.root):raise ValueError("image path outside local replay root")
+        return p
+    def exists(self,bucket,key):
+        return self.path(key).is_file()
+    def get_bytes(self,bucket,key):
+        p=self.path(key)
+        if p.stat().st_size>20_000_000:raise ValueError("image too large")
+        return p.read_bytes()
+    def presigned_get_url(self,bucket,key,expires_seconds=900):
+        import base64
+        return "data:image/jpeg;base64,"+base64.b64encode(self.get_bytes(bucket,key)).decode()
+    def put_bytes(self,*args,**kwargs):raise RuntimeError("local replay image source is read-only")
+
+
 def build_object_store(settings) -> ObjectStore:
+    if settings.local_readonly_image_root:
+        if not settings.database_url.startswith("sqlite:") or settings.minio_endpoint:
+            raise ValueError("local replay requires SQLite and disabled MinIO")
+        return LocalReadonlyObjectStore(settings.local_readonly_image_root)
     http_store = _http_prefix_store(settings)
     if not settings.minio_endpoint or not settings.minio_access_key or not settings.minio_secret_key:
         if settings.object_store_required:

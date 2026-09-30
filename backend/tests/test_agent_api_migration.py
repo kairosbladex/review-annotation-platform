@@ -86,7 +86,8 @@ def _assert_upgraded(engine: sa.Engine) -> None:
     assert row == {"id": "request-1", "request_fingerprint": expected}
     assert columns["request_fingerprint"]["nullable"] is False
     assert "ix_agent_review_requests_created_at" in indexes
-    assert revision == "0004_agent_review_fingerprint"
+    assert revision == "0005_recheck_records"
+    assert inspector.has_table("recheck_records")
 
 
 def test_legacy_agent_review_table_is_upgraded_without_losing_requests(

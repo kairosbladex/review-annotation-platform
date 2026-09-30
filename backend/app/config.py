@@ -49,6 +49,13 @@ class Settings:
     auto_annotation_use_codex_cli: bool = True
     auto_annotation_codex_binary: str = "codex"
     auto_annotation_actor_authorization: str = "local-image-extension"
+    local_readonly_image_root: str = ""
+    recheck_enabled: bool = False
+    recheck_prompt_version: str = "online-baseline-v1"
+    recheck_rule_version: str = "conservative-v1"
+    recheck_crop_version: str = "clean-three-view-v1"
+    recheck_quota_floor: float = 5.0
+    recheck_agreement_sample_rate: float = 0.1
     source_image_base_url: str = ""
     source_image_bucket: str = "minio-src"
     source_image_verify_tls: bool = True
@@ -57,6 +64,13 @@ class Settings:
     @classmethod
     def from_env(cls) -> "Settings":
         return cls(
+            local_readonly_image_root=os.getenv("LOCAL_READONLY_IMAGE_ROOT", ""),
+            recheck_enabled=os.getenv("RECHECK_ENABLED", "false").lower() in {"1", "true", "yes", "on"},
+            recheck_prompt_version=os.getenv("RECHECK_PROMPT_VERSION", cls.recheck_prompt_version),
+            recheck_rule_version=os.getenv("RECHECK_RULE_VERSION", cls.recheck_rule_version),
+            recheck_crop_version=os.getenv("RECHECK_CROP_VERSION", cls.recheck_crop_version),
+            recheck_quota_floor=float(os.getenv("RECHECK_QUOTA_FLOOR", "5")),
+            recheck_agreement_sample_rate=float(os.getenv("RECHECK_AGREEMENT_SAMPLE_RATE", "0.1")),
             database_url=os.getenv("DATABASE_URL", cls.database_url),
             redis_url=os.getenv("REDIS_URL", cls.redis_url),
             service_api_key=os.getenv("SERVICE_API_KEY", cls.service_api_key),
