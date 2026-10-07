@@ -16,3 +16,5 @@
     python3 data/vehicle-surface-gate-eval-20260929/prerelease-evidence/hires-review-package/label_server.py --port 8791
 
 重新生成素材：在服务器 `/data/workspace/jzheng/claude-hires-review-20260929/` 运行 `extract_hires_review_views.py --jobs jobs.jsonl --work-root /data/workspace/jzheng/codex-ktd-real-monitoring-20260924 --out out`，再把 `out/` 同步到本目录。
+
+> 2026-10-07：服务器上的中间目录已清理，上面提到的服务器工作目录不再存在；本包的高清素材（frames/crops/neighbors/clips）保留在本机，未入库。需要重新生成时，从 09-24 快照 `codex-ktd-real-monitoring-20260924` 或测试库重新取原片，再运行 `scripts/extract_hires_review_views.py`。

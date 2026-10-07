@@ -19,3 +19,5 @@
     python3 data/vehicle-surface-gate-eval-20260929/random-traffic-hires-package/label_server.py --port 8793
 
 服务器工作目录：`/data/workspace/jzheng/claude-vsg-random-ab-20260929/`。
+
+> 2026-10-07：服务器上的中间目录已清理，上面提到的服务器工作目录不再存在；本包的高清素材（frames/crops/neighbors/clips）保留在本机，未入库。需要重新生成时，从 09-24 快照 `codex-ktd-real-monitoring-20260924` 或测试库重新取原片，再运行 `scripts/extract_hires_review_views.py`。

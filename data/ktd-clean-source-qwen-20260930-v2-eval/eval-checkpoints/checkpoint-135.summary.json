@@ -1,0 +1,237 @@
+{
+  "schema_version": 2,
+  "model": "/models/qwen3vl",
+  "adapter": "/workspace/training-run/checkpoint-135",
+  "processor": "/models/qwen3vl",
+  "data": "/workspace/data/validation.jsonl",
+  "deployment_contract": {
+    "crop_spec": {
+      "annotated_context": {
+        "factor": 12.0,
+        "min_side": 320,
+        "output_size": 768
+      },
+      "annotated_roi": {
+        "factor": 4.0,
+        "min_side": 96,
+        "output_size": 512
+      },
+      "clean_context": {
+        "factor": 12.0,
+        "min_side": 320,
+        "output_size": 768
+      },
+      "clean_roi": {
+        "factor": 4.0,
+        "min_side": 96,
+        "output_size": 512
+      },
+      "downscale": "cv2.INTER_AREA",
+      "padding": "cv2.BORDER_REFLECT_101",
+      "upscale": "cv2.INTER_LANCZOS4"
+    },
+    "normalized_bbox_margin": 0.05,
+    "processor": {
+      "max_pixels": 200704,
+      "max_sequence_length": 2048,
+      "min_pixels": 50176
+    },
+    "prompt_template": "<image>\n图1：带初审定位信息的上下文图。\n<image>\n图2：带初审定位信息的候选区域图。\n<image>\n图3：同一现场的清晰无标注原图上下文。\n<image>\n图4：从清晰原图投影得到的候选区域。\n初审类别：{class_name}。结合四张图判断红框所指候选是否确为该类别。只能输出一个 JSON 对象，不得输出解释或 Markdown：{\"decision\":\"CONFIRMED\"} 或 {\"decision\":\"REJECTED\"}。",
+    "prompt_template_sha256": "c4a4bc35c60bd87296c1122c686a8449942e969f0f006fce58e82c1af0810e29",
+    "quantization": {
+      "bnb_4bit_compute_dtype": "bfloat16",
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "load_in_4bit": true
+    },
+    "strict_output": {
+      "allowed_decisions": [
+        "CONFIRMED",
+        "REJECTED"
+      ],
+      "invalid_output": "uncertain",
+      "json_object_keys": [
+        "decision"
+      ]
+    },
+    "view_generation": "service_crop_v1_lossless_png",
+    "view_roles": [
+      "annotated_context",
+      "annotated_roi",
+      "clean_context",
+      "clean_roi"
+    ],
+    "view_schema": "annotated_locator_plus_clean_original_v1",
+    "contract_source": "/workspace/data/dataset_manifest.json"
+  },
+  "data_audit": {
+    "dataset_manifest": {
+      "path": "/workspace/data/dataset_manifest.json",
+      "sha256": "999f0df557a13d9b432cb7a4e6a13156564bafe7884d406b1f2bf305682177ff"
+    },
+    "train": {
+      "path": "/workspace/data/train.jsonl",
+      "sha256": "d3ecbbb2cecd157862b37205a8b24fdd8821f858f461bf2a0ae70398dbb0a1ea",
+      "rows": 135,
+      "provenance": {
+        "rows": 135,
+        "human_gold_rows": 135,
+        "unique_image_sha256": 135,
+        "class_counts": {
+          "人员": 25,
+          "车": 110
+        },
+        "label_counts": {
+          "false": 35,
+          "true": 100
+        },
+        "source_annotation_files": 2,
+        "source_annotation_sha256": [
+          {
+            "path": "/workspace/data/provenance/candidate_pairs.jsonl",
+            "sha256": "e1342ec36f9028e24ce570756b8f60ae05c53f35d2aefe6a23456e95a3bb7fa6"
+          },
+          {
+            "path": "/workspace/data/provenance/gold_labels.jsonl",
+            "sha256": "d6055dd45715f3adb92f6273fb5ed7faa6154859398fd8456e7279c39319dff7"
+          }
+        ],
+        "view_schemas": [
+          "annotated_locator_plus_clean_original_v1"
+        ],
+        "duplicate_groups": 0,
+        "duplicate_extra_rows": 0,
+        "conflict_groups": 0,
+        "unique_source_images": 135,
+        "unique_training_views": 408,
+        "unique_annotated_frames": 45,
+        "unique_clean_frames": 45,
+        "unique_source_event_task_groups": 45,
+        "unique_source_events": 45,
+        "unique_source_tasks": 20
+      }
+    },
+    "validation": {
+      "path": "/workspace/data/validation.jsonl",
+      "sha256": "d642ff9bb7c44bcbab993ff64cd8659c5684f279ae1aa15639eab5526c936254",
+      "rows": 47,
+      "provenance": {
+        "rows": 47,
+        "human_gold_rows": 47,
+        "unique_image_sha256": 47,
+        "class_counts": {
+          "人员": 15,
+          "车": 32
+        },
+        "label_counts": {
+          "false": 12,
+          "true": 35
+        },
+        "source_annotation_files": 2,
+        "source_annotation_sha256": [
+          {
+            "path": "/workspace/data/provenance/candidate_pairs.jsonl",
+            "sha256": "e1342ec36f9028e24ce570756b8f60ae05c53f35d2aefe6a23456e95a3bb7fa6"
+          },
+          {
+            "path": "/workspace/data/provenance/gold_labels.jsonl",
+            "sha256": "d6055dd45715f3adb92f6273fb5ed7faa6154859398fd8456e7279c39319dff7"
+          }
+        ],
+        "view_schemas": [
+          "annotated_locator_plus_clean_original_v1"
+        ],
+        "duplicate_groups": 0,
+        "duplicate_extra_rows": 0,
+        "conflict_groups": 0,
+        "unique_source_images": 47,
+        "unique_training_views": 188,
+        "unique_annotated_frames": 25,
+        "unique_clean_frames": 25,
+        "unique_source_event_task_groups": 25,
+        "unique_source_events": 25,
+        "unique_source_tasks": 12
+      }
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 64
+  },
+  "strict_json_policy": {
+    "required_shape": "{\"decision\":\"CONFIRMED|REJECTED\"}",
+    "invalid_output": "uncertain"
+  },
+  "overall": {
+    "n": 47,
+    "correct": 43,
+    "accuracy": 0.9148936170212766,
+    "coverage_n": 47,
+    "coverage": 1.0,
+    "actual_positive_n": 35,
+    "actual_negative_n": 12,
+    "selective_accuracy": 0.9148936170212766,
+    "far": 0.25,
+    "frr": 0.02857142857142857,
+    "false_accept_rate_actual_negative": 0.25,
+    "false_reject_rate_actual_positive": 0.02857142857142857,
+    "manual_review_rate": 0.0,
+    "confusion": {
+      "tp": 34,
+      "tn": 9,
+      "fp": 3,
+      "fn": 1,
+      "true_uncertain": 0,
+      "false_uncertain": 0
+    }
+  },
+  "by_class": {
+    "人员": {
+      "n": 15,
+      "correct": 14,
+      "accuracy": 0.9333333333333333,
+      "coverage_n": 15,
+      "coverage": 1.0,
+      "actual_positive_n": 6,
+      "actual_negative_n": 9,
+      "selective_accuracy": 0.9333333333333333,
+      "far": 0.1111111111111111,
+      "frr": 0.0,
+      "false_accept_rate_actual_negative": 0.1111111111111111,
+      "false_reject_rate_actual_positive": 0.0,
+      "manual_review_rate": 0.0,
+      "confusion": {
+        "tp": 6,
+        "tn": 8,
+        "fp": 1,
+        "fn": 0,
+        "true_uncertain": 0,
+        "false_uncertain": 0
+      }
+    },
+    "车": {
+      "n": 32,
+      "correct": 29,
+      "accuracy": 0.90625,
+      "coverage_n": 32,
+      "coverage": 1.0,
+      "actual_positive_n": 29,
+      "actual_negative_n": 3,
+      "selective_accuracy": 0.90625,
+      "far": 0.6666666666666666,
+      "frr": 0.034482758620689655,
+      "false_accept_rate_actual_negative": 0.6666666666666666,
+      "false_reject_rate_actual_positive": 0.034482758620689655,
+      "manual_review_rate": 0.0,
+      "confusion": {
+        "tp": 28,
+        "tn": 1,
+        "fp": 2,
+        "fn": 1,
+        "true_uncertain": 0,
+        "false_uncertain": 0
+      }
+    }
+  },
+  "parse_failures": 0
+}

@@ -37,3 +37,5 @@ v2 训练 3 轮，验证损失 0.035 / 0.069 / 0.077。验证集实际判定（�
 ## 文件
 
 `hard/`、`random/`：合并预测、`report.json`、`per_candidate.csv`；`eval-checkpoints/`：三个检查点的验证集判定；`raw/`：v2 adapter 原始输出。
+
+> 2026-10-07：服务器上的 eval-sets/、eval-checkpoints/ 已清理，本目录 raw/、eval-checkpoints/ 为完整副本；训练产物与数据集保留在服务器 `ktd-clean-source-qwen-20260930-v2/`。

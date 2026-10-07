@@ -39,3 +39,5 @@
 - `raw/run*/predictions.jsonl`：模型原始输出；`inputs.jsonl` / `rows.jsonl`：输入清单。
 - 脚本：`scripts/prepare_resolution_ab_inputs.py`、`scripts/run_resolution_ab_eval.py`、`scripts/analyze_resolution_ab.py`。
 - 服务器工作目录：`/data/workspace/jzheng/claude-vsg-resolution-ab-20260929/`（含两组输入图约 321MB，未入库）。
+
+> 2026-10-07：服务器上本次评测的输出、证据与脚本副本已清理（本目录 raw/、evidence/ 已有副本）；两组输入图与清单保留在服务器同名目录的 images/、input/，供自动迭代系统复用。

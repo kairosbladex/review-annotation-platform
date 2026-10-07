@@ -33,3 +33,5 @@
 ## 文件
 
 `report.json`、`per_candidate.csv`、`raw/run*/predictions.jsonl`、`sample.jsonl`、`inputs.jsonl`；统计脚本 `scripts/analyze_resolution_ab.py --labels ../random-traffic-hires-package/annotations.csv`。
+
+> 2026-10-07：服务器上本次评测的输出、证据与脚本副本已清理（本目录 raw/、evidence/ 已有副本）；两组输入图与清单保留在服务器同名目录的 images/、input/，供自动迭代系统复用。
