@@ -1,0 +1,38 @@
+{
+  "event_id": "12c135c77a9c4e53a9c94d1c0d3071af",
+  "candidate_ids": [
+    "12c135c77a9c4e53a9c94d1c0d3071af:000"
+  ],
+  "elapsed": 25.218622686108574,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.7885416666666667,
+          0.8458333333333333,
+          0.8166666666666667,
+          0.8847222222222222
+        ],
+        "decision": "rejected",
+        "rawDecision": "false",
+        "reasoning": "框内目标不符合“人员”类别，且文字与框线不能作为目标证据。",
+        "observedObject": "水表/仪表装置",
+        "imageLimitation": "候选框内主要是水表及标注文字，未见可辨认的人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "17651a35165e4dd0a56c0102d1ea3fc6"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791452935.0614412,
+      "status": "ok",
+      "elapsed": 25.170426505850628
+    }
+  ]
+}

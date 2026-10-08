@@ -1,0 +1,38 @@
+{
+  "event_id": "b4b82f598f4440acbf3e33427b608a7a",
+  "candidate_ids": [
+    "b4b82f598f4440acbf3e33427b608a7a:000"
+  ],
+  "elapsed": 18.41743902815506,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.515625,
+          0.7333333333333333,
+          0.5395833333333333,
+          0.7597222222222222
+        ],
+        "decision": "rejected",
+        "rawDecision": "false",
+        "reasoning": "不能将文字或框线作为人员目标证据，候选框内未见明确人体。",
+        "observedObject": "文字标注及框线",
+        "imageLimitation": "候选框内主要是红色文字和框线，未见可确认的人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "4c79ccf0b077403ea71e60104145a0fb"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453257.4588947,
+      "status": "ok",
+      "elapsed": 18.378734060795978
+    }
+  ]
+}

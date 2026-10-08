@@ -1,0 +1,38 @@
+{
+  "event_id": "47ce05cfa551435a8946aa574fe65090",
+  "candidate_ids": [
+    "47ce05cfa551435a8946aa574fe65090:001"
+  ],
+  "elapsed": 17.030820458894596,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.109375,
+          0.6055555555555555,
+          0.13645833333333332,
+          0.6541666666666667
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内目标明确为汽车，符合“车”类别；判断未依据框线或文字。",
+        "observedObject": "候选框内可见一辆汽车，具有明显车身和四轮车辆结构。",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "3cc38935307240d78e8336ed2425690c"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453036.9470618,
+      "status": "ok",
+      "elapsed": 16.993728030007333
+    }
+  ]
+}

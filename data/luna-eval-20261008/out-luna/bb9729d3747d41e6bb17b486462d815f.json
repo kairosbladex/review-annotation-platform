@@ -1,0 +1,70 @@
+{
+  "event_id": "bb9729d3747d41e6bb17b486462d815f",
+  "candidate_ids": [
+    "bb9729d3747d41e6bb17b486462d815f:002",
+    "bb9729d3747d41e6bb17b486462d815f:000",
+    "bb9729d3747d41e6bb17b486462d815f:001"
+  ],
+  "elapsed": 16.433629389852285,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.35833333333333334,
+          0.5,
+          0.36770833333333336,
+          0.5347222222222222
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "不能仅凭框内颜色或轮廓判定为人员。",
+        "observedObject": "疑似文字或标注附近的细小区域",
+        "imageLimitation": "目标区域过小且被框线、文字干扰，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "人员",
+        "original_bbox": [
+          0.31145833333333334,
+          0.5097222222222222,
+          0.3229166666666667,
+          0.5569444444444445
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "未能清楚看到人体结构，不能确认符合人员类别。",
+        "observedObject": "疑似文字或标注附近的细小区域",
+        "imageLimitation": "目标区域过小且被框线、文字干扰，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 2,
+        "original_class": "人员",
+        "original_bbox": [
+          0.3229166666666667,
+          0.5097222222222222,
+          0.33645833333333336,
+          0.5625
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法唯一判断框内是否为人员，不能据此输出true或false。",
+        "observedObject": "疑似文字或标注附近的细小区域",
+        "imageLimitation": "目标区域过小且被框线、文字干扰，无法确认可见人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "9ed02d7868ae4b2288b34949ae5453f2"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453273.3092966,
+      "status": "ok",
+      "elapsed": 16.385893878992647
+    }
+  ]
+}

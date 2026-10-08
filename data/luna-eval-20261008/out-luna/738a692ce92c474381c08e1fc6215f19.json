@@ -1,0 +1,38 @@
+{
+  "event_id": "738a692ce92c474381c08e1fc6215f19",
+  "candidate_ids": [
+    "738a692ce92c474381c08e1fc6215f19:001"
+  ],
+  "elapsed": 17.95771837909706,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.15416666666666667,
+          0.6027777777777777,
+          0.3104166666666667,
+          0.9986111111111111
+        ],
+        "decision": "rejected",
+        "rawDecision": "false",
+        "reasoning": "候选框内没有可辨认的车体、车轮或其他车辆结构，明显不符合“车”类别。",
+        "observedObject": "建筑雨棚、树木",
+        "imageLimitation": "候选框内主要是建筑雨棚及树木，未见车辆或车辆结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "d120a42a9b6a432180dcfedb9d2d7727"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453120.3276832,
+      "status": "ok",
+      "elapsed": 17.4779733910691
+    }
+  ]
+}

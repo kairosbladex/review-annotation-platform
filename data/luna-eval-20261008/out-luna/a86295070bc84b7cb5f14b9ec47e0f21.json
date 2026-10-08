@@ -1,0 +1,134 @@
+{
+  "event_id": "a86295070bc84b7cb5f14b9ec47e0f21",
+  "candidate_ids": [
+    "a86295070bc84b7cb5f14b9ec47e0f21:004",
+    "a86295070bc84b7cb5f14b9ec47e0f21:005",
+    "a86295070bc84b7cb5f14b9ec47e0f21:000",
+    "a86295070bc84b7cb5f14b9ec47e0f21:001",
+    "a86295070bc84b7cb5f14b9ec47e0f21:002",
+    "a86295070bc84b7cb5f14b9ec47e0f21:003",
+    "a86295070bc84b7cb5f14b9ec47e0f21:006"
+  ],
+  "elapsed": 17.509865466039628,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.21666666666666667,
+          0.7222222222222222,
+          0.228125,
+          0.7361111111111112
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "人员类别需要可见人体结构，当前证据不足。",
+        "observedObject": "候选框内主要为道路边缘/标注区域，未能唯一确认人员。",
+        "imageLimitation": "目标区域过小且被标注文字、框线及周边物体干扰，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "人员",
+        "original_bbox": [
+          0.28229166666666666,
+          0.7236111111111111,
+          0.2947916666666667,
+          0.7347222222222223
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "人员类别需要明确的人体结构，当前无法确认。",
+        "observedObject": "候选框内未能唯一辨认人员。",
+        "imageLimitation": "目标区域过小且被标注文字、框线及周边物体干扰，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 2,
+        "original_class": "人员",
+        "original_bbox": [
+          0.13958333333333334,
+          0.7111111111111111,
+          0.15104166666666666,
+          0.725
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法唯一定位并确认人员，按规则输出uncertain。",
+        "observedObject": "候选框内疑似有小目标，但不能排除标注或其他物体。",
+        "imageLimitation": "目标区域过小并受文字、框线及遮挡影响，无法确认人体结构。"
+      },
+      {
+        "target_index": 3,
+        "original_class": "人员",
+        "original_bbox": [
+          0.15520833333333334,
+          0.7430555555555556,
+          0.16770833333333332,
+          0.7583333333333333
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "人员类别证据不足，不能仅凭框线或文字判断。",
+        "observedObject": "未能清晰辨认可见人体结构。",
+        "imageLimitation": "候选框很小，目标被框线和周边车辆/道路元素干扰。"
+      },
+      {
+        "target_index": 4,
+        "original_class": "人员",
+        "original_bbox": [
+          0.18125,
+          0.7472222222222222,
+          0.19375,
+          0.7597222222222222
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "不能唯一确认人员目标。",
+        "observedObject": "候选框内疑似为道路边缘物体。",
+        "imageLimitation": "候选区域过小且存在遮挡，无法确认头部、躯干或四肢等人体结构。"
+      },
+      {
+        "target_index": 5,
+        "original_class": "人员",
+        "original_bbox": [
+          0.209375,
+          0.7444444444444445,
+          0.21875,
+          0.7597222222222222
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "人员类别未获得明确视觉证据。",
+        "observedObject": "无法清晰辨认人体结构。",
+        "imageLimitation": "目标尺寸过小并受标注框线、车辆及道路背景影响。"
+      },
+      {
+        "target_index": 6,
+        "original_class": "人员",
+        "original_bbox": [
+          0.68125,
+          0.07777777777777778,
+          0.6895833333333333,
+          0.09444444444444444
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法排除标注或其他非人员物体，因此输出uncertain。",
+        "observedObject": "未能确认可见人体结构。",
+        "imageLimitation": "候选框位于树木和铺装区域附近，目标尺寸极小，细节不可辨。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "87e576a5620f46d284bdc5876042301b"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453224.2096965,
+      "status": "ok",
+      "elapsed": 17.462182214017957
+    }
+  ]
+}

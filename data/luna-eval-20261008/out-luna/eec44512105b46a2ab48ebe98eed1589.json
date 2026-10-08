@@ -1,0 +1,38 @@
+{
+  "event_id": "eec44512105b46a2ab48ebe98eed1589",
+  "candidate_ids": [
+    "eec44512105b46a2ab48ebe98eed1589:019"
+  ],
+  "elapsed": 17.06314883683808,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "公交车",
+        "original_bbox": [
+          0.5541666666666667,
+          0.9138888888888889,
+          0.5760416666666667,
+          0.9777777777777777
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "仅凭当前可见外观不能明确符合公交车类别，且不将文字或框线作为证据。",
+        "observedObject": "疑似车辆目标",
+        "imageLimitation": "候选框内目标较小且被标注框覆盖，无法清晰确认其车辆结构及是否为公交车。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "322fb2b4ab8a4f4885ab75173ebbbdd4"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453338.5889518,
+      "status": "ok",
+      "elapsed": 17.021219149930403
+    }
+  ]
+}

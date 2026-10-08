@@ -1,0 +1,36 @@
+{
+  "branch": "feature/ktd-recheck-training",
+  "baseline_commit": "9217c89f3e45e444c2c4a9aa54fd45afda096045",
+  "worktree": "/Users/wangxiaolin/PycharmProjects/review-annotation-platform",
+  "shared_service_observed_during_run": "yoloe_service_test:codex-luna-ef643c7 sha256:eb10b5b55337ae0c4be79d905c0e629b9e47892582303b0313d294dd99c62c73 2026-10-08T08:28:13.245765359Z 0 healthy",
+  "client_limits": {
+    "memory_bytes": 536870912,
+    "swap_bytes": 0,
+    "cpu_cores": 1,
+    "concurrency": 4
+  },
+  "scripts_sha256": {
+    "scripts/eval_luna_annotated.py": "16347d525cd35220409d97b13a0680d73c7829c1674c59d52f084f2ff4346ec8",
+    "scripts/score_luna_annotated.py": "87d2ad7b6a598d1d32e13bc20588a88709726011840aee31cb660c25d6b8711a",
+    "scripts/test_luna_annotated_eval.py": "63b6063f4842df658b718a2afaf2062890a059a7ed0f536336f2eb199e61add6"
+  },
+  "unit_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "cleanup": {
+    "directory_removed": true,
+    "remaining_client_processes": [],
+    "retained_server_resources": []
+  },
+  "shared_service_after_run": "yoloe_service_test:codex-luna-ef643c7 sha256:eb10b5b55337ae0c4be79d905c0e629b9e47892582303b0313d294dd99c62c73 2026-10-08T08:28:13.245765359Z 0 healthy",
+  "remote_results_verified": 113,
+  "remote_task_bytes_before_cleanup": 287300,
+  "scope_after_run": "inactive",
+  "health_samples": 94,
+  "minimum_available_fraction": 0.25614294309689695,
+  "all_samples_healthy": true,
+  "cleanup_time": "2026-10-08T17:57:19.392303+08:00",
+  "independent_raw_decision_recount": "passed: 212 unique boxes, 113 attempts, all group metrics and transition totals",
+  "baseline_report_crosscheck": "passed: person/vehicle legacy/video right/wrong/manual match existing report"
+}

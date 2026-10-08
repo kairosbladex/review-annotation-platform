@@ -1,0 +1,38 @@
+{
+  "event_id": "e5c944f774634d849cada056b9539541",
+  "candidate_ids": [
+    "e5c944f774634d849cada056b9539541:000"
+  ],
+  "elapsed": 15.218274998944253,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.946875,
+          0.275,
+          0.9677083333333333,
+          0.3
+        ],
+        "decision": "rejected",
+        "rawDecision": "false",
+        "reasoning": "不符合人员类别。",
+        "observedObject": "文字/标识",
+        "imageLimitation": "目标框内主要是红色文字和标识图案，未见可确认的人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "bd4899e68db448ecaf62f5e180f96a39"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453322.1303449,
+      "status": "ok",
+      "elapsed": 15.17880755616352
+    }
+  ]
+}

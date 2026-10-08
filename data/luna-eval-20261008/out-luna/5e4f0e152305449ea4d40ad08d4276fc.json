@@ -1,0 +1,54 @@
+{
+  "event_id": "5e4f0e152305449ea4d40ad08d4276fc",
+  "candidate_ids": [
+    "5e4f0e152305449ea4d40ad08d4276fc:000",
+    "5e4f0e152305449ea4d40ad08d4276fc:003"
+  ],
+  "elapsed": 16.716956238029525,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.7322916666666667,
+          0.8930555555555556,
+          0.759375,
+          0.95
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "仅凭当前候选框内可见内容，缺乏足够车辆结构证据，因此不能明确判定为车。",
+        "observedObject": "疑似小型目标，未能唯一确认是车。",
+        "imageLimitation": "目标区域过小且被框线、文字部分干扰，无法清楚确认车辆所需结构。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "车",
+        "original_bbox": [
+          0.91875,
+          0.8986111111111111,
+          0.9489583333333333,
+          0.9416666666666667
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "框内可见信息不足，不能排除其为其他物体，故不输出true。",
+        "observedObject": "疑似小型目标，未能唯一确认是车。",
+        "imageLimitation": "目标区域过小并部分遮挡，细节不足以确认车辆结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "b8ab7cff8c7e424183215f2a31de4064"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453079.813176,
+      "status": "ok",
+      "elapsed": 16.674063954968005
+    }
+  ]
+}

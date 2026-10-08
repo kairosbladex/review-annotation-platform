@@ -1,0 +1,70 @@
+{
+  "event_id": "a8f2626d28c6499e9ef6f1c1bfa1e2f9",
+  "candidate_ids": [
+    "a8f2626d28c6499e9ef6f1c1bfa1e2f9:003",
+    "a8f2626d28c6499e9ef6f1c1bfa1e2f9:005",
+    "a8f2626d28c6499e9ef6f1c1bfa1e2f9:011"
+  ],
+  "elapsed": 16.856029456947,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.12395833333333334,
+          0.10833333333333334,
+          0.15,
+          0.16111111111111112
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "框内可见细长浅色区域，但细节不足，不能明确判定为车。",
+        "observedObject": "疑似车辆或其他物体",
+        "imageLimitation": "目标较小且被植被/标注遮挡，无法确认车辆结构。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "车",
+        "original_bbox": [
+          0.18333333333333332,
+          0.07777777777777778,
+          0.20208333333333334,
+          0.12083333333333333
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见具有车身轮廓的机动车目标，符合“车”类别。",
+        "observedObject": "车辆",
+        "imageLimitation": "目标尺寸较小，但轮廓和车身形态基本可见。"
+      },
+      {
+        "target_index": 2,
+        "original_class": "车",
+        "original_bbox": [
+          0.3927083333333333,
+          0.6166666666666667,
+          0.41458333333333336,
+          0.6416666666666667
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "框内存在矩形目标，但无法确认其是否为车辆。",
+        "observedObject": "疑似车辆或设备",
+        "imageLimitation": "目标很小且分辨率不足，无法清楚辨认结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "6d93740608f840af8afe7c9728deb85e"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453236.3471825,
+      "status": "ok",
+      "elapsed": 16.809303264133632
+    }
+  ]
+}

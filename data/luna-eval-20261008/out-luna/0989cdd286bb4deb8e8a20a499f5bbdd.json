@@ -1,0 +1,230 @@
+{
+  "event_id": "0989cdd286bb4deb8e8a20a499f5bbdd",
+  "candidate_ids": [
+    "0989cdd286bb4deb8e8a20a499f5bbdd:005",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:012",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:001",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:006",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:008",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:004",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:007",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:009",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:003",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:014",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:013",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:011",
+    "0989cdd286bb4deb8e8a20a499f5bbdd:000"
+  ],
+  "elapsed": 18.560336547903717,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.528125,
+          0.85,
+          0.5364583333333334,
+          0.8666666666666667
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "不能仅凭框线和文字判定为人员。",
+        "observedObject": "标注框/文字及背景",
+        "imageLimitation": "候选框极小且主要覆盖红色标注框，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "人员",
+        "original_bbox": [
+          0.61875,
+          0.1361111111111111,
+          0.625,
+          0.14722222222222223
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "缺乏可见人体证据。",
+        "observedObject": "标注区域及背景",
+        "imageLimitation": "候选框极小，未能清晰辨认人体结构。"
+      },
+      {
+        "target_index": 2,
+        "original_class": "人员",
+        "original_bbox": [
+          0.23020833333333332,
+          0.8458333333333333,
+          0.24270833333333333,
+          0.8611111111111112
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "不能将标注作为目标证据。",
+        "observedObject": "标注框/文字及背景",
+        "imageLimitation": "候选框极小且被标注覆盖，无法确认人体结构。"
+      },
+      {
+        "target_index": 3,
+        "original_class": "人员",
+        "original_bbox": [
+          0.54375,
+          0.5944444444444444,
+          0.55,
+          0.6097222222222223
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法观察到明确人体结构。",
+        "observedObject": "标注框附近的地面/背景",
+        "imageLimitation": "候选框过小，细节不足以确认人体。"
+      },
+      {
+        "target_index": 4,
+        "original_class": "人员",
+        "original_bbox": [
+          0.5645833333333333,
+          0.6027777777777777,
+          0.5708333333333333,
+          0.6152777777777778
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "不能唯一确认人员目标。",
+        "observedObject": "标注框及背景",
+        "imageLimitation": "候选框极小并受文字标注干扰。"
+      },
+      {
+        "target_index": 5,
+        "original_class": "人员",
+        "original_bbox": [
+          0.509375,
+          0.8125,
+          0.5166666666666667,
+          0.8236111111111111
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "缺少可见人体结构证据。",
+        "observedObject": "标注区域及背景",
+        "imageLimitation": "候选框过小，无法辨认人体轮廓。"
+      },
+      {
+        "target_index": 6,
+        "original_class": "人员",
+        "original_bbox": [
+          0.55,
+          0.5944444444444444,
+          0.55625,
+          0.6111111111111112
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "不能据此确认人员。",
+        "observedObject": "标注框/文字及背景",
+        "imageLimitation": "候选框极小且与相邻标注重叠。"
+      },
+      {
+        "target_index": 7,
+        "original_class": "人员",
+        "original_bbox": [
+          0.5666666666666667,
+          0.6125,
+          0.5729166666666666,
+          0.6277777777777778
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法清晰观察人体结构。",
+        "observedObject": "标注区域及背景",
+        "imageLimitation": "候选框过小，目标被标注遮挡。"
+      },
+      {
+        "target_index": 8,
+        "original_class": "人员",
+        "original_bbox": [
+          0.33958333333333335,
+          0.005555555555555556,
+          0.3458333333333333,
+          0.020833333333333332
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法确认可见人体结构。",
+        "observedObject": "标注框及背景",
+        "imageLimitation": "候选框位于图像边缘且尺寸极小。"
+      },
+      {
+        "target_index": 9,
+        "original_class": "人员",
+        "original_bbox": [
+          0.6791666666666667,
+          0.18888888888888888,
+          0.6854166666666667,
+          0.20694444444444443
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "没有足够人体结构证据。",
+        "observedObject": "标注区域及背景",
+        "imageLimitation": "候选框极小且部分位于树木/标注附近。"
+      },
+      {
+        "target_index": 10,
+        "original_class": "人员",
+        "original_bbox": [
+          0.6239583333333333,
+          0.15,
+          0.63125,
+          0.16111111111111112
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "不能仅凭标注判断人员。",
+        "observedObject": "标注框及背景",
+        "imageLimitation": "候选框尺寸过小，细节不可辨。"
+      },
+      {
+        "target_index": 11,
+        "original_class": "人员",
+        "original_bbox": [
+          0.6125,
+          0.7555555555555555,
+          0.61875,
+          0.7666666666666667
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "未能确认人体结构。",
+        "observedObject": "标注区域及背景",
+        "imageLimitation": "候选框极小且位于道路/绿地附近。"
+      },
+      {
+        "target_index": 12,
+        "original_class": "人员",
+        "original_bbox": [
+          0.15729166666666666,
+          0.8638888888888889,
+          0.16979166666666667,
+          0.8777777777777778
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法唯一定位并确认人员目标。",
+        "observedObject": "标注框/文字及背景",
+        "imageLimitation": "候选框靠近图像边缘且被标注干扰。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "cde71cee3c2944068926d09dda465175"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791452931.9433134,
+      "status": "ok",
+      "elapsed": 18.513468329096213
+    }
+  ]
+}

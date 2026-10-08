@@ -1,0 +1,38 @@
+{
+  "event_id": "037fce51334440f38171cbc57cd44237",
+  "candidate_ids": [
+    "037fce51334440f38171cbc57cd44237:001"
+  ],
+  "elapsed": 15.747899923939258,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "卡车",
+        "original_bbox": [
+          0.5625,
+          0.925,
+          0.596875,
+          0.9513888888888888
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "不能仅凭框线、文字或不清晰外观确认其为卡车，缺乏明确的卡车结构证据。",
+        "observedObject": "疑似车辆或车辆标注区域",
+        "imageLimitation": "候选框位于图像底部，目标较小且被标注框线和文字干扰，无法清晰确认车辆结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "9a0f7fdbec414c38ac782378b5e900fe"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791452916.1994064,
+      "status": "ok",
+      "elapsed": 15.692459907848388
+    }
+  ]
+}

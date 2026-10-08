@@ -1,0 +1,38 @@
+{
+  "event_id": "7e69f89700f6410ab4d2cc14ef808ba6",
+  "candidate_ids": [
+    "7e69f89700f6410ab4d2cc14ef808ba6:005"
+  ],
+  "elapsed": 15.670919016003609,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "三轮车",
+        "original_bbox": [
+          0.621875,
+          0.03333333333333333,
+          0.665625,
+          0.2013888888888889
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "目标外形与三轮车类别相符，框线和文字不作为判断依据。",
+        "observedObject": "框内可见一辆带货厢的三轮车，能看到车体及三轮车结构特征",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "fe3ad59500764252808adc3b83742fa0"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453141.4979568,
+      "status": "ok",
+      "elapsed": 15.628774198004976
+    }
+  ]
+}

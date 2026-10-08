@@ -1,0 +1,54 @@
+{
+  "event_id": "0131614611134eb6b8633658f24c5c44",
+  "candidate_ids": [
+    "0131614611134eb6b8633658f24c5c44:000",
+    "0131614611134eb6b8633658f24c5c44:001"
+  ],
+  "elapsed": 16.96434854110703,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "三轮车",
+        "original_bbox": [
+          0.4083333333333333,
+          0.6694444444444444,
+          0.4270833333333333,
+          0.7319444444444444
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "不能仅凭当前可见外观确认其具有三轮结构，因此不满足明确判定为三轮车的条件。",
+        "observedObject": "框内可见一辆被标注的车辆样目标。",
+        "imageLimitation": "目标区域较小且分辨率有限，无法清晰确认车轮数量及车辆结构。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "卡车",
+        "original_bbox": [
+          0.4083333333333333,
+          0.6694444444444444,
+          0.4270833333333333,
+          0.7319444444444444
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "可见结构不足以明确判断为卡车，不能依据框线或文字作出类别推断。",
+        "observedObject": "框内可见一辆被标注的车辆样目标。",
+        "imageLimitation": "目标区域较小且分辨率有限，无法清晰确认车身尺寸、货厢等卡车所需结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "a64cd5f091db41d6ace5d1dd0255c36e"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791452916.1952739,
+      "status": "ok",
+      "elapsed": 16.91541522508487
+    }
+  ]
+}

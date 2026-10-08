@@ -1,0 +1,38 @@
+{
+  "event_id": "f357be64aa62461ba8a049efe28969ee",
+  "candidate_ids": [
+    "f357be64aa62461ba8a049efe28969ee:009"
+  ],
+  "elapsed": 15.228180604055524,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.14583333333333334,
+          0.5083333333333333,
+          0.16666666666666666,
+          0.55
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "候选框内能清楚看到车辆本体，符合“车”类别；判断未依据框线或文字。",
+        "observedObject": "框内可见一辆车的车身结构",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "f52e4f0b6a8e4449841ef1bdd0f8eee9"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453351.0806313,
+      "status": "ok",
+      "elapsed": 15.189622437115759
+    }
+  ]
+}

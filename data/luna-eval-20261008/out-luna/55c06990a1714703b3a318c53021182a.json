@@ -1,0 +1,54 @@
+{
+  "event_id": "55c06990a1714703b3a318c53021182a",
+  "candidate_ids": [
+    "55c06990a1714703b3a318c53021182a:000",
+    "55c06990a1714703b3a318c53021182a:003"
+  ],
+  "elapsed": 16.541222075000405,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.0,
+          0.8986111111111111,
+          0.015625,
+          0.9333333333333333
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "目标外观符合车辆类别，虽部分被裁切但仍可唯一判断为车。",
+        "observedObject": "候选框内可见一辆车的局部及车身结构。",
+        "imageLimitation": ""
+      },
+      {
+        "target_index": 1,
+        "original_class": "车",
+        "original_bbox": [
+          0.225,
+          0.9152777777777777,
+          0.25104166666666666,
+          0.9444444444444444
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "目标具有清晰的车辆外形和车身结构，符合“车”类别。",
+        "observedObject": "候选框内可见一辆车。",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "5370bf54a75f4d66ab3fad9ef6bf5e67"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791453068.8747892,
+      "status": "ok",
+      "elapsed": 16.500310002127662
+    }
+  ]
+}
