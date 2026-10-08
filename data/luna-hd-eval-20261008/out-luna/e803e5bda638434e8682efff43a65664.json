@@ -1,0 +1,38 @@
+{
+  "event_id": "e803e5bda638434e8682efff43a65664",
+  "candidate_ids": [
+    "e803e5bda638434e8682efff43a65664:000"
+  ],
+  "elapsed": 8.772412749007344,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.5140698369494346,
+          0.6812456639068287,
+          0.5369907402391496,
+          0.7173473283954994
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法明确判断为人员，不能仅凭外观推断。",
+        "observedObject": "候选框内可见一个白色及深色小物体，位于水面与平台边缘附近。",
+        "imageLimitation": "目标过小且部分遮挡，无法确认是否具备可见人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "509a7054bc0e4d13bf28792d544ad36f"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456217.5144825,
+      "status": "ok",
+      "elapsed": 8.711676196893677
+    }
+  ]
+}

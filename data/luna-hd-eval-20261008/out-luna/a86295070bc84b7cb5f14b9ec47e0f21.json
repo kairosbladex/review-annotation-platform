@@ -1,0 +1,134 @@
+{
+  "event_id": "a86295070bc84b7cb5f14b9ec47e0f21",
+  "candidate_ids": [
+    "a86295070bc84b7cb5f14b9ec47e0f21:004",
+    "a86295070bc84b7cb5f14b9ec47e0f21:005",
+    "a86295070bc84b7cb5f14b9ec47e0f21:000",
+    "a86295070bc84b7cb5f14b9ec47e0f21:001",
+    "a86295070bc84b7cb5f14b9ec47e0f21:002",
+    "a86295070bc84b7cb5f14b9ec47e0f21:003",
+    "a86295070bc84b7cb5f14b9ec47e0f21:006"
+  ],
+  "elapsed": 17.37338215112686,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.2162115650361366,
+          0.7214848841994848,
+          0.2276714096674338,
+          0.7353738657332876
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "候选框内目标细节不可辨，不能仅凭框线或模糊外观判定为人员。",
+        "observedObject": "疑似小型物体或人员",
+        "imageLimitation": "目标过小且分辨率不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "人员",
+        "original_bbox": [
+          0.2818388930016162,
+          0.7228744456657121,
+          0.29433993379303,
+          0.7339855597816387
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法清晰辨认人体结构。",
+        "observedObject": "疑似小型物体或人员",
+        "imageLimitation": "目标过小且分辨率不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 2,
+        "original_class": "人员",
+        "original_bbox": [
+          0.13912314745058632,
+          0.7103728258616374,
+          0.15058335873353468,
+          0.7242620055736799
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "目标模糊，不能唯一确认类别。",
+        "observedObject": "疑似小型物体或人员",
+        "imageLimitation": "目标过小且分辨率不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 3,
+        "original_class": "人员",
+        "original_bbox": [
+          0.1547517553289713,
+          0.7423177343725545,
+          0.1672536925141345,
+          0.7575956396254843
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法确认头部、躯干或肢体等人体结构。",
+        "observedObject": "疑似小型物体或人员",
+        "imageLimitation": "目标过小且分辨率不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 4,
+        "original_class": "人员",
+        "original_bbox": [
+          0.1807951743184659,
+          0.7464846026335352,
+          0.19329675898239676,
+          0.758984664329566
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "目标细节不足，不能明确符合人员类别。",
+        "observedObject": "疑似小型物体或人员",
+        "imageLimitation": "目标过小且分辨率不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 5,
+        "original_class": "人员",
+        "original_bbox": [
+          0.208921273723673,
+          0.7437070271918687,
+          0.21829781719076152,
+          0.7589847940090478
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法从图像中可靠辨认人体结构。",
+        "observedObject": "疑似小型物体或人员",
+        "imageLimitation": "目标过小且分辨率不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 6,
+        "original_class": "人员",
+        "original_bbox": [
+          0.6807660415219662,
+          0.07704481354331448,
+          0.6890996533882793,
+          0.09371335741168176
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "目标位于远处区域，细节不可见，不能唯一定位并确认是人员。",
+        "observedObject": "疑似小型物体或人员",
+        "imageLimitation": "目标过小且分辨率不足，无法确认可见人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "a7ab55819d914eb797a51f5c24bb13e3"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456162.0771425,
+      "status": "ok",
+      "elapsed": 17.308356516063213
+    }
+  ]
+}

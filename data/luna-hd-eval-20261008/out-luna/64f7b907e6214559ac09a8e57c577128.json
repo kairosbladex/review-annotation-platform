@@ -1,0 +1,38 @@
+{
+  "event_id": "64f7b907e6214559ac09a8e57c577128",
+  "candidate_ids": [
+    "64f7b907e6214559ac09a8e57c577128:000"
+  ],
+  "elapsed": 16.472220945870504,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.8607321163252891,
+          0.8691849886782607,
+          0.8919851193029609,
+          0.9122327744676955
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "目标位于候选框内，能够观察到明确的人体形态，符合“人员”类别。",
+        "observedObject": "框内可见疑似人员的人体结构，包含头部及身体轮廓。",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "24c0abce55ef429b9a71701589a47dac"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456022.8018858,
+      "status": "ok",
+      "elapsed": 16.425544898957014
+    }
+  ]
+}

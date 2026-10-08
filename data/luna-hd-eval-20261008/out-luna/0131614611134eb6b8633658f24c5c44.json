@@ -1,0 +1,54 @@
+{
+  "event_id": "0131614611134eb6b8633658f24c5c44",
+  "candidate_ids": [
+    "0131614611134eb6b8633658f24c5c44:000",
+    "0131614611134eb6b8633658f24c5c44:001"
+  ],
+  "elapsed": 19.361621086951345,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "三轮车",
+        "original_bbox": [
+          0.4083059719074559,
+          0.6691386724137078,
+          0.42705674401044236,
+          0.7316358929521519
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "看不清三轮结构，不能明确判定为三轮车。",
+        "observedObject": "疑似路边摊车或小型车辆，仅能看到部分车体。",
+        "imageLimitation": "目标区域较小且被俯视角度、遮挡及低分辨率影响，无法确认车轮数量。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "卡车",
+        "original_bbox": [
+          0.4083059719074559,
+          0.6691386724137078,
+          0.42705674401044236,
+          0.7316358929521519
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "未见足够清晰的卡车驾驶室及货厢结构，不能明确判定为卡车。",
+        "observedObject": "疑似路边摊车或小型车辆，仅能看到部分车体。",
+        "imageLimitation": "目标区域较小且被俯视角度、遮挡及低分辨率影响，无法确认车辆尺寸和货厢结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "1ae9e8a10408463abbb4c150909e8ead"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791455843.2166421,
+      "status": "ok",
+      "elapsed": 19.314760394161567
+    }
+  ]
+}

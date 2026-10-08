@@ -1,0 +1,54 @@
+{
+  "event_id": "8feb998e8e194fb2bccb31ae06b79452",
+  "candidate_ids": [
+    "8feb998e8e194fb2bccb31ae06b79452:006",
+    "8feb998e8e194fb2bccb31ae06b79452:014"
+  ],
+  "elapsed": 15.674754709005356,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.17034743710235453,
+          0.4145217611589176,
+          0.20889128655651587,
+          0.4409108459324884
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "候选框内能辨认出车辆的车身及车窗等结构，符合“车”类别。",
+        "observedObject": "框内可见一辆车辆",
+        "imageLimitation": ""
+      },
+      {
+        "target_index": 1,
+        "original_class": "车",
+        "original_bbox": [
+          0.17347320990480908,
+          0.30063883006209074,
+          0.21305858072630338,
+          0.32980435744110176
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "候选框内能辨认出车辆的车身及车窗等结构，符合“车”类别。",
+        "observedObject": "框内可见一辆车辆",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "4827967bdbae4ff987448d83b4d064c4"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456107.3524857,
+      "status": "ok",
+      "elapsed": 15.609117765910923
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "event_id": "eb0201b98d014e25aed1f7b9f4759762",
+  "candidate_ids": [
+    "eb0201b98d014e25aed1f7b9f4759762:003",
+    "eb0201b98d014e25aed1f7b9f4759762:006",
+    "eb0201b98d014e25aed1f7b9f4759762:007"
+  ],
+  "elapsed": 7.767257641069591,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.6297726330509246,
+          0.31193135654240794,
+          0.6599906900664139,
+          0.33419690611299496
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见完整汽车车身及车轮等车辆结构，符合“车”类别。",
+        "observedObject": "汽车",
+        "imageLimitation": ""
+      },
+      {
+        "target_index": 1,
+        "original_class": "车",
+        "original_bbox": [
+          0.7756014970830734,
+          0.28575317773525283,
+          0.7922885817060974,
+          0.3302208026528828
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见汽车车身和车轮，符合“车”类别。",
+        "observedObject": "汽车",
+        "imageLimitation": ""
+      },
+      {
+        "target_index": 2,
+        "original_class": "车",
+        "original_bbox": [
+          0.8047652221795649,
+          0.2830175488939848,
+          0.8235380260574278,
+          0.33304353569050976
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见汽车车身及车轮等结构，符合“车”类别。",
+        "observedObject": "汽车",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "467cfca927774a1080c6b05ec3f0609e"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456220.6934927,
+      "status": "ok",
+      "elapsed": 7.707676014862955
+    }
+  ]
+}

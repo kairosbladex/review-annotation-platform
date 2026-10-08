@@ -1,0 +1,38 @@
+{
+  "event_id": "1ba19da08d5f4139817f9ccdf307f086",
+  "candidate_ids": [
+    "1ba19da08d5f4139817f9ccdf307f086:005"
+  ],
+  "elapsed": 16.581531737931073,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.28876178270345204,
+          0.3091521971535238,
+          0.3158697164535384,
+          0.3356590403902304
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见完整车身及车辆外形，符合“车”类别；未将框线或其他文字作为证据。",
+        "observedObject": "停放的小型车辆",
+        "imageLimitation": "目标较小但轮廓和车身结构可见，未见明显遮挡。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "10f80d1f4d0848be887208f9b9eaa29b"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791455896.7598028,
+      "status": "ok",
+      "elapsed": 16.528919846983626
+    }
+  ]
+}

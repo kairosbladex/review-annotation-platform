@@ -1,0 +1,38 @@
+{
+  "event_id": "9fd6d20c9b8343ed959cef72d8c06689",
+  "candidate_ids": [
+    "9fd6d20c9b8343ed959cef72d8c06689:000"
+  ],
+  "elapsed": 15.434444940183312,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.6577987299719639,
+          0.6826884235486889,
+          0.6765616442645037,
+          0.7173880430104369
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内目标明确符合人员类别，非框线或文字。",
+        "observedObject": "候选框内可见人员的人体结构，包括头部和身体。",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "d0a7a07bc3ba4949b2c8dba7ec0f0341"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456145.3008764,
+      "status": "ok",
+      "elapsed": 15.376446439884603
+    }
+  ]
+}

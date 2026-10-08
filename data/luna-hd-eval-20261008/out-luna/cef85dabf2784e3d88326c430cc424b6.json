@@ -1,0 +1,38 @@
+{
+  "event_id": "cef85dabf2784e3d88326c430cc424b6",
+  "candidate_ids": [
+    "cef85dabf2784e3d88326c430cc424b6:000"
+  ],
+  "elapsed": 6.036875037942082,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.5922186668072478,
+          0.7770115337282609,
+          0.6161766757117821,
+          0.8214426736447147
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "候选框内明确可见完整的人体部分，目标可唯一定位，未将框线或文字作为依据。",
+        "observedObject": "框内可见人体的头部、躯干和肢体结构，符合人员类别。",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "32159fd8e4334eb993f29511cc342d43"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456210.36114,
+      "status": "ok",
+      "elapsed": 5.994067367166281
+    }
+  ]
+}

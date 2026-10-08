@@ -1,0 +1,38 @@
+{
+  "event_id": "0ff1eadfd37d4144870b0f452a8e22b7",
+  "candidate_ids": [
+    "0ff1eadfd37d4144870b0f452a8e22b7:017"
+  ],
+  "elapsed": 17.062091322848573,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.5452096275446753,
+          0.5953461730015087,
+          0.5795760899580586,
+          0.6203798132555769
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "目标具有清晰的汽车车身、车顶和车窗结构，符合“车”类别；未将框线作为判断依据。",
+        "observedObject": "框内可见一辆汽车",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "2a1f5da8c3a7469594e598b90e6051e0"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791455861.5307188,
+      "status": "ok",
+      "elapsed": 17.01055075484328
+    }
+  ]
+}

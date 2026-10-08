@@ -24,6 +24,7 @@ MODEL = 'gpt-5.6-luna'
 POLICY = 'only_true_is_true_v1'
 ANNOTATED = Path('/data/workspace/jzheng/codex-ktd-real-monitoring-20260924/work/annotated')
 TASK = Path('/data/workspace/jzheng/codex-luna-eval-20261008')
+ALLOWED_TASKS = {TASK, Path('/data/workspace/jzheng/codex-luna-hd-20261008')}
 WORKER = Path('/data/workspace/jzheng/codex-luna-review')
 URL = 'http://192.168.130.238:18396/review'
 
@@ -66,12 +67,18 @@ def health():
 
 def main():
     p = argparse.ArgumentParser();p.add_argument('--task-dir', type=Path, default=TASK)
+    # 原帧评测：--image-dir 指向从原视频取出的 1920×1080 帧，--allowlist 为投影到原帧坐标的框
+    p.add_argument('--image-dir', type=Path, default=ANNOTATED)
+    p.add_argument('--allowlist', default='allowlist.json')
+    p.add_argument('--image-size', default='960x720')
+    p.add_argument('--events', type=int, default=113);p.add_argument('--boxes', type=int, default=212)
     args = p.parse_args();root = args.task_dir.resolve()
-    if root != TASK: raise SystemExit('unexpected task directory')
+    if root not in ALLOWED_TASKS: raise SystemExit('unexpected task directory')
+    image_dir = args.image_dir;size = tuple(int(x) for x in args.image_size.split('x'))
     # Exclusively created by the caller, contains no videos, labels, or credentials.
-    manifest = json.loads((root/'allowlist.json').read_text())
-    assert len(manifest) == 113 and sum(len(e['detections']) for e in manifest) == 212
-    assert len({e['event_id'] for e in manifest}) == 113
+    manifest = json.loads((root/args.allowlist).read_text())
+    assert len(manifest) == args.events and sum(len(e['detections']) for e in manifest) == args.boxes
+    assert len({e['event_id'] for e in manifest}) == args.events
     images = {}
     for e in manifest:
         assert set(e) == {'event_id', 'detections'} and re.fullmatch('[0-9a-f]{32}', e['event_id'])
@@ -79,10 +86,10 @@ def main():
             assert set(d) == {'candidate_id', 'class_name', 'bbox'}
             assert d['candidate_id'].startswith(e['event_id'] + ':')
             a,b,c,f = d['bbox'];assert 0 <= a < c <= 1 and 0 <= b < f <= 1
-        path = ANNOTATED/(e['event_id']+'.jpg')
+        path = image_dir/(e['event_id']+'.jpg')
         # Pillow validates dimensions without making a new image or changing bytes.
         from PIL import Image
-        with Image.open(path) as im: assert im.size == (960,720)
+        with Image.open(path) as im: assert im.size == size
         images[e['event_id']] = hashlib.sha256(path.read_bytes()).hexdigest()
     token = None
     for line in (WORKER/'private.env').read_text().splitlines():
@@ -90,7 +97,8 @@ def main():
         if sep and key.strip() == 'CODEX_REVIEW_WORKER_TOKEN': token = val.strip().strip('\"\'')
     if not token: raise SystemExit('missing worker credential')
     initial = health()
-    write_json(root/'input-audit.json', dict(events=113, boxes=212, image_sha256=images, health=initial,
+    write_json(root/'input-audit.json', dict(events=args.events, boxes=args.boxes, image_dir=str(image_dir),
+        image_size=args.image_size, image_sha256=images, health=initial,
         worker_source_sha256=hashlib.sha256((WORKER/'source/scripts/run_codex_luna_worker.py').read_bytes()).hexdigest(),
         concurrency=4, max_attempts_per_event=2, model=MODEL, policy=POLICY, clean_image=False))
     out = root/'out-luna';out.mkdir(exist_ok=True)
@@ -117,7 +125,7 @@ def main():
             health()
             if attempt: time.sleep(30)
             health()
-            raw=(ANNOTATED/(eid+'.jpg')).read_bytes()
+            raw=(image_dir/(eid+'.jpg')).read_bytes()
             assert hashlib.sha256(raw).hexdigest()==images[eid]
             payload=dict(image=base64.b64encode(raw).decode(), candidates=[
                 dict(target_index=i,class_name=d['class_name'],bbox=d['bbox']) for i,d in enumerate(e['detections'])])

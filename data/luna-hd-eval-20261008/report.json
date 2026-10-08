@@ -1,0 +1,122 @@
+{
+ "scored_boxes": 210,
+ "missing_hd": [],
+ "failed_events": [],
+ "person": {
+  "n": 110,
+  "screenshot": {
+   "uncertain_as_false": {
+    "right": 58,
+    "wrong": 52,
+    "manual": 0,
+    "accuracy": 0.527
+   },
+   "uncertain_as_manual": {
+    "right": 19,
+    "wrong": 21,
+    "manual": 70,
+    "accuracy": 0.475
+   },
+   "raw_vs_gold": {
+    "false/假": 4,
+    "false/真": 12,
+    "true/假": 9,
+    "true/真": 15,
+    "uncertain/假": 39,
+    "uncertain/真": 31
+   },
+   "true_rejected": 43,
+   "false_passed": 9
+  },
+  "hd": {
+   "uncertain_as_false": {
+    "right": 65,
+    "wrong": 45,
+    "manual": 0,
+    "accuracy": 0.591
+   },
+   "uncertain_as_manual": {
+    "right": 24,
+    "wrong": 10,
+    "manual": 76,
+    "accuracy": 0.706
+   },
+   "raw_vs_gold": {
+    "false/假": 10,
+    "false/真": 9,
+    "true/假": 1,
+    "true/真": 14,
+    "uncertain/假": 41,
+    "uncertain/真": 35
+   },
+   "true_rejected": 44,
+   "false_passed": 1
+  },
+  "screenshot_to_hd_online_rule": {
+   "right->right": 48,
+   "wrong->wrong": 35,
+   "wrong->right": 17,
+   "right->wrong": 10
+  }
+ },
+ "vehicle": {
+  "n": 100,
+  "screenshot": {
+   "uncertain_as_false": {
+    "right": 82,
+    "wrong": 18,
+    "manual": 0,
+    "accuracy": 0.82
+   },
+   "uncertain_as_manual": {
+    "right": 73,
+    "wrong": 8,
+    "manual": 19,
+    "accuracy": 0.901
+   },
+   "raw_vs_gold": {
+    "false/假": 1,
+    "true/假": 8,
+    "true/真": 72,
+    "uncertain/假": 9,
+    "uncertain/真": 10
+   },
+   "true_rejected": 10,
+   "false_passed": 8
+  },
+  "hd": {
+   "uncertain_as_false": {
+    "right": 91,
+    "wrong": 9,
+    "manual": 0,
+    "accuracy": 0.91
+   },
+   "uncertain_as_manual": {
+    "right": 83,
+    "wrong": 7,
+    "manual": 10,
+    "accuracy": 0.922
+   },
+   "raw_vs_gold": {
+    "false/假": 3,
+    "true/假": 7,
+    "true/真": 80,
+    "uncertain/假": 8,
+    "uncertain/真": 2
+   },
+   "true_rejected": 2,
+   "false_passed": 7
+  },
+  "screenshot_to_hd_online_rule": {
+   "right->right": 79,
+   "wrong->wrong": 6,
+   "wrong->right": 12,
+   "right->wrong": 3
+  }
+ },
+ "hd_request_seconds": {
+  "median": 16.1,
+  "p90": 18.2,
+  "max": 25.4
+ }
+}

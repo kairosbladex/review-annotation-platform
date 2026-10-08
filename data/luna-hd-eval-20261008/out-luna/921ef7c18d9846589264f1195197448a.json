@@ -1,0 +1,38 @@
+{
+  "event_id": "921ef7c18d9846589264f1195197448a",
+  "candidate_ids": [
+    "921ef7c18d9846589264f1195197448a:004"
+  ],
+  "elapsed": 21.084215546026826,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.9661913539194413,
+          0.9548366431305108,
+          0.9849401347142532,
+          0.9687215907847707
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "目标严重遮挡、分辨率不足，不能明确判定为车。",
+        "observedObject": "右下角疑似小型物体或车辆局部",
+        "imageLimitation": "候选框内目标过小且仅能看到局部，无法确认车辆所需结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "6fd088b4b73c4690a1e69210886c8c4a"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456123.0105574,
+      "status": "ok",
+      "elapsed": 21.036196910077706
+    }
+  ]
+}

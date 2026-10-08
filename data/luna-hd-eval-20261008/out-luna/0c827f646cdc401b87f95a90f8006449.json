@@ -1,0 +1,38 @@
+{
+  "event_id": "0c827f646cdc401b87f95a90f8006449",
+  "candidate_ids": [
+    "0c827f646cdc401b87f95a90f8006449:000"
+  ],
+  "elapsed": 16.9117001791019,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.27277168351770353,
+          0.3841213077188855,
+          0.3092138976545851,
+          0.4091378890155672
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "候选框内可见完整的汽车车身和车轮，符合“车”类别。",
+        "observedObject": "停放的小汽车",
+        "imageLimitation": "目标较小但可见，车辆轮廓和车身结构清楚；不涉及车牌识别。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "324e058bbe634c809c44ec8df74fbbde"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791455860.5676541,
+      "status": "ok",
+      "elapsed": 16.84984915005043
+    }
+  ]
+}

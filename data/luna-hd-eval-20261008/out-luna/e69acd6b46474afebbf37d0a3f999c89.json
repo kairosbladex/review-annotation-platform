@@ -1,0 +1,38 @@
+{
+  "event_id": "e69acd6b46474afebbf37d0a3f999c89",
+  "candidate_ids": [
+    "e69acd6b46474afebbf37d0a3f999c89:004"
+  ],
+  "elapsed": 9.292899104999378,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.9318402949400499,
+          0.0838884164840911,
+          0.9651805564312184,
+          0.1075117718544877
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "目标具有明显的汽车车身和车轮轮廓，符合“车”类别。",
+        "observedObject": "框内可见一辆道路上的汽车",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "1629753ca256489482864a34eb06a752"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456216.431816,
+      "status": "ok",
+      "elapsed": 9.216553990961984
+    }
+  ]
+}

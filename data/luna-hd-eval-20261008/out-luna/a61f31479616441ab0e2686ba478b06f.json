@@ -1,0 +1,86 @@
+{
+  "event_id": "a61f31479616441ab0e2686ba478b06f",
+  "candidate_ids": [
+    "a61f31479616441ab0e2686ba478b06f:002",
+    "a61f31479616441ab0e2686ba478b06f:003",
+    "a61f31479616441ab0e2686ba478b06f:006",
+    "a61f31479616441ab0e2686ba478b06f:016"
+  ],
+  "elapsed": 18.246115076122805,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.29949794784701805,
+          0.8937080645780008,
+          0.31721210931361804,
+          0.9520554974248299
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见完整汽车车身和车轮结构，明确属于车。",
+        "observedObject": "车辆",
+        "imageLimitation": ""
+      },
+      {
+        "target_index": 1,
+        "original_class": "车",
+        "original_bbox": [
+          0.310962667739588,
+          0.8145257195483442,
+          0.32867613552292985,
+          0.8700929067128114
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见完整汽车车身和车轮结构，明确属于车。",
+        "observedObject": "车辆",
+        "imageLimitation": ""
+      },
+      {
+        "target_index": 2,
+        "original_class": "车",
+        "original_bbox": [
+          0.33286343096264864,
+          0.41171173096975205,
+          0.36098981243075207,
+          0.432548634948281
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见汽车车身及车轮，明确属于车。",
+        "observedObject": "车辆",
+        "imageLimitation": ""
+      },
+      {
+        "target_index": 3,
+        "original_class": "车",
+        "original_bbox": [
+          0.49015372960000103,
+          0.39784286108941447,
+          0.5161944258251404,
+          0.420067679039739
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见汽车车身及车轮，明确属于车。",
+        "observedObject": "车辆",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "56fd1034ae374034a519766aeb58a0c9"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456154.5090387,
+      "status": "ok",
+      "elapsed": 18.193094944115728
+    }
+  ]
+}

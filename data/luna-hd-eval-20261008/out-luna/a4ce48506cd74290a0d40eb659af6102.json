@@ -1,0 +1,118 @@
+{
+  "event_id": "a4ce48506cd74290a0d40eb659af6102",
+  "candidate_ids": [
+    "a4ce48506cd74290a0d40eb659af6102:003",
+    "a4ce48506cd74290a0d40eb659af6102:004",
+    "a4ce48506cd74290a0d40eb659af6102:002",
+    "a4ce48506cd74290a0d40eb659af6102:000",
+    "a4ce48506cd74290a0d40eb659af6102:005",
+    "a4ce48506cd74290a0d40eb659af6102:001"
+  ],
+  "elapsed": 17.445100361015648,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.2338944926468057,
+          0.4687352415180613,
+          0.2411865321419601,
+          0.4826254451106918
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "候选框内目标分辨率过低，不能排除是车辆、设施或其他物体，无法明确判定为人员。",
+        "observedObject": "道路及路缘附近的微小目标",
+        "imageLimitation": "目标过小且细节不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "人员",
+        "original_bbox": [
+          0.27660144754632243,
+          0.49234899083580985,
+          0.2838936536229699,
+          0.5104060771720251
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法清晰辨认头部、躯干或四肢等人体结构。",
+        "observedObject": "道路边缘的微小目标",
+        "imageLimitation": "目标过小且细节不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 2,
+        "original_class": "人员",
+        "original_bbox": [
+          0.21201825225587573,
+          0.5159611000076632,
+          0.22035196562661388,
+          0.5326291536672634
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "图像细节不足，不能唯一确认目标为人员。",
+        "observedObject": "道路附近的微小目标",
+        "imageLimitation": "目标过小且细节不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 3,
+        "original_class": "人员",
+        "original_bbox": [
+          0.13701806293491334,
+          0.5631859455451979,
+          0.14847650866529313,
+          0.5742979598304707
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "候选框内内容模糊，缺少明确人体结构证据。",
+        "observedObject": "道路上的微小目标",
+        "imageLimitation": "目标过小且细节不足，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 4,
+        "original_class": "人员",
+        "original_bbox": [
+          0.5807261037039305,
+          0.9826375021000011,
+          0.5921843200977233,
+          0.9965258627146671
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "目标仅部分可见，无法唯一判断为人员。",
+        "observedObject": "人行道边缘的微小目标",
+        "imageLimitation": "目标位于图像边缘且严重裁切，无法确认可见人体结构。"
+      },
+      {
+        "target_index": 5,
+        "original_class": "人员",
+        "original_bbox": [
+          0.15993542793542984,
+          0.5187384086274371,
+          0.1713939675049322,
+          0.5312395411097087
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "无法清晰辨认人体结构，因此不能明确符合人员类别。",
+        "observedObject": "道路边缘的微小目标",
+        "imageLimitation": "目标过小且细节不足，无法确认可见人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "0ceca3de350440bcab5641d5d28d56b7"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456153.9364896,
+      "status": "ok",
+      "elapsed": 17.393809099914506
+    }
+  ]
+}

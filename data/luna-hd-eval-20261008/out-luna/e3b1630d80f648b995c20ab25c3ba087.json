@@ -1,0 +1,38 @@
+{
+  "event_id": "e3b1630d80f648b995c20ab25c3ba087",
+  "candidate_ids": [
+    "e3b1630d80f648b995c20ab25c3ba087:003"
+  ],
+  "elapsed": 6.581445194082335,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.12245561552606385,
+          0.11865818764064749,
+          0.1547452052302227,
+          0.14643465159166844
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "目标具有清晰的车身和四轮乘用车结构，符合“车”类别。",
+        "observedObject": "框内可见一辆汽车",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "3647c0b7a5ce43feaadf6920aa24f4c0"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456214.0977361,
+      "status": "ok",
+      "elapsed": 6.53515438712202
+    }
+  ]
+}

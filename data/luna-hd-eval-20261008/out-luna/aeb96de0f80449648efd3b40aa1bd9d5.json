@@ -1,0 +1,38 @@
+{
+  "event_id": "aeb96de0f80449648efd3b40aa1bd9d5",
+  "candidate_ids": [
+    "aeb96de0f80449648efd3b40aa1bd9d5:000"
+  ],
+  "elapsed": 15.451510332990438,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.8808432478681653,
+          0.3478084086287113,
+          0.9027275577961021,
+          0.3714250249304505
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "未见足够明确的人体结构证据，因此不能判定符合“人员”类别。",
+        "observedObject": "候选框内为一个小型白色物体，无法唯一判断为人员。",
+        "imageLimitation": "目标区域过小且存在明显模糊，无法确认可见人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "8e7793b084304c9e94eac0603b93b221"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456176.347787,
+      "status": "ok",
+      "elapsed": 15.400531033985317
+    }
+  ]
+}

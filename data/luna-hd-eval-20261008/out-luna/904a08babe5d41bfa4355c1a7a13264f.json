@@ -1,0 +1,86 @@
+{
+  "event_id": "904a08babe5d41bfa4355c1a7a13264f",
+  "candidate_ids": [
+    "904a08babe5d41bfa4355c1a7a13264f:004",
+    "904a08babe5d41bfa4355c1a7a13264f:009",
+    "904a08babe5d41bfa4355c1a7a13264f:014",
+    "904a08babe5d41bfa4355c1a7a13264f:018"
+  ],
+  "elapsed": 18.10478055407293,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "车",
+        "original_bbox": [
+          0.28918866125759546,
+          0.2867301621667632,
+          0.323565017994953,
+          0.31590325876315345
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "框内可见浅色区域，但细节不足，不能明确判定为车。",
+        "observedObject": "疑似车体或车辆局部",
+        "imageLimitation": "目标过小且被树木遮挡，无法确认车辆结构。"
+      },
+      {
+        "target_index": 1,
+        "original_class": "车",
+        "original_bbox": [
+          0.31312558296000054,
+          0.4575720225631454,
+          0.33188089814217336,
+          0.5131341489613722
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内清晰可见完整汽车车身及车轮布局，符合“车”类别。",
+        "observedObject": "汽车",
+        "imageLimitation": "车辆虽较小，但轮廓和车身结构可辨。"
+      },
+      {
+        "target_index": 2,
+        "original_class": "车",
+        "original_bbox": [
+          0.3308407759373492,
+          0.3895162376542776,
+          0.3495950483337127,
+          0.44229874191343843
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可辨认出汽车车身、车窗和车轮，符合“车”类别。",
+        "observedObject": "汽车",
+        "imageLimitation": "车辆部分受植被边缘影响，但主体结构可见。"
+      },
+      {
+        "target_index": 3,
+        "original_class": "车",
+        "original_bbox": [
+          0.6724533080286572,
+          0.6423431716988253,
+          0.7026554200408398,
+          0.6742909748467094
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见明确的汽车车身和车轮结构，符合“车”类别。",
+        "observedObject": "汽车",
+        "imageLimitation": "车辆较小且部分被树木遮挡。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "dad9e75f6f014f76bdcf62a4dfa481cc"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456120.7070594,
+      "status": "ok",
+      "elapsed": 18.056308252969757
+    }
+  ]
+}

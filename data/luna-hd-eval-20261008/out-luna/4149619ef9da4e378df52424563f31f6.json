@@ -1,0 +1,38 @@
+{
+  "event_id": "4149619ef9da4e378df52424563f31f6",
+  "candidate_ids": [
+    "4149619ef9da4e378df52424563f31f6:000"
+  ],
+  "elapsed": 16.87285865400918,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.843265420160821,
+          0.8744138500881441,
+          0.8661970114981039,
+          0.8994363150915565
+        ],
+        "decision": "rejected",
+        "rawDecision": "false",
+        "reasoning": "候选框内没有可见的人体结构，不符合“人员”类别。",
+        "observedObject": "一个小型圆形物体或孔洞，未见人体结构。",
+        "imageLimitation": "目标区域清晰可见。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "f4c96edf6a284e569ff8c00b8cdd91d5"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791455958.1990058,
+      "status": "ok",
+      "elapsed": 16.82127510290593
+    }
+  ]
+}

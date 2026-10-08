@@ -1,0 +1,38 @@
+{
+  "event_id": "f8ebb5a34aaf4056b21c9e6f59ad629d",
+  "candidate_ids": [
+    "f8ebb5a34aaf4056b21c9e6f59ad629d:000"
+  ],
+  "elapsed": 6.5936900968663394,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "三轮车",
+        "original_bbox": [
+          0.407063922187795,
+          0.6678891527963553,
+          0.4258253809028255,
+          0.731794555094373
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "未发现足够明确的三轮结构证据，不能判定符合三轮车类别。",
+        "observedObject": "框内可见一辆疑似小型车辆或物体。",
+        "imageLimitation": "目标较小且被遮挡，无法清晰确认车辆结构及三轮特征。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "874087b436f8408390d6c5f9e4de165d"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456233.2469792,
+      "status": "ok",
+      "elapsed": 6.5420535888988525
+    }
+  ]
+}

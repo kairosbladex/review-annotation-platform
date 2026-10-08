@@ -1,0 +1,38 @@
+{
+  "event_id": "596dbc4ade5e4742ad955faf49d340d7",
+  "candidate_ids": [
+    "596dbc4ade5e4742ad955faf49d340d7:000"
+  ],
+  "elapsed": 16.31437042914331,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.864119571598244,
+          0.2548188052068246,
+          0.8912097384417605,
+          0.2867672319556317
+        ],
+        "decision": "rejected",
+        "rawDecision": "false",
+        "reasoning": "框内未见可确认的人体结构，因此不符合“人员”类别。",
+        "observedObject": "绳索上的小型动物，外形疑似鼠类。",
+        "imageLimitation": "目标较小但可辨认。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "699eb206e7f2406ab234207dd46648f4"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456006.5036106,
+      "status": "ok",
+      "elapsed": 16.25067008496262
+    }
+  ]
+}

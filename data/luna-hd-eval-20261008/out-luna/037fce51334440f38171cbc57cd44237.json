@@ -1,0 +1,38 @@
+{
+  "event_id": "037fce51334440f38171cbc57cd44237",
+  "candidate_ids": [
+    "037fce51334440f38171cbc57cd44237:001"
+  ],
+  "elapsed": 18.307496316963807,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "卡车",
+        "original_bbox": [
+          0.5619843398262765,
+          0.92421070645653,
+          0.596362854128787,
+          0.9505987680288673
+        ],
+        "decision": "rejected",
+        "rawDecision": "uncertain",
+        "reasoning": "目标无法清晰辨认，不能明确判定为卡车。",
+        "observedObject": "疑似屋顶上的小型设备或物体",
+        "imageLimitation": "候选框内目标过小且细节不清，无法确认是否具备卡车所需结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "88bc68ba448a492ea1feb9772ade52ab"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791455843.2269847,
+      "status": "ok",
+      "elapsed": 18.24793679197319
+    }
+  ]
+}

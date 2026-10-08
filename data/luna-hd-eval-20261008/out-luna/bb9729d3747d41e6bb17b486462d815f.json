@@ -1,0 +1,70 @@
+{
+  "event_id": "bb9729d3747d41e6bb17b486462d815f",
+  "candidate_ids": [
+    "bb9729d3747d41e6bb17b486462d815f:002",
+    "bb9729d3747d41e6bb17b486462d815f:000",
+    "bb9729d3747d41e6bb17b486462d815f:001"
+  ],
+  "elapsed": 9.15266909985803,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.3578937269066155,
+          0.4997267913375606,
+          0.367263351938749,
+          0.5344726339321508
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见完整人体结构，明确为人员。",
+        "observedObject": "人员",
+        "imageLimitation": ""
+      },
+      {
+        "target_index": 1,
+        "original_class": "人员",
+        "original_bbox": [
+          0.31108022405858426,
+          0.509471732945725,
+          0.3225316108019929,
+          0.5567192217875634
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见完整人体结构，明确为人员。",
+        "observedObject": "人员",
+        "imageLimitation": ""
+      },
+      {
+        "target_index": 2,
+        "original_class": "人员",
+        "original_bbox": [
+          0.3225229711135715,
+          0.5094666605157064,
+          0.33605618758138495,
+          0.5622741558208242
+        ],
+        "decision": "confirmed",
+        "rawDecision": "true",
+        "reasoning": "框内可见完整人体结构，明确为人员。",
+        "observedObject": "人员",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "438c7d34f3854820903d7af994dea635"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456194.112972,
+      "status": "ok",
+      "elapsed": 9.119833396049216
+    }
+  ]
+}

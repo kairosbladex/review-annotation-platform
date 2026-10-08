@@ -1,0 +1,38 @@
+{
+  "event_id": "130ef3869a854a3da8b2020912f3ef84",
+  "candidate_ids": [
+    "130ef3869a854a3da8b2020912f3ef84:000"
+  ],
+  "elapsed": 15.653049987973645,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.8047203094140704,
+          0.8465332539439598,
+          0.8297210215092665,
+          0.8715365920643062
+        ],
+        "decision": "rejected",
+        "rawDecision": "false",
+        "reasoning": "不符合“人员”类别。",
+        "observedObject": "疑似摄像头/管状设备",
+        "imageLimitation": "候选框内为一个小型摄像头或管状设备，未见可识别的人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "3f57d87cde89426e9530ffaf96ee9f25"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791455877.477946,
+      "status": "ok",
+      "elapsed": 15.59444252611138
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "event_id": "ebf8114691984fcfbde7f28d6c796398",
+  "candidate_ids": [
+    "ebf8114691984fcfbde7f28d6c796398:000"
+  ],
+  "elapsed": 5.950357254128903,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.6518891408327392,
+          0.8827017171280354,
+          0.6769489766827893,
+          0.9215059983186445
+        ],
+        "decision": "rejected",
+        "rawDecision": "false",
+        "reasoning": "候选框内不是人员，明显不符合“人员”类别。",
+        "observedObject": "疑似管道或排水口等设施。",
+        "imageLimitation": "目标区域可见，但未见人体结构。"
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "cbc77a0ae1884ffa990675efda1232dc"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456221.0972652,
+      "status": "ok",
+      "elapsed": 5.909296305850148
+    }
+  ]
+}

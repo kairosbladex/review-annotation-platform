@@ -1,0 +1,38 @@
+{
+  "event_id": "7b60255b248c4620bb7b253826487108",
+  "candidate_ids": [
+    "7b60255b248c4620bb7b253826487108:000"
+  ],
+  "elapsed": 15.27289635897614,
+  "response": {
+    "success": true,
+    "results": [
+      {
+        "target_index": 0,
+        "original_class": "人员",
+        "original_bbox": [
+          0.4198174013533568,
+          0.6657893663370317,
+          0.4417545910989435,
+          0.6977553728911291
+        ],
+        "decision": "rejected",
+        "rawDecision": "false",
+        "reasoning": "不符合人员类别。",
+        "observedObject": "候选框内是桩体或圆形设施局部，无可见人体结构。",
+        "imageLimitation": ""
+      }
+    ],
+    "modelVersion": "gpt-5.6-luna",
+    "policy": "only_true_is_true_v1",
+    "execution_id": "915d704746134764916d48134c928657"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791456072.887064,
+      "status": "ok",
+      "elapsed": 15.207757077878341
+    }
+  ]
+}
