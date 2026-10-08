@@ -1,0 +1,254 @@
+{
+ "events": 113,
+ "replayed_events": 113,
+ "person": {
+  "labels": {
+   "误检": 52,
+   "真目标": 58,
+   "看不清": 1
+  },
+  "video_path": {
+   "n": 110,
+   "right": 27,
+   "wrong": 7,
+   "manual": 76,
+   "true_target": {
+    "total": 58,
+    "confirmed": 9,
+    "wrongly_rejected": 2
+   },
+   "false_target": {
+    "total": 52,
+    "rejected": 18,
+    "wrongly_confirmed": 5
+   }
+  },
+  "legacy_single_image": {
+   "n": 110,
+   "right": 77,
+   "wrong": 33,
+   "manual": 0,
+   "true_target": {
+    "total": 58,
+    "confirmed": 43,
+    "wrongly_rejected": 15
+   },
+   "false_target": {
+    "total": 52,
+    "rejected": 34,
+    "wrongly_confirmed": 18
+   }
+  },
+  "matched_boxes": 96,
+  "video_path_on_matched": {
+   "n": 96,
+   "right": 18,
+   "wrong": 2,
+   "manual": 76,
+   "true_target": {
+    "total": 49,
+    "confirmed": 0,
+    "wrongly_rejected": 2
+   },
+   "false_target": {
+    "total": 47,
+    "rejected": 18,
+    "wrongly_confirmed": 0
+   }
+  },
+  "legacy_on_matched": {
+   "n": 96,
+   "right": 68,
+   "wrong": 28,
+   "manual": 0,
+   "true_target": {
+    "total": 49,
+    "confirmed": 34,
+    "wrongly_rejected": 15
+   },
+   "false_target": {
+    "total": 47,
+    "rejected": 34,
+    "wrongly_confirmed": 13
+   }
+  },
+  "video_path_on_unmatched": {
+   "n": 14,
+   "right": 9,
+   "wrong": 5,
+   "manual": 0,
+   "true_target": {
+    "total": 9,
+    "confirmed": 9,
+    "wrongly_rejected": 0
+   },
+   "false_target": {
+    "total": 5,
+    "rejected": 0,
+    "wrongly_confirmed": 5
+   }
+  },
+  "legacy_on_unmatched": {
+   "n": 14,
+   "right": 9,
+   "wrong": 5,
+   "manual": 0,
+   "true_target": {
+    "total": 9,
+    "confirmed": 9,
+    "wrongly_rejected": 0
+   },
+   "false_target": {
+    "total": 5,
+    "rejected": 0,
+    "wrongly_confirmed": 5
+   }
+  },
+  "hires_clean_upper_bound": {
+   "n": 110,
+   "right": 21,
+   "wrong": 3,
+   "manual": 86,
+   "true_target": {
+    "total": 58,
+    "confirmed": 0,
+    "wrongly_rejected": 3
+   },
+   "false_target": {
+    "total": 52,
+    "rejected": 21,
+    "wrongly_confirmed": 0
+   }
+  },
+  "legacy_to_video_per_box": {
+   "wrong->wrong": 7,
+   "right->right": 22,
+   "wrong->manual": 21,
+   "right->manual": 55,
+   "wrong->right": 5
+  }
+ },
+ "vehicle": {
+  "labels": {
+   "非车": 18,
+   "真车": 82,
+   "看不清": 1
+  },
+  "video_path": {
+   "n": 100,
+   "right": 81,
+   "wrong": 8,
+   "manual": 11,
+   "true_target": {
+    "total": 82,
+    "confirmed": 70,
+    "wrongly_rejected": 5
+   },
+   "false_target": {
+    "total": 18,
+    "rejected": 11,
+    "wrongly_confirmed": 3
+   }
+  },
+  "legacy_single_image": {
+   "n": 100,
+   "right": 77,
+   "wrong": 23,
+   "manual": 0,
+   "true_target": {
+    "total": 82,
+    "confirmed": 67,
+    "wrongly_rejected": 15
+   },
+   "false_target": {
+    "total": 18,
+    "rejected": 10,
+    "wrongly_confirmed": 8
+   }
+  },
+  "matched_boxes": 75,
+  "video_path_on_matched": {
+   "n": 75,
+   "right": 62,
+   "wrong": 2,
+   "manual": 11,
+   "true_target": {
+    "total": 65,
+    "confirmed": 58,
+    "wrongly_rejected": 0
+   },
+   "false_target": {
+    "total": 10,
+    "rejected": 4,
+    "wrongly_confirmed": 2
+   }
+  },
+  "legacy_on_matched": {
+   "n": 75,
+   "right": 58,
+   "wrong": 17,
+   "manual": 0,
+   "true_target": {
+    "total": 65,
+    "confirmed": 55,
+    "wrongly_rejected": 10
+   },
+   "false_target": {
+    "total": 10,
+    "rejected": 3,
+    "wrongly_confirmed": 7
+   }
+  },
+  "video_path_on_unmatched": {
+   "n": 25,
+   "right": 19,
+   "wrong": 6,
+   "manual": 0,
+   "true_target": {
+    "total": 17,
+    "confirmed": 12,
+    "wrongly_rejected": 5
+   },
+   "false_target": {
+    "total": 8,
+    "rejected": 7,
+    "wrongly_confirmed": 1
+   }
+  },
+  "legacy_on_unmatched": {
+   "n": 25,
+   "right": 19,
+   "wrong": 6,
+   "manual": 0,
+   "true_target": {
+    "total": 17,
+    "confirmed": 12,
+    "wrongly_rejected": 5
+   },
+   "false_target": {
+    "total": 8,
+    "rejected": 7,
+    "wrongly_confirmed": 1
+   }
+  },
+  "legacy_to_video_per_box": {
+   "right->right": 71,
+   "right->wrong": 1,
+   "wrong->wrong": 7,
+   "right->manual": 5,
+   "wrong->manual": 6,
+   "wrong->right": 10
+  }
+ },
+ "event_match_vs_snapshot": {
+  "matched | video_match_usable | usable": 77,
+  "not_matched | clean_source_video_score_low | usable": 29,
+  "not_matched | clean_source_video_no_target_class | usable": 5,
+  "not_matched | video_match_temporal_unverified | usable": 2
+ },
+ "request_seconds": {
+  "median": 75.5,
+  "p90": 199.7,
+  "max": 743.2
+ }
+}
