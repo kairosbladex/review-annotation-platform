@@ -1,0 +1,70 @@
+{
+ "labels": {
+  "误检": 52,
+  "真目标": 58,
+  "看不清": 1
+ },
+ "single_image_old": {
+  "n": 110,
+  "right": 77,
+  "wrong": 33,
+  "manual": 0,
+  "real_person": {
+   "total": 58,
+   "confirmed": 43,
+   "wrongly_rejected": 15,
+   "manual": 0
+  },
+  "not_person": {
+   "total": 52,
+   "rejected": 34,
+   "wrongly_confirmed": 18,
+   "manual": 0
+  }
+ },
+ "clean_source_current_config": {
+  "n": 110,
+  "right": 21,
+  "wrong": 3,
+  "manual": 86,
+  "real_person": {
+   "total": 58,
+   "confirmed": 0,
+   "wrongly_rejected": 3,
+   "manual": 55
+  },
+  "not_person": {
+   "total": 52,
+   "rejected": 21,
+   "wrongly_confirmed": 0,
+   "manual": 31
+  }
+ },
+ "clean_source_if_person_auto_confirm": {
+  "n": 110,
+  "right": 67,
+  "wrong": 22,
+  "manual": 21,
+  "real_person": {
+   "total": 58,
+   "confirmed": 46,
+   "wrongly_rejected": 3,
+   "manual": 9
+  },
+  "not_person": {
+   "total": 52,
+   "rejected": 21,
+   "wrongly_confirmed": 19,
+   "manual": 12
+  }
+ },
+ "clean_reasons": {
+  "clean_source_consensus_rejected": 24,
+  "clean_source_person_confirmation_requires_manual": 65,
+  "clean_source_base_adapter_disagree": 21
+ },
+ "single_reasons": {
+  "crop_verifier_true": 61,
+  "crop_verifier_false": 49
+ }
+}
