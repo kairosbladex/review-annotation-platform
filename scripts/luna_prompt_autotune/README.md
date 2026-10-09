@@ -29,7 +29,7 @@
 
 - 根目录 `/data/workspace/jzheng/luna-prompt-autotune/`：`state/`（提示词、轮次、指标、拼图、报告、台账，挂给 Hermes）、`human/`（holdout 结果）、`runs/`（逐图原始输出）、`logs/`、`private/`（worker 令牌，仅本用户可读）。
 - 实验 worker：systemd 用户服务 `luna-autotune-worker`，MemoryMax 4G、无 swap、CPU 300%，并发 6；无排队版本时执行器自动停掉。共享 worker 18396 与测试环境不受影响。
-- 大脑：`qwen3.6` 在共享服务 L20 上按需加载（空闲显存 < 30GB 时跳过），容器 4GB/2 核。
+- 大脑：`qwen3.6` 在共享服务 L20 上按需加载（模型未加载且空闲显存 < 30GB 时跳过），容器 4GB/2 核。共享 ollama 设了 `OLLAMA_KEEP_ALIVE=0`，冷加载约 90 秒，Hermes 会等不及放弃，所以唤醒前先用原生接口加载并保持 25 分钟，结束后立即卸载。
 - 限额：每天最多 8 个版本，2026-10-16 后自动停止；Hermes 连续 3 次唤醒无进展、或判定收敛且空闲 3 小时，自动写 STOP 并停用定时器。
 
 ```bash
