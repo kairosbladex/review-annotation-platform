@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>道路裂纹人工标注</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+    body { margin: 0; background: #f5f6f8; color: #202124; }
+    header { padding: 14px 24px 10px; background: #fff; border-bottom: 1px solid #dfe1e5; position: sticky; top: 0; z-index: 2; }
+    h1 { margin: 0 0 4px; font-size: 20px; }
+    .meta { color: #5f6368; font-size: 13px; line-height: 1.55; }
+    main { max-width: 1480px; margin: 0 auto; padding: 16px 20px 50px; }
+    .toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+    button { border: 1px solid #c7cbd1; background: #fff; border-radius: 7px; padding: 8px 14px; font-size: 15px; cursor: pointer; }
+    button:hover { border-color: #3867d6; }
+    button:disabled { opacity: .45; cursor: not-allowed; }
+    .count { margin-left: auto; font-size: 14px; color: #5f6368; }
+    .card { background: #fff; border: 1px solid #dfe1e5; border-radius: 8px; padding: 16px; }
+    .card-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .candidate { font-family: ui-monospace, Menlo, monospace; font-size: 14px; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+    figure { margin: 0; }
+    canvas { display: block; width: 100%; height: 460px; background: #1f2124; border-radius: 5px; }
+    figcaption { margin-top: 6px; color: #6b7075; font-size: 12.5px; line-height: 1.5; }
+    .actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+    .label-button { min-height: 48px; font-weight: 600; font-size: 16px; white-space: nowrap; }
+    .yes { border-color: #188038; color: #0d652d; }
+    .no { border-color: #d93025; color: #a50e0e; }
+    .unclear { border-color: #7b61a8; color: #5d3f8f; }
+    .label-button.selected { box-shadow: 0 0 0 3px #20212433; background: #f1f3f4; }
+    .note { width: 100%; box-sizing: border-box; margin-top: 10px; padding: 8px; border: 1px solid #dfe1e5; border-radius: 5px; font: inherit; }
+    .status { min-height: 20px; margin-top: 8px; color: #18794e; font-size: 14px; }
+    .error { color: #b3261e; }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      canvas { height: 280px; }
+      .label-button { font-size: 14px; padding: 8px 4px; }
+      header { padding: 12px 14px; }
+      main { padding: 12px 12px 40px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>道路裂纹人工标注</h1>
+    <div class="meta">只判断黄框里的路面。道路裂纹是沥青或水泥路面本身的裂缝，形态不规则、可分叉。车道线、斑马线、箭头等标线，规则直线的伸缩缝或切缝，宽度均匀的灌缝修补带，树影、杆影、车辙、水渍油污，以及不在路面上的线条，都不是。看不清就选看不清。截图上印着的红字和红框不作为判断依据。快捷键：1 是裂纹 · 2 不是裂纹 · 3 看不清 · ←/→ 翻页。</div>
+  </header>
+  <main>
+    <div class="toolbar">
+      <button id="prev" type="button">上一张</button>
+      <button id="next" type="button">下一张</button>
+      <button id="unlabeled" type="button">跳到未标</button>
+      <span id="count" class="count"></span>
+    </div>
+    <section class="card">
+      <div class="card-head"><span id="candidate" class="candidate"></span><span id="box-size" class="meta"></span></div>
+      <div class="grid">
+        <figure>
+          <canvas id="zoom" width="960" height="460"></canvas>
+          <figcaption>局部放大：范围是原框宽和高各 2 倍，黄框标在原框上。放大只把像素铺开，不补充画面里没有的细节。</figcaption>
+        </figure>
+        <figure>
+          <canvas id="thumb" width="960" height="460"></canvas>
+          <figcaption>整图缩略图。黄框是当前这一框；一张图上往往还有其他红框，那些不是当前要标的框。</figcaption>
+        </figure>
+      </div>
+      <div class="actions">
+        <button class="label-button yes" type="button" data-label="是裂纹">1 · 是裂纹</button>
+        <button class="label-button no" type="button" data-label="不是裂纹">2 · 不是裂纹</button>
+        <button class="label-button unclear" type="button" data-label="看不清">3 · 看不清</button>
+      </div>
+      <input id="note" class="note" placeholder="可选：补充判断原因">
+      <div id="status" class="status">正在加载</div>
+    </section>
+  </main>
+  <script>
+    const state = { rows: [], index: 0, token: 0 };
+    const cache = new Map();
+    const $ = (id) => document.getElementById(id);
+    const labeledCount = () => state.rows.filter((row) => row.label).length;
+
+    function loadImage(src) {
+      const cached = cache.get(src);
+      if (cached) return cached;
+      const pending = new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error(`图片加载失败：${src}`));
+        image.src = src;
+      });
+      cache.set(src, pending);
+      return pending;
+    }
+
+    function cropOf(bbox, width, height) {
+      const x1 = bbox[0] * width;
+      const y1 = bbox[1] * height;
+      const x2 = bbox[2] * width;
+      const y2 = bbox[3] * height;
+      const boxWidth = x2 - x1;
+      const boxHeight = y2 - y1;
+      let left = (x1 + x2) / 2 - boxWidth;
+      let top = (y1 + y2) / 2 - boxHeight;
+      let right = left + boxWidth * 2;
+      let bottom = top + boxHeight * 2;
+      if (left < 0) { right -= left; left = 0; }
+      if (top < 0) { bottom -= top; top = 0; }
+      if (right > width) { left -= right - width; right = width; }
+      if (bottom > height) { top -= bottom - height; bottom = height; }
+      left = Math.max(0, left);
+      top = Math.max(0, top);
+      right = Math.min(width, right);
+      bottom = Math.min(height, bottom);
+      return { left, top, right, bottom, x1, y1, x2, y2 };
+    }
+
+    function prep(canvas) {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      const width = Math.max(1, Math.round(rect.width * dpr));
+      const height = Math.max(1, Math.round(rect.height * dpr));
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+      }
+      return canvas.getContext("2d");
+    }
+
+    function fit(sourceWidth, sourceHeight, destWidth, destHeight) {
+      const scale = Math.min(destWidth / sourceWidth, destHeight / sourceHeight);
+      const width = sourceWidth * scale;
+      const height = sourceHeight * scale;
+      return { x: (destWidth - width) / 2, y: (destHeight - height) / 2, width, height, scale };
+    }
+
+    function strokeYellow(ctx, x, y, width, height) {
+      ctx.save();
+      ctx.strokeStyle = "#ffe14a";
+      ctx.lineWidth = Math.max(2, 3 * (window.devicePixelRatio || 1));
+      const inset = ctx.lineWidth / 2;
+      ctx.strokeRect(x + inset, y + inset, Math.max(1, width - ctx.lineWidth), Math.max(1, height - ctx.lineWidth));
+      ctx.restore();
+    }
+
+    function drawZoom(ctx, image, crop) {
+      const cropWidth = Math.max(1, crop.right - crop.left);
+      const cropHeight = Math.max(1, crop.bottom - crop.top);
+      ctx.fillStyle = "#1f2124";
+      ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      ctx.imageSmoothingEnabled = false;
+      const dest = fit(cropWidth, cropHeight, ctx.canvas.width, ctx.canvas.height);
+      ctx.drawImage(image, crop.left, crop.top, cropWidth, cropHeight, dest.x, dest.y, dest.width, dest.height);
+      strokeYellow(
+        ctx,
+        dest.x + (crop.x1 - crop.left) * dest.scale,
+        dest.y + (crop.y1 - crop.top) * dest.scale,
+        (crop.x2 - crop.x1) * dest.scale,
+        (crop.y2 - crop.y1) * dest.scale,
+      );
+    }
+
+    function drawThumb(ctx, image, crop) {
+      ctx.fillStyle = "#1f2124";
+      ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      ctx.imageSmoothingEnabled = true;
+      const dest = fit(image.naturalWidth, image.naturalHeight, ctx.canvas.width, ctx.canvas.height);
+      ctx.drawImage(image, dest.x, dest.y, dest.width, dest.height);
+      const scaleX = dest.width / image.naturalWidth;
+      const scaleY = dest.height / image.naturalHeight;
+      strokeYellow(ctx, dest.x + crop.x1 * scaleX, dest.y + crop.y1 * scaleY, (crop.x2 - crop.x1) * scaleX, (crop.y2 - crop.y1) * scaleY);
+    }
+
+    async function render() {
+      const row = state.rows[state.index];
+      const token = ++state.token;
+      if (!row) return;
+      $("candidate").textContent = `${state.index + 1} / ${state.rows.length} · ${row.key}`;
+      const boxWidth = Math.round((row.bbox[2] - row.bbox[0]) * row.width);
+      const boxHeight = Math.round((row.bbox[3] - row.bbox[1]) * row.height);
+      $("box-size").textContent = `原框约 ${boxWidth}×${boxHeight} 像素 · 图 ${row.width}×${row.height}`;
+      $("note").value = row.note || "";
+      $("count").textContent = `已标 ${labeledCount()} / ${state.rows.length}`;
+      document.querySelectorAll("[data-label]").forEach((button) => {
+        button.classList.toggle("selected", button.dataset.label === row.label);
+      });
+      $("prev").disabled = state.index === 0;
+      $("next").disabled = state.index >= state.rows.length - 1;
+      $("status").textContent = row.label ? `当前已保存：${row.label}` : "尚未标注";
+      $("status").className = "status";
+      try {
+        const image = await loadImage(`/${row.image}`);
+        if (token !== state.token) return;
+        const crop = cropOf(row.bbox, image.naturalWidth, image.naturalHeight);
+        drawZoom(prep($("zoom")), image, crop);
+        drawThumb(prep($("thumb")), image, crop);
+      } catch (error) {
+        if (token !== state.token) return;
+        $("status").textContent = error.message;
+        $("status").className = "status error";
+      }
+    }
+
+    async function save(label) {
+      const row = state.rows[state.index];
+      const response = await fetch("/api/label", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key: row.key, label, note: $("note").value }),
+      });
+      const payload = await response.json();
+      if (!response.ok) {
+        $("status").textContent = payload.error || "保存失败";
+        $("status").className = "status error";
+        return;
+      }
+      row.label = label;
+      row.note = $("note").value;
+      if (state.index < state.rows.length - 1) state.index += 1;
+      render();
+    }
+
+    document.querySelectorAll("[data-label]").forEach((button) => {
+      button.addEventListener("click", () => save(button.dataset.label));
+    });
+    $("prev").addEventListener("click", () => { if (state.index > 0) { state.index -= 1; render(); } });
+    $("next").addEventListener("click", () => { if (state.index < state.rows.length - 1) { state.index += 1; render(); } });
+    $("unlabeled").addEventListener("click", () => {
+      const index = state.rows.findIndex((row) => !row.label);
+      if (index >= 0) { state.index = index; render(); }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.target.matches("input, textarea")) return;
+      if (event.key === "1") save("是裂纹");
+      if (event.key === "2") save("不是裂纹");
+      if (event.key === "3") save("看不清");
+      if (event.key === "ArrowLeft") { event.preventDefault(); $("prev").click(); }
+      if (event.key === "ArrowRight") { event.preventDefault(); $("next").click(); }
+    });
+    fetch("/api/rows").then((response) => response.json()).then((payload) => {
+      if (!payload.rows) throw new Error(payload.error || "没有框");
+      state.rows = payload.rows;
+      const first = state.rows.findIndex((row) => !row.label);
+      state.index = first < 0 ? 0 : first;
+      render();
+    }).catch((error) => {
+      $("status").textContent = `加载失败：${error.message || error}`;
+      $("status").className = "status error";
+    });
+    window.addEventListener("resize", () => { if (state.rows.length) render(); });
+  </script>
+</body>
+</html>
