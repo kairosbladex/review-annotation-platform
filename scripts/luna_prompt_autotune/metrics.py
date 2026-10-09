@@ -1,11 +1,11 @@
 """打分与合格标准（runner 调用；Hermes 只能读结果，不能修改）。
 
 线上规则：只有原始 true 判真，false/uncertain 判假。执行失败单列，不计对错。
-合格标准（相对基线 p000，dev 集）：
-  G1 总体准确率高于基线；
-  G2 金标 ≥10 框的类别，准确率下降不超过 3 个百分点；
-  G3 人员“非人被放过”比基线多不超过 3 个（v2 教训：放宽人员规则会大量误放）；
-  G4 无标签池总体 uncertain 比例不高于基线。
+合格标准（相对基线 p000 与重复运行 p000b，dev 集）：
+  G1 总体准确率高于两次基线中较高者；
+  G2 金标 ≥10 框的类别，准确率不低于两次基线较低者 3 个百分点以上；
+  G3 人员“非人被放过”不比两次基线较多者多 3 个以上（v2 教训：放宽人员规则会大量误放）；
+  G4 无标签池总体 uncertain 比例不高于两次基线平均。
 """
 from __future__ import annotations
 import collections
@@ -58,18 +58,23 @@ def unlabeled(results: dict, items: list) -> dict:
             'by_class': dict(sorted(out.items(), key=lambda x: -x[1]['n']))}
 
 
-def gates(cand: dict, base: dict) -> dict:
-    cd, bd = cand['dev'], base['dev']
-    g = {'G1_总体准确率高于基线': (cd['overall']['accuracy'] or 0) > (bd['overall']['accuracy'] or 0)}
+def gates(cand: dict, bases: list) -> dict:
+    """bases 为基线多次运行（p000、p000b）。同一提示词两次运行约 15% 结论翻转，标准按两次基线的范围设定，避免把随机波动当改进。"""
+    cd = cand['dev']
+    accs = [b['dev']['overall']['accuracy'] or 0 for b in bases]
+    g = {'G1_总体准确率高于两次基线中较高者': (cd['overall']['accuracy'] or 0) > max(accs)}
     worse = []
-    for cls, b in bd['by_class'].items():
+    for cls, b0 in bases[0]['dev']['by_class'].items():
         c = cd['by_class'].get(cls)
-        if b['n'] >= MIN_CLASS_N and c and c['accuracy'] is not None and c['accuracy'] < b['accuracy'] - 0.03:
-            worse.append(f"{cls} {b['accuracy']:.1%}→{c['accuracy']:.1%}")
-    g['G2_各类准确率下降不超过3个百分点'] = not worse
-    bp, cp = bd['by_class'].get('人员', {}), cd['by_class'].get('人员', {})
-    g['G3_人员非人放过不比基线多3个以上'] = cp.get('false_released', 0) <= bp.get('false_released', 0) + 3
-    g['G4_无标签uncertain比例不高于基线'] = (cand['unlabeled']['overall']['uncertain_rate'] or 0) <= (base['unlabeled']['overall']['uncertain_rate'] or 0)
+        lows = [b['dev']['by_class'].get(cls, {}).get('accuracy') for b in bases]
+        lows = [x for x in lows if x is not None]
+        if b0['n'] >= MIN_CLASS_N and c and c['accuracy'] is not None and lows and c['accuracy'] < min(lows) - 0.03:
+            worse.append(f"{cls} 基线{min(lows):.1%}~{max(lows):.1%}→{c['accuracy']:.1%}")
+    g['G2_各类准确率不低于两次基线较低者3个百分点以上'] = not worse
+    fr = max(b['dev']['by_class'].get('人员', {}).get('false_released', 0) for b in bases)
+    g['G3_人员非人放过不比基线多3个以上'] = cd['by_class'].get('人员', {}).get('false_released', 0) <= fr + 3
+    unc = sum(b['unlabeled']['overall']['uncertain_rate'] or 0 for b in bases) / len(bases)
+    g['G4_无标签uncertain比例不高于两次基线平均'] = (cand['unlabeled']['overall']['uncertain_rate'] or 0) <= unc
     return {'passed': all(g.values()), 'gates': g, 'regressed_classes': worse}
 
 

@@ -148,13 +148,14 @@ def execute(version):
          'failed_units': failed_units, 'units': len(files),
          'elapsed_median': sorted(json.loads(f.read_text())['elapsed'] for f in files)[len(files) // 2]}
     base = rj(STATE / 'metrics/p000.json')
-    if version != 'p000' and base:
-        m['vs_baseline'] = metrics.gates(m, base)
+    bases = [x for x in (base, rj(STATE / 'metrics/p000b.json')) if x]
+    if version not in ('p000', 'p000b') and bases:
+        m['vs_baseline'] = metrics.gates(m, bases)
         parent = rj(STATE / 'metrics' / f"{doc.get('parent')}.json")
         if parent: m['parent'] = doc['parent']; m['parent_dev_accuracy'] = parent['dev']['overall']['accuracy']
     if version == 'p000b':
         m['noise'] = metrics.flips(collect('p000')[0], res)
-    best = rj(STATE / 'best.json', {'version': 'p000', 'dev_accuracy': base['dev']['overall']['accuracy'] if base else 0})
+    best = rj(STATE / 'best.json', {'version': 'p000', 'dev_accuracy': max(x['dev']['overall']['accuracy'] for x in bases) if bases else 0})
     m['is_new_best'] = version not in ('p000', 'p000b') and bool(m.get('vs_baseline', {}).get('passed')) and m['dev']['overall']['accuracy'] > best['dev_accuracy'] and failed_units <= 0.05 * len(files)
     wj(STATE / 'metrics' / f'{version}.json', m)
     samples.build(version, items, labels, detail, STATE / 'samples' / version)

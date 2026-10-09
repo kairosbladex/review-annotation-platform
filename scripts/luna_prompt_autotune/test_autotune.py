@@ -38,7 +38,7 @@ class Tests(unittest.TestCase):
         items = [{'split': 'unlabeled', 'candidates': [{'key': 'u1', 'class_name': '道路裂纹'}]}]
         base = {'dev': metrics.score(base_res, labels, 'dev'), 'unlabeled': metrics.unlabeled({'u1': 'uncertain'}, items)}
         cand = {'dev': metrics.score(cand_res, labels, 'dev'), 'unlabeled': metrics.unlabeled({'u1': 'true'}, items)}
-        g = metrics.gates(cand, base)
+        g = metrics.gates(cand, [base, base])
         self.assertFalse(g['gates']['G3_人员非人放过不比基线多3个以上']); self.assertFalse(g['passed'])
         self.assertEqual(base['dev']['by_class']['人员']['true_rejected'], 6)
 
