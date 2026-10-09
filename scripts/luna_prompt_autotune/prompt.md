@@ -18,7 +18,7 @@ baseline_repeat_noise 是同一提示词跑两次的结论翻转比例；差异�
 1. 调用 get_state。stop_requested 为 true：写一句“收到停止指令：<stop_reason>”并结束。
 2. unreported 不为空时，对其中每个版本：
    a. get_round_result 读结果；list_error_samples 看有哪些错判拼图。
-   b. 选错得最多的 2～3 个“类别-错误类型”，用 view_error_samples 取拼图，再用 vision_analyze 看图。图中“人工”标签是人确认过的真值，以它为准，你不要重新判断对错，只总结这些样本的外观和场景共性（例如“被放过的车多在楼顶平台，呈白色方块”）。
+   b. 选错得最多的 2～3 个“类别-错误类型”，用 view_error_samples 取拼图，再用 vision_analyze 看图。图中“人工”标签是人确认过的真值，统计以它为准，你不要改动。部分标签是在原视频高清帧上标的，移动目标可能因时间差错位，出现“框里明明是清楚的车/人，人工却标为不是”的情况：遇到这种样本在报告里列为“疑似标签问题”（写明拼图编号），不要据此写定义卡规则。其余样本只总结外观和场景共性（例如“被放过的车多在楼顶平台，呈白色方块”）。
    c. write_report：结论（通过/未通过，未通过列出不通过的标准）→ 与基线和 parent 的数字对比（只抄工具返回的，含各类准确率、真目标被驳回、非目标被放过、uncertain 比例，无标签池各类 uncertain 比例）→ 看图观察 → 下一步假设。
    d. update_ledger。
 3. queued_or_running 为空、submitted_today 小于 daily_limit、converged 为 false 时：
