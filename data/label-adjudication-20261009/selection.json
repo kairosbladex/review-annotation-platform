@@ -1,0 +1,1095 @@
+{
+  "note": "仅用于核对挑选规则。复核页面和接口不读取本文件。",
+  "seed": 20261009,
+  "runs": [
+    "p000",
+    "p000b",
+    "p001"
+  ],
+  "rules": {
+    "human_false_at_least_two_true": "人工标签为 false，且 p000、p000b、p001 三次中至少两次 raw 为 true",
+    "human_true_all_three_false": "人工标签为 true，且 p000、p000b、p001 三次 raw 都是 false"
+  },
+  "boxes": [
+    {
+      "key": "12c135c77a9c4e53a9c94d1c0d3071af:000",
+      "class_name": "人员",
+      "human_label": "true",
+      "source": "design",
+      "split": "dev",
+      "unit": "12c135c77a9c4e53a9c94d1c0d3071af",
+      "bbox": [
+        0.7885416666666667,
+        0.8458333333333333,
+        0.8166666666666667,
+        0.8847222222222222
+      ],
+      "rule": "human_true_all_three_false",
+      "raw": {
+        "p000": "false",
+        "p000b": "false",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "a4ce48506cd74290a0d40eb659af6102:000",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "a4ce48506cd74290a0d40eb659af6102",
+      "bbox": [
+        0.1375,
+        0.5638888888888889,
+        0.14895833333333333,
+        0.575
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0924:B03-023",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "gold0924",
+      "split": "dev",
+      "unit": "gold0924_8eed6571e7cb1951",
+      "bbox": [
+        0.5666666666666667,
+        0.8347222222222223,
+        0.5791666666666667,
+        0.8680555555555556
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "e2dfe4dfd76e484f8ecc23ced9ef5717:001",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "e2dfe4dfd76e484f8ecc23ced9ef5717",
+      "bbox": [
+        0.4822916666666667,
+        0.7958333333333333,
+        0.49583333333333335,
+        0.8305555555555556
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "1a8b9df1399942459bf5c1eef6edfa21:000",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "1a8b9df1399942459bf5c1eef6edfa21",
+      "bbox": [
+        0.28854166666666664,
+        0.8916666666666667,
+        0.3125,
+        0.9263888888888889
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0924:B03-016",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "gold0924",
+      "split": "dev",
+      "unit": "gold0924_10fee4e93d4d5c08",
+      "bbox": [
+        0.4375,
+        0.8083333333333333,
+        0.45625,
+        0.8708333333333333
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "55c06990a1714703b3a318c53021182a:003",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "55c06990a1714703b3a318c53021182a",
+      "bbox": [
+        0.225,
+        0.9152777777777777,
+        0.25104166666666666,
+        0.9444444444444444
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "a4ce48506cd74290a0d40eb659af6102:002",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "a4ce48506cd74290a0d40eb659af6102",
+      "bbox": [
+        0.2125,
+        0.5166666666666667,
+        0.22083333333333333,
+        0.5333333333333333
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0924:B03-008",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "gold0924",
+      "split": "dev",
+      "unit": "gold0924_e39a24570206a406",
+      "bbox": [
+        0.775,
+        0.9222222222222223,
+        0.790625,
+        0.9736111111111111
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "uncertain",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:a2dfb433d0ce4f5d8a07ecc94d21bd7a",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_3c8ae8f746f1e036",
+      "bbox": [
+        0.057291666666666664,
+        0.7680555555555556,
+        0.08020833333333334,
+        0.7833333333333333
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "gold0924:B05-005",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "gold0924",
+      "split": "dev",
+      "unit": "gold0924_5a88db4dada79716",
+      "bbox": [
+        0.7375,
+        0.33055555555555555,
+        0.7447916666666666,
+        0.34305555555555556
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "87e732ecc4f14ac9922a3fb789fbb9e6:000",
+      "class_name": "人员",
+      "human_label": "true",
+      "source": "design",
+      "split": "dev",
+      "unit": "87e732ecc4f14ac9922a3fb789fbb9e6",
+      "bbox": [
+        0.909375,
+        0.28888888888888886,
+        0.925,
+        0.31527777777777777
+      ],
+      "rule": "human_true_all_three_false",
+      "raw": {
+        "p000": "false",
+        "p000b": "false",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "51af317312034153ad2da103915c8138:003",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "51af317312034153ad2da103915c8138",
+      "bbox": [
+        0.22708333333333333,
+        0.9166666666666666,
+        0.25416666666666665,
+        0.9458333333333333
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "ac89dffcf200454d97dd8e3cf8681a67:000",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "ac89dffcf200454d97dd8e3cf8681a67",
+      "bbox": [
+        0.24895833333333334,
+        0.8805555555555555,
+        0.2635416666666667,
+        0.8944444444444445
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+      "bbox": [
+        0.8979166666666667,
+        0.5013888888888889,
+        0.909375,
+        0.5236111111111111
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "uncertain",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:5121e18f90e14774ad39ebf70f7afbbe",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_1aebff51bb7453ca",
+      "bbox": [
+        0.06041666666666667,
+        0.7763888888888889,
+        0.08125,
+        0.7916666666666666
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "a4ce48506cd74290a0d40eb659af6102:001",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "a4ce48506cd74290a0d40eb659af6102",
+      "bbox": [
+        0.16041666666666668,
+        0.5194444444444445,
+        0.171875,
+        0.5319444444444444
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+      "bbox": [
+        0.9041666666666667,
+        0.5763888888888888,
+        0.9145833333333333,
+        0.6027777777777777
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "uncertain",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:f2d2ba5fc9624984850e183994e4859a",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_f60aac12b62f9df0",
+      "bbox": [
+        0.6052083333333333,
+        0.4930555555555556,
+        0.6145833333333334,
+        0.5125
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:03f5acaf5f2c4b98b5fffdbc2dd2a60b",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_1aebff51bb7453ca",
+      "bbox": [
+        0.07395833333333333,
+        0.8152777777777778,
+        0.08229166666666667,
+        0.8263888888888888
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "gold0903:546c0f1211024f28a1ffbabbd0d0b71e",
+      "class_name": "公交车",
+      "human_label": "true",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_ffb09aa77d68599a",
+      "bbox": [
+        0.171875,
+        0.9583333333333334,
+        0.18958333333333333,
+        0.9861111111111112
+      ],
+      "rule": "human_true_all_three_false",
+      "raw": {
+        "p000": "false",
+        "p000b": "false",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "a4ce48506cd74290a0d40eb659af6102:004",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "a4ce48506cd74290a0d40eb659af6102",
+      "bbox": [
+        0.27708333333333335,
+        0.4930555555555556,
+        0.284375,
+        0.5111111111111111
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:7f1949f226014ca2932b8cab37e47399",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_3c8ae8f746f1e036",
+      "bbox": [
+        0.07083333333333333,
+        0.8083333333333333,
+        0.08125,
+        0.8194444444444444
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "gold0924:B05-017",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "gold0924",
+      "split": "dev",
+      "unit": "gold0924_24d11b7bfccde471",
+      "bbox": [
+        0.43645833333333334,
+        0.7569444444444444,
+        0.4552083333333333,
+        0.8222222222222222
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+      "bbox": [
+        0.18333333333333332,
+        0.3194444444444444,
+        0.19895833333333332,
+        0.3597222222222222
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:006",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "dc82bfbae0984d7b9759862a3887538e",
+      "bbox": [
+        0.5916666666666667,
+        0.14583333333333334,
+        0.603125,
+        0.18055555555555555
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0924:B03-033",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "gold0924",
+      "split": "dev",
+      "unit": "gold0924_a2f37320c6d22c6f",
+      "bbox": [
+        0.83125,
+        0.544921875,
+        0.8546875,
+        0.58203125
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "19180436c82b45a9938e90640c334526:001",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "19180436c82b45a9938e90640c334526",
+      "bbox": [
+        0.446875,
+        0.7527777777777778,
+        0.4625,
+        0.8069444444444445
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:a7dd89c518334fdfbece56b9baee3259",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_482c70d3aa50f1eb",
+      "bbox": [
+        0.66875,
+        0.24861111111111112,
+        0.6770833333333334,
+        0.25833333333333336
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+      "class_name": "没戴头盔",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_c5ca89db96782ad0",
+      "bbox": [
+        0.30416666666666664,
+        0.6819444444444445,
+        0.315625,
+        0.7208333333333333
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:90b2111eb2da4c1a864d780f438d0f4d",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_5e44eba0bcbd2777",
+      "bbox": [
+        0.66875,
+        0.23333333333333334,
+        0.6760416666666667,
+        0.24305555555555555
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:efba5386bf94475899dcbdb32be1f9ba",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_4c5a282bfb39e16c",
+      "bbox": [
+        0.34479166666666666,
+        0.5375,
+        0.35625,
+        0.5527777777777778
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "gold0924:B03-014",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "gold0924",
+      "split": "dev",
+      "unit": "gold0924_9425fee4c6af74b6",
+      "bbox": [
+        0.03854166666666667,
+        0.9388888888888889,
+        0.06458333333333334,
+        0.9986111111111111
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:73f7eb6a9ce4489893ed3f7fd8c019dc",
+      "class_name": "车",
+      "human_label": "true",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_8c3c158b0d415781",
+      "bbox": [
+        0.6041666666666666,
+        0.4583333333333333,
+        0.6645833333333333,
+        0.6194444444444445
+      ],
+      "rule": "human_true_all_three_false",
+      "raw": {
+        "p000": "false",
+        "p000b": "false",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:005",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "dc82bfbae0984d7b9759862a3887538e",
+      "bbox": [
+        0.56875,
+        0.14305555555555555,
+        0.5875,
+        0.18472222222222223
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:149d6e1a1222493794a19839c1eff499",
+      "class_name": "卡车",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_d01d6acf8b20aa40",
+      "bbox": [
+        0.8791666666666667,
+        0.5847222222222223,
+        0.9291666666666667,
+        0.6125
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+      "bbox": [
+        0.9010416666666666,
+        0.5388888888888889,
+        0.9114583333333334,
+        0.5638888888888889
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "uncertain",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0924:B05-002",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "gold0924",
+      "split": "dev",
+      "unit": "gold0924_d73ca55be42b165d",
+      "bbox": [
+        0.7125,
+        0.19305555555555556,
+        0.7208333333333333,
+        0.2111111111111111
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "b4b82f598f4440acbf3e33427b608a7a:000",
+      "class_name": "人员",
+      "human_label": "true",
+      "source": "design",
+      "split": "dev",
+      "unit": "b4b82f598f4440acbf3e33427b608a7a",
+      "bbox": [
+        0.515625,
+        0.7333333333333333,
+        0.5395833333333333,
+        0.7597222222222222
+      ],
+      "rule": "human_true_all_three_false",
+      "raw": {
+        "p000": "false",
+        "p000b": "false",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+      "bbox": [
+        0.178125,
+        0.225,
+        0.19791666666666666,
+        0.26805555555555555
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+      "class_name": "三轮车",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+      "bbox": [
+        0.621875,
+        0.03333333333333333,
+        0.665625,
+        0.2013888888888889
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "a8170b72d4c44b0db881db68fd4d165f:000",
+      "class_name": "人员",
+      "human_label": "true",
+      "source": "design",
+      "split": "dev",
+      "unit": "a8170b72d4c44b0db881db68fd4d165f",
+      "bbox": [
+        0.005208333333333333,
+        0.23333333333333334,
+        0.021875,
+        0.2611111111111111
+      ],
+      "rule": "human_true_all_three_false",
+      "raw": {
+        "p000": "false",
+        "p000b": "false",
+        "p001": "false"
+      }
+    },
+    {
+      "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:000",
+      "class_name": "两轮车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "f7041ee1c1aa4feb952d95667e47b235",
+      "bbox": [
+        0.23645833333333333,
+        0.3194444444444444,
+        0.259375,
+        0.33194444444444443
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0924:B03-015",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "gold0924",
+      "split": "dev",
+      "unit": "gold0924_0c6c2321248635bf",
+      "bbox": [
+        0.484375,
+        0.8583333333333333,
+        0.5010416666666667,
+        0.9083333333333333
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "released_fp:61b6a8b48d6846b1aca70f777558012d:004",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "61b6a8b48d6846b1aca70f777558012d",
+      "bbox": [
+        0.4660218253968254,
+        0.5132275132275133,
+        0.48040674603174605,
+        0.5552248677248677
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:001",
+      "class_name": "两轮车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "f7041ee1c1aa4feb952d95667e47b235",
+      "bbox": [
+        0.359375,
+        0.2388888888888889,
+        0.37395833333333334,
+        0.2513888888888889
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+      "bbox": [
+        0.9114583333333334,
+        0.7194444444444444,
+        0.921875,
+        0.7472222222222222
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "uncertain",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "596dbc4ade5e4742ad955faf49d340d7:000",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "596dbc4ade5e4742ad955faf49d340d7",
+      "bbox": [
+        0.8645833333333334,
+        0.25555555555555554,
+        0.8916666666666667,
+        0.2875
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:3c60ba7fdad64512bc22aff4f7cab228",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_f60aac12b62f9df0",
+      "bbox": [
+        0.66875,
+        0.2916666666666667,
+        0.6760416666666667,
+        0.30277777777777776
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "921ef7c18d9846589264f1195197448a:004",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "921ef7c18d9846589264f1195197448a",
+      "bbox": [
+        0.9666666666666667,
+        0.9555555555555556,
+        0.9854166666666667,
+        0.9694444444444444
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "gold0903:e8b1efe4971b44cb8c77ceb6d8a7cfb0",
+      "class_name": "光斑",
+      "human_label": "false",
+      "source": "gold0903",
+      "split": "dev",
+      "unit": "g0903_5e44eba0bcbd2777",
+      "bbox": [
+        0.6447916666666667,
+        0.9083333333333333,
+        0.6614583333333334,
+        0.9291666666666667
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "a4ce48506cd74290a0d40eb659af6102:003",
+      "class_name": "人员",
+      "human_label": "false",
+      "source": "design",
+      "split": "dev",
+      "unit": "a4ce48506cd74290a0d40eb659af6102",
+      "bbox": [
+        0.234375,
+        0.46944444444444444,
+        0.24166666666666667,
+        0.48333333333333334
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "uncertain",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+      "bbox": [
+        0.90625,
+        0.6194444444444445,
+        0.9177083333333333,
+        0.6513888888888889
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "uncertain",
+        "p000b": "true",
+        "p001": "true"
+      }
+    },
+    {
+      "key": "released_fp:61b6a8b48d6846b1aca70f777558012d:005",
+      "class_name": "车",
+      "human_label": "false",
+      "source": "released_fp",
+      "split": "dev",
+      "unit": "61b6a8b48d6846b1aca70f777558012d",
+      "bbox": [
+        0.5367063492063492,
+        0.4751984126984127,
+        0.5528273809523809,
+        0.5145502645502645
+      ],
+      "rule": "human_false_at_least_two_true",
+      "raw": {
+        "p000": "true",
+        "p000b": "true",
+        "p001": "true"
+      }
+    }
+  ]
+}

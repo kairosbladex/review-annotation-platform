@@ -1,0 +1,115 @@
+{
+  "purpose": "人工复核疑似因高清帧时间差错位而被标错的框。复核页不展示模型结论，本文件只记录挑选数量。",
+  "seed": 20261009,
+  "runs": [
+    "p000",
+    "p000b",
+    "p001"
+  ],
+  "raw_values": "只认 true、false、uncertain。uncertain 既不算判是，也不算判不是。缺少某次结果时，不能算作三次都是 false。",
+  "rules": {
+    "human_false_at_least_two_true": "人工标签为 false，且 p000、p000b、p001 三次中至少两次 raw 为 true",
+    "human_true_all_three_false": "人工标签为 true，且 p000、p000b、p001 三次 raw 都是 false"
+  },
+  "scope": {
+    "labeled_boxes": 1128,
+    "by_split": {
+      "dev": 685,
+      "holdout": 443
+    },
+    "dev_with_three_runs": 669,
+    "holdout_with_three_runs": 0,
+    "labeled_by_class": {
+      "三轮车": 6,
+      "两轮车": 18,
+      "人员": 159,
+      "光伏板": 18,
+      "光斑": 27,
+      "公交车": 5,
+      "卡车": 13,
+      "没戴头盔": 5,
+      "车": 736,
+      "违建": 141
+    },
+    "classes_with_labels_but_none_selected": [
+      "光伏板",
+      "违建"
+    ]
+  },
+  "selected_boxes": 54,
+  "selected_images": 37,
+  "by_rule": {
+    "human_true_all_three_false": 6,
+    "human_false_at_least_two_true": 48
+  },
+  "by_class": {
+    "三轮车": 1,
+    "两轮车": 2,
+    "人员": 19,
+    "光斑": 10,
+    "公交车": 1,
+    "卡车": 1,
+    "没戴头盔": 1,
+    "车": 19
+  },
+  "by_class_and_rule": {
+    "三轮车/human_false_at_least_two_true": 1,
+    "两轮车/human_false_at_least_two_true": 2,
+    "人员/human_false_at_least_two_true": 15,
+    "人员/human_true_all_three_false": 4,
+    "光斑/human_false_at_least_two_true": 10,
+    "公交车/human_true_all_three_false": 1,
+    "卡车/human_false_at_least_two_true": 1,
+    "没戴头盔/human_false_at_least_two_true": 1,
+    "车/human_false_at_least_two_true": 18,
+    "车/human_true_all_three_false": 1
+  },
+  "vote_patterns": {
+    "human_false_at_least_two_true/p000=true,p000b=true,p001=false": 8,
+    "human_false_at_least_two_true/p000=true,p000b=true,p001=true": 23,
+    "human_false_at_least_two_true/p000=true,p000b=uncertain,p001=true": 11,
+    "human_false_at_least_two_true/p000=uncertain,p000b=true,p001=true": 6,
+    "human_true_all_three_false/p000=false,p000b=false,p001=false": 6
+  },
+  "image_files": 37,
+  "image_bytes": 11740048,
+  "image_sha256": {
+    "12c135c77a9c4e53a9c94d1c0d3071af": "a26bd53161c158b3b24b774cc7f2a3f9c7ec2c9cc970151855ad9ec0b40d6354",
+    "19180436c82b45a9938e90640c334526": "da9d5f17e150f0798d1e10efa34f8ab94dffd8ae621ccfb7ac31f619d5126d88",
+    "1a8b9df1399942459bf5c1eef6edfa21": "44b130fdb1708bb5dcff07ec09786d57cbd4de3529931eed4f17785e1181baf8",
+    "51af317312034153ad2da103915c8138": "be15627f8c0b51387f81bd1736f15c07b8fac6b61031036338faa2e5b4467aec",
+    "55c06990a1714703b3a318c53021182a": "b87e3008dfebb6e31dcea8e03567961aced942cfd2544ce0b584a376d554e276",
+    "596dbc4ade5e4742ad955faf49d340d7": "90ca65d459444f9bcf9ea1a7711ed99a0684de08ec88e17692806f8f3c0d6486",
+    "61b6a8b48d6846b1aca70f777558012d": "5469179a78564ce9e78a460e0eb5a0462b93e1ff03c852b47f7fab0ebcc3bd19",
+    "7e69f89700f6410ab4d2cc14ef808ba6": "7afab9f829a3b458b8aff2ccfff476aa2ab1acfb2454a478ec567214f15186b5",
+    "87e732ecc4f14ac9922a3fb789fbb9e6": "6f16a10ff0cbc4304b458906f08244a165ad3d58d984bb513ff6e54d2a69942b",
+    "921ef7c18d9846589264f1195197448a": "fb242d324cac848fe67e84c92151cd963d65a801b4d0729cbac5895b182181f4",
+    "a4ce48506cd74290a0d40eb659af6102": "a154125d627022f338642399bccf3fa8dd9bba154fb09ea28f4d82cf41ca9543",
+    "a8170b72d4c44b0db881db68fd4d165f": "949ec2eea1aa29f922486a9e944125a6ce99f4ee4bd6879a3562c4c7ca6d636e",
+    "ac89dffcf200454d97dd8e3cf8681a67": "366e90bd5455a2470b779ccd55fdac9baf89ec31c11ceee04e4dc29440afd8f5",
+    "b4b82f598f4440acbf3e33427b608a7a": "cf9ef20cbb8ecb2d189a15aeb6dbed9a70fe04999e645e829d23220155589fa9",
+    "dc82bfbae0984d7b9759862a3887538e": "571be4845bab9047817544be8dbcfcf2c6a8429ad09352f0eaf38e0801b4e4a0",
+    "e2dfe4dfd76e484f8ecc23ced9ef5717": "92acc1ca089b83e7a0ec8b83031aba35e80e19d4f3dedcbf50a116d2400e6d14",
+    "f2416eaf0ac747f2b268fc41eccb4a55": "c6057a5485c3e7c88d259e4f641a37b552857cb38c53ae907c1b522b6b783735",
+    "f7041ee1c1aa4feb952d95667e47b235": "7de4222f7c637bf20f5ea5b10ad8eaca9e682c05521907289eb092a46a33e235",
+    "g0903_1aebff51bb7453ca": "1aebff51bb7453ca7d3ca2822e975195c2579c757f7c9dbf2494a43702b8ee7d",
+    "g0903_3c8ae8f746f1e036": "3c8ae8f746f1e0368bba452b2cf44245e45832b8ad2bc60f7f7adf45eed7d528",
+    "g0903_482c70d3aa50f1eb": "482c70d3aa50f1ebc9db92bea0ce300df1fa3045ff2ee7bdb83d9e8cf0862c90",
+    "g0903_4c5a282bfb39e16c": "4c5a282bfb39e16c157c7148384150394894f06ca7313ea86e697c08699f8845",
+    "g0903_5e44eba0bcbd2777": "5e44eba0bcbd2777d2a3556756c6395b1a558dc96364cb93d70c39377b909704",
+    "g0903_8c3c158b0d415781": "8c3c158b0d4157818aeccb11d9c75a3cfe1849f7a60bcbc2c3c62d671f172ac7",
+    "g0903_c5ca89db96782ad0": "c5ca89db96782ad04e5f1402fe740743b5050725c55fa17cfab29245b52839cc",
+    "g0903_d01d6acf8b20aa40": "d01d6acf8b20aa40747d1c13a0a2ed6ac054843dc3eb12a7f7a367c430faf881",
+    "g0903_f60aac12b62f9df0": "f60aac12b62f9df0e29c3e4ca086b7b4c7e0ce1452f7191466200204575a5b6e",
+    "g0903_ffb09aa77d68599a": "ffb09aa77d68599af36373b1594e30b85efbd7d5b0f70c271eee575b04497c70",
+    "gold0924_0c6c2321248635bf": "0c6c2321248635bfa29d7b6fd58a46bf41e24cd6252c3d22eedc4c405e09f3d2",
+    "gold0924_10fee4e93d4d5c08": "10fee4e93d4d5c08ba1a0218b8aed03ec9dfa18dbf9b56aa09eef28f2a1ccdaf",
+    "gold0924_24d11b7bfccde471": "24d11b7bfccde471cce87e8eb802759cc0a78340b417551311a98703cb431030",
+    "gold0924_5a88db4dada79716": "5a88db4dada7971682a728f5aaf92c67dabbd8aba45a173db3190cd45813cd21",
+    "gold0924_8eed6571e7cb1951": "8eed6571e7cb1951903ce5dd6ccb17bc41ca08e7e66128604c740ac677759ab3",
+    "gold0924_9425fee4c6af74b6": "9425fee4c6af74b6415d270d1a61d2bb1ebe197909ecc643da54d8df62b720fc",
+    "gold0924_a2f37320c6d22c6f": "a2f37320c6d22c6f0979d221d1c236b2001dbedcee1edf895410851d8b88a33d",
+    "gold0924_d73ca55be42b165d": "d73ca55be42b165d49ceae46b97e9f7b6ecc9348c9537f26b4f2bc711b249e5c",
+    "gold0924_e39a24570206a406": "e39a24570206a4069740b9ed397f9f22175357ec93cf24dcb21c54b3be43bb27"
+  }
+}

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>人工标签复核</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2328; }
+    header { position: sticky; top: 0; z-index: 2; background: #fff; border-bottom: 1px solid #d8dee4; padding: 14px 22px 12px; }
+    h1 { margin: 0 0 4px; font-size: 20px; }
+    .meta { color: #57606a; font-size: 13px; line-height: 1.5; }
+    main { max-width: 1280px; margin: 0 auto; padding: 16px 18px 48px; }
+    .toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+    button { border: 1px solid #c8d0d8; background: #fff; border-radius: 8px; padding: 8px 14px; font: inherit; cursor: pointer; }
+    button:hover { border-color: #2f6fed; }
+    button:disabled { opacity: .45; cursor: not-allowed; }
+    .count { margin-left: auto; color: #57606a; font-size: 14px; }
+    .card { background: #fff; border: 1px solid #d8dee4; border-radius: 10px; padding: 16px; }
+    .head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+    .key { font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: #424a53; }
+    .badge { font-size: 18px; font-weight: 700; }
+    .badge.yes { color: #146c2e; }
+    .badge.no { color: #9b1c1c; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .75fr); gap: 16px; align-items: start; }
+    figure { margin: 0; }
+    img { display: block; width: 100%; max-height: 68vh; object-fit: contain; background: #111; border-radius: 6px; }
+    figcaption { margin-top: 6px; color: #66707a; font-size: 12.5px; line-height: 1.45; }
+    .actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+    .choice { min-height: 52px; font-weight: 700; font-size: 16px; }
+    .keep { color: #174ea6; }
+    .yes { color: #146c2e; border-color: #8fd19e; }
+    .no { color: #9b1c1c; border-color: #f0b4b4; }
+    .unclear { color: #5d3f8f; border-color: #d4c4ee; }
+    .choice.selected { box-shadow: 0 0 0 3px #1f232833; background: #f6f8fa; }
+    textarea { width: 100%; box-sizing: border-box; margin-top: 10px; min-height: 64px; padding: 8px 10px; border: 1px solid #d8dee4; border-radius: 6px; font: inherit; resize: vertical; }
+    .status { min-height: 22px; margin-top: 8px; color: #146c2e; font-size: 14px; }
+    .error { color: #9b1c1c; }
+    @media (max-width: 900px) {
+      .grid, .actions { grid-template-columns: 1fr; }
+      .count { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>人工标签复核</h1>
+    <div class="meta">请只根据图片判断黄框里的目标是不是所标类别。先看局部放大，再用整图缩略图确认框的位置。图上原有的红字、红框是平台截图自带的，只复核黄色框。原人工标签显示在图片下方。快捷键：1 维持原标签 · 2 改为是 · 3 改为不是 · 4 看不清 · ←/→ 翻页。</div>
+  </header>
+  <main>
+    <div class="toolbar">
+      <button id="prev" type="button">上一框</button>
+      <button id="next" type="button">下一框</button>
+      <button id="pending" type="button">跳到未复核</button>
+      <span id="count" class="count"></span>
+    </div>
+    <section class="card">
+      <div class="head">
+        <span id="identity" class="key"></span>
+        <span id="original" class="badge"></span>
+      </div>
+      <div class="grid">
+        <figure>
+          <img id="crop" alt="局部放大">
+          <figcaption id="crop-caption"></figcaption>
+        </figure>
+        <figure>
+          <a id="full-link" target="_blank" rel="noopener"><img id="thumb" alt="整图缩略图"></a>
+          <figcaption id="thumb-caption">整图缩略图，黄框与左侧是同一个目标。点击在新标签页打开原图。</figcaption>
+        </figure>
+      </div>
+      <div class="actions">
+        <button class="choice keep" type="button" data-decision="维持原标签"></button>
+        <button class="choice yes" type="button" data-decision="改为是">2 · 改为是</button>
+        <button class="choice no" type="button" data-decision="改为不是">3 · 改为不是</button>
+        <button class="choice unclear" type="button" data-decision="看不清">4 · 看不清</button>
+      </div>
+      <textarea id="note" placeholder="可选备注。例如：目标和框对不齐、被挡住、分辨不出类别。"></textarea>
+      <div id="status" class="status"></div>
+    </section>
+  </main>
+  <script>
+    const state = { rows: [], index: 0, saving: false };
+    const $ = (id) => document.getElementById(id);
+    const labelText = (value) => value === "true" ? "是" : value === "false" ? "不是" : "未填";
+    const reviewed = () => state.rows.filter((row) => row.decision).length;
+
+    function render() {
+      const row = state.rows[state.index];
+      if (!row) {
+        $("status").textContent = "没有待复核的框";
+        return;
+      }
+      $("identity").textContent = `${state.index + 1} / ${state.rows.length} · 类别：${row.class_name} · ${row.key}`;
+      $("original").textContent = `原人工标签：${labelText(row.human_label)}`;
+      $("original").className = `badge ${row.human_label === "true" ? "yes" : "no"}`;
+      $("crop").src = row.crop_file;
+      $("thumb").src = row.thumb_file;
+      $("full-link").href = row.image_file;
+      const box = `${row.box_w_px || "?"}×${row.box_h_px || "?"}`;
+      const frame = `${row.image_w || "?"}×${row.image_h || "?"}`;
+      $("crop-caption").textContent = `局部放大。黄框在原图中约 ${box} 像素，原图 ${frame}。放大只便于观看。`;
+      document.querySelector('[data-decision="维持原标签"]').textContent = `1 · 维持原标签（${labelText(row.human_label)}）`;
+      document.querySelectorAll("[data-decision]").forEach((button) => {
+        button.classList.toggle("selected", button.dataset.decision === row.decision);
+      });
+      $("note").value = row.note || "";
+      $("count").textContent = `已复核 ${reviewed()} / ${state.rows.length}`;
+      $("prev").disabled = state.index === 0;
+      $("next").disabled = state.index >= state.rows.length - 1;
+      $("status").className = "status";
+      $("status").textContent = row.decision ? `已保存：${row.decision}` : "尚未复核";
+    }
+
+    async function load() {
+      const payload = await (await fetch("/api/rows")).json();
+      state.rows = payload.rows;
+      const first = state.rows.findIndex((row) => !row.decision);
+      state.index = first < 0 ? 0 : first;
+      render();
+    }
+
+    async function save(decision) {
+      const row = state.rows[state.index];
+      if (!row || state.saving) return;
+      state.saving = true;
+      $("status").textContent = "正在保存…";
+      try {
+        const response = await fetch("/api/label", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ key: row.key, decision, note: $("note").value })
+        });
+        const payload = await response.json();
+        if (!response.ok) throw new Error(payload.error || "保存失败");
+        row.decision = decision;
+        row.note = $("note").value;
+        const next = state.rows.findIndex((item, index) => index > state.index && !item.decision);
+        state.index = next >= 0 ? next : Math.min(state.index + 1, state.rows.length - 1);
+        render();
+      } catch (error) {
+        $("status").textContent = error.message;
+        $("status").className = "status error";
+      } finally {
+        state.saving = false;
+      }
+    }
+
+    document.querySelectorAll("[data-decision]").forEach((button) => {
+      button.addEventListener("click", () => save(button.dataset.decision));
+    });
+    $("prev").addEventListener("click", () => { state.index = Math.max(0, state.index - 1); render(); });
+    $("next").addEventListener("click", () => { state.index = Math.min(state.rows.length - 1, state.index + 1); render(); });
+    $("pending").addEventListener("click", () => {
+      const index = state.rows.findIndex((row) => !row.decision);
+      if (index >= 0) { state.index = index; render(); }
+    });
+    $("note").addEventListener("input", () => {
+      const row = state.rows[state.index];
+      if (row && row.decision && $("note").value !== (row.note || "")) {
+        $("status").textContent = "备注已修改，再点一次当前选项即可保存";
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.target.matches("textarea, input")) return;
+      const decisions = { "1": "维持原标签", "2": "改为是", "3": "改为不是", "4": "看不清" };
+      if (decisions[event.key]) save(decisions[event.key]);
+      if (event.key === "ArrowLeft") $("prev").click();
+      if (event.key === "ArrowRight") $("next").click();
+    });
+    load().catch((error) => { $("status").textContent = `加载失败：${error}`; $("status").className = "status error"; });
+  </script>
+</body>
+</html>
