@@ -1,0 +1,33 @@
+{
+  "unit": "1cf0d8e1c8b744ed94585669eccc3391",
+  "keys": [
+    "released_fp:1cf0d8e1c8b744ed94585669eccc3391:000",
+    "released_fp:1cf0d8e1c8b744ed94585669eccc3391:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内能清楚看到车辆外形，符合“车”类别；判断未依据框线或文字。",
+      "observedObject": "框内可见一辆车的车身结构",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内能清楚看到车辆外形，符合“车”类别；判断未依据框线或文字。",
+      "observedObject": "框内可见一辆车的车身结构",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 18.047400631010532,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514018.7971282,
+      "status": "ok",
+      "elapsed": 18.02549003297463
+    }
+  ]
+}

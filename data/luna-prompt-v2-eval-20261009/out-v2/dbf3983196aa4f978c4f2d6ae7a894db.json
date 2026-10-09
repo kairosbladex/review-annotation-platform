@@ -1,0 +1,25 @@
+{
+  "unit": "dbf3983196aa4f978c4f2d6ae7a894db",
+  "keys": [
+    "rooftop:dbf3983196aa4f978c4f2d6ae7a894db:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "框内没有足够可见的车辆结构，不能明确符合“车”的类别。",
+      "observedObject": "左侧边缘可见局部红色文字/标记及少量区域，未能确认车辆。",
+      "imageLimitation": "候选框仅位于画面最左侧边缘，目标大部分出画，无法唯一辨认车辆结构。"
+    }
+  ],
+  "elapsed": 17.83483362616971,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514465.112985,
+      "status": "ok",
+      "elapsed": 17.81182975694537
+    }
+  ]
+}

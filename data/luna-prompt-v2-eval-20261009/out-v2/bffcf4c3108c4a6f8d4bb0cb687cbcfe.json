@@ -1,0 +1,25 @@
+{
+  "unit": "bffcf4c3108c4a6f8d4bb0cb687cbcfe",
+  "keys": [
+    "rooftop:bffcf4c3108c4a6f8d4bb0cb687cbcfe:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "该区域不是位于可通行地面上的车辆，框线和文字不能作为目标证据。",
+      "observedObject": "红色文字及标记框线",
+      "imageLimitation": "候选框仅覆盖画面左侧边缘的红色文字/框线区域，未见车辆本体或车辆结构。"
+    }
+  ],
+  "elapsed": 15.466186772100627,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514427.170057,
+      "status": "ok",
+      "elapsed": 15.447168818907812
+    }
+  ]
+}

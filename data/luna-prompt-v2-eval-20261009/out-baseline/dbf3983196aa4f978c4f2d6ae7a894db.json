@@ -1,0 +1,25 @@
+{
+  "unit": "dbf3983196aa4f978c4f2d6ae7a894db",
+  "keys": [
+    "rooftop:dbf3983196aa4f978c4f2d6ae7a894db:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭框线、文字或局部内容判断为车，目标不可唯一确认。",
+      "observedObject": "候选框内仅见局部红色文字或标记及少量被裁切区域，未能明确观察到车辆。",
+      "imageLimitation": "候选框位于图像最左侧且目标大部分被边界裁切，无法确认车辆完整结构。"
+    }
+  ],
+  "elapsed": 15.946089145960286,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514460.702177,
+      "status": "ok",
+      "elapsed": 15.916875468799844
+    }
+  ]
+}

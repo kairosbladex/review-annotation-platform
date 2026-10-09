@@ -1,0 +1,33 @@
+{
+  "unit": "4f63543e5bae47728ed68f9de1fd9539",
+  "keys": [
+    "released_fp:4f63543e5bae47728ed68f9de1fd9539:000",
+    "released_fp:4f63543e5bae47728ed68f9de1fd9539:002"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "目标车辆结构清晰，符合卡车类别。",
+      "observedObject": "候选框内可见一辆卡车，具有明显的车身和货厢结构。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "三轮车细分类需要可见三轮结构，当前图像不足以唯一确认。",
+      "observedObject": "候选框内可见一辆小型车辆，但只能确认其为车辆，未能看到足够的三轮证据。",
+      "imageLimitation": "目标较小且分辨率有限，无法清楚确认三轮结构。"
+    }
+  ],
+  "elapsed": 14.925080239074305,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514066.870838,
+      "status": "ok",
+      "elapsed": 14.905437859008089
+    }
+  ]
+}

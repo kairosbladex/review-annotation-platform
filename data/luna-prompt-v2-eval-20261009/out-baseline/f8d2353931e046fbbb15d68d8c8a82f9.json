@@ -1,0 +1,25 @@
+{
+  "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+  "keys": [
+    "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框内目标可见，但从俯视图看明显不符合卡车类别；未将框线或文字作为判断依据。",
+      "observedObject": "框内为小型车辆或车辆局部，不具备卡车所需的明显大型车身、驾驶室或货厢结构。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.187027900945395,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514228.1687226,
+      "status": "ok",
+      "elapsed": 17.16563541907817
+    }
+  ]
+}

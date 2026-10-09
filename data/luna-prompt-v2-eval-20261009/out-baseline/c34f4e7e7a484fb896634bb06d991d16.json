@@ -1,0 +1,33 @@
+{
+  "unit": "c34f4e7e7a484fb896634bb06d991d16",
+  "keys": [
+    "released_fp:c34f4e7e7a484fb896634bb06d991d16:000",
+    "released_fp:c34f4e7e7a484fb896634bb06d991d16:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "可见建筑实体，但是否属于违建不能仅凭外观判断。",
+      "observedObject": "候选框内为蓝色屋顶建筑。",
+      "imageLimitation": "仅凭图像无法确认审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "可见建筑实体，但是否属于违建不能仅凭外观判断。",
+      "observedObject": "候选框内为蓝色屋顶建筑。",
+      "imageLimitation": "仅凭图像无法确认审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 16.99602797604166,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514161.9035661,
+      "status": "ok",
+      "elapsed": 16.977093967143446
+    }
+  ]
+}

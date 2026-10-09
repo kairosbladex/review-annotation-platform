@@ -1,0 +1,41 @@
+{
+  "unit": "f2aaeebd907f4538bad1e040ecacb492",
+  "keys": [
+    "released_fp:f2aaeebd907f4538bad1e040ecacb492:000",
+    "released_fp:f2aaeebd907f4538bad1e040ecacb492:002",
+    "released_fp:f2aaeebd907f4538bad1e040ecacb492:003"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内能明确看到一辆车，框线和文字不作为判断依据。",
+      "observedObject": "可见车辆结构",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内能明确看到一辆车，虽部分遮挡但主体结构可辨。",
+      "observedObject": "可见车辆结构",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内能明确看到一辆车，主体结构清晰可辨。",
+      "observedObject": "可见车辆结构",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.446155481040478,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514211.64322,
+      "status": "ok",
+      "elapsed": 15.420739299152046
+    }
+  ]
+}

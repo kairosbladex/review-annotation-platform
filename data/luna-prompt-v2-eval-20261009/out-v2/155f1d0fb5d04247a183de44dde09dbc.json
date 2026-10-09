@@ -1,0 +1,33 @@
+{
+  "unit": "155f1d0fb5d04247a183de44dde09dbc",
+  "keys": [
+    "rooftop:155f1d0fb5d04247a183de44dde09dbc:000",
+    "rooftop:155f1d0fb5d04247a183de44dde09dbc:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见小型车辆，位于道路通行区域，位置和尺度与车道相符。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见小型车辆，位于道路通行区域，位置和尺度与车道相符。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.073187137022614,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514270.8543324,
+      "status": "ok",
+      "elapsed": 15.050108915893361
+    }
+  ]
+}

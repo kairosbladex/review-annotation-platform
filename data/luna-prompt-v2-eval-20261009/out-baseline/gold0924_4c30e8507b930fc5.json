@@ -1,0 +1,33 @@
+{
+  "unit": "gold0924_4c30e8507b930fc5",
+  "keys": [
+    "gold0924:B03-035",
+    "gold0924:B03-036"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不将框线和文字作为目标证据；现有图像分辨率不足以明确确认人员。",
+      "observedObject": "框内仅见疑似小型目标，无法唯一判断为人员。",
+      "imageLimitation": "候选框内目标过小且细节不足，无法确认可见人体结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "不将框线和文字作为目标证据；现有图像分辨率不足以明确确认人员。",
+      "observedObject": "框内仅见疑似小型目标，无法唯一判断为人员。",
+      "imageLimitation": "候选框内目标过小且细节不足，无法确认可见人体结构。"
+    }
+  ],
+  "elapsed": 14.67516958899796,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514535.0096958,
+      "status": "ok",
+      "elapsed": 14.650111495051533
+    }
+  ]
+}

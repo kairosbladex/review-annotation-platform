@@ -1,0 +1,153 @@
+{
+  "unit": "e49438b26182494a83f9c0378f1cad1a",
+  "keys": [
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:000",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:001",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:002",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:004",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:005",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:006",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:008",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:009",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:010",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:011",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:012",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:016",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:017",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:018",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:020",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:021",
+    "released_fp:e49438b26182494a83f9c0378f1cad1a:022"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车身结构，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标清晰可见，为道路上的汽车。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见车身及车轮等车辆结构，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标清晰可见，为道路上的汽车。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内目标位于道路上，呈现汽车外形。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小但可定位，能看出汽车结构。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见纵向车身，符合汽车目标。",
+      "observedObject": "车",
+      "imageLimitation": "目标纵向且部分较小，但车辆结构可辨。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "框内可见车身结构，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标清晰可见，为道路上的汽车。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "uncertain",
+      "reasoning": "只能看到部分目标，无法确认完整车辆结构。",
+      "observedObject": "疑似车",
+      "imageLimitation": "目标位于图像底边，结构严重截断。"
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "uncertain",
+      "reasoning": "可见区域过少，不能唯一确认车辆类别。",
+      "observedObject": "疑似车",
+      "imageLimitation": "目标位于图像底边，结构严重截断。"
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "true",
+      "reasoning": "框内可见明显车身轮廓，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标清晰可见，为道路上的汽车。"
+    },
+    {
+      "target_index": 8,
+      "rawDecision": "uncertain",
+      "reasoning": "目标被图像边界截断，缺乏足够车辆结构证据。",
+      "observedObject": "疑似车",
+      "imageLimitation": "目标位于图像底边，仅露出极少部分。"
+    },
+    {
+      "target_index": 9,
+      "rawDecision": "true",
+      "reasoning": "框内可见道路上的汽车车身。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小但车辆轮廓可辨。"
+    },
+    {
+      "target_index": 10,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车身，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标清晰可见，为道路上的汽车。"
+    },
+    {
+      "target_index": 11,
+      "rawDecision": "true",
+      "reasoning": "框内可见汽车车身结构。",
+      "observedObject": "车",
+      "imageLimitation": "目标清晰可见，为道路上的汽车。"
+    },
+    {
+      "target_index": 12,
+      "rawDecision": "true",
+      "reasoning": "框内可见纵向汽车车身，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标纵向且清晰可见。"
+    },
+    {
+      "target_index": 13,
+      "rawDecision": "uncertain",
+      "reasoning": "可见内容不足以确认完整车辆结构。",
+      "observedObject": "疑似车",
+      "imageLimitation": "目标位于图像底边，部分结构被截断。"
+    },
+    {
+      "target_index": 14,
+      "rawDecision": "true",
+      "reasoning": "框内可见车身及车辆轮廓，符合类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标清晰可见，为道路上的汽车。"
+    },
+    {
+      "target_index": 15,
+      "rawDecision": "true",
+      "reasoning": "框内可见明显汽车车身结构。",
+      "observedObject": "车",
+      "imageLimitation": "目标清晰可见，为道路上的汽车。"
+    },
+    {
+      "target_index": 16,
+      "rawDecision": "true",
+      "reasoning": "框内目标呈现完整汽车轮廓，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标清晰可见，为道路上的汽车。"
+    }
+  ],
+  "elapsed": 22.02688312693499,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514195.6872492,
+      "status": "ok",
+      "elapsed": 22.005364672048017
+    }
+  ]
+}

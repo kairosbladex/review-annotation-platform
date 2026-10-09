@@ -1,0 +1,36 @@
+{
+ "units": 170,
+ "candidates": 563,
+ "scored_labels": 535,
+ "by_source_class_label": {
+  "gold0924/人员/false": 35,
+  "gold0924/人员/true": 14,
+  "gold0924/车/false": 7,
+  "gold0924/车/true": 61,
+  "released_fp/三轮车/true": 1,
+  "released_fp/两轮车/false": 4,
+  "released_fp/两轮车/true": 2,
+  "released_fp/公交车/true": 1,
+  "released_fp/卡车/false": 6,
+  "released_fp/车/false": 14,
+  "released_fp/车/true": 324,
+  "released_fp/违建/true": 9,
+  "rooftop/公交车/true": 1,
+  "rooftop/卡车/true": 1,
+  "rooftop/车/false": 2,
+  "rooftop/车/true": 53
+ },
+ "excluded": {
+  "released_fp:no_image": 1,
+  "released_fp:unclear_label": 2,
+  "released_fp:overlap_design_set": 8,
+  "released_fp:duplicate_image": 1,
+  "rooftop:unclear_label": 19,
+  "rooftop:overlap_design_set": 16,
+  "rooftop:event_already_in_released_fp": 5,
+  "rooftop:duplicate_image": 2,
+  "gold0924:overlap_design_set": 5,
+  "gold0924:duplicate_image": 7
+ },
+ "design_set": "113 events of video-clean-source-eval-20261008 excluded by event id and image SHA256"
+}

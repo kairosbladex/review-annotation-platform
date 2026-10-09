@@ -1,0 +1,25 @@
+{
+  "unit": "fdb392405f404886813e23aa33a2ec1a",
+  "keys": [
+    "rooftop:fdb392405f404886813e23aa33a2ec1a:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框位于建筑立面，不在可通行地面、道路或停车位上，未发现车辆结构；框线和文字不作为目标证据。",
+      "observedObject": "建筑墙面及窗户区域",
+      "imageLimitation": "候选框内未见符合车辆结构和道路/停车位位置条件的目标，主要是建筑立面与纹理。"
+    }
+  ],
+  "elapsed": 17.524269826943055,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514500.0393062,
+      "status": "ok",
+      "elapsed": 17.50305727100931
+    }
+  ]
+}

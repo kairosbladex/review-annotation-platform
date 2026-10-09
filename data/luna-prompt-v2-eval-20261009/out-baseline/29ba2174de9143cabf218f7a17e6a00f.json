@@ -1,0 +1,57 @@
+{
+  "unit": "29ba2174de9143cabf218f7a17e6a00f",
+  "keys": [
+    "released_fp:29ba2174de9143cabf218f7a17e6a00f:000",
+    "released_fp:29ba2174de9143cabf218f7a17e6a00f:001",
+    "released_fp:29ba2174de9143cabf218f7a17e6a00f:002",
+    "released_fp:29ba2174de9143cabf218f7a17e6a00f:003",
+    "released_fp:29ba2174de9143cabf218f7a17e6a00f:004"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可辨认出车身和车辆结构，符合“车”类别。",
+      "observedObject": "可见一辆汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆轮廓及车身结构，符合“车”类别。",
+      "observedObject": "可见一辆汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆车身结构，符合“车”类别。",
+      "observedObject": "可见一辆汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体和车身轮廓，符合“车”类别。",
+      "observedObject": "可见一辆汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "可见内容不足以明确判定为车。",
+      "observedObject": "边缘处疑似车辆局部",
+      "imageLimitation": "候选框过窄且位于图像边缘，目标大部分不可见，无法唯一确认车辆结构。"
+    }
+  ],
+  "elapsed": 15.466865758877248,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514050.7983074,
+      "status": "ok",
+      "elapsed": 15.447841352084652
+    }
+  ]
+}

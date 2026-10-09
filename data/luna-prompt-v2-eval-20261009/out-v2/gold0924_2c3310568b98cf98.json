@@ -1,0 +1,41 @@
+{
+  "unit": "gold0924_2c3310568b98cf98",
+  "keys": [
+    "gold0924:B03-005",
+    "gold0924:B03-006",
+    "gold0924:B03-007"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框仅覆盖画面边缘极小区域，目标被出画，无法唯一确认是否为人员。",
+      "observedObject": "边缘处疑似人员标注区域",
+      "imageLimitation": "目标大部分位于画面左侧边缘，无法完整确认人体结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见深色圆形头顶及肩背衣物色块，符合无人机俯视下的人体结构特征。",
+      "observedObject": "俯视人员",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见深色圆形头顶及肩背衣物色块，位置和尺度与周围环境相符，符合人员特征。",
+      "observedObject": "俯视人员",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.686608290998265,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514534.709931,
+      "status": "ok",
+      "elapsed": 15.655910565052181
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "unit": "gold0924_9855ceec82511925",
+  "keys": [
+    "gold0924:P001",
+    "gold0924:P002",
+    "gold0924:P003",
+    "gold0924:P004",
+    "gold0924:P005"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆，位于道路旁可通行地面，尺度与周围环境相符。",
+      "observedObject": "道路边缘的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆，位于道路上，具有明确车身结构。",
+      "observedObject": "道路上的白色车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆，位于交叉路口道路上，车身结构清晰。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆，位于道路旁的可通行区域，尺度合理。",
+      "observedObject": "道路边缘的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆，停放在铺装停车区域内，车辆结构明确。",
+      "observedObject": "停车区域内的车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 23.57322709285654,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514594.073138,
+      "status": "ok",
+      "elapsed": 23.54900018009357
+    }
+  ]
+}

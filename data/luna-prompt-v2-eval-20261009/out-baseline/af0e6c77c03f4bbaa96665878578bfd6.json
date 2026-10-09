@@ -1,0 +1,89 @@
+{
+  "unit": "af0e6c77c03f4bbaa96665878578bfd6",
+  "keys": [
+    "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r001",
+    "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r002",
+    "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r006",
+    "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r008",
+    "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r009",
+    "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r013",
+    "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r014",
+    "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r015",
+    "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r019"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆轮廓及车身结构，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆轮廓及车身结构，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆及车身结构，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆轮廓及车身结构，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆轮廓及车身结构，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆轮廓及车身结构，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆轮廓及车身结构，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "uncertain",
+      "reasoning": "可见疑似车身，但受遮挡影响，无法清晰确认。",
+      "observedObject": "疑似车",
+      "imageLimitation": "车辆大部分被树荫遮挡，目标结构不够清晰。"
+    },
+    {
+      "target_index": 8,
+      "rawDecision": "uncertain",
+      "reasoning": "可见疑似车身轮廓，但遮挡较重，无法唯一确认车辆结构。",
+      "observedObject": "疑似车",
+      "imageLimitation": "车辆大部分被树荫遮挡，目标结构不够清晰。"
+    }
+  ],
+  "elapsed": 20.703298662090674,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514157.3012867,
+      "status": "ok",
+      "elapsed": 20.67601118586026
+    }
+  ]
+}

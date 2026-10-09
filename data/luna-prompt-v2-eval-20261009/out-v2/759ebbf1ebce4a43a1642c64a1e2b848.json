@@ -1,0 +1,33 @@
+{
+  "unit": "759ebbf1ebce4a43a1642c64a1e2b848",
+  "keys": [
+    "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:000",
+    "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:002"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见红色标注附近的车辆，位于道路通行区域，尺度与车道相符，符合车辆类别。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见红色标注附近的车辆，位于道路通行区域，尺度与车道相符，符合车辆类别。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 19.214098097058013,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514107.4750614,
+      "status": "ok",
+      "elapsed": 19.19003957998939
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "638424e7536e4bb286386e31590b3164",
+  "keys": [
+    "rooftop:638424e7536e4bb286386e31590b3164:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内及紧邻区域可唯一对应一辆位于道路上的车辆，符合“车”类别；红色框线和文字不作为判断依据。",
+      "observedObject": "候选框内可见道路上车辆的局部，位置和尺度与道路通行目标相符。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.407388031948358,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514366.9869268,
+      "status": "ok",
+      "elapsed": 14.373769065132365
+    }
+  ]
+}

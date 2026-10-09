@@ -1,0 +1,25 @@
+{
+  "unit": "9e965212671f4c7c9a589c3209e91941",
+  "keys": [
+    "rooftop:9e965212671f4c7c9a589c3209e91941:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不将框线、文字作为目标证据；由于目标严重出框、遮挡且无法核查车辆必要结构，按要求输出uncertain。",
+      "observedObject": "可见局部框线及疑似目标边缘，无法唯一判断为车辆。",
+      "imageLimitation": "候选框仅覆盖图像最左侧边缘的小区域，目标被截断且细节不可辨认，无法确认车辆结构。"
+    }
+  ],
+  "elapsed": 19.432727228151634,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514396.4325683,
+      "status": "ok",
+      "elapsed": 19.410426925169304
+    }
+  ]
+}

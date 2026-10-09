@@ -1,0 +1,25 @@
+{
+  "unit": "fda169da168343eea8c679345aa0fcf9",
+  "keys": [
+    "rooftop:fda169da168343eea8c679345aa0fcf9:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标被图像边界截断且框内缺乏可辨认的车辆结构，无法明确符合“车”类别。",
+      "observedObject": "可见局部红色框线及疑似物体边缘，不能作为目标证据。",
+      "imageLimitation": "候选框仅覆盖图像最左侧极窄区域，目标大部分被截断，无法唯一确认是否为车辆。"
+    }
+  ],
+  "elapsed": 14.765279204817489,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514492.1874132,
+      "status": "ok",
+      "elapsed": 14.740130462916568
+    }
+  ]
+}

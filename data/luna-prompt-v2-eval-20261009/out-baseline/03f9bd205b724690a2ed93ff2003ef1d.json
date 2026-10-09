@@ -1,0 +1,33 @@
+{
+  "unit": "03f9bd205b724690a2ed93ff2003ef1d",
+  "keys": [
+    "rooftop:03f9bd205b724690a2ed93ff2003ef1d:000",
+    "rooftop:03f9bd205b724690a2ed93ff2003ef1d:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆目标，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小但可见车辆外形，未见影响判断的明显遮挡。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆目标，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小但可见车辆外形，未见影响判断的明显遮挡。"
+    }
+  ],
+  "elapsed": 17.835011610062793,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514238.410807,
+      "status": "ok",
+      "elapsed": 17.812850502785295
+    }
+  ]
+}

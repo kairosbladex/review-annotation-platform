@@ -1,0 +1,33 @@
+{
+  "unit": "24590eb8bc5d4f15a30013e14e88605c",
+  "keys": [
+    "rooftop:24590eb8bc5d4f15a30013e14e88605c:000",
+    "rooftop:24590eb8bc5d4f15a30013e14e88605c:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内是停在道路边缘的车辆，尺度和位置符合车辆特征，不是文字或框线。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小，但框内及紧邻区域可唯一定位，能见车辆轮廓，位于道路旁可通行地面。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内是道路旁的车辆，具有车辆外形和车身色块，位置与周围道路环境相符。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小，但框内及紧邻区域可唯一定位，能见车辆轮廓，位于道路旁可通行地面。"
+    }
+  ],
+  "elapsed": 27.609639240195975,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514285.9294195,
+      "status": "ok",
+      "elapsed": 27.586634882027283
+    }
+  ]
+}

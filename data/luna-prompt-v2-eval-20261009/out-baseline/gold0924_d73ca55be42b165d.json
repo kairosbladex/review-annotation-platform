@@ -1,0 +1,33 @@
+{
+  "unit": "gold0924_d73ca55be42b165d",
+  "keys": [
+    "gold0924:B05-001",
+    "gold0924:B05-002"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内能看到人员的身体结构，符合人员类别；框线和文字未作为判断依据。",
+      "observedObject": "可见人体目标",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内能看到人员的身体结构，符合人员类别；框线和文字未作为判断依据。",
+      "observedObject": "可见人体目标",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.112764958990738,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514670.7315507,
+      "status": "ok",
+      "elapsed": 14.093877159059048
+    }
+  ]
+}

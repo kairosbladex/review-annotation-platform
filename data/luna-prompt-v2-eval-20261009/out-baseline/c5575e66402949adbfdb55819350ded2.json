@@ -1,0 +1,49 @@
+{
+  "unit": "c5575e66402949adbfdb55819350ded2",
+  "keys": [
+    "released_fp:c5575e66402949adbfdb55819350ded2:000",
+    "released_fp:c5575e66402949adbfdb55819350ded2:001",
+    "released_fp:c5575e66402949adbfdb55819350ded2:002",
+    "released_fp:c5575e66402949adbfdb55819350ded2:003"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的车辆目标，符合“车”类别。",
+      "observedObject": "小型车辆",
+      "imageLimitation": "目标较小，但可见完整车辆轮廓与车身结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内目标具有卡车外形和较大的车厢结构，符合“卡车”类别。",
+      "observedObject": "卡车",
+      "imageLimitation": "目标较小，但可见车体及货厢样结构。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前可见外观不能唯一确认是两轮车，不能将框线或文字作为证据。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标极小且分辨率不足，无法确认是否具备两轮结构。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的车辆目标，符合“车”类别。",
+      "observedObject": "小型车辆",
+      "imageLimitation": "目标较小，但可辨认车辆轮廓。"
+    }
+  ],
+  "elapsed": 16.015675452072173,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514169.289282,
+      "status": "ok",
+      "elapsed": 15.992809246992692
+    }
+  ]
+}

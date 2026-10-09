@@ -1,0 +1,25 @@
+{
+  "unit": "2d091ba6c6ce4f8ab7dabf226e973fb9",
+  "keys": [
+    "rooftop:2d091ba6c6ce4f8ab7dabf226e973fb9:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "目标位于可通行道路区域，尺度和外形符合车辆特征，明确属于车。",
+      "observedObject": "道路边缘停放的一辆车，可见车身轮廓与车窗结构。",
+      "imageLimitation": "目标位于候选框内及紧邻区域，虽被框线部分遮挡，但仍可辨认。"
+    }
+  ],
+  "elapsed": 14.897042264929041,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514289.2011478,
+      "status": "ok",
+      "elapsed": 14.880911927903071
+    }
+  ]
+}

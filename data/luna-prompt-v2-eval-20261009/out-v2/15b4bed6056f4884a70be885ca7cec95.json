@@ -1,0 +1,33 @@
+{
+  "unit": "15b4bed6056f4884a70be885ca7cec95",
+  "keys": [
+    "released_fp:15b4bed6056f4884a70be885ca7cec95:000",
+    "released_fp:15b4bed6056f4884a70be885ca7cec95:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆位于道路上的车辆，尺度和位置符合车辆特征。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "无明显限制"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆位于道路上的车辆，尺度和位置符合车辆特征。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "无明显限制"
+    }
+  ],
+  "elapsed": 15.737815737025812,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514001.5747178,
+      "status": "ok",
+      "elapsed": 15.716532919090241
+    }
+  ]
+}

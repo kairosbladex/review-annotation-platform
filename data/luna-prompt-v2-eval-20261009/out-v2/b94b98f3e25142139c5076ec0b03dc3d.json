@@ -1,0 +1,41 @@
+{
+  "unit": "b94b98f3e25142139c5076ec0b03dc3d",
+  "keys": [
+    "released_fp:b94b98f3e25142139c5076ec0b03dc3d:001",
+    "released_fp:b94b98f3e25142139c5076ec0b03dc3d:002",
+    "released_fp:b94b98f3e25142139c5076ec0b03dc3d:003"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆目标，位于道路通行区域，尺度与车道相符。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆目标，位于道路通行区域，尺度与车道相符。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆目标，位于道路通行区域，尺度与车道相符；目标虽贴近图像上边缘但仍可对应。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.030124361161143,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514164.207967,
+      "status": "ok",
+      "elapsed": 15.001430421834812
+    }
+  ]
+}

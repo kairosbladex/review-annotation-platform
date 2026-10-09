@@ -1,0 +1,25 @@
+{
+  "unit": "gold0924_e638f0db601d8226",
+  "keys": [
+    "gold0924:B03-004"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不将框线或文字作为目标证据；缺乏清晰、完整的人体结构，因此不能明确符合人员类别。",
+      "observedObject": "框内仅见局部彩色标记或物体，无法唯一判断为人员。",
+      "imageLimitation": "候选框位于图像顶部边缘，目标极小且部分被裁切，无法确认可见人体结构。"
+    }
+  ],
+  "elapsed": 14.02593743079342,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514688.9602084,
+      "status": "ok",
+      "elapsed": 14.002275945153087
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "fda169da168343eea8c679345aa0fcf9",
+  "keys": [
+    "rooftop:fda169da168343eea8c679345aa0fcf9:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框内没有足够可辨认的车辆结构，且目标明显出框，不能判定为符合“车”类别。",
+      "observedObject": "框内可见红色框线及局部场景，未能确认车辆。",
+      "imageLimitation": "候选框仅覆盖画面最左侧极窄区域，目标大部分出框，无法确认完整车辆结构。"
+    }
+  ],
+  "elapsed": 15.885518900118768,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514496.5647497,
+      "status": "ok",
+      "elapsed": 15.861646014964208
+    }
+  ]
+}

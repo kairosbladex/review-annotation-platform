@@ -1,0 +1,25 @@
+{
+  "unit": "gold0924_c2692e9bfd9287bc",
+  "keys": [
+    "gold0924:B04-003"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前图像不能唯一确认候选框内存在人员，不满足人员类别的明确证据要求。",
+      "observedObject": "道路上的疑似车辆或局部目标",
+      "imageLimitation": "目标区域过小且被红色框线及车辆遮挡，无法确认可见人体结构。"
+    }
+  ],
+  "elapsed": 17.49747734097764,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514656.4339614,
+      "status": "ok",
+      "elapsed": 17.47116050682962
+    }
+  ]
+}

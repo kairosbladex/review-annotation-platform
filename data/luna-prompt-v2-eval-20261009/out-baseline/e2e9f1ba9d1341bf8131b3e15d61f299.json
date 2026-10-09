@@ -1,0 +1,25 @@
+{
+  "unit": "e2e9f1ba9d1341bf8131b3e15d61f299",
+  "keys": [
+    "rooftop:e2e9f1ba9d1341bf8131b3e15d61f299:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "不能将框线或文字作为目标证据，且框内没有可见车辆主体，因此不符合“车”类别。",
+      "observedObject": "框线和背景区域",
+      "imageLimitation": "候选框仅包含红色框线及部分背景，未见可确认的车辆结构。"
+    }
+  ],
+  "elapsed": 16.062541394028813,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514478.7511368,
+      "status": "ok",
+      "elapsed": 16.034510649973527
+    }
+  ]
+}

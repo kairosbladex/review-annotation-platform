@@ -1,0 +1,25 @@
+{
+  "unit": "ff9f6611207448db85c81aca9a928142",
+  "keys": [
+    "rooftop:ff9f6611207448db85c81aca9a928142:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "框内仅能看到极小目标，不能明确判断其是否为车；不将框线或文字作为证据。",
+      "observedObject": "疑似小型物体",
+      "imageLimitation": "候选框内目标尺寸过小且细节不可辨，无法确认车辆结构。"
+    }
+  ],
+  "elapsed": 15.584261283976957,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514494.8100412,
+      "status": "ok",
+      "elapsed": 15.561556288972497
+    }
+  ]
+}

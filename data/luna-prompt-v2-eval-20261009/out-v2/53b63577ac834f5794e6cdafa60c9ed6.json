@@ -1,0 +1,25 @@
+{
+  "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+  "keys": [
+    "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框内主要是标注文字及周边地面/建筑纹理，缺乏卡车车身、车厢或轮廓等可见结构，不能判定为卡车。",
+      "observedObject": "未能辨认出明确车辆目标。",
+      "imageLimitation": "目标区域过小且被红色标注文字遮挡，无法确认卡车结构。"
+    }
+  ],
+  "elapsed": 14.29480691300705,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514350.6641107,
+      "status": "ok",
+      "elapsed": 14.27080313116312
+    }
+  ]
+}

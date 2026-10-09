@@ -1,0 +1,49 @@
+{
+  "unit": "1c711a033d014f7fa7883d7488c75b9f",
+  "keys": [
+    "released_fp:1c711a033d014f7fa7883d7488c75b9f:000",
+    "released_fp:1c711a033d014f7fa7883d7488c75b9f:001",
+    "released_fp:1c711a033d014f7fa7883d7488c75b9f:002",
+    "released_fp:1c711a033d014f7fa7883d7488c75b9f:003"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见位于道路上的细长车辆结构，尺度和位置符合两轮车。",
+      "observedObject": "两轮车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见道路上的车辆，具有车身结构且尺度与车道相符。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见步道旁通行地面上的车辆结构，目标与类别相符。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "候选框及紧邻区域内可见道路边缘的车辆，位置和外形符合车辆。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.824558016145602,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514017.3174202,
+      "status": "ok",
+      "elapsed": 15.800034077838063
+    }
+  ]
+}

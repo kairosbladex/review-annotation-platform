@@ -1,0 +1,41 @@
+{
+  "unit": "1cd73a7802f74de4a4d361c45c52fcb9",
+  "keys": [
+    "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:000",
+    "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:001",
+    "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:002"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆位于道路旁可通行地面的车辆，具有车辆外形和与环境相符的尺度。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆停在道路旁地面的车辆，车辆结构清晰且位置合理。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆位于道路旁地面的车辆，外形和尺度符合车辆特征。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.293510862858966,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514020.6044574,
+      "status": "ok",
+      "elapsed": 17.270232684910297
+    }
+  ]
+}

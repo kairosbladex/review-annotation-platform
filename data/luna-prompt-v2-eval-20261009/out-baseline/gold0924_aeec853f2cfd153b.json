@@ -1,0 +1,33 @@
+{
+  "unit": "gold0924_aeec853f2cfd153b",
+  "keys": [
+    "gold0924:B03-009",
+    "gold0924:B03-010"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭标注框或文字判定，缺乏可见人体结构证据。",
+      "observedObject": "框内仅见模糊小目标，无法确认是否为人员。",
+      "imageLimitation": "目标过小且画面雾霾严重，框内无法清晰辨认人体结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭标注框或文字判定，缺乏可见人体结构证据。",
+      "observedObject": "框内仅见模糊小目标，无法确认是否为人员。",
+      "imageLimitation": "目标过小且画面雾霾严重，框内无法清晰辨认人体结构。"
+    }
+  ],
+  "elapsed": 28.47577449399978,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514607.9343898,
+      "status": "ok",
+      "elapsed": 28.443463023984805
+    }
+  ]
+}

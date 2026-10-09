@@ -1,0 +1,97 @@
+{
+  "unit": "dc82bfbae0984d7b9759862a3887538e",
+  "keys": [
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:000",
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:001",
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:002",
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:003",
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:004",
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:005",
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:006",
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:007",
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:008",
+    "released_fp:dc82bfbae0984d7b9759862a3887538e:009"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆轮廓，符合“车”类别。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体和车身结构，符合类别。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体，符合类别。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "可见信息不足，不能明确符合类别。",
+      "observedObject": "疑似车辆局部",
+      "imageLimitation": "目标位于图像底部，框内仅露出极少部分，无法唯一确认车辆结构。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆及车身结构，符合类别。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体和轮廓，符合类别。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体，符合类别。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "true",
+      "reasoning": "框内可见清晰车辆轮廓，符合类别。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 8,
+      "rawDecision": "true",
+      "reasoning": "框内可见道路上的汽车，车身结构明确。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 9,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整汽车及车身结构，符合类别。",
+      "observedObject": "道路旁的汽车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.159830891992897,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514185.313076,
+      "status": "ok",
+      "elapsed": 17.13413669820875
+    }
+  ]
+}

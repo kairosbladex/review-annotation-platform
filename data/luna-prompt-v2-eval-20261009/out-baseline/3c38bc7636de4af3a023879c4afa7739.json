@@ -1,0 +1,33 @@
+{
+  "unit": "3c38bc7636de4af3a023879c4afa7739",
+  "keys": [
+    "rooftop:3c38bc7636de4af3a023879c4afa7739:000",
+    "rooftop:3c38bc7636de4af3a023879c4afa7739:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "无法清晰、完整地核查是否为车辆。",
+      "observedObject": "疑似车辆局部",
+      "imageLimitation": "目标大部分位于图像左侧边缘，框内仅见被红色标注遮挡的局部，无法确认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "不能确认是否具备卡车所需的车身和货厢结构。",
+      "observedObject": "疑似车辆局部",
+      "imageLimitation": "目标位于图像左侧边缘，框内被红色框线和文字遮挡，车辆主体及货厢结构不可见。"
+    }
+  ],
+  "elapsed": 21.223213956225663,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514316.7118807,
+      "status": "ok",
+      "elapsed": 21.200488960836083
+    }
+  ]
+}

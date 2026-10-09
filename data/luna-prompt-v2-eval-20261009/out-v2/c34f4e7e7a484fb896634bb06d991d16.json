@@ -1,0 +1,33 @@
+{
+  "unit": "c34f4e7e7a484fb896634bb06d991d16",
+  "keys": [
+    "released_fp:c34f4e7e7a484fb896634bb06d991d16:000",
+    "released_fp:c34f4e7e7a484fb896634bb06d991d16:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内确有独立建筑，但违建属性不能仅凭外观判断。",
+      "observedObject": "蓝色屋顶建筑",
+      "imageLimitation": "仅凭无人机影像无法确认是否具有审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内确有独立建筑，但违建属性不能仅凭外观判断。",
+      "observedObject": "蓝色屋顶建筑",
+      "imageLimitation": "仅凭无人机影像无法确认是否具有审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 17.006463331868872,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514166.005534,
+      "status": "ok",
+      "elapsed": 16.962879272876307
+    }
+  ]
+}

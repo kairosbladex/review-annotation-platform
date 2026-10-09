@@ -1,0 +1,33 @@
+{
+  "unit": "ad9e05617647405ab1d50cfd97568bba",
+  "keys": [
+    "released_fp:ad9e05617647405ab1d50cfd97568bba:000",
+    "released_fp:ad9e05617647405ab1d50cfd97568bba:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整车辆结构，位于道路车道内，尺度与道路环境相符。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆结构，位于道路车道内，尺度与道路环境相符。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.996724572964013,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514156.1292944,
+      "status": "ok",
+      "elapsed": 15.969551335088909
+    }
+  ]
+}

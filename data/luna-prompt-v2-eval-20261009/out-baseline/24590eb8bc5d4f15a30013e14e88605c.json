@@ -1,0 +1,33 @@
+{
+  "unit": "24590eb8bc5d4f15a30013e14e88605c",
+  "keys": [
+    "rooftop:24590eb8bc5d4f15a30013e14e88605c:000",
+    "rooftop:24590eb8bc5d4f15a30013e14e88605c:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内仅能看到极小目标，缺乏足够可见结构，不能明确判定为车。",
+      "observedObject": "疑似小型车辆或车辆标记",
+      "imageLimitation": "目标过小且细节模糊，无法确认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内目标细节不足，无法唯一确认其为车辆。",
+      "observedObject": "疑似小型车辆或车辆标记",
+      "imageLimitation": "目标过小且细节模糊，无法确认车辆结构。"
+    }
+  ],
+  "elapsed": 23.192462811945006,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514274.433835,
+      "status": "ok",
+      "elapsed": 23.168491275049746
+    }
+  ]
+}

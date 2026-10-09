@@ -1,0 +1,25 @@
+{
+  "unit": "74c43336b12e4945a81fc40e424017e4",
+  "keys": [
+    "rooftop:74c43336b12e4945a81fc40e424017e4:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内目标与道路位置及周围尺度相符，明确符合“车”类别；不依据框线或文字判断。",
+      "observedObject": "框内可见一辆位于道路上的小型车辆，具备车辆外形结构。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.455926697002724,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514381.3896213,
+      "status": "ok",
+      "elapsed": 15.431899737101048
+    }
+  ]
+}

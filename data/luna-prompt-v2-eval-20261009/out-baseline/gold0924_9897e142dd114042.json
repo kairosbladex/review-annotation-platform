@@ -1,0 +1,25 @@
+{
+  "unit": "gold0924_9897e142dd114042",
+  "keys": [
+    "gold0924:B03-029"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "人员类别需要可见人体结构；当前候选框内缺乏足够的人体轮廓或结构证据，不能仅凭热信号判定。",
+      "observedObject": "疑似高温物体或局部区域，不能唯一确认是人员。",
+      "imageLimitation": "目标区域热成像中仅见被框出的高温矩形，受遮挡和成像方式影响，无法确认可见人体结构。"
+    }
+  ],
+  "elapsed": 16.744967059930786,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514584.4543698,
+      "status": "ok",
+      "elapsed": 16.72358537116088
+    }
+  ]
+}

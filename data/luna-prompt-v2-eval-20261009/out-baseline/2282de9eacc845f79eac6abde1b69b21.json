@@ -1,0 +1,33 @@
+{
+  "unit": "2282de9eacc845f79eac6abde1b69b21",
+  "keys": [
+    "rooftop:2282de9eacc845f79eac6abde1b69b21:000",
+    "rooftop:2282de9eacc845f79eac6abde1b69b21:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆的车身结构，符合“车”类别；不涉及车牌号码判断。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆的车身结构，符合“车”类别；不涉及车牌号码判断。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.163068134104833,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514273.1314404,
+      "status": "ok",
+      "elapsed": 14.141801482997835
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "unit": "f7041ee1c1aa4feb952d95667e47b235",
+  "keys": [
+    "released_fp:f7041ee1c1aa4feb952d95667e47b235:000",
+    "released_fp:f7041ee1c1aa4feb952d95667e47b235:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "目标位于道路旁绿化带附近，框内可见车辆本体，未将框线或文字作为判断依据。",
+      "observedObject": "候选框内可见一辆两轮车，轮廓和车身结构符合两轮车类别。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "目标位于道路区域，框内可见车辆本体，结构足以确认属于两轮车。",
+      "observedObject": "候选框内可见一辆两轮车，轮廓和车身结构符合两轮车类别。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 16.91462606098503,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514227.0975323,
+      "status": "ok",
+      "elapsed": 16.88328711106442
+    }
+  ]
+}

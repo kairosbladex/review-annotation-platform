@@ -1,0 +1,33 @@
+{
+  "unit": "155f1d0fb5d04247a183de44dde09dbc",
+  "keys": [
+    "rooftop:155f1d0fb5d04247a183de44dde09dbc:000",
+    "rooftop:155f1d0fb5d04247a183de44dde09dbc:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见独立车辆目标，不依据框线或文字判断，符合“车”类别。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标较小，但可见车辆的车身轮廓及车轮等结构，能够确认是车。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆目标，符合“车”类别。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标很小且分辨率有限，但仍能辨认出车辆轮廓。"
+    }
+  ],
+  "elapsed": 14.261430369922891,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514260.169727,
+      "status": "ok",
+      "elapsed": 14.237487031146884
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "unit": "3c38bc7636de4af3a023879c4afa7739",
+  "keys": [
+    "rooftop:3c38bc7636de4af3a023879c4afa7739:000",
+    "rooftop:3c38bc7636de4af3a023879c4afa7739:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见道路边缘处的车辆形态，位置和尺度与道路环境相符，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见道路上的大型车辆轮廓，位于可通行道路区域，尺度符合卡车特征，符合“卡车”类别。",
+      "observedObject": "卡车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.798880157060921,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514320.2952373,
+      "status": "ok",
+      "elapsed": 15.77902832813561
+    }
+  ]
+}

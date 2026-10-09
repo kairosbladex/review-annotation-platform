@@ -1,0 +1,41 @@
+{
+  "unit": "gold0924_2c3310568b98cf98",
+  "keys": [
+    "gold0924:B03-005",
+    "gold0924:B03-006",
+    "gold0924:B03-007"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "无法仅凭当前候选框内影像明确确认人员类别。",
+      "observedObject": "框内主要可见红色标注框及部分背景，未能完整观察目标。",
+      "imageLimitation": "候选框位于图像最左边缘，目标大部分被截断，无法确认可见人体结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏明确可见的人体结构，不能确认符合人员类别。",
+      "observedObject": "框内可见疑似小目标，但被标注框覆盖且细节不足。",
+      "imageLimitation": "候选框过小且目标细节模糊，无法清晰辨认人体结构。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏明确可见的人体结构，不能确认符合人员类别。",
+      "observedObject": "框内可见疑似小目标，但被标注框覆盖且细节不足。",
+      "imageLimitation": "候选框过小且目标细节模糊，无法清晰辨认人体结构。"
+    }
+  ],
+  "elapsed": 15.22123083495535,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514523.2675962,
+      "status": "ok",
+      "elapsed": 15.197967651998624
+    }
+  ]
+}

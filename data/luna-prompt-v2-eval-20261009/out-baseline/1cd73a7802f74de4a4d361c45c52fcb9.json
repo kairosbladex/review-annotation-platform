@@ -1,0 +1,41 @@
+{
+  "unit": "1cd73a7802f74de4a4d361c45c52fcb9",
+  "keys": [
+    "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:000",
+    "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:001",
+    "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:002"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整车辆形态，符合“车”类别；判断未依据框线或文字。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆主体及车身结构，符合“车”类别；判断未依据框线或文字。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆主体及车身结构，符合“车”类别；判断未依据框线或文字。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.645331294974312,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514017.7478542,
+      "status": "ok",
+      "elapsed": 17.62510925112292
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "328f979932924fa79ccb3889e939d087",
+  "keys": [
+    "released_fp:328f979932924fa79ccb3889e939d087:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前图像无法明确判断为卡车，不能将框线或文字作为目标证据。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "候选框内目标较小且被框线遮挡，无法清晰确认车辆所需的卡车结构。"
+    }
+  ],
+  "elapsed": 14.313503867946565,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514052.563135,
+      "status": "ok",
+      "elapsed": 14.28536356985569
+    }
+  ]
+}

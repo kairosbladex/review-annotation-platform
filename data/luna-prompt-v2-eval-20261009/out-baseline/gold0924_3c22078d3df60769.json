@@ -1,0 +1,25 @@
+{
+  "unit": "gold0924_3c22078d3df60769",
+  "keys": [
+    "gold0924:B03-032"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不具备可见且明确的人体结构证据，因此按规则输出uncertain。",
+      "observedObject": "候选框内仅见局部高亮区域，不能唯一判断为人员。",
+      "imageLimitation": "目标区域较小且被热成像伪彩、文字及背景干扰，无法清晰确认完整人体结构。"
+    }
+  ],
+  "elapsed": 13.862250045873225,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514525.3963916,
+      "status": "ok",
+      "elapsed": 13.829905064078048
+    }
+  ]
+}

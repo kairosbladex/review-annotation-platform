@@ -1,0 +1,57 @@
+{
+  "unit": "9f06a36f6aaa46d4ac0ac06391384a26",
+  "keys": [
+    "released_fp:9f06a36f6aaa46d4ac0ac06391384a26:000",
+    "released_fp:9f06a36f6aaa46d4ac0ac06391384a26:001",
+    "released_fp:9f06a36f6aaa46d4ac0ac06391384a26:002",
+    "released_fp:9f06a36f6aaa46d4ac0ac06391384a26:003",
+    "released_fp:9f06a36f6aaa46d4ac0ac06391384a26:004"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆位于道路上的汽车，尺度和结构符合车辆。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆停在通行地面上的汽车，车身结构清晰。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆停在道路或停车区域的汽车，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆停放在道路旁的汽车，尺度和外形符合车辆。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆停放在道路旁的汽车，车辆结构明确。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 18.43286761501804,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514142.733416,
+      "status": "ok",
+      "elapsed": 18.403754816157743
+    }
+  ]
+}

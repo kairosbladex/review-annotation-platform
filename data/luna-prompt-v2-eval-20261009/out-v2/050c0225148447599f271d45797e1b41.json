@@ -1,0 +1,33 @@
+{
+  "unit": "050c0225148447599f271d45797e1b41",
+  "keys": [
+    "rooftop:050c0225148447599f271d45797e1b41:000",
+    "rooftop:050c0225148447599f271d45797e1b41:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内及紧邻区域可见道路上的车辆目标，位置和尺度符合公交车初审类别。",
+      "observedObject": "道路上的公交车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内及紧邻区域可见车辆目标，位于可通行道路区域，符合“车”类别。",
+      "observedObject": "道路边缘的车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.19897591508925,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514254.6943398,
+      "status": "ok",
+      "elapsed": 14.167757334886119
+    }
+  ]
+}

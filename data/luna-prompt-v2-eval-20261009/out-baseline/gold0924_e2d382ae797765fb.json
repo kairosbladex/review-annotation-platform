@@ -1,0 +1,25 @@
+{
+  "unit": "gold0924_e2d382ae797765fb",
+  "keys": [
+    "gold0924:B03-031"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前图像无法明确观察到人体结构，不能判定符合“人员”类别。",
+      "observedObject": "疑似小型目标，未能唯一确认是否为人员。",
+      "imageLimitation": "候选框内目标较小且被热成像伪彩及框线干扰，无法清晰确认可见人体结构。"
+    }
+  ],
+  "elapsed": 15.01861232984811,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514673.9385889,
+      "status": "ok",
+      "elapsed": 14.991999408928677
+    }
+  ]
+}

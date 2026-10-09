@@ -1,0 +1,33 @@
+{
+  "unit": "251324d21a8f4471ae6997c9c78de2ee",
+  "keys": [
+    "released_fp:251324d21a8f4471ae6997c9c78de2ee:000",
+    "released_fp:251324d21a8f4471ae6997c9c78de2ee:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观和红框文字判断，因此无法明确确认。",
+      "observedObject": "蓝色顶棚/建筑物",
+      "imageLimitation": "仅能看到候选框内为蓝色顶棚或建筑结构，缺乏审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观和红框文字判断，因此无法明确确认。",
+      "observedObject": "蓝色顶棚/建筑物",
+      "imageLimitation": "仅能看到候选框内为蓝色长条顶棚或建筑结构，缺乏审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.400788265978917,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514035.3953137,
+      "status": "ok",
+      "elapsed": 15.38046538690105
+    }
+  ]
+}

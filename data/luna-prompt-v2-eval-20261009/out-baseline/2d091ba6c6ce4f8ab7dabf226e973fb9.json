@@ -1,0 +1,25 @@
+{
+  "unit": "2d091ba6c6ce4f8ab7dabf226e973fb9",
+  "keys": [
+    "rooftop:2d091ba6c6ce4f8ab7dabf226e973fb9:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不把框线作为证据；现有可见细节不足以明确符合“车”类别。",
+      "observedObject": "候选框内仅能看到疑似深色物体，无法唯一判断为车辆。",
+      "imageLimitation": "目标位于图像底部且尺寸很小，部分被框线遮挡，无法清楚确认车辆结构。"
+    }
+  ],
+  "elapsed": 16.15173497982323,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514284.6996665,
+      "status": "ok",
+      "elapsed": 16.11961060599424
+    }
+  ]
+}

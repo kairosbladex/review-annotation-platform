@@ -1,0 +1,49 @@
+{
+  "unit": "04933aa6944e4294a47e76b4aa49180e",
+  "keys": [
+    "released_fp:04933aa6944e4294a47e76b4aa49180e:r000",
+    "released_fp:04933aa6944e4294a47e76b4aa49180e:r001",
+    "released_fp:04933aa6944e4294a47e76b4aa49180e:r004",
+    "released_fp:04933aa6944e4294a47e76b4aa49180e:r005"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见一辆白色车辆，位于可通行的铺装地面，尺度和形状符合车辆。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见一辆车辆，位于道路上，车身结构清晰，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见一辆白色车辆，停放在树旁的铺装区域，具有明确车身结构。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见一辆深色车辆，位于铺装区域，形状和尺度符合车辆。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 20.211838378105313,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791513981.395641,
+      "status": "ok",
+      "elapsed": 20.151207262882963
+    }
+  ]
+}

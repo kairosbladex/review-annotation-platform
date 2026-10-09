@@ -1,0 +1,49 @@
+{
+  "unit": "21efd374c2774895ad80fe6fa1a394fe",
+  "keys": [
+    "released_fp:21efd374c2774895ad80fe6fa1a394fe:000",
+    "released_fp:21efd374c2774895ad80fe6fa1a394fe:001",
+    "released_fp:21efd374c2774895ad80fe6fa1a394fe:002",
+    "released_fp:21efd374c2774895ad80fe6fa1a394fe:003"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整车辆结构，位于道路边缘的可通行地面，尺度与道路相符。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆主体，位于道路边缘，符合汽车形态及道路尺度。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整汽车，处于道路区域，结构和尺度均匹配。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整汽车，位于道路可通行地面，符合车辆类别。",
+      "observedObject": "道路上的汽车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 22.23746866406873,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514033.2174203,
+      "status": "ok",
+      "elapsed": 22.183648666134104
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "3c743957ed964e279866fafebf5a8a86",
+  "keys": [
+    "rooftop:3c743957ed964e279866fafebf5a8a86:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内没有清晰可辨的车辆轮廓或车辆结构，不能据此判定为车。",
+      "observedObject": "建筑立面和窗户区域",
+      "imageLimitation": "框内仅见建筑立面、窗户和模糊背景，未能唯一确认车辆及其必要结构。"
+    }
+  ],
+  "elapsed": 15.757558290846646,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514317.0763934,
+      "status": "ok",
+      "elapsed": 15.733553319005296
+    }
+  ]
+}

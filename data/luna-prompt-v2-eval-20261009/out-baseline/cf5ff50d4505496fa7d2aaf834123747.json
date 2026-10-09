@@ -1,0 +1,25 @@
+{
+  "unit": "cf5ff50d4505496fa7d2aaf834123747",
+  "keys": [
+    "rooftop:cf5ff50d4505496fa7d2aaf834123747:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标严重遮挡并超出图像边界，缺乏足够可见结构，不能明确符合“车”类别。",
+      "observedObject": "局部疑似车辆或其他道路目标",
+      "imageLimitation": "候选框位于图像左上边缘，目标仅部分可见且被边界截断，无法唯一确认车辆结构。"
+    }
+  ],
+  "elapsed": 16.501172394957393,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514444.198014,
+      "status": "ok",
+      "elapsed": 16.465782610932365
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "a4d041acab414e5d8e428eef20afeafc",
+  "keys": [
+    "rooftop:a4d041acab414e5d8e428eef20afeafc:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标被框线和画面边缘部分遮挡，无法唯一判断为三轮车。",
+      "observedObject": "疑似车辆局部",
+      "imageLimitation": "候选框内仅见车辆局部，无法确认三轮结构及三轮证据。"
+    }
+  ],
+  "elapsed": 16.957911735167727,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514407.378886,
+      "status": "ok",
+      "elapsed": 16.281586983939633
+    }
+  ]
+}

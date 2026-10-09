@@ -1,0 +1,25 @@
+{
+  "unit": "374b9cb1a9e1453f886909911058eab9",
+  "keys": [
+    "rooftop:374b9cb1a9e1453f886909911058eab9:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内目标虽部分贴近图像左边缘，但能唯一对应到道路上的车辆，不是框线、文字或地面标线。",
+      "observedObject": "候选框内可见一辆位于道路边缘通行区域的车辆，形态与尺度符合车辆特征。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.448794489959255,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514313.55396,
+      "status": "ok",
+      "elapsed": 17.41739722993225
+    }
+  ]
+}

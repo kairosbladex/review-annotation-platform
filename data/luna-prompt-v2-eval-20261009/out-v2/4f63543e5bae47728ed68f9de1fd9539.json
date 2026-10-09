@@ -1,0 +1,33 @@
+{
+  "unit": "4f63543e5bae47728ed68f9de1fd9539",
+  "keys": [
+    "released_fp:4f63543e5bae47728ed68f9de1fd9539:000",
+    "released_fp:4f63543e5bae47728ed68f9de1fd9539:002"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆位于道路上的车辆，车体结构和尺度符合卡车。",
+      "observedObject": "卡车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "只能确认存在道路车辆，三轮结构证据不足。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "候选框内目标较小且被标注框遮挡，无法确认是否具备三轮车所需的三轮结构。"
+    }
+  ],
+  "elapsed": 16.16404660604894,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514073.1905196,
+      "status": "ok",
+      "elapsed": 16.13518005795777
+    }
+  ]
+}

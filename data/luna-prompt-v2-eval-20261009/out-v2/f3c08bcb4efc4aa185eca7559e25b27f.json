@@ -1,0 +1,33 @@
+{
+  "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+  "keys": [
+    "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:000",
+    "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标外观可能是临时构筑物，但画面没有提供其合法性、审批情况或区域规划依据，因此不能明确判定为违建。",
+      "observedObject": "候选框内可见一个狭长的浅蓝色顶棚或构筑物。",
+      "imageLimitation": "仅凭无人机俯视图无法判断是否具备审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "目标外观可能是临时构筑物，但缺乏审批和区域业务依据，不能明确判定为违建。",
+      "observedObject": "候选框内可见一个狭长的浅蓝色顶棚或构筑物。",
+      "imageLimitation": "仅凭无人机俯视图无法判断是否具备审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 18.04105870006606,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514225.987894,
+      "status": "ok",
+      "elapsed": 18.021127622108907
+    }
+  ]
+}

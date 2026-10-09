@@ -1,0 +1,49 @@
+{
+  "unit": "c5575e66402949adbfdb55819350ded2",
+  "keys": [
+    "released_fp:c5575e66402949adbfdb55819350ded2:000",
+    "released_fp:c5575e66402949adbfdb55819350ded2:001",
+    "released_fp:c5575e66402949adbfdb55819350ded2:002",
+    "released_fp:c5575e66402949adbfdb55819350ded2:003"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见一辆位于铺装停车区域的小型车辆，形态与周边环境相符。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见一辆停放在通行区域的较大型车辆，尺寸和外形符合卡车。",
+      "observedObject": "卡车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见目标位于道路边缘，呈细长的两轮车形态。",
+      "observedObject": "两轮车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见一辆位于道路上的车辆，符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.285986580885947,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514172.1272166,
+      "status": "ok",
+      "elapsed": 15.259355822112411
+    }
+  ]
+}

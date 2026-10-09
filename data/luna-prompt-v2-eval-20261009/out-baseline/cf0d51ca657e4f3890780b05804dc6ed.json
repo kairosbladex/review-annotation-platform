@@ -1,0 +1,25 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "keys": [
+    "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性需要审批或区域业务依据，当前图像无法提供，不能仅凭外观判定。",
+      "observedObject": "候选框内疑似建筑或硬化设施局部，未见足以证明违法建设的明确证据。",
+      "imageLimitation": "图中可见候选框内为建筑/硬化区域的一部分，但仅凭航拍外观无法确认其是否未经审批或属于违建。"
+    }
+  ],
+  "elapsed": 15.043818830978125,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514178.0196204,
+      "status": "ok",
+      "elapsed": 15.00896695209667
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+  "keys": [
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:000",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:001",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "框内没有足够的车体结构证据，不能判定为公交车。",
+      "observedObject": "路面与标线",
+      "imageLimitation": "目标位于道路边缘，框内主要是标线/路面，未见可确认的公交车结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "false",
+      "reasoning": "框线和文字不能作为目标证据，未发现车辆。",
+      "observedObject": "绿地与文字",
+      "imageLimitation": "框内主要是绿地和文字标注，未见车辆结构。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆形态，位于可通行道路，尺度相符。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标清晰可见。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆结构，位于道路区域，符合车辆类别。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标清晰可见。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "框内可见明显车体轮廓及车厢结构，符合卡车外观。",
+      "observedObject": "屋顶平台上的卡车样车辆",
+      "imageLimitation": "目标清晰可见。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆，位于右侧可通行道路，尺度与道路环境相符。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标清晰可见。"
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆结构，位于道路区域。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标清晰可见。"
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆结构，位置和尺度符合车辆。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标清晰可见。"
+    },
+    {
+      "target_index": 8,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆，位于道路边缘的可通行地面。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标清晰可见。"
+    },
+    {
+      "target_index": 9,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆结构，位于右侧道路区域。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标清晰可见。"
+    }
+  ],
+  "elapsed": 26.837549812858924,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514214.1323104,
+      "status": "ok",
+      "elapsed": 26.815561775816604
+    }
+  ]
+}

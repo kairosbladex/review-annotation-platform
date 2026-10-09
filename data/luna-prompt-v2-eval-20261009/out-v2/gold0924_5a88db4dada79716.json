@@ -1,0 +1,33 @@
+{
+  "unit": "gold0924_5a88db4dada79716",
+  "keys": [
+    "gold0924:B05-004",
+    "gold0924:B05-005"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内及紧邻区域可见与俯视尺度相符的深色头顶及衣物色块，具有人体结构特征，符合人员类别。",
+      "observedObject": "人员",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见俯视人员的头顶和肩背衣物色块，位置与周围环境相符，符合人员类别。",
+      "observedObject": "人员",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.283117758110166,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514555.7367327,
+      "status": "ok",
+      "elapsed": 14.248663347912952
+    }
+  ]
+}

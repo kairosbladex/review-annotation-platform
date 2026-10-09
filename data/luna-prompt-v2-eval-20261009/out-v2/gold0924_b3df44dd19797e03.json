@@ -1,0 +1,49 @@
+{
+  "unit": "gold0924_b3df44dd19797e03",
+  "keys": [
+    "gold0924:B02-008",
+    "gold0924:B02-009",
+    "gold0924:B02-010",
+    "gold0924:B02-011"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "目标位于可通行道路，呈现清晰的车身、车窗和车辆轮廓，尺度与车道相符。",
+      "observedObject": "道路上的白色汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "目标位于道路边缘，虽有树木部分遮挡，但可辨认车身和车窗结构，能唯一定位为车辆。",
+      "observedObject": "道路上的白色汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "目标位于道路上，车身、车窗及车辆轮廓清晰可见，符合汽车类别。",
+      "observedObject": "道路上的白色汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "目标位于道路上，具有明确的汽车车身和车窗结构，尺度与道路环境相符。",
+      "observedObject": "道路上的白色汽车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 18.066476902924478,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514630.409725,
+      "status": "ok",
+      "elapsed": 18.042819716967642
+    }
+  ]
+}

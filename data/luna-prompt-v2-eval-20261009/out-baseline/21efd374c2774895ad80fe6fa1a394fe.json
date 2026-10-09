@@ -1,0 +1,49 @@
+{
+  "unit": "21efd374c2774895ad80fe6fa1a394fe",
+  "keys": [
+    "released_fp:21efd374c2774895ad80fe6fa1a394fe:000",
+    "released_fp:21efd374c2774895ad80fe6fa1a394fe:001",
+    "released_fp:21efd374c2774895ad80fe6fa1a394fe:002",
+    "released_fp:21efd374c2774895ad80fe6fa1a394fe:003"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆结构，明确符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体，虽部分被树叶遮挡但车辆结构仍可辨认，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆主体及车身轮廓，明确符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆结构，明确符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 18.882594435010105,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514033.4805222,
+      "status": "ok",
+      "elapsed": 18.860233927844092
+    }
+  ]
+}

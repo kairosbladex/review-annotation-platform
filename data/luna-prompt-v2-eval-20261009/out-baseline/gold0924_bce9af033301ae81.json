@@ -1,0 +1,33 @@
+{
+  "unit": "gold0924_bce9af033301ae81",
+  "keys": [
+    "gold0924:B03-002",
+    "gold0924:B03-003"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见站立行人的身体轮廓，虽有框线和文字干扰，但目标本身可辨认。",
+      "observedObject": "可见人体结构，符合人员类别。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见行人的身体轮廓，目标可唯一定位，不依据框线或文字判断。",
+      "observedObject": "可见人体结构，符合人员类别。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 16.929510551970452,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514635.9125693,
+      "status": "ok",
+      "elapsed": 16.91242924099788
+    }
+  ]
+}

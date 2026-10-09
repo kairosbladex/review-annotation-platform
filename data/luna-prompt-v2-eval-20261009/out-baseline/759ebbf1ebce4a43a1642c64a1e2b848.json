@@ -1,0 +1,33 @@
+{
+  "unit": "759ebbf1ebce4a43a1642c64a1e2b848",
+  "keys": [
+    "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:000",
+    "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:002"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆本体，符合“车”类别；未将框线或文字作为依据。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小，但可见为道路上的车辆形态。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆本体，符合“车”类别；未将框线或文字作为依据。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小，但可见为道路上的车辆形态。"
+    }
+  ],
+  "elapsed": 18.91101746005006,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514100.6312153,
+      "status": "ok",
+      "elapsed": 18.881530853919685
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "328f979932924fa79ccb3889e939d087",
+  "keys": [
+    "released_fp:328f979932924fa79ccb3889e939d087:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框内目标位于道路边缘，但从俯视形态和尺度看更像小型车辆，不符合卡车类别。",
+      "observedObject": "框内为道路旁的浅色车辆，体型较小，未见卡车所需的明显大型车身或货厢结构。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.696498739998788,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514055.7183316,
+      "status": "ok",
+      "elapsed": 16.784120006021112
+    }
+  ]
+}

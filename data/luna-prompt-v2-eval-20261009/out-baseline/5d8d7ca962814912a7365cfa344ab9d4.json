@@ -1,0 +1,81 @@
+{
+  "unit": "5d8d7ca962814912a7365cfa344ab9d4",
+  "keys": [
+    "released_fp:5d8d7ca962814912a7365cfa344ab9d4:000",
+    "released_fp:5d8d7ca962814912a7365cfa344ab9d4:001",
+    "released_fp:5d8d7ca962814912a7365cfa344ab9d4:002",
+    "released_fp:5d8d7ca962814912a7365cfa344ab9d4:003",
+    "released_fp:5d8d7ca962814912a7365cfa344ab9d4:004",
+    "released_fp:5d8d7ca962814912a7365cfa344ab9d4:005",
+    "released_fp:5d8d7ca962814912a7365cfa344ab9d4:006",
+    "released_fp:5d8d7ca962814912a7365cfa344ab9d4:007"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的汽车车体结构。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的白色汽车车体结构。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的汽车车体结构，虽有遮挡但仍可确认。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的车辆车体结构。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "可见局部疑似车体，但不足以明确确认。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标大部分被植被遮挡，车辆结构不完整。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的车辆车体结构。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的白色汽车车体结构。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "uncertain",
+      "reasoning": "可见局部车体轮廓，但证据不足。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标被遮挡且仅见部分外形，无法完整确认车辆结构。"
+    }
+  ],
+  "elapsed": 18.79347477783449,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514081.829711,
+      "status": "ok",
+      "elapsed": 18.76901956787333
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "unit": "0817018399294bc094e222207daf4f4b",
+  "keys": [
+    "rooftop:0817018399294bc094e222207daf4f4b:000",
+    "rooftop:0817018399294bc094e222207daf4f4b:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框内没有清晰可辨的车辆主体，不能将框线或局部纹理作为车辆证据。",
+      "observedObject": "画面左下边缘的局部地面/框线区域",
+      "imageLimitation": "目标大部分位于画面边缘且被红色框线遮挡，但可见区域不足以确认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "目标位于道路可通行地面，尺度和外形与车辆相符，符合“车”类别。",
+      "observedObject": "道路上的一辆小型车辆",
+      "imageLimitation": "目标部分贴近画面左下边缘并有框线遮挡，但主体轮廓仍可辨认。"
+    }
+  ],
+  "elapsed": 14.997435754165053,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514260.063486,
+      "status": "ok",
+      "elapsed": 14.974453072994947
+    }
+  ]
+}

@@ -1,0 +1,624 @@
+{
+ "groups": {
+  "人员": {
+   "baseline": {
+    "n": 49,
+    "uncertain": 23,
+    "wrong": 14,
+    "false_released": 11,
+    "auto_wrong": 11,
+    "gold_false": 35,
+    "right": 35,
+    "auto_right": 15,
+    "manual": 23,
+    "gold_true": 14,
+    "true_rejected": 3,
+    "accuracy": 0.7143,
+    "auto_accuracy": 0.5769
+   },
+   "v2": {
+    "n": 49,
+    "uncertain": 2,
+    "wrong": 32,
+    "false_released": 32,
+    "auto_wrong": 32,
+    "gold_false": 35,
+    "right": 17,
+    "manual": 2,
+    "auto_right": 15,
+    "gold_true": 14,
+    "accuracy": 0.3469,
+    "auto_accuracy": 0.3191
+   },
+   "paired_n": 49
+  },
+  "人员/gold0924": {
+   "baseline": {
+    "n": 49,
+    "uncertain": 23,
+    "wrong": 14,
+    "false_released": 11,
+    "auto_wrong": 11,
+    "gold_false": 35,
+    "right": 35,
+    "auto_right": 15,
+    "manual": 23,
+    "gold_true": 14,
+    "true_rejected": 3,
+    "accuracy": 0.7143,
+    "auto_accuracy": 0.5769
+   },
+   "v2": {
+    "n": 49,
+    "uncertain": 2,
+    "wrong": 32,
+    "false_released": 32,
+    "auto_wrong": 32,
+    "gold_false": 35,
+    "right": 17,
+    "manual": 2,
+    "auto_right": 15,
+    "gold_true": 14,
+    "accuracy": 0.3469,
+    "auto_accuracy": 0.3191
+   },
+   "paired_n": 49
+  },
+  "车辆": {
+   "baseline": {
+    "n": 477,
+    "uncertain": 53,
+    "right": 407,
+    "auto_right": 400,
+    "gold_true": 444,
+    "wrong": 70,
+    "true_rejected": 47,
+    "manual": 53,
+    "gold_false": 33,
+    "false_released": 23,
+    "auto_wrong": 24,
+    "accuracy": 0.8532,
+    "auto_accuracy": 0.9434
+   },
+   "v2": {
+    "n": 477,
+    "uncertain": 7,
+    "right": 433,
+    "auto_right": 433,
+    "gold_true": 444,
+    "wrong": 44,
+    "false_released": 30,
+    "auto_wrong": 37,
+    "gold_false": 33,
+    "true_rejected": 14,
+    "manual": 7,
+    "accuracy": 0.9078,
+    "auto_accuracy": 0.9213
+   },
+   "paired_n": 477
+  },
+  "车辆/gold0924": {
+   "baseline": {
+    "n": 68,
+    "uncertain": 0,
+    "right": 61,
+    "auto_right": 61,
+    "gold_true": 61,
+    "wrong": 7,
+    "false_released": 7,
+    "auto_wrong": 7,
+    "gold_false": 7,
+    "accuracy": 0.8971,
+    "auto_accuracy": 0.8971
+   },
+   "v2": {
+    "n": 68,
+    "uncertain": 0,
+    "right": 61,
+    "auto_right": 61,
+    "gold_true": 61,
+    "wrong": 7,
+    "false_released": 7,
+    "auto_wrong": 7,
+    "gold_false": 7,
+    "accuracy": 0.8971,
+    "auto_accuracy": 0.8971
+   },
+   "paired_n": 68
+  },
+  "车辆/released_fp": {
+   "baseline": {
+    "n": 352,
+    "uncertain": 28,
+    "right": 312,
+    "auto_right": 307,
+    "gold_true": 328,
+    "wrong": 40,
+    "true_rejected": 24,
+    "manual": 28,
+    "gold_false": 24,
+    "false_released": 16,
+    "auto_wrong": 17,
+    "accuracy": 0.8864,
+    "auto_accuracy": 0.9475
+   },
+   "v2": {
+    "n": 352,
+    "uncertain": 5,
+    "right": 322,
+    "auto_right": 322,
+    "gold_true": 328,
+    "wrong": 30,
+    "false_released": 22,
+    "auto_wrong": 25,
+    "gold_false": 24,
+    "true_rejected": 8,
+    "manual": 5,
+    "accuracy": 0.9148,
+    "auto_accuracy": 0.928
+   },
+   "paired_n": 352
+  },
+  "车辆/rooftop": {
+   "baseline": {
+    "n": 57,
+    "uncertain": 25,
+    "right": 34,
+    "auto_right": 32,
+    "gold_true": 55,
+    "wrong": 23,
+    "true_rejected": 23,
+    "manual": 25,
+    "gold_false": 2,
+    "accuracy": 0.5965,
+    "auto_accuracy": 1.0
+   },
+   "v2": {
+    "n": 57,
+    "uncertain": 2,
+    "right": 50,
+    "auto_right": 50,
+    "gold_true": 55,
+    "wrong": 7,
+    "true_rejected": 6,
+    "auto_wrong": 5,
+    "gold_false": 2,
+    "manual": 2,
+    "false_released": 1,
+    "accuracy": 0.8772,
+    "auto_accuracy": 0.9091
+   },
+   "paired_n": 57
+  },
+  "违建": {
+   "baseline": {
+    "n": 9,
+    "uncertain": 9,
+    "wrong": 9,
+    "true_rejected": 9,
+    "manual": 9,
+    "gold_true": 9,
+    "accuracy": 0.0,
+    "auto_accuracy": null
+   },
+   "v2": {
+    "n": 9,
+    "uncertain": 9,
+    "wrong": 9,
+    "true_rejected": 9,
+    "manual": 9,
+    "gold_true": 9,
+    "accuracy": 0.0,
+    "auto_accuracy": null
+   },
+   "paired_n": 9
+  },
+  "违建/released_fp": {
+   "baseline": {
+    "n": 9,
+    "uncertain": 9,
+    "wrong": 9,
+    "true_rejected": 9,
+    "manual": 9,
+    "gold_true": 9,
+    "accuracy": 0.0,
+    "auto_accuracy": null
+   },
+   "v2": {
+    "n": 9,
+    "uncertain": 9,
+    "wrong": 9,
+    "true_rejected": 9,
+    "manual": 9,
+    "gold_true": 9,
+    "accuracy": 0.0,
+    "auto_accuracy": null
+   },
+   "paired_n": 9
+  }
+ },
+ "transitions": {
+  "人员": {
+   "错→错": 11,
+   "对→错": 21,
+   "对→对": 14,
+   "错→对": 3
+  },
+  "车辆": {
+   "对→对": 398,
+   "错→对": 35,
+   "对→错": 9,
+   "错→错": 35
+  },
+  "违建": {
+   "错→错": 9
+  }
+ },
+ "examples": {
+  "人员": {
+   "对→错": [
+    {
+     "key": "gold0924:B05-016",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "false",
+     "v2": "true",
+     "v2_reasoning": "目标呈现深色圆形头部与肩背结构，尺度和位置与步道环境相符；框线和文字未作为判断依据。"
+    },
+    {
+     "key": "gold0924:B03-006",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见深色圆形头顶及肩背衣物色块，符合无人机俯视下的人体结构特征。"
+    },
+    {
+     "key": "gold0924:B03-007",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见深色圆形头顶及肩背衣物色块，位置和尺度与周围环境相符，符合人员特征。"
+    },
+    {
+     "key": "gold0924:B03-011",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见俯视人员的深色头部及衣物色块，具有人体结构证据。"
+    },
+    {
+     "key": "gold0924:B03-012",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见俯视人员的深色头部及肩背衣物色块，具有人体结构证据。"
+    },
+    {
+     "key": "gold0924:B03-013",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见俯视人员的深色头部及衣物色块，具有人体结构证据。"
+    },
+    {
+     "key": "gold0924:B03-032",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "目标位于框内及紧邻区域，呈现与周围环境尺度相符的人员俯视形态，框线和文字不作为判断依据。"
+    },
+    {
+     "key": "gold0924:B03-035",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见俯视人员的深色头顶与肩背衣物色块，符合人体结构特征。"
+    },
+    {
+     "key": "gold0924:B03-036",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见俯视人员的深色头顶与肩背衣物色块，符合人体结构特征。"
+    },
+    {
+     "key": "gold0924:B03-030",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "false",
+     "v2": "true",
+     "v2_reasoning": "目标位于建筑区域内，形态与周围环境尺度相符，符合人员类别；框线和文字未作为判断依据。"
+    },
+    {
+     "key": "gold0924:B03-034",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "该目标呈现人体结构特征，不是框线或文字，明确符合人员类别。"
+    },
+    {
+     "key": "gold0924:B03-026",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "false",
+     "v2": "true",
+     "v2_reasoning": "框内存在与周围环境尺度相符的人体头肩结构，符合人员类别；不以文字或框线作为证据。"
+    },
+    {
+     "key": "gold0924:B03-027",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "false",
+     "v2": "true",
+     "v2_reasoning": "框内存在与周围环境尺度相符的人体头肩结构，符合人员类别；不以文字或框线作为证据。"
+    },
+    {
+     "key": "gold0924:B04-002",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内及紧邻区域显示目标具有人体的头顶和肩背轮廓，符合无人机俯视下人员的典型形态，不将框线或文字作为依据。"
+    },
+    {
+     "key": "gold0924:B04-001",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "目标位于候选框及其紧邻区域内，符合无人机俯视下人员通常呈现的深色头顶与肩背衣物形态，框线和文字不作为判断依据。"
+    }
+   ],
+   "错→对": [
+    {
+     "key": "gold0924:B05-003",
+     "gold": "true",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "候选框内可见与红色“人员”标注对应的俯视人体目标，位置和尺度符合人员特征；不以框线或文字作为目标证据。"
+    },
+    {
+     "key": "gold0924:B05-013",
+     "gold": "true",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "候选框内可见符合俯视人员特征的人体结构，不将红色框线或文字作为判断依据。"
+    },
+    {
+     "key": "gold0924:B05-012",
+     "gold": "true",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "该目标位于道路上，形态与尺度和周围环境相符，明确符合“人员”类别；红色框线和文字不作为判断依据。"
+    }
+   ]
+  },
+  "车辆": {
+   "错→对": [
+    {
+     "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:004",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "候选框内可见车辆，位于道路旁的通行区域，车体轮廓明确。"
+    },
+    {
+     "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:005",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "候选框内可见汽车，位于道路边缘，具有清晰车体结构。"
+    },
+    {
+     "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:006",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "候选框内可见汽车，位于道路旁可通行区域，尺度与环境相符。"
+    },
+    {
+     "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:007",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "候选框内可见车辆，位于道路旁区域，车体结构明确。"
+    },
+    {
+     "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:000",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见独立车辆，位于道路或可通行地面，尺度与周围道路环境相符。"
+    },
+    {
+     "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:006",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见独立车辆，位于道路或可通行地面，尺度与周围道路环境相符。"
+    },
+    {
+     "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:000",
+     "gold": "true",
+     "class": "两轮车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "候选框内可见位于道路上的细长车辆结构，尺度和位置符合两轮车。"
+    },
+    {
+     "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:003",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "候选框及紧邻区域内可见道路边缘的车辆，位置和外形符合车辆。"
+    },
+    {
+     "key": "released_fp:8225b48574674d8eae7632c581aa239b:004",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见道路上的车辆，具有清晰车身结构。"
+    },
+    {
+     "key": "released_fp:8225b48574674d8eae7632c581aa239b:010",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见道路上的车辆，具有清晰车身结构。"
+    },
+    {
+     "key": "released_fp:8225b48574674d8eae7632c581aa239b:016",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见停车位内的车辆，具有清晰车身结构。"
+    },
+    {
+     "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:000",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见独立车辆目标，位于可通行地面，尺度和形状符合车辆。"
+    },
+    {
+     "key": "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r015",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见深色车辆轮廓，位于停车区域且尺度合理。"
+    },
+    {
+     "key": "released_fp:af0e6c77c03f4bbaa96665878578bfd6:r019",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见车辆主体，位于停车区域，符合车辆结构。"
+    },
+    {
+     "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:000",
+     "gold": "true",
+     "class": "两轮车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见一辆独立的两轮车，位于道路边缘，结构和尺度相符。"
+    }
+   ],
+   "对→错": [
+    {
+     "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:007",
+     "gold": "false",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见独立车辆，位于道路或可通行地面，尺度与周围道路环境相符。"
+    },
+    {
+     "key": "released_fp:ac18f0929d95478da1a4238decfb2efe:000",
+     "gold": "false",
+     "class": "卡车",
+     "baseline": "false",
+     "v2": "true",
+     "v2_reasoning": "候选框内目标具有明显车辆轮廓，位于可通行地面，符合卡车类别；框线和文字未作为判断依据。"
+    },
+    {
+     "key": "released_fp:c5575e66402949adbfdb55819350ded2:002",
+     "gold": "false",
+     "class": "两轮车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见目标位于道路边缘，呈细长的两轮车形态。"
+    },
+    {
+     "key": "released_fp:c843702c7f2d4e32af1c124a42b01a08:001",
+     "gold": "false",
+     "class": "两轮车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "目标具有车辆外形，位于可通行地面，符合两轮车类别；框线和文字不作为判断依据。"
+    },
+    {
+     "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+     "gold": "false",
+     "class": "卡车",
+     "baseline": "false",
+     "v2": "true",
+     "v2_reasoning": "框内可见明显车体轮廓及车厢结构，符合卡车外观。"
+    },
+    {
+     "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+     "gold": "false",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "框内可见车辆，位于右侧可通行道路，尺度与道路环境相符。"
+    },
+    {
+     "key": "rooftop:0817018399294bc094e222207daf4f4b:000",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v2": "false",
+     "v2_reasoning": "候选框内没有清晰可辨的车辆主体，不能将框线或局部纹理作为车辆证据。"
+    },
+    {
+     "key": "rooftop:bffcf4c3108c4a6f8d4bb0cb687cbcfe:000",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v2": "false",
+     "v2_reasoning": "该区域不是位于可通行地面上的车辆，框线和文字不能作为目标证据。"
+    },
+    {
+     "key": "rooftop:ce36ba4d5e604ddcaf8ceca803daf2eb:000",
+     "gold": "false",
+     "class": "车",
+     "baseline": "uncertain",
+     "v2": "true",
+     "v2_reasoning": "目标位于可通行地面，具有车辆的整体形态；框线和文字不作为判断依据。"
+    }
+   ]
+  },
+  "违建": {}
+ },
+ "elapsed": {
+  "baseline": {
+   "units": 170,
+   "median": 16.31,
+   "p90": 20.0,
+   "calls": 170,
+   "retried_units": 0
+  },
+  "v2": {
+   "units": 170,
+   "median": 16.37,
+   "p90": 20.33,
+   "calls": 170,
+   "retried_units": 0
+  }
+ }
+}

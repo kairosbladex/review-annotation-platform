@@ -1,0 +1,97 @@
+{
+  "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+  "keys": [
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:000",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:001",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+    "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "框内没有公交车所需的车身规模和结构。",
+      "observedObject": "小型车辆",
+      "imageLimitation": "目标区域仅见小型车辆或车辆局部，明显不是公交车。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "可见疑似车辆，但证据不足以唯一确认。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标较小且部分被框线和文字遮挡，无法确认车辆细节。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内明确可见车辆目标，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": "目标较小但车辆轮廓可见。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内明确可见车辆，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": "目标较小且被框线部分遮挡，但车身轮廓清晰。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "false",
+      "reasoning": "目标明显不符合卡车类别。",
+      "observedObject": "小型车辆",
+      "imageLimitation": "目标区域可见的是小型车辆，无法见到卡车所需的大型车身结构。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "uncertain",
+      "reasoning": "无法确认是否为车辆。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标极小并被框线、文字遮挡，车辆结构不可辨。"
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "框内明确可见车辆，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": "目标虽小但可见清晰的车辆轮廓。"
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "true",
+      "reasoning": "框内明确可见车辆，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": "目标较小且部分被标注遮挡，但车身轮廓可见。"
+    },
+    {
+      "target_index": 8,
+      "rawDecision": "true",
+      "reasoning": "框内明确可见车辆，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": "目标区域可见完整车辆轮廓。"
+    },
+    {
+      "target_index": 9,
+      "rawDecision": "true",
+      "reasoning": "框内明确可见车辆，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": "目标较小但车辆轮廓清楚。"
+    }
+  ],
+  "elapsed": 17.4885293841362,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514210.692442,
+      "status": "ok",
+      "elapsed": 17.45154123613611
+    }
+  ]
+}

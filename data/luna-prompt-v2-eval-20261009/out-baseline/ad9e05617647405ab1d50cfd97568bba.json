@@ -1,0 +1,33 @@
+{
+  "unit": "ad9e05617647405ab1d50cfd97568bba",
+  "keys": [
+    "released_fp:ad9e05617647405ab1d50cfd97568bba:000",
+    "released_fp:ad9e05617647405ab1d50cfd97568bba:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内目标为完整车辆，判断不依赖框线或文字。",
+      "observedObject": "候选框内可见一辆汽车，具有明确车身结构，符合“车”类别。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内目标为完整车辆，判断不依赖框线或文字。",
+      "observedObject": "候选框内可见一辆汽车，具有明确车身结构，符合“车”类别。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 16.193056316114962,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514153.0978756,
+      "status": "ok",
+      "elapsed": 16.164605075959116
+    }
+  ]
+}

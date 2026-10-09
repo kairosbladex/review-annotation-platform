@@ -1,0 +1,33 @@
+{
+  "unit": "01895ed878a44dd5a78fed5781c45611",
+  "keys": [
+    "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+    "rooftop:01895ed878a44dd5a78fed5781c45611:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框位于楼体立面，不在道路、停车位等可通行地面，且未见车身、车轮等车辆结构。",
+      "observedObject": "建筑立面及栏杆区域",
+      "imageLimitation": "框内仅见建筑立面、栏杆和墙面纹理，无可辨认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "false",
+      "reasoning": "候选框位于建筑外立面和雨棚区域，不符合车辆所在场景，也未见车辆结构。",
+      "observedObject": "建筑雨棚、墙面及树木",
+      "imageLimitation": "框内主要为建筑雨棚、墙面和树木，无可辨认车辆结构。"
+    }
+  ],
+  "elapsed": 19.08769999188371,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514240.9705205,
+      "status": "ok",
+      "elapsed": 19.066877615870908
+    }
+  ]
+}

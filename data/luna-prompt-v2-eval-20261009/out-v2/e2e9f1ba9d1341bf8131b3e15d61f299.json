@@ -1,0 +1,25 @@
+{
+  "unit": "e2e9f1ba9d1341bf8131b3e15d61f299",
+  "keys": [
+    "rooftop:e2e9f1ba9d1341bf8131b3e15d61f299:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆的车身结构和颜色，位置与道路旁可通行地面相符；框线和文字不作为判断依据。",
+      "observedObject": "道路旁地面上的车辆局部",
+      "imageLimitation": "目标位于画面顶部边缘，部分被裁切，但框内及紧邻区域可唯一定位为车辆。"
+    }
+  ],
+  "elapsed": 16.372497364180163,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514487.4752648,
+      "status": "ok",
+      "elapsed": 16.346862078877166
+    }
+  ]
+}

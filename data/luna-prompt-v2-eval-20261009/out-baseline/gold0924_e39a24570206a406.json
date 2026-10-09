@@ -1,0 +1,25 @@
+{
+  "unit": "gold0924_e39a24570206a406",
+  "keys": [
+    "gold0924:B03-008"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不具备明确可见的人体结构，按要求不能判定为true；同时证据不足以判定为false。",
+      "observedObject": "疑似目标位于农田边缘，但无法唯一确认是否为人员。",
+      "imageLimitation": "候选框内目标过小且受分辨率和环境影响，无法清晰确认人体头部、躯干或肢体结构；框线和文字不作为证据。"
+    }
+  ],
+  "elapsed": 14.06285456288606,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514684.8570535,
+      "status": "ok",
+      "elapsed": 14.034017818979919
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "unit": "8bf8d838e4fe4cc096532ab64deb0d7c",
+  "keys": [
+    "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:000",
+    "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:001",
+    "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:002",
+    "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:003",
+    "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:004",
+    "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:005"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "无法清晰、完整地核查是否为车，不能据此明确判定。",
+      "observedObject": "候选框内可见疑似车辆局部",
+      "imageLimitation": "目标仅部分出框且图像细节不足，无法确认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的车辆外形与车身结构，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小，但可见车辆主体轮廓。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确车身轮廓及车辆结构，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标尺寸较小，部分被周围环境遮挡。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的车辆外形，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小，但主体结构可辨。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "可辨认车身及车辆轮廓，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小且有一定遮挡，但车体结构可见。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的车辆主体轮廓，符合“车”类别。",
+      "observedObject": "车",
+      "imageLimitation": "目标较小，细节有限。"
+    }
+  ],
+  "elapsed": 16.33895347104408,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514122.6681142,
+      "status": "ok",
+      "elapsed": 16.313410309143364
+    }
+  ]
+}

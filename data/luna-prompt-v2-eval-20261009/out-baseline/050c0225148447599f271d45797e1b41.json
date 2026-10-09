@@ -1,0 +1,33 @@
+{
+  "unit": "050c0225148447599f271d45797e1b41",
+  "keys": [
+    "rooftop:050c0225148447599f271d45797e1b41:000",
+    "rooftop:050c0225148447599f271d45797e1b41:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "可见范围不足，不能明确判断为公交车。",
+      "observedObject": "左侧道路边缘的部分车辆区域",
+      "imageLimitation": "目标0仅部分出现在图像左侧边缘，框内可见区域过小，无法确认公交车结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法根据残留区域确认其是否符合“车”类别。",
+      "observedObject": "左侧边缘的部分车辆",
+      "imageLimitation": "目标1位于图像左下边缘且被截断，车辆结构不完整。"
+    }
+  ],
+  "elapsed": 14.851307773031294,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514244.0078013,
+      "status": "ok",
+      "elapsed": 14.82769311312586
+    }
+  ]
+}

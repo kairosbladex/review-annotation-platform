@@ -1,0 +1,25 @@
+{
+  "unit": "638424e7536e4bb286386e31590b3164",
+  "keys": [
+    "rooftop:638424e7536e4bb286386e31590b3164:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "无法仅凭候选框内可见部分确认其属于车辆类别。",
+      "observedObject": "疑似车辆局部",
+      "imageLimitation": "目标位于图像最左侧且部分被截断，车辆结构不可完整辨认。"
+    }
+  ],
+  "elapsed": 15.235713578993455,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514362.0682333,
+      "status": "ok",
+      "elapsed": 15.211699470179155
+    }
+  ]
+}

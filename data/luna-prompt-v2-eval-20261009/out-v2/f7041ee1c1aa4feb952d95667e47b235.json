@@ -1,0 +1,33 @@
+{
+  "unit": "f7041ee1c1aa4feb952d95667e47b235",
+  "keys": [
+    "released_fp:f7041ee1c1aa4feb952d95667e47b235:000",
+    "released_fp:f7041ee1c1aa4feb952d95667e47b235:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见与道路环境尺度相符的两轮车目标，红色框线和文字不作为判断依据。",
+      "observedObject": "道路旁绿化带边缘的两轮车。",
+      "imageLimitation": "无明显限制，目标清晰可辨。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见与车道环境相符的两轮车目标，目标结构和位置符合类别。",
+      "observedObject": "道路上的两轮车。",
+      "imageLimitation": "无明显限制，目标清晰可辨。"
+    }
+  ],
+  "elapsed": 20.61136090918444,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514234.0739505,
+      "status": "ok",
+      "elapsed": 20.586570075014606
+    }
+  ]
+}

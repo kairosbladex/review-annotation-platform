@@ -1,0 +1,25 @@
+{
+  "unit": "e05ada166ccc4ed2b8a4fe9dd0971362",
+  "keys": [
+    "rooftop:e05ada166ccc4ed2b8a4fe9dd0971362:000"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "可见区域不足以明确判断是否为车，不能仅凭框线或标注文字作出结论。",
+      "observedObject": "疑似车辆局部",
+      "imageLimitation": "候选框位于图像底部边缘，目标仅部分可见且过小，无法确认车辆结构。"
+    }
+  ],
+  "elapsed": 16.070477715926245,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514465.9726627,
+      "status": "ok",
+      "elapsed": 16.036856716964394
+    }
+  ]
+}

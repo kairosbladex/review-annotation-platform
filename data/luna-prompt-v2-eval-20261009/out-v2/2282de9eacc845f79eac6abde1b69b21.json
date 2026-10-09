@@ -1,0 +1,33 @@
+{
+  "unit": "2282de9eacc845f79eac6abde1b69b21",
+  "keys": [
+    "rooftop:2282de9eacc845f79eac6abde1b69b21:000",
+    "rooftop:2282de9eacc845f79eac6abde1b69b21:001"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框及紧邻区域内可见唯一对应车辆，位于道路通行地面，尺度和形态与车辆相符。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框及紧邻区域内可见唯一对应车辆，位于道路通行地面，尺度和形态与车辆相符。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 18.36441668192856,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791514283.608181,
+      "status": "ok",
+      "elapsed": 18.340534270973876
+    }
+  ]
+}

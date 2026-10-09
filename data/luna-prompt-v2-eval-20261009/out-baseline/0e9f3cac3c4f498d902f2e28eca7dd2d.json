@@ -1,0 +1,105 @@
+{
+  "unit": "0e9f3cac3c4f498d902f2e28eca7dd2d",
+  "keys": [
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:000",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:001",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:002",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:003",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:004",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:005",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:006",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:007",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:008",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:009",
+    "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:010"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "无法仅凭可见区域确认完整车辆目标。",
+      "observedObject": "疑似车辆局部",
+      "imageLimitation": "目标位于图像边缘且被框线部分遮挡，车辆结构不完整。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆外形及车身结构，符合车类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见清晰车身轮廓，符合车类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体及明显车身结构，符合车类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆主体，符合车类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体和车身轮廓，符合车类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "uncertain",
+      "reasoning": "无法清楚确认车身结构。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标较小且受框线、树木遮挡，车辆结构不够清晰。"
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "uncertain",
+      "reasoning": "不能唯一确认框内对象为车辆。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "框内目标被框线和周围目标部分干扰，结构不清晰。"
+    },
+    {
+      "target_index": 8,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确车身轮廓及车辆主体，符合车类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 9,
+      "rawDecision": "uncertain",
+      "reasoning": "无法可靠确认车辆类别。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标较小，且与相邻框线重叠，车辆结构不完整。"
+    },
+    {
+      "target_index": 10,
+      "rawDecision": "true",
+      "reasoning": "框内可见清晰车辆主体和车身结构，符合车类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.75654013385065,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791513999.9953058,
+      "status": "ok",
+      "elapsed": 17.73015971807763
+    }
+  ]
+}
