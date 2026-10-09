@@ -1,0 +1,30 @@
+{
+ "unit": "58a7ebf8a4f54f698031091a32eba7e3",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:58a7ebf8a4f54f698031091a32eba7e3:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型汽车，呈车顶俯视的圆角长方形轮廓，位于道路边缘，尺度和朝向符合车辆特征。",
+   "reasoning": "框内实际物体具有明显车身轮廓和深色车窗区域，所在位置为地面道路，符合“车”的类别要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.1,
+   "health": {
+    "at": 1791546173.9541342,
+    "available_fraction": 0.45057656173695815,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "83f9ba32d89f44ee9500c8ea06c3c358",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7fe7c0664c8115b2aed924b28ed09b6bbdf3f5504f65455a5bf22ca8ef76d532"
+}

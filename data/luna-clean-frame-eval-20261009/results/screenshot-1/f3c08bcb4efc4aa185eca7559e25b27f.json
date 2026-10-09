@@ -1,0 +1,38 @@
+{
+ "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或出画。",
+   "observed_object": "框内是地面上的小型蓝绿色立式物体，呈狭长条状，不是覆盖在上方的顶棚。",
+   "reasoning": "该物体位置和形态更符合地面设施或围挡类物体，不符合蓝色或绿色成片屋面的违建外观，因此判定为false。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:001",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或出画。",
+   "observed_object": "框内是道路旁地面上的狭长蓝绿色物体，周边可见道路、绿化和步道，不是建筑或空地上方的覆盖屋面。",
+   "reasoning": "其长条形态和地面位置明显不符合蓝色或绿色顶棚，属于类别外观不匹配，因此判定为false。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 39.04,
+   "health": {
+    "at": 1791539798.637303,
+    "available_fraction": 0.4479927073868777,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e197c3d2e6694e2cba106e539d5359f6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fdc6066362eb125312147ded59e07c966d259c09457a7a5ac8fdc4d1ed6b1062"
+}

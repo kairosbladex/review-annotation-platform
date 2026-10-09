@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_d2bfba7f5eb88113",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:7e7a4c2981244e299e8019aef1eb953f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是棕红色矩形顶棚或箱体状物体。",
+   "reasoning": "该物体主体呈棕红色，不符合违建类别要求的蓝色或绿色顶棚，位置和形状也更像红色棚顶/箱体，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.0,
+   "health": {
+    "at": 1791546155.6871996,
+    "available_fraction": 0.4498154046663385,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "afdbdc0345ef4b2488087adf64e34e1b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4789f5e0c74e44661b7b6b5222f2e58491579ab98e79fdeba5c1c8110847f63e"
+}

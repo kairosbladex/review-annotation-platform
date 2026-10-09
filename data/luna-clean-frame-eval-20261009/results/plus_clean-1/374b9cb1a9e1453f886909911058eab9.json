@@ -1,0 +1,30 @@
+{
+ "unit": "374b9cb1a9e1453f886909911058eab9",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:374b9cb1a9e1453f886909911058eab9:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左边缘，仅露出很小一部分，车身大半出画，无法确认完整车形。",
+   "observed_object": "画面左侧边缘可见一小段疑似车辆的白色/灰色物体，但目标严重出画。",
+   "reasoning": "目标位置和尺度信息不足，无法判断是否符合机动车的圆角长方形车身及挡风玻璃特征，因此不能确认或否定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.19,
+   "health": {
+    "at": 1791544209.6178885,
+    "available_fraction": 0.431418647454468,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "adfb74b0bcc14b07acdeb976df0bce55",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8c4c3c31ed08e0feff696cca6757ba17a9492f8711c3f9343c462f6511cb0dc1"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "e3b1630d80f648b995c20ab25c3ba087",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e3b1630d80f648b995c20ab25c3ba087:003",
+   "decision": "false",
+   "image_limitation": "框内目标可见且未被明显遮挡。",
+   "observed_object": "树木和植被区域，没有可确认的机动车车身。",
+   "reasoning": "框内主要是绿化植物，未见符合机动车圆角长方形车身、车顶及挡风玻璃深色横带等特征，因此不属于车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.52,
+   "health": {
+    "at": 1791546915.2355494,
+    "available_fraction": 0.4440282032437123,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7af3287aad9f49a997f842eb84e7dd4b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9c87adabf76eae811e75b2c529cdbe5d45682a4833b13678903af209ab8a6741"
+}

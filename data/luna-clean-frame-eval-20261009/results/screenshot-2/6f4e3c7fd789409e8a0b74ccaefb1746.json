@@ -1,0 +1,30 @@
+{
+ "unit": "6f4e3c7fd789409e8a0b74ccaefb1746",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:6f4e3c7fd789409e8a0b74ccaefb1746:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈长方形车身，具有深色车窗区域，位于建筑旁的地面道路上。",
+   "reasoning": "目标外观、尺度和所处位置均符合车辆特征，红色框线和文字不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.07,
+   "health": {
+    "at": 1791542250.0751772,
+    "available_fraction": 0.4262005962305853,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3960e84ddd1f4865be96e5160183a85d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5ab3a37bf324ea3ab4f98a5ce93611c0119e8417076caad520943d10cf4940ed"
+}

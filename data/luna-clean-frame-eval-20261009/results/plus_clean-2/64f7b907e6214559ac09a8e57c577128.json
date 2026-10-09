@@ -1,0 +1,30 @@
+{
+ "unit": "64f7b907e6214559ac09a8e57c577128",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "64f7b907e6214559ac09a8e57c577128:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人形目标，呈浅色头部/上身与深色下部的组合，位于岸边硬质铺装区域，尺度符合俯拍人员。",
+   "reasoning": "目标不是植物、井盖或设施，形态和位置均与人员特征相符，因此判断为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.22,
+   "health": {
+    "at": 1791545554.2538233,
+    "available_fraction": 0.4498701552008934,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b288fec97aed4a47bd6b590842c67876",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e43bfa1bce4cdefdc7243d89abcc7c6abf294c8d7ac73516e7865495d301d2c5"
+}

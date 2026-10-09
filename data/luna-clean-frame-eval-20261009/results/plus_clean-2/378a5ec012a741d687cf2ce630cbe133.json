@@ -1,0 +1,30 @@
+{
+ "unit": "378a5ec012a741d687cf2ce630cbe133",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "378a5ec012a741d687cf2ce630cbe133:004",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是屋顶上的矩形设备箱或通风设施，并非机动车。",
+   "reasoning": "目标位于建筑屋顶平台，呈规则矩形设备外观，没有车身、车窗或与道路车位相符的尺度和朝向。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.95,
+   "health": {
+    "at": 1791545336.3051338,
+    "available_fraction": 0.45006982289159675,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d78dbea14f3544f089956b10802fe165",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "befe6ad8b5814606fb50871b62a9bfa5b7388602fc637fa7ba22a5daf2c1bcd4"
+}

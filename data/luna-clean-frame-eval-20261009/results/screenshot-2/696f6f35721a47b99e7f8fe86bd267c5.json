@@ -1,0 +1,30 @@
+{
+ "unit": "696f6f35721a47b99e7f8fe86bd267c5",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "696f6f35721a47b99e7f8fe86bd267c5:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是一辆停在道路上的小汽车，可见完整车顶、挡风玻璃和车身轮廓。",
+   "reasoning": "目标呈机动车典型的圆角长方形外观，长宽比例和道路尺度相符，位置也在车道上，符合“车”的类别要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.65,
+   "health": {
+    "at": 1791542607.1003711,
+    "available_fraction": 0.40460979436903066,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3560c4e2e0f54a38935ac2debaf997f6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7e27e48409ccfebfe89f0eea46b337236f76722dbae92700ff4518da27242c3f"
+}

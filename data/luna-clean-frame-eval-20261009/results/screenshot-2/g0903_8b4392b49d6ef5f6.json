@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_8b4392b49d6ef5f6",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:e5e966d90dc942ecaba436a0d5783307",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡/广告墙的墙面与底部，不是覆盖在上方的蓝绿色顶棚",
+   "reasoning": "框内主体为立在地面的长条状蓝色围挡，具有广告文字和墙体结构，属于类别明确排除的围挡/广告牌，而非蓝色或绿色屋面。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 28.63,
+   "health": {
+    "at": 1791537759.2656238,
+    "available_fraction": 0.43066575920416983,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "440085f73c2a408a92f2af7ca0046089",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f1708a29b3544fecd1169d4d82929d3cf2b871c6990768f49e9a10dc6ce5c591"
+}

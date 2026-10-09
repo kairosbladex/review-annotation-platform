@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_3c2815c757b85efe",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c191d4e9bc9d4a1bbbaf366f239a6b9a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，呈车顶俯视形状，位于道路旁停车区域。",
+   "reasoning": "目标具有明显的机动车外观特征，车身长宽比、颜色和所在位置均符合“车”的类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:fd7b8bfdf4ac4a7ea4d68df269d7ace6",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，能看到车顶及深色车窗区域，位于道路车道旁。",
+   "reasoning": "目标形状和尺度符合俯拍机动车特征，位置也与道路车辆相符，因此类别判断正确。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 28.15,
+   "health": {
+    "at": 1791540853.0558655,
+    "available_fraction": 0.429080030507083,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "436c54a1cbfc4460aa6a2aadfd9cc48c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "23866e429e02d72b769988f28c8c292d5a9b729dc3f6471210936d30d2521791"
+}

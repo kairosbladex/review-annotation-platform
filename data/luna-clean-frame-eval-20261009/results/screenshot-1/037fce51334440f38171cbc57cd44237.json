@@ -1,0 +1,30 @@
+{
+ "unit": "037fce51334440f38171cbc57cd44237",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "037fce51334440f38171cbc57cd44237:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于画面右下边缘，目标大部分被裁切且受叠加标注遮挡，无法完整确认车辆结构。",
+   "observed_object": "框内仅能看到局部黄色矩形物体，可能是车辆或其他设备。",
+   "reasoning": "卡车需要可见驾驶室与后部货厢或车斗的分段结构，当前框内目标出画且细节不足，既不能确认符合，也不能明确排除。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.9,
+   "health": {
+    "at": 1791537655.1691997,
+    "available_fraction": 0.43562063698127745,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5265060c7cdf4e469fdb1f70394cc6e3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d8cc8880b035666db355740a0e15575f29301d1c81d5ef334ace7613021feec7"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_10fee4e93d4d5c08",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的人员，呈竖长窄的深色躯干轮廓。",
+   "reasoning": "框内可见一个位于人行道上的细长竖向人体目标，位置和尺度符合俯拍人员特征，不是盆栽、路灯杆或垃圾桶。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.66,
+   "health": {
+    "at": 1791546488.5891821,
+    "available_fraction": 0.4501170342076233,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d4231da735c04d28abc502a50543fdb9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5c84262940d10a54c7a8850999f87c055bdd1c5101b4b581a97c2e78978fadc"
+}

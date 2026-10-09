@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_edc8c477545ce1e7",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:553aaf3027ee45b19cbeabe77e948a69",
+   "decision": "true",
+   "image_limitation": "目标较小，但框内及邻近区域可见细长窄条状物体，未被明显遮挡或出画。",
+   "observed_object": "建筑屋顶边缘附近的一辆细长窄条状两轮车，尺度和形状符合两轮车特征。",
+   "reasoning": "目标宽度明显较窄，长度与周围设施尺度相符，未见汽车或三轮车的宽大车身结构，因此符合两轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.51,
+   "health": {
+    "at": 1791542534.5789788,
+    "available_fraction": 0.41374583762177053,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b858adcdc61043f89280db99c200f845",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7830ec604159638fa4f85b95acdd4da779ea56ccdd3b9e6291d63e6473f18239"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "8fa12165f2d34f57ac85ef335cbf5e42",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:8fa12165f2d34f57ac85ef335cbf5e42:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在建筑边缘地面上的小型机动车，呈细长圆角车身轮廓。",
+   "reasoning": "目标位于地面道路/停车区域附近，形状和尺度符合俯视小汽车特征；不是屋顶设备或标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 61.26,
+   "health": {
+    "at": 1791538168.239753,
+    "available_fraction": 0.4505946193813366,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "43f9d1aad72f4eaf835f507ba450149d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a449f16e285c1877c1e50235cd0a23a29806dc6d23158cedd97b85046e926df0"
+}

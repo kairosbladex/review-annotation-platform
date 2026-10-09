@@ -1,0 +1,30 @@
+{
+ "unit": "f24adba80cd64f79a85653bf3145b435",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "f24adba80cd64f79a85653bf3145b435:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路边缘的小汽车，车身呈细长圆角矩形，比例和尺度符合机动车特征。",
+   "reasoning": "目标位于地面道路旁，能看到明确的车身轮廓及深色玻璃区域，不是屋顶设备或标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.73,
+   "health": {
+    "at": 1791538261.6792302,
+    "available_fraction": 0.4493299154732003,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a4d81a5ab02740d29f5328f065dabe2e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ca35c5eb9ba590dcd77993ff40ac56f731ab152b219c9ec88e3e8a8d0d5256b2"
+}

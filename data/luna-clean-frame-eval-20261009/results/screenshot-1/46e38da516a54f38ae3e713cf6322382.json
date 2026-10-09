@@ -1,0 +1,30 @@
+{
+ "unit": "46e38da516a54f38ae3e713cf6322382",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "46e38da516a54f38ae3e713cf6322382:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑物玻璃窗上的紫色标记框及其附近窗面，未见机动车车顶或车身",
+   "reasoning": "框位于左侧建筑立面窗户区域，不在道路、停车位或地面场地；框内实际是玻璃窗/立面，不符合机动车的形状、尺度和位置特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.21,
+   "health": {
+    "at": 1791545168.4848423,
+    "available_fraction": 0.45010821818595703,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "52658f39af5544f48f84f9eb8157fe3b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3a27cb5c29d6ac327d4398ebcd998c40a8d7d4910daf7fb3a40301b35567c275"
+}

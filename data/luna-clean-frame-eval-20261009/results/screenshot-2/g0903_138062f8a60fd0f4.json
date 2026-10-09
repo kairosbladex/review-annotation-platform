@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_138062f8a60fd0f4",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:dc48f0371bc44bc48d4510962182ca1f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡/广告牌，属于立在地面的长条状围挡，不是覆盖在上方的蓝绿色顶棚。",
+   "reasoning": "框内主体是沿道路延伸的蓝色围挡墙，位置和形态均表明其为垂直立面，符合类别明确排除的蓝绿色围挡，不符合违建顶棚特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.53,
+   "health": {
+    "at": 1791546205.2457273,
+    "available_fraction": 0.4503557659943305,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "43ef172339e84c4ab2c9a3a0801f8b93",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3b090a7cb32d14452ba691584f8bf550e86dfb1a2cc190fd9f3fb739f3bf6676"
+}

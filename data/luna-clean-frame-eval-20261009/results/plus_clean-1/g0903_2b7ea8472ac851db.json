@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_2b7ea8472ac851db",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d18a140d772d4ff9a62b0594e99b8b99",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，位于道路旁的地面区域。",
+   "reasoning": "目标呈细长圆角车体，可见车顶及深色车窗带，尺度和位置与机动车相符，符合“车”的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 7.48,
+   "health": {
+    "at": 1791542308.7711537,
+    "available_fraction": 0.43066575920416983,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "91d2928f9a124cf795c0990b55490783",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a84b5b3395598d6adbf67a6000c4999a152a6f3467d7fee304397062d0a3840b"
+}

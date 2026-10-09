@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_b03a5d82b77dd1a1",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4e95387d7e8c4667ba5c4c3e0544651b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片蓝绿色、近矩形的成片屋面顶棚，位于建筑及棚架区域上方。",
+   "reasoning": "目标颜色和形状符合蓝色顶棚的类别要点，位置与尺度也相符，不是车辆、围挡或光伏板。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.14,
+   "health": {
+    "at": 1791544197.3600507,
+    "available_fraction": 0.448120995702159,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fc5f7b5d934a4d21be450b39ee4e9b0c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e7e6cdf71e3da2afaaad7faee2e38f05441fa44dd4d3ffdf121920787eaea6dc"
+}

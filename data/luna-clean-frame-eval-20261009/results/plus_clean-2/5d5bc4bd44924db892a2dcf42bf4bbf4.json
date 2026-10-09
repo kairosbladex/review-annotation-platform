@@ -1,0 +1,30 @@
+{
+ "unit": "5d5bc4bd44924db892a2dcf42bf4bbf4",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:5d5bc4bd44924db892a2dcf42bf4bbf4:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "建筑屋顶边缘附近的红色平台标注，框内未见机动车。",
+   "reasoning": "该位置不在道路或停车区域，实际可见的是建筑屋顶及其边缘结构，不符合机动车的形状、尺度和位置特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.67,
+   "health": {
+    "at": 1791542287.277799,
+    "available_fraction": 0.43208495629198856,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "69628e1a1c4045a4be5fdf3fbee69222",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ac7435aacb9beeb9ef5e3a1af231a7d5f28e2f4f5708a4e8fa6fd755b0d4db77"
+}

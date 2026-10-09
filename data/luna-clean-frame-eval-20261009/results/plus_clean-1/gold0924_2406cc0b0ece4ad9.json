@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_2406cc0b0ece4ad9",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-016",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "一个摆放在通道边缘的盆栽，呈规则圆形绿色树冠和花盆形态，并非人员。",
+   "reasoning": "框内物体位于人行通道边缘，外观为规律修剪的绿色植物及花盆，符合盆栽特征；没有人员头部、肩部或躯干腿部结构，尺度和形状也不符合人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.4,
+   "health": {
+    "at": 1791546159.4900024,
+    "available_fraction": 0.4499218353279025,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "77587115be2f4527a7b83af345cbec50",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "42505f20fd1aa4e425f8d3ec5aac1accab0c1ce1b34a9b2820ef58d6d4459481"
+}

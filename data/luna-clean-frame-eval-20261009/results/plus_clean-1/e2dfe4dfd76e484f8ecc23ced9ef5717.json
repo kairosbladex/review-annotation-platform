@@ -1,0 +1,30 @@
+{
+ "unit": "e2dfe4dfd76e484f8ecc23ced9ef5717",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e2dfe4dfd76e484f8ecc23ced9ef5717:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在建筑旁地面上的小型机动车，呈细长圆角车身，位置与周边道路/停车区域相符。",
+   "reasoning": "目标外观和尺度符合俯拍车辆特征，不是屋顶设备或地面标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.36,
+   "health": {
+    "at": 1791546480.5699694,
+    "available_fraction": 0.4493482163181764,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ba279a6633514efb9bdb0453dd84aa14",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "870c84e59f39190215db51907cf9e9f7bc5846f1d6ba8588c2eef8bd7c094cd1"
+}

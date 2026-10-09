@@ -1,0 +1,30 @@
+{
+ "unit": "2e39908ff0504e7e89ec16172780ed1d",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "2e39908ff0504e7e89ec16172780ed1d:000",
+   "decision": "false",
+   "image_limitation": "框内主要是红色平台标注文字及其覆盖区域，未见可确认的人员实际外观；对应干净原图位置也未显示人员。",
+   "observed_object": "标注文字/水面与岸边区域，非人员",
+   "reasoning": "候选框内没有呈现人员所需的头顶、肩部或躯干腿部等可见特征，位置和尺度也无法支持人员判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.3,
+   "health": {
+    "at": 1791542648.0531263,
+    "available_fraction": 0.4286960167633308,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6dc970232e744bd4b0eb73d5b1ded57b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f74f619f54b8d24c25e2309ae9e0b2978884e705b7ca25d99ccb53eb6d1b5afd"
+}

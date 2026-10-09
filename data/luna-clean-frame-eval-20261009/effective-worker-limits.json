@@ -1,0 +1,66 @@
+{
+ "method": "CPU affinity fallback: user CPU controller not delegated",
+ "units": {
+  "luna-clean-frame-worker-20261009": {
+   "allowed_cpus": [
+    61,
+    62,
+    63
+   ],
+   "process_affinity": {
+    "3996860": [
+     61,
+     62,
+     63
+    ],
+    "4070923": [
+     61,
+     62,
+     63
+    ]
+   },
+   "limits": {
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "memory.current": "105996288",
+    "memory.swap.current": "0",
+    "memory.peak": "139325440"
+   }
+  },
+  "luna-clean-frame-runner-20261009": {
+   "allowed_cpus": [
+    63
+   ],
+   "process_affinity": {
+    "3997057": [
+     63
+    ]
+   },
+   "limits": {
+    "memory.max": "1073741824",
+    "memory.swap.max": "0",
+    "memory.current": "20512768",
+    "memory.swap.current": "0",
+    "memory.peak": "36036608"
+   }
+  },
+  "luna-clean-frame-watch-20261009": {
+   "allowed_cpus": [
+    63
+   ],
+   "process_affinity": {
+    "4022487": [
+     63
+    ]
+   },
+   "limits": {
+    "memory.max": "268435456",
+    "memory.swap.max": "0",
+    "memory.current": "6164480",
+    "memory.swap.current": "0",
+    "memory.peak": "23592960"
+   }
+  }
+ },
+ "observed_at": 1791537503.9851096
+}

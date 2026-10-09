@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_8c3c158b0d415781",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:73f7eb6a9ce4489893ed3f7fd8c019dc",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "树木和绿化区域，未见机动车车身",
+   "reasoning": "框内主要是树冠及树下绿化，缺少车辆应有的车顶、挡风玻璃深色横带和规则车身轮廓，因此不符合“车”。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1bebc9c971fc4869973013db786e6c74",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆白色小汽车",
+   "reasoning": "框内可清楚看到白色车身、车顶、前后挡风玻璃形成的深色横带，形状和尺度均符合道路旁停放的小汽车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.58,
+   "health": {
+    "at": 1791546422.848108,
+    "available_fraction": 0.4489026120230593,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "757857672c0448f6970b6963d158a7e8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1db6cbf10af4ce5de11722b785b606bf2ace2ca905498caf0810e1a193385fc1"
+}

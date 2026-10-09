@@ -1,0 +1,30 @@
+{
+ "unit": "f8ebb5a34aaf4056b21c9e6f59ad629d",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f8ebb5a34aaf4056b21c9e6f59ad629d:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，未被明显遮挡或出画。",
+   "observed_object": "框内是一个细长的浅色矩形物体，呈箱体或棚状，未见三轮车典型的前窄后宽轮廓。",
+   "reasoning": "该物体整体近似四边形且宽度均一，更像固定箱体或其他设施，不符合三轮车前部窄、后部宽的外观特征，因此判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.41,
+   "health": {
+    "at": 1791546234.7754972,
+    "available_fraction": 0.45046563186433686,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "36fe208649ae4233a8e28ab05409f2e1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b61d57adb811df9db79c4856ee5acdd7441e0a670874963663eb16f381dfbcec"
+}

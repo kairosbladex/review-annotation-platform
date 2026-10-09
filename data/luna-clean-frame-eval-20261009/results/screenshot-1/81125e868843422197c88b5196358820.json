@@ -1,0 +1,30 @@
+{
+ "unit": "81125e868843422197c88b5196358820",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "81125e868843422197c88b5196358820:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈细长圆角车身轮廓，位于道路边缘，尺度和位置与车辆相符。",
+   "reasoning": "该候选框内的实际物体具备俯拍车辆的车顶和车身特征，红色标注不影响判断，因此符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.05,
+   "health": {
+    "at": 1791544870.8347256,
+    "available_fraction": 0.43617838715200424,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c38a1f4388284c5299f893970e6547d3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fa0a4bc4646d09e6dde94af98ea6a85193ecc1e6c88cb35274851c46d56faa95"
+}

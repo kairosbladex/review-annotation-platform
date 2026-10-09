@@ -1,0 +1,30 @@
+{
+ "unit": "12c135c77a9c4e53a9c94d1c0d3071af",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "12c135c77a9c4e53a9c94d1c0d3071af:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯视人员，呈小型头部与肩部构成的椭圆状轮廓，位于可站立的铺装区域。",
+   "reasoning": "目标外观和尺度符合俯拍人员特征，红色标注文字和框线不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.96,
+   "health": {
+    "at": 1791545804.7242339,
+    "available_fraction": 0.4488625447245899,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e3b70c2e71ed402cb0585bd9e5fd6c3c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f2c158d0873ddcbea745a74010380df1028b772c2bbefaa82cb9d5f3e5487b24"
+}

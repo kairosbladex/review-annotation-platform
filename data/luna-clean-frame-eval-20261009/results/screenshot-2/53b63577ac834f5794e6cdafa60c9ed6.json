@@ -1,0 +1,30 @@
+{
+ "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+   "decision": "false",
+   "image_limitation": "框内目标较小但清晰可辨。",
+   "observed_object": "道路旁的红色叠加标记区域，未见符合卡车特征的实际车辆。",
+   "reasoning": "该位置没有可确认的货车驾驶室与后部货厢分段结构，不能按卡车判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.13,
+   "health": {
+    "at": 1791544616.3015118,
+    "available_fraction": 0.450097061358538,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5370921f78354dfa9d759b26953f5a2a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "cff5729d98d504294af2dffc7ea0fbe1a1c4e1175e6c5e0cc734900e4cfc4e30"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_fda4ce0c6a2a4ee0",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:79627723ab3842b3b626d4b9397aec45",
+   "decision": "true",
+   "image_limitation": "目标部分位于画面顶部边缘，但车身主体、车顶和深色车窗带均清晰可见。",
+   "observed_object": "停在地面车位上的小汽车，呈俯视长方形车身。",
+   "reasoning": "框内可见完整度较高的机动车，车身尺度、形状及所在停车区域均符合“车”的特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.68,
+   "health": {
+    "at": 1791542769.1078997,
+    "available_fraction": 0.4257960320363283,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "09cce6f42a3646c98ab23a08a76baec6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "58b44012cdddefb79d991b0379764c6c6b163af74d83685d4423f5689ad89851"
+}

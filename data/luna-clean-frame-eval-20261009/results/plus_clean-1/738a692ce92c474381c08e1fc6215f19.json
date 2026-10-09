@@ -1,0 +1,30 @@
+{
+ "unit": "738a692ce92c474381c08e1fc6215f19",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "738a692ce92c474381c08e1fc6215f19:001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是建筑外墙、灰色雨棚或屋檐结构及树木，并非机动车。",
+   "reasoning": "目标位于建筑立面和雨棚区域，不在道路、停车位等地面位置；框内看不到具有车顶、挡风玻璃和车身轮廓的机动车，位置与尺度也明显不符合车辆特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 42.19,
+   "health": {
+    "at": 1791545824.2840517,
+    "available_fraction": 0.45163855794692,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e904bf7be9b046989a2051c3d8bf2b10",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8152522272a2b61f6a853acd6de5d29cd426bf052bdf74b0db4b5e78aff56823"
+}

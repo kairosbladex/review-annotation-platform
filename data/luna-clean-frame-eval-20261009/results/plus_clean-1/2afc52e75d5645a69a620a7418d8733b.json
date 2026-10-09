@@ -1,0 +1,30 @@
+{
+ "unit": "2afc52e75d5645a69a620a7418d8733b",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "2afc52e75d5645a69a620a7418d8733b:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见一个位于道路旁人行道上的细小竖长人形目标，位置和尺度符合人员特征，并非车辆、树木或设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 35.88,
+   "health": {
+    "at": 1791545013.4217672,
+    "available_fraction": 0.44905330519340286,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "65263b15ac4c4f85b799ae0259f5bb0c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ddd55557816c27e502a8adf5deeda063d2ad2fc0dce3fc560acf6dad5d4ce131"
+}

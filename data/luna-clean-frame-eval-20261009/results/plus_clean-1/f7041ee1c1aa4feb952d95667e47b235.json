@@ -1,0 +1,38 @@
+{
+ "unit": "f7041ee1c1aa4feb952d95667e47b235",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆细长窄小的两轮车，位于道路旁绿化带附近。",
+   "reasoning": "目标形状窄长，宽度和长度相对周围道路及车辆符合两轮车特征，并非路面标线或行人。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型细长两轮车，停在道路边缘附近。",
+   "reasoning": "其窄长车身与尺度符合自行车、电动自行车或摩托车的俯拍特征，未见汽车或三轮车结构。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 24.8,
+   "health": {
+    "at": 1791540835.1834931,
+    "available_fraction": 0.4293033190558369,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aede7bacec894560be1c20abe4ac785e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "506b970f65ea998bc0037d5edb257236ab8740fc22fa7d0151a74ccb04274fde"
+}

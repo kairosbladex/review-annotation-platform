@@ -1,0 +1,30 @@
+{
+ "unit": "1ba19da08d5f4139817f9ccdf307f086",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "1ba19da08d5f4139817f9ccdf307f086:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈细长圆角车身轮廓，位于道路旁停车区域，尺度和位置符合车辆特征。",
+   "reasoning": "目标外观与车类别的俯拍特征一致，红色标注线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.69,
+   "health": {
+    "at": 1791541960.0345838,
+    "available_fraction": 0.42682382816224007,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "187585c3c4f043c199ce96dd03766c7e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ad04f377ec7a1926a679f8bda18b11beda96617f9bdfed5fb083630d3cc5fbf8"
+}

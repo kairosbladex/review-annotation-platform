@@ -1,0 +1,30 @@
+{
+ "unit": "81125e868843422197c88b5196358820",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "81125e868843422197c88b5196358820:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小汽车的车身，位于道路边缘，形状和尺度符合机动车特征。",
+   "reasoning": "目标呈细长圆角车体，位置在地面道路区域，虽接近画面下边缘但车形仍清晰可辨，符合“车”的类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.0,
+   "health": {
+    "at": 1791544875.7214527,
+    "available_fraction": 0.43355349270106364,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d459961b318040279966f08c7042305f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fa0a4bc4646d09e6dde94af98ea6a85193ecc1e6c88cb35274851c46d56faa95"
+}

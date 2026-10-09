@@ -1,0 +1,30 @@
+{
+ "unit": "921ef7c18d9846589264f1195197448a",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "921ef7c18d9846589264f1195197448a:004",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面右下角边缘，仅露出很小区域，且被红色标注和边界遮挡，无法完整确认车身形状。",
+   "observed_object": "右下角边缘可见局部疑似地面物体，但车顶、挡风玻璃等关键特征不可辨认。",
+   "reasoning": "候选框严重贴近画面边缘，目标露出不足，既无法确认符合机动车外观，也无法明确排除其他物体，因此判定为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.28,
+   "health": {
+    "at": 1791540954.7460363,
+    "available_fraction": 0.4268447130135667,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "22553096ada648bda59885f01f85f254",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6521fc86a0fe39815e280a93b8381ad5335a9172af5d257c42a9fbe8083d2078"
+}

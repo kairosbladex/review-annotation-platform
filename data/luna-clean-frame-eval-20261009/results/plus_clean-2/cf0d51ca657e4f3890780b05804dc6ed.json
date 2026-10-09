@@ -1,0 +1,30 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "灰白色建筑屋顶/地面上的矩形区域，旁边有浅蓝色小块。",
+   "reasoning": "框内主体不是蓝色或绿色顶棚，而是灰白色硬质屋面区域；浅蓝色小块不足以构成成片蓝绿色顶棚，因此不符合违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.77,
+   "health": {
+    "at": 1791544704.4269845,
+    "available_fraction": 0.45099909237536945,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "02701567ec4e46abbdeb64f1a9aa0936",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "66de1a148abf7d4d1b5cf25d3e5587c5e2963dcf817734322556a1aa1c7fdf75"
+}

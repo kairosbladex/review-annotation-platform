@@ -1,0 +1,30 @@
+{
+ "unit": "fda169da168343eea8c679345aa0fcf9",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:fda169da168343eea8c679345aa0fcf9:000",
+   "decision": "uncertain",
+   "image_limitation": "目标仅在画面最左边缘露出极小一角，无法确认完整车身形状。",
+   "observed_object": "左侧边缘可见少量被框住的物体，主体出画。",
+   "reasoning": "候选框位于画面边缘且大部分目标不可见，无法依据车身轮廓、车顶或挡风玻璃等特征确认或排除机动车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.52,
+   "health": {
+    "at": 1791539496.5570493,
+    "available_fraction": 0.3490376673949714,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "07a1bbf0b5c44894b7a268d0cb00f55e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7a4623bea31a6e865bcf9b72f89ceff5225c24419c7bb3ad56714c05989f2e58"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "15b4bed6056f4884a70be885ca7cec95",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:15b4bed6056f4884a70be885ca7cec95:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路边缘的小汽车，车顶和深色车窗带清晰，形状与尺度符合机动车特征。",
+   "reasoning": "目标位于道路旁，呈圆角长方形车身，比例、颜色和周围道路尺度均符合汽车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:15b4bed6056f4884a70be885ca7cec95:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆沿道路停放的小汽车，车身和车窗轮廓清楚。",
+   "reasoning": "目标位于车道区域，具有机动车的长方形车顶、挡风玻璃和车身比例，位置与尺度合理。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 27.37,
+   "health": {
+    "at": 1791542681.3599076,
+    "available_fraction": 0.4282569788843513,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7504d993167f42c38bf4b7f62602e2c6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "86b26a2a44b12ddc8f91b12453026b22f6513b1c8758cc39d232aaa630b28701"
+}

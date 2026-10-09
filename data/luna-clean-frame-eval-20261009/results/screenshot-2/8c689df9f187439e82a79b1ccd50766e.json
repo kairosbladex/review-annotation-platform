@@ -1,0 +1,39 @@
+{
+ "unit": "8c689df9f187439e82a79b1ccd50766e",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "8c689df9f187439e82a79b1ccd50766e:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是一辆白色小汽车，可见车顶、车窗和长方形车身，停放在人行道旁，尺度与车辆相符。",
+   "reasoning": "目标外观符合机动车特征，位置和尺度也与道路旁停放车辆一致。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "http_503",
+   "seconds": 17.05,
+   "health": {
+    "at": 1791539920.9388793,
+    "available_fraction": 0.4487503684489055,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "status": "ok",
+   "seconds": 26.59,
+   "health": {
+    "at": 1791539958.0299494,
+    "available_fraction": 0.4476983434634489,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8785a91b9e2d49f9bb806d332be2ad65",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "29df0c7e82c587834556fda486941f8239069798f448c70706afec6c1e31c9db"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "46e38da516a54f38ae3e713cf6322382",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "46e38da516a54f38ae3e713cf6322382:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左下建筑边缘，部分被建筑结构和标注遮挡，露出区域过小，无法确认完整车形。",
+   "observed_object": "建筑窗边及其附近的深色局部物体，未能看清明确车顶、挡风玻璃带和车身轮廓。",
+   "reasoning": "框内目标出现在建筑立面/窗边，而非清晰的道路或停车区域；可见部分不足以判断是否为机动车，因此不能确认或否定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.82,
+   "health": {
+    "at": 1791545168.9463332,
+    "available_fraction": 0.4501054213790836,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "11c3d379013e4311b5664247d2138a5e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3a27cb5c29d6ac327d4398ebcd998c40a8d7d4910daf7fb3a40301b35567c275"
+}

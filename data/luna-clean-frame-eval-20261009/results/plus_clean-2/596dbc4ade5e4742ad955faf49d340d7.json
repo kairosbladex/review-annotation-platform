@@ -1,0 +1,30 @@
+{
+ "unit": "596dbc4ade5e4742ad955faf49d340d7",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "596dbc4ade5e4742ad955faf49d340d7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个位于绳索上的小型人员目标，呈人体样的竖长轮廓。",
+   "reasoning": "目标位于水面隔离绳附近，形状和尺度符合俯拍人员特征，不像路灯杆、垃圾桶或其他固定设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 49.86,
+   "health": {
+    "at": 1791540650.605449,
+    "available_fraction": 0.40742432448601984,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8f514f7b408c44acb010ee3058ba7bf4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "cad6b570f8208418ab352df3be1fcf59b3d60dbcc5d19e4b2b896f89ed035b13"
+}

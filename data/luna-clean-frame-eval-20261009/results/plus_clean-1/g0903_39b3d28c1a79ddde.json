@@ -1,0 +1,70 @@
+{
+ "unit": "g0903_39b3d28c1a79ddde",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:76006df30bd947ff942ee244b4fceb1a",
+   "decision": "uncertain",
+   "image_limitation": "目标仅部分出现在画面左上角，主体被裁切，无法确认是否为蓝绿色顶棚。",
+   "observed_object": "左上角局部蓝色区域",
+   "reasoning": "框内目标出画且可见区域过少，不能可靠判断其完整形态和是否为顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f9685b6cd29a4c6a8b29a13873685731",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "左侧狭长蓝绿色区域及建筑边缘",
+   "reasoning": "目标呈明显长条状、贴近画面边缘，不符合成片规整顶棚的外观，更像围挡或建筑侧边。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:67f3e79afd6c438db006916355b183a4",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "左下方大面积蓝色矩形屋面",
+   "reasoning": "框内是覆盖在建筑上的成片蓝色规整矩形顶棚，符合蓝色顶棚特征。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:3b95eefbf52a4243a6b283ab87d85cac",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "左上中部蓝色矩形屋面",
+   "reasoning": "框内主体为覆盖建筑的蓝色成片矩形屋面，边缘规整，符合违建类别外观。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:2d6ee94a6bb94288a30fe86cd4a6129e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "顶部蓝色矩形屋面",
+   "reasoning": "框内可见覆盖建筑的大面积蓝色规整顶棚，颜色和形态均符合类别要点。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:1c1d5b93f6264de3969c2b59a390c2ea",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路左侧建筑上的蓝色矩形屋面",
+   "reasoning": "框内主体是成片蓝色矩形顶棚，位于建筑上方且尺度、形状均匹配。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 20.0,
+   "health": {
+    "at": 1791540262.3919623,
+    "available_fraction": 0.44811445968609614,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "405ed4a8e84c48de996b0401f6ef4333",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "81518c9a8f8b4871d131d7c11d86d9b599de852fa768eb6eb5d0048b214b83bc"
+}

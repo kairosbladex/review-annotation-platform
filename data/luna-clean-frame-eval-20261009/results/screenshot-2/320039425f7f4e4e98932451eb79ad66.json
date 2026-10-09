@@ -1,0 +1,30 @@
+{
+ "unit": "320039425f7f4e4e98932451eb79ad66",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:320039425f7f4e4e98932451eb79ad66:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左边缘，仅露出狭长局部，车身大部分出画，无法确认完整车形。",
+   "observed_object": "左侧边缘可见一个被截断的细长物体，无法辨认是否为机动车。",
+   "reasoning": "框内目标严重出画，只能看到局部，缺少车辆圆角长方形车身及车顶、挡风玻璃等可确认特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.49,
+   "health": {
+    "at": 1791542366.6798353,
+    "available_fraction": 0.42993503260833615,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "17c7e90b5d2245739ec6fa87fe3b3657",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0c6e03458f0cba31e23ba78d613548ba5755fa3e2eaca7b4800e6879d47940f4"
+}

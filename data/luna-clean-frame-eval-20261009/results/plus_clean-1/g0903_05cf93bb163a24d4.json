@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是高层建筑的立面，主要为灰色窗户和墙体，不是蓝色或绿色顶棚。",
+   "reasoning": "候选框覆盖的是一栋竖直建筑立面，未见符合类别要求的成片蓝色或绿色屋面；因此不属于违建目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 35.46,
+   "health": {
+    "at": 1791540894.145757,
+    "available_fraction": 0.42948654030612143,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3ece0f06ae694e55a19ec9b7807f78a6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9ced4456956a31dc4c63cfc7cb12b08b46b6b26f9ec43d6974d4cb9710d092ca"
+}

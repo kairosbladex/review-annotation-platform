@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_eb288fad610cfac1",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:48f3ec3897b84c36a45312fed8798ed3",
+   "decision": "false",
+   "image_limitation": "框内主体清晰可见，未见蓝色或绿色顶棚。",
+   "observed_object": "建筑立面上的深浅灰色方格装饰或窗面。",
+   "reasoning": "候选框位于左下方建筑侧面，框内是灰黑相间的立面格栅/窗格，不是覆盖在建筑或地面上的蓝绿色屋面，因此不符合违建类别外观要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.27,
+   "health": {
+    "at": 1791546125.83082,
+    "available_fraction": 0.45064979551693746,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b7080111cf154ecb92a218231d76a226",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "97852aae92805ca2c3b0ccc4e87c9963d8ebd79940195b904fdcfc62ad9cd3ce"
+}

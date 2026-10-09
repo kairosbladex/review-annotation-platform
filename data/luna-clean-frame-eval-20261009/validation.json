@@ -1,0 +1,15 @@
+{
+ "recorded_at": "2026-10-09T18:51:43.532696+08:00",
+ "unit_tests": {
+  "command": "PYTHONPATH=scripts python3 -m unittest scripts/test_luna_clean_frame.py -v",
+  "result": "8 tests passed"
+ },
+ "syntax_check": "start_luna_clean_frame_eval.py and watch_luna_clean_frame_eval.py passed py_compile; evaluation/scoring modules imported by tests",
+ "source_sha256": {
+  "luna_clean_frame_eval.py": "6394cd934669e6026a076078592e06249a088ca2263d74fa121f67ab89df9817",
+  "score_luna_clean_frame.py": "a759b45cff3e46b3c865bc01d7de4bfb9d95ba5718079714c4b11e9413552ca4",
+  "start_luna_clean_frame_eval.py": "c30bca44e56f951c319e598af42986551b219f7fd51ac9b44bea25907da627a5",
+  "watch_luna_clean_frame_eval.py": "97c5c8a703a564fdc6221f9ebf482b2c15f41157bed9fa457f5461300a9c08a1",
+  "test_luna_clean_frame.py": "c5add36c93e99c23eb5ec3968b92d82af3f1b9a6bb54ee912f5d7411148b36bc"
+ }
+}

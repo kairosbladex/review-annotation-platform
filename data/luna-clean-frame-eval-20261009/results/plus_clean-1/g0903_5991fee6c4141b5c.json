@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_5991fee6c4141b5c",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b74e2ff5b5f4ce6957fed4fb3f41b98",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "框内是带规则网格的灰白色玻璃或光伏状棚架，主体不是蓝色或绿色顶棚。",
+   "reasoning": "框内主体颜色以灰白、透明为主，呈规则网格结构，不能确认是蓝色或绿色屋面；按类别要点应判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.38,
+   "health": {
+    "at": 1791540319.0645883,
+    "available_fraction": 0.44776099801742875,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "613a53ba7cc74e1d9dd8f4cc3042c817",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "617ac13f9b7af863306aa8dc03ac2dade6811fb87772e665308dffefef58eae0"
+}

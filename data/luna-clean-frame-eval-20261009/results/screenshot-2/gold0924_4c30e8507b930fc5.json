@@ -1,0 +1,38 @@
+{
+ "unit": "gold0924_4c30e8507b930fc5",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-035",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，位于建筑屋顶可站立区域。",
+   "reasoning": "目标呈竖长窄形，尺度较小且位置符合人员活动区域，未见其为树木、车辆或其他设施。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-036",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，位于建筑屋顶区域。",
+   "reasoning": "目标形状和尺度与俯拍人员相符，处于可站立位置，未显示为其他物体。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.96,
+   "health": {
+    "at": 1791545867.3056338,
+    "available_fraction": 0.4488633655266071,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c977befff82f40108cc82da0fd189707",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a3298f105aeca2ccfe79a48b09b59bc3f4ab1c1396823d62b098f9dd02fb0a33"
+}

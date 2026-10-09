@@ -1,0 +1,30 @@
+{
+ "unit": "fbeaa2a9dc8045d9b8d6e10b54178c78",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "fbeaa2a9dc8045d9b8d6e10b54178c78:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树荫下停车位中的一辆小汽车",
+   "reasoning": "框内可见车辆顶部及深色车窗带，整体呈圆角长方形，尺寸和位置与停车位相符，符合车的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.33,
+   "health": {
+    "at": 1791540074.6697366,
+    "available_fraction": 0.4472589711836476,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "13e1b530edb4479d985183b7eec9bc85",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f6776fd8e71999e99c0b7d70c94dcf0410336d13b7126f4aa0c87bedafa2e911"
+}

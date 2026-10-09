@@ -1,0 +1,70 @@
+{
+ "unit": "81dc5741bd544b208ce6c4fc02044c46",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘的白色小汽车",
+   "reasoning": "框内可见车身、深色车窗带，形状和位置均符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘的深色小汽车",
+   "reasoning": "可见细长圆角车身及车窗，停在道路旁，尺度与车辆相符。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道旁的白色小汽车",
+   "reasoning": "框内是完整的白色车辆，具有车顶和深色车窗带。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道旁的白色小汽车",
+   "reasoning": "可辨认出车身和车窗，位于地面停车区域，符合车辆外观。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的白色小汽车",
+   "reasoning": "框内目标呈机动车俯视形状，车身与深色玻璃区域清晰可见。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车道上的白色小汽车",
+   "reasoning": "目标位于道路车道内，呈明显的汽车俯视轮廓。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 41.82,
+   "health": {
+    "at": 1791544132.253238,
+    "available_fraction": 0.44810281645748173,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cb9a11669d7742aca9d56e869b371d8a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6d3bff4e3c2994ff830ec48a8c100d7f205a4887366a63087d5bca7d156105a9"
+}

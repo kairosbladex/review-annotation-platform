@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_c43c8cc90e522fc7",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-028",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无法确认有人体特征。",
+   "observed_object": "道路上的小型车辆或车辆部件，呈横向块状，体型明显大于人员。",
+   "reasoning": "框内实际物体位于道路上，外观更像一辆小型作业车辆/车辆部件，而非俯拍下应呈头肩或细长躯干腿部的人。尺度和形状均不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 20.07,
+   "health": {
+    "at": 1791541400.3715842,
+    "available_fraction": 0.42658989958733723,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b0b75324414c4d1fbe9b9c0ccd8ce72b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d177d32d191908437c4eb34ae9a542d0815a610631a6677be396e68bec582372"
+}

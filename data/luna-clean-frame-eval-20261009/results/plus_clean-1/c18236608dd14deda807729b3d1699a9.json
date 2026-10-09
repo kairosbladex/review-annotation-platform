@@ -1,0 +1,30 @@
+{
+ "unit": "c18236608dd14deda807729b3d1699a9",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:c18236608dd14deda807729b3d1699a9:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车",
+   "reasoning": "框内可见规则的横向长方形车身，位于道路车道区域，颜色和尺度与机动车相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.29,
+   "health": {
+    "at": 1791542503.5658789,
+    "available_fraction": 0.41219114740096385,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bcc811f534d7411bae459e8ec9a1a27a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "37d8f929a9e5bef9a905fe4bbfb53b562df8e9cc703b0612c38c100205e84bd9"
+}

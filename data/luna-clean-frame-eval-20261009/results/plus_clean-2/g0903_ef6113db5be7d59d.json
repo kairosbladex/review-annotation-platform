@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_ef6113db5be7d59d",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd00f28b069049368321be0ad373f69f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片覆盖在建筑边缘上方的蓝绿色矩形屋面，带有平行条纹，符合蓝绿色顶棚特征。",
+   "reasoning": "目标颜色、矩形成片形态及其覆盖建筑的空间位置均符合“违建”类别的外观判断要点，不是车辆、围挡或光伏板。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.18,
+   "health": {
+    "at": 1791546821.2435129,
+    "available_fraction": 0.44330033425490145,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "565af9133e98467dafed8b70514fdce1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8852425bde6a8734d51d7704c565b999103e760e3bb020f996cef6ec883ff612"
+}

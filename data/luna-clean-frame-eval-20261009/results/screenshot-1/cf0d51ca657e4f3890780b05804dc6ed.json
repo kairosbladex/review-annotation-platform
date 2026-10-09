@@ -1,0 +1,30 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是地面上的小型蓝色矩形物体，未见覆盖建筑、棚架或空地的成片蓝绿色屋面。",
+   "reasoning": "该物体更像独立放置的地面设施或物件，而非蓝色或绿色顶棚，按违建类别要点应判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.49,
+   "health": {
+    "at": 1791544695.3212368,
+    "available_fraction": 0.4496536154687254,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c010dce57a624b62b0dac28ed146e89e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "66de1a148abf7d4d1b5cf25d3e5587c5e2963dcf817734322556a1aa1c7fdf75"
+}

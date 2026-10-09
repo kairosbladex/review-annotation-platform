@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_5991fee6c4141b5c",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b74e2ff5b5f4ce6957fed4fb3f41b98",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是灰白色的玻璃顶棚或棚架，带有规则网格结构。",
+   "reasoning": "目标主体颜色为灰白色，并非蓝色或绿色顶棚；按违建类别判定要点应为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 25.98,
+   "health": {
+    "at": 1791540344.0891173,
+    "available_fraction": 0.4470249210084459,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a61422f2a8ba4760aeef9a47d37b11e4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "617ac13f9b7af863306aa8dc03ac2dade6811fb87772e665308dffefef58eae0"
+}

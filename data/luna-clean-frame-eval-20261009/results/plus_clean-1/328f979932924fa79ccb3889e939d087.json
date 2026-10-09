@@ -1,0 +1,30 @@
+{
+ "unit": "328f979932924fa79ccb3889e939d087",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:328f979932924fa79ccb3889e939d087:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡且未出画。",
+   "observed_object": "框内是停靠在路边的小型轿车或面包车，未见驾驶室与后部货厢的明显分段。",
+   "reasoning": "该物体整体尺寸较小，形状连续，不符合卡车应有的驾驶室加长方形货厢或车斗分段特征，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.02,
+   "health": {
+    "at": 1791541487.534696,
+    "available_fraction": 0.426928586819695,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5d2ce84b3bff453eab488f22f140c636",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5a95e607eb43bbc86b2de885dd73906935cba428f774fb383148fe6cea4cfec2"
+}

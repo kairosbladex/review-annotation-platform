@@ -1,0 +1,30 @@
+{
+ "unit": "67963890aa6a4b54b2de49c274b015bc",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:67963890aa6a4b54b2de49c274b015bc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路旁的小型机动车，呈细长圆角车身，尺度与道路位置相符。",
+   "reasoning": "该物体具备车辆俯拍的车顶和深色玻璃区域特征，位于地面道路旁，不是屋顶设备或标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.95,
+   "health": {
+    "at": 1791544494.7614105,
+    "available_fraction": 0.4498329759095216,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dd4fbca293e54316af174f3caf1054b5",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "94619cbebf85de007f10b018ef31d9006bd9c6d63acf30c53d75e6bde4a0eda2"
+}

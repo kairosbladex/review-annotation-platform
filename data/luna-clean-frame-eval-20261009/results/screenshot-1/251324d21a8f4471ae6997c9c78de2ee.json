@@ -1,0 +1,38 @@
+{
+ "unit": "251324d21a8f4471ae6997c9c78de2ee",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是成片的蓝色矩形顶棚，具有彩钢瓦样的平行条纹。",
+   "reasoning": "主体符合蓝色顶棚的外观特征，位置和尺度也与棚屋覆盖物相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是狭长的蓝色成片屋面，可见规则平行条纹。",
+   "reasoning": "虽然目标较窄，但主体明显是蓝色顶棚而非围挡、车辆或其他地面物体，符合类别要点。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.77,
+   "health": {
+    "at": 1791546867.9024117,
+    "available_fraction": 0.4474369332210071,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "adbbcdf7ffd34d769f8a5bc8bcfc187d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2e9823779373221c1768951182aacc87f8e401f889e48cad3b73f93b38159974"
+}

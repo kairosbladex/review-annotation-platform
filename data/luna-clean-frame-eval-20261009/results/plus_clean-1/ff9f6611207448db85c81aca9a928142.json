@@ -1,0 +1,30 @@
+{
+ "unit": "ff9f6611207448db85c81aca9a928142",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ff9f6611207448db85c81aca9a928142:000",
+   "decision": "false",
+   "image_limitation": "目标区域较小，但可辨认。",
+   "observed_object": "道路旁的蓝色小型路牌或交通设施，不是机动车。",
+   "reasoning": "框内物体呈细小蓝色矩形，位于道路边缘，缺少车辆应有的车顶、挡风玻璃横带和车身轮廓，位置与尺度也不符合车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.86,
+   "health": {
+    "at": 1791545888.4357991,
+    "available_fraction": 0.451275368254345,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "309656e4f9e34feb86a88b986fca28cd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7578b3cd3565a7447cf32466e63adbf55c063e3341d231ca06678be854c3aee2"
+}

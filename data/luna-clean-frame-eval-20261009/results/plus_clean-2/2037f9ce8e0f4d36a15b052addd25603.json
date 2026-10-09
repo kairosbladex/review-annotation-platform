@@ -1,0 +1,30 @@
+{
+ "unit": "2037f9ce8e0f4d36a15b052addd25603",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2037f9ce8e0f4d36a15b052addd25603:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘可见一辆小型机动车，呈细长圆角车身，颜色和车顶轮廓清晰，位置与道路及尺度相符。",
+   "reasoning": "框内目标符合俯拍机动车的外观特征，不是标线或路面设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.55,
+   "health": {
+    "at": 1791545154.3626044,
+    "available_fraction": 0.45014755588263333,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3865b7a375fa4068b9d949eb6def4bc3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "500ab21eacfc35d0007eb81074d6d3010d0c5732c0263e4015633eb9e22bf4e0"
+}

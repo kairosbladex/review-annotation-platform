@@ -1,0 +1,30 @@
+{
+ "unit": "3c743957ed964e279866fafebf5a8a86",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c743957ed964e279866fafebf5a8a86:000",
+   "decision": "false",
+   "image_limitation": "框内区域清晰可见，未见被遮挡到无法判断的情况。",
+   "observed_object": "建筑立面、窗户及墙面背景",
+   "reasoning": "框内没有机动车的车顶、挡风玻璃深色横带或与道路/停车位相符的车辆形状，红色标注文字和框线不属于目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.13,
+   "health": {
+    "at": 1791546388.684346,
+    "available_fraction": 0.4495144743267721,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "59e8c42e2a8d4d0d97d08a73b9860a85",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e6561898ee03c55981b42430eaf9abb5b149aa7789c99f75d2ad42a60790339f"
+}

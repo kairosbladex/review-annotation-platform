@@ -1,0 +1,62 @@
+{
+ "unit": "29ba2174de9143cabf218f7a17e6a00f",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁一辆小汽车",
+   "reasoning": "框内可见明确的车顶、深色玻璃区域和长方形车身，位置与道路尺度相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的汽车",
+   "reasoning": "右上停车区域可见车辆，形状和尺度符合机动车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的汽车",
+   "reasoning": "框内对应停车区域中的一辆车，车身轮廓明确。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的汽车",
+   "reasoning": "框内可见停车区域中的机动车，外观与车相符。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:004",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑或地面边缘区域",
+   "reasoning": "框内未见可确认的机动车车身，位置和尺度也不符合车。",
+   "target_index": 4
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 47.59,
+   "health": {
+    "at": 1791540699.6337645,
+    "available_fraction": 0.41367527904836576,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dd389792e235412b93cfa45c2c3fd4ae",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "426b57f54384c14634072ac3d3c7921cebbe25568fb1e7d7a185bdecd3267105"
+}

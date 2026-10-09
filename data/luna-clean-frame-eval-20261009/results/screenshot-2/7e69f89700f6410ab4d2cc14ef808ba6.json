@@ -1,0 +1,30 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆前窄后宽、带后部车斗的三轮车。",
+   "reasoning": "目标轮廓符合三轮车特征，长度和宽度也与人行道上的小型三轮车相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 43.85,
+   "health": {
+    "at": 1791537882.8522055,
+    "available_fraction": 0.44851400786802575,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "722efc103a344f8fa3d3f8a63db167e3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fd2a60a988726018af40f55810655a1349a82b6e01f23b27d463685ef319b77e"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "67963890aa6a4b54b2de49c274b015bc",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:67963890aa6a4b54b2de49c274b015bc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的人行道上可见一辆小型机动车，呈细长圆角矩形，车顶和深色玻璃区域清晰可辨。",
+   "reasoning": "目标位于地面道路旁，形状和尺度符合小汽车，且不是屋顶设备或标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.94,
+   "health": {
+    "at": 1791544479.801757,
+    "available_fraction": 0.44961868578288217,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d12a5d94293a4b9ea252a315210c0188",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "94619cbebf85de007f10b018ef31d9006bd9c6d63acf30c53d75e6bde4a0eda2"
+}

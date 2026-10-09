@@ -1,0 +1,54 @@
+{
+ "unit": "g0903_16070d391a314609",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ff202383d6674e13ade5162d89c90529",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "框内可见完整的细长圆角车身，位于道路旁停车区域，尺度和形状符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:3039d76145f84aa1a60f92ed3c02519e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "深色小汽车",
+   "reasoning": "框内可见停放在铺装地面上的深色车辆，车身轮廓和尺度符合小汽车。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:ed5987ba00054ababb624eb1f47b6e9b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "两轮车",
+   "reasoning": "框内是位于道路边缘的细长窄条状目标，宽度明显小于汽车，符合两轮车外观和尺度。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:9989d35690a8475c8ed7b617e195428a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "深色小汽车",
+   "reasoning": "框内可见一辆停放在建筑外铺装区域的深色小汽车，车身形状清晰且尺度相符。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.85,
+   "health": {
+    "at": 1791543163.0153573,
+    "available_fraction": 0.43835433329960954,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a89b64360ae046cb8e9ccc16e36970bb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "17055d02a5bda1f4348819e609bc76ba79446873dcebea977d0f6a3739898281"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "5e4f0e152305449ea4d40ad08d4276fc",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于地面区域的小型机动车，呈细长矩形车身，形状与车辆相符。",
+   "reasoning": "目标位于道路或停车区域附近，尺度和外形符合俯拍车辆特征。",
+   "target_index": 0
+  },
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，能辨认出车顶和深色车窗区域。",
+   "reasoning": "目标位于地面停车或通行区域，车身比例及位置符合车辆类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 36.83,
+   "health": {
+    "at": 1791546931.2281718,
+    "available_fraction": 0.4453605473180811,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1e765ef4c10146a4994ac59a500c0c97",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ac0bd6b966ede122999baf3bf5ab0972b4ea27f1743565468f8ed10cd6c17148"
+}

@@ -1,0 +1,54 @@
+{
+ "unit": "c5575e66402949adbfdb55819350ded2",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:000",
+   "decision": "true",
+   "image_limitation": "无遮挡，目标清晰可见。",
+   "observed_object": "停车区域内的小汽车。",
+   "reasoning": "框内可见具有车身和深色车窗带的机动车，形状与尺度符合小汽车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:001",
+   "decision": "false",
+   "image_limitation": "无遮挡，目标清晰可见。",
+   "observed_object": "停车区域内的小汽车或小型车辆。",
+   "reasoning": "目标未见明显驾驶室与货厢分段，整体尺寸也不符合卡车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:002",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小且清晰度有限。",
+   "observed_object": "道路边缘的细小物体，疑似标记或小型设施。",
+   "reasoning": "无法可靠确认其为具有细长车身特征的两轮车，也不足以明确排除。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:003",
+   "decision": "false",
+   "image_limitation": "无遮挡，目标清晰可见。",
+   "observed_object": "道路上的方形路面设施或标记。",
+   "reasoning": "目标位于道路中央，呈小型方形，未见车身、车窗或汽车长宽比例，不符合车的外观。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 60.95,
+   "health": {
+    "at": 1791539859.9628167,
+    "available_fraction": 0.449406371661099,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "916682cf35534f7681e70daab3e0a5b6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "91f6daa09852cd4706271d6173c5a3a3d11a381dfe2e66836754720602f73dbe"
+}

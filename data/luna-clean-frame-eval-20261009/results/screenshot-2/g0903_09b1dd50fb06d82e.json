@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_09b1dd50fb06d82e",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a56e3d6fc2994361a3d774417ed6fdc9",
+   "decision": "uncertain",
+   "image_limitation": "框内主要是建筑边缘及树冠，目标区域被树木遮挡且画面边缘出框，无法确认是否存在蓝色或绿色顶棚。",
+   "observed_object": "可见灰白色建筑屋面/结构和绿色树冠，未清晰看到蓝色或绿色顶棚。",
+   "reasoning": "按外观口径，违建需为可辨认的蓝色或绿色成片顶棚；当前框内主体被遮挡并部分出画，无法可靠确认或排除符合条件的顶棚。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.1,
+   "health": {
+    "at": 1791543919.0783062,
+    "available_fraction": 0.44524907024411503,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "10069aa7351d4dd9bf6c0f4c79b2a3b4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4cba03a4c0afd209611130bbe7574236f150be1d2511c1dcd17d9232c4de1850"
+}

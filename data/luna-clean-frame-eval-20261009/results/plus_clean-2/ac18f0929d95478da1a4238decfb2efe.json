@@ -1,0 +1,30 @@
+{
+ "unit": "ac18f0929d95478da1a4238decfb2efe",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:ac18f0929d95478da1a4238decfb2efe:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡且未出画。",
+   "observed_object": "框内是道路边缘的一辆小型汽车，呈狭长小车轮廓，未见明显分离的驾驶室与后部长方形货厢，整体尺寸也不像卡车。",
+   "reasoning": "该物体不符合卡车所需的驾驶室与货厢明显分段特征，且相对周围道路尺度偏小，更符合小汽车，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.51,
+   "health": {
+    "at": 1791541793.015849,
+    "available_fraction": 0.4158440811784139,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b6cbb3763d04431088da511643883db3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5512559d81fdbf6aac688f6c27ecfb14e74f1868e9e170eb46f73f246f62f92d"
+}

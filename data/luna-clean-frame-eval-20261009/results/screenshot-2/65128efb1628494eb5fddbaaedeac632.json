@@ -1,0 +1,30 @@
+{
+ "unit": "65128efb1628494eb5fddbaaedeac632",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "65128efb1628494eb5fddbaaedeac632:001",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，未见明显遮挡或出画导致的判断障碍。",
+   "observed_object": "建筑外墙下方的玻璃雨棚或遮阳棚结构及其支撑，不是机动车。",
+   "reasoning": "候选框位于建筑立面附近，框内呈现连续的棚顶板面和支撑结构，缺少车辆应有的圆角长方形车身、车顶及深色前后挡风玻璃横带；位置和尺度也不符合车辆停放在地面道路或车位上的特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.46,
+   "health": {
+    "at": 1791540476.7924187,
+    "available_fraction": 0.44740461794158903,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "711b8a5bd68d42eab57bd139a9ba4fa8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7a953af580bc369180bf4dd6fe5babb9a1ec510cccf5ed90896a52f1b22731f2"
+}

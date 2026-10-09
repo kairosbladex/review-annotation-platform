@@ -1,0 +1,30 @@
+{
+ "unit": "3638f913674646e6a5b8902dcfa2facb",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "3638f913674646e6a5b8902dcfa2facb:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为道路上的一辆小型机动车，可见矩形车身和车顶，位于车道内，尺度与道路车辆相符。",
+   "reasoning": "目标外观、位置和尺度均符合机动车特征，红色标注文字和框线不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.01,
+   "health": {
+    "at": 1791546062.8975844,
+    "available_fraction": 0.4503394715542853,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8a227774410a4039aee85fdbf003c50c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6d9e1fe2bac76ed607ad1399dfcfc681ed362ddd6b7ad8e3270e0c7862f3ad18"
+}

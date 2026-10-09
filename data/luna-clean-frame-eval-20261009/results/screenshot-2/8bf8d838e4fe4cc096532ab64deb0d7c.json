@@ -1,0 +1,70 @@
+{
+ "unit": "8bf8d838e4fe4cc096532ab64deb0d7c",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘的一辆小汽车",
+   "reasoning": "可见车顶和深色玻璃带，形状与道路尺度相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的一辆小汽车",
+   "reasoning": "框内是明显的长方形车身和车窗，位置与道路停车区域相符。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车",
+   "reasoning": "可见车顶、深色车窗和规则车身轮廓，符合机动车特征。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边的一辆小汽车",
+   "reasoning": "框内可辨认出车顶及前后挡风玻璃形成的深色区域，尺度和朝向符合车辆。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的一辆小汽车",
+   "reasoning": "实际物体呈车辆的长方形车身和玻璃带，位置也在道路附近。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树旁道路上的一辆小汽车",
+   "reasoning": "框内可见完整车身轮廓及深色车窗，符合小汽车外观。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.82,
+   "health": {
+    "at": 1791546797.579906,
+    "available_fraction": 0.4436793015862516,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "64940d244d264c46af845185188adc3d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "77044967ed98a7b8e7fd425aaa9050bd6d90983bc6f797589b66986790dda3ac"
+}

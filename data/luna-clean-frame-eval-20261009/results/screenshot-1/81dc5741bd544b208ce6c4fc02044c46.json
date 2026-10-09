@@ -1,0 +1,70 @@
+{
+ "unit": "81dc5741bd544b208ce6c4fc02044c46",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "机动车",
+   "reasoning": "框内可见细长矩形车身及深色车窗，位于路旁停车区域，尺度和朝向符合车辆。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "机动车",
+   "reasoning": "框内可见完整小汽车车身和车窗，停放在路旁，外形与尺度符合车辆。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "机动车",
+   "reasoning": "框内可见车顶、深色挡风玻璃带及车身轮廓，位于停车区域，符合小汽车特征。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "机动车",
+   "reasoning": "框内可见细长车身和车窗，停放位置及尺度与车辆一致。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "机动车",
+   "reasoning": "框内可见小汽车的车顶和深色玻璃区域，位于道路旁停车位，符合类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的机动车",
+   "reasoning": "框内可见道路车道中的车辆，车身与深色车窗清晰可辨，符合机动车特征。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 45.01,
+   "health": {
+    "at": 1791544152.3284652,
+    "available_fraction": 0.4482102807215859,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "190577b393dd4eab8fdbf61ddd7e75ba",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6d3bff4e3c2994ff830ec48a8c100d7f205a4887366a63087d5bca7d156105a9"
+}

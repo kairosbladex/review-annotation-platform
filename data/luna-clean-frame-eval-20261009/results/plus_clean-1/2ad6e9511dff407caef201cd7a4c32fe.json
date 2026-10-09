@@ -1,0 +1,38 @@
+{
+ "unit": "2ad6e9511dff407caef201cd7a4c32fe",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2ad6e9511dff407caef201cd7a4c32fe:000",
+   "decision": "true",
+   "image_limitation": "目标部分被树冠遮挡，但车身轮廓和车顶可见，仍能确认。",
+   "observed_object": "道路旁树冠下的一辆机动车，呈细长圆角车形。",
+   "reasoning": "框内可见车辆的车顶和车身，位置在道路旁停车区域，尺度与机动车相符，符合“车”的外观特征。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:2ad6e9511dff407caef201cd7a4c32fe:001",
+   "decision": "true",
+   "image_limitation": "目标部分被树冠遮挡，但可见车身轮廓足以判断。",
+   "observed_object": "道路旁树冠下的一辆机动车。",
+   "reasoning": "框内可见另一辆具有车顶和车身轮廓的机动车，位于道路/停车区域，朝向和尺度均符合车辆特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.47,
+   "health": {
+    "at": 1791544339.6386013,
+    "available_fraction": 0.44915903665324847,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "119b0e12662e43e0b16128e86f27b9fb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5a878e9b972760cad94e5735ead40fec6c7d14692dce697080378c0b427aaab5"
+}

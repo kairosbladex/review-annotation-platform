@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_5855e63b7f22d882",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d49492d50736447d96d6d93db7a2d01d",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是高层建筑的立面及窗户，不是蓝色或绿色顶棚。",
+   "reasoning": "目标主体为竖直的建筑外墙，颜色以灰白和深色窗格为主，位置和形态均不符合覆盖在建筑或空地上方的蓝绿色成片屋面，因此不属于该类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.38,
+   "health": {
+    "at": 1791544988.754135,
+    "available_fraction": 0.4492831297582197,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bbe5c62a02ae40a6b3c13dd82db99cd3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a83a1d18e90a10bb6e55726dfd202d1a212d017bdda876239f65cee18517d03"
+}

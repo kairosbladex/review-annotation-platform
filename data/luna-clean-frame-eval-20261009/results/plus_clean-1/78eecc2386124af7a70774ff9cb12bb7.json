@@ -1,0 +1,30 @@
+{
+ "unit": "78eecc2386124af7a70774ff9cb12bb7",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "78eecc2386124af7a70774ff9cb12bb7:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小汽车，车身呈长方形，能看到车顶及深色车窗，位于道路旁地面区域。",
+   "reasoning": "目标外观、尺度和所在位置均符合机动车特征，不属于屋顶设备或其他物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 23.98,
+   "health": {
+    "at": 1791540768.7716506,
+    "available_fraction": 0.4086554971117497,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "be1d04b77f3d4d29ac3f7f35dacc4ce8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ecb813932b0b415ae8074a91646f0b724b21912753104b016340287dd41102cd"
+}

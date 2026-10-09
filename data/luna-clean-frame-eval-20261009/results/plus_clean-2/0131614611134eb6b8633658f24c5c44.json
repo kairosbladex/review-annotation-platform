@@ -1,0 +1,38 @@
+{
+ "unit": "0131614611134eb6b8633658f24c5c44",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "0131614611134eb6b8633658f24c5c44:000",
+   "decision": "false",
+   "image_limitation": "目标较小但清晰可见。",
+   "observed_object": "框内是一个狭长的浅色矩形物体，未见三轮车前窄后宽的轮廓。",
+   "reasoning": "该物体更像箱体或其他静止物，不符合三轮车的结构特征。",
+   "target_index": 0
+  },
+  {
+   "key": "0131614611134eb6b8633658f24c5c44:001",
+   "decision": "false",
+   "image_limitation": "目标较小但清晰可见。",
+   "observed_object": "框内是一个小型狭长矩形物体，未见驾驶室与后部货厢的分段结构。",
+   "reasoning": "其尺寸和形态也明显不符合卡车，不能判为卡车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.48,
+   "health": {
+    "at": 1791545457.4252186,
+    "available_fraction": 0.4496353146237492,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6aa96fd819c74176ad19064c9132395c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "38dad6d67e3dc4e0e5e3aafb30be168264f06bb75354ada2012d8c2174f24f1a"
+}

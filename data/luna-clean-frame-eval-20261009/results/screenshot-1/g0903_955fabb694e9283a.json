@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_955fabb694e9283a",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5bebebc5919b437da90eb125d0dc2324",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一小段蓝绿色顶棚，位于建筑/棚架区域上方，呈规整矩形屋面形态。",
+   "reasoning": "目标主体符合蓝绿色覆盖性顶棚的外观特征，位置和尺度也与俯拍图中的棚顶相符，因此判定为true。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.21,
+   "health": {
+    "at": 1791541131.4843147,
+    "available_fraction": 0.4287030695806638,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0c96c5815da647fe9d9f31e6b5f1fa67",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a71208ed780f581f3ad1087ee14061c9918ab6f9f9e80250399c7558a0caff85"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "77355afff7c0430faf66716abec2c94f",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "77355afff7c0430faf66716abec2c94f:000",
+   "decision": "false",
+   "image_limitation": "框内及紧邻区域清晰可见，未见人员的头部、肩部或躯干腿部特征。",
+   "observed_object": "岸边铺装区域上的小型固定设施/标记物，红色框和文字为叠加标注，不是目标。",
+   "reasoning": "候选框位于岸边铺装带，框内实际物体呈竖直小型设施状，不具备俯拍人员应有的头顶、肩部或躯干腿部外观，位置和形态也更符合固定设施而非人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.25,
+   "health": {
+    "at": 1791542397.32411,
+    "available_fraction": 0.4273074933508957,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f812944523044e8384e34c8fa631cf0c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6bf5ee236ad886ce8fa8211b7de5ffb50fb768348b8cbc3f22d580f819cf5077"
+}

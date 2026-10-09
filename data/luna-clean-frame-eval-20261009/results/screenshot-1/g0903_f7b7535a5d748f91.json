@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片成片的绿色矩形顶棚，覆盖在球场边缘区域，颜色和形态符合蓝色或绿色顶棚特征。",
+   "reasoning": "候选框主体是绿色篷顶，而非围挡、栏杆或地面物体，符合“违建”类别的外观判断要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.95,
+   "health": {
+    "at": 1791544737.454055,
+    "available_fraction": 0.44985559356510674,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "59bf86f9819749a989d6a87fe2fbf451",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9ebc938851cd559c4f41792ef6d07c21807407b734042b8ceb788da950c41d24"
+}

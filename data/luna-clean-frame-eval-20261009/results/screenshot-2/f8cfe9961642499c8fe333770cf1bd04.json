@@ -1,0 +1,46 @@
+{
+ "unit": "f8cfe9961642499c8fe333770cf1bd04",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:003",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于树冠和红色叠加标注密集区域，实际目标被遮挡且细节不足，无法确认完整车形。",
+   "observed_object": "框内主要可见树木与叠加标注，疑似存在被遮挡物体。",
+   "reasoning": "无法清晰确认机动车所需的车顶、挡风玻璃横带及与车位相符的尺度。",
+   "target_index": 0
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:004",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被树冠及相邻红框遮挡，清晰度不足。",
+   "observed_object": "可见绿化和标注框，实际物体轮廓不完整。",
+   "reasoning": "不能可靠判断是否为具有车身和深色玻璃带的机动车，也不足以否定。",
+   "target_index": 1
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆细长矩形机动车，车身及深色玻璃区域清晰，位于绿化旁地面区域。",
+   "reasoning": "外形、颜色分区和尺度符合俯拍车辆特征，位置也与地面停车区域相符。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 45.69,
+   "health": {
+    "at": 1791540550.9169297,
+    "available_fraction": 0.42711794888507115,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "45aa868568c54f8b8f968e8f2dbda4e6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fbcf18306f13b8ddb0917d1b32a0ac749044f69318ef80479dbc419f7902fd72"
+}

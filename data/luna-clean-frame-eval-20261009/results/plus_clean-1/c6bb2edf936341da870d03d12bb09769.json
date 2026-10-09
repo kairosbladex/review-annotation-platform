@@ -1,0 +1,46 @@
+{
+ "unit": "c6bb2edf936341da870d03d12bb09769",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c6bb2edf936341da870d03d12bb09769:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左下边缘并被树木及红框遮挡，无法完整确认车身轮廓。",
+   "observed_object": "疑似道路旁的车辆，但仅露出局部。",
+   "reasoning": "框内可见部分形态不足以确认是机动车，也无法明确排除其他物体。",
+   "target_index": 0
+  },
+  {
+   "key": "c6bb2edf936341da870d03d12bb09769:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路或停车区域内的一辆小型汽车。",
+   "reasoning": "框内可见细长圆角车身、深色车窗带，朝向与道路/停车区域一致，尺度也符合车辆。",
+   "target_index": 1
+  },
+  {
+   "key": "c6bb2edf936341da870d03d12bb09769:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小型汽车。",
+   "reasoning": "框内可见纵向车身、车顶及深色挡风玻璃区域，位置和尺度符合机动车。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.82,
+   "health": {
+    "at": 1791545676.048423,
+    "available_fraction": 0.44977767817362185,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d12e388bfbb94bcea1608ace81fe5523",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "41c6126c05ff1e5cfcf1d609c3132896088dd94f18b2bc9c4417dd18d0475e6c"
+}

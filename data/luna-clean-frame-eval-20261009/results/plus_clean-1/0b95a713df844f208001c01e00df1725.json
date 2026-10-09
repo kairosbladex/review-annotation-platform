@@ -1,0 +1,30 @@
+{
+ "unit": "0b95a713df844f208001c01e00df1725",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:0b95a713df844f208001c01e00df1725:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车，能看到完整车顶和车身轮廓。",
+   "reasoning": "框内目标呈机动车常见的圆角长方形车身，位于道路车道内，朝向与道路一致，尺度也与车道相符，符合“车”的类别特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.65,
+   "health": {
+    "at": 1791542735.972036,
+    "available_fraction": 0.42646273607482016,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "36b5fd7028c540808e2049e0460869b1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b08131ac5371b2088898ceb2717edaca0822a9efaed6ba3d010dbcae8c093be4"
+}

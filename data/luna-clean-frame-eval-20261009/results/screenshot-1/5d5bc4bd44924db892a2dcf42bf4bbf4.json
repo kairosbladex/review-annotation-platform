@@ -1,0 +1,30 @@
+{
+ "unit": "5d5bc4bd44924db892a2dcf42bf4bbf4",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:5d5bc4bd44924db892a2dcf42bf4bbf4:000",
+   "decision": "false",
+   "image_limitation": "目标区域较小但清晰可见，未见机动车车身特征。",
+   "observed_object": "建筑屋顶上的小型设备或标记区域",
+   "reasoning": "框位于建筑屋顶/平台附近，框内没有符合圆角长方形、车顶及挡风玻璃深色横带等特征的机动车；屋顶设备不属于车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.61,
+   "health": {
+    "at": 1791542286.1615222,
+    "available_fraction": 0.43252958778471495,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4082298ed7ed4614943f6d03ef0cb36c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ac7435aacb9beeb9ef5e3a1af231a7d5f28e2f4f5708a4e8fa6fd755b0d4db77"
+}

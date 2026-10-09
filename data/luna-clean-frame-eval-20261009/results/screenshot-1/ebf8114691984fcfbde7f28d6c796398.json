@@ -1,0 +1,30 @@
+{
+ "unit": "ebf8114691984fcfbde7f28d6c796398",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "ebf8114691984fcfbde7f28d6c796398:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个位于岸边的细小人员目标，呈竖长形，带有头部与躯干轮廓。",
+   "reasoning": "目标位于可站立的岸边区域，尺度明显小于汽车宽度，外观与俯拍人员相符，不像路灯杆、消防栓或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.63,
+   "health": {
+    "at": 1791546551.794029,
+    "available_fraction": 0.44929170257928824,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "929749b3f7ad4a4da7edef614f68c3cf",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0132fe37cce65d64dd45558e92d4c8e3e6e967a945a2158472142b2778d0a541"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_8772805bce1cd3a5",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0f4a7549e8134468b02a4cabaeab093b",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "框内是带红色文字的标识牌/牌面，不是蓝色或绿色顶棚。",
+   "reasoning": "该区域主体为立在地面或设施上的标识牌，颜色和形态均不符合蓝绿色成片屋面顶棚，因此不属于违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.17,
+   "health": {
+    "at": 1791543431.6088793,
+    "available_fraction": 0.4451010826804208,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c44b46609180422086faab3a6ff82ce6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d8ebbbd89bf46b086d123c94c5cf51c7242e4c22604138b99757a5df5685cfe6"
+}

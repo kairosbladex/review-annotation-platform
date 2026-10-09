@@ -1,0 +1,30 @@
+{
+ "unit": "c02e9615267b4e968c884ad6c3414ef3",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c02e9615267b4e968c884ad6c3414ef3:000",
+   "decision": "false",
+   "image_limitation": "框内实际主要是红色平台叠加文字及建筑屋顶边缘，未见符合人员外观的头部、肩部或躯干；框的位置也贴近屋顶边缘，不是可站立区域。",
+   "observed_object": "建筑屋顶边缘及平台标注文字",
+   "reasoning": "该区域没有可辨认的人员形态，目标尺度和位置均不符合人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.14,
+   "health": {
+    "at": 1791540595.6235085,
+    "available_fraction": 0.42791376204086157,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5bf39d8c32ee41bab5a714abd7aa1947",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3fd2974e20751e20782045a070539a01eac78817a111a1c36a044dcc85472502"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "8000a189fc2541f7916c5a5ce57e5249",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "8000a189fc2541f7916c5a5ce57e5249:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个位于岸边空地上的小型人员目标。",
+   "reasoning": "目标处于人员可站立的岸边施工空地，外观和尺度符合俯拍人员特征，未见其为树木、车辆部件或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.02,
+   "health": {
+    "at": 1791544684.3440554,
+    "available_fraction": 0.4508871897003574,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "89a6a178650a4e219cc1c089b450562e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "849116678ee98f91e0d60f74e9b4d846ee8f9901dde22ce1614c7cdfe016e784"
+}

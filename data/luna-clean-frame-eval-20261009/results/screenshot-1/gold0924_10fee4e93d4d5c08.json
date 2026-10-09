@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_10fee4e93d4d5c08",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的一名人员，呈竖长窄的躯干形态，位于可站立区域。",
+   "reasoning": "框内可见目标具有人员的竖长外观和衣物色彩，尺度较小且位置在人行道上；不是树木、盆栽或杆状设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.57,
+   "health": {
+    "at": 1791546505.5593703,
+    "available_fraction": 0.45038321726179475,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "871a147cf02b474ca297447222ac847e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5c84262940d10a54c7a8850999f87c055bdd1c5101b4b581a97c2e78978fadc"
+}

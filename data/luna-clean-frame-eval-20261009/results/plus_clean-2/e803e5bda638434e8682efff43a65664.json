@@ -1,0 +1,30 @@
+{
+ "unit": "e803e5bda638434e8682efff43a65664",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e803e5bda638434e8682efff43a65664:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "岸边有一个俯视可见头部和肩部轮廓的小型人员目标。",
+   "reasoning": "框内实际物体呈现出近圆形的深色头部及浅色肩部/衣物，位于可站立的岸边平台，尺度明显小于汽车，符合俯视人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.88,
+   "health": {
+    "at": 1791545105.078284,
+    "available_fraction": 0.44870394753482146,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "feeb873ccdb646a1beadb54beaed85c2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "89ad241ef117d7b3429d64c52b9e525f4ba5c37faba9964fe036e34b95131e0e"
+}

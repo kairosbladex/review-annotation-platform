@@ -1,0 +1,30 @@
+{
+ "unit": "0000e0fd01584ef89ff9a62041dff772",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "0000e0fd01584ef89ff9a62041dff772:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的小型机动车，呈细长矩形车身，尺度和朝向与车道相符。",
+   "reasoning": "目标外观符合机动车特征，位置也在道路区域，符合“车”的类别要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.62,
+   "health": {
+    "at": 1791543982.2157538,
+    "available_fraction": 0.44664267046902695,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f1e637c64a25448b8de3c61bb7ac3a65",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7932618452a54028223b3c825efa96e5bd98c3d8499f2ab3b732cd33ff117268"
+}

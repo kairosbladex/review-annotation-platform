@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片规整的蓝绿色矩形屋面/顶棚，位于球场旁并呈覆盖状。",
+   "reasoning": "该目标主体为蓝绿色成片顶棚，颜色和形态符合“违建”类别的外观判定要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 36.45,
+   "health": {
+    "at": 1791544729.2540958,
+    "available_fraction": 0.45033317873882006,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5de382caaa194e46a466abe284010693",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9ebc938851cd559c4f41792ef6d07c21807407b734042b8ceb788da950c41d24"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "081642811fec4c4581745b4c3402f9fb",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:081642811fec4c4581745b4c3402f9fb:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，呈圆角长方形，车顶和深色车窗清晰，位于地面道路区域。",
+   "reasoning": "目标外观、尺度及所在位置均符合机动车特征，初审类别“车”正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.01,
+   "health": {
+    "at": 1791544259.866998,
+    "available_fraction": 0.4298816804772179,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fdbe0a51a28a4f8f95387ef3e4a72254",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0b497595a375b86592437026797d2784955045aec82159e2b92d9f86176bd62a"
+}

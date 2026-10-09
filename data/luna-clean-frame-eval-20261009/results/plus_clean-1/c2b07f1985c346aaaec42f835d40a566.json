@@ -1,0 +1,30 @@
+{
+ "unit": "c2b07f1985c346aaaec42f835d40a566",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c2b07f1985c346aaaec42f835d40a566:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，呈细长圆角车身轮廓，位置和尺度与停车位相符。",
+   "reasoning": "目标具备俯拍车辆的车顶、挡风玻璃和车身形状，符合“车”的类别特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 28.68,
+   "health": {
+    "at": 1791544859.3314807,
+    "available_fraction": 0.42920217800727267,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e0a6d87b834b493d83f819f848d8d4f1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "22f1df8e4688428e92b766522300bc1247bb50585fecef25752743d8a10dbbed"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "87e732ecc4f14ac9922a3fb789fbb9e6",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "87e732ecc4f14ac9922a3fb789fbb9e6:000",
+   "decision": "false",
+   "image_limitation": "框内可见的是红色平台标注文字/框线，实际物体为水池或地面区域，未见人员的头部、肩部或躯干腿部特征。",
+   "observed_object": "水池边的地面区域及叠加标注",
+   "reasoning": "该位置没有符合人员外观、尺度和姿态的实际目标，红色标注不能作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.9,
+   "health": {
+    "at": 1791545089.152588,
+    "available_fraction": 0.4492377120466011,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d63772a99da24d1d94745cbc3256ed52",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8eb535da9d7ab56a1591ee4ca150e2343eedb7507e0202a85678e4787dc6c01c"
+}

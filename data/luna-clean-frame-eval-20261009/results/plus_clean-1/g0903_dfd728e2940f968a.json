@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_dfd728e2940f968a",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:1b1215b7886343c0b545b6639a919f33",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内主要是灰白色矩形屋面/棚顶，带规则条纹。",
+   "reasoning": "违建类别要求主体为蓝色或绿色顶棚；该目标呈灰白色，颜色不符合，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.85,
+   "health": {
+    "at": 1791545235.574076,
+    "available_fraction": 0.4496666875008512,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "abf903ce371540f1af2b7194c61e283e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2c9e62bc3be763ef3d2c2e4934d88698bbefc56a30c4e4f0244ec5397d3763c0"
+}

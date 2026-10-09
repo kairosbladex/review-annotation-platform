@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_5855e63b7f22d882",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d49492d50736447d96d6d93db7a2d01d",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，未见遮挡或严重模糊。",
+   "observed_object": "框内是竖直的高层建筑立面，主要为灰色/银色玻璃窗格，不是蓝色或绿色顶棚。",
+   "reasoning": "该框标注的主体是建筑楼体立面，缺少违建类别要求的蓝色或绿色成片屋面，因此不符合“违建”外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.38,
+   "health": {
+    "at": 1791544976.8403065,
+    "available_fraction": 0.44948234144780236,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9b57581a3ac041299162ed3faf2854ad",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a83a1d18e90a10bb6e55726dfd202d1a212d017bdda876239f65cee18517d03"
+}

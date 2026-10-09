@@ -1,0 +1,30 @@
+{
+ "unit": "a4d041acab414e5d8e428eef20afeafc",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型三轮车，呈前窄后宽的轮廓，后部较宽。",
+   "reasoning": "目标位于道路边缘，外形符合三轮车的俯拍特征，虽有部分被框线和画面边缘影响，但关键轮廓仍可辨认。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 3.88,
+   "health": {
+    "at": 1791542640.141927,
+    "available_fraction": 0.42797051898034744,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d987d5a3100049028acd4784090dc472",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "85d2ffe8761dec48cc0c5882cc5b48fc68b158d70c4e4bae97a6afa719a52cb5"
+}

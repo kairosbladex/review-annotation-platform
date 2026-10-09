@@ -1,0 +1,38 @@
+{
+ "unit": "155f1d0fb5d04247a183de44dde09dbc",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:155f1d0fb5d04247a183de44dde09dbc:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "建筑屋顶边缘的矩形设施或标记，不是机动车。",
+   "reasoning": "框内物体位于建筑屋顶/平台附近，形状和位置不符合道路或停车区域中的车辆特征，更像屋顶设施，因此类别“车”不正确。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:155f1d0fb5d04247a183de44dde09dbc:001",
+   "decision": "false",
+   "image_limitation": "目标较小但可辨认。",
+   "observed_object": "道路旁的红色叠加标注附近未见可确认的机动车车体。",
+   "reasoning": "框内主要对应平台红色标注及道路/地面区域，未呈现具有车顶和深色玻璃带的机动车外观，不能按车判断。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.13,
+   "health": {
+    "at": 1791541865.0475497,
+    "available_fraction": 0.4095525425163285,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "91951655af224736a62caf5eb8ba48ea",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "44c9ad8e0cb6445f774f6b21752429805a8d5246aee006c9bd83ef108ac7c7a4"
+}

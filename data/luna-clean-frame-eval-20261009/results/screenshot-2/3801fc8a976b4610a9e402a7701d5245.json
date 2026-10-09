@@ -1,0 +1,30 @@
+{
+ "unit": "3801fc8a976b4610a9e402a7701d5245",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3801fc8a976b4610a9e402a7701d5245:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "建筑物边缘附近的小型彩色矩形标记/设备，未见符合机动车特征的车身。",
+   "reasoning": "框内及紧邻区域没有呈现圆角长方形、车顶和深色挡风玻璃横带等机动车外观，位置也不符合道路或停车位中的车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.91,
+   "health": {
+    "at": 1791546947.0401337,
+    "available_fraction": 0.44152016667996163,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cf5dbefeaf0b40b592f7b6845cb476d9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f94b5f0da43abc508c64f91b8ee3c609a92c378f8004aebd7fccfbb107f97f3a"
+}

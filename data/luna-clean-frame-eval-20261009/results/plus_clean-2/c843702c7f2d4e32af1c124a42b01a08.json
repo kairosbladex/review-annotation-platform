@@ -1,0 +1,30 @@
+{
+ "unit": "c843702c7f2d4e32af1c124a42b01a08",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c843702c7f2d4e32af1c124a42b01a08:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆细长窄小的两轮车，停放在人行道附近。",
+   "reasoning": "目标形状窄长，宽度明显小于小汽车，且位置与尺度符合两轮车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.94,
+   "health": {
+    "at": 1791541601.9122322,
+    "available_fraction": 0.4269813005492442,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b60e734687ef47ebb80b79a0b04db745",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6a4566ef2147ac865a22935ac3c3dd3adf4ffd3942978e0afcb5a5f488b5d0d4"
+}

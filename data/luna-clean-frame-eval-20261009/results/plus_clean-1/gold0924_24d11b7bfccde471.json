@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_24d11b7bfccde471",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-017",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，未见遮挡或出画。",
+   "observed_object": "人行道旁规律摆放的盆栽/绿化植物，位于花盆中。",
+   "reasoning": "目标呈圆形绿色树冠和竖直花盆形态，且与其他盆栽成排摆放，不符合人员的头肩或躯干腿部外观，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.36,
+   "health": {
+    "at": 1791545123.2599585,
+    "available_fraction": 0.45010773178476166,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "309e8633e3124eba82d87325d5305a40",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ce3d243bc46bf68bc9524d2a77ac6c5bb5eeadb238a355a19699fb87c8f15b45"
+}

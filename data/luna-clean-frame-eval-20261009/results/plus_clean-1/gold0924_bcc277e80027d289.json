@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_bcc277e80027d289",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名斜俯视的人员，能看到头部、躯干和腿部，位于建筑旁人行区域。",
+   "reasoning": "目标外观和尺度符合人员特征，虽部分出画但主体仍可确认，不影响类别判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 19.6,
+   "health": {
+    "at": 1791542662.6385694,
+    "available_fraction": 0.4289446893744686,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "108913fca7cd4d2c8696e4fea62567c3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6ac56eb7885dc1dc680e6691925b0373708473353508c12ca458854620d43979"
+}

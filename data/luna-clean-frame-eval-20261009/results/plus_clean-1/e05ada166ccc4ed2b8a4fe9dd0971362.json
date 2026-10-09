@@ -1,0 +1,30 @@
+{
+ "unit": "e05ada166ccc4ed2b8a4fe9dd0971362",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e05ada166ccc4ed2b8a4fe9dd0971362:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘的一辆小型机动车，可见车身轮廓及车顶区域。",
+   "reasoning": "框内及紧邻区域可见物体位于地面道路附近，尺度和形状符合小汽车特征，不是建筑或地面标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.69,
+   "health": {
+    "at": 1791544015.867865,
+    "available_fraction": 0.44734953300621233,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fa35f408a329479aad9736ad62d14e22",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fef2c858111ff9eccfaf3ce018fdf76d9f39605020294bf329c17338abfe34da"
+}

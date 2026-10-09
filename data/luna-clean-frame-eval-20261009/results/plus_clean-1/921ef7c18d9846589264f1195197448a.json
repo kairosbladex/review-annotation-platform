@@ -1,0 +1,30 @@
+{
+ "unit": "921ef7c18d9846589264f1195197448a",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "921ef7c18d9846589264f1195197448a:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "画面右下角道路或停车区域内可见一个小型机动车，呈细长圆角矩形，位置与周围车辆及地面区域相符。",
+   "reasoning": "框内目标外观和尺度符合俯拍车辆特征，位于地面区域而非建筑屋顶或其他设施，因此初审类别“车”正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.13,
+   "health": {
+    "at": 1791540929.6253726,
+    "available_fraction": 0.42552173216220895,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6e5eaf03f50c43a78877938e6aac946a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6521fc86a0fe39815e280a93b8381ad5335a9172af5d257c42a9fbe8083d2078"
+}

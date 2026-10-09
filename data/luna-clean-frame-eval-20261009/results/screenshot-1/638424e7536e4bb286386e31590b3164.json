@@ -1,0 +1,30 @@
+{
+ "unit": "638424e7536e4bb286386e31590b3164",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:638424e7536e4bb286386e31590b3164:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左边缘，仅露出局部，无法完整确认车身形状及其与道路的尺度关系。",
+   "observed_object": "左侧边缘可见一小段疑似物体，红框覆盖区域大部分出画。",
+   "reasoning": "候选框严重贴近画面边缘且目标被遮挡或截断，现有可见部分不足以确认是机动车，也不足以明确排除，因此判为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.82,
+   "health": {
+    "at": 1791545629.126383,
+    "available_fraction": 0.4497070892001424,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "440324bafc3c477480b47476f8f2af7e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "98e64dd6e46f9b146abb76a8b350b1eba4a08c2316f14bcb296414901f4ad087"
+}

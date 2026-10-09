@@ -1,0 +1,30 @@
+{
+ "unit": "1ff2d9981126461291881a5b638b3ab8",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "1ff2d9981126461291881a5b638b3ab8:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于绿化步道旁的机动车，呈细长圆角车身轮廓，尺度与车辆相符。",
+   "reasoning": "目标位置和外观符合俯拍车辆特征，框线及文字不影响对实际物体的判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 20.46,
+   "health": {
+    "at": 1791542611.7739532,
+    "available_fraction": 0.41020015530790166,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e2eddcfc4df54226917d6e1efc2232c0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a3c2e165ce39e8bdabfd1b1d587a0803584158ce9b3965efb7e75ceacf8f7107"
+}

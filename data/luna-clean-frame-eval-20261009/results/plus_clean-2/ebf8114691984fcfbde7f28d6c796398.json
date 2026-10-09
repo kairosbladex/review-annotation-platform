@@ -1,0 +1,30 @@
+{
+ "unit": "ebf8114691984fcfbde7f28d6c796398",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "ebf8114691984fcfbde7f28d6c796398:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型白色头盔状圆形物体及深色局部，位于岸边步道上，形态和尺度符合俯拍人员的头部与肩部特征。",
+   "reasoning": "该目标不是红色标注本身；框内实际物体呈小型近圆/椭圆形，处于可站立的岸边步道位置，尺度明显小于汽车，符合人员外观口径。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.3,
+   "health": {
+    "at": 1791546536.756586,
+    "available_fraction": 0.4491579422505589,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "464c31676e354b2bad5e89bc1f526674",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0132fe37cce65d64dd45558e92d4c8e3e6e967a945a2158472142b2778d0a541"
+}

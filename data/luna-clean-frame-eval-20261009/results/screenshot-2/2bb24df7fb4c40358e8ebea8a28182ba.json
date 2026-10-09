@@ -1,0 +1,30 @@
+{
+ "unit": "2bb24df7fb4c40358e8ebea8a28182ba",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "2bb24df7fb4c40358e8ebea8a28182ba:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈细长圆角车身，车顶及深色玻璃区域清晰，位于道路边缘且方向与道路一致。",
+   "reasoning": "目标的外形、颜色和所在位置符合俯拍小汽车特征，不是标线或路旁设备。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.16,
+   "health": {
+    "at": 1791537050.9842534,
+    "available_fraction": 0.450865970448209,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d77075087f114f6cbda6dbb10b536c91",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "445152924ed4f21cb478a2c2403be94d2bf274771bb1e2876ac9846774788cb0"
+}

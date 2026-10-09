@@ -1,0 +1,30 @@
+{
+ "unit": "6f4e3c7fd789409e8a0b74ccaefb1746",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:6f4e3c7fd789409e8a0b74ccaefb1746:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈车顶俯视形态，位于建筑旁的地面道路区域。",
+   "reasoning": "目标为圆角长方形车身，长度约为宽度两倍，车顶与深色车窗区域清晰可见，位置和尺度也符合道路旁车辆特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 3.35,
+   "health": {
+    "at": 1791542257.9766133,
+    "available_fraction": 0.4269057259635121,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a5beb992dcb349b1be9a3875b36b3d91",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5ab3a37bf324ea3ab4f98a5ce93611c0119e8417076caad520943d10cf4940ed"
+}

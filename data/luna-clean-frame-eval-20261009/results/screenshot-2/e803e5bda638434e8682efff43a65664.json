@@ -1,0 +1,30 @@
+{
+ "unit": "e803e5bda638434e8682efff43a65664",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e803e5bda638434e8682efff43a65664:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "岸边平台上的小型人员目标，可见深色头部及身体轮廓，位于可站立区域。",
+   "reasoning": "框内实际目标呈小型竖向人体轮廓，位置在岸边平台上，尺度符合俯拍人员特征；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.79,
+   "health": {
+    "at": 1791545090.9060738,
+    "available_fraction": 0.44980272783518394,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "05e0b296d66c4058a8d8f217299399f8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "89ad241ef117d7b3429d64c52b9e525f4ba5c37faba9964fe036e34b95131e0e"
+}

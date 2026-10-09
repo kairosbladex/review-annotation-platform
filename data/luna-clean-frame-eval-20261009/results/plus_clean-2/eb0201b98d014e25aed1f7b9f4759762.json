@@ -1,0 +1,46 @@
+{
+ "unit": "eb0201b98d014e25aed1f7b9f4759762",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "eb0201b98d014e25aed1f7b9f4759762:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，呈长方形车身并有深色车窗带。",
+   "reasoning": "物体形状、尺度和位置均符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "eb0201b98d014e25aed1f7b9f4759762:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车顶和车窗轮廓清晰。",
+   "reasoning": "外观及其位于路旁停车区域的位置符合车辆特征。",
+   "target_index": 1
+  },
+  {
+   "key": "eb0201b98d014e25aed1f7b9f4759762:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，露出完整车身和深色玻璃区域。",
+   "reasoning": "形状、尺度与周围停车区域相符，符合机动车类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.3,
+   "health": {
+    "at": 1791546997.260918,
+    "available_fraction": 0.43925530031382604,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "da51ef4d78894e21a01e8decef24f2f1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3bac647647913b7c5e3a86911301eb09686dfc2705ba846c9f68cf1ae41162b3"
+}

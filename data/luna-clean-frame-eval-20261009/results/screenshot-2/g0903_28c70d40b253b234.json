@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_28c70d40b253b234",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:325c7e4db91441718685ea2d6a6fa556",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是树木、建筑边缘及一段灰白色结构，并非蓝色或绿色顶棚。",
+   "reasoning": "该区域未见符合类别定义的成片蓝色或绿色屋面，不能判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.21,
+   "health": {
+    "at": 1791544752.355865,
+    "available_fraction": 0.44954061839102377,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e41c635c95b34e279c8ca5299322f4d8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4e943475937cfeb8099b1a2c022dd1152c18669898baeca738acb37d2a22dbaa"
+}

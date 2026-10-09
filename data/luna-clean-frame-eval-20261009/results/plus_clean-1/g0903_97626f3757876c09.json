@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_97626f3757876c09",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fb0ded7fd77a459bb409a0c0349eb546",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是停放的小汽车，能看到车顶和深色挡风玻璃区域。",
+   "reasoning": "车辆位于道路旁，外形和尺度符合机动车特征，虽部分被树木遮挡但车身形状明确。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:d977e362249946369eb5258eca0cbeb1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是停放在道路旁的小汽车，可见白色车顶、车身及深色玻璃区域。",
+   "reasoning": "目标呈圆角长方形，长度明显大于宽度，位置和尺度与路旁车辆相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.81,
+   "health": {
+    "at": 1791544957.887336,
+    "available_fraction": 0.45024942653299066,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e2317f3eda5b4a1ba0cf8fbe95f6afd3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a7a4be2715773755685ceff4856df5fd6d9961646734c1fb679210e900f2f80"
+}

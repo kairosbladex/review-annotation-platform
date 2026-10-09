@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "false",
+   "image_limitation": "目标框内主体为高层建筑的灰色玻璃/墙面立面，不是蓝色或绿色顶棚；画面中可见的蓝色屋面位于建筑下方且不在框内。",
+   "observed_object": "高层建筑立面",
+   "reasoning": "框内实际物体是竖直的建筑楼体，颜色以灰色、白色和深色窗格为主，位置和形态均不符合蓝色或绿色成片顶棚的特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 39.89,
+   "health": {
+    "at": 1791540882.65288,
+    "available_fraction": 0.4278850339702595,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "458cfedb03fd49369e9361e3b839b4cd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9ced4456956a31dc4c63cfc7cb12b08b46b6b26f9ec43d6974d4cb9710d092ca"
+}

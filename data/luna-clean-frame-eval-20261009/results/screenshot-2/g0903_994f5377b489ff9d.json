@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内主要是灰白色建筑屋顶及其边缘结构，并非蓝色或绿色顶棚。",
+   "reasoning": "候选框位置处的主体颜色为灰白色，未见符合定义的蓝色或绿色成片屋面，因此不属于违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.31,
+   "health": {
+    "at": 1791546731.9724925,
+    "available_fraction": 0.44557787745219163,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ec478acaa3174c75a3b1f22c0205303c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0f4e62e84f4dadd4a6680e3972eddab6397c024a902dfb1384dd2dcadc0bfe6b"
+}

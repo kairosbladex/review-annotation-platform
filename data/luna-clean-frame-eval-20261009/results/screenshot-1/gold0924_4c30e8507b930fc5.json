@@ -1,0 +1,38 @@
+{
+ "unit": "gold0924_4c30e8507b930fc5",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-035",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个细小、竖长的人体目标，位于建筑屋顶可站立区域。",
+   "reasoning": "目标形状和尺度符合俯拍人员特征，不像设备或其他屋面物体。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-036",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个细小、竖长的人体目标，位于屋顶边缘的可站立区域。",
+   "reasoning": "其外形与人员相符，尺度明显小于汽车宽度，不属于太阳能板或建筑结构。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.54,
+   "health": {
+    "at": 1791545866.5067914,
+    "available_fraction": 0.44736640504767705,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "feecee5f3d7c48a4872ecfd024e283fe",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a3298f105aeca2ccfe79a48b09b59bc3f4ab1c1396823d62b098f9dd02fb0a33"
+}

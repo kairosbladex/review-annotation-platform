@@ -1,0 +1,38 @@
+{
+ "unit": "01895ed878a44dd5a78fed5781c45611",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+   "decision": "false",
+   "image_limitation": "框内及紧邻区域清晰可见，无遮挡到无法判断。",
+   "observed_object": "建筑外墙、屋檐和墙面设施",
+   "reasoning": "该框位于建筑墙面和屋檐区域，未见机动车的车顶、挡风玻璃或符合车辆尺度与形状的车身，因此不符合“车”。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:001",
+   "decision": "false",
+   "image_limitation": "框内目标区域可见，虽有树木遮挡部分画面，但不影响判断框内主要物体。",
+   "observed_object": "建筑屋檐及树木",
+   "reasoning": "该框位于建筑外墙下方的屋檐区域，未见机动车车身，位置和尺度也不符合道路、停车位或地面车辆特征，因此不符合“车”。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.03,
+   "health": {
+    "at": 1791543903.979768,
+    "available_fraction": 0.4450119496613675,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4ee09d65762040d79419899209ca5df4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7d531da989184f426ad76dd9dae999ce3928b4738365bb4fcfe56e31d642daf6"
+}

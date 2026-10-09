@@ -1,0 +1,30 @@
+{
+ "unit": "3b06cea8e7464826b41922d0a7bde63a",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:3b06cea8e7464826b41922d0a7bde63a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片蓝绿色彩钢瓦顶棚，呈规则矩形并覆盖在建筑上方。",
+   "reasoning": "目标外观、颜色和尺度均符合蓝色顶棚的违建类别判断要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 19.07,
+   "health": {
+    "at": 1791543684.9007442,
+    "available_fraction": 0.4436028453983529,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c4406ee5ae484bad8be51ae4d5ff7b3f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a4a0259c010e25df0a4f410f2c363bce0690badbbc692a8611e56663ae41f78"
+}

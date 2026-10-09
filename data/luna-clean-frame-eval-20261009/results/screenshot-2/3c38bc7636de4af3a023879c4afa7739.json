@@ -1,0 +1,38 @@
+{
+ "unit": "3c38bc7636de4af3a023879c4afa7739",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左边缘，大部分出画，无法完整确认车形。",
+   "observed_object": "左侧边缘仅可见红框附近的局部区域，实际目标形状不完整。",
+   "reasoning": "目标被画面边缘截断，无法依据车身比例、车顶和挡风玻璃特征确认或排除机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:001",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左边缘且被红色标注覆盖，实际物体仅露出局部。",
+   "observed_object": "左侧边缘可见一个被框住的局部物体，无法观察完整车体及驾驶室、货厢分段。",
+   "reasoning": "卡车类别所需的驾驶室与货厢结构不可见，既不能确认也不能否定。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.96,
+   "health": {
+    "at": 1791545935.613242,
+    "available_fraction": 0.45021157843997517,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "13bcb089ba844ded9708638fba6cffa1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "18d257942db8dae4aadda2babee0d74433969b792f78697754591851382e5984"
+}

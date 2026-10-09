@@ -1,0 +1,30 @@
+{
+ "unit": "91a11ec7cf91453995e19d7732c088ec",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "91a11ec7cf91453995e19d7732c088ec:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名人员，能看到头部、躯干和衣物，位于可站立的铺装岸边区域。",
+   "reasoning": "目标外观和尺度符合俯拍人员特征，不是车辆、设施或其他物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 22.68,
+   "health": {
+    "at": 1791541420.469651,
+    "available_fraction": 0.4284201968854759,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "91a9f60fa24847e599c50ea64abb4e29",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c7d11846e88e8bbc2a2a39753dc8a586b77cf3c63a34f0f8f25f656aee278064"
+}

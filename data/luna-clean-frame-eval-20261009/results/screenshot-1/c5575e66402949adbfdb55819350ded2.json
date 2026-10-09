@@ -1,0 +1,54 @@
+{
+ "unit": "c5575e66402949adbfdb55819350ded2",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见一辆停放在地面区域的机动车，车身呈小汽车形状，尺度与停车位相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "货车或卡车",
+   "reasoning": "框内物体为较长的车辆，位于道路边缘，整体尺度和形态符合货车判断。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:002",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小且被红色标注部分遮挡，无法可靠确认车辆类型。",
+   "observed_object": "疑似细长小型车辆或标注覆盖物",
+   "reasoning": "框内实际目标过小，现有图像中无法清晰辨认两轮车的车身特征，也不能完全排除其他细小物体。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:003",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "路面标线或其他道路设施",
+   "reasoning": "框内位于道路中央的细长标记区域，未见小汽车车顶、挡风玻璃或完整车身形状，不符合车。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 28.71,
+   "health": {
+    "at": 1791539837.7079892,
+    "available_fraction": 0.4473298033577247,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2a8c8905264948858a1423b59bd159f6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "91f6daa09852cd4706271d6173c5a3a3d11a381dfe2e66836754720602f73dbe"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_c5ca89db96782ad0",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+   "decision": "true",
+   "image_limitation": "目标较小，但头部区域可见，未见光滑且有高光的头盔外观。",
+   "observed_object": "框内为骑行中的两轮车人员，头顶部呈深色头发而非头盔。",
+   "reasoning": "确认是骑两轮车的人，且头顶可见为无明显高光的头发，符合未戴头盔特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.47,
+   "health": {
+    "at": 1791545348.6097474,
+    "available_fraction": 0.45068387400068877,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c26445a7eb8a4d92b3d5e0a4b8bd1db0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbb588f0b71cae4cda6789660b9f535fad6c49979e8157106674411c55a15d92"
+}

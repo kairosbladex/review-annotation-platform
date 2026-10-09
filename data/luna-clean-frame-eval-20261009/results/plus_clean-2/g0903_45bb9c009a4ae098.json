@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_45bb9c009a4ae098",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f8d35e43c925407a8be6483399e48216",
+   "decision": "true",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "蓝色矩形顶棚，覆盖在建筑或棚架上方。",
+   "reasoning": "目标呈成片蓝色屋面，边缘规整，符合蓝色顶棚的违建外观判定要点。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:dc0808002a5f424baf5d1d3c4abc71c3",
+   "decision": "true",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "蓝色矩形顶棚，覆盖在建筑或棚架上方。",
+   "reasoning": "目标主体为成片蓝色屋面，形状规整且位置符合建筑顶棚特征，应判定为违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.45,
+   "health": {
+    "at": 1791544191.0876853,
+    "available_fraction": 0.44914000620647926,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "89858587a26841edbadc526ea60c4810",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a0d09752745ecfaeec31ae95bf020eef4de1bbac53a598902fc7d396d205cb7"
+}

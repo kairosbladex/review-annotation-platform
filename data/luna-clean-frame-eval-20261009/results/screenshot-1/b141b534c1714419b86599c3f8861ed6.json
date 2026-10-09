@@ -1,0 +1,30 @@
+{
+ "unit": "b141b534c1714419b86599c3f8861ed6",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "b141b534c1714419b86599c3f8861ed6:000",
+   "decision": "false",
+   "image_limitation": "目标区域可见，未见人员外观特征。",
+   "observed_object": "框内主要是红色标注文字及岸边/水面区域，未见符合人员形态的实际物体。",
+   "reasoning": "该位置没有可辨认的头部、肩部或躯干腿部，也不具备人员与周围环境相符的尺度和形状，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.76,
+   "health": {
+    "at": 1791537564.045822,
+    "available_fraction": 0.45048371990879005,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "831ae0cd1f11494c9590babf378df2dc",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "97c03a424e7337982e46c2f9485f272ff3caa4578a2f8a9388b0f565ba00c33d"
+}

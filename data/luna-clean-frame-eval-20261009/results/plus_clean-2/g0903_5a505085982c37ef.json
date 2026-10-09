@@ -1,0 +1,46 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "true",
+   "image_limitation": "目标位于原图右下方，框内可见蓝绿色矩形屋面，形状规整且覆盖在建筑顶部。",
+   "observed_object": "蓝绿色顶棚",
+   "reasoning": "符合违建类别中蓝色或绿色成片屋面的外观特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "true",
+   "image_limitation": "目标位于原图右下方，框内可见蓝绿色矩形屋面，目标清晰可辨。",
+   "observed_object": "蓝绿色顶棚",
+   "reasoning": "主体为蓝绿色顶棚，颜色、形状和位置均符合类别要求。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "true",
+   "image_limitation": "目标位于原图右下方，框内可见蓝绿色矩形屋面，未被明显遮挡。",
+   "observed_object": "蓝绿色顶棚",
+   "reasoning": "符合蓝色或绿色成片顶棚的判断要点，应判为违建。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 24.77,
+   "health": {
+    "at": 1791542631.1015472,
+    "available_fraction": 0.42919719239502,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "440e159b50754e429a1c1e240b1a3785",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ae2a47795e4f16971ed4c2fc26488a708c6b36f44c3a85bfdd033d175badaa5a"
+}

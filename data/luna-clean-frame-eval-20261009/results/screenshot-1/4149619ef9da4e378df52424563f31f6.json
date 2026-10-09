@@ -1,0 +1,30 @@
+{
+ "unit": "4149619ef9da4e378df52424563f31f6",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "4149619ef9da4e378df52424563f31f6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的人员，框内可见小型人体轮廓。",
+   "reasoning": "目标位于可站立的人行道区域，形态和尺度符合俯拍人员特征，不像树木、车辆或其他固定设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 27.38,
+   "health": {
+    "at": 1791543856.888954,
+    "available_fraction": 0.4443775001021443,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4a604c339687438eb795c65c2c432daf",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d1eb1b145c2124ccb931fa26409c9a5979617f3d3db452695f4a14e0f62aad98"
+}

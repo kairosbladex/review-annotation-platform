@@ -1,0 +1,38 @@
+{
+ "unit": "4f63543e5bae47728ed68f9de1fd9539",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:000",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "框内可见一辆较长的货车，车体呈长方形，尺度明显大于小汽车。",
+   "reasoning": "目标外观和尺寸符合卡车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:002",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "框内可见前窄后宽的小型三轮车辆轮廓。",
+   "reasoning": "轮廓符合三轮车前部窄、后部较宽的特征，位置和尺度也相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.62,
+   "health": {
+    "at": 1791543088.5761254,
+    "available_fraction": 0.44288047882306475,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "970d67c559c1490081a4d0c9eff2f761",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a6d8cec240ab11b91ede9e07d8522c0dba8e27b5442ce50765f50fc236421d64"
+}

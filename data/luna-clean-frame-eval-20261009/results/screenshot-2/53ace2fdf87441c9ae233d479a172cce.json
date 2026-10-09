@@ -1,0 +1,30 @@
+{
+ "unit": "53ace2fdf87441c9ae233d479a172cce",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "53ace2fdf87441c9ae233d479a172cce:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，位于水面边缘的绳索或通道附近。",
+   "reasoning": "目标呈现人员的紧凑浅色躯干及头部轮廓，尺度明显小于周边设施，位置也符合可站立或通行区域；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.39,
+   "health": {
+    "at": 1791544355.570407,
+    "available_fraction": 0.4493150498366665,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ae5cedd1d414456d80b10f95b2fec48d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6ce01a8c2d07ce354dfe60e3274705afe651255ffcff64a275adb62c13a49922"
+}

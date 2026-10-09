@@ -1,0 +1,30 @@
+{
+ "unit": "51af317312034153ad2da103915c8138",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "51af317312034153ad2da103915c8138:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈车顶俯视的圆角长方形，车身与深色车窗带清晰，位于道路上且尺度相符。",
+   "reasoning": "目标外观符合俯拍车辆特征，红色标注不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.22,
+   "health": {
+    "at": 1791541350.9040396,
+    "available_fraction": 0.4277366816056687,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6b3613e855984e65beb5855ecac37899",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2fb89334ae58d19b1765f284a883a936803e106e825a21e4bc52659e56d745b9"
+}

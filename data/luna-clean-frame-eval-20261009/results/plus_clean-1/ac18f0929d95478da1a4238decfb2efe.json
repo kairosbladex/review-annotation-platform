@@ -1,0 +1,30 @@
+{
+ "unit": "ac18f0929d95478da1a4238decfb2efe",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:ac18f0929d95478da1a4238decfb2efe:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡且未出画。",
+   "observed_object": "框内是小型轿车或类似小汽车的车顶，不具备驾驶室与后部长方形货厢的明显分段结构。",
+   "reasoning": "该物体整体尺寸较小，形状和尺度均不符合卡车特征，应判为非卡车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.5,
+   "health": {
+    "at": 1791541809.5505016,
+    "available_fraction": 0.40826321454767606,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6ec1be7b52a44c109b6c156b9084d708",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5512559d81fdbf6aac688f6c27ecfb14e74f1868e9e170eb46f73f246f62f92d"
+}

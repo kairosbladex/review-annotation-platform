@@ -1,0 +1,30 @@
+{
+ "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+   "decision": "false",
+   "image_limitation": "目标区域较小，但可辨认。",
+   "observed_object": "框内是道路上的小型车辆，未见卡车特有的驾驶室与后部货厢分段结构，尺寸也接近小汽车。",
+   "reasoning": "依据俯拍位置和尺度，该目标不符合卡车的外观特征，更可能是小汽车或其他小型车辆，因此判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.36,
+   "health": {
+    "at": 1791544606.586217,
+    "available_fraction": 0.449675655522891,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f2cdbb0903034d5bb4bdfb3c0db34173",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "cff5729d98d504294af2dffc7ea0fbe1a1c4e1175e6c5e0cc734900e4cfc4e30"
+}

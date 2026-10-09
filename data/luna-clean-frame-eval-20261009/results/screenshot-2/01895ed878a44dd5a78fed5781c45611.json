@@ -1,0 +1,38 @@
+{
+ "unit": "01895ed878a44dd5a78fed5781c45611",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，未见机动车特征。",
+   "observed_object": "建筑墙面、玻璃及屋顶/平台结构",
+   "reasoning": "框内主要是建筑立面和平台边缘，呈长条结构，不具备车辆车顶、挡风玻璃深色横带及道路或停车位尺度关系。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:001",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，未见机动车特征。",
+   "observed_object": "建筑雨棚/玻璃顶及树木",
+   "reasoning": "框内是建筑下方的玻璃雨棚和周边树木，不是位于道路或停车位上的机动车，形状和位置均不符合车的特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.61,
+   "health": {
+    "at": 1791543900.9819374,
+    "available_fraction": 0.44443787465052076,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "87bc26cb228c4f59b8ccfd575d3bc552",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7d531da989184f426ad76dd9dae999ce3928b4738365bb4fcfe56e31d642daf6"
+}

@@ -1,0 +1,70 @@
+{
+ "unit": "a4ce48506cd74290a0d40eb659af6102",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见位于道路边缘的人形小目标，形状和尺度符合俯拍人员特征。",
+   "target_index": 0
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见细小竖向人形目标，位于可站立的路边区域，符合人员外观。",
+   "target_index": 1
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见路边小型人形目标，尺度明显小于车辆，符合人员特征。",
+   "target_index": 2
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见位于人行道边缘的细小人形目标，位置和尺度符合人员。",
+   "target_index": 3
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:005",
+   "decision": "true",
+   "image_limitation": "目标接近画面底边，部分出画，细节有限。",
+   "observed_object": "疑似人员",
+   "reasoning": "框内仍可见小型目标位于可通行区域，但因接近底边且部分出画，无法完全确认。",
+   "target_index": 4
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见位于道路边缘的细小人形目标，形状和尺度符合俯拍人员特征。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 39.91,
+   "health": {
+    "at": 1791540969.0680559,
+    "available_fraction": 0.4263748190587553,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1907472183ff4f999ac766e4fea240cc",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1099a723047772f8479d6ab489e8e2061f01d84dadc71007018f482be818cbda"
+}

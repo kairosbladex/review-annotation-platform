@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f0f53344a03e90a8",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd58701a40a44a4187c2167ba59721f0",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "灰白色矩形屋面或建筑顶棚。",
+   "reasoning": "框内主体呈灰白色，不是类别要求的蓝色或绿色顶棚，因此不符合“违建”外观定义。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.84,
+   "health": {
+    "at": 1791545584.6229618,
+    "available_fraction": 0.44967440911982787,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7aac9ce7907147fdbedb936296f2ee5d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b9c2894bcb9ff7c04597923e352ddaa4f58f49a14905370dbf9400e2bdb3d7a0"
+}

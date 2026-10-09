@@ -1,0 +1,30 @@
+{
+ "unit": "1a8b9df1399942459bf5c1eef6edfa21",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "1a8b9df1399942459bf5c1eef6edfa21:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈车顶俯视轮廓，位于建筑旁地面道路区域。",
+   "reasoning": "目标具有车辆的紧凑长方形车身及深色车窗特征，位置和尺度也符合停车区域内机动车，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.49,
+   "health": {
+    "at": 1791541706.0514517,
+    "available_fraction": 0.411052299802132,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aaccd9c8214e40e8b39a4b82aa8e301a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c761aab2dd0549cea82098a7a8df5714bf903d7f33907dc887d66d07758503dc"
+}

@@ -1,0 +1,70 @@
+{
+ "unit": "g0903_d01d6acf8b20aa40",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:89174fccc9f5400a995eb9f56c25b247",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见车辆的车身和车顶，形状、尺度及位置均符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:daf1f353cc3c4e5cb3b90ce964b7b140",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "路边细小设施或标线区域",
+   "reasoning": "框内未见符合两轮车特征的细长车体，主要是道路边缘设施。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:3755a239c86d407e82568924dc1a7fad",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见小汽车车顶及车身轮廓，位于车道内，尺度相符。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:49b04eff501f4064adcfcd04ceb488f1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "建筑旁停放的小汽车",
+   "reasoning": "框内可见一辆小汽车，车顶和车身轮廓清晰，位置及尺度符合车辆。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:46a5dbd1b5874ff888c6a3d0a997476b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "建筑旁停放的小汽车",
+   "reasoning": "框内可见另一辆小汽车，具有明显车身和深色玻璃区域，类别符合。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:149d6e1a1222493794a19839c1eff499",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "小型客车或小汽车",
+   "reasoning": "框内目标为一体式小型车辆，未见卡车所需的驾驶室与货厢明显分段，整体尺寸也不足。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 19.3,
+   "health": {
+    "at": 1791537099.7729821,
+    "available_fraction": 0.450527830417196,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0a8155feb8ce4840b582497b61f6b264",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "417ad737a55933954fa1e98ca7d39dc5e028db948b4b7865eccb7ce4d1cfaa2f"
+}

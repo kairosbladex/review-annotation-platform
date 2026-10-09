@@ -1,0 +1,78 @@
+{
+ "unit": "gold0924_8eed6571e7cb1951",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见竖长的人体轮廓，位于广场步道上，尺度与人员相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-019",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见另一名竖长人体，位于铺装区域，外观和尺度符合人员。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0924:B03-020",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内是站立人员的窄长轮廓，位置和尺度均合理。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0924:B03-021",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见小型竖长人体，位于步道边缘，符合人员外观。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0924:B03-022",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见站立人员，位于铺装广场，尺度符合。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0924:B03-023",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见另一名竖长人员，位置和形状均符合类别。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0924:B03-024",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见位于步道上的小型竖长人体轮廓，符合人员特征。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.18,
+   "health": {
+    "at": 1791544788.6364899,
+    "available_fraction": 0.4506539907272476,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5b3798da5532448885aa9f7f8502c30e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3bdcf1f2c4948a2550cd953983e05b7d096bc271adc2e792c22f38003b25919d"
+}

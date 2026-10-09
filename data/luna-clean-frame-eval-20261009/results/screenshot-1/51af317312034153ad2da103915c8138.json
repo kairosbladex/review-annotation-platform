@@ -1,0 +1,30 @@
+{
+ "unit": "51af317312034153ad2da103915c8138",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "51af317312034153ad2da103915c8138:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈长方形车身并带深色车窗，位于道路区域。",
+   "reasoning": "目标外观、尺度和所在位置均符合车辆特征，红色标注线不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 28.01,
+   "health": {
+    "at": 1791541363.277642,
+    "available_fraction": 0.4267831832623512,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c921bba2ee8d4809a662ce9edb5d4efb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2fb89334ae58d19b1765f284a883a936803e106e825a21e4bc52659e56d745b9"
+}

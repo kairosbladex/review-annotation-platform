@@ -1,0 +1,46 @@
+{
+ "unit": "f8cfe9961642499c8fe333770cf1bd04",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车顶和深色玻璃区域清晰。",
+   "reasoning": "目标形状、颜色和位置符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，呈规则车身轮廓。",
+   "reasoning": "其位于停车区域，尺度和外观均符合车辆。",
+   "target_index": 1
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆纵向停放的小汽车。",
+   "reasoning": "车身轮廓及深色玻璃带可辨，符合机动车特征。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.3,
+   "health": {
+    "at": 1791540535.5825136,
+    "available_fraction": 0.42923321648355284,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9c6ba9e598214dd5a754db3383e369fb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fbcf18306f13b8ddb0917d1b32a0ac749044f69318ef80479dbc419f7902fd72"
+}

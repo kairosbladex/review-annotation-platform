@@ -1,0 +1,38 @@
+{
+ "unit": "251324d21a8f4471ae6997c9c78de2ee",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形彩钢瓦顶棚",
+   "reasoning": "框内主体是覆盖在地面建筑区域上的成片蓝色屋面，呈规整矩形并可见平行条纹，符合蓝色顶棚特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形彩钢瓦顶棚",
+   "reasoning": "框内主体为狭长但成片、规整的蓝色屋面，覆盖在棚架或建筑上方，可见彩钢瓦条纹，符合类别要求。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.9,
+   "health": {
+    "at": 1791546858.4560313,
+    "available_fraction": 0.44674046750937296,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "439ada85cd6a4a3b919e31b581ba9733",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2e9823779373221c1768951182aacc87f8e401f889e48cad3b73f93b38159974"
+}

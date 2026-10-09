@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_d73fb25ba94b6566",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c5cdb3d76ed045489a4f0dba8ac1f473",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡的侧面，属于竖立的长条状围挡，不是覆盖在上方的蓝绿色顶棚。",
+   "reasoning": "框内主体是地面上的蓝色围挡，形状细长且垂直立于地面，符合类别明确排除的围挡特征，不符合蓝绿色成片屋面的外观要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.24,
+   "health": {
+    "at": 1791542318.88821,
+    "available_fraction": 0.4307718250648373,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "38b1ca9cffea4f36b2071ae6eb9e16f2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "28e3b7722e0524b3fec7cf8ce4e5abeb78ccc33863da7fc97ac506d239751173"
+}

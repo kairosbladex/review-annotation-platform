@@ -1,0 +1,30 @@
+{
+ "unit": "fbeaa2a9dc8045d9b8d6e10b54178c78",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "fbeaa2a9dc8045d9b8d6e10b54178c78:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在树荫旁的小汽车，露出的车身呈长方形，尺度和位置符合地面停车车辆特征。",
+   "reasoning": "目标位于道路旁的地面区域，车身轮廓和颜色可辨，虽然部分被树冠遮挡，但露出部分仍能确认机动车形状。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 54.62,
+   "health": {
+    "at": 1791539984.6623342,
+    "available_fraction": 0.44684714137153464,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e51edb690c494e4e9143206ab3fadb80",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f6776fd8e71999e99c0b7d70c94dcf0410336d13b7126f4aa0c87bedafa2e911"
+}

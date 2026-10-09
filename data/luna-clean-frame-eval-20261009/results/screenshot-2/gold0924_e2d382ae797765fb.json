@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_e2d382ae797765fb",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-031",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型深色、近方形目标，位于建筑/道路边缘区域；结合紧邻区域的形态与尺度，符合俯拍人员的可见头肩轮廓。",
+   "reasoning": "目标虽较小，但未被明显遮挡，形态和位置可与人员相符，未见足以判定为车辆、树木或其他设施的特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.25,
+   "health": {
+    "at": 1791546990.7951543,
+    "available_fraction": 0.4446130094809321,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "770861309b3d4eb7ba3c1e0a16fe1fa8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "34846026ebeffef6a92c71a25484988c80e3bcbbfa2824e4c309eccfa6c24d5c"
+}

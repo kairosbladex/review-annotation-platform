@@ -1,0 +1,38 @@
+{
+ "unit": "759ebbf1ebce4a43a1642c64a1e2b848",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:000",
+   "decision": "true",
+   "image_limitation": "目标较小但形状和位置可辨认。",
+   "observed_object": "道路上的机动车",
+   "reasoning": "框内可见位于车道上的小型机动车，尺度和朝向与道路车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:002",
+   "decision": "true",
+   "image_limitation": "目标较小，但未被明显遮挡。",
+   "observed_object": "道路上的机动车",
+   "reasoning": "框内可见车道上的小型机动车，位置、形状和尺度均符合车辆特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.26,
+   "health": {
+    "at": 1791545921.3241782,
+    "available_fraction": 0.44966814670443733,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "abf4886f06d2488dbf80e9ffae3a679a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2e46c70dc177db77330a95df8d0a7b8a0d089f2ee730049abbf5b4a5b6f5271d"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "0c827f646cdc401b87f95a90f8006449",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "0c827f646cdc401b87f95a90f8006449:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车身呈长方形，能看到车顶和深色车窗，位置与停车区域及周围车辆一致。",
+   "reasoning": "该目标符合机动车的俯拍外观、尺度和所在位置，初审类别“车”正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.01,
+   "health": {
+    "at": 1791537806.0660467,
+    "available_fraction": 0.42748411778496787,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a7866b36487e4b61bef1f2e5f324509e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f59997f915ecc42181ba08fa6b5f05a437e426f113fcecfeda9ac628d84fea60"
+}

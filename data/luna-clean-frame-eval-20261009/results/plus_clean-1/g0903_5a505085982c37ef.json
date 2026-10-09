@@ -1,0 +1,46 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "true",
+   "image_limitation": "目标位于画面右下方，部分接近边缘但主体可见。",
+   "observed_object": "蓝色矩形屋顶或顶棚",
+   "reasoning": "框内可见成片亮蓝色、边缘规整的矩形屋面，符合蓝色顶棚的类别特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "true",
+   "image_limitation": "目标位于画面右下方并接近下边缘，仍可辨认主体。",
+   "observed_object": "蓝色矩形屋顶或顶棚",
+   "reasoning": "框内主体呈规则矩形蓝色屋面，颜色和形状符合违建类别要求。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "true",
+   "image_limitation": "目标接近画面右下边缘，部分区域受边界影响但主要屋面可见。",
+   "observed_object": "蓝色矩形屋顶或顶棚",
+   "reasoning": "框内可见规则矩形的蓝色屋面，与蓝色顶棚特征一致。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.94,
+   "health": {
+    "at": 1791542625.1363323,
+    "available_fraction": 0.4273823991349841,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d82c685cbf804370a09eca6abb91cce1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ae2a47795e4f16971ed4c2fc26488a708c6b36f44c3a85bfdd033d175badaa5a"
+}

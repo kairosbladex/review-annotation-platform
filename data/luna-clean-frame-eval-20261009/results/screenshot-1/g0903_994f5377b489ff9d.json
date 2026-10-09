@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一小片蓝绿色的矩形顶棚，位于建筑旁的地面设施上方，颜色和形状符合蓝绿色棚顶特征。",
+   "reasoning": "框内主体是成片、边缘规整的蓝绿色屋面，不是长条围挡、车辆或其他地面物体，因此符合“违建”类别的外观口径。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.19,
+   "health": {
+    "at": 1791546730.10917,
+    "available_fraction": 0.4468713702310795,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0f6ecfdc586b4166be709a0e48ccdda8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0f4e62e84f4dadd4a6680e3972eddab6397c024a902dfb1384dd2dcadc0bfe6b"
+}

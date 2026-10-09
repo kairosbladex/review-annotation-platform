@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_deb3b561f0a020d5",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:22f50e485cd4400f9828b3b8b218857a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "建筑侧方框内可见一片规整的蓝色矩形顶棚/篷布。",
+   "reasoning": "框内主体呈明显蓝色，覆盖在建筑或附属区域上方，形状规整且尺度符合蓝色顶棚的判定要点，因此符合“违建”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.94,
+   "health": {
+    "at": 1791545602.3344915,
+    "available_fraction": 0.44986735839402,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b92762180acc4b7baf41ce3014a1eb0d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5f2e7cd0058ab17242262fc88fbeffd8903c8780a4af7bf1f46cabc658811b0b"
+}

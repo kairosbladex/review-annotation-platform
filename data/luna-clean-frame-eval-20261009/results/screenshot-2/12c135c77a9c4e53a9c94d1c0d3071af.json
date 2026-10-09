@@ -1,0 +1,30 @@
+{
+ "unit": "12c135c77a9c4e53a9c94d1c0d3071af",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "12c135c77a9c4e53a9c94d1c0d3071af:000",
+   "decision": "false",
+   "image_limitation": "目标区域较小，但可辨认。",
+   "observed_object": "框内是一个小型方形设施或设备，带有明显边框和中心圆形部件，不呈现人员头顶、肩部或躯干腿部特征。",
+   "reasoning": "该物体形状规则、尺度与人员外观不符，更像固定设备或设施，不是人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.04,
+   "health": {
+    "at": 1791545789.663368,
+    "available_fraction": 0.4485426751384784,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3e887f77729c4141866755b1c0607204",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f2c158d0873ddcbea745a74010380df1028b772c2bbefaa82cb9d5f3e5487b24"
+}

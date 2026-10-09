@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_cb972ded8e2484ae",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3c3067022cb84c019a6255f288b98309",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是建筑立面上的深灰色、浅灰色相间窗格或幕墙，不是蓝色或绿色顶棚。",
+   "reasoning": "目标位置在左下角建筑立面，呈垂直墙面结构，颜色为灰黑色，缺少蓝绿色成片屋面及顶棚形态，因此不符合“违建”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 39.07,
+   "health": {
+    "at": 1791537843.7490668,
+    "available_fraction": 0.4484543325213676,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0678be46bf1e4f6e8d4a8fa75ec0a24e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "88a99218a11de62928e9420cb297c6640d283c55baf249d122ab3a86300cd898"
+}

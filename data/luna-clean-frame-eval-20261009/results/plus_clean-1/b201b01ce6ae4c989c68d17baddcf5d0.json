@@ -1,0 +1,30 @@
+{
+ "unit": "b201b01ce6ae4c989c68d17baddcf5d0",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "b201b01ce6ae4c989c68d17baddcf5d0:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小汽车，呈细长圆角车身，位于道路边缘，尺度与周围车辆和道路相符。",
+   "reasoning": "目标外观和位置符合机动车特征，红色标注不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.32,
+   "health": {
+    "at": 1791544449.4253447,
+    "available_fraction": 0.4497105244085848,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fe15acba15ef4e52a7ca3d4f44a9cc3a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "815f2559fade0f832343828999ca4c347edbec7e548d6bd1ef0304151e002c10"
+}

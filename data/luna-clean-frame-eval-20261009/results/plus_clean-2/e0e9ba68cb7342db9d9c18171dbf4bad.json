@@ -1,0 +1,30 @@
+{
+ "unit": "e0e9ba68cb7342db9d9c18171dbf4bad",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e0e9ba68cb7342db9d9c18171dbf4bad:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小汽车，呈细长圆角车身，位于道路边缘停车区域。",
+   "reasoning": "目标外观和所在位置均符合机动车特征，框线及文字不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.04,
+   "health": {
+    "at": 1791546110.7246065,
+    "available_fraction": 0.45183485122933037,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e9b9545f8d3b4bb0b1b55212f6dcf281",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "223d5167792c0139f0df8905d1d442b8ed9ecffdfe73a4766ac49b8efaeedae7"
+}

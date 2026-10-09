@@ -1,0 +1,46 @@
+{
+ "unit": "a8f2626d28c6499e9ef6f1c1bfa1e2f9",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁树冠边缘的一辆机动车",
+   "reasoning": "框内可见细长的车身轮廓，位于道路附近，尺度和朝向与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的一辆机动车",
+   "reasoning": "框内可见具有车身和深色玻璃区域的长方形物体，位置与道路及周边车辆关系相符。",
+   "target_index": 1
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:011",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "步道上的方形设施或设备箱",
+   "reasoning": "框内物体位于步道边缘，呈小型方形设备状，尺度和外观不符合机动车。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 47.03,
+   "health": {
+    "at": 1791536828.359357,
+    "available_fraction": 0.45238031976987386,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2e8f4d509e7340d5a15a35645c9894ad",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c3e55c806e9c0e6fc7dd71bff5f06ce3c0402068d8be3b5917285b5e78bda4d1"
+}

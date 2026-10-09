@@ -1,0 +1,30 @@
+{
+ "unit": "64f7b907e6214559ac09a8e57c577128",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "64f7b907e6214559ac09a8e57c577128:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员头部及肩部轮廓，位于可站立的岸边铺装区域。",
+   "reasoning": "目标呈俯视下略长的小椭圆形，具有头顶和肩部特征，尺度明显小于汽车宽度，符合人员外观；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.26,
+   "health": {
+    "at": 1791545554.4065177,
+    "available_fraction": 0.4498487839483714,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b815cec29a3e4b7ba51c1ce5ca422401",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e43bfa1bce4cdefdc7243d89abcc7c6abf294c8d7ac73516e7865495d301d2c5"
+}

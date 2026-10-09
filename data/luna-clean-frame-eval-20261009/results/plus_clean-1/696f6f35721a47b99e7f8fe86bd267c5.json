@@ -1,0 +1,30 @@
+{
+ "unit": "696f6f35721a47b99e7f8fe86bd267c5",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "696f6f35721a47b99e7f8fe86bd267c5:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是一辆道路上的小汽车，可见完整车顶、前后挡风玻璃及车身轮廓。",
+   "reasoning": "目标呈圆角长方形，长宽比例和尺度符合机动车，位置也在车道上，类别“车”判断正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.34,
+   "health": {
+    "at": 1791542602.422043,
+    "available_fraction": 0.406622765716109,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f3f99aa705c34f9eb198fbbba212d384",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7e27e48409ccfebfe89f0eea46b337236f76722dbae92700ff4518da27242c3f"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "a117aac3a74545e1a82da8d0ce0f33d7",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a117aac3a74545e1a82da8d0ce0f33d7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路旁的浅色小汽车，呈规则的车身轮廓和长方形车顶。",
+   "reasoning": "目标位于道路/停车区域，外形与尺度符合机动车特征；红色框线和文字为叠加标注，不影响对实际车辆的判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 28.54,
+   "health": {
+    "at": 1791541035.8613722,
+    "available_fraction": 0.4286459478402814,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6b814d457a3744e8b71d28f07d0ea2ca",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "438940bd82e88dc18d0b4dbe50d1857b62de6ac4154a779859ddc34cea9354aa"
+}

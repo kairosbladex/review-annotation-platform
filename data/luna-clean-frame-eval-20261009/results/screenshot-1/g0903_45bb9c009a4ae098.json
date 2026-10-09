@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_45bb9c009a4ae098",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f8d35e43c925407a8be6483399e48216",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为成片蓝绿色矩形顶棚，边缘规整并覆盖在棚架上方。",
+   "reasoning": "主体符合蓝色顶棚的外观特征，位置和尺度也与棚架相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:dc0808002a5f424baf5d1d3c4abc71c3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为成片蓝绿色矩形顶棚，具有明显的板材条纹。",
+   "reasoning": "主体是蓝绿色屋面顶棚，不是车辆、围挡或其他地面物体，符合违建类别口径。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.19,
+   "health": {
+    "at": 1791544161.2723386,
+    "available_fraction": 0.4490380747559725,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b157cc8cfe1245c4abf2cfe47c12075c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a0d09752745ecfaeec31ae95bf020eef4de1bbac53a598902fc7d396d205cb7"
+}

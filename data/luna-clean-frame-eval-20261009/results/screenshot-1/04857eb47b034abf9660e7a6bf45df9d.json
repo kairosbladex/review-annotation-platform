@@ -1,0 +1,30 @@
+{
+ "unit": "04857eb47b034abf9660e7a6bf45df9d",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "04857eb47b034abf9660e7a6bf45df9d:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的一辆白色小汽车，可见车顶、深色车窗和完整车身轮廓。",
+   "reasoning": "框内实际物体符合机动车的俯拍外观特征，位于道路旁且尺度与车辆相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.83,
+   "health": {
+    "at": 1791546015.1139882,
+    "available_fraction": 0.44934970592183726,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "74b10e0d7bdf4b68a2253adcf85c2768",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dd69cf824f3e3965efc74912189e65437ccb3253166ad73f923929b4fd029043"
+}

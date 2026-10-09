@@ -1,0 +1,30 @@
+{
+ "unit": "f8ebb5a34aaf4056b21c9e6f59ad629d",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "f8ebb5a34aaf4056b21c9e6f59ad629d:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型三轮车，呈现前窄后宽的轮廓，后部有较宽车厢。",
+   "reasoning": "目标位于道路边缘，外形符合三轮车的前窄后宽结构，长度和尺度也明显小于小汽车；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 20.58,
+   "health": {
+    "at": 1791546216.4569902,
+    "available_fraction": 0.4502145576472969,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "93f86356a1f64d139475b8f99ad90be3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b61d57adb811df9db79c4856ee5acdd7441e0a670874963663eb16f381dfbcec"
+}

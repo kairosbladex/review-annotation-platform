@@ -1,0 +1,30 @@
+{
+ "unit": "65128efb1628494eb5fddbaaedeac632",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "65128efb1628494eb5fddbaaedeac632:001",
+   "decision": "false",
+   "image_limitation": "框内及邻近区域清晰可见，无明显遮挡或出画影响判断。",
+   "observed_object": "建筑物外墙、雨棚/遮阳棚及树木，未见机动车车身。",
+   "reasoning": "候选框位于建筑立面和雨棚区域，不在道路、停车位或地面车道上；框内没有符合车的圆角长方形车身、车顶及深色挡风玻璃带等特征，因此不属于车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.78,
+   "health": {
+    "at": 1791540464.174569,
+    "available_fraction": 0.44701212257699247,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bd09107c35d64d3b924df37df5503d99",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7a953af580bc369180bf4dd6fe5babb9a1ec510cccf5ed90896a52f1b22731f2"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "77355afff7c0430faf66716abec2c94f",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "77355afff7c0430faf66716abec2c94f:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "岸边铺装区域上的红色标注框所覆盖处，实际可见的是一小段浅色矩形铺装/边缘结构，不是人员。",
+   "reasoning": "框内没有人员应有的头顶、肩部或竖长躯干腿部轮廓，位置和形状更符合岸边铺装设施；红色框线和文字不作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.37,
+   "health": {
+    "at": 1791542402.592913,
+    "available_fraction": 0.42665231094071937,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "af9569f8c51f4fb9b341b7082ab86b67",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6bf5ee236ad886ce8fa8211b7de5ffb50fb768348b8cbc3f22d580f819cf5077"
+}

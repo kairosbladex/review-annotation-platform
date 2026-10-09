@@ -1,0 +1,30 @@
+{
+ "unit": "19180436c82b45a9938e90640c334526",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "19180436c82b45a9938e90640c334526:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路车道中的小型机动车，呈细长圆角车身形状，尺度与车道相符。",
+   "reasoning": "目标位于道路上，车身轮廓和颜色区域清晰可辨，符合俯拍机动车的外观特征；红色标注不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.92,
+   "health": {
+    "at": 1791544544.3400574,
+    "available_fraction": 0.44893194809515563,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aa52824c52004c0ca59180e513c017ec",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6e739bf7f6c86a3cf8ffae25a314b29844ea525341764f4a49eccf1dcea8d257"
+}

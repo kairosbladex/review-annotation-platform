@@ -1,0 +1,30 @@
+{
+ "unit": "328f979932924fa79ccb3889e939d087",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:328f979932924fa79ccb3889e939d087:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型货车，具有驾驶室与后部货厢的分段结构。",
+   "reasoning": "目标位于道路边缘，整体长度和形态符合货车特征，明显不是小汽车或其他固定设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.06,
+   "health": {
+    "at": 1791541473.4502354,
+    "available_fraction": 0.4266721317894311,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4a2744e253b04dfab6ebdeeb24d69b84",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5a95e607eb43bbc86b2de885dd73906935cba428f774fb383148fe6cea4cfec2"
+}

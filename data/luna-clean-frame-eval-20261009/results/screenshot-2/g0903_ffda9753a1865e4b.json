@@ -1,0 +1,54 @@
+{
+ "unit": "g0903_ffda9753a1865e4b",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:b72bceabedff4f33bd7e206db93cf80a",
+   "decision": "true",
+   "image_limitation": "目标部分位于画面边缘，但框内可见蓝绿色顶棚主体，颜色和矩形屋面形态符合类别要点。",
+   "observed_object": "蓝绿色矩形顶棚",
+   "reasoning": "框内实际可见的是成片蓝色顶棚，而非围挡、车辆或其他地面物体，符合违建外观口径。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b5353da4de4b4d3a98177fdaf39d2a1f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内主体为覆盖在空地上的大面积蓝色屋面，边缘规整并具有顶棚的平面形态，符合类别要点。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:d9194ee969e24131920de23a185f3fed",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色长方形彩钢瓦顶棚",
+   "reasoning": "框内可见成片蓝绿色屋面及平行条纹，呈规整矩形覆盖结构，符合蓝绿色顶棚特征。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:a33bbf274cdc410cba575f56f21e2fb7",
+   "decision": "true",
+   "image_limitation": "目标尺寸较小且受红色标注和画面分辨率影响，但主体仍可辨认。",
+   "observed_object": "浅蓝色顶棚或棚面",
+   "reasoning": "框内可见规整的浅蓝色水平屋面结构，符合蓝色顶棚外观，未见其为车辆、围挡或光伏板的特征。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.17,
+   "health": {
+    "at": 1791541669.914731,
+    "available_fraction": 0.4257685807688641,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8693e66466f44080b70ea3c291326682",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3623295fb4eeaaafec5a264689323575711c4da12f6c693e396da8a1700f286f"
+}

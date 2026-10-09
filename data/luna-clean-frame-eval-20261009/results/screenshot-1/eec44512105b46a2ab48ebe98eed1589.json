@@ -1,0 +1,30 @@
+{
+ "unit": "eec44512105b46a2ab48ebe98eed1589",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "eec44512105b46a2ab48ebe98eed1589:019",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆细长的大型车辆，车身长度明显大于普通小汽车，整体为一体式长方形，位于道路上。",
+   "reasoning": "目标外观和尺度符合公交车或大客车特征，未见明显驾驶室与货厢分段结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.38,
+   "health": {
+    "at": 1791546060.40518,
+    "available_fraction": 0.4504478174205561,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b2f7529f0a8f43c6bea3d5a2f3c64226",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "28ef5407d1abab716776a1e7ebc6e91d732d4dcab140ea700d289359510fc5c2"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "a8170b72d4c44b0db881db68fd4d165f",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a8170b72d4c44b0db881db68fd4d165f:000",
+   "decision": "false",
+   "image_limitation": "框内实际区域很小且靠近图像左边缘，但仍可见主要是建筑/地面边缘及叠加标注，未见符合人员特征的头顶、肩部或躯干。",
+   "observed_object": "建筑地面边缘区域，无可确认的人员目标。",
+   "reasoning": "框内没有可见的人体形状，且位置和尺度也无法支持人员判断，因此判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 24.91,
+   "health": {
+    "at": 1791544903.5240402,
+    "available_fraction": 0.4301234218713216,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6d3d474cdf0e4ac7b88c62f546cfa6dd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f1939443c34de1cd35b470cffb94212d6447f5d8bf4d14ebae0ba5d8b23da4fa"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "43bc5fd2858a4909ac35537a702e9f2b",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:43bc5fd2858a4909ac35537a702e9f2b:000",
+   "decision": "false",
+   "image_limitation": "目标区域较小但清晰可见。",
+   "observed_object": "建筑屋顶上的小型设备或箱体，不是机动车。",
+   "reasoning": "框位于建筑顶部平台，目标呈小型方形设备状，缺少车辆应有的车顶、挡风玻璃深色横带及与道路/车位相符的尺度和位置，因此不符合“车”的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.0,
+   "health": {
+    "at": 1791546328.7596488,
+    "available_fraction": 0.448563559989805,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2672681a3359408e8a108e9f992b0dc6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6e940bea8cc7b2a8f8f17c30a3191c67e424bc3e0c45dd761c5b787731dfd3dd"
+}

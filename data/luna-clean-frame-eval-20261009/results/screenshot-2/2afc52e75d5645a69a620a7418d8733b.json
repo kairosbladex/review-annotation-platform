@@ -1,0 +1,30 @@
+{
+ "unit": "2afc52e75d5645a69a620a7418d8733b",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "2afc52e75d5645a69a620a7418d8733b:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面底部且尺寸极小，前三张图中无法清楚辨认其实际形状与是否为人员。",
+   "observed_object": "底部道路附近的微小、模糊目标",
+   "reasoning": "目标过小且细节不足，既无法确认人员的头肩或躯干特征，也无法可靠排除其为其他道路设施或物体，因此判定为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.72,
+   "health": {
+    "at": 1791544996.6738343,
+    "available_fraction": 0.4473225681399435,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ecb0a05c64dd479cbca73a690d5aa6c7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ddd55557816c27e502a8adf5deeda063d2ad2fc0dce3fc560acf6dad5d4ce131"
+}

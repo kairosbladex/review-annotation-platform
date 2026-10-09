@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_776d00c43f465f55",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f62facdcef774013a28b6c5b9ca80bed",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小型机动车，呈细长圆角车身，可见车顶及深色车窗带。",
+   "reasoning": "候选框位于道路车道内，框内实际物体符合俯拍车辆的形状、颜色和尺度特征；红色标注不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 22.42,
+   "health": {
+    "at": 1791542594.1605449,
+    "available_fraction": 0.4059281544090323,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ae13b5ab347a4655a8c70166d4576596",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c3d331a4710b2a366479e2e2559e6b879153f59ada66551da6d3a343f7afb344"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "2ad6e9511dff407caef201cd7a4c32fe",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2ad6e9511dff407caef201cd7a4c32fe:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在绿化带边缘的浅色小汽车，呈车顶与车身的长方形轮廓。",
+   "reasoning": "目标位于道路旁，外形和尺度符合机动车特征，框线覆盖的是实际车辆。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:2ad6e9511dff407caef201cd7a4c32fe:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见另一辆停在相邻位置的浅色小汽车，车顶轮廓清晰。",
+   "reasoning": "目标位于道路或停车区域附近，形状、朝向和尺度符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.48,
+   "health": {
+    "at": 1791544346.3633006,
+    "available_fraction": 0.4486758578657883,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e997b4a03b9f445bbeb0d3c8f62ab31d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5a878e9b972760cad94e5735ead40fec6c7d14692dce697080378c0b427aaab5"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "0131614611134eb6b8633658f24c5c44",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "0131614611134eb6b8633658f24c5c44:000",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "一个小型、狭长的两轮车辆样物体，未见三轮车前窄后宽及后部宽车斗结构。",
+   "reasoning": "不符合三轮车的关键外观特征，更接近两轮车，因此判为false。",
+   "target_index": 0
+  },
+  {
+   "key": "0131614611134eb6b8633658f24c5c44:001",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "目标体积较小且狭长，未见驾驶室与长方形货厢的明显分段。",
+   "reasoning": "其长度和结构均不符合卡车特征，明显不是货车，因此判为false。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 19.88,
+   "health": {
+    "at": 1791545449.5330086,
+    "available_fraction": 0.4497257548460151,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b3fc623aa3ad4c80a8425e85a5fa30a4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "38dad6d67e3dc4e0e5e3aafb30be168264f06bb75354ada2012d8c2174f24f1a"
+}

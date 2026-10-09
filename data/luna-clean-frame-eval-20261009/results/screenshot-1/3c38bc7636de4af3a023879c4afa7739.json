@@ -1,0 +1,38 @@
+{
+ "unit": "3c38bc7636de4af3a023879c4afa7739",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:000",
+   "decision": "false",
+   "image_limitation": "框内主要是道路及红色标注线，未见符合机动车外观的车体。",
+   "observed_object": "道路区域与标注框线",
+   "reasoning": "该区域没有清晰可见的圆角长方形机动车车身，位置和尺度也无法对应车辆。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:001",
+   "decision": "false",
+   "image_limitation": "框内主要是道路及红色标注线，未见货车的驾驶室与货厢分段结构。",
+   "observed_object": "道路区域与标注框线",
+   "reasoning": "未观察到明显较长、且具有驾驶室和后部货厢分段的货车目标。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.34,
+   "health": {
+    "at": 1791545926.6136482,
+    "available_fraction": 0.44883934946758525,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8847bf09715144b9987c1c8213a688f4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "18d257942db8dae4aadda2babee0d74433969b792f78697754591851382e5984"
+}

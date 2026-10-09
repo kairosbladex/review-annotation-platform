@@ -1,0 +1,30 @@
+{
+ "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡且未出画。",
+   "observed_object": "框内是停靠在路边的小型车辆，整体尺寸较小，未见明显分离的驾驶室与长货厢或车斗结构。",
+   "reasoning": "卡车应具有明显分段结构且通常比小汽车长大；该目标更符合小汽车或小型面包车外观，因此不属于卡车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.86,
+   "health": {
+    "at": 1791542585.691238,
+    "available_fraction": 0.4063710834975748,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1b95708ba1ee4824b8fe05497b851aeb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a2d04285aebb3e56921948cd5731aa8f77c842ac8e240671acbd5f5c9335d881"
+}

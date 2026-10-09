@@ -1,0 +1,62 @@
+{
+ "unit": "29ba2174de9143cabf218f7a17e6a00f",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见细长的车身和深色车窗，位于道路边缘，形状与尺度符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑屋顶及红色标注文字",
+   "reasoning": "框内主要是建筑顶部区域，未见与车道或停车位相符的完整机动车；红色框线和文字不作为目标证据。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:002",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑屋顶及红色标注文字",
+   "reasoning": "该区域位于建筑屋顶边缘，未见明确车身、车窗或道路停车关系。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:003",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑屋顶边缘及红色标注",
+   "reasoning": "框内没有可确认的机动车，仅见建筑结构和平台标注。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:004",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑外墙边缘",
+   "reasoning": "框位于画面右侧建筑区域，目标出画严重，未见符合车辆特征的物体。",
+   "target_index": 4
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 44.12,
+   "health": {
+    "at": 1791540667.8258193,
+    "available_fraction": 0.40794225055887495,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7a34ec5ef796400a8df64c7ae84fade4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "426b57f54384c14634072ac3d3c7921cebbe25568fb1e7d7a185bdecd3267105"
+}

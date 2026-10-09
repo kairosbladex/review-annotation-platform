@@ -1,0 +1,30 @@
+{
+ "unit": "596dbc4ade5e4742ad955faf49d340d7",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "596dbc4ade5e4742ad955faf49d340d7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个体型很小的人员，呈头部及躯干的紧凑形态，位于水面绳索附近的可站立位置。",
+   "reasoning": "目标外观与俯拍人员的尺度和形态相符，红色框线及文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 55.99,
+   "health": {
+    "at": 1791540643.3664129,
+    "available_fraction": 0.4117458775066686,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e1460b1aefab438ab656c755554a95c6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "cad6b570f8208418ab352df3be1fcf59b3d60dbcc5d19e4b2b896f89ed035b13"
+}

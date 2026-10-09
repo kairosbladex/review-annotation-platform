@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_12dcae5800b529d9",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b6399b684eb4b6a9eb6beac9f41f820",
+   "decision": "false",
+   "image_limitation": "框内主体清晰可见。",
+   "observed_object": "蓝色施工围挡及其旁的草地、道路和杂物，并非顶棚。",
+   "reasoning": "该框覆盖的是竖直或斜立的长条状蓝色围挡，属于地面设施，不是覆盖在建筑、棚架或空地上方的蓝绿色屋面。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f3cdb8b816ba422dafa1d3cf6c987901",
+   "decision": "false",
+   "image_limitation": "框内主体清晰可见。",
+   "observed_object": "蓝色施工围挡及其后的杂草区域。",
+   "reasoning": "框内蓝色物体是立在地面的长条状围挡，不是蓝色或绿色顶棚。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.22,
+   "health": {
+    "at": 1791544509.7390146,
+    "available_fraction": 0.4503996637022135,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0b53c0178db845d7b2ee14f69f3155ec",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "222778192f0f80e3dcb36ae0ccbf9a380bfc12d54877c8f9436fbf93f2489224"
+}

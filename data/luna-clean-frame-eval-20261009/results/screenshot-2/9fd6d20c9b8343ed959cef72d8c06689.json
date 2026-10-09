@@ -1,0 +1,30 @@
+{
+ "unit": "9fd6d20c9b8343ed959cef72d8c06689",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "9fd6d20c9b8343ed959cef72d8c06689:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈竖向窄长形，位于岸边可站立区域。",
+   "reasoning": "目标外观和尺度符合俯拍人员特征，红色框线及文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.32,
+   "health": {
+    "at": 1791542928.0013268,
+    "available_fraction": 0.4267368535484913,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f80857316d2c4827be51f4837d006b93",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e7f83cbcfc546c0e04359e7f1fe05d9f0a8af88ed3c19df16c3e74b7e2b5d084"
+}

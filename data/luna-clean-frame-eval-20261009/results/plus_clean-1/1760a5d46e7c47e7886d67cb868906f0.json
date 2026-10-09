@@ -1,0 +1,38 @@
+{
+ "unit": "1760a5d46e7c47e7886d67cb868906f0",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "1760a5d46e7c47e7886d67cb868906f0:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为道路上的小汽车，可见车顶和车身轮廓。",
+   "reasoning": "目标位于道路边缘，呈机动车俯拍的长方形车身，尺度和位置符合车辆特征。",
+   "target_index": 0
+  },
+  {
+   "key": "1760a5d46e7c47e7886d67cb868906f0:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为道路上的小汽车，车身纵向停放。",
+   "reasoning": "可见明确的车辆轮廓和车顶，位于车道附近且与道路方向一致，符合“车”的类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 25.37,
+   "health": {
+    "at": 1791542201.0351937,
+    "available_fraction": 0.4280446951626428,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ab2701165c1146018e27799b1bbd8b02",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "149009f40d799508da099022604d60ba9aa6018a45df093df6ef9000d426d5f6"
+}

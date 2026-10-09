@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f2b1833fcb38f7ab",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:53499b1d092345a6ad46fa1577b24b27",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "绿地边缘的彩色场地/地面设施，不是机动车。",
+   "reasoning": "候选框位于建筑和树木旁的地面区域，框内可见的是彩色场地边缘及其标记，没有呈现机动车应有的圆角长方形车身、车顶和深色挡风玻璃带，位置和外观均不符合“车”。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.64,
+   "health": {
+    "at": 1791539709.496142,
+    "available_fraction": 0.3454312153317548,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "61b0a087d4fe4341bf8422da12b27d8e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "492d79a918a7596092919089afd7c943de0998a78c9565a0df8f1a7d2389750f"
+}

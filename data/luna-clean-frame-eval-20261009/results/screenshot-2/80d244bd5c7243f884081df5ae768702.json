@@ -1,0 +1,30 @@
+{
+ "unit": "80d244bd5c7243f884081df5ae768702",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "80d244bd5c7243f884081df5ae768702:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的小汽车，呈细长圆角车身，尺度和朝向与车道相符。",
+   "reasoning": "目标外观符合机动车特征，位置也在道路区域，不是屋顶设备或标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.26,
+   "health": {
+    "at": 1791544815.5848348,
+    "available_fraction": 0.4321500428519453,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a273b0555def448290048ca47bcaea7b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4ef21e7fb6a2327e1c45a91dd3add0c5e424e082e3e4cae6d2ce2080b09ab463"
+}

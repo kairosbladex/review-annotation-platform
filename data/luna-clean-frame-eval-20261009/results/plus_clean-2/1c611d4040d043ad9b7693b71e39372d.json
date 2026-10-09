@@ -1,0 +1,38 @@
+{
+ "unit": "1c611d4040d043ad9b7693b71e39372d",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "1c611d4040d043ad9b7693b71e39372d:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车顶和深色车窗带清晰，形状与尺度符合机动车。",
+   "reasoning": "目标位于地面停车区域，呈圆角长方形车身，长度约为宽度两倍，符合“车”的外观特征。",
+   "target_index": 0
+  },
+  {
+   "key": "1c611d4040d043ad9b7693b71e39372d:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车顶、车窗和车身轮廓清晰。",
+   "reasoning": "目标位于道路旁停车区域，朝向与停车位一致，尺度和形状均符合机动车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.67,
+   "health": {
+    "at": 1791544388.784439,
+    "available_fraction": 0.449089602882608,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1636b3f434fb4683a5b9286655cf8aed",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3141095dcf42ba3c01c54daee5108e76c61f0776cc11b30338c6f21a569baa26"
+}

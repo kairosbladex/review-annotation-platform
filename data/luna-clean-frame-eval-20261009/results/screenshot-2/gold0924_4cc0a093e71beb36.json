@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内可见的是建筑屋顶或墙体边缘的深色矩形结构，不具有人体头部、肩部或躯干腿部的外观。",
+   "reasoning": "目标位于建筑区域，形状较规则且尺度、位置均不符合俯拍人员特征，判断为非人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.12,
+   "health": {
+    "at": 1791540775.6523142,
+    "available_fraction": 0.40969742927240216,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5870654579064abeb3c2214892e307d6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5722058e6ad74e72470f2b5be050b8e601236e9c4e8848bd9e7f93b0caec8156"
+}

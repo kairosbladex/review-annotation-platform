@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_23ed7170a18100cb",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:838cb70eaa904657a3920b516a740ad2",
+   "decision": "false",
+   "image_limitation": "目标位于画面最右下角，部分贴近边缘但仍可辨认。",
+   "observed_object": "框内主要是灰白色建筑屋顶及边缘结构，并非蓝色或绿色顶棚。",
+   "reasoning": "框内可见的主体颜色为灰白色，且呈建筑屋顶/结构形态；没有符合类别要点的蓝色或绿色成片顶棚，因此判断为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.66,
+   "health": {
+    "at": 1791546286.512708,
+    "available_fraction": 0.4486030800869296,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "81287b56949f4345ba253c83ec11857f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ec1bd56e049e42e5ac273b5862bae846a34e0ee9a607b424f02014ade7c3cfa2"
+}

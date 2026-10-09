@@ -1,0 +1,30 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是停车场地面上的小型蓝色物体，呈独立立体物件，并非覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+   "reasoning": "目标位置和形态不符合成片、规整的蓝色或绿色屋面，属于地面物体，因此不符合“违建”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.26,
+   "health": {
+    "at": 1791544700.3839812,
+    "available_fraction": 0.4502474505281344,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "836bb0d9594a4eef8bc2bf5cfcb5de01",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "66de1a148abf7d4d1b5cf25d3e5587c5e2963dcf817734322556a1aa1c7fdf75"
+}

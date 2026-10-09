@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_c5ca89db96782ad0",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是道路上的两轮电动车骑行者，头部可见且未见光滑、均匀的半球形头盔，呈深色头发外观。",
+   "reasoning": "目标位置和尺度与骑电动车的人相符，头顶区域清晰可见，未发现头盔特征，因此符合“没戴头盔”。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.75,
+   "health": {
+    "at": 1791545358.2826922,
+    "available_fraction": 0.4503732764373642,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "83afbb4fac4345979578f6cf5e836464",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbb588f0b71cae4cda6789660b9f535fad6c49979e8157106674411c55a15d92"
+}

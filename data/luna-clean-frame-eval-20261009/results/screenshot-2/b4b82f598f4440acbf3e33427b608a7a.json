@@ -1,0 +1,30 @@
+{
+ "unit": "b4b82f598f4440acbf3e33427b608a7a",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b4b82f598f4440acbf3e33427b608a7a:000",
+   "decision": "false",
+   "image_limitation": "目标区域较清晰，未见被遮挡或出画。",
+   "observed_object": "框内主要是红色平台标注及其下方的小型方形物体，未呈现人员头顶、肩部或躯干腿部的外观。",
+   "reasoning": "该物体形状和尺度更像小型设施或其他物件，不符合俯拍人员的外观特征，因此初审类别不正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.08,
+   "health": {
+    "at": 1791542041.2189462,
+    "available_fraction": 0.42636673263888214,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e4a9d34d31474395ac5a3dea7a9c7705",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dc3a3050b49846bf41d2efbe49dcaa905b1ed970186452860357551da527a57a"
+}

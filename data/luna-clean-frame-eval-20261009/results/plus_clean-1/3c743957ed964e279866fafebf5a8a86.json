@@ -1,0 +1,30 @@
+{
+ "unit": "3c743957ed964e279866fafebf5a8a86",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c743957ed964e279866fafebf5a8a86:000",
+   "decision": "false",
+   "image_limitation": "框内及紧邻区域清晰可见，未见明显遮挡或出画。",
+   "observed_object": "建筑外墙、窗户及墙面装饰，未见机动车车身。",
+   "reasoning": "候选框位于建筑立面和窗户区域，不在道路、停车位或地面场地；框内没有符合机动车圆角长方形车身、车顶及深色挡风玻璃横带的实际物体，因此不符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.69,
+   "health": {
+    "at": 1791546388.8645465,
+    "available_fraction": 0.4491894671280344,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "941ba08bc9e6499e9052b6b2914c00f8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e6561898ee03c55981b42430eaf9abb5b149aa7789c99f75d2ad42a60790339f"
+}

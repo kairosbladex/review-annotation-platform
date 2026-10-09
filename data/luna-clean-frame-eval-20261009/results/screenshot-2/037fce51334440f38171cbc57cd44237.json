@@ -1,0 +1,30 @@
+{
+ "unit": "037fce51334440f38171cbc57cd44237",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "037fce51334440f38171cbc57cd44237:001",
+   "decision": "uncertain",
+   "image_limitation": "目标区域位于画面底部且尺寸很小，细节不足，无法确认车辆是否具备驾驶室与货厢分段特征。",
+   "observed_object": "框内可见一个小型矩形物体，疑似车辆或其他设备，但车型无法辨认。",
+   "reasoning": "仅凭当前俯拍图无法确认其为符合定义的卡车，也不能可靠排除。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 24.75,
+   "health": {
+    "at": 1791537685.0108094,
+    "available_fraction": 0.4274996218230706,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e626cce1831f4293ac871467cc6c3ae7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d8cc8880b035666db355740a0e15575f29301d1c81d5ef334ace7613021feec7"
+}

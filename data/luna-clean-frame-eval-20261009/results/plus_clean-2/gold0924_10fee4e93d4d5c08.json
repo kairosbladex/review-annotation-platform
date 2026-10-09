@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_10fee4e93d4d5c08",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-016",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "框内是一个路灯杆上的灯具或立柱部件，不是人员。",
+   "reasoning": "目标呈细长竖直的固定设施形态，位于人行道边并与路灯设施相连，缺少人员应有的头部、肩部或躯干腿部特征，位置和尺度也不符合人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.6,
+   "health": {
+    "at": 1791546491.274915,
+    "available_fraction": 0.4499053280873343,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ff4c81904cf5401d8e3a67aca3f1257c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5c84262940d10a54c7a8850999f87c055bdd1c5101b4b581a97c2e78978fadc"
+}

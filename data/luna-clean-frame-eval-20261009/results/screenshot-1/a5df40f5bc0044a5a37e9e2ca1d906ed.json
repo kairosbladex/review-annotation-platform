@@ -1,0 +1,30 @@
+{
+ "unit": "a5df40f5bc0044a5a37e9e2ca1d906ed",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a5df40f5bc0044a5a37e9e2ca1d906ed:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小型机动车，呈细长矩形车身，位置和尺度与车道相符。",
+   "reasoning": "候选框位于道路区域，框内可见车辆形状，符合机动车的外观及道路位置特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.05,
+   "health": {
+    "at": 1791546701.1760912,
+    "available_fraction": 0.44673095228598836,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "689a68e9f83a47698b8117fea3db2958",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "98a85deabf8be766a855d347fd76aac18b49dfead224e74fafd153fae2668e74"
+}

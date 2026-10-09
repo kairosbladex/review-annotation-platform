@@ -1,0 +1,30 @@
+{
+ "unit": "aeb96de0f80449648efd3b40aa1bd9d5",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "aeb96de0f80449648efd3b40aa1bd9d5:000",
+   "decision": "false",
+   "image_limitation": "目标区域可见，未见人员外观；框内主要是平台红色标注及地面。",
+   "observed_object": "人行道地面上的红色标注区域，未发现可确认的人员。",
+   "reasoning": "候选框位置位于铺装地面，框内没有符合人员特征的头部、肩部、躯干或腿部，红色框线和文字不属于目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.48,
+   "health": {
+    "at": 1791542571.2737484,
+    "available_fraction": 0.40918214800604696,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "94ae8371e1c3465eb4243d5842f250f9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dcebcf7a2aaecb7473223b6d1191ca399e8fd8768556030784c037389f56bf55"
+}

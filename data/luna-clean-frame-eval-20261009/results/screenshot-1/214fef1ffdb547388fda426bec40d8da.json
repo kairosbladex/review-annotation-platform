@@ -1,0 +1,150 @@
+{
+ "unit": "214fef1ffdb547388fda426bec40d8da",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见路边步行人员，形态和尺度符合人员。",
+   "target_index": 0
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "人行道边可见小型人员目标，位置和尺度符合。",
+   "target_index": 1
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "道路边框内可见人员轮廓，符合俯拍人员特征。",
+   "target_index": 2
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:007",
+   "decision": "uncertain",
+   "image_limitation": "目标位于人员密集及标注重叠区域，框内实际轮廓不够清晰。",
+   "observed_object": "疑似人员",
+   "reasoning": "无法排除人员，但受遮挡和周围目标重叠影响，不能可靠确认。",
+   "target_index": 3
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内为路边小型人员目标，位置和尺度相符。",
+   "target_index": 4
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "人行道附近可见人员，外观与尺度符合。",
+   "target_index": 5
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "广场步道旁可见站立人员，尺度符合俯拍人员。",
+   "target_index": 6
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:008",
+   "decision": "uncertain",
+   "image_limitation": "目标处在多个标注框和人员重叠处，实际物体边界不清。",
+   "observed_object": "疑似人员",
+   "reasoning": "可见疑似人体局部，但无法排除与相邻目标重叠。",
+   "target_index": 7
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "道路中央附近可见小型人员目标，尺度和所在位置符合。",
+   "target_index": 8
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:006",
+   "decision": "uncertain",
+   "image_limitation": "框内目标被相邻标注和其他人员部分遮挡。",
+   "observed_object": "疑似人员",
+   "reasoning": "形态不完整，无法明确确认或否定。",
+   "target_index": 9
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:009",
+   "decision": "uncertain",
+   "image_limitation": "目标位于密集重叠区域，细节被标注覆盖。",
+   "observed_object": "疑似人员",
+   "reasoning": "仅能看到局部轮廓，无法可靠判断类别。",
+   "target_index": 10
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见路边站立人员，整体尺度符合。",
+   "target_index": 11
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "人行道附近可见人员目标，位置与外观符合。",
+   "target_index": 12
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:016",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内明显是道路上的车辆，体型和形状不符合人员。",
+   "target_index": 13
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见人行道上的小型人员目标，尺度相符。",
+   "target_index": 14
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "左侧步道边框内可见人员，位置和形态符合。",
+   "target_index": 15
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 58.45,
+   "health": {
+    "at": 1791546641.6179676,
+    "available_fraction": 0.44537641615708035,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dff8ca4c56fc42e4aa05b0e3efa2ecc1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "10fcd7d8a2da952a0f79bf645e717966453762bd4a47eaf57407a4846f150b71"
+}

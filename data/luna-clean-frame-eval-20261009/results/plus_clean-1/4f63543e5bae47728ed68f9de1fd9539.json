@@ -1,0 +1,38 @@
+{
+ "unit": "4f63543e5bae47728ed68f9de1fd9539",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆带明显驾驶室和后部货厢分段的货车，尺寸也明显大于普通小汽车。",
+   "reasoning": "外观符合卡车的短驾驶室加后部长方形货厢特征，位置和尺度均相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:002",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是一个细长的普通车辆或物体，未见三轮车典型的前窄后宽结构。",
+   "reasoning": "轮廓和尺度不符合三轮车，不能仅因框位于道路上就判为三轮车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.95,
+   "health": {
+    "at": 1791543072.5945842,
+    "available_fraction": 0.4442945078981826,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ba42dc589d8e4f76999a6c2e617c849c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a6d8cec240ab11b91ede9e07d8522c0dba8e27b5442ce50765f50fc236421d64"
+}

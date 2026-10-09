@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_ffd6228264016892",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:88d964f96f454fe0ad2b06349c2a6068",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "框内是建筑立面的灰色窗户和墙面，不是蓝色或绿色顶棚。",
+   "reasoning": "该框位于竖直建筑立面上，实际主体为窗户及墙体，属于立在地面的建筑结构而非覆盖在建筑或空地上方的蓝绿色屋面，因此不符合违建类别的外观要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.47,
+   "health": {
+    "at": 1791546883.6983032,
+    "available_fraction": 0.44557693504987556,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e0ccfda4d6ed4ddd8b12f7917a7c9f84",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d924e9d40c0add528bb990994761b0c62728a49269772b3a264c661f7251aed8"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "e5c944f774634d849cada056b9539541",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e5c944f774634d849cada056b9539541:000",
+   "decision": "false",
+   "image_limitation": "框内可见的是墙面上的红色叠加标注及一个小型方形设施/标记，不具备人员头部、肩部或躯干腿部的外观特征。",
+   "observed_object": "墙面上的小型方形设施或标记",
+   "reasoning": "目标位于建筑墙面区域，形状近方形，尺度和位置均不符合俯拍人员特征，不能判为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.39,
+   "health": {
+    "at": 1791545996.3303998,
+    "available_fraction": 0.45013995586395555,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c2d75de8085b4133a6a21e9bd6ad1415",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6c5d9a51f2d0722bbe7b8879201773bdb80adc8ba0e33918556944ca6d586349"
+}

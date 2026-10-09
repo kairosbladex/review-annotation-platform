@@ -1,0 +1,30 @@
+{
+ "unit": "cef85dabf2784e3d88326c430cc424b6",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "cef85dabf2784e3d88326c430cc424b6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈竖向人体轮廓，位于可站立的铺装区域。",
+   "reasoning": "框内实际物体具有人员的细长竖向外观，尺度较小且位置符合人员特征；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.53,
+   "health": {
+    "at": 1791546307.9639146,
+    "available_fraction": 0.45032655152253304,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1013b7d630524b66a9109f3df3bd823f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6449fb7918313ca89843aeff578144be0a22958f16028a3918dfff7d38fca333"
+}

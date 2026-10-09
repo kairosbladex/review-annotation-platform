@@ -1,0 +1,30 @@
+{
+ "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000",
+   "decision": "true",
+   "image_limitation": "目标较小但清晰可辨。",
+   "observed_object": "框内是一辆停在路边、具有明显车身与后部厢体分段的货车，整体长度明显大于普通小汽车。",
+   "reasoning": "外观符合卡车的驾驶室与后部货厢特征，位置和尺度也与道路旁车辆相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.15,
+   "health": {
+    "at": 1791542591.575431,
+    "available_fraction": 0.4045463494131083,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3337fe973cf244b8970c2e6cde4a5377",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a2d04285aebb3e56921948cd5731aa8f77c842ac8e240671acbd5f5c9335d881"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "eec44512105b46a2ab48ebe98eed1589",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "eec44512105b46a2ab48ebe98eed1589:019",
+   "decision": "true",
+   "image_limitation": "目标完整可见，未见明显遮挡或出画。",
+   "observed_object": "框内是一辆停在道路下方区域的长方形大型车辆，车身明显长于普通小汽车，呈一体式车体，符合公交车或大客车的俯拍外观。",
+   "reasoning": "目标长度和整体形状符合公交车类别要点，未见明显驾驶室与货厢分段，也不像屋顶、集装箱或棚子。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.67,
+   "health": {
+    "at": 1791546047.1581235,
+    "available_fraction": 0.4498839568348123,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "90b4322acc964922b165e27908175aab",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "28ef5407d1abab716776a1e7ebc6e91d732d4dcab140ea700d289359510fc5c2"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "2bb24df7fb4c40358e8ebea8a28182ba",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "2bb24df7fb4c40358e8ebea8a28182ba:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，车顶和深色玻璃带清晰，位于道路旁车道位置。",
+   "reasoning": "目标呈机动车典型的俯拍外观，长度约为宽度的两倍，尺度和位置均与道路旁车辆相符，因此判断为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.85,
+   "health": {
+    "at": 1791537035.093517,
+    "available_fraction": 0.4521335623634429,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1bb1f9086a0746b1b4cf76ef6e03a166",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "445152924ed4f21cb478a2c2403be94d2bf274771bb1e2876ac9846774788cb0"
+}

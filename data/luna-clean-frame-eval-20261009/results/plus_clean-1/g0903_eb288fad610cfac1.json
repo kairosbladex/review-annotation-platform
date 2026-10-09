@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_eb288fad610cfac1",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:48f3ec3897b84c36a45312fed8798ed3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝绿色顶棚，覆盖在建筑旁的棚架区域上，呈成片矩形屋面。",
+   "reasoning": "目标主体符合蓝色或绿色顶棚的外观特征，位置和尺度也与建筑旁棚架相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 23.6,
+   "health": {
+    "at": 1791546135.8526015,
+    "available_fraction": 0.4498288718994356,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ae63575b7614445589a906a675b9794b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "97852aae92805ca2c3b0ccc4e87c9963d8ebd79940195b904fdcfc62ad9cd3ce"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_3cde56c51f82e186",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:10e5a3da510748b2ac88cb5257ce142c",
+   "decision": "true",
+   "image_limitation": "框内目标较小，但头部区域仍可辨认。",
+   "observed_object": "框内是一名骑两轮车的人，头顶呈深色且无明显光滑高光，未见头盔。",
+   "reasoning": "目标符合骑两轮车人员未戴头盔的外观特征，位置和尺度也相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.93,
+   "health": {
+    "at": 1791542525.805234,
+    "available_fraction": 0.4094436190486382,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ab79d65bd7f845cbaf39dc5a44167f78",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "55a3b9cca7f2a0fe9f01c79db6dc6c20c774828f9ff9a9e463d770ef9e9cdbe4"
+}

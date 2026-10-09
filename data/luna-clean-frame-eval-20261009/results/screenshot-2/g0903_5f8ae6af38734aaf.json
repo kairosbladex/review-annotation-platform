@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_5f8ae6af38734aaf",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0d716cff82d14e248530e2e8af69b96b",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是建筑屋顶上的灰白色设备或结构，不是蓝色或绿色顶棚。",
+   "reasoning": "候选框位于建筑顶部，主体颜色偏灰白，呈设备/屋面构件形态，未见覆盖建筑或空地的蓝绿色成片屋面，因此不符合违建类别的外观要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.82,
+   "health": {
+    "at": 1791542686.5579197,
+    "available_fraction": 0.4278349954472848,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fc6cf458ccc145d29ef10b008093b9aa",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a7a2d67d5f29862b247570530d6c8e271a702337d2534b16e72287fed318fff2"
+}

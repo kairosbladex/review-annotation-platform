@@ -1,0 +1,46 @@
+{
+ "unit": "g0903_d645cc066a5bdc4c",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3384f2739ad745b3b67ed154e7f5ac9f",
+   "decision": "false",
+   "image_limitation": "框内是建筑外墙上的窗户，不是蓝色或绿色顶棚。",
+   "observed_object": "窗户",
+   "reasoning": "目标位于建筑立面，呈窗框和玻璃结构，属于建筑窗户而非覆盖在上方的蓝绿色屋面。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:9f3b0ba9ab134358b8f1b202bdc5454a",
+   "decision": "false",
+   "image_limitation": "框内主要是蓝色围挡或板材侧面，未见顶棚结构。",
+   "observed_object": "蓝色围挡/板材",
+   "reasoning": "物体为竖直长条状的蓝色施工围挡，位于道路边缘，不是覆盖在建筑、棚架或空地上方的蓝色顶棚。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:445ef456f78e4547b4064cd552e1cfb9",
+   "decision": "false",
+   "image_limitation": "框内是蓝色围挡或板材侧面，且目标部分接近画面下边缘。",
+   "observed_object": "蓝色围挡/板材",
+   "reasoning": "框内可见竖直蓝色板状物，属于围挡而非蓝色或绿色屋面；虽然部分接近出画，但实际物体性质仍可判断。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 80.84,
+   "health": {
+    "at": 1791538832.5313969,
+    "available_fraction": 0.445703429760749,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f9667730b6c64fad950cd2fa7ff51bad",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d8f99543f2dcbc973acff32d42b4dcc94428102148b0947f0e135e1877146f00"
+}

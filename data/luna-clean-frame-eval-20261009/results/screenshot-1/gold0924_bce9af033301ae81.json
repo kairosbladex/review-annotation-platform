@@ -1,0 +1,38 @@
+{
+ "unit": "gold0924_bce9af033301ae81",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的人员",
+   "reasoning": "框内可见竖长的人体轮廓，位于可站立的人行道区域，尺度与人员相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的人员",
+   "reasoning": "框内可见小型竖长人体轮廓，位于人行道上，位置和尺度符合人员特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 26.63,
+   "health": {
+    "at": 1791543535.043623,
+    "available_fraction": 0.44570227455790995,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "041daef2f1c04f16a1f02ed3c8e934a1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7dffcb930060177f1f448dd150be9a59ba0a86f0e106739a21ccb6c7cdf81895"
+}

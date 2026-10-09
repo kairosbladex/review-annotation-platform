@@ -1,0 +1,30 @@
+{
+ "unit": "e5c944f774634d849cada056b9539541",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e5c944f774634d849cada056b9539541:000",
+   "decision": "false",
+   "image_limitation": "目标区域可清晰辨认。",
+   "observed_object": "框内实际是红色平台标注文字和图标覆盖的地面区域，未见人员的头顶、肩部或躯干腿部轮廓。",
+   "reasoning": "该位置没有符合俯拍人员外观及尺度特征的实际人体目标，红色标注不能作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.95,
+   "health": {
+    "at": 1791545985.1820178,
+    "available_fraction": 0.4493465139139926,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "89d961d5cdfb44e2be244b39b302a640",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6c5d9a51f2d0722bbe7b8879201773bdb80adc8ba0e33918556944ca6d586349"
+}

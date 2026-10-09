@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f0f53344a03e90a8",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd58701a40a44a4187c2167ba59721f0",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是浅灰色或白色的建筑屋面/棚顶，不是蓝色或绿色顶棚。",
+   "reasoning": "该框对应的主体为规整的浅灰色屋面，颜色不符合“违建”类别要求；应判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.19,
+   "health": {
+    "at": 1791545570.2203267,
+    "available_fraction": 0.4486328417600719,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0b98c260d3064843ad8b64c6c444e4e8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b9c2894bcb9ff7c04597923e352ddaa4f58f49a14905370dbf9400e2bdb3d7a0"
+}

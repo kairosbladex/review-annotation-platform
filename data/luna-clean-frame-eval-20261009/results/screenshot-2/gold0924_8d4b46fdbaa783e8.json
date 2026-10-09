@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_8d4b46fdbaa783e8",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的一名行人，呈竖长窄的躯干形态。",
+   "reasoning": "框内可见竖直的人体轮廓，位于可站立的人行道上，尺度明显小于车辆，符合斜俯视下人员的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.55,
+   "health": {
+    "at": 1791543285.8258398,
+    "available_fraction": 0.4442279013344903,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a4fcd3670059412ebe8dc99e7e8a24e9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbf3698ccc23c4e2f778d77667969f90283d544e3f895767746b374542a8194f"
+}

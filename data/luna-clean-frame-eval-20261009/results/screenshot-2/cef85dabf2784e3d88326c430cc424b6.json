@@ -1,0 +1,30 @@
+{
+ "unit": "cef85dabf2784e3d88326c430cc424b6",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "cef85dabf2784e3d88326c430cc424b6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈竖长形，包含浅色头部与深色躯干，位于可站立的铺装区域。",
+   "reasoning": "目标尺度较小但形态和位置符合俯拍人员特征，不像车辆、杆件或其他固定设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.28,
+   "health": {
+    "at": 1791546313.451882,
+    "available_fraction": 0.44959196411721103,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9fbfc582cf69417bb296ff8792abee56",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6449fb7918313ca89843aeff578144be0a22958f16028a3918dfff7d38fca333"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "f357be64aa62461ba8a049efe28969ee",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f357be64aa62461ba8a049efe28969ee:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路边缘的机动车，呈细长矩形车身，尺度和朝向与车道相符。",
+   "reasoning": "目标外观符合俯视车辆特征，位于道路区域而非建筑屋顶或设备平台，因此初审类别“车”正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 39.77,
+   "health": {
+    "at": 1791542083.1401865,
+    "available_fraction": 0.42720963551040025,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "17e1af53d4ab44bca4e31bb2d2af1255",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "80550cd9a5db54e2437f928fbc5512014d555e22b1293d276a0be7a46db47651"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "e2e9f1ba9d1341bf8131b3e15d61f299",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e2e9f1ba9d1341bf8131b3e15d61f299:000",
+   "decision": "false",
+   "image_limitation": "框位于画面顶部边缘，框内仅见建筑/地面区域，目标出画且无法确认车形。",
+   "observed_object": "建筑或地面边缘区域，未见机动车。",
+   "reasoning": "框内没有可见的机动车外观特征，且位置贴近画面边缘，不能按车判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 18.59,
+   "health": {
+    "at": 1791542263.899964,
+    "available_fraction": 0.42587941944126123,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6723ae6e508c4aa6bf2063b5542e21a1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3607458521a499786679b090fb7e5fb44de1333f7fbe0368f8206f1c27e7dcc0"
+}

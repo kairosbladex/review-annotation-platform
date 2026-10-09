@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为建筑旁一块蓝色矩形顶棚，呈规则屋面状。",
+   "reasoning": "目标主体是覆盖在地面建筑区域上方的蓝色成片屋面，颜色和形态符合蓝色顶棚的类别要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.65,
+   "health": {
+    "at": 1791546717.2984593,
+    "available_fraction": 0.44584551970994923,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "26a0db667dfc4e5d805ffc6cad962657",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0f4e62e84f4dadd4a6680e3972eddab6397c024a902dfb1384dd2dcadc0bfe6b"
+}

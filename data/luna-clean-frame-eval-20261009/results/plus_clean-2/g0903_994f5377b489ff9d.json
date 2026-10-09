@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一小段蓝绿色矩形屋面/顶棚，位于右侧建筑区域顶部附近。",
+   "reasoning": "目标呈规整的蓝绿色矩形平面，符合俯拍图中蓝绿色顶棚的外观特征；不是车辆、围挡或其他长条地面物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.63,
+   "health": {
+    "at": 1791546726.4277601,
+    "available_fraction": 0.4468194469034727,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "26f7375265e94551b1a05d6ca7905ea3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0f4e62e84f4dadd4a6680e3972eddab6397c024a902dfb1384dd2dcadc0bfe6b"
+}

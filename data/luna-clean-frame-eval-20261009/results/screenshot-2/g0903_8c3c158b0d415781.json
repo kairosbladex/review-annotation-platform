@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_8c3c158b0d415781",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:73f7eb6a9ce4489893ed3f7fd8c019dc",
+   "decision": "false",
+   "image_limitation": "目标框内主要是树木和花盆，未见机动车车身。",
+   "observed_object": "树木和花盆",
+   "reasoning": "框内实际物体为绿化植物及花盆，位置在道路旁绿化区域，缺少车辆应有的车顶、挡风玻璃和车身轮廓。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1bebc9c971fc4869973013db786e6c74",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "框内可见完整且清晰的机动车车顶、前后挡风玻璃深色横带及长方形车身，位于道路边停车区域，尺度和朝向符合车辆特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.64,
+   "health": {
+    "at": 1791546439.45086,
+    "available_fraction": 0.4501496230877137,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c594cf7a7bd0493f9e9ac87c16d5203b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1db6cbf10af4ce5de11722b785b606bf2ace2ca905498caf0810e1a193385fc1"
+}

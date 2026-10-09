@@ -1,0 +1,30 @@
+{
+ "unit": "969829ff57a64255acc4e48a71c692e2",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "969829ff57a64255acc4e48a71c692e2:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车的车顶和车身轮廓，位于道路旁停车区域。",
+   "reasoning": "目标呈机动车常见的圆角长方形外观，长度约为宽度两倍，尺度与周围停车区域相符，符合“车”的类别要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 49.33,
+   "health": {
+    "at": 1791537709.9002516,
+    "available_fraction": 0.4343227361915565,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "10cc2a60b4074123a9c090c1b390091d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "17606bdf0780f628eed82fda1e1d0ba77202ca2a16cbc0c0008338cd9643e7f2"
+}

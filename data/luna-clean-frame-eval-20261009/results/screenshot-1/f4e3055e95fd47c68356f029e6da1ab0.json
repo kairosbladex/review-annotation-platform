@@ -1,0 +1,30 @@
+{
+ "unit": "f4e3055e95fd47c68356f029e6da1ab0",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f4e3055e95fd47c68356f029e6da1ab0:000",
+   "decision": "uncertain",
+   "image_limitation": "候选区域被红色标注文字和框线严重覆盖，实际物体细节无法可靠辨认；未提供第四张干净原图。",
+   "observed_object": "红色标注下方仅能看到局部浅色区域，无法确认是否为人员。",
+   "reasoning": "该位置可能是人员，但框内实际目标被标注遮挡，无法根据头部、肩部或躯干等特征确认，也不足以排除其他物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.34,
+   "health": {
+    "at": 1791542548.377588,
+    "available_fraction": 0.41217305935651066,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "99f01cca1c604700b8ab2a150072e567",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbd0012e30e3851ff1729388a10a83d8fe5f4bb1f6abe26f0cb276fb94bd20f3"
+}

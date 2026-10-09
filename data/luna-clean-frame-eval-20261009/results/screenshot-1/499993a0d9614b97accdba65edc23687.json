@@ -1,0 +1,134 @@
+{
+ "unit": "499993a0d9614b97accdba65edc23687",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "499993a0d9614b97accdba65edc23687:007",
+   "decision": "false",
+   "image_limitation": "目标区域显示为道路标线或车辆局部，不符合人员外观。",
+   "observed_object": "道路/车辆局部",
+   "reasoning": "框内未见可辨识的人体头部、肩部或躯干，尺度和形状也不符合人员。",
+   "target_index": 0
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:014",
+   "decision": "false",
+   "image_limitation": "框内可见的是绿化或设施区域，细节不足但不呈人员形态。",
+   "observed_object": "绿化/设施",
+   "reasoning": "未见人员头顶、肩部或躯干轮廓，位置和外观更像路旁物体。",
+   "target_index": 1
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:011",
+   "decision": "false",
+   "image_limitation": "目标较小，但可见为路旁设施/植被而非人员。",
+   "observed_object": "路旁设施或植被",
+   "reasoning": "形状不符合俯拍人员的小椭圆或竖长躯干。",
+   "target_index": 2
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:013",
+   "decision": "false",
+   "image_limitation": "框内位于车道区域，未见人员轮廓。",
+   "observed_object": "道路/车辆附近物体",
+   "reasoning": "可见目标不具备人员的头部、肩部或躯干特征。",
+   "target_index": 3
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:002",
+   "decision": "true",
+   "image_limitation": "目标较小但轮廓和位置可辨。",
+   "observed_object": "人员",
+   "reasoning": "框内可见小型人体轮廓，位于道路旁可站立区域，尺度符合俯拍人员。",
+   "target_index": 4
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:003",
+   "decision": "false",
+   "image_limitation": "目标区域细节有限，但形态更像车辆或道路设施。",
+   "observed_object": "车辆/道路设施",
+   "reasoning": "未见符合人员的头肩或躯干结构，尺度也偏大或形态不符。",
+   "target_index": 5
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:005",
+   "decision": "false",
+   "image_limitation": "框内主要是道路边缘/设施，人员特征不可见。",
+   "observed_object": "道路设施",
+   "reasoning": "未发现小椭圆头部或竖长人体轮廓。",
+   "target_index": 6
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:009",
+   "decision": "false",
+   "image_limitation": "框内为广场上的固定物体，目标细节清楚。",
+   "observed_object": "固定设施或石块",
+   "reasoning": "形状和位置更像固定设施，不具备人员外观。",
+   "target_index": 7
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:010",
+   "decision": "false",
+   "image_limitation": "多个相邻目标互相靠近，仍可见其更像车辆或设施。",
+   "observed_object": "车辆/设施",
+   "reasoning": "框内未能辨认出独立人体轮廓，尺度和形状不符合人员。",
+   "target_index": 8
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:012",
+   "decision": "false",
+   "image_limitation": "目标位于路缘绿化附近，部分细节被标注遮挡。",
+   "observed_object": "绿化或路旁设施",
+   "reasoning": "可见轮廓不像人员，未见头肩或躯干特征。",
+   "target_index": 9
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:006",
+   "decision": "false",
+   "image_limitation": "框内目标较小，但道路背景和轮廓仍可辨。",
+   "observed_object": "道路标线/车辆局部",
+   "reasoning": "没有人员的头部、肩部或腿部结构。",
+   "target_index": 10
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:000",
+   "decision": "false",
+   "image_limitation": "目标靠近车道，形态可见但不符合人员。",
+   "observed_object": "道路设施或车辆局部",
+   "reasoning": "框内未见人体轮廓，尺度和形状更符合道路相关物体。",
+   "target_index": 11
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:008",
+   "decision": "true",
+   "image_limitation": "目标较小且部分受周边植被影响，但人体轮廓可辨。",
+   "observed_object": "人员",
+   "reasoning": "框内可见位于步道/路旁的细小人体形态，位置和尺度符合人员。",
+   "target_index": 12
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:001",
+   "decision": "false",
+   "image_limitation": "目标与相邻候选接近，实际形态更像道路设施或车辆局部。",
+   "observed_object": "道路设施/车辆局部",
+   "reasoning": "未见独立的人体头肩或躯干结构。",
+   "target_index": 13
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 69.85,
+   "health": {
+    "at": 1791542338.5075648,
+    "available_fraction": 0.43097137115524176,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fdcbbce4c5d14ae19f7c7c27982fa934",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "13016294ef75b396ef90679ea007092782ec72f61ad388ba3cb732891a47f56b"
+}

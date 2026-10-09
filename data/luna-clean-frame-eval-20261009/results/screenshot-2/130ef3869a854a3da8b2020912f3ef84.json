@@ -1,0 +1,30 @@
+{
+ "unit": "130ef3869a854a3da8b2020912f3ef84",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "130ef3869a854a3da8b2020912f3ef84:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，位于铺装步道上。",
+   "reasoning": "目标呈现人员的头部及躯干轮廓，尺度明显小于汽车，位置也符合人员可站立区域；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.19,
+   "health": {
+    "at": 1791543227.4967372,
+    "available_fraction": 0.44510798349738023,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "84b945ef2dac46d68353adf1e73d795c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "69b796471b4553ffcc179e8e72a7d4827ba9e46666f2ce64840c000d8eb2748d"
+}

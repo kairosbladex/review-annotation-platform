@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_d73fb25ba94b6566",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c5cdb3d76ed045489a4f0dba8ac1f473",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡的侧面",
+   "reasoning": "框内可见的是立在地面的长条状蓝色围挡，不是覆盖在建筑、棚架或空地上方的蓝绿色顶棚，因此不符合“违建”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 41.09,
+   "health": {
+    "at": 1791542321.5333796,
+    "available_fraction": 0.42945890663820896,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8ed2111c29844687b54bec2de6036ee0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "28e3b7722e0524b3fec7cf8ce4e5abeb78ccc33863da7fc97ac506d239751173"
+}

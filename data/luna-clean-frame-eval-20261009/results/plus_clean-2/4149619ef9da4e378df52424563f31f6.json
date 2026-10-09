@@ -1,0 +1,30 @@
+{
+ "unit": "4149619ef9da4e378df52424563f31f6",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "4149619ef9da4e378df52424563f31f6:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无遮挡，足以判断。",
+   "observed_object": "框内是一个小型圆形黑白物体，位于铺装地面上，更像井盖或地面设施，不具备人员头顶、肩部或躯干腿部特征。",
+   "reasoning": "该物体形状偏圆，尺度和外观不符合俯拍人员特征，且位置表现为固定地面设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.66,
+   "health": {
+    "at": 1791543884.2937057,
+    "available_fraction": 0.4449890280050352,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b63c206d827943b9882feae3db5e1fdf",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d1eb1b145c2124ccb931fa26409c9a5979617f3d3db452695f4a14e0f62aad98"
+}

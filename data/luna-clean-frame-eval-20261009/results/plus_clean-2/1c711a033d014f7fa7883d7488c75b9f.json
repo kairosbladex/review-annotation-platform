@@ -1,0 +1,54 @@
+{
+ "unit": "1c711a033d014f7fa7883d7488c75b9f",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "细长窄条状两轮车",
+   "reasoning": "位于道路边缘，外形细长且宽度明显小于小汽车，尺度符合两轮车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "道路上的白色车辆，呈车顶和深色车窗组成的圆角长方形，尺度与车道相符。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "位于道路边缘，露出明确的车身和车顶轮廓，形状及尺度符合机动车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:003",
+   "decision": "uncertain",
+   "image_limitation": "目标仅在画面最右侧边缘露出一小部分，无法完整确认车身形状。",
+   "observed_object": "画面边缘的部分物体，疑似车辆",
+   "reasoning": "可见区域过少，既不能充分确认车辆特征，也无法排除其他物体。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.02,
+   "health": {
+    "at": 1791540711.9682076,
+    "available_fraction": 0.4100919918420792,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c534bcee77a448f19b3fe4ace82663bd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "277e6f30aa3143293edaa7fb012bb032531ade710b7c336ea68171fe26ffa33a"
+}

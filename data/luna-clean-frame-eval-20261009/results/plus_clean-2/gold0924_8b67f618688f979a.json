@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_8b67f618688f979a",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-025",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个人，具有明显的深色头发、头部和浅色衣物躯干，位于铺装岸边并符合人员尺度。",
+   "reasoning": "目标外观和所在位置均符合俯拍人员特征，不是标注框线或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.62,
+   "health": {
+    "at": 1791543841.2422435,
+    "available_fraction": 0.445019367279597,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2f7b973687e64be48f01cf85e6c24b87",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "95ebda553add235beaee34dbdaced7b11dc92a78e5013ba86e16da15c9944824"
+}

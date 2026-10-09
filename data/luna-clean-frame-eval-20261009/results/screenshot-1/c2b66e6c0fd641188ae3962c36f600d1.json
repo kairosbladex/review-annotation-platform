@@ -1,0 +1,30 @@
+{
+ "unit": "c2b66e6c0fd641188ae3962c36f600d1",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c2b66e6c0fd641188ae3962c36f600d1:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "岸边站立的小型人员目标，可见深色头部及狭长躯干。",
+   "reasoning": "框内实际物体位于岸边可站立区域，形态为明显竖长的小目标，宽度约为周边步道尺度的较小部分，符合俯拍人员外观；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.74,
+   "health": {
+    "at": 1791544525.0028543,
+    "available_fraction": 0.45039549889197805,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "330d3887743f412cab1d54f2813177c9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3e158134718da1a3ba54e7ec0eea3c4c72656c020acd96886c9302844eb6904c"
+}

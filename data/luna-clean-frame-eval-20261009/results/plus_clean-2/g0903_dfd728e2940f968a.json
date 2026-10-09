@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_dfd728e2940f968a",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:1b1215b7886343c0b545b6639a919f33",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为灰白色的矩形玻璃或采光顶棚结构，未见蓝色或绿色屋面。",
+   "reasoning": "目标主体颜色偏灰白，且呈透明/玻璃状，不符合违建类别要求的蓝色或绿色成片顶棚特征，因此判断为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.63,
+   "health": {
+    "at": 1791545219.104506,
+    "available_fraction": 0.4493765491878073,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c9c6e736105c400e97ba69d5c2d6bfcf",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2c9e62bc3be763ef3d2c2e4934d88698bbefc56a30c4e4f0244ec5397d3763c0"
+}

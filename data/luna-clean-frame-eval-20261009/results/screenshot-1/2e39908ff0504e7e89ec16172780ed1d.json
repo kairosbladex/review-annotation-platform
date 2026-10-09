@@ -1,0 +1,30 @@
+{
+ "unit": "2e39908ff0504e7e89ec16172780ed1d",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "2e39908ff0504e7e89ec16172780ed1d:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯视人员的头部及肩部轮廓，位于可站立区域边缘。",
+   "reasoning": "目标呈小型椭圆状，具有深色头部和周围衣物特征，尺度符合俯拍人员，位置也符合人员活动区域；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.07,
+   "health": {
+    "at": 1791542646.0556498,
+    "available_fraction": 0.4285652052418484,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e450eb03d017414d9ab7639228dd28d1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f74f619f54b8d24c25e2309ae9e0b2978884e705b7ca25d99ccb53eb6d1b5afd"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "fbeaa2a9dc8045d9b8d6e10b54178c78",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "fbeaa2a9dc8045d9b8d6e10b54178c78:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在树下停车区域的小汽车，车身呈细长圆角矩形，尺寸与周围停车位相符。",
+   "reasoning": "目标外观和位置均符合机动车特征，虽然部分受树冠遮挡，但露出的车顶和车身形状明确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 35.34,
+   "health": {
+    "at": 1791540039.3042374,
+    "available_fraction": 0.4485252862957436,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "432461bd1b73498998b74b71ae759483",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f6776fd8e71999e99c0b7d70c94dcf0410336d13b7126f4aa0c87bedafa2e911"
+}

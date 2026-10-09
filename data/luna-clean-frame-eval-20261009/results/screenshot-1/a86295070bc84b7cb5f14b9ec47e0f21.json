@@ -1,0 +1,78 @@
+{
+ "unit": "a86295070bc84b7cb5f14b9ec47e0f21",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:004",
+   "decision": "true",
+   "image_limitation": "目标较小但清晰可辨，未见明显遮挡。",
+   "observed_object": "框内为站立人员的俯视轮廓。",
+   "reasoning": "形状和尺度符合人员特征，位于可站立区域。",
+   "target_index": 0
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:005",
+   "decision": "true",
+   "image_limitation": "目标较小，细节有限但位置和轮廓可辨。",
+   "observed_object": "框内为人员。",
+   "reasoning": "可见小型人体轮廓，尺度明显小于车辆，符合人员类别。",
+   "target_index": 1
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:000",
+   "decision": "true",
+   "image_limitation": "目标较小，部分受标注影响，但实际轮廓仍可辨。",
+   "observed_object": "框内为人员。",
+   "reasoning": "位于步道附近，形状与尺度符合俯拍人员。",
+   "target_index": 2
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:001",
+   "decision": "true",
+   "image_limitation": "目标较小但未被明显遮挡。",
+   "observed_object": "框内为人员。",
+   "reasoning": "可见人员样的紧凑轮廓，位于道路边缘可站立处。",
+   "target_index": 3
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:002",
+   "decision": "true",
+   "image_limitation": "目标较小，细节有限。",
+   "observed_object": "框内为人员。",
+   "reasoning": "轮廓和尺度符合俯拍人员，未见其为车辆或设施的证据。",
+   "target_index": 4
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:003",
+   "decision": "true",
+   "image_limitation": "目标较小且标注密集，细节有限。",
+   "observed_object": "框内为人员。",
+   "reasoning": "可见小型人体轮廓，位置位于道路/人行区域，符合类别。",
+   "target_index": 5
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:006",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内主要是树木或灌木，不是人员。",
+   "reasoning": "绿色团块形状和尺度符合植被特征，不具有人体头肩或躯干轮廓。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.33,
+   "health": {
+    "at": 1791544926.6378698,
+    "available_fraction": 0.4514987176032484,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "da66b9fd93ee4798b1745a7f0efa73e2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "112a66e6d6b90dc8eb2642d8c3ccc2c25236a9efb69dc0585ef127c7f414047e"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_791e6578fa41f3c6",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:200d6dd57fd74ca08dab2ce96088fcf8",
+   "decision": "false",
+   "image_limitation": "框内目标基本完整可见，清晰度足以判断。",
+   "observed_object": "灰色长条形屋面/地面结构，旁侧为建筑和道路。",
+   "reasoning": "框内主体不是蓝色或绿色顶棚，而是灰色结构，颜色和形态均不符合“违建”类别的蓝绿色成片顶棚特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.2,
+   "health": {
+    "at": 1791541220.5803318,
+    "available_fraction": 0.427020486245547,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cfa7b5ba7cfa4d1cabf67fc9339847ca",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "86914921b4665eabcb65316a024bf130d665c96a49ffe5fb98bc7d7f699064a3"
+}

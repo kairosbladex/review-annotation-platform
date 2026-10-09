@@ -1,0 +1,38 @@
+{
+ "unit": "ad9e05617647405ab1d50cfd97568bba",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:ad9e05617647405ab1d50cfd97568bba:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见车顶、前后挡风玻璃形成的深色带，整体为机动车的圆角长方形外观，位置和尺度均与道路车道相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:ad9e05617647405ab1d50cfd97568bba:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见与车道方向一致的机动车车顶及深色挡风玻璃区域，形状和尺度符合小汽车，位于道路上而非建筑屋顶设备。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.22,
+   "health": {
+    "at": 1791545713.2477741,
+    "available_fraction": 0.44894498972720676,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "05588b1adc6448e9b6749881a9748f70",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "77d4f5a03d1e195ba0fc60835fc0852a6dbde85ecdd27cb7dfe1ac9fd59196a1"
+}

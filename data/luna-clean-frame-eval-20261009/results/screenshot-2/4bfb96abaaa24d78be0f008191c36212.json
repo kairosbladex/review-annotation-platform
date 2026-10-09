@@ -1,0 +1,30 @@
+{
+ "unit": "4bfb96abaaa24d78be0f008191c36212",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "4bfb96abaaa24d78be0f008191c36212:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈竖向人体轮廓，头部与躯干可辨，位于可站立的硬质地面区域。",
+   "reasoning": "目标形状和尺度符合俯拍人员特征，不像车辆、自行车、路灯杆或其他固定设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.2,
+   "health": {
+    "at": 1791545143.261365,
+    "available_fraction": 0.4500107251463581,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "13263f0b828f409ab4d16b32830d11df",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b4f6f6b9912413345f1b3ad30e5aeb741c0d02f39f8bcc8e788f5636d17241e6"
+}

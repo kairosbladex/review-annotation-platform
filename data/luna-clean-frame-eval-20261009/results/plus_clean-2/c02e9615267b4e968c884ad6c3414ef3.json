@@ -1,0 +1,30 @@
+{
+ "unit": "c02e9615267b4e968c884ad6c3414ef3",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c02e9615267b4e968c884ad6c3414ef3:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是红色初审标注文字，未见可确认的人员头顶、肩部或躯干等人体特征；紧邻区域为铺装地面和岸边。",
+   "reasoning": "该位置没有符合人员外观、尺度和可站立形态的实际目标，红色框线和文字不能作为判断依据，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.11,
+   "health": {
+    "at": 1791540582.3541396,
+    "available_fraction": 0.427309986157022,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "07e1be6ec0b54977bfc953ab542a09a0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3fd2974e20751e20782045a070539a01eac78817a111a1c36a044dcc85472502"
+}

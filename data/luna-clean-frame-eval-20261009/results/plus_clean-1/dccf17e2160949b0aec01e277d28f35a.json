@@ -1,0 +1,30 @@
+{
+ "unit": "dccf17e2160949b0aec01e277d28f35a",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:dccf17e2160949b0aec01e277d28f35a:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "道路上的红色标注文字/框线附近未见符合机动车外观的车辆，框内主要是道路及植被。",
+   "reasoning": "框的位置在道路旁的绿化区域，未见圆角长方形车身、车顶或挡风玻璃深色横带，不能判定为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.87,
+   "health": {
+    "at": 1791546271.6142573,
+    "available_fraction": 0.4490372235538806,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f143da2f212648d980b8c5d6ff3279c8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "527986a7b03cffe873ed8c1aebaf015dd2df307342eac9c07fc5d33ba404fb5f"
+}

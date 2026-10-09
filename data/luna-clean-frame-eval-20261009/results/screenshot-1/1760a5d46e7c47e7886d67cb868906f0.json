@@ -1,0 +1,38 @@
+{
+ "unit": "1760a5d46e7c47e7886d67cb868906f0",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "1760a5d46e7c47e7886d67cb868906f0:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车",
+   "reasoning": "框内可见车顶、深色玻璃区域和规则的长方形车身，位于道路车道中，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "1760a5d46e7c47e7886d67cb868906f0:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车",
+   "reasoning": "框内可见纵向车身及深色车窗，位于道路区域且与车道方向、尺度相符，符合机动车外观。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.35,
+   "health": {
+    "at": 1791542240.355028,
+    "available_fraction": 0.4277899121364881,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2495ca7f8ada4019a31b954cea4e5f29",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "149009f40d799508da099022604d60ba9aa6018a45df093df6ef9000d426d5f6"
+}

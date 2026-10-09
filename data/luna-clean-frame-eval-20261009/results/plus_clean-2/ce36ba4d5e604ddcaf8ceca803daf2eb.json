@@ -1,0 +1,30 @@
+{
+ "unit": "ce36ba4d5e604ddcaf8ceca803daf2eb",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ce36ba4d5e604ddcaf8ceca803daf2eb:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "建筑屋顶边缘处的红色标注附近可见屋顶或设备区域，未见符合车辆特征的机动车。",
+   "reasoning": "框内及紧邻区域位于建筑屋顶边缘，目标尺度和位置不符合道路、停车场或车位中的机动车，不能判定为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.04,
+   "health": {
+    "at": 1791541273.3611465,
+    "available_fraction": 0.42223177527681094,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6eaa6f23c3094aa9939dc9391169930b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d14221d49dad0b5693cbe44faf703f650e5c8a365093fa5afe73ac06c2707ab8"
+}

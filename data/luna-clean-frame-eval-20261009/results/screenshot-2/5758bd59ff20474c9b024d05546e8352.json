@@ -1,0 +1,30 @@
+{
+ "unit": "5758bd59ff20474c9b024d05546e8352",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:5758bd59ff20474c9b024d05546e8352:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈细长圆角车身形状，位于道路区域并与道路方向一致。",
+   "reasoning": "目标具有车辆车顶及深色挡风玻璃带等外观特征，尺度和位置也与道路上的车辆相符，不是建筑或地面设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 23.54,
+   "health": {
+    "at": 1791540112.3578684,
+    "available_fraction": 0.448219218343551,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5e1d57c2d8a64312b731d04e4e569ba7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ca22d6529b27d6ea6029c7e372e0e568733966af67a43948a37dd9851448256e"
+}

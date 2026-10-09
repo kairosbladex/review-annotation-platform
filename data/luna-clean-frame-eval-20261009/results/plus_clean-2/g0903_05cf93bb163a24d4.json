@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是高层建筑的立面及窗户，不是蓝色或绿色顶棚。",
+   "reasoning": "目标主体为竖直建筑外墙，颜色以灰色为主，位置和形态均不符合成片蓝色或绿色屋面，因此不属于违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.63,
+   "health": {
+    "at": 1791540875.5470695,
+    "available_fraction": 0.43069591607828334,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6064da3cee43428a9ffae1a48142ccc6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9ced4456956a31dc4c63cfc7cb12b08b46b6b26f9ec43d6974d4cb9710d092ca"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_d73fb25ba94b6566",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c5cdb3d76ed045489a4f0dba8ac1f473",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡的立面，属于长条状围挡而非顶棚",
+   "reasoning": "框内主体是竖直的蓝色围挡板，位于地面边缘，缺少覆盖在建筑、棚架或空地上方的屋面形态，因此不符合“蓝色或绿色顶棚”的违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 51.44,
+   "health": {
+    "at": 1791542312.9977126,
+    "available_fraction": 0.4310159072646937,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d3614e5edbbf4dc289ad49be83bee361",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "28e3b7722e0524b3fec7cf8ce4e5abeb78ccc33863da7fc97ac506d239751173"
+}

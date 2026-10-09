@@ -1,0 +1,30 @@
+{
+ "unit": "b4b82f598f4440acbf3e33427b608a7a",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "b4b82f598f4440acbf3e33427b608a7a:000",
+   "decision": "false",
+   "image_limitation": "框内及周边可见的是红色平台标注文字和方框覆盖的小型固定物体，未见符合人员特征的头顶、肩部或躯干；目标被标注遮挡但仍可判断不像人员。",
+   "observed_object": "疑似固定设施或标注覆盖物，不是人员。",
+   "reasoning": "框内没有可辨认的人体形态，且位置和尺度更像水面/岸边的固定小物体，不能按人员判定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.68,
+   "health": {
+    "at": 1791542027.6149867,
+    "available_fraction": 0.4260827959410793,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1c3722e53b084da795da0477f08b468d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dc3a3050b49846bf41d2efbe49dcaa905b1ed970186452860357551da527a57a"
+}

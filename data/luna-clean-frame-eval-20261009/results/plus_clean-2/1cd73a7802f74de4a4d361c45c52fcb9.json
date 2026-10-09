@@ -1,0 +1,46 @@
+{
+ "unit": "1cd73a7802f74de4a4d361c45c52fcb9",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为一辆白色小汽车，车顶和深色玻璃带清晰可见，位于道路旁地面。",
+   "reasoning": "外形、尺度及位置均符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为一辆白色小汽车，车身呈细长圆角矩形，可见车顶和车窗。",
+   "reasoning": "目标位于道路旁停车区域，形状和尺度符合小汽车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为一辆白色小汽车，车顶及前后挡风玻璃形成的深色区域可见。",
+   "reasoning": "外观、朝向和所在位置均与机动车相符。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.76,
+   "health": {
+    "at": 1791543356.7250538,
+    "available_fraction": 0.4440622209273142,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f1caa3e7d9c0454689c98d124ced313d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3a4ebaa955a429d9f744f5dd95184439c436fbfa562aa1137630bf0275a0c5d6"
+}

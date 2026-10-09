@@ -1,0 +1,30 @@
+{
+ "unit": "2afc52e75d5645a69a620a7418d8733b",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "2afc52e75d5645a69a620a7418d8733b:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘一个小型人员目标",
+   "reasoning": "框内可见位于道路上的细小竖向人形目标，位置和尺度符合俯拍人员特征；红色叠加标注不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.95,
+   "health": {
+    "at": 1791545023.1569908,
+    "available_fraction": 0.44848588779891785,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8e32604441b84ebc860dec901f6b3f25",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ddd55557816c27e502a8adf5deeda063d2ad2fc0dce3fc560acf6dad5d4ce131"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_e2d382ae797765fb",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-031",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是建筑屋顶或屋面边缘区域，没有看到符合人员特征的头部、肩部或竖长躯干。",
+   "reasoning": "候选框位于屋顶/建筑区域，框内可见的实际形状和尺度不符合俯拍人员，不能判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.32,
+   "health": {
+    "at": 1791546986.7752588,
+    "available_fraction": 0.445353403300524,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "55c3a72b2f6847e0a45a5472fff9149c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "34846026ebeffef6a92c71a25484988c80e3bcbbfa2824e4c309eccfa6c24d5c"
+}

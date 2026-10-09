@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内可见的是建筑屋顶及其边缘结构，不是人员。",
+   "reasoning": "候选框位于建筑物屋顶区域，内部呈现规则的屋面/墙体结构，未见人员所需的头部、肩部或竖长躯干腿部形态，位置和尺度也不符合人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 38.27,
+   "health": {
+    "at": 1791540802.4058816,
+    "available_fraction": 0.40651180544341303,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "417b0da653ee4ebaac93c705c908db40",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5722058e6ad74e72470f2b5be050b8e601236e9c4e8848bd9e7f93b0caec8156"
+}

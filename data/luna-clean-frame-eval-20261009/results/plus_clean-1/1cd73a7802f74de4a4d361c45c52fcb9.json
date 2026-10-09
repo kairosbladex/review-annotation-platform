@@ -1,0 +1,46 @@
+{
+ "unit": "1cd73a7802f74de4a4d361c45c52fcb9",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见一辆位于道路旁地面上的小汽车，车身呈细长圆角矩形，尺度和位置符合车辆特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内是停放在道路旁地面上的小汽车，可见车顶和深色车窗带，形状及尺度符合车辆。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见一辆位于路旁停车区域的小汽车，车身轮廓、颜色和尺度均符合车辆特征。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.45,
+   "health": {
+    "at": 1791543381.74014,
+    "available_fraction": 0.4450922058586051,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3247c34a1cb24c61bc890997c175ceeb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3a4ebaa955a429d9f744f5dd95184439c436fbfa562aa1137630bf0275a0c5d6"
+}

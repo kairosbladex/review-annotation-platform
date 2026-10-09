@@ -1,0 +1,30 @@
+{
+ "unit": "1ba19da08d5f4139817f9ccdf307f086",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "1ba19da08d5f4139817f9ccdf307f086:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在绿化带旁停车区域的小汽车，车顶和深色车窗带清晰可辨。",
+   "reasoning": "目标呈机动车常见的圆角长方形外观，尺度和位置与停车区域相符，不是标线或建筑设备。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.28,
+   "health": {
+    "at": 1791541962.7276826,
+    "available_fraction": 0.42608206633928625,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "178508f6403f4b72acd09f03ca8002c6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ad04f377ec7a1926a679f8bda18b11beda96617f9bdfed5fb083630d3cc5fbf8"
+}

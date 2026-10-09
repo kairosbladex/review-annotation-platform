@@ -1,0 +1,30 @@
+{
+ "unit": "130ef3869a854a3da8b2020912f3ef84",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "130ef3869a854a3da8b2020912f3ef84:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，位于铺装人行区域。",
+   "reasoning": "目标呈现人员特征，尺度较小且位置符合人员站立区域；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.86,
+   "health": {
+    "at": 1791543257.181708,
+    "available_fraction": 0.4449859575974894,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6a79df79d51d4e14b14603553902c66f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "69b796471b4553ffcc179e8e72a7d4827ba9e46666f2ce64840c000d8eb2748d"
+}

@@ -1,0 +1,46 @@
+{
+ "unit": "2d3a279501444052a534c76b4484575d",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "2d3a279501444052a534c76b4484575d:004",
+   "decision": "true",
+   "image_limitation": "无遮挡，车辆形状和车顶清晰可见。",
+   "observed_object": "道路旁的一辆机动车。",
+   "reasoning": "框内可见细长圆角车身、深色车窗区域，尺度和位置均符合车辆特征。",
+   "target_index": 0
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:005",
+   "decision": "true",
+   "image_limitation": "部分邻近树木遮挡，但主体轮廓仍清楚。",
+   "observed_object": "道路旁的一辆机动车。",
+   "reasoning": "可见车顶、车身及深色挡风玻璃带，形状和尺度符合小汽车。",
+   "target_index": 1
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:008",
+   "decision": "true",
+   "image_limitation": "无遮挡，目标主体较完整。",
+   "observed_object": "道路旁的一辆机动车。",
+   "reasoning": "框内为与车道方向一致的细长车辆，具有车身和深色玻璃区域，符合机动车外观。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.84,
+   "health": {
+    "at": 1791545660.1837738,
+    "available_fraction": 0.4498534047597275,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7b862efc9fc84c368f02b9e70c967c7c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a30493199ee07edec189666d3fc0b94af472cf120fd3a054e69d9539bcdcc5c3"
+}

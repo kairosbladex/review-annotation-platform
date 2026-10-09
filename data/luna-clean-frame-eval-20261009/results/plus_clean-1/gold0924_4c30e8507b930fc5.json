@@ -1,0 +1,38 @@
+{
+ "unit": "gold0924_4c30e8507b930fc5",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-035",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个位于屋顶空地上的小型人员目标。",
+   "reasoning": "目标呈竖长窄形，位于可站立的屋顶区域，尺度与俯拍人员相符，不像设备或其他固定物体。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-036",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个位于屋顶边缘空地上的小型人员目标。",
+   "reasoning": "目标呈细长的人体轮廓，所在位置可供人员站立，形状和尺度符合俯拍人员特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.9,
+   "health": {
+    "at": 1791545880.6224258,
+    "available_fraction": 0.4493479123174293,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1381ebf183f940e3b6277a71b24152f0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a3298f105aeca2ccfe79a48b09b59bc3f4ab1c1396823d62b098f9dd02fb0a33"
+}

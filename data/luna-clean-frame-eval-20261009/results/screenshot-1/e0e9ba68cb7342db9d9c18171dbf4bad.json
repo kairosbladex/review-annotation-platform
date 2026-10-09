@@ -1,0 +1,30 @@
+{
+ "unit": "e0e9ba68cb7342db9d9c18171dbf4bad",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e0e9ba68cb7342db9d9c18171dbf4bad:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆机动车，呈细长矩形车身，位于道路边缘，尺度和朝向符合车辆特征。",
+   "reasoning": "目标虽部分靠近画面左边缘且有红框覆盖，但实际露出的车身轮廓、深色车窗带及道路位置均与车辆相符，不是标线或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 27.11,
+   "health": {
+    "at": 1791546113.5290534,
+    "available_fraction": 0.4509494794534407,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c7962db03f04434e940fc8a39d10c59e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "223d5167792c0139f0df8905d1d442b8ed9ecffdfe73a4766ac49b8efaeedae7"
+}

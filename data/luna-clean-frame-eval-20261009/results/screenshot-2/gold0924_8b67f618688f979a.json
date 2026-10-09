@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_8b67f618688f979a",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-025",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个竖长的人体，头部和躯干轮廓清晰，位于铺装岸边可站立区域。",
+   "reasoning": "目标外观与人员相符，尺度明显小于汽车宽度，未见车辆或其他设施特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.94,
+   "health": {
+    "at": 1791543832.328334,
+    "available_fraction": 0.44487970933637366,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "eec912a70a984a66bc687d2c148eebb6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "95ebda553add235beaee34dbdaced7b11dc92a78e5013ba86e16da15c9944824"
+}

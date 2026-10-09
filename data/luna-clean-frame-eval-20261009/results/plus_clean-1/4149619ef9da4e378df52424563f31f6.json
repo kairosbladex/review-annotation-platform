@@ -1,0 +1,30 @@
+{
+ "unit": "4149619ef9da4e378df52424563f31f6",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "4149619ef9da4e378df52424563f31f6:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内实际为路面上的小型井盖或排水口一类设施，并非人员。",
+   "reasoning": "框内可见的是一个小型圆形黑白设施，位于铺装路面上，缺少人员应有的头顶、肩部或躯干腿部轮廓，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.03,
+   "health": {
+    "at": 1791543873.9872375,
+    "available_fraction": 0.4461886757532895,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f7629486f5ed431cbdee511628d009d7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d1eb1b145c2124ccb931fa26409c9a5979617f3d3db452695f4a14e0f62aad98"
+}

@@ -1,0 +1,134 @@
+{
+ "unit": "499993a0d9614b97accdba65edc23687",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "499993a0d9614b97accdba65edc23687:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型行人",
+   "reasoning": "框内可见位于道路区域的细小人员目标，形态和尺度符合俯拍人员。",
+   "target_index": 0
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "位于右上侧人行区域，框内目标呈人员大小和形态。",
+   "target_index": 1
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "框内可见人员目标，与相邻人行区域位置和尺度相符。",
+   "target_index": 2
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "道路上的小型目标呈人员外观，尺度明显小于车辆。",
+   "target_index": 3
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "左侧道路边缘可见小型人员目标，位置适合站立且尺度符合。",
+   "target_index": 4
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "框内目标位于道路区域，呈俯拍人员的细小形态。",
+   "target_index": 5
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "上方步行区域可见人员目标，形态和尺度符合。",
+   "target_index": 6
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:009",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "地面上的小型标记或设施",
+   "reasoning": "框内位于草地/步道附近，未见可确认的人员形态，更像固定设施或地面标记。",
+   "target_index": 7
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "右侧路口附近可见小型人员目标，位置和尺度符合。",
+   "target_index": 8
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "框内目标位于右侧人行区域，呈人员大小和轮廓。",
+   "target_index": 9
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "中心道路区域可见细小人员目标，尺度小于车辆且形态符合。",
+   "target_index": 10
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "左侧道路上的目标呈小型人员轮廓，位置适合行走。",
+   "target_index": 11
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "下方道路边缘可见小型人员目标，形态和尺度符合俯拍人员。",
+   "target_index": 12
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "左侧道路区域可见小型人员目标，位置和外观符合。",
+   "target_index": 13
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 26.68,
+   "health": {
+    "at": 1791542334.8142304,
+    "available_fraction": 0.43083539162105844,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "65aaed07c65942f9abde02af3becfa5d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "13016294ef75b396ef90679ea007092782ec72f61ad388ba3cb732891a47f56b"
+}

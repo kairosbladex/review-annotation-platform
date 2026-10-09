@@ -1,0 +1,38 @@
+{
+ "unit": "050c0225148447599f271d45797e1b41",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左边缘，仅露出很小部分，无法确认是否为公交车。",
+   "observed_object": "左侧边缘可见一个被截断的矩形区域，实际物体大部分出画。",
+   "reasoning": "无法观察到公交车所需的长车身、平整车顶及整体尺度特征，因此不能确认或排除。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:001",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左下边缘，仅露出局部，主体大部分出画。",
+   "observed_object": "边缘处可见狭窄的黄色框内局部物体，无法辨认完整车形。",
+   "reasoning": "虽然位置可能在道路附近，但露出部分不足以确认圆角长方形车身及与车道相符的尺度，不能判定为车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.74,
+   "health": {
+    "at": 1791541723.8298612,
+    "available_fraction": 0.4158131643024326,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ea37c0b6c34c41e3808a6f4519257442",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "04149a873c200cb598f8097a37c9ce2b239bf6906571f7774e95151d64924ccc"
+}

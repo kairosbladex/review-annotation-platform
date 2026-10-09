@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_bff2ed58618cd425",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一个小型人员目标，呈细长竖向轮廓，位于可站立的车道路面区域。",
+   "reasoning": "框内实际目标虽小，但可见其竖长的人体轮廓，尺度明显小于车辆宽度，位置也符合人员活动区域；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.67,
+   "health": {
+    "at": 1791542441.9373775,
+    "available_fraction": 0.4132506508047994,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "577c4c4b5d6f424487ed76d2e61a9fb3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f790275b5a884e6a283cac885e16137f874bf4c014f0f51618d35eb3f6ae1f20"
+}

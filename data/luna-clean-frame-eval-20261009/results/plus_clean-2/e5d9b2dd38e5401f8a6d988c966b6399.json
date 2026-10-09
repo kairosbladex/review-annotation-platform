@@ -1,0 +1,30 @@
+{
+ "unit": "e5d9b2dd38e5401f8a6d988c966b6399",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e5d9b2dd38e5401f8a6d988c966b6399:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路上的白色小汽车，车顶和车身轮廓清晰，尺度与道路相符。",
+   "reasoning": "目标呈圆角长方形车身，位于道路区域，外观和位置均符合机动车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.54,
+   "health": {
+    "at": 1791540491.2792447,
+    "available_fraction": 0.447606960838867,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d795da1a83de48bb9f46dc699ab6302b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4943e7e8a76c955edb3a53468363bb219e7ea701f6959550ebc4ff3cee437dbe"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "9004cbad92554824930663ab17e0400c",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9004cbad92554824930663ab17e0400c:000",
+   "decision": "false",
+   "image_limitation": "框内实际主要是岸边平台/地面边缘及红色叠加标注，没有可确认的人员头部、肩部或躯干腿部特征。",
+   "observed_object": "平台边缘和红色标注框文字",
+   "reasoning": "目标位置紧邻岸边结构，框内未见符合人员外观和尺度的实际人体，因此该人员框不成立。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 40.99,
+   "health": {
+    "at": 1791542439.2168996,
+    "available_fraction": 0.4143413446852887,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4bac2fe75cf94b64ad667c66eadf3a2a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2a896021961be47616a0d02388e6ff45319785c17da5a94e6ba9004fdd198f3c"
+}

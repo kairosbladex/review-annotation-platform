@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_5f8ae6af38734aaf",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0d716cff82d14e248530e2e8af69b96b",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为建筑屋顶上的灰白色设备及管线区域，并非蓝色或绿色顶棚。",
+   "reasoning": "目标主体颜色为灰白色，呈屋顶设备/管道形态，位置和外观均不符合蓝色或绿色成片顶棚的类别要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.23,
+   "health": {
+    "at": 1791542682.3038065,
+    "available_fraction": 0.428166477861936,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f0d1c723e8a34891b18d23b774884e2b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a7a2d67d5f29862b247570530d6c8e271a702337d2534b16e72287fed318fff2"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "a4d041acab414e5d8e428eef20afeafc",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型三轮车，呈前窄后宽的轮廓，后部较宽，位置位于道路区域。",
+   "reasoning": "目标外形符合三轮车特征，虽部分结构较小且俯拍角度导致车轮不完全清晰，但整体轮廓和尺度均与三轮车相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.92,
+   "health": {
+    "at": 1791542635.190965,
+    "available_fraction": 0.42911973300465583,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e6a93c6ec0644fe48bdd3b19020ef2fa",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "85d2ffe8761dec48cc0c5882cc5b48fc68b158d70c4e4bae97a6afa719a52cb5"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "130ef3869a854a3da8b2020912f3ef84",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "130ef3869a854a3da8b2020912f3ef84:000",
+   "decision": "false",
+   "image_limitation": "无遮挡且清晰可见。",
+   "observed_object": "框内是一个小型白色监控摄像头或类似设备，不是人员。",
+   "reasoning": "目标呈白色横向设备状，位于墙面/地面区域，缺少人员应有的头部、肩部或躯干腿部轮廓，形状和尺度也不符合人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.44,
+   "health": {
+    "at": 1791543242.7146661,
+    "available_fraction": 0.44325099493364517,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d7600fd47391424eb778098a96d7cf90",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "69b796471b4553ffcc179e8e72a7d4827ba9e46666f2ce64840c000d8eb2748d"
+}

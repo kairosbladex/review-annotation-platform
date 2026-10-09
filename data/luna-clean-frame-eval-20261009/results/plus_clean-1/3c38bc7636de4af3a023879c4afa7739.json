@@ -1,0 +1,38 @@
+{
+ "unit": "3c38bc7636de4af3a023879c4afa7739",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左侧边缘，仅露出很小一部分，无法确认完整车形。",
+   "observed_object": "左侧边缘框内可见局部物体，但被裁切且红色标注遮挡。",
+   "reasoning": "无法根据现有可见区域确认其是否为机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:001",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左侧边缘，仅露出局部，且被红色标注遮挡。",
+   "observed_object": "框内只见少量局部轮廓，无法判断是否具有驾驶室与货厢分段。",
+   "reasoning": "目标出画且可见信息不足，无法确认或排除卡车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.62,
+   "health": {
+    "at": 1791545929.2198386,
+    "available_fraction": 0.44995466740859064,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "87fe0907db444e7dbb7d3b6633490fa4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "18d257942db8dae4aadda2babee0d74433969b792f78697754591851382e5984"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "b4b82f598f4440acbf3e33427b608a7a",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b4b82f598f4440acbf3e33427b608a7a:000",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，未见人员特征。",
+   "observed_object": "一个小型圆形孔洞或管道开口，位于铺装地面上。",
+   "reasoning": "框内实际物体呈圆形开口状，没有俯视人员应有的头顶、肩部或躯干轮廓；位置和尺度也更符合地面设施，而非人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.92,
+   "health": {
+    "at": 1791542011.9913166,
+    "available_fraction": 0.4254668600273552,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2697fd33effc48c9900fb379b4212095",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dc3a3050b49846bf41d2efbe49dcaa905b1ed970186452860357551da527a57a"
+}

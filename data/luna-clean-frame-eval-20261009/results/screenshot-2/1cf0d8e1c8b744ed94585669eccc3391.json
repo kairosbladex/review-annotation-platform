@@ -1,0 +1,38 @@
+{
+ "unit": "1cf0d8e1c8b744ed94585669eccc3391",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1cf0d8e1c8b744ed94585669eccc3391:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路车道上的小汽车，车身呈细长圆角矩形，符合车辆外观和道路位置。",
+   "reasoning": "目标形状、尺度及所在道路位置均与机动车相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1cf0d8e1c8b744ed94585669eccc3391:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的小汽车，能辨认出车顶和车身轮廓。",
+   "reasoning": "车辆与车道方向一致，尺度和外观符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.79,
+   "health": {
+    "at": 1791543387.0782928,
+    "available_fraction": 0.44448499476632314,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ad427a3027454808a7bf273b6ec7fecd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6ac49296f5f4ec21796a3e17cbaae6c8ce1359163ba86038aafc3ec7396bbff5"
+}

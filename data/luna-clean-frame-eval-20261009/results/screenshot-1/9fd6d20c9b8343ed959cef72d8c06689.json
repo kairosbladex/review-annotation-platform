@@ -1,0 +1,30 @@
+{
+ "unit": "9fd6d20c9b8343ed959cef72d8c06689",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9fd6d20c9b8343ed959cef72d8c06689:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "岸边的小型红色标记/设施状物体，不具有人体头部、肩部或躯干腿部特征。",
+   "reasoning": "框内实际物体呈规则的窄长矩形，位于岸边边缘，尺度和外观均不像人员，更接近固定设施或标记物，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.06,
+   "health": {
+    "at": 1791542941.3390017,
+    "available_fraction": 0.4257447167102158,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "66436277e02045b6a93693e847f8118a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e7f83cbcfc546c0e04359e7f1fe05d9f0a8af88ed3c19df16c3e74b7e2b5d084"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "050c0225148447599f271d45797e1b41",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:000",
+   "decision": "false",
+   "image_limitation": "目标位于画面左侧道路边缘，框内可见的是一辆长度与普通小汽车相当的车辆，未呈现公交车或大客车的长车体特征。",
+   "observed_object": "道路上的小型车辆",
+   "reasoning": "车辆尺寸和外形明显不符合公交车的一体式长方形车体及约为小汽车2.5到4倍的长度，因此不是公交车。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:001",
+   "decision": "true",
+   "image_limitation": "目标大部分位于画面左下边缘，仍能看到完整的细长车身轮廓及车顶/玻璃区域。",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内是位于道路上的机动车，尺寸、长方形车身和朝向均与普通小汽车相符，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.61,
+   "health": {
+    "at": 1791541730.7823052,
+    "available_fraction": 0.41741348503538084,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c7b83425bf524d7ab6e27ecb17bb61cc",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "04149a873c200cb598f8097a37c9ce2b239bf6906571f7774e95151d64924ccc"
+}

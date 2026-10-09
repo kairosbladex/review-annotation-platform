@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_deb3b561f0a020d5",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:22f50e485cd4400f9828b3b8b218857a",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "建筑侧面的浅蓝色矩形区域，像墙面或窗体，不是覆盖在建筑上方的蓝绿色顶棚。",
+   "reasoning": "候选框内没有可见的成片屋面、彩钢瓦或篷布结构，位置和形态也不符合顶棚特征，因此不属于违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 18.64,
+   "health": {
+    "at": 1791545599.4358723,
+    "available_fraction": 0.44977913737720804,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c116b5b9774649bcac3ff60f60e3325e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5f2e7cd0058ab17242262fc88fbeffd8903c8780a4af7bf1f46cabc658811b0b"
+}

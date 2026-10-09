@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_5c42156a21e911fb",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-034",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内可见的是建筑物/屋顶边缘附近的小型固定物体，不呈现人员头顶、肩部或躯干腿部形态。",
+   "reasoning": "该候选框位于建筑屋顶边缘，目标形状偏方正且为固定设施，缺少人员应有的略长椭圆或竖长窄躯干特征，位置和尺度也不符合人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.06,
+   "health": {
+    "at": 1791542514.4053516,
+    "available_fraction": 0.41023532819434255,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2506884a08504bb1866b477c699eb8c3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4fcc3c233c9f561cca05ad85dcb84a4f0f0f0de6f7ee1f66f6f3858dc2ae09eb"
+}

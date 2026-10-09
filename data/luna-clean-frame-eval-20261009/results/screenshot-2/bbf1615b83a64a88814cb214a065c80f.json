@@ -1,0 +1,30 @@
+{
+ "unit": "bbf1615b83a64a88814cb214a065c80f",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "bbf1615b83a64a88814cb214a065c80f:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路边缘的机动车，呈细长圆角车身，尺度和朝向与道路相符。",
+   "reasoning": "目标具备俯拍车辆的车身轮廓和颜色特征，所在位置为道路区域，不是建筑设备或标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.12,
+   "health": {
+    "at": 1791545756.1887057,
+    "available_fraction": 0.44883573185869463,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "33c7ef5174744161b97b823b22afb59c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "570e4751661ce018ad2527db4b8fcbc59b0f1c67f56067aaa1b9b3c2930822e4"
+}

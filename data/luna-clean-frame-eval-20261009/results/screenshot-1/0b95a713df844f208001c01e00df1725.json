@@ -1,0 +1,30 @@
+{
+ "unit": "0b95a713df844f208001c01e00df1725",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:0b95a713df844f208001c01e00df1725:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的小汽车，车顶呈长方形，带有深色车窗区域，尺度和朝向与车道相符。",
+   "reasoning": "该目标具备机动车的俯拍外观特征，位置也在道路车道内，符合“车”的类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.15,
+   "health": {
+    "at": 1791542746.3566175,
+    "available_fraction": 0.4248581289313377,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aa35f5b794044461ac2ca0ea97e933a7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b08131ac5371b2088898ceb2717edaca0822a9efaed6ba3d010dbcae8c093be4"
+}

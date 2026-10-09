@@ -1,0 +1,30 @@
+{
+ "unit": "58a7ebf8a4f54f698031091a32eba7e3",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:58a7ebf8a4f54f698031091a32eba7e3:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左下边缘，只有小部分露出且被裁切，无法完整确认车身形状。",
+   "observed_object": "框内可见局部灰色物体，紧邻道路边缘，但目标大部分出画。",
+   "reasoning": "虽然位置接近道路且局部外观可能是车辆，但露出范围过小，无法确认其是否具备机动车的完整形状和尺度特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.46,
+   "health": {
+    "at": 1791546184.9812238,
+    "available_fraction": 0.4512628130234893,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "156895db83eb430b87ab18ccd47079fd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7fe7c0664c8115b2aed924b28ed09b6bbdf3f5504f65455a5bf22ca8ef76d532"
+}

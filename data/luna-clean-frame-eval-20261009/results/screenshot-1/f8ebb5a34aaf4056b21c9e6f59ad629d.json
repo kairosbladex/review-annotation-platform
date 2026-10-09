@@ -1,0 +1,30 @@
+{
+ "unit": "f8ebb5a34aaf4056b21c9e6f59ad629d",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f8ebb5a34aaf4056b21c9e6f59ad629d:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被红色标注框部分遮挡，无法清晰确认整体轮廓。",
+   "observed_object": "框内可见狭长浅色物体，但前窄后宽及三轮车结构特征不明确。",
+   "reasoning": "仅凭当前俯拍图无法确认是三轮车，也不足以排除其他箱体或车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.95,
+   "health": {
+    "at": 1791546219.795208,
+    "available_fraction": 0.45033129393418797,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f87e837c4d984516a617745212c219c5",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b61d57adb811df9db79c4856ee5acdd7441e0a670874963663eb16f381dfbcec"
+}

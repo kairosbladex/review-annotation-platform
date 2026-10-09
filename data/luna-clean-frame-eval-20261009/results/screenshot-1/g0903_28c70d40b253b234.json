@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_28c70d40b253b234",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:325c7e4db91441718685ea2d6a6fa556",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是树冠、道路边缘及建筑/棚架的局部，未见蓝色或绿色成片顶棚。",
+   "reasoning": "候选框位置处可见的主体不是蓝绿色屋面，且框内没有符合违建类别特征的蓝色或绿色顶棚，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.95,
+   "health": {
+    "at": 1791544781.2508478,
+    "available_fraction": 0.45101894362415584,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4c40be5de80b4343b915905b4a3e0e67",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4e943475937cfeb8099b1a2c022dd1152c18669898baeca738acb37d2a22dbaa"
+}

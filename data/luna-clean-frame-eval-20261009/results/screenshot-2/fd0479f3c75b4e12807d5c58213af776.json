@@ -1,0 +1,30 @@
+{
+ "unit": "fd0479f3c75b4e12807d5c58213af776",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "fd0479f3c75b4e12807d5c58213af776:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在地面上的小型机动车，呈狭长圆角车体形状，带有深色车窗区域。",
+   "reasoning": "目标位于道路/停车区域附近，外形和尺度符合机动车特征，不像设备箱或其他地面设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 24.36,
+   "health": {
+    "at": 1791537606.328149,
+    "available_fraction": 0.4422297044237216,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "af1d70fd2c31425b800fb8e03bf04d9f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbcf377ccb16574d6eaf1893785be742683a7d33e921dbc82cd5b92c80a15e01"
+}

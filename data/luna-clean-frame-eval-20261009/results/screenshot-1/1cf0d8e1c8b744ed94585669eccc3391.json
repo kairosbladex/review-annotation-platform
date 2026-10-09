@@ -1,0 +1,38 @@
+{
+ "unit": "1cf0d8e1c8b744ed94585669eccc3391",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1cf0d8e1c8b744ed94585669eccc3391:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路车道上的小汽车，车顶和深色车窗带清晰，形状与尺度符合机动车特征。",
+   "reasoning": "目标处于道路上，呈细长圆角车体，与车道方向一致，符合“车”的外观要点。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1cf0d8e1c8b744ed94585669eccc3391:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的小汽车，车身和车窗区域可辨，位置与道路尺度相符。",
+   "reasoning": "目标呈机动车俯视外形，位于车道内且朝向与道路一致，符合“车”的类别特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.57,
+   "health": {
+    "at": 1791543413.642231,
+    "available_fraction": 0.4453781793614136,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "25c8efaad6bc43cca7a412d0665cbc03",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6ac49296f5f4ec21796a3e17cbaae6c8ce1359163ba86038aafc3ec7396bbff5"
+}

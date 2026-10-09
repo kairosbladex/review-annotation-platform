@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_0c6c2321248635bf",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的一名人员",
+   "reasoning": "框内可见竖长窄的人员躯干和腿部，位于可站立的人行道上，外观与人员类别相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.35,
+   "health": {
+    "at": 1791544415.044385,
+    "available_fraction": 0.44935298912990607,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "71b51ecbcbb14f8e98d46a2b18ad407b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5c73c42a118caa5614a8b5653c78b008e0594f574e7ec38b65a807bbb9b88eec"
+}

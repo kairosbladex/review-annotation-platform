@@ -1,0 +1,70 @@
+{
+ "unit": "f32dd42fe9e1430ba99778c2bf4bd194",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路停车位内的小汽车",
+   "reasoning": "框内可见车顶、前后深色玻璃带，长方形车身与停车位尺度和方向相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路停车位内的小汽车",
+   "reasoning": "可见完整车顶及深色车窗带，形状、位置和尺度符合机动车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路停车位内的小汽车",
+   "reasoning": "框内是停靠在路边的小汽车，车身轮廓和车顶玻璃区域清晰。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路停车位内的小汽车",
+   "reasoning": "可见车顶和车窗，长宽比例、朝向及与停车位的尺度关系均符合车辆。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路停车位内的小汽车",
+   "reasoning": "框内可见路边停车车辆的车顶和车身轮廓，符合机动车外观。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路停车位内的小汽车",
+   "reasoning": "框内目标呈车顶、挡风玻璃和均匀车身组成的长圆角矩形，位置也符合路边停车。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 51.03,
+   "health": {
+    "at": 1791543136.9528105,
+    "available_fraction": 0.44179349375169025,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e8f8f54964324d498c23ec8ac069f17c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "604f62c13a8739e725aa4ce2abe002da0a0e6ae014da6714d55c1f8b6af8f110"
+}

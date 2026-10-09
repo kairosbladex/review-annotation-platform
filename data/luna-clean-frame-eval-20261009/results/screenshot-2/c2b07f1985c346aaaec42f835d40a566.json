@@ -1,0 +1,30 @@
+{
+ "unit": "c2b07f1985c346aaaec42f835d40a566",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c2b07f1985c346aaaec42f835d40a566:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，呈俯视下的长方形车身轮廓，尺寸与旁侧停车位相符。",
+   "reasoning": "目标位于道路旁停车区域，车顶和深色车窗带清晰可见，形状、尺度及位置均符合机动车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.33,
+   "health": {
+    "at": 1791544846.6018,
+    "available_fraction": 0.4293244471077612,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2984f6e22ef9496a914f8fa4f603194e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "22f1df8e4688428e92b766522300bc1247bb50585fecef25752743d8a10dbbed"
+}

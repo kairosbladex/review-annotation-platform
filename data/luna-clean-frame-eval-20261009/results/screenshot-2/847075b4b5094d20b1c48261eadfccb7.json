@@ -1,0 +1,142 @@
+{
+ "unit": "847075b4b5094d20b1c48261eadfccb7",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:000",
+   "decision": "uncertain",
+   "image_limitation": "目标仅在左侧边缘露出，车形不完整。",
+   "observed_object": "边缘处部分被截断的物体",
+   "reasoning": "无法仅凭露出区域确认完整机动车外形，也不足以排除其他物体。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见规则的圆角车身和深色车窗带，位于道路边缘，尺度与车辆相符。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "可见纵向车身、车窗和道路位置，外形与机动车一致。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内为道路上的纵向车辆，车身和挡风玻璃特征清楚。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见完整的纵向车身和深色玻璃区域，位置及尺度符合机动车。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内车辆形状明确，位于车道上，纵向尺度与道路车辆一致。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见横向车身、车窗和车顶轮廓，位于道路上。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内为道路上的横向小汽车，车身轮廓和深色玻璃带可辨。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的小汽车",
+   "reasoning": "框内可见小汽车车身和车窗，停在道路旁，尺度符合车辆。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的小汽车",
+   "reasoning": "车身呈规则长方形并带深色窗区，位置与车辆停放区域相符。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的小汽车",
+   "reasoning": "框内目标具有明确车顶、车身和玻璃带特征。",
+   "target_index": 10
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见完整横向车辆轮廓，位于道路上且尺度合理。",
+   "target_index": 11
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "目标为横向停放的小汽车，车身与车窗特征清楚。",
+   "target_index": 12
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见车辆车身和深色玻璃区域，位于车道边缘。",
+   "target_index": 13
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:020",
+   "decision": "uncertain",
+   "image_limitation": "目标位于最右侧边缘，车身大部分出画。",
+   "observed_object": "右侧边缘的部分物体",
+   "reasoning": "露出区域不足以稳定确认完整机动车外形。",
+   "target_index": 14
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 20.85,
+   "health": {
+    "at": 1791546808.796351,
+    "available_fraction": 0.4440848081828246,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "319bf0d0c6c541819056c35ef7cdcf36",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d5642cc87088edd9ee30be7656d9bee132683b61f2210236bb16134e89e84fac"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_f7d6c84a09502d54",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一个小型行人，呈细长的人体轮廓，可见头部和躯干。",
+   "reasoning": "框内目标位于车道上，实际外观符合俯拍人员的尺度和形态，不是车辆、树木或道路设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.91,
+   "health": {
+    "at": 1791544719.224403,
+    "available_fraction": 0.4506434115012481,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f1b29e62eeaa4fad90fbee68c778e94f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5e2299de5b228ba0374ea0be20147eac18542a38e5945ca8b2a49475335b0dd"
+}

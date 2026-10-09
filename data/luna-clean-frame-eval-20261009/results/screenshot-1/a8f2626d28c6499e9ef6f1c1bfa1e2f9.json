@@ -1,0 +1,46 @@
+{
+ "unit": "a8f2626d28c6499e9ef6f1c1bfa1e2f9",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路旁的机动车，车身呈细长圆角矩形，位置和尺度与道路车辆一致。",
+   "reasoning": "符合机动车的俯拍外观及道路位置特征。",
+   "target_index": 0
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路或路旁区域的机动车，能辨认车顶和深色玻璃区域。",
+   "reasoning": "外形、朝向和所在位置均与车辆相符。",
+   "target_index": 1
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，位于建筑旁的地面道路区域。",
+   "reasoning": "目标具有车辆的长方形车身外观，尺度与周围道路环境相符。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 25.15,
+   "health": {
+    "at": 1791536803.1848228,
+    "available_fraction": 0.4495220743454499,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b44724442db44f9e818a7805b068aa15",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c3e55c806e9c0e6fc7dd71bff5f06ce3c0402068d8be3b5917285b5e78bda4d1"
+}

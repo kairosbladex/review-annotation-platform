@@ -1,0 +1,30 @@
+{
+ "unit": "19180436c82b45a9938e90640c334526",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "19180436c82b45a9938e90640c334526:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路车道中的小型机动车，呈细长圆角车身轮廓，尺度和朝向与车道相符。",
+   "reasoning": "目标位于道路上，实际物体具备车辆俯拍外观，红色标注文字和框线不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.78,
+   "health": {
+    "at": 1791544543.219025,
+    "available_fraction": 0.44946853981388346,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8b2d16a1a9ae4a3982ce8b4859c62ede",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6e739bf7f6c86a3cf8ffae25a314b29844ea525341764f4a49eccf1dcea8d257"
+}

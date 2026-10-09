@@ -1,0 +1,30 @@
+{
+ "unit": "80d244bd5c7243f884081df5ae768702",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "80d244bd5c7243f884081df5ae768702:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的小汽车，车身呈细长圆角矩形，尺度和朝向与车道相符。",
+   "reasoning": "该目标具备机动车的俯拍外观特征，位于道路区域，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.39,
+   "health": {
+    "at": 1791544815.5700018,
+    "available_fraction": 0.43224306708056165,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "33abfc02b5494618969699f5028242a8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4ef21e7fb6a2327e1c45a91dd3add0c5e424e082e3e4cae6d2ce2080b09ab463"
+}

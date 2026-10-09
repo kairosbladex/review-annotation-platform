@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_e2d382ae797765fb",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-031",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型、竖长的深色目标，位于建筑/道路边缘的可站立区域，尺度明显小于汽车宽度，外观符合俯拍人员。",
+   "reasoning": "框内目标呈细长小体形，位置和尺度与人员相符，未见其明显属于车辆、树木或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 18.38,
+   "health": {
+    "at": 1791546990.8054268,
+    "available_fraction": 0.44477206267182123,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6472165c3349408b8c2a2ffb6674125a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "34846026ebeffef6a92c71a25484988c80e3bcbbfa2824e4c309eccfa6c24d5c"
+}

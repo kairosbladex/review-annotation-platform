@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_bff2ed58618cd425",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-013",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡，判断依据充分。",
+   "observed_object": "车道上的小汽车局部或车辆目标，并非人员。",
+   "reasoning": "框内实际可见的是位于道路中央附近的车辆形状，尺度和外观不符合俯拍人员的小椭圆或窄小躯干特征，因此该人员框类别错误。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 7.0,
+   "health": {
+    "at": 1791542441.9311159,
+    "available_fraction": 0.41325262680965563,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2e6b694dac2240fe91e3a385fa06b3ad",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f790275b5a884e6a283cac885e16137f874bf4c014f0f51618d35eb3f6ae1f20"
+}

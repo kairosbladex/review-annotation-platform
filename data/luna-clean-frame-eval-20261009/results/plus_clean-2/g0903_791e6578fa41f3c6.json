@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_791e6578fa41f3c6",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:200d6dd57fd74ca08dab2ce96088fcf8",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是灰色建筑屋面或地面通道，不是蓝色或绿色顶棚。",
+   "reasoning": "该候选框主体颜色为灰色，且形态更像建筑边缘的灰色屋面/通道，不符合违建类别要求的蓝色或绿色成片顶棚。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.15,
+   "health": {
+    "at": 1791541220.0469835,
+    "available_fraction": 0.42758614043569876,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "728308551bfd41639cc77ee635a92ad4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "86914921b4665eabcb65316a024bf130d665c96a49ffe5fb98bc7d7f699064a3"
+}

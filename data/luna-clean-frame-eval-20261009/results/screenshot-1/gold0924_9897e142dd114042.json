@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个竖向、窄小的人体目标，位于建筑前方可站立区域，尺度明显小于汽车宽度，符合斜俯视下人员的外观。",
+   "reasoning": "框内目标呈细长竖向轮廓，周围没有树冠、车辆或其他明显设施特征，位置和尺度与人员相符，因此初审类别正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.17,
+   "health": {
+    "at": 1791544461.0217702,
+    "available_fraction": 0.4495743624739532,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0dc29b24b0924bdeb741c3e94540ce74",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4f0d066de688c5ac6cc175009491b5d02bf960c49b8a548d6b54c99948e96d57"
+}

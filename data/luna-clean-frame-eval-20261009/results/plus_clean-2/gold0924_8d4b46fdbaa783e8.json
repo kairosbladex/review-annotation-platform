@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_8d4b46fdbaa783e8",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-001",
+   "decision": "false",
+   "image_limitation": "框内目标细长且呈规则矩形，位于人行道边缘，更像立式设施或路灯杆等物体；未见人员头部、肩部或躯干腿部的人员外观。",
+   "observed_object": "细长的立式设施/杆状物",
+   "reasoning": "该目标形状规则、宽度明显小于正常人员且缺少人员的头肩或躯干腿部特征，位置和尺度也更符合道路设施，不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.43,
+   "health": {
+    "at": 1791543298.545718,
+    "available_fraction": 0.4434523650285323,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9eef43bcc8da4d67a7f057da882e4eb7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbf3698ccc23c4e2f778d77667969f90283d544e3f895767746b374542a8194f"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "7b60255b248c4620bb7b253826487108",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "7b60255b248c4620bb7b253826487108:000",
+   "decision": "true",
+   "image_limitation": "目标较小，但框内及紧邻区域可见其为站立在岸边的小型人员形状，未被明显遮挡。",
+   "observed_object": "岸边的一名人员，头部和躯干轮廓可见。",
+   "reasoning": "目标位于可站立的岸边位置，尺度明显小于汽车，外观符合俯拍人员特征，不像路灯杆、井盖或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 35.44,
+   "health": {
+    "at": 1791538434.6054952,
+    "available_fraction": 0.4490123562927668,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "60e9001734894782a5c0563d6274bbcb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "411b8ff9efaddfa35c59310fe14901d4f869076ca5aa9fc6225b100cded287e8"
+}

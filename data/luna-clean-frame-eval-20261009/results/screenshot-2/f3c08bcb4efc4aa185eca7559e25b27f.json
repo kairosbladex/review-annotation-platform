@@ -1,0 +1,38 @@
+{
+ "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "蓝绿色长方形立式物体，位于地面附近，并非覆盖在建筑或空地上的顶棚。",
+   "reasoning": "该物体是立在地面的窄长物体，位置和形态不符合蓝色或绿色成片顶棚的特征，因此不属于“违建”。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:001",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "蓝绿色窄长条状物体，沿道路绿化带边缘竖向放置。",
+   "reasoning": "框内主体呈长条状且为地面上的物体，不是覆盖建筑、棚架或空地的蓝绿色屋面，符合排除项，因此判定为false。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.13,
+   "health": {
+    "at": 1791539741.3386028,
+    "available_fraction": 0.3659884754532773,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1e745d1bab414fb1800e52218f710a01",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fdc6066362eb125312147ded59e07c966d259c09457a7a5ac8fdc4d1ed6b1062"
+}

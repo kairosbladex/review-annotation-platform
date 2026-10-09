@@ -1,0 +1,30 @@
+{
+ "unit": "bf64d4b40c7d4bf1b7ff193da2ba90f7",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "bf64d4b40c7d4bf1b7ff193da2ba90f7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名位于水面绳索上的人员，呈小型人体轮廓。",
+   "reasoning": "目标位置和尺度符合俯拍人员特征，虽有红色标注遮挡，仍能辨认出实际人体而非绳索或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.61,
+   "health": {
+    "at": 1791542508.888506,
+    "available_fraction": 0.4100822030180221,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bd76526689524b30b7cc418b77a6f0b7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5a0d531317b3bf9fad782e48a7794c243cf218b169d2d26fc86ce365e980bba"
+}

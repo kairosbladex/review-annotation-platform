@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_30307ae0bd802781",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:18172673ac38432aa6a1d99482f45439",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是道路边缘的蓝绿色长条顶棚或通道结构，呈狭长带状，并非覆盖建筑、棚架或空地的成片屋面。",
+   "reasoning": "根据类别要点，长条状蓝绿色物体属于围挡、通道或类似结构时不判为违建；其形状和位置不符合蓝绿色顶棚的判定口径。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b52575f40fd548eab466771d11f3cc48",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一段蓝绿色矩形顶棚，覆盖在通道或棚架上方，边缘规整且具有连续屋面形态。",
+   "reasoning": "主体为蓝绿色成片矩形屋面，符合蓝色或绿色顶棚的外观判定要点。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.85,
+   "health": {
+    "at": 1791537384.87684,
+    "available_fraction": 0.4498074398467642,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7b613a4aab0140b99d9aba87c2165422",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "540580b9d16856f835f677f29b6e59545b8c439888804fe8caeb7e619fda9b75"
+}

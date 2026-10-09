@@ -1,0 +1,46 @@
+{
+ "unit": "2d3a279501444052a534c76b4484575d",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "2d3a279501444052a534c76b4484575d:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的机动车",
+   "reasoning": "框内可见完整的长方形车身和深色车窗，位置、朝向及尺度均与停车车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的机动车",
+   "reasoning": "框内可见车顶、车窗和车身轮廓，虽有部分遮挡，但车辆形状明确且位于停车区域。",
+   "target_index": 1
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的机动车",
+   "reasoning": "框内可见一辆停放的机动车，具有车身和深色车窗结构，尺度与周边停车车辆一致。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.35,
+   "health": {
+    "at": 1791545653.760153,
+    "available_fraction": 0.44884664548551595,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "54156a68fdaf4351b980c92be459113f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a30493199ee07edec189666d3fc0b94af472cf120fd3a054e69d9539bcdcc5c3"
+}

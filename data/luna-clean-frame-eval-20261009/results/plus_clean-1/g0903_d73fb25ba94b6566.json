@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_d73fb25ba94b6566",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c5cdb3d76ed045489a4f0dba8ac1f473",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡的侧面，旁边是地面道路和绿化，并非覆盖在建筑或空地上方的蓝绿色顶棚。",
+   "reasoning": "框内主体呈长条状、竖直立于地面，符合围挡特征；类别要求的蓝色或绿色顶棚应为覆盖在上方的成片屋面，因此不符合“违建”外观口径。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.23,
+   "health": {
+    "at": 1791542316.2754202,
+    "available_fraction": 0.43094170068232357,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ccd0d729e5ee4bfdaf25b10e989151df",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "28e3b7722e0524b3fec7cf8ce4e5abeb78ccc33863da7fc97ac506d239751173"
+}

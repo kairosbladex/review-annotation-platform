@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_8772805bce1cd3a5",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0f4a7549e8134468b02a4cabaeab093b",
+   "decision": "false",
+   "image_limitation": "框内主体清晰可见，未见遮挡或明显模糊。",
+   "observed_object": "框内是浅灰白色的矩形棚顶/彩钢板屋面，不是蓝色或绿色顶棚。",
+   "reasoning": "该候选框位置对应道路旁的白灰色棚顶，颜色不符合“违建”类别要求的蓝色或绿色顶棚，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.65,
+   "health": {
+    "at": 1791543444.5008552,
+    "available_fraction": 0.4459166254846988,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "675e65873135455eabe0aa5e2dda0557",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d8ebbbd89bf46b086d123c94c5cf51c7242e4c22604138b99757a5df5685cfe6"
+}

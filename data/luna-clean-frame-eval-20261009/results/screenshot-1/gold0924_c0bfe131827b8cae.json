@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_c0bfe131827b8cae",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个体型很小、略呈竖长椭圆的人体，位于道路上，周围尺度明显小于车辆宽度。",
+   "reasoning": "目标位于可站立的路面区域，外形和尺度符合俯拍人员特征，不像树木、车辆部件或其他路面设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.43,
+   "health": {
+    "at": 1791545201.6897895,
+    "available_fraction": 0.44964674505184066,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dbec707e4aee49f8b18338e0f1904b91",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c2e02af70961e135a452b212d2952ce77f74702b1891ade13d405c1d6bf7f1cd"
+}

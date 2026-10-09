@@ -1,0 +1,30 @@
+{
+ "unit": "64f7b907e6214559ac09a8e57c577128",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "64f7b907e6214559ac09a8e57c577128:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯拍人员的头部和肩部，位于岸边铺装区域。",
+   "reasoning": "目标呈小型近椭圆形，包含深色头部及浅色衣物，尺度明显小于汽车且位置符合人员可站立区域，符合人员的俯拍外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.14,
+   "health": {
+    "at": 1791545568.6977804,
+    "available_fraction": 0.4490104714881347,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "97b387016f3f48afbcbe546243697693",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e43bfa1bce4cdefdc7243d89abcc7c6abf294c8d7ac73516e7865495d301d2c5"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "1ff2d9981126461291881a5b638b3ab8",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "1ff2d9981126461291881a5b638b3ab8:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在林间道路旁的小汽车，呈长方形车身并具有车辆尺度和外观特征。",
+   "reasoning": "目标位于地面停车区域，形状、颜色及与周围环境的尺度关系符合机动车特征，属于“车”。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 6.64,
+   "health": {
+    "at": 1791542610.667973,
+    "available_fraction": 0.40695956814383466,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c3ff647e95d44778bdaa3d59ae017b5e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a3c2e165ce39e8bdabfd1b1d587a0803584158ce9b3965efb7e75ceacf8f7107"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_23ed7170a18100cb",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:838cb70eaa904657a3920b516a740ad2",
+   "decision": "false",
+   "image_limitation": "框位于原图最右下角，目标大部分出画，仅能看到建筑屋顶/墙面区域，无法确认蓝色或绿色顶棚。",
+   "observed_object": "灰白色建筑结构及边缘区域，不是可辨认的蓝色或绿色顶棚。",
+   "reasoning": "框内可见主体为灰白色建筑立面或屋顶，颜色和形态均不符合违建类别要求的成片蓝色或绿色顶棚，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.19,
+   "health": {
+    "at": 1791546283.6454756,
+    "available_fraction": 0.44963248741680106,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b01600331c7d461496d625652bc1ac36",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ec1bd56e049e42e5ac273b5862bae846a34e0ee9a607b424f02014ade7c3cfa2"
+}

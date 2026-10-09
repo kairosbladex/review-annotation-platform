@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_2406cc0b0ece4ad9",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-016",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或出画影响判断。",
+   "observed_object": "框内是成排摆放的盆栽植物，而不是人员。",
+   "reasoning": "可见圆形绿色树冠和花盆，位于人行道边并呈规律摆放，符合盆栽特征；不具备人员头部、肩部或躯干腿部的外观。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.29,
+   "health": {
+    "at": 1791546170.3944824,
+    "available_fraction": 0.45022954488412953,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "591683f3b9ab480e890ede6af269fd8a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "42505f20fd1aa4e425f8d3ec5aac1accab0c1ce1b34a9b2820ef58d6d4459481"
+}

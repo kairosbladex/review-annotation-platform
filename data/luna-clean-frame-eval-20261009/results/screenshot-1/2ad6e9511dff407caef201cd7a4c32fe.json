@@ -1,0 +1,38 @@
+{
+ "unit": "2ad6e9511dff407caef201cd7a4c32fe",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2ad6e9511dff407caef201cd7a4c32fe:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在绿地边缘的机动车，呈细长矩形车身，尺度和形状符合小汽车。",
+   "reasoning": "目标外观及位置符合车辆特征，框线旁的红色标注文字不影响判断。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:2ad6e9511dff407caef201cd7a4c32fe:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆与相邻车辆排列一致的机动车，能辨认出车身和深色车窗区域。",
+   "reasoning": "目标位于绿地边缘停车区域，形状、朝向和尺度均符合车的类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.44,
+   "health": {
+    "at": 1791544354.0396473,
+    "available_fraction": 0.44951486952774333,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "16b778f2f9a04ff18047f743cef2be4b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5a878e9b972760cad94e5735ead40fec6c7d14692dce697080378c0b427aaab5"
+}

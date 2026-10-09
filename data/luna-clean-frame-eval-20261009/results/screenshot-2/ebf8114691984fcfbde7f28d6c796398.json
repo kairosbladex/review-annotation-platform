@@ -1,0 +1,30 @@
+{
+ "unit": "ebf8114691984fcfbde7f28d6c796398",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "ebf8114691984fcfbde7f28d6c796398:000",
+   "decision": "false",
+   "image_limitation": "目标区域部分被标注文字遮挡，但可见主体形状和位置仍足以判断。",
+   "observed_object": "岸边的消防栓或类似固定设施，不是人员。",
+   "reasoning": "框内可见的是靠近岸边的一个小型固定物体，呈方形/竖直设施状，缺少人员应有的头顶、肩部和躯干轮廓；其位置紧贴岸沿，也更符合消防栓等设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.84,
+   "health": {
+    "at": 1791546551.5461166,
+    "available_fraction": 0.44888263917397403,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "51624520473a4fafb51d966e32a902bd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0132fe37cce65d64dd45558e92d4c8e3e6e967a945a2158472142b2778d0a541"
+}

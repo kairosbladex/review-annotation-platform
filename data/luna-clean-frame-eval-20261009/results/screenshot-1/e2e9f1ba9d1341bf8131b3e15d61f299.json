@@ -1,0 +1,30 @@
+{
+ "unit": "e2e9f1ba9d1341bf8131b3e15d61f299",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e2e9f1ba9d1341bf8131b3e15d61f299:000",
+   "decision": "false",
+   "image_limitation": "目标位于画面顶部边缘，框内可见的是建筑或平台上的小型矩形设备/设施，未呈现机动车车身、车窗及与道路或车位相符的尺度关系。",
+   "observed_object": "建筑或平台上的矩形设施，不是机动车",
+   "reasoning": "框内实际物体为顶部边缘的矩形设施，形状和位置均不符合车的外观特征；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 20.87,
+   "health": {
+    "at": 1791542266.39179,
+    "available_fraction": 0.4270768479840616,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "32168745e447468da5406774a0066cf6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3607458521a499786679b090fb7e5fb44de1333f7fbe0368f8206f1c27e7dcc0"
+}

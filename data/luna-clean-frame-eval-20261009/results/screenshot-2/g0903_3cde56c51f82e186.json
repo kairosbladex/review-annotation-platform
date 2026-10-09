@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_3cde56c51f82e186",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:10e5a3da510748b2ac88cb5257ce142c",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名骑两轮车的人，头部未见光滑有高光的头盔外形，呈深色头发特征。",
+   "reasoning": "目标位置和尺度与骑行者相符，头顶清晰可见且更像头发而非头盔，因此符合“没戴头盔”。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.82,
+   "health": {
+    "at": 1791542518.5363326,
+    "available_fraction": 0.4088177423104835,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e43ff055944e47fcb4d4b67899c94ec6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "55a3b9cca7f2a0fe9f01c79db6dc6c20c774828f9ff9a9e463d770ef9e9cdbe4"
+}

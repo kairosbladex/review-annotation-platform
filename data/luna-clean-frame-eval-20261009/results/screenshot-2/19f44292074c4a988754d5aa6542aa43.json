@@ -1,0 +1,30 @@
+{
+ "unit": "19f44292074c4a988754d5aa6542aa43",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "19f44292074c4a988754d5aa6542aa43:000",
+   "decision": "false",
+   "image_limitation": "未见第四张原图，但前三张足以判断；框内实际主要是红色平台标注文字/框线，未见符合人员特征的头部、肩部或躯干。",
+   "observed_object": "建筑地面上的平台叠加标注区域，未能确认有人员目标。",
+   "reasoning": "框内及紧邻区域没有可见的圆形或椭圆形头顶、肩部或竖长躯干，位置和外观也不符合俯拍人员。红色标注不能作为目标证据，因此该人员框应判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 58.03,
+   "health": {
+    "at": 1791537630.7190733,
+    "available_fraction": 0.4353994764377533,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "63988dbe5e9c43529a2cea019d4cedd4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d15734887761320727df5e07b0901bc580e0c72cb399c8fb2115640da379f38e"
+}

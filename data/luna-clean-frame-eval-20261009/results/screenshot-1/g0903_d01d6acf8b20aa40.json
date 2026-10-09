@@ -1,0 +1,70 @@
+{
+ "unit": "g0903_d01d6acf8b20aa40",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:89174fccc9f5400a995eb9f56c25b247",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见车身轮廓，位于车道上，形状和尺度符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:daf1f353cc3c4e5cb3b90ce964b7b140",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "路边细小设施或标线区域",
+   "reasoning": "框内未见符合细长窄条特征的自行车、电动车或摩托车。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:3755a239c86d407e82568924dc1a7fad",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见小型机动车车顶及车身轮廓，位置和尺度符合车辆。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:49b04eff501f4064adcfcd04ceb488f1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树旁道路区域的汽车",
+   "reasoning": "框内可见机动车的车顶和车身形状，符合小汽车特征。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:46a5dbd1b5874ff888c6a3d0a997476b",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑旁的设施或地面结构",
+   "reasoning": "框内主要是建筑/步道区域的设施，未见符合机动车外观和道路尺度的汽车。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:149d6e1a1222493794a19839c1eff499",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的货车",
+   "reasoning": "框内车辆明显较长，车头与后部车厢呈分段结构，符合卡车特征。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 26.63,
+   "health": {
+    "at": 1791537136.7053745,
+    "available_fraction": 0.45020628882697544,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cd0065adf10340649a5fb9f8d4f16116",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "417ad737a55933954fa1e98ca7d39dc5e028db948b4b7865eccb7ce4d1cfaa2f"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_97626f3757876c09",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fb0ded7fd77a459bb409a0c0349eb546",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆深色小汽车，车顶和挡风玻璃清晰，位于道路旁停车区域。",
+   "reasoning": "外形、颜色、尺度及所在位置均符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:d977e362249946369eb5258eca0cbeb1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，车身呈长方形，能看到深色挡风玻璃，停在路旁。",
+   "reasoning": "车辆形状和位置明确，符合车的类别要点。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.36,
+   "health": {
+    "at": 1791544969.7692077,
+    "available_fraction": 0.45001786916391523,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "86859a889e9343ed819d9c787691db6e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a7a4be2715773755685ceff4856df5fd6d9961646734c1fb679210e900f2f80"
+}

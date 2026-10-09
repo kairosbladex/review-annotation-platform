@@ -1,0 +1,38 @@
+{
+ "unit": "050c0225148447599f271d45797e1b41",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左侧边缘，仅露出部分，无法完整确认车辆形态。",
+   "observed_object": "左侧道路边缘的局部目标",
+   "reasoning": "框内目标大部分出画，无法判断是否为具有长车身特征的公交车或其他车辆。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:001",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左下边缘，仅露出一小部分，车身形状不完整。",
+   "observed_object": "左侧边缘的局部车辆状物体",
+   "reasoning": "只能看到目标的一角，无法确认其是否符合普通机动车的圆角长方形车身特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.54,
+   "health": {
+    "at": 1791541739.5986032,
+    "available_fraction": 0.41429191416380823,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "88609faa4b2347c08276f125f7a90a16",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "04149a873c200cb598f8097a37c9ce2b239bf6906571f7774e95151d64924ccc"
+}

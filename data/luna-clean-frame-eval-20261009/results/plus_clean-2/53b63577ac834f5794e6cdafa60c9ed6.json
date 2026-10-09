@@ -1,0 +1,30 @@
+{
+ "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于画面下方中央，框内目标被红色标注严重遮挡且尺寸很小，无法可靠辨认车辆是否具有驾驶室与货厢分段结构。",
+   "observed_object": "疑似道路上的小型车辆，但细节不可见。",
+   "reasoning": "现有图像中无法确认其是否为符合定义的卡车，也不足以明确排除小汽车等其他车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.54,
+   "health": {
+    "at": 1791544603.978113,
+    "available_fraction": 0.449681553137385,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0de0322158e74fcca8c2090ded645567",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "cff5729d98d504294af2dffc7ea0fbe1a1c4e1175e6c5e0cc734900e4cfc4e30"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "c02e9615267b4e968c884ad6c3414ef3",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c02e9615267b4e968c884ad6c3414ef3:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是红色初审标注文字及其覆盖下的铺装地面，没有可确认的人员头顶、肩部或躯干腿部形态。",
+   "reasoning": "该位置对应的是池边铺装区域，实际可见物体不符合俯拍人员的外观特征，初审类别错误。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 23.25,
+   "health": {
+    "at": 1791540572.3439574,
+    "available_fraction": 0.4265868899799408,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7ccadf36101e475db1285504c3612982",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3fd2974e20751e20782045a070539a01eac78817a111a1c36a044dcc85472502"
+}

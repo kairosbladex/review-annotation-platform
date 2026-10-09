@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_eb288fad610cfac1",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:48f3ec3897b84c36a45312fed8798ed3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝绿色成片顶棚，覆盖在建筑或棚架上方，呈规则矩形并具有彩钢瓦样式。",
+   "reasoning": "候选框主体符合蓝色或绿色顶棚的外观特征，位置和尺度也与违建类别的判定要点相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.51,
+   "health": {
+    "at": 1791546140.134482,
+    "available_fraction": 0.45050575996295567,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a87ee7e31bf84ab08f968e81e690f93a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "97852aae92805ca2c3b0ccc4e87c9963d8ebd79940195b904fdcfc62ad9cd3ce"
+}

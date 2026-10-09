@@ -1,0 +1,30 @@
+{
+ "unit": "b4b82f598f4440acbf3e33427b608a7a",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "b4b82f598f4440acbf3e33427b608a7a:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是墙面上的小型白色圆形物体，带深色中心，类似孔洞或管件，并非人员。",
+   "reasoning": "框内及紧邻区域未见人员头顶、肩部或躯干腿部等特征；物体形状和尺度也不符合俯视人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.26,
+   "health": {
+    "at": 1791542026.937844,
+    "available_fraction": 0.42613420246741596,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "16b8b27d15bb41b4b711aa7babcf6cb9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dc3a3050b49846bf41d2efbe49dcaa905b1ed970186452860357551da527a57a"
+}

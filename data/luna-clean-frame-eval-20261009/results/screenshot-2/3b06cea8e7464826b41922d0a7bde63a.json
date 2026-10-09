@@ -1,0 +1,30 @@
+{
+ "unit": "3b06cea8e7464826b41922d0a7bde63a",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:3b06cea8e7464826b41922d0a7bde63a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是覆盖在建筑上的蓝色彩钢瓦顶棚，呈规整矩形并可见平行条纹。",
+   "reasoning": "目标外观符合蓝色顶棚的类别特征，位置和尺度也与建筑附属棚顶相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.63,
+   "health": {
+    "at": 1791543704.0242324,
+    "available_fraction": 0.4412061947083441,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7d24634381044b959d464ec1c6a42616",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a4a0259c010e25df0a4f410f2c363bce0690badbbc692a8611e56663ae41f78"
+}

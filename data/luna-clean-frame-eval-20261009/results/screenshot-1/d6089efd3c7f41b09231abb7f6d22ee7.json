@@ -1,0 +1,102 @@
+{
+ "unit": "d6089efd3c7f41b09231abb7f6d22ee7",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "细长窄小的两轮车",
+   "reasoning": "框内可见窄条状车身，尺度明显小于汽车，位于道路边缘，符合两轮车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见完整的长条形车身，位于道路边缘，长度宽度及尺度符合机动车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见停放在路边的细长机动车车身，形状和尺度符合汽车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见车辆顶部及深色玻璃区域，位于路边停车位置，符合汽车特征。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见清晰的汽车车顶和车身轮廓，尺度与路边车辆相符。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见停放车辆的长方形车身及深色车窗区域，符合汽车。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见路边停放的机动车车顶和车身，形状、方向及尺度均符合汽车。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见车辆顶部及车窗，位于道路旁，符合汽车外观。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见完整的汽车车身轮廓，颜色和深色玻璃带清晰可辨。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见道路边缘停放的小汽车，车身形状和尺度符合类别。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.49,
+   "health": {
+    "at": 1791541606.5244958,
+    "available_fraction": 0.4267668584222313,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9fb699aaeb044d70ab4304201c6ee734",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fbd71e9fee2203b9450c5691b2581e01853ef30ac54838c54c5cd57de15d116f"
+}

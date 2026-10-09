@@ -1,0 +1,70 @@
+{
+ "unit": "8bf8d838e4fe4cc096532ab64deb0d7c",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见道路旁停车区域中的一辆小型机动车，车身和深色车窗带清晰可辨，尺度与位置相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车区域中的小型机动车，可见车顶、车身轮廓及深色玻璃区域。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆停放在地面道路旁的机动车，长方形车身和车窗特征符合。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路或停车位中的小型汽车，车身轮廓明确，朝向与地面区域一致。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆机动车的车顶和车身，位置位于地面停车区域，尺度相符。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内为道路旁停车区域中的机动车，轮廓及车顶玻璃区域可辨。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.91,
+   "health": {
+    "at": 1791546789.3484302,
+    "available_fraction": 0.44527256950186683,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "70fcaffa071048d99c1164211372c3ba",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "77044967ed98a7b8e7fd425aaa9050bd6d90983bc6f797589b66986790dda3ac"
+}

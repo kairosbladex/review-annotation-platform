@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_8d4b46fdbaa783e8",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-001",
+   "decision": "false",
+   "image_limitation": "框内可见的是细长的路灯杆或类似设施构件，未呈现人员应有的头部、肩部或躯干腿部轮廓。",
+   "observed_object": "路灯杆/设施构件",
+   "reasoning": "该物体位于人行道边缘，形状笔直细长且尺度、外观不符合人员；红色标注线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.71,
+   "health": {
+    "at": 1791543271.092232,
+    "available_fraction": 0.44395217265685954,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "516705a45960413785adb60bf6455b2a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbf3698ccc23c4e2f778d77667969f90283d544e3f895767746b374542a8194f"
+}

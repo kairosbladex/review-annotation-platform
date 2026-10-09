@@ -1,0 +1,46 @@
+{
+ "unit": "g0903_2172b53d242b0ce7",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:70e9f9bea8964e4a85870d4b808e3773",
+   "decision": "false",
+   "image_limitation": "目标仅部分出现在画面左侧边缘，可见主体像地面上的细长蓝绿色结构，不是成片顶棚。",
+   "observed_object": "左侧边缘的细长蓝绿色条状物体",
+   "reasoning": "形状过于狭长，且不像覆盖在建筑或空地上方的矩形屋面，更符合围挡、栏杆或类似长条结构。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:78e3d11373c94753a258e7c81c313bdd",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "左下方成片蓝色矩形屋面",
+   "reasoning": "框内可见规整的蓝色彩钢瓦顶棚，具有明显平行条纹，覆盖面积和形状均符合违建类别要点。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:f3af4269e30c43e09f0e2ba123b00f30",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁狭长的蓝绿色彩钢瓦顶棚",
+   "reasoning": "框内主体为覆盖在建筑或棚架上的蓝绿色成片屋面，边缘规整且有彩钢瓦平行条纹，符合类别要求。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.16,
+   "health": {
+    "at": 1791544398.8091135,
+    "available_fraction": 0.44836066989118234,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5747528128564e6e8d50c01fd0db70f4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4e34ca278bd48eb280cf819fcace28f64b780c62d504cfbeb2edca13575ebdac"
+}

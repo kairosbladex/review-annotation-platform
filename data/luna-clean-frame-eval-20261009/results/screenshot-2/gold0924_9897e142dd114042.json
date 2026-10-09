@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是建筑物或屋顶区域的热成像亮部，没有可辨认的人员形态。",
+   "reasoning": "框内目标呈竖向矩形亮区，缺少俯拍人员应有的头部、肩部或躯干腿部轮廓，位置和尺度也不符合人员特征，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.21,
+   "health": {
+    "at": 1791544475.209704,
+    "available_fraction": 0.44941761968874216,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cf07c9b930d14f65a35cebb94614ef0e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4f0d066de688c5ac6cc175009491b5d02bf960c49b8a548d6b54c99948e96d57"
+}

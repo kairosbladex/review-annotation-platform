@@ -1,0 +1,30 @@
+{
+ "unit": "1a8b9df1399942459bf5c1eef6edfa21",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "1a8b9df1399942459bf5c1eef6edfa21:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈长方形车身，位于地面停车区域内，尺度与周围车位相符。",
+   "reasoning": "目标外观符合车的特征，位置和尺度也与停车场中的机动车一致；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 19.31,
+   "health": {
+    "at": 1791541686.058231,
+    "available_fraction": 0.421192518322733,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d58d99555b2242969d946cf2a60b803b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c761aab2dd0549cea82098a7a8df5714bf903d7f33907dc887d66d07758503dc"
+}

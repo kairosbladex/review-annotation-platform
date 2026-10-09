@@ -1,0 +1,30 @@
+{
+ "unit": "72aa876839cf4001989ac1377c7b4871",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "72aa876839cf4001989ac1377c7b4871:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车，框内可见车顶及深色挡风玻璃区域，形状和尺度符合机动车特征。",
+   "reasoning": "目标位于道路车道内，呈细长圆角车体，具备车辆俯拍外观；红色框线不是判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.48,
+   "health": {
+    "at": 1791542526.1898513,
+    "available_fraction": 0.40915703754433547,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "af18f625ea5d45439ad20bb654ff1f16",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3c7dc3f9ec8c508b6540776dd8bba5d93107824702a49753b6fe94b0df7377c7"
+}

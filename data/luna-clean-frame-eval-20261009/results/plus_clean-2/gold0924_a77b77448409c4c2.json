@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_a77b77448409c4c2",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B04-004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，呈俯视下的长方形车身，车顶及深色车窗清晰可见，位于步道旁地面区域。",
+   "reasoning": "目标外观符合机动车特征，车身形状、颜色、尺度和所在位置均与小汽车一致。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.65,
+   "health": {
+    "at": 1791546520.2771633,
+    "available_fraction": 0.450367713223692,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bbe7edf2c9264246b1703e66c6375875",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2de55b7d362c21c9a4edc819e88472ac15a044e0cbc3c695413960221f6a686f"
+}

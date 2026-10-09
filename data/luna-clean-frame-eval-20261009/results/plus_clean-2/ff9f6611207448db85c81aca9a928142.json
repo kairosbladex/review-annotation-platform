@@ -1,0 +1,30 @@
+{
+ "unit": "ff9f6611207448db85c81aca9a928142",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ff9f6611207448db85c81aca9a928142:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁地面上的小型机动车，呈细长圆角车身形状，位置和尺度与道路环境相符。",
+   "reasoning": "框内可见实际车辆目标，位于道路附近地面区域，外观与机动车特征及周边尺度相符，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.27,
+   "health": {
+    "at": 1791545898.076077,
+    "available_fraction": 0.4520716374112561,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1ba88ebc665d4b71a9fb3860aaac85d5",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7578b3cd3565a7447cf32466e63adbf55c063e3341d231ca06678be854c3aee2"
+}

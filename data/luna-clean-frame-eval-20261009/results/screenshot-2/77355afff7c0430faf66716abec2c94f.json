@@ -1,0 +1,30 @@
+{
+ "unit": "77355afff7c0430faf66716abec2c94f",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "77355afff7c0430faf66716abec2c94f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "岸边步道上的一名人员，框内可见小型竖长人体轮廓及头部区域。",
+   "reasoning": "目标位于可站立的岸边步道，尺度较小且呈人员的窄长形态，符合俯拍人员特征；红色标注文字和框线不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 3.54,
+   "health": {
+    "at": 1791542406.9888895,
+    "available_fraction": 0.4119504092093257,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fc8d0d670fc4411f90596aaf382a84c8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6bf5ee236ad886ce8fa8211b7de5ffb50fb768348b8cbc3f22d580f819cf5077"
+}

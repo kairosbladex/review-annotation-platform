@@ -1,0 +1,30 @@
+{
+ "unit": "ff9f6611207448db85c81aca9a928142",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ff9f6611207448db85c81aca9a928142:000",
+   "decision": "uncertain",
+   "image_limitation": "目标仅露出极小区域且被周围植被或标注遮挡，无法确认完整车形。",
+   "observed_object": "框内可见道路旁的微小疑似物体，未能辨认出明确的机动车轮廓。",
+   "reasoning": "该候选框位于道路附近，但框内目标过小，无法确认车顶、挡风玻璃横带及与车道相符的尺度，因此不能判定为车，也不足以明确排除。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 38.17,
+   "health": {
+    "at": 1791545883.3202226,
+    "available_fraction": 0.4481471397664107,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cb428ac81f964d6ca149d145f460aee6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7578b3cd3565a7447cf32466e63adbf55c063e3341d231ca06678be854c3aee2"
+}

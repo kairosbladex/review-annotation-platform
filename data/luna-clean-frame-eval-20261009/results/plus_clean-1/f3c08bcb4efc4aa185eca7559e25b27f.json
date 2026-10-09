@@ -1,0 +1,38 @@
+{
+ "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色矩形顶棚",
+   "reasoning": "框内可见覆盖在建筑旁的蓝绿色成片屋面，边缘规整，符合蓝色或绿色顶棚特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色矩形顶棚",
+   "reasoning": "框内可见一处蓝绿色矩形顶棚，具有规整屋面形态，符合该类别外观要求。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 42.12,
+   "health": {
+    "at": 1791539756.491866,
+    "available_fraction": 0.44786183506524585,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1cf3c1f47e794d3b9e534899aad87124",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fdc6066362eb125312147ded59e07c966d259c09457a7a5ac8fdc4d1ed6b1062"
+}

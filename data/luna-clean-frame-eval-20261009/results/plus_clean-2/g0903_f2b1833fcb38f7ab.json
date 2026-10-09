@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f2b1833fcb38f7ab",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:53499b1d092345a6ad46fa1577b24b27",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于地面道路或停车区域的小型机动车，呈细长矩形，尺度与周边环境相符。",
+   "reasoning": "目标位置在地面绿化区域附近，框内实际物体具有车辆的长方形外观，未见屋顶设备等特征，符合“车”的外观和位置要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.58,
+   "health": {
+    "at": 1791539694.8905659,
+    "available_fraction": 0.34657793654993685,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fc6766e337b544c997a778c637b1b1fd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "492d79a918a7596092919089afd7c943de0998a78c9565a0df8f1a7d2389750f"
+}

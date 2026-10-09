@@ -1,0 +1,30 @@
+{
+ "unit": "c4a84c1413d54e93a485810e33382ae0",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c4a84c1413d54e93a485810e33382ae0:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆白色小汽车，可见车顶及深色车窗带，形状和尺度符合机动车特征。",
+   "reasoning": "框内实际目标位于道路车道附近，呈圆角长方形车身，长度约为宽度两倍，且与道路方向和周围尺度相符，符合“车”的类别要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.77,
+   "health": {
+    "at": 1791544275.526168,
+    "available_fraction": 0.43344867324345937,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a64edccdc18348b8885af1f4f54da3d3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ed6ec5b3b21a035e591509702f696c00d7967cb9127191c41cfc7d8e6f4ca185"
+}

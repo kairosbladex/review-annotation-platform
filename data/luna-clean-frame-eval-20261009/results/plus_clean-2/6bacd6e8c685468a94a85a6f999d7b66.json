@@ -1,0 +1,38 @@
+{
+ "unit": "6bacd6e8c685468a94a85a6f999d7b66",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "6bacd6e8c685468a94a85a6f999d7b66:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在绿化旁小路上的白色机动车。",
+   "reasoning": "目标呈俯视下的长方形车身，带深色车窗区域，位于地面停车区域，形状和尺度符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "6bacd6e8c685468a94a85a6f999d7b66:015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在树木旁道路上的白色机动车。",
+   "reasoning": "可见明确的车身轮廓和深色玻璃区域，位置及尺度与地面停放车辆一致，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.58,
+   "health": {
+    "at": 1791546836.4676313,
+    "available_fraction": 0.4452790143177056,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b7bb02372e854d2db547efbdc947802a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ad8d590c09a32996de1f68b3f21015986d3da0631528266577d515ab9335b8df"
+}

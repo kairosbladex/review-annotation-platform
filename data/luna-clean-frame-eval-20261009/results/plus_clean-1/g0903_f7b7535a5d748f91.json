@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是蓝绿色篮球场地面及边缘设施，并非覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+   "reasoning": "该区域颜色虽为蓝绿色，但可见球场线和场地布局，属于球场而不是顶棚，因此不符合“违建”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 45.36,
+   "health": {
+    "at": 1791544749.0990472,
+    "available_fraction": 0.45080194789086714,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "06f100cf5b664d968952546b5f5aafe5",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9ebc938851cd559c4f41792ef6d07c21807407b734042b8ceb788da950c41d24"
+}

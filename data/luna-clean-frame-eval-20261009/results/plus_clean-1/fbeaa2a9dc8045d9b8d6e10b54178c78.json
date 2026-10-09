@@ -1,0 +1,30 @@
+{
+ "unit": "fbeaa2a9dc8045d9b8d6e10b54178c78",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "fbeaa2a9dc8045d9b8d6e10b54178c78:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在树木旁地面上的小汽车，露出的车身呈细长圆角矩形，颜色和尺度符合机动车特征。",
+   "reasoning": "目标位于地面停车区域，形状、朝向及与周围停车位的尺度关系均符合汽车；红色标注线不影响对实际车体的判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 42.56,
+   "health": {
+    "at": 1791540040.743846,
+    "available_fraction": 0.4484870734018316,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "624c1c3ecee841a6bacb2614e9e61b40",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f6776fd8e71999e99c0b7d70c94dcf0410336d13b7126f4aa0c87bedafa2e911"
+}

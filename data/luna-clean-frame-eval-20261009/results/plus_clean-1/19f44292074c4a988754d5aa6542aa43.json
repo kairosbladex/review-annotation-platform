@@ -1,0 +1,30 @@
+{
+ "unit": "19f44292074c4a988754d5aa6542aa43",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "19f44292074c4a988754d5aa6542aa43:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内实际是红色叠加标注下的一个小型方形物体，外观更像标记覆盖的设施或地面物件，未见人员头顶、肩部或躯干腿部特征。",
+   "reasoning": "框内及紧邻区域没有符合俯拍人员特征的头部与肩部轮廓，目标形状和尺度也不像站立人员，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.99,
+   "health": {
+    "at": 1791537654.5423114,
+    "available_fraction": 0.43505489159090155,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aee6bcbe77d04f1190d8edf1d9e4d15c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d15734887761320727df5e07b0901bc580e0c72cb399c8fb2115640da379f38e"
+}

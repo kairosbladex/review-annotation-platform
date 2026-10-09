@@ -1,0 +1,30 @@
+{
+ "unit": "5ee426c45e8c429b8a0e82697f8af182",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "5ee426c45e8c429b8a0e82697f8af182:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的机动车，露出车顶及深色车窗区域，车身形状与道路尺度相符。",
+   "reasoning": "目标虽被树冠部分遮挡且接近画面下边缘，但露出的车顶、车窗和车身轮廓足以确认是车，符合类别要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 27.07,
+   "health": {
+    "at": 1791542840.1555429,
+    "available_fraction": 0.42197972825738017,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8f1f9cc2df8f470c8f447b42de6ac26f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1aab696418ceaf1b89a0477b6c8d14b710a9d224a7e0f62e174bff56a6c72c33"
+}

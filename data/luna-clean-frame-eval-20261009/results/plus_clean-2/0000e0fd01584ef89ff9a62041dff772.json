@@ -1,0 +1,30 @@
+{
+ "unit": "0000e0fd01584ef89ff9a62041dff772",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "0000e0fd01584ef89ff9a62041dff772:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈俯视下的长方形车身轮廓，位于道路区域。",
+   "reasoning": "目标外观、尺度及所在位置均符合机动车特征，初审类别“车”正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 23.87,
+   "health": {
+    "at": 1791543980.6040015,
+    "available_fraction": 0.4466702129367153,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dc53122ac4a448ea9cb6fca2fdf21962",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7932618452a54028223b3c825efa96e5bd98c3d8499f2ab3b732cd33ff117268"
+}

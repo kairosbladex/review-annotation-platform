@@ -1,0 +1,30 @@
+{
+ "unit": "422566fb91ab4ad494cf1894def8d975",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:422566fb91ab4ad494cf1894def8d975:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在绿化带旁停车区域的小汽车，呈明显的车身长方形轮廓。",
+   "reasoning": "目标位于地面停车区域，形状、尺度和颜色均符合机动车特征，不是建筑或屋顶设备。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 39.59,
+   "health": {
+    "at": 1791546761.1306298,
+    "available_fraction": 0.44379026185894754,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "adba7db825a544208513fa625cadb3b0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e3446b2fe49a769e3c075755f9f6e18f5757100b2a0b2fa5c3bc1b04571863cf"
+}

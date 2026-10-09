@@ -1,0 +1,30 @@
+{
+ "unit": "538e41feae5f45cc9e5a66b2111be947",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "538e41feae5f45cc9e5a66b2111be947:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在路旁的机动车，呈小汽车的长方形车身轮廓。",
+   "reasoning": "目标位于道路旁地面区域，车身尺度和形状符合机动车特征；红色框线与文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.83,
+   "health": {
+    "at": 1791541788.6712122,
+    "available_fraction": 0.4175637222046037,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f2471b1e3e1f427096fa18b8183cd623",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "eda94499b282a46ef35d3910861408e3f266a2cd9c38598c65fcf55a55ccbf57"
+}

@@ -1,0 +1,46 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "矩形标识/墙面设施，不是人员。",
+   "reasoning": "框内可见的是墙面附近的竖直矩形物体，形状和尺度不符合人员外观。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "true",
+   "image_limitation": "目标较小但轮廓可辨。",
+   "observed_object": "人行道上的人员。",
+   "reasoning": "框内可见竖长的人形轮廓，位于可站立的人行道区域，符合人员的外观和尺度。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "矩形标识/墙面设施，不是人员。",
+   "reasoning": "框内物体呈规则竖直矩形，缺少头部、肩部和躯干腿部等人员特征。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 26.03,
+   "health": {
+    "at": 1791542565.9411843,
+    "available_fraction": 0.40815514228207767,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "65a251b6fabf4346bf1adf1d1de3644b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0c4e363cd2e2d78ca9d082967e19cc438bb0ce8dcd8580b0b52a07f20b8b9a1e"
+}

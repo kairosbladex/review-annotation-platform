@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_bff2ed58618cd425",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小型人员目标",
+   "reasoning": "框内可见一个位于车道上的细小竖长目标，形态和尺度符合俯拍人员特征；不是树冠、车辆或其他道路设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 6.0,
+   "health": {
+    "at": 1791542448.960679,
+    "available_fraction": 0.413345438237749,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5bcccdfb5abd47089cb6db6280c60562",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f790275b5a884e6a283cac885e16137f874bf4c014f0f51618d35eb3f6ae1f20"
+}

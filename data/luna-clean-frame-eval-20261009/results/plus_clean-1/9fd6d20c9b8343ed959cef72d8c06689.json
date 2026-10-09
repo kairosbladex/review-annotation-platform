@@ -1,0 +1,30 @@
+{
+ "unit": "9fd6d20c9b8343ed959cef72d8c06689",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9fd6d20c9b8343ed959cef72d8c06689:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈现头部及肩部的浅色衣物轮廓，位于岸边可站立区域。",
+   "reasoning": "目标形态和尺度符合俯视人员特征，不像车辆、设施或其他固定物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 36.15,
+   "health": {
+    "at": 1791542939.338107,
+    "available_fraction": 0.425523100165571,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e2a6041d0e9142a0b16daa53537b7786",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e7f83cbcfc546c0e04359e7f1fe05d9f0a8af88ed3c19df16c3e74b7e2b5d084"
+}

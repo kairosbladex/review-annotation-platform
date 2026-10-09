@@ -1,0 +1,63 @@
+{
+ "unit": "g0903_16070d391a314609",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ff202383d6674e13ade5162d89c90529",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆细长的机动车，位于道路旁，车身和深色车窗区域清晰可辨，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:3039d76145f84aa1a60f92ed3c02519e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停放在地面上的小汽车，可见车顶及深色车窗区域，位置和尺度均符合机动车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:ed5987ba00054ababb624eb1f47b6e9b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "两轮车",
+   "reasoning": "框内为道路边缘一辆细长窄小的两轮车，长度和宽度比例符合两轮车特征。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:9989d35690a8475c8ed7b617e195428a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆停放在建筑旁地面上的小汽车，车身轮廓和深色车窗明显，符合机动车特征。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "http_503",
+   "seconds": 14.47,
+   "health": {
+    "at": 1791543195.7289608,
+    "available_fraction": 0.4427540145122661,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "status": "ok",
+   "seconds": 38.49,
+   "health": {
+    "at": 1791543230.2255275,
+    "available_fraction": 0.44473044496954156,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "abe456232718471881daab4012956ddf",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "17055d02a5bda1f4348819e609bc76ba79446873dcebea977d0f6a3739898281"
+}

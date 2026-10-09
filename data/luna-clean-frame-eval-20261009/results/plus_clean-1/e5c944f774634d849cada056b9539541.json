@@ -1,0 +1,30 @@
+{
+ "unit": "e5c944f774634d849cada056b9539541",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e5c944f774634d849cada056b9539541:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，未见人员特征。",
+   "observed_object": "框内主要是水池边缘及红色叠加标注，未见可辨认的人体。",
+   "reasoning": "框内没有人员应有的头顶、肩部或竖长躯干腿部形态；红色框线和文字不属于实际目标，因此该框不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.3,
+   "health": {
+    "at": 1791545999.7909803,
+    "available_fraction": 0.44929650579109265,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "749fc2160545429a848a32b25ba557b9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6c5d9a51f2d0722bbe7b8879201773bdb80adc8ba0e33918556944ca6d586349"
+}

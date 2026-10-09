@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_7e752d9beff9387a",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d0c64659575a47c0ab997593532f0db2",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为建筑顶部的蓝绿色矩形顶棚，边缘规整，呈成片屋面形态。",
+   "reasoning": "该物体符合蓝色或绿色顶棚的外观特征，位置和尺度也与建筑顶部覆盖物相符，因此判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 27.14,
+   "health": {
+    "at": 1791545449.3514886,
+    "available_fraction": 0.4496896091571835,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b3ed5a398fde4f83b487e0ee56ebf7eb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a72f69390b56cd631fc062a4afd58de7fe00e141939e8e0f0ff0eeb1d0b4da23"
+}

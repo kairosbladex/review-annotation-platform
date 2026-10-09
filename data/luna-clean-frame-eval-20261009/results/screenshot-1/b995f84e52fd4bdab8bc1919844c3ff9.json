@@ -1,0 +1,70 @@
+{
+ "unit": "b995f84e52fd4bdab8bc1919844c3ff9",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:004",
+   "decision": "true",
+   "image_limitation": "清晰可见框内为路面上的小型人员目标。",
+   "observed_object": "人员",
+   "reasoning": "目标位于可站立的人行道上，尺度和细长外观符合俯拍人员特征。",
+   "target_index": 0
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:001",
+   "decision": "true",
+   "image_limitation": "目标较小，但轮廓和位置仍可辨认。",
+   "observed_object": "人员",
+   "reasoning": "框内为蓝色步道上的细长小目标，符合人员外观及尺度。",
+   "target_index": 1
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:002",
+   "decision": "true",
+   "image_limitation": "目标部分与叠加标注邻近，但实际目标可辨认。",
+   "observed_object": "人员",
+   "reasoning": "框内及紧邻步道区域可见细长人员目标，位置适合人员站立。",
+   "target_index": 2
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:005",
+   "decision": "true",
+   "image_limitation": "目标较小，但没有明显遮挡。",
+   "observed_object": "人员",
+   "reasoning": "框内为白色步道上的小型细长目标，符合人员尺度和形状。",
+   "target_index": 3
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:000",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小且细节不足，难以排除其他小型设施或标记。",
+   "observed_object": "无法明确辨认",
+   "reasoning": "框内仅见极小的竖向暗色目标，缺乏足够头部、肩部或躯干特征确认人员。",
+   "target_index": 4
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:003",
+   "decision": "true",
+   "image_limitation": "目标较小，但位于清晰可站立的蓝色步道上。",
+   "observed_object": "人员",
+   "reasoning": "框内可见细长小型目标，位置、尺度与俯拍人员相符。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.18,
+   "health": {
+    "at": 1791542857.183383,
+    "available_fraction": 0.4226152418192183,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bfc80c004b60429996982efdfbf7d9a3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6ba0ecced003cfc090f910696e862e5d7490c8c8344d07e9100c0d37933d76eb"
+}

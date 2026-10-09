@@ -1,0 +1,46 @@
+{
+ "unit": "2d3a279501444052a534c76b4484575d",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "2d3a279501444052a534c76b4484575d:004",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "框内可见一辆停在地面停车区域的小汽车",
+   "reasoning": "车身呈细长圆角矩形，可见车顶及深色玻璃区域，尺度和位置均符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:005",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "框内可见一辆停放的小汽车",
+   "reasoning": "可辨认出车顶、车身轮廓及深色车窗带，位于地面停车区域，符合车辆外观和尺度。",
+   "target_index": 1
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:008",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "框内可见一辆停在路旁的小汽车",
+   "reasoning": "目标具有明确的机动车车身轮廓和深色玻璃区域，位置与周围道路、停车区域相符。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.3,
+   "health": {
+    "at": 1791545652.4922483,
+    "available_fraction": 0.4491030093155557,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "782edf4912cd4e378743f263ed59fa82",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a30493199ee07edec189666d3fc0b94af472cf120fd3a054e69d9539bcdcc5c3"
+}

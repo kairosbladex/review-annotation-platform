@@ -1,0 +1,30 @@
+{
+ "unit": "cc51d25ac0d6462ba88f12d3a8f8a0b4",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:cc51d25ac0d6462ba88f12d3a8f8a0b4:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在建筑平台地面上的小型机动车，呈长方形车身轮廓。",
+   "reasoning": "目标形状、尺度和位置符合机动车特征；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.08,
+   "health": {
+    "at": 1791541443.203511,
+    "available_fraction": 0.42806108080291216,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7f7ab74601ea4dc082343f0e2554a2c1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1060b1c44c2dc39d542d2d01beab6c1d37461fc5ff6d50166e88409cbd9cca2f"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "1ff2d9981126461291881a5b638b3ab8",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "1ff2d9981126461291881a5b638b3ab8:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在绿化旁通道上的小型机动车，呈细长圆角矩形车身，尺度和朝向与道路环境相符。",
+   "reasoning": "框内实际物体具备车辆俯拍的车身轮廓，位置也符合车辆停放区域；红色标注不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.42,
+   "health": {
+    "at": 1791542611.2067552,
+    "available_fraction": 0.40701872668922273,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "846fec3ce7bd433cb870bf4e72eba05a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a3c2e165ce39e8bdabfd1b1d587a0803584158ce9b3965efb7e75ceacf8f7107"
+}

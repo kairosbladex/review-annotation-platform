@@ -1,0 +1,30 @@
+{
+ "unit": "4b734d2aa42e494086e2e15d833b4603",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "4b734d2aa42e494086e2e15d833b4603:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，车顶、深色车窗带和长方形车身清晰，位于道路旁车道位置。",
+   "reasoning": "目标外观符合机动车特征，形状、颜色及与道路的尺度关系均相符，红色框线和文字不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.94,
+   "health": {
+    "at": 1791544570.9388227,
+    "available_fraction": 0.4503405963570496,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "327de47aae544ded8c6db720102d1886",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2fafa99cba0c613069c48b7da4967653bb92ad09d6a04e65c513a8cef4324259"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "c18236608dd14deda807729b3d1699a9",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:c18236608dd14deda807729b3d1699a9:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小型机动车，呈横向长方形车身。",
+   "reasoning": "框内可见车辆位于道路车道区域，车身尺度、形状和位置均符合机动车特征，不是标线或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 22.59,
+   "health": {
+    "at": 1791542503.5544555,
+    "available_fraction": 0.41239589190414394,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f3e2029a4fba44c9b38523d1ffbcc897",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "37d8f929a9e5bef9a905fe4bbfb53b562df8e9cc703b0612c38c100205e84bd9"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "67963890aa6a4b54b2de49c274b015bc",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:67963890aa6a4b54b2de49c274b015bc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路旁的小型机动车，呈细长圆角车身轮廓，位置和尺度与道路车辆相符。",
+   "reasoning": "该目标具备车辆的整体外形，位于地面道路区域，并非屋顶设备或标线，因此符合“车”的类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.58,
+   "health": {
+    "at": 1791544490.4514232,
+    "available_fraction": 0.4493189106461548,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "90e2b8327e8d4961b74cb6c982978260",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "94619cbebf85de007f10b018ef31d9006bd9c6d63acf30c53d75e6bde4a0eda2"
+}

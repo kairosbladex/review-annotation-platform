@@ -1,0 +1,30 @@
+{
+ "unit": "a4d041acab414e5d8e428eef20afeafc",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色三轮车，车体前部较窄，后部带有较宽的车厢结构。",
+   "reasoning": "目标轮廓符合三轮车前窄后宽、带车厢且整体较小的外观特征，不是小汽车或两轮车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.83,
+   "health": {
+    "at": 1791542636.9195037,
+    "available_fraction": 0.42862217498185723,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e8d5441ef4fd406aa454af50bea3e50b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "85d2ffe8761dec48cc0c5882cc5b48fc68b158d70c4e4bae97a6afa719a52cb5"
+}

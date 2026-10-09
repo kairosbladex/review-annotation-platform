@@ -1,0 +1,30 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是灰白色地面上的小型蓝色矩形物体，形态更像地面设施或物件，不是覆盖建筑、棚架或空地的蓝色顶棚。",
+   "reasoning": "候选框位置处未见成片、规整的蓝色或绿色屋面，主体尺度和形态也不符合违建顶棚特征，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.49,
+   "health": {
+    "at": 1791544704.938584,
+    "available_fraction": 0.4508093959091714,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a8da046cc3f24cbe80c8e1879d6a1020",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "66de1a148abf7d4d1b5cf25d3e5587c5e2963dcf817734322556a1aa1c7fdf75"
+}

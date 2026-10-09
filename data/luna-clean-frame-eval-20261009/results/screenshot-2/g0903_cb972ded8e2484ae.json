@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_cb972ded8e2484ae",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3c3067022cb84c019a6255f288b98309",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，未见明显遮挡或出画。",
+   "observed_object": "左下角建筑立面上的深灰色矩形窗格/幕墙，不是蓝色或绿色顶棚。",
+   "reasoning": "框内主体为竖直建筑外墙立面，呈深灰与浅灰相间的规则窗格，不是覆盖在建筑或空地上方的蓝色、绿色屋面，因此不符合“违建”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.95,
+   "health": {
+    "at": 1791537836.0953002,
+    "available_fraction": 0.4456951305403528,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "586f167fa8374d56b45b300193bc1b85",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "88a99218a11de62928e9420cb297c6640d283c55baf249d122ab3a86300cd898"
+}

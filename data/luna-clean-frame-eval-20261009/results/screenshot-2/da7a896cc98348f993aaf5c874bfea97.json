@@ -1,0 +1,30 @@
+{
+ "unit": "da7a896cc98348f993aaf5c874bfea97",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:da7a896cc98348f993aaf5c874bfea97:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左下边缘，仅露出局部，且大部分出画，无法完整确认车身形状。",
+   "observed_object": "画面边缘可见一小段浅色物体，形状不完整。",
+   "reasoning": "候选框内目标被严重裁切，只露出局部，无法判断是否具备机动车的圆角长方形车身及挡风玻璃特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.09,
+   "health": {
+    "at": 1791545850.0353549,
+    "available_fraction": 0.4493018562042418,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "26d5d5243a874a0caa842695b8f4527e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f4baf5bcf2cc208360b3ede7cbb58a6e2637ba3869a6b6f67df51943ff2dc9cf"
+}

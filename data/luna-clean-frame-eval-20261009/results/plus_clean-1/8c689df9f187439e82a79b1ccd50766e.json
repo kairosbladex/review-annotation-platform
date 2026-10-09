@@ -1,0 +1,30 @@
+{
+ "unit": "8c689df9f187439e82a79b1ccd50766e",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "8c689df9f187439e82a79b1ccd50766e:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，车身呈细长圆角矩形，可见深色车窗，停在道路旁的地面区域。",
+   "reasoning": "目标外观、尺度和位置均符合机动车特征，虽然部分被树木遮挡，但露出的车身形状明确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 61.04,
+   "health": {
+    "at": 1791539979.6766129,
+    "available_fraction": 0.4488808455695661,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9d504fc0e42540ea8fc62b45892c9211",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "29df0c7e82c587834556fda486941f8239069798f448c70706afec6c1e31c9db"
+}

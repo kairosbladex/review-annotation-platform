@@ -1,0 +1,30 @@
+{
+ "unit": "8c6403a541ae4a218a1300f45baa79c9",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "8c6403a541ae4a218a1300f45baa79c9:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车身呈长方形，能看到车顶和深色车窗，位于停车区域内。",
+   "reasoning": "目标外观、尺度及所处位置均符合机动车特征，属于“车”。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.75,
+   "health": {
+    "at": 1791546084.4879997,
+    "available_fraction": 0.4502550201467375,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f39338648bcb46609035a65f6ab4a657",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1b7afe7b487c9029cca08f72800a0cf56cea93e56c4edd5c60dd274375798e2b"
+}

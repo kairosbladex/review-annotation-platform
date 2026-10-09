@@ -1,0 +1,30 @@
+{
+ "unit": "53ace2fdf87441c9ae233d479a172cce",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "53ace2fdf87441c9ae233d479a172cce:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个位于水面拦网附近的小型人员目标，呈深色头部及浅色衣物的紧凑人形轮廓。",
+   "reasoning": "目标位于水面设施边缘这一可站立或作业位置，体型明显小于车辆尺度，外观与俯拍人员相符；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.59,
+   "health": {
+    "at": 1791544355.1596467,
+    "available_fraction": 0.4493019778045407,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "845b046dd2bf4fab8fbeeb1823ccd649",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6ce01a8c2d07ce354dfe60e3274705afe651255ffcff64a275adb62c13a49922"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "0c827f646cdc401b87f95a90f8006449",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "0c827f646cdc401b87f95a90f8006449:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车身呈细长圆角矩形，能看到车顶及深色车窗，位置和尺度与停车位相符。",
+   "reasoning": "目标外观符合机动车特征，虽然部分被红色标注遮挡，但车形和所在停车区域清晰可辨。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 44.52,
+   "health": {
+    "at": 1791537787.9480917,
+    "available_fraction": 0.427838977857072,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d2960c47bd4c4823ad16a9873af1c142",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f59997f915ecc42181ba08fa6b5f05a437e426f113fcecfeda9ac628d84fea60"
+}

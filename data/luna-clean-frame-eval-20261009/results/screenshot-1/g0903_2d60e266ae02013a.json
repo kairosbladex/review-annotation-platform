@@ -1,0 +1,86 @@
+{
+ "unit": "g0903_2d60e266ae02013a",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:550639a471cf4e7f8e9ec1582a0e0e54",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色成片顶棚",
+   "reasoning": "框内主体为覆盖在棚架上的蓝绿色矩形屋面，颜色和形态符合违建类别要点。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:d876014dcc0c473995e0f6fe416cb24d",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色顶棚",
+   "reasoning": "框内可见大面积蓝绿色屋面，边缘规整，符合顶棚特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:80812c36c71a4d6198549ea36712bedc",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "地面杂物及狭小结构",
+   "reasoning": "框内没有可确认的蓝绿色成片顶棚，主要是地面区域和小型结构，位置与尺度不符。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:fba881c9469947ddbc7a4fcee5b1f904",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色矩形顶棚",
+   "reasoning": "框内主体是蓝绿色成片屋面，呈规整矩形并覆盖棚架，符合类别。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:eb56553240484b9188c2a7d711227262",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色顶棚",
+   "reasoning": "框内主要为连续的蓝绿色屋面，边缘规整，符合顶棚外观。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:ffa1b60b7e174fb1adbf894c8ca57d1a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色成片屋面",
+   "reasoning": "框内可见蓝绿色棚顶，覆盖面积和形状均与类别特征相符。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0903:decaf5ebb325467a93b660494c8463eb",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色顶棚",
+   "reasoning": "框内主体为大面积蓝绿色屋面，符合蓝绿色顶棚定义。",
+   "target_index": 6
+  },
+  {
+   "key": "gold0903:e4ed4a4a5591482c8c799e8b8b0e93fd",
+   "decision": "uncertain",
+   "image_limitation": "目标大部分位于画面右侧边缘且被框线遮挡，无法充分确认其是否为蓝绿色顶棚。",
+   "observed_object": "画面边缘的狭长区域及疑似屋面",
+   "reasoning": "可见部分不足，无法可靠确认或排除类别。",
+   "target_index": 7
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 36.68,
+   "health": {
+    "at": 1791539402.4493473,
+    "available_fraction": 0.3493818874409266,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ddecdf6a7df9406ab23c62b5fcedcd77",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d9bc137114d5d3e03856a6ca43752516786ad2d6b14461bb2e8c520e0a1232aa"
+}

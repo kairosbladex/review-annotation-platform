@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_0d92729232218495",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cc74adcb35e5423f95ab997d36672ae2",
+   "decision": "false",
+   "image_limitation": "框内主要是树冠和道路旁的设施，未见可确认的机动车车身。",
+   "observed_object": "树木、植被及类似设备设施",
+   "reasoning": "框内没有符合机动车圆角长方形车身、车顶和挡风玻璃深色横带特征的目标，位置也更像道路边的树冠区域。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f733538108d240f590ff61e466ea9a4d",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆被树冠部分遮挡的白色小汽车",
+   "reasoning": "可见车顶和明显的深色车窗区域，车身呈机动车的长方形轮廓，位于道路边并与道路尺度相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.97,
+   "health": {
+    "at": 1791545317.1384943,
+    "available_fraction": 0.4504289389741604,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "094892f38cb249a392ad201ac0a287d4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d920a1bef9839f66078c45710a93af01efbddae7eb14b0407043d4e1d52dcf14"
+}

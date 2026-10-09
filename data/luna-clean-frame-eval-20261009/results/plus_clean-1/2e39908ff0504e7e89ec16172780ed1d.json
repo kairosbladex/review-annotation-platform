@@ -1,0 +1,30 @@
+{
+ "unit": "2e39908ff0504e7e89ec16172780ed1d",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "2e39908ff0504e7e89ec16172780ed1d:000",
+   "decision": "false",
+   "image_limitation": "框内实际主要是红色平台标注文字及其覆盖区域，未见可确认的人员头部、肩部或躯干等人体特征。",
+   "observed_object": "标注文字覆盖的水面/浅色铺装区域，未见人员目标。",
+   "reasoning": "该候选框位置与尺度不符合可见人员的外观特征，红色框线和文字不能作为判断依据，因此判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.81,
+   "health": {
+    "at": 1791542650.1489127,
+    "available_fraction": 0.4288815484192934,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dd946e9bf3c84c8ba4688457254aa4a4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f74f619f54b8d24c25e2309ae9e0b2978884e705b7ca25d99ccb53eb6d1b5afd"
+}

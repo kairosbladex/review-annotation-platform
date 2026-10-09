@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_3c2815c757b85efe",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c191d4e9bc9d4a1bbbaf366f239a6b9a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在绿地旁的浅色小汽车，车顶和深色车窗带清晰可辨。",
+   "reasoning": "目标呈机动车的圆角长方形外观，尺寸与周围道路/停车区域相符，符合“车”的类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:fd7b8bfdf4ac4a7ea4d68df269d7ace6",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路车道上的浅色小汽车，可见车顶及深色车窗。",
+   "reasoning": "目标形状、颜色、车道位置和尺度均符合机动车特征，不是路面标线或其他设备。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 41.93,
+   "health": {
+    "at": 1791540852.1704924,
+    "available_fraction": 0.42991493815895204,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6d4d9c160f054925bd70d558bcc4ab53",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "23866e429e02d72b769988f28c8c292d5a9b729dc3f6471210936d30d2521791"
+}

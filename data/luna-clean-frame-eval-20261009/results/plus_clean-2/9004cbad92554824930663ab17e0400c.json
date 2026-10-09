@@ -1,0 +1,39 @@
+{
+ "unit": "9004cbad92554824930663ab17e0400c",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "9004cbad92554824930663ab17e0400c:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无遮挡，能够判断。",
+   "observed_object": "框内主要是红色平台标注及其下方的小型方形物体，外观更像井盖、设备或其他固定设施，不具备人员头顶、肩部或躯干腿部特征。",
+   "reasoning": "该物体形状偏方且尺度较小，位于岸边/平台边缘，未见人员典型的头部和肩部轮廓，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "http_503",
+   "seconds": 46.81,
+   "health": {
+    "at": 1791542431.5160804,
+    "available_fraction": 0.4140016542504655,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "status": "ok",
+   "seconds": 10.37,
+   "health": {
+    "at": 1791542498.3575065,
+    "available_fraction": 0.41393808769424434,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dc88f5a3e03843cf8e9c8921f4dac11e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2a896021961be47616a0d02388e6ff45319785c17da5a94e6ba9004fdd198f3c"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "1c611d4040d043ad9b7693b71e39372d",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "1c611d4040d043ad9b7693b71e39372d:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车顶和深色车窗带清晰可辨。",
+   "reasoning": "目标形状、尺度及所在绿化带旁停车位置均符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "1c611d4040d043ad9b7693b71e39372d:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，可见车顶、车身及深色车窗。",
+   "reasoning": "外观为机动车，形状和尺度与附近停车区域相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 42.85,
+   "health": {
+    "at": 1791544370.0166354,
+    "available_fraction": 0.4494329413263966,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "de63e2175b4549c3a7e13242ec5cfe85",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3141095dcf42ba3c01c54daee5108e76c61f0776cc11b30338c6f21a569baa26"
+}

@@ -1,0 +1,102 @@
+{
+ "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:000",
+   "decision": "false",
+   "image_limitation": "目标位于道路边缘，框内主要是普通小型车辆，长度与公交车不符。",
+   "observed_object": "普通小型车辆",
+   "reasoning": "可见物体尺度接近小汽车，未见公交车的一体式长车身或车顶设备。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见道路上的小型车辆，呈车辆俯视轮廓，位置和尺度与车道相符。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内为停放在道路旁的小型车辆，车身轮廓和尺度符合机动车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见道路上的小型车辆，形状与车道方向、尺度相符。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "屋顶设备或结构物",
+   "reasoning": "框内位于建筑屋顶平台，呈固定矩形设施，不具备卡车驾驶室与货厢分段特征。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见道路上的小型车辆，车身细长且与道路方向一致。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内为道路上的小型车辆，位置、尺度和俯视轮廓符合车辆。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见停靠在道路边的机动车，车形和尺度基本明确。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内为道路上的小型车辆，轮廓与周边车道尺度相符。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见道路边缘的机动车，仍能辨认出车身形状。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.28,
+   "health": {
+    "at": 1791545113.0318089,
+    "available_fraction": 0.4493316482774588,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d585a6cf38a647288fb7847d3e81f83e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "de500490284a09e4e88f2d5497b54ccbc4e4a51fc352677bc9373e5002494e79"
+}

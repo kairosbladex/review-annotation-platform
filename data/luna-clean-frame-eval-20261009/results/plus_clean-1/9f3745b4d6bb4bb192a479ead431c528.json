@@ -1,0 +1,30 @@
+{
+ "unit": "9f3745b4d6bb4bb192a479ead431c528",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是一个小型矩形箱体或设备，呈规整四边形，没有看到三轮车前窄后宽的轮廓、车把或车斗结构。",
+   "reasoning": "该目标外观更像固定设备或箱体，不符合三轮车的结构特征，因此判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.85,
+   "health": {
+    "at": 1791545275.3837013,
+    "available_fraction": 0.45065514593008665,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "749cb1a8e5bd4ab39b7689e84c6ce63c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0d493ac22d41fad17beb2231e7730b7ff253957c467dfc5da7c985ea1fa82855"
+}

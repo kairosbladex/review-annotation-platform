@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_fda4ce0c6a2a4ee0",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:79627723ab3842b3b626d4b9397aec45",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在路边停车位上的小汽车，车顶和深色玻璃区域清晰可辨，车身尺度与停车位相符。",
+   "reasoning": "目标外观符合机动车特征，位置和尺度也与停车位中的车辆一致。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.41,
+   "health": {
+    "at": 1791542777.9672003,
+    "available_fraction": 0.42504144138184635,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d979e29d6daf45f58961dd3a8813c8c8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "58b44012cdddefb79d991b0379764c6c6b163af74d83685d4423f5689ad89851"
+}

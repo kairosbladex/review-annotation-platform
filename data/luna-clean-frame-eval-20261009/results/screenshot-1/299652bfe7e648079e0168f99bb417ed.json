@@ -1,0 +1,30 @@
+{
+ "unit": "299652bfe7e648079e0168f99bb417ed",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "299652bfe7e648079e0168f99bb417ed:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标的头部和肩部轮廓，位于可站立的铺装区域。",
+   "reasoning": "目标外观呈小椭圆状，尺度明显小于车辆，符合俯视人员特征；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 3.82,
+   "health": {
+    "at": 1791542475.9062035,
+    "available_fraction": 0.41484224671630554,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dd9dbecff0a64ddf9aa42dbbef5fd9cd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c92c4af1f9eb2601a1271a03cc59d411a1f3cf727a6ce5a6b283e22ca0275cac"
+}

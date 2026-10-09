@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_fda4ce0c6a2a4ee0",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:79627723ab3842b3b626d4b9397aec45",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆从正上方拍摄的小汽车，车顶、前后深色挡风玻璃带和车身轮廓清晰，位于道路旁停车区域，尺度与位置相符。",
+   "reasoning": "目标外观符合机动车特征，不是标线或其他设备；框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.14,
+   "health": {
+    "at": 1791542773.8064072,
+    "available_fraction": 0.4242107593403622,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e63e843f68804c9a9049a61c13c6beee",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "58b44012cdddefb79d991b0379764c6c6b163af74d83685d4423f5689ad89851"
+}

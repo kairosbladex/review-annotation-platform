@@ -1,0 +1,30 @@
+{
+ "unit": "08af2f00853547d680679f99839a0f99",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:08af2f00853547d680679f99839a0f99:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于道路左下区域，尺寸很小且被红色标注覆盖，无法清晰确认完整车身轮廓及挡风玻璃特征。",
+   "observed_object": "道路旁疑似小型目标，具体物体类别无法确认。",
+   "reasoning": "仅凭现有截图无法判断其是否符合机动车的形状、尺度和朝向要求，因此不能确认或排除为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.17,
+   "health": {
+    "at": 1791545251.0174134,
+    "available_fraction": 0.44930830102008057,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e2395e5ce20e45e99b68283e56f8f9ec",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2b4a70c5e156f8350ec86eee79159d572746092036425e4291c3112a2e14abfc"
+}

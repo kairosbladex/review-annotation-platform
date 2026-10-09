@@ -1,0 +1,30 @@
+{
+ "unit": "ac89dffcf200454d97dd8e3cf8681a67",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "ac89dffcf200454d97dd8e3cf8681a67:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁地面上的小型机动车，呈车身长方形，位置和尺度与道路环境相符。",
+   "reasoning": "框内可见车辆主体，外形和所在位置符合机动车特征；红色标注不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 3.89,
+   "health": {
+    "at": 1791542556.955858,
+    "available_fraction": 0.41121472740131404,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "495406ec6978406c872923563e6d5e08",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8b075a469b997c732c0033041ae564930ec251d14d4962d8659bcbdb498a5574"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_ef6113db5be7d59d",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd00f28b069049368321be0ad373f69f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片蓝绿色、呈矩形的成片屋面/顶棚，带有平行条纹，覆盖在建筑上方。",
+   "reasoning": "主体颜色和形态符合蓝色或绿色彩钢瓦顶棚的判定要点，不是地面物体或光伏板。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.55,
+   "health": {
+    "at": 1791546829.674294,
+    "available_fraction": 0.4451124219082881,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6eb67ba4c8ed4bdcaf263bf6b462a791",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8852425bde6a8734d51d7704c565b999103e760e3bb020f996cef6ec883ff612"
+}

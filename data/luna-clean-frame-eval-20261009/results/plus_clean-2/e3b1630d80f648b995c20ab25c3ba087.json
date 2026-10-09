@@ -1,0 +1,30 @@
+{
+ "unit": "e3b1630d80f648b995c20ab25c3ba087",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e3b1630d80f648b995c20ab25c3ba087:003",
+   "decision": "false",
+   "image_limitation": "目标区域被红色标注文字和框线严重覆盖，但可见部分位于绿化区域，未呈现机动车的车身、挡风玻璃或与车道相符的尺度关系。",
+   "observed_object": "绿化带中的树木和红色叠加标注，未能确认有车辆。",
+   "reasoning": "框内及紧邻区域主要是植被，未见符合机动车特征的圆角长方形车顶或深色挡风玻璃横带；该位置也不符合车辆通常位于道路、车位或停车场地面的条件，因此初审类别“车”不正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.35,
+   "health": {
+    "at": 1791546915.82418,
+    "available_fraction": 0.44427839585858564,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4a53d394df7c47a486fc796a43bca604",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9c87adabf76eae811e75b2c529cdbe5d45682a4833b13678903af209ab8a6741"
+}

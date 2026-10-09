@@ -1,0 +1,30 @@
+{
+ "unit": "921ef7c18d9846589264f1195197448a",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "921ef7c18d9846589264f1195197448a:004",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面右下边缘，且在干净原图中对应区域仅露出很小一部分，无法完整确认车身形状及其与车位、道路的关系。",
+   "observed_object": "右下边缘可见疑似地面上的小型物体，但大部分出画，无法明确辨认为机动车。",
+   "reasoning": "框内实际目标严重贴近画面边缘并被裁切，露出部分不足以确认是否具有车的圆角长方形车身和深色玻璃横带，因此不能判定为true或false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.65,
+   "health": {
+    "at": 1791540962.776714,
+    "available_fraction": 0.42657555075207354,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8b3983a91c914c0aad33b67e5f8631e2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6521fc86a0fe39815e280a93b8381ad5335a9172af5d257c42a9fbe8083d2078"
+}

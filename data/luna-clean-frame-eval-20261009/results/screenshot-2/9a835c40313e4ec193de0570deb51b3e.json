@@ -1,0 +1,30 @@
+{
+ "unit": "9a835c40313e4ec193de0570deb51b3e",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "9a835c40313e4ec193de0570deb51b3e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路旁的机动车，车身呈细长圆角矩形，可见车顶和深色车窗区域。",
+   "reasoning": "目标位于道路边缘，形状、颜色和尺度符合俯拍小汽车特征，红色标注框和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.18,
+   "health": {
+    "at": 1791545645.976722,
+    "available_fraction": 0.4496450122475821,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2cfbd147e3004d48a466e65a71cfa7d3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e63cccd46244948bc4267eaef7bb47466f295ec01d258fecf07ccdaed1f84a7a"
+}

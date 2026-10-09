@@ -1,0 +1,30 @@
+{
+ "unit": "e69acd6b46474afebbf37d0a3f999c89",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e69acd6b46474afebbf37d0a3f999c89:004",
+   "decision": "true",
+   "image_limitation": "目标位于画面右上道路边缘，但车辆主体基本可见，未明显出画。",
+   "observed_object": "道路上的一辆小汽车，可见深色车顶及长方形车身轮廓。",
+   "reasoning": "框内物体位于车道旁，外形和尺度符合机动车特征，不是标线或道路设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.61,
+   "health": {
+    "at": 1791542583.9374528,
+    "available_fraction": 0.40927052102323247,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3f449ad868034661a1798cd169dd248a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d528d94f50d3e78e5798aba52621836ad048849d48946ada992c14a03fc92806"
+}

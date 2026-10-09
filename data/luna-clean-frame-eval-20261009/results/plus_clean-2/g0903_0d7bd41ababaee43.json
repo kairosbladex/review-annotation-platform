@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_0d7bd41ababaee43",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cdd543ffaaad481885165446c2939f34",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内可见成片蓝色屋面，形状规整，符合蓝色顶棚特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:82325faa9a82418181856bacfc284810",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "灰色或深色长条状建筑屋面",
+   "reasoning": "框内主要是长条状的灰灰色屋面，不符合蓝色或绿色顶棚的类别要求。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.7,
+   "health": {
+    "at": 1791546681.7628577,
+    "available_fraction": 0.4464079818922563,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d884b7d7111f4ac7b1ffa0f4023f7c51",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "433e03e95418bd101a9e9ff3175abbe246438f7cf62e9791044c083ed8849694"
+}

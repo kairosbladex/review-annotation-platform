@@ -1,0 +1,30 @@
+{
+ "unit": "65c8ee3fb8c246398be76e87c27290ec",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:65c8ee3fb8c246398be76e87c27290ec:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在停车区域的小汽车，车顶和深色车窗带清晰可辨。",
+   "reasoning": "目标呈机动车常见的圆角长方形车身，位于道路旁停车位内，尺度和朝向均与车辆相符，符合“车”的类别特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.56,
+   "health": {
+    "at": 1791546351.272191,
+    "available_fraction": 0.45029110503541975,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "04e97b0479db496990e166aab4099683",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c9e4f74bed7eecd5a746f4b279172f4fd5c23c911e7401506ff33d1b14f0d606"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "bf64d4b40c7d4bf1b7ff193da2ba90f7",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bf64d4b40c7d4bf1b7ff193da2ba90f7:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是水面上的漂浮物或水上设施局部，不具有人体头部、肩部或躯干腿部的外观，也不在可站立区域。",
+   "reasoning": "该框位置位于水面及拦网上，实际物体呈小型浅色块状，尺度和形状均不符合俯拍人员特征，因此不属于人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.61,
+   "health": {
+    "at": 1791542508.757106,
+    "available_fraction": 0.41014099676251364,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8c2ca926b9ae40b3a7cba4c6c7efb9b9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5a0d531317b3bf9fad782e48a7794c243cf218b169d2d26fc86ce365e980bba"
+}

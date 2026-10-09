@@ -1,0 +1,30 @@
+{
+ "unit": "2bb24df7fb4c40358e8ebea8a28182ba",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "2bb24df7fb4c40358e8ebea8a28182ba:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车的车顶和车身轮廓，位于道路旁停车区域，形状与尺度符合机动车特征。",
+   "reasoning": "该目标呈圆角长方形，车身与深色车窗带清晰可见，且位置、朝向和尺度均与道路旁停放的小汽车相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 38.67,
+   "health": {
+    "at": 1791536996.3600318,
+    "available_fraction": 0.451625607515093,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7ee3b0bb4eac40cdb865e977f0a0b9f6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "445152924ed4f21cb478a2c2403be94d2bf274771bb1e2876ac9846774788cb0"
+}

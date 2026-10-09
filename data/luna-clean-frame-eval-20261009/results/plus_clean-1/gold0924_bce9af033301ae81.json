@@ -1,0 +1,38 @@
+{
+ "unit": "gold0924_bce9af033301ae81",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-002",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "绿色垃圾桶或类似固定设施",
+   "reasoning": "框内可见的是竖直的固定物体，形状和尺度不符合人员的头肩或躯干腿部特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见细长的人体轮廓，位于可站立的人行道上，位置和尺度符合斜俯视下的人员特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.56,
+   "health": {
+    "at": 1791543593.0040822,
+    "available_fraction": 0.4452843343307801,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a66799e46b2740af9afb580a67ac02db",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7dffcb930060177f1f448dd150be9a59ba0a86f0e106739a21ccb6c7cdf81895"
+}

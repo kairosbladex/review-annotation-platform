@@ -1,0 +1,30 @@
+{
+ "unit": "8000a189fc2541f7916c5a5ce57e5249",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "8000a189fc2541f7916c5a5ce57e5249:001",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内主要是裸地和碎石，未见人员。",
+   "reasoning": "框的位置位于桥头右侧岸边施工裸地，框内没有符合人员外观的头部、肩部或躯干轮廓，更像碎石地面，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.13,
+   "health": {
+    "at": 1791544689.7741833,
+    "available_fraction": 0.4506640227519023,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b8c53c2c77344cf4b396d7cf95ced056",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "849116678ee98f91e0d60f74e9b4d846ee8f9901dde22ce1614c7cdfe016e784"
+}

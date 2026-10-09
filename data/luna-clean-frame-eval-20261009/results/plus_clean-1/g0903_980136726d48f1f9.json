@@ -1,0 +1,54 @@
+{
+ "unit": "g0903_980136726d48f1f9",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c5edc11779b34c3ba5aa442d08ebd779",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左侧边缘并被树冠遮挡，露出部分不足以确认完整车形。",
+   "observed_object": "树木间的局部浅色物体",
+   "reasoning": "位置可能在道路附近，但只能看到很小且不完整的区域，无法可靠确认是否为机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:e4fc0e7a76a1498a957aaadcddda9dd0",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边停车区域内的小汽车",
+   "reasoning": "可见车顶及深色玻璃带，呈圆角长方形，尺度与道路旁车辆相符。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:bf342116bb84430aab20a5de45ef83a8",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边停车区域内的小汽车",
+   "reasoning": "目标具有清晰车顶轮廓和深色玻璃区域，位置、朝向及尺度均符合机动车特征。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:0b88b03239f445aea5ccc68e32cd5e72",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边停车区域内的小汽车",
+   "reasoning": "可见完整车身轮廓和车顶玻璃带，位于地面停车区域，符合小汽车外观。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.99,
+   "health": {
+    "at": 1791546898.1992314,
+    "available_fraction": 0.44500051923327605,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d690efebc6e84edca37c3b4d80ef9f61",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "02525936c0e499fb3fbb5dd6f0f74506c61d9c35c39205d56b9a6e5299a5f10c"
+}

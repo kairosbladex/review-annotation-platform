@@ -1,0 +1,30 @@
+{
+ "unit": "ac89dffcf200454d97dd8e3cf8681a67",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "ac89dffcf200454d97dd8e3cf8681a67:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁绿地边缘的一辆小型机动车，呈可辨识的车身矩形轮廓。",
+   "reasoning": "框内目标位于地面道路附近，形状和尺度符合俯拍机动车特征，不是建筑屋顶设备或标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.02,
+   "health": {
+    "at": 1791542551.906319,
+    "available_fraction": 0.4115192753497711,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "173e26495fa443aebd4534213d1df8ae",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8b075a469b997c732c0033041ae564930ec251d14d4962d8659bcbdb498a5574"
+}

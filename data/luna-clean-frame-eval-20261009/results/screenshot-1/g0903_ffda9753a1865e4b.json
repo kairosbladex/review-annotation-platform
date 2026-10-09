@@ -1,0 +1,54 @@
+{
+ "unit": "g0903_ffda9753a1865e4b",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:b72bceabedff4f33bd7e206db93cf80a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内可见成片蓝色屋面，呈规整矩形并有顶棚条纹，符合违建类别外观要求。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b5353da4de4b4d3a98177fdaf39d2a1f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内主体是覆盖空地的蓝色成片屋面，边缘规整，符合蓝色顶棚特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:d9194ee969e24131920de23a185f3fed",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色长条顶棚",
+   "reasoning": "框内可见覆盖院落的蓝绿色彩钢瓦顶棚，具有平行条纹和规整矩形形状，符合类别要求。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:a33bbf274cdc410cba575f56f21e2fb7",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内可见建筑或棚架上方的蓝色规整屋面，颜色和形状均符合蓝色顶棚特征。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.26,
+   "health": {
+    "at": 1791541668.735213,
+    "available_fraction": 0.42612292403969815,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ba31127563ec44abb42e4523cdb9a2b3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3623295fb4eeaaafec5a264689323575711c4da12f6c693e396da8a1700f286f"
+}

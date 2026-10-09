@@ -1,0 +1,30 @@
+{
+ "unit": "87e732ecc4f14ac9922a3fb789fbb9e6",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "87e732ecc4f14ac9922a3fb789fbb9e6:000",
+   "decision": "false",
+   "image_limitation": "框内实际主要是红色叠加文字和标注框，未见可确认的人员头部、肩部或躯干；紧邻区域也没有符合人员尺度和形态的目标。",
+   "observed_object": "建筑地面上的红色平台标注文字/框线",
+   "reasoning": "排除红色叠加标注后，框内没有人员的可见外观特征，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.38,
+   "health": {
+    "at": 1791545084.8041637,
+    "available_fraction": 0.4493266322651315,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aac86ac1927446eda89839d33bacff64",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8eb535da9d7ab56a1591ee4ca150e2343eedb7507e0202a85678e4787dc6c01c"
+}

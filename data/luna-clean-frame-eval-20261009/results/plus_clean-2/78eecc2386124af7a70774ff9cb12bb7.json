@@ -1,0 +1,30 @@
+{
+ "unit": "78eecc2386124af7a70774ff9cb12bb7",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "78eecc2386124af7a70774ff9cb12bb7:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈圆角长方形车身，能看到车顶及深色车窗带，位于道路旁地面区域。",
+   "reasoning": "目标外观、尺度和所在位置均符合车辆特征，判断为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 28.38,
+   "health": {
+    "at": 1791540747.2450407,
+    "available_fraction": 0.41196500124518703,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "df401902ae6449cd8ef5580727301854",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ecb813932b0b415ae8074a91646f0b724b21912753104b016340287dd41102cd"
+}

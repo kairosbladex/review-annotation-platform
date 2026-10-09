@@ -1,0 +1,46 @@
+{
+ "unit": "g0903_2172b53d242b0ce7",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:70e9f9bea8964e4a85870d4b808e3773",
+   "decision": "uncertain",
+   "image_limitation": "目标大部分位于图像左侧边缘，只有狭窄区域可见。",
+   "observed_object": "疑似蓝绿色顶棚或其他长条状结构，无法完整确认。",
+   "reasoning": "可见部分颜色偏蓝绿，但目标出画严重，无法判断其是否为成片顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:78e3d11373c94753a258e7c81c313bdd",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形彩钢瓦顶棚。",
+   "reasoning": "框内主体为覆盖在建筑或棚架上的成片蓝色屋面，边缘规整并可见平行条纹，符合蓝色顶棚特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:f3af4269e30c43e09f0e2ba123b00f30",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色长方形彩钢瓦顶棚。",
+   "reasoning": "框内主体为成片蓝绿色屋面，呈规整矩形并可见彩钢瓦平行条纹，位置和尺度也符合顶棚。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.35,
+   "health": {
+    "at": 1791544404.4804714,
+    "available_fraction": 0.4489742953992284,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dc8a77a28f054d5cb7fb5c4f5774f42c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4e34ca278bd48eb280cf819fcace28f64b780c62d504cfbeb2edca13575ebdac"
+}

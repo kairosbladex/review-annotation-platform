@@ -1,0 +1,30 @@
+{
+ "unit": "9fd6d20c9b8343ed959cef72d8c06689",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "9fd6d20c9b8343ed959cef72d8c06689:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个人的头部和肩部，位于岸边步道上。",
+   "reasoning": "目标呈小型头顶与肩部组合，形状和尺度符合俯视人员特征，位置也适合人员站立；红色标注不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.62,
+   "health": {
+    "at": 1791542955.4180062,
+    "available_fraction": 0.42605145346405204,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4ef3b60cc4f543598d56208c79036848",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e7f83cbcfc546c0e04359e7f1fe05d9f0a8af88ed3c19df16c3e74b7e2b5d084"
+}

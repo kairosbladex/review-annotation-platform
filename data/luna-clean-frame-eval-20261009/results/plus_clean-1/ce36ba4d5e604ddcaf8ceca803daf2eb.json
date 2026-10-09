@@ -1,0 +1,30 @@
+{
+ "unit": "ce36ba4d5e604ddcaf8ceca803daf2eb",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ce36ba4d5e604ddcaf8ceca803daf2eb:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面右下边缘，框内仅露出很小区域，且被边界和标注遮挡，无法确认完整车身形状及其与道路、车位的尺度关系。",
+   "observed_object": "右下角建筑或地面附近的局部小物体，车形不可辨。",
+   "reasoning": "目标出画且可见部分过少，既不能确认是机动车，也不能排除其他设施或建筑物局部。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.65,
+   "health": {
+    "at": 1791541284.7880392,
+    "available_fraction": 0.42491494667097296,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3c55c3d0baa04f5bb49c1f22557f3565",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d14221d49dad0b5693cbe44faf703f650e5c8a365093fa5afe73ac06c2707ab8"
+}

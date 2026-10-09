@@ -1,0 +1,110 @@
+{
+ "unit": "97e3d423cb614e54b95128dd6821b6d6",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见位于道路边缘的人体小目标，尺度和位置符合人员特征。",
+   "target_index": 0
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内为道路边缘的细小行人目标，形态与尺度符合人员。",
+   "target_index": 1
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见小型人体目标，位于可站立的道路区域。",
+   "target_index": 2
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内目标呈细小竖长人体形态，位置符合行人。",
+   "target_index": 3
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内为路边可站立处的细小人员目标。",
+   "target_index": 4
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内目标为道路边缘的小型人体，尺度相符。",
+   "target_index": 5
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见细小行人目标，位于道路旁。",
+   "target_index": 6
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内为道路边缘的细小人体目标，外观符合人员。",
+   "target_index": 7
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见位于步行区域的细小人员目标。",
+   "target_index": 8
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内目标为道路上的小型人体，位置和尺度符合。",
+   "target_index": 9
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见细小人员目标，非车辆或植被。",
+   "target_index": 10
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 53.9,
+   "health": {
+    "at": 1791542114.8685422,
+    "available_fraction": 0.42614037368258234,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fdbedb49efc3480a80bd58dcef7eb008",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "162320d7659db24c7715f037049238b80fc4428fda67399e86cd21efddd92c27"
+}

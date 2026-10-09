@@ -1,0 +1,30 @@
+{
+ "unit": "30f8929ce9bc4d4495038a689ae8e775",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "30f8929ce9bc4d4495038a689ae8e775:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在地面上的小汽车，呈长方形车身并带深色车窗区域。",
+   "reasoning": "目标位于道路旁的地面区域，外形、颜色和尺度均符合机动车特征，红色框线及文字不影响对实际车辆的判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 41.5,
+   "health": {
+    "at": 1791538563.6272364,
+    "available_fraction": 0.4422273028178194,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "09338eaadabb4458a231a3a38962a98d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "cdd88f06024134ff138dcc3021d7ccb1ed7ed3c5a2dd1f4b6b949c06ab5e94b1"
+}

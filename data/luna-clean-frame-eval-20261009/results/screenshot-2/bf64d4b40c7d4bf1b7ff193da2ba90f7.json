@@ -1,0 +1,30 @@
+{
+ "unit": "bf64d4b40c7d4bf1b7ff193da2ba90f7",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "bf64d4b40c7d4bf1b7ff193da2ba90f7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个位于岸边绳索附近的小型人员目标，呈亮色头部或身体与深色局部组合，位置和尺度符合俯拍人员特征。",
+   "reasoning": "目标位于可站立的岸边设施附近，外观不是植物、车辆或固定设施；框内实际目标与标注位置基本对应，符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.0,
+   "health": {
+    "at": 1791542508.1707158,
+    "available_fraction": 0.41047214477634303,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d2c724d14b2c45bfbe1c1b8807b418b7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5a0d531317b3bf9fad782e48a7794c243cf218b169d2d26fc86ce365e980bba"
+}

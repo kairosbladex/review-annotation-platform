@@ -1,0 +1,30 @@
+{
+ "unit": "037fce51334440f38171cbc57cd44237",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "037fce51334440f38171cbc57cd44237:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像底部边缘，目标大部分出画且仅能看到局部，无法确认是否具有卡车的驾驶室与货厢分段特征。",
+   "observed_object": "框内可见局部疑似车辆或设备，但主体不完整。",
+   "reasoning": "目标被画面边缘截断，无法依据外观和尺度可靠判断为卡车，也不能明确排除。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 25.58,
+   "health": {
+    "at": 1791537688.098011,
+    "available_fraction": 0.43150136605775724,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "856b3dd39c4742039fbd801c7d7bbf7b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d8cc8880b035666db355740a0e15575f29301d1c81d5ef334ace7613021feec7"
+}

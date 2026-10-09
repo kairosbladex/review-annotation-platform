@@ -1,0 +1,30 @@
+{
+ "unit": "aeb96de0f80449648efd3b40aa1bd9d5",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "aeb96de0f80449648efd3b40aa1bd9d5:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是红色初审标注文字及其背景下的浅色铺装路面，未见人员的头部、肩部或躯干腿部轮廓。",
+   "reasoning": "候选框位置在道路/广场铺装区域，实际可见目标与人员外观及尺度特征不符，因此判定为误检。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.58,
+   "health": {
+    "at": 1791542571.1072395,
+    "available_fraction": 0.40898400031907917,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1ac70d7326b94c4ab0d98e20b076d199",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dcebcf7a2aaecb7473223b6d1191ca399e8fd8768556030784c037389f56bf55"
+}

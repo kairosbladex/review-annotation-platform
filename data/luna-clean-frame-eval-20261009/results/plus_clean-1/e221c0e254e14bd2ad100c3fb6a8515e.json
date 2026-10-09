@@ -1,0 +1,30 @@
+{
+ "unit": "e221c0e254e14bd2ad100c3fb6a8515e",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e221c0e254e14bd2ad100c3fb6a8515e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边一辆小型机动车，可见明显车身轮廓，位于路面且尺度与道路相符。",
+   "reasoning": "框内目标呈圆角长方形车身，位置在道路边缘，符合机动车外观和所在环境；红色框线及文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.1,
+   "health": {
+    "at": 1791544040.1261086,
+    "available_fraction": 0.4487592452707212,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fc2c58a8839e4968aed711567d4f0605",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "af2890af9a366394cc180dcb8c466f6a4445794b8809bba42faef78d3494c4d2"
+}

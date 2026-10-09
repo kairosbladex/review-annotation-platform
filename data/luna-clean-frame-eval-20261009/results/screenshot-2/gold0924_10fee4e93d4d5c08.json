@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_10fee4e93d4d5c08",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-016",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，无法确认不是人员的限制较小。",
+   "observed_object": "人行道旁的细长立式设施，外观更像路灯杆或其他固定设施，不见人员头部、肩部或躯干腿部特征。",
+   "reasoning": "该目标位于人行道上，但形状细长且竖直，尺度和外观不符合俯拍人员，属于固定设施而非人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.75,
+   "health": {
+    "at": 1791546487.7882998,
+    "available_fraction": 0.44997561306006667,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e75857cddf8543639b66859d1cfff1d6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5c84262940d10a54c7a8850999f87c055bdd1c5101b4b581a97c2e78978fadc"
+}

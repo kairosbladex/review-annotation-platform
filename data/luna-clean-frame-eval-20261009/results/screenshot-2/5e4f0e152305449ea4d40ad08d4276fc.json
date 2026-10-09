@@ -1,0 +1,38 @@
+{
+ "unit": "5e4f0e152305449ea4d40ad08d4276fc",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在地面区域的小型机动车，车身呈长方形，尺度和位置符合车辆特征。",
+   "reasoning": "目标位于建筑外部地面区域，轮廓和颜色分区可辨，不是标线或建筑设备。",
+   "target_index": 0
+  },
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，位于地面道路或停车区域，车身轮廓清晰。",
+   "reasoning": "其长方形车身及与周围地面设施的尺度关系符合汽车外观，红色标注文字不作为判断依据。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.37,
+   "health": {
+    "at": 1791546929.8039813,
+    "available_fraction": 0.442907717290006,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dbae9083d98b4c308f3460e669de9d2f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ac0bd6b966ede122999baf3bf5ab0972b4ea27f1743565468f8ed10cd6c17148"
+}

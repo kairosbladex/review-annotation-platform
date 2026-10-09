@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_c43c8cc90e522fc7",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-028",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡，足以判断。",
+   "observed_object": "框内是道路上的小型车辆或车辆部件，不是人员。",
+   "reasoning": "目标呈横向细长的深色物体，尺度和形态更符合车辆或车辆部件；未见人员应有的头部、肩部或躯干腿部结构，因此不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.9,
+   "health": {
+    "at": 1791541366.28872,
+    "available_fraction": 0.42795829815031355,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "57ab27a6332349389fde2e0c33158080",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d177d32d191908437c4eb34ae9a542d0815a610631a6677be396e68bec582372"
+}

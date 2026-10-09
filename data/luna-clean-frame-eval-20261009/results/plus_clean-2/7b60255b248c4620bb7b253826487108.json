@@ -1,0 +1,30 @@
+{
+ "unit": "7b60255b248c4620bb7b253826487108",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "7b60255b248c4620bb7b253826487108:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈白色衣物、深色头部的紧凑人形，位于岸边可站立区域。",
+   "reasoning": "目标外观和位置符合俯拍人员特征，尺度也明显小于车辆，不像井盖、路灯杆或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 52.44,
+   "health": {
+    "at": 1791538358.0435586,
+    "available_fraction": 0.4504039501127478,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2b7b62ed875d470fa8de4841b95cf91d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "411b8ff9efaddfa35c59310fe14901d4f869076ca5aa9fc6225b100cded287e8"
+}

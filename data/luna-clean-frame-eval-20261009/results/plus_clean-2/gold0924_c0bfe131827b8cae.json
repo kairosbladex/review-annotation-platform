@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_c0bfe131827b8cae",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名骑两轮车的人员，头部、躯干及车辆轮廓相邻可辨。",
+   "reasoning": "目标位于车道上，体型明显小于汽车，整体呈人员骑行姿态；按照规则，骑两轮车的人属于人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.73,
+   "health": {
+    "at": 1791545186.4678547,
+    "available_fraction": 0.44980680144519525,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "736afb7d07a34c429109d60bef4f3c09",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c2e02af70961e135a452b212d2952ce77f74702b1891ade13d405c1d6bf7f1cd"
+}

@@ -1,0 +1,23 @@
+{
+ "date": "2026-10-09",
+ "objective": "离线比较截图与截图加无平台标注原帧，检验各类别尤其车辆、人员的看不清和误判是否减少",
+ "prompt_selection": "准备开始时冻结服务器 best.json；不存在新最佳版本则使用 p001；实验过程中不追随自动迭代更新",
+ "partitions": ["dev", "holdout"],
+ "repeats": 2,
+ "input_contract": "截图组使用当前 worker 的原图、定位图、目标裁剪图；干净组仅增加第四张未绘制标注的原帧。两组同一提示词，bbox为截图归一化坐标，clean_bbox为原帧归一化投影坐标。",
+ "eligibility": [
+  "冻结数据集图片哈希必须与服务器 assets 一致",
+  "必须有像素文件哈希完全相同的09-24快照截图，不以相似场景猜测对应",
+  "原片匹配必须通过快照已有干净图质量门槛",
+  "视频在已匹配时刻附近正负1.5秒流式解码，以快照已验证的无标注对齐帧为参照，完整投影后面积降采样比较，相关性低于0.80排除；此规则在模型评测前修正，避免框线文字及纹理混叠造成错误排除",
+  "投影后完全出画的候选排除，部分出画保留裁切前后坐标",
+  "原本就是原图或无法建立可靠原片匹配的输入单列，不混入主要对照",
+  "评分只包含四次均完成且有二元人工标签的相同候选集合"
+ ],
+ "metrics": ["准确率", "真目标被驳回", "非目标被放过", "看不清总数", "真目标看不清数", "同组重复结论翻转", "逐框错转对和对转错"],
+ "decision_policy": "只有true放行；false和uncertain均驳回。看不清不是调用失败；调用失败单列。",
+ "interpretation": "以holdout为主要验证证据，dev供观察；两次调用仅初步估计随机波动，报告按原视频或原照片聚类的配对bootstrap区间，避免把同视频不同事件当作独立场景。没有样本的类别不报告0%准确率。",
+ "limits": "第四张图同时增加原片信息、分辨率和输入图数，不能单独归因于去掉框线。保留原有holdout划分并审计同事件跨集合重叠。",
+ "resources": {"worker_port":18398,"worker_memory_max":"4G","worker_swap_max":0,"worker_cpu_quota":"300%","concurrency_max":4,"concurrency_during_autotune":2,"initial_concurrency_during_autotune":1,"drain_existing_requests_on_transition":true,"effective_cpu_limit":"3 logical CPU affinity when user CPU controller is not delegated"},
+ "boundaries": "不发布、不重启共享服务、不更改自动迭代状态、Java或测试配置；仅读取既有离线数据，模型请求不含人工标签。"
+}

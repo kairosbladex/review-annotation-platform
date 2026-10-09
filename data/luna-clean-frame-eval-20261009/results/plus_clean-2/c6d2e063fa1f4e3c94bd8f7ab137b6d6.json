@@ -1,0 +1,30 @@
+{
+ "unit": "c6d2e063fa1f4e3c94bd8f7ab137b6d6",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c6d2e063fa1f4e3c94bd8f7ab137b6d6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个人的头部和肩部，位于岸边铺装区域。",
+   "reasoning": "目标呈小型椭圆状，具有明显的头顶和两侧肩部轮廓，位置和尺度符合俯视人员特征，不像井盖、石墩或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.46,
+   "health": {
+    "at": 1791545063.588823,
+    "available_fraction": 0.4518608128931338,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aa9ca137587e4acea84fdc094452900b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "25a2b6f618d38577ec693a848b8b49900964f4d52db431c2d01c9a56f765f23e"
+}

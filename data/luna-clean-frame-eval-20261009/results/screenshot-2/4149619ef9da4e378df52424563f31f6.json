@@ -1,0 +1,30 @@
+{
+ "unit": "4149619ef9da4e378df52424563f31f6",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "4149619ef9da4e378df52424563f31f6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的人员头顶及肩部轮廓",
+   "reasoning": "框内可见一个位于人行道上的小型人物目标，形状和尺度符合俯拍人员特征，并非树木、车辆或设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 27.65,
+   "health": {
+    "at": 1791543846.307688,
+    "available_fraction": 0.44506736899756605,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3d02da6192d24caea233193b88e47fed",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d1eb1b145c2124ccb931fa26409c9a5979617f3d3db452695f4a14e0f62aad98"
+}

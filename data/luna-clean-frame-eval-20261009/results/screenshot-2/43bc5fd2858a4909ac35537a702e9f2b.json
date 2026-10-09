@@ -1,0 +1,30 @@
+{
+ "unit": "43bc5fd2858a4909ac35537a702e9f2b",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:43bc5fd2858a4909ac35537a702e9f2b:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小型机动车",
+   "reasoning": "框内可见道路上的小型车辆，位置与道路关系匹配，尺度和形状符合车的特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.36,
+   "health": {
+    "at": 1791546320.5543876,
+    "available_fraction": 0.4496775403275231,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7a1951c569644f5298d31619ca73633d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6e940bea8cc7b2a8f8f17c30a3191c67e424bc3e0c45dd761c5b787731dfd3dd"
+}

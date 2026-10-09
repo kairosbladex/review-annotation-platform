@@ -1,0 +1,30 @@
+{
+ "unit": "bbf1615b83a64a88814cb214a065c80f",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bbf1615b83a64a88814cb214a065c80f:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路旁的小汽车，呈细长圆角车身轮廓，尺度和位置与车道及停车区域相符。",
+   "reasoning": "实际物体具备机动车俯视外观，不是标线、设备或其他设施，符合“车”的类别要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.4,
+   "health": {
+    "at": 1791545757.634927,
+    "available_fraction": 0.44890185202119154,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "55a3a76f65e94db4af43811032cec723",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "570e4751661ce018ad2527db4b8fcbc59b0f1c67f56067aaa1b9b3c2930822e4"
+}

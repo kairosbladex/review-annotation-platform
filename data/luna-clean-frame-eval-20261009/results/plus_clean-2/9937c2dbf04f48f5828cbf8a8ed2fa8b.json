@@ -1,0 +1,30 @@
+{
+ "unit": "9937c2dbf04f48f5828cbf8a8ed2fa8b",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "9937c2dbf04f48f5828cbf8a8ed2fa8b:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是铺装地面及其纹理，没有可辨认的人员头顶、肩部或躯干。",
+   "reasoning": "该位置实际对应红色文字标注区域，未见符合人员外观和尺度的目标，因此初审类别不成立。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.11,
+   "health": {
+    "at": 1791546968.0930276,
+    "available_fraction": 0.4440772689642962,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aa0ea3718d59442bbd9dfff57bfd7378",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c5efd02b9e9e23a0c50837bcda5e4e7e132b515b0c4391abd617f8a8b2686f7e"
+}

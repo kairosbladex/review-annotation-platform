@@ -1,0 +1,110 @@
+{
+ "unit": "97e3d423cb614e54b95128dd6821b6d6",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似路边小物体或人员，细节不可辨认。",
+   "reasoning": "框内目标过小，无法可靠观察头顶、肩部或躯干等人员特征，也不能排除车辆局部、设施或其他物体。",
+   "target_index": 0
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:007",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似道路边缘小物体，细节不可辨认。",
+   "reasoning": "缺乏足够形状和尺度信息，不能确认人员特征，也无法明确否定。",
+   "target_index": 1
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:002",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似停车区域小物体，细节不可辨认。",
+   "reasoning": "目标被框线和文字遮挡，无法判断是人员还是车辆/设施局部。",
+   "target_index": 2
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:008",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似道路边缘小物体，细节不可辨认。",
+   "reasoning": "无法观察到明确的头部、肩部或躯干形态。",
+   "target_index": 3
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:001",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似停车区域小物体，细节不可辨认。",
+   "reasoning": "目标尺度过小，且标注覆盖影响判断，不能确认或排除人员。",
+   "target_index": 4
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:005",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似道路边缘小物体，细节不可辨认。",
+   "reasoning": "没有足够细节判断人员外观特征。",
+   "target_index": 5
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:009",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似道路边缘小物体，细节不可辨认。",
+   "reasoning": "目标被叠加标注遮挡，无法可靠区分人员与其他设施或车辆局部。",
+   "target_index": 6
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:010",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似道路边缘小物体，细节不可辨认。",
+   "reasoning": "无法确认头顶、肩部、躯干等人员特征，亦不能明确判定为其他物体。",
+   "target_index": 7
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:004",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似人行区域小物体，细节不可辨认。",
+   "reasoning": "目标被标注内容部分覆盖，无法可靠判断其形状与尺度是否符合人员。",
+   "target_index": 8
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:006",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注框线/文字干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似道路边缘小物体，细节不可辨认。",
+   "reasoning": "无法观察到足以支持人员类别的清晰外观特征。",
+   "target_index": 9
+  },
+  {
+   "key": "97e3d423cb614e54b95128dd6821b6d6:003",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注文字/框线严重干扰，无法确认实际物体是否为人员。",
+   "observed_object": "疑似停车区域小物体，细节不可辨认。",
+   "reasoning": "目标细节不足，无法区分人员、车辆局部或其他设施。",
+   "target_index": 10
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.17,
+   "health": {
+    "at": 1791542084.6761293,
+    "available_fraction": 0.42706207354775194,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bc85f037d6ca4f2bbdcf62bc325f676d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "162320d7659db24c7715f037049238b80fc4428fda67399e86cd21efddd92c27"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "a4d041acab414e5d8e428eef20afeafc",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个前窄后宽的小型车辆，后部较宽，整体轮廓符合三轮车特征。",
+   "reasoning": "目标位于道路边缘，形状和尺度与三轮车相符，不像四方箱体、摊棚或两轮车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.23,
+   "health": {
+    "at": 1791542641.7981408,
+    "available_fraction": 0.4277967825533728,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fd5a9bbab9394f07aa1e7968fee28544",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "85d2ffe8761dec48cc0c5882cc5b48fc68b158d70c4e4bae97a6afa719a52cb5"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "498b29f31f2f4cb3a6457b81ea52fa8b",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "498b29f31f2f4cb3a6457b81ea52fa8b:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车身和车窗形状明确。",
+   "reasoning": "目标呈机动车典型的长方形车身，位于停车区域，尺度与周围车辆一致，符合“车”的类别。",
+   "target_index": 0
+  },
+  {
+   "key": "498b29f31f2f4cb3a6457b81ea52fa8b:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，部分被树木遮挡。",
+   "reasoning": "露出的车身轮廓、车顶及深色车窗带仍清晰可辨，位置和尺度也符合停车车辆特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 36.17,
+   "health": {
+    "at": 1791543773.4980567,
+    "available_fraction": 0.44570978337636363,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "27254e9a82b8483b908e5497a6f2c667",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1094e2c7c8ae217c547318124b78cf7b0704d707afc7e38a94f05c0782280e8a"
+}

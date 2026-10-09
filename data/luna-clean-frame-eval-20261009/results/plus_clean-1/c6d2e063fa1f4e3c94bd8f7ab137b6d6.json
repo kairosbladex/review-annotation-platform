@@ -1,0 +1,30 @@
+{
+ "unit": "c6d2e063fa1f4e3c94bd8f7ab137b6d6",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c6d2e063fa1f4e3c94bd8f7ab137b6d6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯视人员的头顶和肩部，位于岸边铺装区域。",
+   "reasoning": "目标呈小型略长椭圆形，中央可见深色头部及两侧浅色肩部，位置和尺度符合人员特征；红色标注不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.2,
+   "health": {
+    "at": 1791545055.9257894,
+    "available_fraction": 0.4492409040544458,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e07aab5a0dd240bf9389fdbbe55471a1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "25a2b6f618d38577ec693a848b8b49900964f4d52db431c2d01c9a56f765f23e"
+}

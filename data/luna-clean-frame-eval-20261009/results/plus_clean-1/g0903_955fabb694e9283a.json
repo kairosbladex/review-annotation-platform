@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_955fabb694e9283a",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5bebebc5919b437da90eb125d0dc2324",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片蓝色矩形屋顶/棚顶，位于建筑区域上方，边缘较规整。",
+   "reasoning": "目标主体符合蓝色顶棚的外观特征，属于违建类别口径中的蓝色或绿色顶棚。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.11,
+   "health": {
+    "at": 1791541145.7224362,
+    "available_fraction": 0.4284260336998204,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "acf09675da464fd7ba2ac09759b438cc",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a71208ed780f581f3ad1087ee14061c9918ab6f9f9e80250399c7558a0caff85"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "7b60255b248c4620bb7b253826487108",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "7b60255b248c4620bb7b253826487108:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "岸边平台上的一个人，能看到头部和身体轮廓。",
+   "reasoning": "框内实际物体呈现为小型人形，位于可站立的岸边平台处，尺度与俯视人员相符；红色标注文字和框线不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 24.08,
+   "health": {
+    "at": 1791538410.505083,
+    "available_fraction": 0.44911556454641144,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "14ba1c68716e406b9bea6460fd04273a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "411b8ff9efaddfa35c59310fe14901d4f869076ca5aa9fc6225b100cded287e8"
+}

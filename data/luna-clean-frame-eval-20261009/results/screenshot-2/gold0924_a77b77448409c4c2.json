@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_a77b77448409c4c2",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B04-004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小汽车的车顶，呈圆角长方形，能看到车身及深色车窗区域，位于道路旁地面步道位置，尺度和形状符合机动车特征。",
+   "reasoning": "目标外观与俯拍小汽车一致，红色标注框和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.11,
+   "health": {
+    "at": 1791546521.6206858,
+    "available_fraction": 0.4494782374377163,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3cc0d69d69e94bbfa98c3f271efdbda6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2de55b7d362c21c9a4edc819e88472ac15a044e0cbc3c695413960221f6a686f"
+}

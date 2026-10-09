@@ -1,0 +1,30 @@
+{
+ "unit": "e3b1630d80f648b995c20ab25c3ba087",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e3b1630d80f648b995c20ab25c3ba087:003",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是树木和绿地，未见符合机动车特征的车体；红色框线及文字不属于目标。",
+   "reasoning": "候选框位于左上方绿化区域，实际可见物体不是道路、停车位或地面上的机动车，形状和位置均不符合“车”的判断要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.06,
+   "health": {
+    "at": 1791546916.1191142,
+    "available_fraction": 0.4436514551178161,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "326d8418e4f940e984c3e7f69e09e486",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9c87adabf76eae811e75b2c529cdbe5d45682a4833b13678903af209ab8a6741"
+}

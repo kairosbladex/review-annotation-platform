@@ -1,0 +1,30 @@
+{
+ "unit": "2e39908ff0504e7e89ec16172780ed1d",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "2e39908ff0504e7e89ec16172780ed1d:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯拍人员的头部及肩部轮廓，位于可站立的水边平台区域。",
+   "reasoning": "目标呈小型略长的椭圆形，符合俯视人员的头顶和肩部外观，位置与尺度也符合人员特征；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 3.94,
+   "health": {
+    "at": 1791542644.0871758,
+    "available_fraction": 0.42759836126573264,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6459cbed704348ff8d1f324f0fdddfb7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f74f619f54b8d24c25e2309ae9e0b2978884e705b7ca25d99ccb53eb6d1b5afd"
+}

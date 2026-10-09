@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_a77b77448409c4c2",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B04-004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车的车顶、车身和深色车窗带，位于道路旁的人行道区域。",
+   "reasoning": "目标呈机动车常见的圆角长方形俯视轮廓，车身与车窗特征清晰，尺度和位置符合小汽车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.66,
+   "health": {
+    "at": 1791546505.9332404,
+    "available_fraction": 0.45001999716914504,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2083c978e54f4e36b2816bcc9134f576",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2de55b7d362c21c9a4edc819e88472ac15a044e0cbc3c695413960221f6a686f"
+}

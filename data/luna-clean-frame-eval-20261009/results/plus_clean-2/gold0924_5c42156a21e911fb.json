@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_5c42156a21e911fb",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-034",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是一个小型方形设施或物体，不具有人体头部、肩部或躯干腿部的外观。",
+   "reasoning": "该目标呈规则方形，尺度和形状均不符合俯拍人员特征，更像设施或其他非人员物体，因此不应判为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.17,
+   "health": {
+    "at": 1791542513.5493934,
+    "available_fraction": 0.4105444057539316,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1ed2e8b44cc340c8af06c5c452d0b409",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4fcc3c233c9f561cca05ad85dcb84a4f0f0f0de6f7ee1f66f6f3858dc2ae09eb"
+}

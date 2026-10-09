@@ -1,0 +1,30 @@
+{
+ "unit": "aeb96de0f80449648efd3b40aa1bd9d5",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "aeb96de0f80449648efd3b40aa1bd9d5:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "框内主要是红色平台标注文字及其下方的浅色地面区域，未见人员头部、肩部或躯干腿部等人员外观。",
+   "reasoning": "该位置实际没有符合人员特征的可辨识目标，红色框线和文字不能作为人员证据，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.18,
+   "health": {
+    "at": 1791542575.7793438,
+    "available_fraction": 0.4095551569227536,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b1a92bc213784c07836714d67d861405",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dcebcf7a2aaecb7473223b6d1191ca399e8fd8768556030784c037389f56bf55"
+}

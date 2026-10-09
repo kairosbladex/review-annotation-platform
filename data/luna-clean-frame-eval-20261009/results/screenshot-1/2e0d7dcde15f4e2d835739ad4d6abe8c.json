@@ -1,0 +1,30 @@
+{
+ "unit": "2e0d7dcde15f4e2d835739ad4d6abe8c",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2e0d7dcde15f4e2d835739ad4d6abe8c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车，可见车顶和深色车窗区域，车身呈长方形且与道路方向一致。",
+   "reasoning": "框内实际目标符合机动车的俯拍外观和所在位置，红色标注线与文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.81,
+   "health": {
+    "at": 1791544116.3733926,
+    "available_fraction": 0.4471213804455046,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "97a4f18ee413439d8d49c94a6ec58494",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c542e6695d9f8c064233f54bd4832de48ded038071480cbb6c96aea6e571eed6"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_3cde56c51f82e186",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:10e5a3da510748b2ac88cb5257ce142c",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名骑电动车的两轮车驾驶者，头部未见光滑高亮的半球状头盔，呈深色头发外观。",
+   "reasoning": "目标与“没戴头盔”类别的外观及位置尺度相符，可确认未佩戴头盔。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.87,
+   "health": {
+    "at": 1791542524.3899934,
+    "available_fraction": 0.4093506252200965,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b9f60d68c4504cd0990d3af96d5c18b4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "55a3b9cca7f2a0fe9f01c79db6dc6c20c774828f9ff9a9e463d770ef9e9cdbe4"
+}

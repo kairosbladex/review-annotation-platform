@@ -1,0 +1,30 @@
+{
+ "unit": "e2dfe4dfd76e484f8ecc23ced9ef5717",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e2dfe4dfd76e484f8ecc23ced9ef5717:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈细长圆角矩形，位于道路上，尺度和朝向与车道相符。",
+   "reasoning": "实际物体具备车辆俯拍外观，红色标注仅用于定位，未作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.85,
+   "health": {
+    "at": 1791546473.7049932,
+    "available_fraction": 0.4504385453977692,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1efe039db92b45c899763568459adfd3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "870c84e59f39190215db51907cf9e9f7bc5846f1d6ba8588c2eef8bd7c094cd1"
+}

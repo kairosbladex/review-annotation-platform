@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_791e6578fa41f3c6",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:200d6dd57fd74ca08dab2ce96088fcf8",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是灰色的狭长硬化地面或屋顶边缘，不是蓝色或绿色顶棚。",
+   "reasoning": "目标主体颜色为灰灰色，呈狭长平面区域，未见蓝绿色屋面、彩钢瓦或篷布特征，因此不符合“违建”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.21,
+   "health": {
+    "at": 1791541206.3412511,
+    "available_fraction": 0.4295110427663387,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "44cac1d2eaa04a8699a1b790449119eb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "86914921b4665eabcb65316a024bf130d665c96a49ffe5fb98bc7d7f699064a3"
+}

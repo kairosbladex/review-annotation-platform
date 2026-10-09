@@ -1,0 +1,46 @@
+{
+ "unit": "a8f2626d28c6499e9ef6f1c1bfa1e2f9",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路旁的小汽车，车身和车顶轮廓清晰。",
+   "reasoning": "目标位于地面停车区域，呈机动车俯视下的长方形车体特征，尺度与周围道路和停车位置相符。",
+   "target_index": 0
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在路边的小汽车。",
+   "reasoning": "可见均匀车身、深色玻璃区域及机动车整体轮廓，位置和尺度与道路旁车辆一致。",
+   "target_index": 1
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:011",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是路面上的小型设备或箱体，不是机动车。",
+   "reasoning": "目标位于建筑边缘的铺装区域，外形更像设备箱，缺少汽车车顶、挡风玻璃和车身比例特征。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 60.38,
+   "health": {
+    "at": 1791536875.4153974,
+    "available_fraction": 0.45288648101381573,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c94956b5fa974ddda0f4c29eec2cc24a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c3e55c806e9c0e6fc7dd71bff5f06ce3c0402068d8be3b5917285b5e78bda4d1"
+}

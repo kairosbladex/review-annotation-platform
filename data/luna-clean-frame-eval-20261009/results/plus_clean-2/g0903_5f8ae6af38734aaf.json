@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_5f8ae6af38734aaf",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0d716cff82d14e248530e2e8af69b96b",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，未见遮挡或出画。",
+   "observed_object": "建筑屋顶上的灰白色设备或构件，旁边有管道和其他屋面设施。",
+   "reasoning": "框内主体不是蓝色或绿色顶棚，而是灰白色屋面设备/构件；颜色和形态均不符合违建类别要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.86,
+   "health": {
+    "at": 1791542688.6346433,
+    "available_fraction": 0.42772810878460016,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4c9c5ba716a94934812b55bf56fc61bd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a7a2d67d5f29862b247570530d6c8e271a702337d2534b16e72287fed318fff2"
+}

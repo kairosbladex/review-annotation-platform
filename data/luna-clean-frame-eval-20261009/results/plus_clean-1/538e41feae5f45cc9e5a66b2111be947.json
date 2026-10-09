@@ -1,0 +1,30 @@
+{
+ "unit": "538e41feae5f45cc9e5a66b2111be947",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "538e41feae5f45cc9e5a66b2111be947:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，呈圆角长方形车顶轮廓，尺度与旁侧停车区域相符。",
+   "reasoning": "目标外观符合机动车俯拍特征，位于地面停车区域而非建筑屋顶或其他设施，因此类别“车”判断为true。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.59,
+   "health": {
+    "at": 1791541762.3259797,
+    "available_fraction": 0.4093969853340312,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f3b487c3c6024ad88a504ce9e9b49885",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "eda94499b282a46ef35d3910861408e3f266a2cd9c38598c65fcf55a55ccbf57"
+}

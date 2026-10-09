@@ -1,0 +1,30 @@
+{
+ "unit": "802b253f26bd42e2bf420804e198792a",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:802b253f26bd42e2bf420804e198792a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小型机动车，呈横向长方形车身，位于车道附近，尺度与道路环境相符。",
+   "reasoning": "框内可见实际车辆轮廓及车身，位置在道路地面而非建筑屋顶或水面，符合机动车外观和所处环境。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 43.16,
+   "health": {
+    "at": 1791540195.742226,
+    "available_fraction": 0.4474640804877242,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d77d2db01f8d48cebd8a3d91b6fbc9e2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "46180bd2f7e553432af036e1ddf5cd763e88d4ba0f846c7ca7594d14a030904c"
+}

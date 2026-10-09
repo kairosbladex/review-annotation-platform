@@ -1,0 +1,38 @@
+{
+ "unit": "4f63543e5bae47728ed68f9de1fd9539",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆具有较长车身和明显货厢的货车，整体尺寸明显大于小汽车。",
+   "reasoning": "目标外观符合卡车的驾驶室与后部货厢特征，位置和尺度也相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:002",
+   "decision": "uncertain",
+   "image_limitation": "目标非常小且被标注框和文字部分遮挡，无法清晰确认其是否具有三轮车的前窄后宽轮廓。",
+   "observed_object": "框内仅能看到一个狭长的小型目标，细节不足。",
+   "reasoning": "无法可靠确认是三轮车，也不足以明确排除其他小型车辆。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.94,
+   "health": {
+    "at": 1791543056.9199622,
+    "available_fraction": 0.4449393238828824,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6dd7b08797504f17891adf39ea51b3be",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a6d8cec240ab11b91ede9e07d8522c0dba8e27b5442ce50765f50fc236421d64"
+}

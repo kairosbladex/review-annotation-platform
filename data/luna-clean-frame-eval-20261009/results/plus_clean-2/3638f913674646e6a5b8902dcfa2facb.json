@@ -1,0 +1,30 @@
+{
+ "unit": "3638f913674646e6a5b8902dcfa2facb",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "3638f913674646e6a5b8902dcfa2facb:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆绿色公交车，车身呈长方形，位于道路车道内，尺度和位置均与机动车相符。",
+   "reasoning": "目标外观和道路位置符合机动车（车）的类别特征，红色标注文字和框线不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.51,
+   "health": {
+    "at": 1791546074.8111322,
+    "available_fraction": 0.44966471149599496,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c3ef3add137c41cc92be5225f2a9c348",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6d9e1fe2bac76ed607ad1399dfcfc681ed362ddd6b7ad8e3270e0c7862f3ad18"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆前窄后宽、带后部车厢的三轮车。",
+   "reasoning": "目标轮廓符合三轮车特征，前部较窄，后部有明显较宽的载物车厢，长度和尺度也与三轮车相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 23.73,
+   "health": {
+    "at": 1791537867.097791,
+    "available_fraction": 0.4486536658112491,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "310856bbaf794919a048a4c54847868a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fd2a60a988726018af40f55810655a1349a82b6e01f23b27d463685ef319b77e"
+}

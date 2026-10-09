@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "建筑屋顶或屋顶上的矩形设施，不是人员。",
+   "reasoning": "框内呈现为规则的细长矩形物体，尺度和形状均明显大于俯拍人员，且位于建筑屋顶区域；未见头部、肩部或竖长躯干腿部特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 28.47,
+   "health": {
+    "at": 1791540792.7766418,
+    "available_fraction": 0.4080346667859971,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bccc457884cc4237b236fea5c6d49f1d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5722058e6ad74e72470f2b5be050b8e601236e9c4e8848bd9e7f93b0caec8156"
+}

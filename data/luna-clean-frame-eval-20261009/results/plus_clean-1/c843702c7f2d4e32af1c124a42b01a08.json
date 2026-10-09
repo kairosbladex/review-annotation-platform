@@ -1,0 +1,30 @@
+{
+ "unit": "c843702c7f2d4e32af1c124a42b01a08",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c843702c7f2d4e32af1c124a42b01a08:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆细长窄小的两轮车，停放在道路旁的人行区域。",
+   "reasoning": "目标宽度明显小于小汽车，整体呈窄条状，长度和尺度符合自行车或电动自行车的俯拍特征，不是标线或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.43,
+   "health": {
+    "at": 1791541577.6526594,
+    "available_fraction": 0.4272376339792093,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fe3ac9f904f24ea39d1bad11ab266692",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6a4566ef2147ac865a22935ac3c3dd3adf4ffd3942978e0afcb5a5f488b5d0d4"
+}

@@ -1,0 +1,86 @@
+{
+ "unit": "0b97d6eeb7d34027811edf81bd63ca99",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:000",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内为具有车顶和深色玻璃区域的机动车，位置与车道尺度相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:001",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "框内可见细长车身和深色车窗，位于机动车道内，形状尺度符合车辆。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:002",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路边的小汽车",
+   "reasoning": "框内为停靠在道路边的机动车，车身轮廓和车顶可辨。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:003",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见完整车顶、挡风玻璃和车身轮廓，位置与道路车辆相符。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:004",
+   "decision": "true",
+   "image_limitation": "目标部分被树木遮挡但车形明确。",
+   "observed_object": "树旁的小汽车",
+   "reasoning": "露出的部分呈机动车车身和车顶形状，尺度与附近停车区域相符。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:005",
+   "decision": "false",
+   "image_limitation": "目标区域可辨。",
+   "observed_object": "树木或灌木间的非机动车物体",
+   "reasoning": "框内主要是植被及其间的设施，未见符合机动车特征的车身。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:006",
+   "decision": "false",
+   "image_limitation": "目标区域可辨。",
+   "observed_object": "树木或灌木间的非机动车物体",
+   "reasoning": "框内为植被/设施边缘，不具备清晰的机动车车顶和车身轮廓。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:007",
+   "decision": "true",
+   "image_limitation": "车辆被部分遮挡，但车身轮廓仍可辨。",
+   "observed_object": "树旁停放的小汽车",
+   "reasoning": "框内可见机动车的车顶和车身，位置与道路或停车区域尺度相符。",
+   "target_index": 7
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.35,
+   "health": {
+    "at": 1791543006.7040896,
+    "available_fraction": 0.42627389081071404,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dc545160ee114e2083eb78cdf9c6c49c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "63358d2a73e2798bb7596e0374266ecf7dda19bc16b3b4aa0ece456357d2ca91"
+}

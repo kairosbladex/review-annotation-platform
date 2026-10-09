@@ -1,0 +1,30 @@
+{
+ "unit": "2afc52e75d5645a69a620a7418d8733b",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "2afc52e75d5645a69a620a7418d8733b:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘人行道上的一个小型行人目标",
+   "reasoning": "框内可见细长的人体轮廓，位于可站立的人行道上，尺度明显小于汽车宽度，符合人员的俯拍外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.86,
+   "health": {
+    "at": 1791545007.9208233,
+    "available_fraction": 0.44878000852174893,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9d93e9bc1aa44a51a109a4e093757fff",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ddd55557816c27e502a8adf5deeda063d2ad2fc0dce3fc560acf6dad5d4ce131"
+}

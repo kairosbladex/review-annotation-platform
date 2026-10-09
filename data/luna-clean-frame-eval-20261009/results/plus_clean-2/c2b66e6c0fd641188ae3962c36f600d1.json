@@ -1,0 +1,30 @@
+{
+ "unit": "c2b66e6c0fd641188ae3962c36f600d1",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c2b66e6c0fd641188ae3962c36f600d1:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "岸边有一个俯视可见头部和肩部的人员，穿浅色衣物，体型细小且位于可站立的堤岸边缘。",
+   "reasoning": "框内实际物体呈现人员特征，位置和尺度也符合人员类别；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.03,
+   "health": {
+    "at": 1791544515.1232424,
+    "available_fraction": 0.4482781640884161,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5d4fec8174464dce99b5c0c48ced2c0f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3e158134718da1a3ba54e7ec0eea3c4c72656c020acd96886c9302844eb6904c"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_1d737b615da670e0",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f6d48b6995834bdbbc7752b756c23e90",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝绿色的矩形成片屋面/顶棚，边缘较规整，覆盖在建筑顶部区域。",
+   "reasoning": "目标主体符合蓝色或绿色顶棚的外观特征，位置和尺度也与建筑屋面相符，不是树冠、道路或地面物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.54,
+   "health": {
+    "at": 1791541849.4886055,
+    "available_fraction": 0.41318863465238853,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "99f7c9ccd65648cd8c5480f88d385484",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "36148ad0095fa319031639498b3e39b13829fa8c15a26c9a270917f85e2a73e7"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_e68b48456adf2cb8",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:36640c2c3d8e475889e1069408609012",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是地面上的紫色矩形标记，未见机动车车身。",
+   "reasoning": "该区域位于绿地边缘，实际可见的是平台标注框及其附近地面/植被，不符合机动车的车身形状、颜色和道路或车位位置特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.58,
+   "health": {
+    "at": 1791546373.9942348,
+    "available_fraction": 0.4489229192729664,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "03208aba06574950b7ec974c18ff3094",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "52d9a39272bd65125651f9d0134f3ce1b7bc02902d4f6bcc5e327d032b155e30"
+}

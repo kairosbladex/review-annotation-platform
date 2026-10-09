@@ -1,0 +1,30 @@
+{
+ "unit": "9004cbad92554824930663ab17e0400c",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9004cbad92554824930663ab17e0400c:000",
+   "decision": "false",
+   "image_limitation": "框内目标被红色标注部分遮挡，但仍可见其实际形状与位置。",
+   "observed_object": "框内主要是岸边平台或地面边缘区域，并非人员。",
+   "reasoning": "目标位于画面右下的岸边平台边缘，框内没有可见人员头顶、肩部或躯干腿部等特征；红色文字和框线属于叠加标注，不能作为人员证据。因此不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.18,
+   "health": {
+    "at": 1791542436.2261453,
+    "available_fraction": 0.4141520130199872,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2fd7ee6a7a8b42a6a4a2ee2f12518281",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2a896021961be47616a0d02388e6ff45319785c17da5a94e6ba9004fdd198f3c"
+}

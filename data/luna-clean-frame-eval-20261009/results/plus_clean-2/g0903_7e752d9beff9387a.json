@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_7e752d9beff9387a",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d0c64659575a47c0ab997593532f0db2",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片蓝色矩形屋面，位于建筑/棚架顶部，呈规整的蓝色顶棚形态。",
+   "reasoning": "目标符合蓝色或绿色顶棚的外观特征，位置和尺度也与建筑顶部的成片屋面相符，因此判定为违建类别目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.11,
+   "health": {
+    "at": 1791545435.357771,
+    "available_fraction": 0.4493221330540742,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a76d2812dc104b05a54d0b571ee498d8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a72f69390b56cd631fc062a4afd58de7fe00e141939e8e0f0ff0eeb1d0b4da23"
+}

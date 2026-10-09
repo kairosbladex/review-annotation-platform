@@ -1,0 +1,54 @@
+{
+ "unit": "a61f31479616441ab0e2686ba478b06f",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆纵向停放的小汽车，车身和深色车窗带清楚。",
+   "reasoning": "外观、尺度及所在院落道路旁位置均符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆纵向停放的小汽车。",
+   "reasoning": "可见车身轮廓、车顶及深色车窗区域，位置和尺度符合车辆。",
+   "target_index": 1
+  },
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆横向停放的小汽车。",
+   "reasoning": "长方形车身及车窗带明显，位于道路旁，符合机动车外观和尺度。",
+   "target_index": 2
+  },
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路边的小汽车。",
+   "reasoning": "车辆轮廓、车身与深色车窗可辨，位置和尺度符合机动车。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.29,
+   "health": {
+    "at": 1791545287.3089416,
+    "available_fraction": 0.45059425458044006,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1ca9022766304f49a3890a0e2db49e81",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d47a87f1c3b80a54ab50338bfbc595b8399a8cc564b3587cecc3ab03ef887db2"
+}

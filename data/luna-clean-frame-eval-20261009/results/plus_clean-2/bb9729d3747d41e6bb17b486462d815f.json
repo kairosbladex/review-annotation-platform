@@ -1,0 +1,46 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "false",
+   "image_limitation": "框内可见为道路设施/杆状物，并非人员。",
+   "observed_object": "路灯杆等设施",
+   "reasoning": "目标细长且呈固定竖直设施形态，位置和尺度不符合人员外观。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "框内可见站立行人，具有竖长躯干和腿部轮廓，位于可通行人行区域。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "框内可见另一名站立行人，形态和所在位置均符合人员特征。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.01,
+   "health": {
+    "at": 1791542560.906178,
+    "available_fraction": 0.40740292283342316,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b102f754749248eaa1ae41a7d1873f0c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0c4e363cd2e2d78ca9d082967e19cc438bb0ce8dcd8580b0b52a07f20b8b9a1e"
+}

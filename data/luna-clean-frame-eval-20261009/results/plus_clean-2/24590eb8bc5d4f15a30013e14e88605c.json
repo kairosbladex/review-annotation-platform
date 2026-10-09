@@ -1,0 +1,38 @@
+{
+ "unit": "24590eb8bc5d4f15a30013e14e88605c",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:24590eb8bc5d4f15a30013e14e88605c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的一辆小型机动车",
+   "reasoning": "框内可见车辆的车身轮廓，位于道路边缘，位置和尺度与机动车相符。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:24590eb8bc5d4f15a30013e14e88605c:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "绿地道路旁的一辆小型机动车",
+   "reasoning": "框内可见小型车辆的车身，位于地面道路或停车区域附近，外形和尺度符合机动车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.29,
+   "health": {
+    "at": 1791543624.58723,
+    "available_fraction": 0.4453273504364964,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "027e1ab7b74347bc9008af943dbb768a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3e104503af02c8eb7bd9c8246cade515e1512cc2776032a4bf74aa5355e27684"
+}

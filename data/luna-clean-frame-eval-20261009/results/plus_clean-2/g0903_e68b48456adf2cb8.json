@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_e68b48456adf2cb8",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:36640c2c3d8e475889e1069408609012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路旁的机动车，呈小型长方形车身，尺度和位置与道路车辆相符。",
+   "reasoning": "目标外观和所在道路环境符合机动车特征，虽然尺寸较小但车形可辨，因此判断为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.38,
+   "health": {
+    "at": 1791546358.5850878,
+    "available_fraction": 0.4491981311493271,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1899363f10e4419eafdabecc6d243855",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "52d9a39272bd65125651f9d0134f3ce1b7bc02902d4f6bcc5e327d032b155e30"
+}

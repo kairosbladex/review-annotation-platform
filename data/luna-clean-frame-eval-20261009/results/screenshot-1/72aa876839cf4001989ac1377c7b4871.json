@@ -1,0 +1,30 @@
+{
+ "unit": "72aa876839cf4001989ac1377c7b4871",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "72aa876839cf4001989ac1377c7b4871:006",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面顶部边缘，仅露出很小一部分，主体大部分出画，无法确认完整车形。",
+   "observed_object": "框内可见一个带红色框线的局部物体，位于道路顶部边缘。",
+   "reasoning": "由于目标严重出画，无法依据车身轮廓、车顶及挡风玻璃等特征判断是否为机动车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 35.64,
+   "health": {
+    "at": 1791542530.7576942,
+    "available_fraction": 0.41598924153516,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5c54a9ed194743898901480ea0ca29a1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3c7dc3f9ec8c508b6540776dd8bba5d93107824702a49753b6fe94b0df7377c7"
+}

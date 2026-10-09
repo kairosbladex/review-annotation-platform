@@ -1,0 +1,30 @@
+{
+ "unit": "c4a84c1413d54e93a485810e33382ae0",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c4a84c1413d54e93a485810e33382ae0:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车，可见车顶和深色车窗区域，车身呈长方形并与道路方向一致。",
+   "reasoning": "框内实际物体符合机动车的俯拍外观和位置特征，红色标注不是判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 26.92,
+   "health": {
+    "at": 1791544290.2387137,
+    "available_fraction": 0.43109409625685097,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3bec654ad33b4b13a63759e8b50bd22b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ed6ec5b3b21a035e591509702f696c00d7967cb9127191c41cfc7d8e6f4ca185"
+}

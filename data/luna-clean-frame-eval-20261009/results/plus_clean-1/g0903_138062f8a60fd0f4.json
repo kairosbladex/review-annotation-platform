@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_138062f8a60fd0f4",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:dc48f0371bc44bc48d4510962182ca1f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡/广告牌，立在地面并沿道路延伸",
+   "reasoning": "框内主体是竖立的蓝色围挡和广告宣传板，不是覆盖在建筑、棚架或空地上方的蓝绿色顶棚，因此不符合“违建”类别的外观要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.16,
+   "health": {
+    "at": 1791546200.8583043,
+    "available_fraction": 0.4501537270977997,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cc4ba58ad26f497380e6a64e17c0c653",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3b090a7cb32d14452ba691584f8bf550e86dfb1a2cc190fd9f3fb739f3bf6676"
+}

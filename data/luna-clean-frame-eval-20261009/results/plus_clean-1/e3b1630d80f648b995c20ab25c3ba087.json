@@ -1,0 +1,30 @@
+{
+ "unit": "e3b1630d80f648b995c20ab25c3ba087",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e3b1630d80f648b995c20ab25c3ba087:003",
+   "decision": "false",
+   "image_limitation": "目标区域可见，未见机动车；框内主要是树木和地面设施。",
+   "observed_object": "树木及地面区域",
+   "reasoning": "框内没有符合机动车特征的圆角长方形车身、车顶或挡风玻璃带，位置和外观也不符合车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.08,
+   "health": {
+    "at": 1791546925.8999062,
+    "available_fraction": 0.4437213448895772,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "479245e55ffe4113ae9bae46f838a6e1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9c87adabf76eae811e75b2c529cdbe5d45682a4833b13678903af209ab8a6741"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "52db33c764424228b1e7292d65787322",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:52db33c764424228b1e7292d65787322:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路上的小型机动车，呈细长圆角车身轮廓，位置和尺度与道路相符。",
+   "reasoning": "该目标符合车的俯拍外观特征，且不属于屋顶设备或其他非机动车物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 42.08,
+   "health": {
+    "at": 1791541886.9997602,
+    "available_fraction": 0.4245039376608772,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "65bf5fcc95e1428eafad8c97d43180a0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "94ec5bca4693742372235616ef36988db0c3e861b001864271ee7a91642d8749"
+}

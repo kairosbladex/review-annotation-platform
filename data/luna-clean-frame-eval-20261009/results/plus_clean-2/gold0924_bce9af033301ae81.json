@@ -1,0 +1,38 @@
+{
+ "unit": "gold0924_bce9af033301ae81",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-002",
+   "decision": "false",
+   "image_limitation": "框内可见的是路灯杆/设施，不符合人员的头肩或躯干腿部外观。",
+   "observed_object": "细长的固定设施物体",
+   "reasoning": "目标位于人行道边，形状细长且无可辨识的人体头部、肩部或腿部结构，尺度和外观更像路灯杆等设施。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行走人员",
+   "reasoning": "框内可见竖长窄的人体轮廓，位于人行道上，位置和尺度符合斜俯视下人员的外观特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 35.58,
+   "health": {
+    "at": 1791543561.7053595,
+    "available_fraction": 0.44526433108162006,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a515551b509346ce97664eb9a2da16b6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7dffcb930060177f1f448dd150be9a59ba0a86f0e106739a21ccb6c7cdf81895"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "73d28744bddd496a83b34f44d402c7d0",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "73d28744bddd496a83b34f44d402c7d0:000",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，未见人员特征。",
+   "observed_object": "岸边的小型竖直设施或构件，呈矩形/柱状外观。",
+   "reasoning": "框内实际物体不是俯拍人员的头顶、肩部或躯干腿部形态，且位置紧邻岸边结构，尺度和外观更符合固定设施，不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.7,
+   "health": {
+    "at": 1791544836.4274063,
+    "available_fraction": 0.4321250539905327,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e5ebe4fd87ae415782897bc5405371dc",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5d42df702d594565aadd20c82401b68f3ab2ba02cfbd6592aa3ee470582878e9"
+}

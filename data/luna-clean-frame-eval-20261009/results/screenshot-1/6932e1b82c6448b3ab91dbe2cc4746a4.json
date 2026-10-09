@@ -1,0 +1,30 @@
+{
+ "unit": "6932e1b82c6448b3ab91dbe2cc4746a4",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "6932e1b82c6448b3ab91dbe2cc4746a4:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树冠旁可见一辆机动车的车身及车顶部分",
+   "reasoning": "框内实际物体呈细长圆角车形，能看到车顶和深色车窗区域，位于道路边缘，尺度与车辆相符，符合“车”的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.53,
+   "health": {
+    "at": 1791546237.113679,
+    "available_fraction": 0.44948550305557233,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0cf3bd16c7c544c79eaca5f3ecac2351",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "123335a6ce1f574cc77b096d6d0ad244cb396944fcccedd8319f76677edb6275"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "ca442d67817040f7a1db0349f315ac7a",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ca442d67817040f7a1db0349f315ac7a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小型机动车，可见浅色车身和深色车窗带，形状与道路尺度相符。",
+   "reasoning": "框内实际目标呈圆角长方形，长宽比例和道路位置符合小汽车特征；红色框线与文字不是判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.14,
+   "health": {
+    "at": 1791543038.8891726,
+    "available_fraction": 0.44466125439949883,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "79116391407142cb873bb1bd72447f9c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a5633b966528bab91404b0060eac1e084ebf0f0899f991ea811b0e2f9d75661"
+}

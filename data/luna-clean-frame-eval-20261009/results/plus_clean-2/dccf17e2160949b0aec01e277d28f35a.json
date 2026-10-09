@@ -1,0 +1,30 @@
+{
+ "unit": "dccf17e2160949b0aec01e277d28f35a",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:dccf17e2160949b0aec01e277d28f35a:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "道路上的红色叠加标注附近可见的是道路及小型地面设施，未见符合机动车外形的车辆。",
+   "reasoning": "框内没有呈现圆角长方形车身、车顶及挡风玻璃深色横带，位置和外观也不符合机动车特征，因此不是车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.75,
+   "health": {
+    "at": 1791546267.8386898,
+    "available_fraction": 0.44954189519416166,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2e4b3c06793c463b9035e3c3e40c2b0d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "527986a7b03cffe873ed8c1aebaf015dd2df307342eac9c07fc5d33ba404fb5f"
+}

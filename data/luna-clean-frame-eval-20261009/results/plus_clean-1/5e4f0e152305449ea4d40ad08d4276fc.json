@@ -1,0 +1,38 @@
+{
+ "unit": "5e4f0e152305449ea4d40ad08d4276fc",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在地面区域的小汽车，车身轮廓和车顶清晰。",
+   "reasoning": "目标呈机动车外观，形状、尺度及所在地面位置均符合“车”的特征。",
+   "target_index": 0
+  },
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在地面区域的小汽车，车身部分被框线覆盖但轮廓明确。",
+   "reasoning": "可辨认出车顶和车身的长方形机动车形态，位置与周边停车区域相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.31,
+   "health": {
+    "at": 1791546941.007047,
+    "available_fraction": 0.44525560626017796,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4e9ca170abb445728a334f3aeb7850ac",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ac0bd6b966ede122999baf3bf5ab0972b4ea27f1743565468f8ed10cd6c17148"
+}

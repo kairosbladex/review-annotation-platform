@@ -1,0 +1,30 @@
+{
+ "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于画面底部中央，目标区域很小且被红色标注遮挡，无法清晰确认实际车辆结构。",
+   "observed_object": "疑似道路或建筑边缘附近的小型车辆/物体，无法辨认驾驶室与货厢分段。",
+   "reasoning": "框内目标过小并受标注遮挡，不能确认其具备卡车的驾驶室与后部货厢特征，也不足以明确排除其他车辆类型。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.48,
+   "health": {
+    "at": 1791544602.6550348,
+    "available_fraction": 0.45001762596331757,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5f2e1140511d470593f94fdbe10c3353",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "cff5729d98d504294af2dffc7ea0fbe1a1c4e1175e6c5e0cc734900e4cfc4e30"
+}

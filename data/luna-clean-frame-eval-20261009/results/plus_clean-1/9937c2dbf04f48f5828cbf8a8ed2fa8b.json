@@ -1,0 +1,30 @@
+{
+ "unit": "9937c2dbf04f48f5828cbf8a8ed2fa8b",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9937c2dbf04f48f5828cbf8a8ed2fa8b:000",
+   "decision": "false",
+   "image_limitation": "框内可见的是红色平台标注文字/框线，未见符合人员外观的头顶、肩部或躯干；对应原图区域为空旷铺装地面。",
+   "observed_object": "铺装地面及标注覆盖区域",
+   "reasoning": "该位置没有可辨认的人员目标，尺度和外观也不符合人员特征，因此判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.64,
+   "health": {
+    "at": 1791546976.1197479,
+    "available_fraction": 0.44480550275400355,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "93f35bfc360c457491f9624a9381984f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c5efd02b9e9e23a0c50837bcda5e4e7e132b515b0c4391abd617f8a8b2686f7e"
+}

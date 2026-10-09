@@ -1,0 +1,38 @@
+{
+ "unit": "3c38bc7636de4af3a023879c4afa7739",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小型机动车，呈长方形车身，位于道路区域。",
+   "reasoning": "目标外观和位置符合小汽车特征，尺度与道路相符。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是道路及路面标线，未见具有驾驶室与货厢分段结构的货车。",
+   "reasoning": "该区域没有符合卡车外观和尺度的机动车，更像路面标线或普通道路区域。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 31.28,
+   "health": {
+    "at": 1791545937.8044705,
+    "available_fraction": 0.449257411295014,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "934d89dd7b3341989c5ee6de9e4a9d1f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "18d257942db8dae4aadda2babee0d74433969b792f78697754591851382e5984"
+}

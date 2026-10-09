@@ -1,0 +1,30 @@
+{
+ "unit": "e5c944f774634d849cada056b9539541",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e5c944f774634d849cada056b9539541:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无遮挡，无法确认有人体头部、肩部或躯干腿部等人员特征。",
+   "observed_object": "红色标注附近可见的是墙面上的小型设备或标识物，不是人员。",
+   "reasoning": "框内实际物体体积很小且贴附在墙面，位置和形态均不符合俯拍人员的外观及尺度要求，应判为非人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.46,
+   "health": {
+    "at": 1791545985.3078973,
+    "available_fraction": 0.44932444345975225,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "22ebbfb7866542f086e1f14b402d2bb2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6c5d9a51f2d0722bbe7b8879201773bdb80adc8ba0e33918556944ca6d586349"
+}

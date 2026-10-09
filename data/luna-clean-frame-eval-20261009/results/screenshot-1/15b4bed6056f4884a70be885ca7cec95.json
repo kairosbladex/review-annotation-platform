@@ -1,0 +1,38 @@
+{
+ "unit": "15b4bed6056f4884a70be885ca7cec95",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:15b4bed6056f4884a70be885ca7cec95:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路边缘、形状细长且具有车顶和深色玻璃区域的小汽车。",
+   "reasoning": "目标位于道路地面，外形和尺度符合机动车特征，初审类别“车”正确。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:15b4bed6056f4884a70be885ca7cec95:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的小汽车，能辨认出车身和深色车窗区域。",
+   "reasoning": "目标位置、朝向、长宽比例及周边尺度均符合机动车特征，初审类别“车”正确。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.12,
+   "health": {
+    "at": 1791542674.2154164,
+    "available_fraction": 0.4289647838238527,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "647d9ae6b9f94dc0a708e6be005977ee",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "86b26a2a44b12ddc8f91b12453026b22f6513b1c8758cc39d232aaa630b28701"
+}

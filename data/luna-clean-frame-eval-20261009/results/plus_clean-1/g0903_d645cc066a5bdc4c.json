@@ -1,0 +1,46 @@
+{
+ "unit": "g0903_d645cc066a5bdc4c",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3384f2739ad745b3b67ed154e7f5ac9f",
+   "decision": "false",
+   "image_limitation": "无遮挡，目标清晰可见。",
+   "observed_object": "建筑立面上的蓝绿色玻璃窗",
+   "reasoning": "框内主体是建筑窗户，属于立在建筑侧面的玻璃结构，不是覆盖在上方的蓝色或绿色顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:9f3b0ba9ab134358b8f1b202bdc5454a",
+   "decision": "false",
+   "image_limitation": "无遮挡，目标清晰可见。",
+   "observed_object": "蓝色施工围挡或板材侧面",
+   "reasoning": "框内为地面附近的长条状蓝色围挡/板材，呈垂直侧面，不是覆盖在建筑、棚架或空地上方的蓝色顶棚。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:445ef456f78e4547b4064cd552e1cfb9",
+   "decision": "false",
+   "image_limitation": "目标部分贴近画面下边缘，但主体仍可辨认。",
+   "observed_object": "蓝色施工围挡或板材",
+   "reasoning": "框内是长条状蓝色立面结构，属于围挡或板材侧面，不是蓝色顶棚。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 67.1,
+   "health": {
+    "at": 1791538913.3945296,
+    "available_fraction": 0.4475906055986723,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8fb7737a85ca4c5a87a35ad01b98f96c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d8f99543f2dcbc973acff32d42b4dcc94428102148b0947f0e135e1877146f00"
+}

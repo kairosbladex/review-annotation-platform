@@ -1,0 +1,46 @@
+{
+ "unit": "1cd73a7802f74de4a4d361c45c52fcb9",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见小型机动车的车顶、深色挡风玻璃带和长方形车身，位于地面道路旁，形状及尺度符合车辆特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见细长矩形车身及深色玻璃区域，位于道路车道内，朝向与道路一致，符合机动车外观。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整的小型车辆轮廓、车顶和深色玻璃带，位于道路旁地面区域，尺度和位置均符合车辆。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.69,
+   "health": {
+    "at": 1791543367.0193484,
+    "available_fraction": 0.44482231399531885,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2505f02884754d69b10b8f4c94454c8b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3a4ebaa955a429d9f744f5dd95184439c436fbfa562aa1137630bf0275a0c5d6"
+}

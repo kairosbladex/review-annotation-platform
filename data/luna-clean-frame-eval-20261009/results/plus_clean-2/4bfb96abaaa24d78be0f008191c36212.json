@@ -1,0 +1,30 @@
+{
+ "unit": "4bfb96abaaa24d78be0f008191c36212",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "4bfb96abaaa24d78be0f008191c36212:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯视人员的头部及肩部，呈小型略长椭圆形，周围为衣物。",
+   "reasoning": "目标位于可站立的铺装区域，形状和尺度符合俯视人员特征，不像车辆、路灯杆、垃圾桶或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.69,
+   "health": {
+    "at": 1791545139.6479483,
+    "available_fraction": 0.45109603821362354,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8c6d340e67e24f5db29115159e2a404b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b4f6f6b9912413345f1b3ad30e5aeb741c0d02f39f8bcc8e788f5636d17241e6"
+}

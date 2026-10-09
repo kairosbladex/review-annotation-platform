@@ -1,0 +1,30 @@
+{
+ "unit": "9a835c40313e4ec193de0570deb51b3e",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9a835c40313e4ec193de0570deb51b3e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆被树木部分遮挡的小汽车，车顶和车身轮廓清晰，位于道路旁，尺度与车辆相符。",
+   "reasoning": "目标具有机动车俯拍下的长方形车身和深色车窗特征，位置及朝向也符合道路旁车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 18.21,
+   "health": {
+    "at": 1791545634.219762,
+    "available_fraction": 0.45002543878251833,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "70bcdd5e284a4daaa0c68c695bcc26fa",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e63cccd46244948bc4267eaef7bb47466f295ec01d258fecf07ccdaed1f84a7a"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_24d11b7bfccde471",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-017",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "人行道旁成排摆放的盆栽，包含圆形绿色树冠和花盆。",
+   "reasoning": "该物体位于规律排列的盆栽区域，外观是绿色树冠与花盆，不是人员的头部、肩部或躯干。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.9,
+   "health": {
+    "at": 1791545129.3349526,
+    "available_fraction": 0.4491526526375591,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c9c1cb3a8f63469e89823119999c5d10",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ce3d243bc46bf68bc9524d2a77ac6c5bb5eeadb238a355a19699fb87c8f15b45"
+}

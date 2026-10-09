@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_8772805bce1cd3a5",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0f4a7549e8134468b02a4cabaeab093b",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，无遮挡或出画影响判断。",
+   "observed_object": "框内是道路旁的灰白色长条顶棚/车厢样结构，带红色平台标注文字，并非蓝色或绿色顶棚。",
+   "reasoning": "违建类别要求主体为蓝色或绿色屋面；该目标实际呈灰白色，因此不符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.46,
+   "health": {
+    "at": 1791543417.1227112,
+    "available_fraction": 0.4444380266508943,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e86683c001214f4ea9a10cd1119278ac",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d8ebbbd89bf46b086d123c94c5cf51c7242e4c22604138b99757a5df5685cfe6"
+}

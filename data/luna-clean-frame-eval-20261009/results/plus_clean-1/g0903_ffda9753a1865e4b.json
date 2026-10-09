@@ -1,0 +1,54 @@
+{
+ "unit": "g0903_ffda9753a1865e4b",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:b72bceabedff4f33bd7e206db93cf80a",
+   "decision": "false",
+   "image_limitation": "目标仅为框边缘一小段窄条，无法构成可确认的蓝绿色顶棚主体。",
+   "observed_object": "框内主要是地面或其他结构边缘。",
+   "reasoning": "不符合蓝色或绿色成片顶棚的外观和尺度要求。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b5353da4de4b4d3a98177fdaf39d2a1f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "大面积蓝色矩形屋面，呈规则棚顶形态。",
+   "reasoning": "框内主体是覆盖在空地或建筑上的蓝色成片顶棚，颜色、形状和尺度均符合违建类别要点。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:d9194ee969e24131920de23a185f3fed",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "细长的蓝绿色矩形彩钢瓦屋面，表面有平行条纹。",
+   "reasoning": "框内主体为蓝绿色成片顶棚，具有规则矩形边缘和彩钢瓦条纹，符合类别要求。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:a33bbf274cdc410cba575f56f21e2fb7",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "屋顶上的灰白色设备或构件。",
+   "reasoning": "框内主体不是蓝色或绿色顶棚，颜色和物体类型均不符合违建类别要点。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 27.66,
+   "health": {
+    "at": 1791541642.2328904,
+    "available_fraction": 0.427966779771158,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d876e7eaa0ec46d99beda493e7c6d504",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3623295fb4eeaaafec5a264689323575711c4da12f6c693e396da8a1700f286f"
+}

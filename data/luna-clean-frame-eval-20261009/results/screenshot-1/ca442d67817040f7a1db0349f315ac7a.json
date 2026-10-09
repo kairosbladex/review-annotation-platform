@@ -1,0 +1,30 @@
+{
+ "unit": "ca442d67817040f7a1db0349f315ac7a",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ca442d67817040f7a1db0349f315ac7a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小型机动车，呈细长矩形车顶形状，位于车道区域，尺度与道路相符。",
+   "reasoning": "框内可见实际车辆本体，具有车顶和深色玻璃区域的车辆外观，位置也在道路上，符合“车”的类别要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.76,
+   "health": {
+    "at": 1791543024.1024206,
+    "available_fraction": 0.425917966735995,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5c61a99a1f064f4282bbfbea46d89aa3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a5633b966528bab91404b0060eac1e084ebf0f0899f991ea811b0e2f9d75661"
+}

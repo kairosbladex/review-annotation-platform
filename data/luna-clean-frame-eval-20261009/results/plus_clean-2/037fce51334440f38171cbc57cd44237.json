@@ -1,0 +1,39 @@
+{
+ "unit": "037fce51334440f38171cbc57cd44237",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "037fce51334440f38171cbc57cd44237:001",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是楼顶上的黄色矩形设备或标牌，并非车辆。",
+   "reasoning": "未见卡车所需的驾驶室与后部长方形货厢分段结构，位置和尺度也与卡车不符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "http_503",
+   "seconds": 48.26,
+   "health": {
+    "at": 1791537688.7808213,
+    "available_fraction": 0.431279050311394,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "status": "ok",
+   "seconds": 32.36,
+   "health": {
+    "at": 1791537757.0789096,
+    "available_fraction": 0.4316380143935842,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d75356e284674e2488bfae3de356c2d2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d8cc8880b035666db355740a0e15575f29301d1c81d5ef334ace7613021feec7"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_28c70d40b253b234",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:325c7e4db91441718685ea2d6a6fa556",
+   "decision": "false",
+   "image_limitation": "目标区域位于画面上边缘，部分被裁切，但仍可见主体为红褐色建筑/屋面及树木，不是蓝色或绿色顶棚。",
+   "observed_object": "红褐色建筑屋面、树木和附近结构",
+   "reasoning": "框内没有可确认的蓝色或绿色成片顶棚，颜色和形态均不符合“违建”类别的判定要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.49,
+   "health": {
+    "at": 1791544765.7355402,
+    "available_fraction": 0.45030764267606266,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ba06ec6580a44561aefcdfc1d1fc4f08",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4e943475937cfeb8099b1a2c022dd1152c18669898baeca738acb37d2a22dbaa"
+}

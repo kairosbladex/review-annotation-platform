@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_e68b48456adf2cb8",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:36640c2c3d8e475889e1069408609012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于地面道路旁的红色机动车，车身呈小型长方形，位置和尺度与车辆相符。",
+   "reasoning": "目标外观和所处地面道路环境符合机动车特征，不是标线、设备或其他非车辆物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 33.55,
+   "health": {
+    "at": 1791546355.1085339,
+    "available_fraction": 0.45016403272312683,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3af245215b0d4294af384a8a4a4bfa7a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "52d9a39272bd65125651f9d0134f3ce1b7bc02902d4f6bcc5e327d032b155e30"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_5c42156a21e911fb",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-034",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是建筑或屋顶边缘的局部结构，不是人员。",
+   "reasoning": "框内实际物体呈规则的矩形、硬质结构，尺度和形状均不符合俯拍人员的头部、肩部或躯干特征，因此该人员类别判断为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 3.94,
+   "health": {
+    "at": 1791542517.739951,
+    "available_fraction": 0.4089384914072365,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "96cdfe844b784d5a99602c50e3bc2fcc",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4fcc3c233c9f561cca05ad85dcb84a4f0f0f0de6f7ee1f66f6f3858dc2ae09eb"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "696f6f35721a47b99e7f8fe86bd267c5",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "696f6f35721a47b99e7f8fe86bd267c5:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是一辆停在道路车道上的小汽车，可见完整车身、车顶及前后挡风玻璃，形状和尺度均符合机动车特征。",
+   "reasoning": "目标位于道路上，呈圆角长方形车身，长度约为宽度两倍，且能看到深色车窗带，符合“车”的外观判断要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.44,
+   "health": {
+    "at": 1791542602.6353433,
+    "available_fraction": 0.40671220273590947,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a1a7de4b165148968b2f31861877f0ab",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7e27e48409ccfebfe89f0eea46b337236f76722dbae92700ff4518da27242c3f"
+}

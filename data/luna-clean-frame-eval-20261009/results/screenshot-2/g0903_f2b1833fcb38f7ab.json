@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f2b1833fcb38f7ab",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:53499b1d092345a6ad46fa1577b24b27",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面右下方，尺寸很小且部分细节被标注覆盖，无法清晰确认完整车身形状。",
+   "observed_object": "框内可见一个小型彩色矩形物体，疑似地面上的小物件，但无法确认是机动车。",
+   "reasoning": "框内未能观察到车顶、挡风玻璃深色横带及与车道或车位一致的朝向，现有图像不足以确认或排除其为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 28.13,
+   "health": {
+    "at": 1791539741.162724,
+    "available_fraction": 0.36625271290266725,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4ee4a4226750419abf63556df5f22bd8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "492d79a918a7596092919089afd7c943de0998a78c9565a0df8f1a7d2389750f"
+}

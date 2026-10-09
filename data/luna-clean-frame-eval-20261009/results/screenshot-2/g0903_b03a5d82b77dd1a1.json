@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_b03a5d82b77dd1a1",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4e95387d7e8c4667ba5c4c3e0544651b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝绿色矩形顶棚，覆盖在地面建筑或棚架上方，边缘较规整。",
+   "reasoning": "目标主体符合蓝色顶棚的外观特征，位置和尺度也与临时棚顶相符，因此判断为违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.34,
+   "health": {
+    "at": 1791544193.507123,
+    "available_fraction": 0.4489621353693439,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "52da7796de1f4a41b18522ad68007a05",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e7e6cdf71e3da2afaaad7faee2e38f05441fa44dd4d3ffdf121920787eaea6dc"
+}

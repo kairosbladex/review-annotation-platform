@@ -1,0 +1,30 @@
+{
+ "unit": "f4e3055e95fd47c68356f029e6da1ab0",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f4e3055e95fd47c68356f029e6da1ab0:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内实际是红色“人员”标注文字及其框线下方的墙面/地面区域，未见人员头顶、肩部或躯干等人体特征。",
+   "reasoning": "候选框位置对应建筑表面上的平台叠加标注，不存在符合人员外观和尺度的实际目标，因此初审类别不正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 22.4,
+   "health": {
+    "at": 1791542544.3854594,
+    "available_fraction": 0.41438046958144203,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3881b18317e04e56a336ca9a5bb27ecb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbd0012e30e3851ff1729388a10a83d8fe5f4bb1f6abe26f0cb276fb94bd20f3"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "9937c2dbf04f48f5828cbf8a8ed2fa8b",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9937c2dbf04f48f5828cbf8a8ed2fa8b:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被红色叠加文字和框线大幅遮挡，且实际物体在图中仅呈现为很小、模糊的局部，无法可靠确认人员特征。",
+   "observed_object": "疑似位于铺装地面上的小型模糊目标，无法辨认头部、肩部或躯干轮廓。",
+   "reasoning": "框内主要被平台标注覆盖，剩余可见区域不足以判断是否为人员；不能仅依据红色标注作出结论。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.28,
+   "health": {
+    "at": 1791546962.0056088,
+    "available_fraction": 0.4420915360841591,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "68a71c5a5cb34baa8e309f1379e3c3ef",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c5efd02b9e9e23a0c50837bcda5e4e7e132b515b0c4391abd617f8a8b2686f7e"
+}

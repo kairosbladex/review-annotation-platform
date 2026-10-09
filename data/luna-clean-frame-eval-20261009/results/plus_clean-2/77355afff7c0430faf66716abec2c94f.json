@@ -1,0 +1,30 @@
+{
+ "unit": "77355afff7c0430faf66716abec2c94f",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "77355afff7c0430faf66716abec2c94f:000",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "岸边地面上的红色标注区域，未见符合人员特征的头部、肩部或躯干。",
+   "reasoning": "框内实际可见的是岸边铺装及标注覆盖区域，不具有人体的形状、尺度和外观特征，因此不属于人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 24.04,
+   "health": {
+    "at": 1791542408.3802323,
+    "available_fraction": 0.40865507151070374,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2df8a7a76b8c4409940d1da01af4c6db",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6bf5ee236ad886ce8fa8211b7de5ffb50fb768348b8cbc3f22d580f819cf5077"
+}

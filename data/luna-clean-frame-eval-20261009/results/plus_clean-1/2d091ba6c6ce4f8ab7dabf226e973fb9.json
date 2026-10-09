@@ -1,0 +1,30 @@
+{
+ "unit": "2d091ba6c6ce4f8ab7dabf226e973fb9",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2d091ba6c6ce4f8ab7dabf226e973fb9:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面底部边缘，且被红色标注和建筑结构遮挡，无法完整确认其车身轮廓。",
+   "observed_object": "框内可见一个小型深色矩形物体，但车顶、挡风玻璃等车辆特征不清晰。",
+   "reasoning": "位置接近建筑底部和道路区域，存在车辆可能，但目标出画且可见部分过少，不能确认或排除是车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.95,
+   "health": {
+    "at": 1791545737.7782037,
+    "available_fraction": 0.4498522191568138,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "621f9368357d47189d0eac3d74ef4c36",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "df31d0136ef124c5d13bb798ed2aace5522a50b40dbed0016e5859b6a7c4a71c"
+}

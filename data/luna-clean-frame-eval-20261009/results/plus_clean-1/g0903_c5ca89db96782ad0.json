@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_c5ca89db96782ad0",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是道路上的两轮电动车骑行者，头部可见为深色头发，未见光滑有高光的头盔。",
+   "reasoning": "目标符合骑两轮车且未佩戴头盔的外观特征，因此判断为没戴头盔。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.34,
+   "health": {
+    "at": 1791545351.28711,
+    "available_fraction": 0.45018932558528657,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aee637a91e4e4611841380b90556a7f5",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbb588f0b71cae4cda6789660b9f535fad6c49979e8157106674411c55a15d92"
+}

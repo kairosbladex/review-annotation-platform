@@ -1,0 +1,30 @@
+{
+ "unit": "26f5758c999d4c03a0bfd39e1920ed60",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:26f5758c999d4c03a0bfd39e1920ed60:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "建筑顶部的蓝绿色矩形顶棚",
+   "reasoning": "框内可见成片、边缘规整的蓝绿色屋面，覆盖在建筑顶部，符合蓝色或绿色顶棚的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 35.66,
+   "health": {
+    "at": 1791540370.1029365,
+    "available_fraction": 0.4477102602927357,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3f1ea274919b4bdcb1beb0e449fe82c4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a107387d065c86b20f61dc84663d44db7e08ef506e805c309e7db5b0ad1c4e4c"
+}

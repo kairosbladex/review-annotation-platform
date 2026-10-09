@@ -1,0 +1,30 @@
+{
+ "unit": "aeb96de0f80449648efd3b40aa1bd9d5",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "aeb96de0f80449648efd3b40aa1bd9d5:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内实际为红色平台标注文字及其下方的浅色铺装地面，未见人员头部、肩部或躯干腿部等人体特征。",
+   "reasoning": "候选框位置位于人行区域，但框内没有可确认的人体目标；红色框线和文字不能作为判断依据，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 22.11,
+   "health": {
+    "at": 1791542566.8289087,
+    "available_fraction": 0.40753719996342264,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "640aa4e6714c4054a2a9b8eb241b9fd3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dcebcf7a2aaecb7473223b6d1191ca399e8fd8768556030784c037389f56bf55"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "422566fb91ab4ad494cf1894def8d975",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:422566fb91ab4ad494cf1894def8d975:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在绿化区域边缘的机动车，呈细长矩形车顶轮廓，颜色和尺度与小汽车相符。",
+   "reasoning": "目标外观符合俯视小汽车特征，位于地面停车区域附近，位置和尺度合理。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.63,
+   "health": {
+    "at": 1791546774.690314,
+    "available_fraction": 0.4435871589598019,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "38a8ace111134d9984354229f156add3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e3446b2fe49a769e3c075755f9f6e18f5757100b2a0b2fa5c3bc1b04571863cf"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "710af93e1e3b4c7798d29ee656391101",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "710af93e1e3b4c7798d29ee656391101:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在绿化区域附近的机动车，呈细长圆角车身轮廓，尺度与小汽车相符。",
+   "reasoning": "框内实际物体具有车辆的长方形车身和深色玻璃区域，位置及尺度符合车的特征，红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.43,
+   "health": {
+    "at": 1791542883.860355,
+    "available_fraction": 0.4206108128931338,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "17043a77e268410f952294f616704c5c",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d0a2788673eff91a5faf96fc7f23a4e704f14c2728ceae7ee9aecc9498715b4a"
+}

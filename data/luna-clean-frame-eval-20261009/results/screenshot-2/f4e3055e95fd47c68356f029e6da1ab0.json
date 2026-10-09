@@ -1,0 +1,30 @@
+{
+ "unit": "f4e3055e95fd47c68356f029e6da1ab0",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "f4e3055e95fd47c68356f029e6da1ab0:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "红色标注文字及其下方的小型标记区域，未见人员头顶、肩部或躯干腿部等人体特征",
+   "reasoning": "框内实际主要是平台叠加的红色文字/标记，周围为地面；没有符合人员外观和尺度的可见人体目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.19,
+   "health": {
+    "at": 1791542544.1603498,
+    "available_fraction": 0.41479971701178453,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5016d7efdf9e464da7bcef7dc31046cf",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "bbd0012e30e3851ff1729388a10a83d8fe5f4bb1f6abe26f0cb276fb94bd20f3"
+}

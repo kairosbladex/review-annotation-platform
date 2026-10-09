@@ -1,0 +1,30 @@
+{
+ "unit": "1ba19da08d5f4139817f9ccdf307f086",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "1ba19da08d5f4139817f9ccdf307f086:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在绿化带旁的机动车，呈细长圆角矩形，车顶和深色玻璃区域清晰可辨。",
+   "reasoning": "目标位于地面道路/停车区域附近，形状、尺度和外观符合小汽车特征，不是设备或其他物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.25,
+   "health": {
+    "at": 1791541948.4527595,
+    "available_fraction": 0.4260256742006969,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2dd52c44809e4cfe80ca35193a015e61",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ad04f377ec7a1926a679f8bda18b11beda96617f9bdfed5fb083630d3cc5fbf8"
+}

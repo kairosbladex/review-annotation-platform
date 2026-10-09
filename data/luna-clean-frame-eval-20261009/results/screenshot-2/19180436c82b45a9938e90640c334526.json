@@ -1,0 +1,30 @@
+{
+ "unit": "19180436c82b45a9938e90640c334526",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "19180436c82b45a9938e90640c334526:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路车道内的一辆小型机动车，能看到细长的车身轮廓和车顶/玻璃区域。",
+   "reasoning": "框内实际物体位于道路车道上，呈与车道方向一致的长方形车辆形状，尺度也与车道相符，符合机动车外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.33,
+   "health": {
+    "at": 1791544538.8320374,
+    "available_fraction": 0.4505066415651223,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "43361816af644baca0b7030853b02acd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6e739bf7f6c86a3cf8ffae25a314b29844ea525341764f4a49eccf1dcea8d257"
+}

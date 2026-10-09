@@ -1,0 +1,46 @@
+{
+ "unit": "eb0201b98d014e25aed1f7b9f4759762",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "eb0201b98d014e25aed1f7b9f4759762:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘停放的一辆小汽车",
+   "reasoning": "框内可见车辆顶部及深色玻璃区域，呈机动车的长方形车身轮廓，位置和尺度与道路旁停车车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "eb0201b98d014e25aed1f7b9f4759762:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树下停放的一辆小汽车",
+   "reasoning": "框内可辨认出车顶、车窗和车身轮廓，虽部分被树叶遮挡，但整体形状与道路旁车辆一致。",
+   "target_index": 1
+  },
+  {
+   "key": "eb0201b98d014e25aed1f7b9f4759762:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树下停放的一辆小汽车",
+   "reasoning": "框内可见较完整的车顶和深色玻璃带，长条机动车轮廓明确，位置与周边停车车辆相符。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.49,
+   "health": {
+    "at": 1791547009.2142217,
+    "available_fraction": 0.43144041390796123,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fc29481580784626a78e14bc505f5edf",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3bac647647913b7c5e3a86911301eb09686dfc2705ba846c9f68cf1ae41162b3"
+}

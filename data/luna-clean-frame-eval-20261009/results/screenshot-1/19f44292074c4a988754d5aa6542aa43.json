@@ -1,0 +1,30 @@
+{
+ "unit": "19f44292074c4a988754d5aa6542aa43",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "19f44292074c4a988754d5aa6542aa43:000",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，无遮挡或出画。",
+   "observed_object": "建筑屋顶/地面上的红色平台标注区域，未见符合人员特征的头顶、肩部或躯干。",
+   "reasoning": "框内实际是屋面表面及叠加的红色标注，不是人员；位置和尺度也不符合俯拍人员外观。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 24.41,
+   "health": {
+    "at": 1791537630.7294009,
+    "available_fraction": 0.4353522347216521,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d3d8ab62892e4604b484ba7005a8c108",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d15734887761320727df5e07b0901bc580e0c72cb399c8fb2115640da379f38e"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "cf5ff50d4505496fa7d2aaf834123747",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:cf5ff50d4505496fa7d2aaf834123747:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左上边缘，车身大部分出画，仅能看到局部轮廓，无法确认完整车形。",
+   "observed_object": "画面边缘处仅露出一个被截断的深色物体局部。",
+   "reasoning": "该候选框接近左上边界，目标露出不足，无法根据车身比例、车顶和挡风玻璃等特征确认或排除机动车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 35.59,
+   "health": {
+    "at": 1791543331.4083042,
+    "available_fraction": 0.4447674722605398,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ba5612d8dc2547e98fb926b9fafaab77",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c086cf911f8a2a456fe2b96427269f3233a01fbc399af4d133ca8cf8d0613518"
+}

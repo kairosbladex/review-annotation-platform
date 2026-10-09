@@ -1,0 +1,30 @@
+{
+ "unit": "2d091ba6c6ce4f8ab7dabf226e973fb9",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2d091ba6c6ce4f8ab7dabf226e973fb9:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路边缘的小型机动车，呈车顶俯视的长方形轮廓。",
+   "reasoning": "目标位于地面道路旁，车身轮廓和尺度符合机动车特征，红色标注不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.93,
+   "health": {
+    "at": 1791545743.6711252,
+    "available_fraction": 0.4488297430439765,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "663ead06ad6c478fb960d059d20bb33b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "df31d0136ef124c5d13bb798ed2aace5522a50b40dbed0016e5859b6a7c4a71c"
+}

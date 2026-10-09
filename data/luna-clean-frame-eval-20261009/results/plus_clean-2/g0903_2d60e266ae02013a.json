@@ -1,0 +1,86 @@
+{
+ "unit": "g0903_2d60e266ae02013a",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:550639a471cf4e7f8e9ec1582a0e0e54",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内主要覆盖一段规整的蓝色屋面，颜色和形状符合违建类别要点。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:d876014dcc0c473995e0f6fe416cb24d",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内为成片浅蓝色矩形屋顶，边缘规整，符合蓝色顶棚特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:80812c36c71a4d6198549ea36712bedc",
+   "decision": "uncertain",
+   "image_limitation": "框内目标区域很小且被框线及周边遮挡，难以确认其是否为蓝绿色顶棚。",
+   "observed_object": "疑似蓝色棚面或局部结构",
+   "reasoning": "目标尺度过小，无法可靠区分蓝色顶棚与相邻结构。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:fba881c9469947ddbc7a4fcee5b1f904",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内主体是连续的浅蓝色屋面，呈规整矩形棚顶，符合类别定义。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:eb56553240484b9188c2a7d711227262",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内覆盖多段浅蓝色成片屋面，颜色、尺度和矩形形状均符合顶棚特征。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:ffa1b60b7e174fb1adbf894c8ca57d1a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内主体为一段清晰的浅蓝色长条形屋面，属于成片蓝色顶棚而非地面长条物。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0903:decaf5ebb325467a93b660494c8463eb",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内可见规整的浅蓝色屋面，覆盖建筑结构，符合蓝色顶棚特征。",
+   "target_index": 6
+  },
+  {
+   "key": "gold0903:e4ed4a4a5591482c8c799e8b8b0e93fd",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内右侧为浅蓝色成片屋面，虽部分出画，但可确认其为蓝色顶棚。",
+   "target_index": 7
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.48,
+   "health": {
+    "at": 1791539384.915799,
+    "available_fraction": 0.34683661078565464,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0cf836653694456496f11acfb25abd8d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d9bc137114d5d3e03856a6ca43752516786ad2d6b14461bb2e8c520e0a1232aa"
+}

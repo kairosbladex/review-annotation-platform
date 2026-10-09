@@ -1,0 +1,38 @@
+{
+ "unit": "b739130c3de24a1eaccdf8f82e5945fc",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b739130c3de24a1eaccdf8f82e5945fc:007",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最上边缘，仅露出很小区域，车身大部分出画，无法确认完整车形。",
+   "observed_object": "画面顶部边缘处的局部物体",
+   "reasoning": "框内可见区域不足，无法依据车顶、挡风玻璃和整体尺度确认是否为机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "b739130c3de24a1eaccdf8f82e5945fc:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树木旁道路/停车区域内的一辆小汽车",
+   "reasoning": "框内可见细长圆角车身及深色车窗区域，位置和尺度与地面停放车辆相符，符合车的外观特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.59,
+   "health": {
+    "at": 1791545392.664246,
+    "available_fraction": 0.4503991469009434,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5c7dbb3d74a0457f9276ad7e73fa03ca",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "580c0bc8ce1d8178976feea197bfd597b0f606ef6e1a8e939107c90ea0a98814"
+}

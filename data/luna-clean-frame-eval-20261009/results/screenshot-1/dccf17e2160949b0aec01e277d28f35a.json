@@ -1,0 +1,30 @@
+{
+ "unit": "dccf17e2160949b0aec01e277d28f35a",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:dccf17e2160949b0aec01e277d28f35a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小型机动车",
+   "reasoning": "框内可见道路上的小型车辆，呈车身与深色车窗带组成的细长矩形，位置和尺度与车道上的车辆相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.3,
+   "health": {
+    "at": 1791546263.6011505,
+    "available_fraction": 0.4502806170096444,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d01032d6d07541a48e2b53774b7f0ac2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "527986a7b03cffe873ed8c1aebaf015dd2df307342eac9c07fc5d33ba404fb5f"
+}

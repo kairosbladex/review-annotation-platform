@@ -1,0 +1,70 @@
+{
+ "unit": "8bf8d838e4fe4cc096532ab64deb0d7c",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "框内可见完整车身，呈细长圆角矩形，位于地面道路区域，形状和尺度符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "可见车顶和深色玻璃区域，车辆位于道路旁，外形与尺度符合小汽车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "框内是停放在地面道路区域的机动车，车身轮廓和玻璃带清晰可辨。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "可见细长车身及深色车窗，位置与周围道路、停车区域相符。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "浅色小汽车",
+   "reasoning": "框内目标具有车辆的长方形车身和深色玻璃区域，停放位置合理。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "浅色小汽车",
+   "reasoning": "框内可辨认出机动车车顶、车身和玻璃区域，位于地面道路旁，类别符合。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.64,
+   "health": {
+    "at": 1791546792.1362338,
+    "available_fraction": 0.44382710674949755,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2898db976d16417b908c568a0157ec30",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "77044967ed98a7b8e7fd425aaa9050bd6d90983bc6f797589b66986790dda3ac"
+}

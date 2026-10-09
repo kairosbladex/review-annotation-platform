@@ -1,0 +1,30 @@
+{
+ "unit": "74c43336b12e4945a81fc40e424017e4",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:74c43336b12e4945a81fc40e424017e4:000",
+   "decision": "false",
+   "image_limitation": "框内目标很小但清晰可见，位于画面左下角建筑屋顶边缘，未见符合机动车特征的车身、挡风玻璃或道路/车位关系。",
+   "observed_object": "建筑屋顶边缘的红色叠加标记区域，实际更像屋顶结构或设备，不是机动车。",
+   "reasoning": "该位置不在道路、停车场或车位上，目标形状和尺度也不符合车的圆角长方形车身特征，因此初审类别不正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.1,
+   "health": {
+    "at": 1791541305.1752307,
+    "available_fraction": 0.42320439526712184,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5ac0cd83b5cb4eee9dbff253190fa799",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "22312e5fabc2a1f7085442bb27cef985f3afa0cbd1ea09e21c3afe1f06ca23af"
+}

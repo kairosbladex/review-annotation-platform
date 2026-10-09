@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_0d92729232218495",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cc74adcb35e5423f95ab997d36672ae2",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆被树冠部分遮挡的汽车，露出车顶及车身轮廓，位于道路旁，尺度和位置符合车辆特征。",
+   "reasoning": "虽然大部分被树叶遮挡，但可辨认出机动车的长方形车身和车顶结构，符合“车”的外观口径。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f733538108d240f590ff61e466ea9a4d",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆被树冠部分遮挡的汽车，能看到浅色车顶及深色车窗区域，位于道路上。",
+   "reasoning": "车辆轮廓、车顶和车窗特征仍然清晰，位置和尺度与道路上的机动车相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.55,
+   "health": {
+    "at": 1791545320.7292438,
+    "available_fraction": 0.4505141807836507,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d33df54baf464b34aff51487adc02317",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d920a1bef9839f66078c45710a93af01efbddae7eb14b0407043d4e1d52dcf14"
+}

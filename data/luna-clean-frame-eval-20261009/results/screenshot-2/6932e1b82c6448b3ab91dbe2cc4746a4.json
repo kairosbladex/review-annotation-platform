@@ -1,0 +1,30 @@
+{
+ "unit": "6932e1b82c6448b3ab91dbe2cc4746a4",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "6932e1b82c6448b3ab91dbe2cc4746a4:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆被树冠部分遮挡的小汽车，露出的车顶、挡风玻璃和车身轮廓明确。",
+   "reasoning": "目标位于道路边缘，形状和尺度符合机动车特征，虽然部分被树木遮挡但不影响确认其为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.61,
+   "health": {
+    "at": 1791546257.9836287,
+    "available_fraction": 0.45001534595771425,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9b668b5701564da4952a59fe05a455cb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "123335a6ce1f574cc77b096d6d0ad244cb396944fcccedd8319f76677edb6275"
+}

@@ -1,0 +1,70 @@
+{
+ "unit": "a4ce48506cd74290a0d40eb659af6102",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道边的小型人员目标",
+   "reasoning": "框内可见细小的人体形状，位于可站立的人行道区域，尺度与人员相符。",
+   "target_index": 0
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路边人员",
+   "reasoning": "框内目标呈竖向小体态，位于道路旁可站立区域，符合俯拍人员外观。",
+   "target_index": 1
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路边人员",
+   "reasoning": "框内可见小型人体目标，位置和尺度均与人员一致。",
+   "target_index": 2
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的人员",
+   "reasoning": "框内目标为细小的人员形态，位于人行道边缘，符合类别特征。",
+   "target_index": 3
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:005",
+   "decision": "true",
+   "image_limitation": "目标靠近画面下边缘，但主体仍基本可见。",
+   "observed_object": "道路旁人员",
+   "reasoning": "框内可见小型人体目标，位置适合人员站立，尺度与周围道路设施相符。",
+   "target_index": 4
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路边人员",
+   "reasoning": "框内呈现小型竖向人体形态，位于可通行区域，符合人员类别。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.61,
+   "health": {
+    "at": 1791540978.4506643,
+    "available_fraction": 0.42785542429749074,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ebf157d75dd0486e881a33655ba449fa",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1099a723047772f8479d6ab489e8e2061f01d84dadc71007018f482be818cbda"
+}

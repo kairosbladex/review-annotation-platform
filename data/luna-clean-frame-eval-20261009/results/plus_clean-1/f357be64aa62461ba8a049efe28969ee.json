@@ -1,0 +1,30 @@
+{
+ "unit": "f357be64aa62461ba8a049efe28969ee",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f357be64aa62461ba8a049efe28969ee:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路边缘的小型汽车，呈长方形车身，颜色较均匀，尺度与道路相符。",
+   "reasoning": "目标形状、位置和尺度均符合机动车特征，不是屋顶设备或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 26.86,
+   "health": {
+    "at": 1791542042.356415,
+    "available_fraction": 0.4264790913150148,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1d6f203f6ab141e7b27c44b74d7e0bbb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "80550cd9a5db54e2437f928fbc5512014d555e22b1293d276a0be7a46db47651"
+}

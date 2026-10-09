@@ -1,0 +1,102 @@
+{
+ "unit": "d6089efd3c7f41b09231abb7f6d22ee7",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "细长窄条状两轮车",
+   "reasoning": "框内可见窄长车身，尺度明显小于小汽车，符合两轮车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内是停放在路边的机动车，车身呈长方形且与停车方向一致。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见完整的窄长车身，停放在路侧车位，符合机动车外观。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "树木间可见一辆停放的汽车，车顶和车身轮廓清楚。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见白色汽车的车顶及深色玻璃区域，位置和尺度符合车辆。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内为停放在树下的汽车，车身轮廓和颜色清晰可辨。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见路侧停车位中的汽车，呈明显圆角长方形车身。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见一辆停放的小汽车，车顶与挡风玻璃区域可辨。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内是树旁停车位中的机动车，形状和尺度符合汽车。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见靠近道路停放的汽车，车身轮廓明确。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 18.13,
+   "health": {
+    "at": 1791541616.8780625,
+    "available_fraction": 0.42686511146369793,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d6b27609424b4a78b49b72ea14f72ad9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fbd71e9fee2203b9450c5691b2581e01853ef30ac54838c54c5cd57de15d116f"
+}

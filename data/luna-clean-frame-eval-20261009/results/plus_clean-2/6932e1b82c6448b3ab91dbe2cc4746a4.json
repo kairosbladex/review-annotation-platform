@@ -1,0 +1,30 @@
+{
+ "unit": "6932e1b82c6448b3ab91dbe2cc4746a4",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "6932e1b82c6448b3ab91dbe2cc4746a4:000",
+   "decision": "true",
+   "image_limitation": "目标部分被树冠遮挡，但主体轮廓和车顶仍清晰可辨。",
+   "observed_object": "树下停放的一辆机动车，露出车顶、车身及深色玻璃区域。",
+   "reasoning": "框内实际物体符合俯拍车辆的长方形车身和深色挡风玻璃特征，位置也与道路旁停车区域相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.59,
+   "health": {
+    "at": 1791546251.2113757,
+    "available_fraction": 0.44992356813216106,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f9168c4841a047a2977303c39ae43531",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "123335a6ce1f574cc77b096d6d0ad244cb396944fcccedd8319f76677edb6275"
+}

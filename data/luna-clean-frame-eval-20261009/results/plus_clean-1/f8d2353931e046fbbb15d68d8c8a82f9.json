@@ -1,0 +1,30 @@
+{
+ "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是路边的小型车辆或设备，未见明显分段的驾驶室与长方形货厢/车斗。",
+   "reasoning": "目标尺寸较小，整体不像长度明显超过小汽车的货车，且缺少卡车典型的驾驶室与货厢分段结构，因此不符合“卡车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 21.63,
+   "health": {
+    "at": 1791542588.9601266,
+    "available_fraction": 0.4074184876716753,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b6b11688d97b40d2816f4f7bee431602",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a2d04285aebb3e56921948cd5731aa8f77c842ac8e240671acbd5f5c9335d881"
+}

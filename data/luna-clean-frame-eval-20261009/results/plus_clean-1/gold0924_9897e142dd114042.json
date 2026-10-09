@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "false",
+   "image_limitation": "框内及紧邻区域清晰可见，未见明显遮挡或出画。",
+   "observed_object": "框内主要是建筑物亮黄色墙面及其边缘区域，未见人员的头部、肩部或竖长躯干腿部轮廓。",
+   "reasoning": "该候选框位于建筑立面附近，框内目标呈规则的建筑/墙面区域，缺少人员应有的形态与尺度特征，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.29,
+   "health": {
+    "at": 1791544470.1795352,
+    "available_fraction": 0.4491591582535473,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "817c7ae5853346b6813d7a520971f1d9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4f0d066de688c5ac6cc175009491b5d02bf960c49b8a548d6b54c99948e96d57"
+}

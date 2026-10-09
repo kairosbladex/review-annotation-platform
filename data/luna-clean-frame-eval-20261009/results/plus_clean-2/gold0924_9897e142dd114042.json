@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内可见的是建筑物墙面及其结构区域，没有人员的头部、肩部或躯干腿部等人体外观特征。",
+   "reasoning": "目标位于建筑立面附近，框内实际物体呈规则的墙面/建筑结构形态，不符合俯拍人员的小椭圆或竖长窄躯干特征，因此该“人员”初审框类别不正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.91,
+   "health": {
+    "at": 1791544464.8107026,
+    "available_fraction": 0.44975503011796203,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "860e4513ba404b829ab0dba0e86a3c48",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4f0d066de688c5ac6cc175009491b5d02bf960c49b8a548d6b54c99948e96d57"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_5c42156a21e911fb",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-034",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内可见的是建筑物屋顶边缘附近的小型固定物体，不呈现人员头顶、肩部或躯干腿部的形态。",
+   "reasoning": "目标位于建筑及屋顶紧邻区域，形状和尺度更像屋顶设施或杂物，缺乏人员应有的身体结构，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 27.69,
+   "health": {
+    "at": 1791542516.393022,
+    "available_fraction": 0.4090040947684633,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "47b3da0228554a3b8d74ba4e9cef00d4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4fcc3c233c9f561cca05ad85dcb84a4f0f0f0de6f7ee1f66f6f3858dc2ae09eb"
+}

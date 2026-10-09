@@ -1,0 +1,30 @@
+{
+ "unit": "320217febc0b4fe8ad3f47fb1a87737e",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "320217febc0b4fe8ad3f47fb1a87737e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的一名行人，可见头部、躯干和腿部，呈竖长人体轮廓。",
+   "reasoning": "框内实际是站立人员，位于可行走的人行道区域，体型和尺度符合人员特征；红色标注不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 27.86,
+   "health": {
+    "at": 1791541549.746839,
+    "available_fraction": 0.4204091083974248,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "256b37bbacf8429db17156c6d9e740eb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6694ebd7a55c46188a9355789007c34435b2132d07f845f26b716809df92993a"
+}

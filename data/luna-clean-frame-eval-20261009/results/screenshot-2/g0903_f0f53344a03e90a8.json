@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f0f53344a03e90a8",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd58701a40a44a4187c2167ba59721f0",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是浅灰色建筑屋面/硬质地面，不是蓝色或绿色顶棚。",
+   "reasoning": "目标区域呈灰白色矩形屋面，颜色和形态均不符合“违建”类别要求的蓝色或绿色顶棚，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.1,
+   "health": {
+    "at": 1791545570.4951234,
+    "available_fraction": 0.4486658562412083,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a14200bc868944cba2f710078e14ad63",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "b9c2894bcb9ff7c04597923e352ddaa4f58f49a14905370dbf9400e2bdb3d7a0"
+}

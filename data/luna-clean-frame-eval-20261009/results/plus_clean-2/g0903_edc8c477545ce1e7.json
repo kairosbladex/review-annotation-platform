@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_edc8c477545ce1e7",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:553aaf3027ee45b19cbeabe77e948a69",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆细长窄小的两轮车，位于建筑边缘的铺装区域上。",
+   "reasoning": "目标形状细长、宽度明显小于小汽车，长度和尺度符合自行车或电动自行车特征，因此属于两轮车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.24,
+   "health": {
+    "at": 1791542539.117504,
+    "available_fraction": 0.4121363360662595,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2b654e3fd7c348488344abd45057d549",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7830ec604159638fa4f85b95acdd4da779ea56ccdd3b9e6291d63e6473f18239"
+}

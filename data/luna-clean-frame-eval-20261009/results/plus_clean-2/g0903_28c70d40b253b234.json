@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_28c70d40b253b234",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:325c7e4db91441718685ea2d6a6fa556",
+   "decision": "false",
+   "image_limitation": "目标区域位于图像顶部边缘，主体大部分可见。",
+   "observed_object": "框内主要是树木、道路边缘及建筑/设施的灰白色结构，不是蓝色或绿色顶棚。",
+   "reasoning": "违建类别要求框内主体为蓝色或绿色的成片顶棚；该框内未见符合颜色和形状要求的顶棚，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.14,
+   "health": {
+    "at": 1791544751.4629443,
+    "available_fraction": 0.45009453815233696,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "02732cc8c73542f2bc0dba9be4449952",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4e943475937cfeb8099b1a2c022dd1152c18669898baeca738acb37d2a22dbaa"
+}

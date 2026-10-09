@@ -1,0 +1,30 @@
+{
+ "unit": "e69acd6b46474afebbf37d0a3f999c89",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e69acd6b46474afebbf37d0a3f999c89:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的机动车",
+   "reasoning": "框内可见一辆位于道路车道上的小型机动车，呈细长圆角车身，尺度和朝向与道路相符，符合“车”的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.23,
+   "health": {
+    "at": 1791542581.4104738,
+    "available_fraction": 0.40850519914237743,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6b3c62484dc64fd3a76e410289fcfffc",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d528d94f50d3e78e5798aba52621836ad048849d48946ada992c14a03fc92806"
+}

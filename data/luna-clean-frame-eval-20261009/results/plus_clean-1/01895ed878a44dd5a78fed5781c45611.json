@@ -1,0 +1,38 @@
+{
+ "unit": "01895ed878a44dd5a78fed5781c45611",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+   "decision": "false",
+   "image_limitation": "否",
+   "observed_object": "建筑外墙、玻璃窗及墙面结构",
+   "reasoning": "框内没有机动车，主要是建筑外墙和窗户，位置与尺度也不符合地面道路或停车位上的车辆。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:001",
+   "decision": "false",
+   "image_limitation": "否",
+   "observed_object": "建筑外墙下方的雨棚或遮棚及树木",
+   "reasoning": "框内可见的是建筑雨棚、墙面和树木，没有车身、车顶或挡风玻璃等机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.9,
+   "health": {
+    "at": 1791543889.0569992,
+    "available_fraction": 0.4451688444469521,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "56118ef10972451b846e621b7187d49f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7d531da989184f426ad76dd9dae999ce3928b4738365bb4fcfe56e31d642daf6"
+}

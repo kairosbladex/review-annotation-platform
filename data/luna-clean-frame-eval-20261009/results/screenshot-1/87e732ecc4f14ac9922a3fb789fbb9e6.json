@@ -1,0 +1,30 @@
+{
+ "unit": "87e732ecc4f14ac9922a3fb789fbb9e6",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "87e732ecc4f14ac9922a3fb789fbb9e6:000",
+   "decision": "false",
+   "image_limitation": "目标区域被红色标注文字和框线部分遮挡，但仍可见其实际形态。",
+   "observed_object": "框内是红色叠加标注及其下方的小型固定设施/标志状物体，不具备人员头部、肩部或躯干腿部特征。",
+   "reasoning": "该位置未见符合俯拍人员外观和尺度的真实人体，更像是墙面上的固定设施或标识，因此不属于人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.98,
+   "health": {
+    "at": 1791545078.0805311,
+    "available_fraction": 0.4508049878983383,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6335f725c5824a7e8e289cbef2fcde86",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8eb535da9d7ab56a1591ee4ca150e2343eedb7507e0202a85678e4787dc6c01c"
+}

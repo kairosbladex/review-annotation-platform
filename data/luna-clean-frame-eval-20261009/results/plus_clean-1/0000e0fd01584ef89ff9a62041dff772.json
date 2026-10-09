@@ -1,0 +1,30 @@
+{
+ "unit": "0000e0fd01584ef89ff9a62041dff772",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "0000e0fd01584ef89ff9a62041dff772:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是道路上的一辆小型机动车，可见车顶和车身轮廓，形状与尺度符合汽车特征。",
+   "reasoning": "目标位于道路区域，呈车辆常见的长方形俯视轮廓，且不是标线、设备或非机动车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 20.28,
+   "health": {
+    "at": 1791543960.2954755,
+    "available_fraction": 0.4445200764525399,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8ba5868ecf934213919ff3a5291a3529",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7932618452a54028223b3c825efa96e5bd98c3d8499f2ab3b732cd33ff117268"
+}

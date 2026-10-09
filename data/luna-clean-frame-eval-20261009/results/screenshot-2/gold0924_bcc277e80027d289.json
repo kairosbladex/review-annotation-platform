@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_bcc277e80027d289",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名斜俯视的人员，能看到头部、躯干及腿部，位于可站立的人行道边缘。",
+   "reasoning": "目标外观和尺度符合人员特征，虽然部分出画但主体仍可确认，不影响类别判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 3.83,
+   "health": {
+    "at": 1791542661.2425919,
+    "available_fraction": 0.4294952651275636,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4d89fbed276d4beb88b4dcda3c21cc25",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6ac56eb7885dc1dc680e6691925b0373708473353508c12ca458854620d43979"
+}

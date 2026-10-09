@@ -1,0 +1,30 @@
+{
+ "unit": "f24adba80cd64f79a85653bf3145b435",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f24adba80cd64f79a85653bf3145b435:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在道路边缘的机动车，呈细长圆角车身轮廓，位置和尺度与道路相符。",
+   "reasoning": "目标外观符合俯视车辆特征，红色框线和文字不影响对实际物体的判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.98,
+   "health": {
+    "at": 1791538320.9707525,
+    "available_fraction": 0.44976454534134663,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7e41cdc4ad4542cca6b36817300287cb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ca35c5eb9ba590dcd77993ff40ac56f731ab152b219c9ec88e3e8a8d0d5256b2"
+}

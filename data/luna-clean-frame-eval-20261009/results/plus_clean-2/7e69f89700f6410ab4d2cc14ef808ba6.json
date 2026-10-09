@@ -1,0 +1,30 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆前窄后宽的三轮车，后部带有较宽的车斗，整体轮廓符合三轮车特征。",
+   "reasoning": "目标形状和尺度与三轮车相符，不是四方箱体、汽车或两轮车；框线和文字不影响判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 26.04,
+   "health": {
+    "at": 1791537870.0745032,
+    "available_fraction": 0.4482628424507616,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ceefb6aab7c74911b219b18077a8c827",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fd2a60a988726018af40f55810655a1349a82b6e01f23b27d463685ef319b77e"
+}

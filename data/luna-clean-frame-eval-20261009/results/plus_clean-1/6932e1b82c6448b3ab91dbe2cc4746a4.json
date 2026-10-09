@@ -1,0 +1,30 @@
+{
+ "unit": "6932e1b82c6448b3ab91dbe2cc4746a4",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "6932e1b82c6448b3ab91dbe2cc4746a4:000",
+   "decision": "false",
+   "image_limitation": "目标区域被树冠遮挡，但可见部分不足以形成明确机动车车形，且紧邻区域主要是绿化带与树木。",
+   "observed_object": "树冠和绿化带中的模糊局部物体，无法确认是机动车。",
+   "reasoning": "框内没有清晰可见的圆角长方形车身、车顶及挡风玻璃深色横带，位置也不符合道路或停车位中的车辆特征，因此不属于“车”。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.89,
+   "health": {
+    "at": 1791546247.6438508,
+    "available_fraction": 0.44999452190653705,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a32c312a08824112b77c4c8917e9eddf",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "123335a6ce1f574cc77b096d6d0ad244cb396944fcccedd8319f76677edb6275"
+}

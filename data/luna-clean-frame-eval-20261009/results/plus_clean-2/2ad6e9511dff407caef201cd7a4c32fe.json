@@ -1,0 +1,38 @@
+{
+ "unit": "2ad6e9511dff407caef201cd7a4c32fe",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2ad6e9511dff407caef201cd7a4c32fe:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车区域内的一辆小汽车，可见车顶和深色车窗带。",
+   "reasoning": "框内目标呈机动车俯拍的长方形车身，位置在道路旁停车区域，尺度和朝向均与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:2ad6e9511dff407caef201cd7a4c32fe:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车区域内的一辆小汽车，可见车顶和深色车窗带。",
+   "reasoning": "框内目标具有明确的机动车外形，位于停车区域且尺度与周围车辆一致，符合车的类别特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.52,
+   "health": {
+    "at": 1791544330.8133543,
+    "available_fraction": 0.4489536841485742,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "520be06c97794c6e867217425f8f9379",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5a878e9b972760cad94e5735ead40fec6c7d14692dce697080378c0b427aaab5"
+}

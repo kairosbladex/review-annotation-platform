@@ -1,0 +1,30 @@
+{
+ "unit": "fdb392405f404886813e23aa33a2ec1a",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:fdb392405f404886813e23aa33a2ec1a:000",
+   "decision": "false",
+   "image_limitation": "框内主要是建筑墙面、窗户及下方墙体/栏杆区域，未见可确认的机动车车身。",
+   "observed_object": "建筑外立面、窗户和墙体结构",
+   "reasoning": "候选框位于建筑立面上，目标位置和尺度不符合车辆应位于道路、停车场或地面区域的特征；框内也没有车顶、挡风玻璃或均匀车身形状。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.03,
+   "health": {
+    "at": 1791541519.63743,
+    "available_fraction": 0.42749484901134094,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "002f11a8707f4c7aa8782183631831dd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "343c89b755b65f8527cf6272efd45d817a5cda0b33298936d35452135f5443c9"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "378a5ec012a741d687cf2ce630cbe133",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "378a5ec012a741d687cf2ce630cbe133:004",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "建筑屋顶边缘的矩形设施或结构，不是机动车。",
+   "reasoning": "框位于建筑屋顶区域，内部可见的是屋顶上的矩形构件，缺少车辆车身、挡风玻璃等机动车特征，位置和尺度也不符合车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.95,
+   "health": {
+    "at": 1791545325.297552,
+    "available_fraction": 0.44941327247805846,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "58019aaa82874269b030a2efa86dc5fd",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "befe6ad8b5814606fb50871b62a9bfa5b7388602fc637fa7ba22a5daf2c1bcd4"
+}

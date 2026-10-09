@@ -1,0 +1,30 @@
+{
+ "unit": "04857eb47b034abf9660e7a6bf45df9d",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "04857eb47b034abf9660e7a6bf45df9d:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，能看到车顶、深色车窗带，车身呈细长圆角矩形，停在道路旁停车位内。",
+   "reasoning": "目标外观、位置和尺度均符合机动车特征，不是标线或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.15,
+   "health": {
+    "at": 1791546010.758498,
+    "available_fraction": 0.449803244636454,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "498b089db79a442dbb539320398c34c4",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "dd69cf824f3e3965efc74912189e65437ccb3253166ad73f923929b4fd029043"
+}

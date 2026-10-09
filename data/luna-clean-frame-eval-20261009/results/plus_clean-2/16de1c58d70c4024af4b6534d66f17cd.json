@@ -1,0 +1,30 @@
+{
+ "unit": "16de1c58d70c4024af4b6534d66f17cd",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "16de1c58d70c4024af4b6534d66f17cd:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是一辆停放在地面区域的小汽车，可见完整车顶和深色车窗带，形状与尺度符合机动车特征。",
+   "reasoning": "目标位于停车区域，呈圆角长方形车身，车顶及前后挡风玻璃清晰可见，朝向与停车位置一致，符合“车”的类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.4,
+   "health": {
+    "at": 1791545038.1459172,
+    "available_fraction": 0.44977445576570246,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c4ea0b6ca04d4e05890fc35de8fec786",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "55aef256256e62bc7c8fe4ced096880eafda17288db6e580c7b01ba2cbabe624"
+}

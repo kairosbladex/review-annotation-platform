@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_8d96afc9716b5f30",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:83a02537fc5f4618b5f731afabc168eb",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆细长窄小的两轮车，停放在建筑旁的停车区域内。",
+   "reasoning": "目标宽度明显小于小汽车，长度和细长形状符合自行车或电动自行车的俯拍特征，位置也与停放车辆区域相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.02,
+   "health": {
+    "at": 1791546604.2724185,
+    "available_fraction": 0.44991736651691994,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b82eca914d784ab9a210c49406fb9127",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "c2c9c588fd4af43685ee09c84eff2e7b5ad7570ba73c94e5466ce8de0ca1d597"
+}

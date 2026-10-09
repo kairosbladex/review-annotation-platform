@@ -1,0 +1,30 @@
+{
+ "unit": "ebf8114691984fcfbde7f28d6c796398",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "ebf8114691984fcfbde7f28d6c796398:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内实际为岸边铺装区域上的一个小型白色设施/装置，呈圆柱或弯管状，并非人员的头部、肩部或躯干。",
+   "reasoning": "该目标位于岸边步道边缘，外观为白色硬质设施，形状和尺度不符合俯拍人员特征，更接近管件或其他固定设施，因此初审类别“人员”错误。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.36,
+   "health": {
+    "at": 1791546536.1639385,
+    "available_fraction": 0.4502314296887616,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "caecf3fc1ac542758214b73b82ddc1a9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0132fe37cce65d64dd45558e92d4c8e3e6e967a945a2158472142b2778d0a541"
+}

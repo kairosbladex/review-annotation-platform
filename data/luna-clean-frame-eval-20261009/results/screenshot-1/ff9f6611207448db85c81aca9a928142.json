@@ -1,0 +1,30 @@
+{
+ "unit": "ff9f6611207448db85c81aca9a928142",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ff9f6611207448db85c81aca9a928142:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域非常小且被红色标注覆盖，无法清晰确认实际物体形状。",
+   "observed_object": "道路旁疑似小型物体，车身及车顶特征不可辨认。",
+   "reasoning": "候选框位于道路附近，但框内目标过小并被标注遮挡，无法确认是否为机动车，也不足以排除其他物体，因此判定为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.44,
+   "health": {
+    "at": 1791545897.5468905,
+    "available_fraction": 0.45209480226818605,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0d070ca0fbe0443cbe3d4163616557c9",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7578b3cd3565a7447cf32466e63adbf55c063e3341d231ca06678be854c3aee2"
+}

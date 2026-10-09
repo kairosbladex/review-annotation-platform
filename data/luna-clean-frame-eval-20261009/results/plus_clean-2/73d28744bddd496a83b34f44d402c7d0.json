@@ -1,0 +1,30 @@
+{
+ "unit": "73d28744bddd496a83b34f44d402c7d0",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "73d28744bddd496a83b34f44d402c7d0:000",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，未见明显遮挡。",
+   "observed_object": "岸边铺装区域上的小型固定物，外观更像井盖或其他设施，并非人员。",
+   "reasoning": "框内没有人员应有的头顶与肩部轮廓，目标呈小型固定设施特征，位置和形态也不符合人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.24,
+   "health": {
+    "at": 1791544831.3360872,
+    "available_fraction": 0.4320747418668856,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0e1a1eb5d9f94c4e86999c6c9090374b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5d42df702d594565aadd20c82401b68f3ab2ba02cfbd6592aa3ee470582878e9"
+}

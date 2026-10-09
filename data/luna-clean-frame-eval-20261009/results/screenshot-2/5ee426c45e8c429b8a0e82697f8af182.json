@@ -1,0 +1,30 @@
+{
+ "unit": "5ee426c45e8c429b8a0e82697f8af182",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "5ee426c45e8c429b8a0e82697f8af182:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的机动车，呈长方形车顶轮廓，部分被树冠遮挡。",
+   "reasoning": "目标位置在道路车道旁，露出的车身与车顶形状、尺度符合小汽车特征，遮挡不影响确认其为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.3,
+   "health": {
+    "at": 1791542837.4513607,
+    "available_fraction": 0.41548438749443073,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a58c536ef1c0452db0c5392e47e22308",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1aab696418ceaf1b89a0477b6c8d14b710a9d224a7e0f62e174bff56a6c72c33"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "f24adba80cd64f79a85653bf3145b435",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "f24adba80cd64f79a85653bf3145b435:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路边缘的小型机动车，呈细长圆角车身轮廓，尺度和朝向与道路上的车辆相符。",
+   "reasoning": "该目标不是屋顶设备或地面标线，外观与位置均符合车的判定要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.06,
+   "health": {
+    "at": 1791538229.5801907,
+    "available_fraction": 0.4489670297813724,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "adf6724731f54661815de4e7946f76d7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ca35c5eb9ba590dcd77993ff40ac56f731ab152b219c9ec88e3e8a8d0d5256b2"
+}

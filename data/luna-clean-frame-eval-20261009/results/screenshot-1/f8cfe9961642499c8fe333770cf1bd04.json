@@ -1,0 +1,46 @@
+{
+ "unit": "f8cfe9961642499c8fe333770cf1bd04",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小型机动车，呈细长矩形车身并带深色车窗区域。",
+   "reasoning": "目标位于绿化带旁的地面停车区域，形状和尺度符合俯视小汽车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的机动车，车身轮廓清楚。",
+   "reasoning": "目标位于停车区域，具有车辆的长方形车顶和深色玻璃带，位置及尺度均相符。",
+   "target_index": 1
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆纵向停放的小型机动车。",
+   "reasoning": "目标呈车身长宽比明显的矩形，位于道路旁停车区域，符合车辆外观和尺度。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.65,
+   "health": {
+    "at": 1791540555.6618142,
+    "available_fraction": 0.42646100327056163,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ab6ee699487d4333b9a41cbfec624c57",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fbcf18306f13b8ddb0917d1b32a0ac749044f69318ef80479dbc419f7902fd72"
+}

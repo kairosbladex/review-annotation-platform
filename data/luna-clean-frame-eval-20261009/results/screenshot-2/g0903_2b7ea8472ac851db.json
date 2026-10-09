@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_2b7ea8472ac851db",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d18a140d772d4ff9a62b0594e99b8b99",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在道路旁的浅色机动车，呈细长圆角车身，位置和尺度与道路环境相符。",
+   "reasoning": "目标外观符合俯拍车辆特征，位于道路旁且未见建筑设备等替代物。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.06,
+   "health": {
+    "at": 1791542301.797716,
+    "available_fraction": 0.43130127276600794,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3809d73de91e4c03be709bb5923a275e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a84b5b3395598d6adbf67a6000c4999a152a6f3467d7fee304397062d0a3840b"
+}

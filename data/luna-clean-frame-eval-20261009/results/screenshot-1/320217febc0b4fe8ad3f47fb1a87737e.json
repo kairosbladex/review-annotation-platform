@@ -1,0 +1,30 @@
+{
+ "unit": "320217febc0b4fe8ad3f47fb1a87737e",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "320217febc0b4fe8ad3f47fb1a87737e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名站立人员，能看到头部、躯干和腿部，位于人行道边缘。",
+   "reasoning": "目标外观符合斜俯视下人员的竖长窄躯干和腿部特征，位置与尺度也符合人员判断要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.99,
+   "health": {
+    "at": 1791541543.884157,
+    "available_fraction": 0.4243606621087632,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "09d0d361ef044d018d01008154106504",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6694ebd7a55c46188a9355789007c34435b2132d07f845f26b716809df92993a"
+}

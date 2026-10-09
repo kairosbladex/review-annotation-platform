@@ -1,0 +1,30 @@
+{
+ "unit": "c02e9615267b4e968c884ad6c3414ef3",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c02e9615267b4e968c884ad6c3414ef3:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被红色标注文字和框线严重遮挡，且实际目标分辨率很低，无法确认其是否为人员。",
+   "observed_object": "框内主要可见红色标注，底下疑似有小型目标，但形状和尺度不足以辨认。",
+   "reasoning": "该位置位于可站立的平台边缘附近，但目标被标注覆盖且过于模糊，既不能确认人员，也不能明确排除其他小型物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 37.05,
+   "health": {
+    "at": 1791540582.358684,
+    "available_fraction": 0.42729733972594214,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c06c4adefa8340d4906cdb74396ccf28",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3fd2974e20751e20782045a070539a01eac78817a111a1c36a044dcc85472502"
+}

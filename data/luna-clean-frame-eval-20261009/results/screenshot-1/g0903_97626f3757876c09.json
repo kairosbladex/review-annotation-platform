@@ -1,0 +1,38 @@
+{
+ "unit": "g0903_97626f3757876c09",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fb0ded7fd77a459bb409a0c0349eb546",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左上角且大部分被裁切、树冠遮挡，仅露出局部车体，无法完整确认车形。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "露出部分呈深色车体和挡风玻璃特征，但目标出画且遮挡较多，不能充分确认完整机动车外形。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:d977e362249946369eb5258eca0cbeb1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的白色小汽车",
+   "reasoning": "可见车顶、前后挡风玻璃形成的深色横带，车身为圆角长方形，长宽比例和道路旁停车位置均符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.16,
+   "health": {
+    "at": 1791544961.510786,
+    "available_fraction": 0.4496883323540456,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1f3620afa67146b7bd0864987a105732",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "8a7a4be2715773755685ceff4856df5fd6d9961646734c1fb679210e900f2f80"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_783a28ac76814d6e",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5778bd2c683e4d079a34ef2f08718b88",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝绿色的矩形顶棚，覆盖在建筑边缘的棚架上方。",
+   "reasoning": "主体呈规则矩形，颜色为浅蓝绿色，符合蓝色或绿色顶棚的类别特征；不是车辆、围挡或其他长条物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 7.9,
+   "health": {
+    "at": 1791542673.4325812,
+    "available_fraction": 0.4292994886464233,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "45f4bb7688e04fc582f291ec6b86f739",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a33b3f3a0b641b3c04f552a477ce896e28633c144f2fae390c42d1a2dfa95cd6"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "596dbc4ade5e4742ad955faf49d340d7",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "596dbc4ade5e4742ad955faf49d340d7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈头部及肩部的紧凑椭圆形轮廓，位于绳索/岸边可站立位置。",
+   "reasoning": "目标外观和尺度符合俯拍人员特征，不是树木、车辆或其他固定物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 22.84,
+   "health": {
+    "at": 1791540644.9662368,
+    "available_fraction": 0.4114239711155514,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e464a981ae824860942a5fc1a057bc60",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "cad6b570f8208418ab352df3be1fcf59b3d60dbcc5d19e4b2b896f89ed035b13"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "c4a84c1413d54e93a485810e33382ae0",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c4a84c1413d54e93a485810e33382ae0:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车",
+   "reasoning": "框内可见车辆的车顶和深色车窗带，呈细长圆角车形，位于道路车道内，位置和尺度均符合机动车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.63,
+   "health": {
+    "at": 1791544280.5988657,
+    "available_fraction": 0.4318174356345298,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5e2f11133a28469b831dfe3448f9aea2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ed6ec5b3b21a035e591509702f696c00d7967cb9127191c41cfc7d8e6f4ca185"
+}

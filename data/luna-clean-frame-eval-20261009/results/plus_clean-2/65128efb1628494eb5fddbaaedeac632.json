@@ -1,0 +1,30 @@
+{
+ "unit": "65128efb1628494eb5fddbaaedeac632",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "65128efb1628494eb5fddbaaedeac632:001",
+   "decision": "false",
+   "image_limitation": "框内可见的是建筑外墙、雨棚及树木，不是机动车；画面中未见车身、车顶或挡风玻璃等车辆特征。",
+   "observed_object": "建筑雨棚、外墙和树木",
+   "reasoning": "候选框位于建筑立面和雨棚区域，位置不符合车辆应位于道路、停车场或地面的条件，且实际物体形状与尺度均不符合机动车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.39,
+   "health": {
+    "at": 1791540431.7670321,
+    "available_fraction": 0.44717114536780683,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "07df4aba9fec48fe84a4f1869de68ada",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7a953af580bc369180bf4dd6fe5babb9a1ec510cccf5ed90896a52f1b22731f2"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "2282de9eacc845f79eac6abde1b69b21",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2282de9eacc845f79eac6abde1b69b21:000",
+   "decision": "true",
+   "image_limitation": "目标位于道路边缘，车身轮廓、车顶及深色玻璃区域可见，虽部分接近画面下边缘但仍能确认是机动车。",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见细长圆角车身，尺寸与道路相符，朝向与车道一致，符合车的外观特征。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:2282de9eacc845f79eac6abde1b69b21:001",
+   "decision": "true",
+   "image_limitation": "目标靠近画面下边缘且与其他车辆标注相邻，但车身主体仍清晰可辨。",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见机动车的车顶和车身轮廓，尺度及位置均与道路车辆相符，不是屋顶设备或标线。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.63,
+   "health": {
+    "at": 1791542759.689845,
+    "available_fraction": 0.42556173866052893,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b5c876a32ce24ab98dcc76ea925de2f5",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9ff7ca4bf5cf6a23b1b6b6efa8ebb7222b31e2c5eabeac9148cf8f499b9744a6"
+}

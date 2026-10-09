@@ -1,0 +1,30 @@
+{
+ "unit": "c2b66e6c0fd641188ae3962c36f600d1",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c2b66e6c0fd641188ae3962c36f600d1:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "岸边可见一个小型人员目标，头部和肩部轮廓清晰，位于可站立的堤岸边缘。",
+   "reasoning": "框内实际目标呈现头顶与肩部组成的略长小椭圆形，尺寸明显小于汽车宽度，位置也符合人员可站立的岸边区域；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.01,
+   "health": {
+    "at": 1791544529.1746597,
+    "available_fraction": 0.44823083117209067,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2c0727f7f9594dc481534b7fc4935f71",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3e158134718da1a3ba54e7ec0eea3c4c72656c020acd96886c9302844eb6904c"
+}

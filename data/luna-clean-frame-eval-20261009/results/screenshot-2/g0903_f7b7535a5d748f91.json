@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是覆盖在球场边缘的绿色矩形顶棚/棚面。",
+   "reasoning": "主体呈连续绿色片状屋面，颜色和成片矩形形态符合蓝色或绿色顶棚的类别要点；不是车辆、围挡或光伏板。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.9,
+   "health": {
+    "at": 1791544735.165266,
+    "available_fraction": 0.4505649489084184,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b0531aef40204b3296c02d59fe2a4863",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "9ebc938851cd559c4f41792ef6d07c21807407b734042b8ceb788da950c41d24"
+}

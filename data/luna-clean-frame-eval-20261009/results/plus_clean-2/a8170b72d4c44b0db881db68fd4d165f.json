@@ -1,0 +1,30 @@
+{
+ "unit": "a8170b72d4c44b0db881db68fd4d165f",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a8170b72d4c44b0db881db68fd4d165f:000",
+   "decision": "false",
+   "image_limitation": "框内及紧邻区域可见的是建筑/地面上的红色叠加文字和标记，没有可确认的人员外观。",
+   "observed_object": "建筑地面及平台叠加标注",
+   "reasoning": "候选框位于画面左上建筑边缘，实际区域未见圆形或椭圆形头顶、肩部或竖长躯干腿部，也不符合人员的尺度和形态特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.5,
+   "health": {
+    "at": 1791544895.655569,
+    "available_fraction": 0.43164746881681937,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "66f22bc005c6446c8a3a8f98ca6727cc",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f1939443c34de1cd35b470cffb94212d6447f5d8bf4d14ebae0ba5d8b23da4fa"
+}

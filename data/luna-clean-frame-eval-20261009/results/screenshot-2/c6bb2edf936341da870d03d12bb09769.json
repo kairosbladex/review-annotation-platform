@@ -1,0 +1,46 @@
+{
+ "unit": "c6bb2edf936341da870d03d12bb09769",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c6bb2edf936341da870d03d12bb09769:000",
+   "decision": "false",
+   "image_limitation": "目标位于画面边缘，框内主要是道路/树木与标注线，未见明确机动车车身。",
+   "observed_object": "疑似道路边缘及树木区域",
+   "reasoning": "框内没有符合机动车圆角长方形、车顶和挡风玻璃横带特征的清晰目标，位置和形状也无法确认是车。",
+   "target_index": 0
+  },
+  {
+   "key": "c6bb2edf936341da870d03d12bb09769:001",
+   "decision": "false",
+   "image_limitation": "框内目标被标注框部分覆盖，但可见区域仍足以判断其不是机动车。",
+   "observed_object": "疑似路边设施或非机动车物体",
+   "reasoning": "目标形状与尺度不符合机动车，未见车顶及前后挡风玻璃形成的深色横带。",
+   "target_index": 1
+  },
+  {
+   "key": "c6bb2edf936341da870d03d12bb09769:003",
+   "decision": "true",
+   "image_limitation": "车辆较小但整体轮廓和车道位置可辨。",
+   "observed_object": "道路上的机动车",
+   "reasoning": "框内可见细长的圆角车身、车顶及深色玻璃区域，位于道路车道中，尺度和朝向与机动车相符。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.4,
+   "health": {
+    "at": 1791545668.8503094,
+    "available_fraction": 0.4489623785699416,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7d43a01f016e4b59a08d1ea11aabc35f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "41c6126c05ff1e5cfcf1d609c3132896088dd94f18b2bc9c4417dd18d0475e6c"
+}

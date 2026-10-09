@@ -1,0 +1,54 @@
+{
+ "unit": "904a08babe5d41bfa4355c1a7a13264f",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树荫下停车位中的小汽车",
+   "reasoning": "框内可见明确的长方形车身和深色车窗，位置与停车位及周围车辆尺度相符。",
+   "target_index": 0
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位中的小汽车",
+   "reasoning": "可见完整的车身轮廓、车顶和深色车窗，朝向与停车区域一致。",
+   "target_index": 1
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树下停车的小汽车",
+   "reasoning": "框内可辨认出汽车车身及挡风玻璃，所在位置和尺度符合停车车辆。",
+   "target_index": 2
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树旁道路边的小汽车",
+   "reasoning": "框内可见清晰的汽车车顶、车身和深色车窗，位于道路旁停车区域，尺度相符。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 44.7,
+   "health": {
+    "at": 1791544068.0231307,
+    "available_fraction": 0.44728909765768643,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "854c68e322134e6e8ce50bbd4dae4e7d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fe4ded8e54c3c98a553266674ddc88b7e8fa7cb2355cbf5b4f6b17ea3ab1d0e1"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "8fa12165f2d34f57ac85ef335cbf5e42",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:8fa12165f2d34f57ac85ef335cbf5e42:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在建筑边缘道路区域的机动车，呈细长圆角车身轮廓，颜色较均匀并可见深色玻璃区域。",
+   "reasoning": "目标位于地面道路/停车区域，尺度和形状符合俯拍车辆特征，不是屋顶设备或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 32.44,
+   "health": {
+    "at": 1791538084.684986,
+    "available_fraction": 0.4492298384272509,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ab531b86da8148159622dfaee4f33677",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a449f16e285c1877c1e50235cd0a23a29806dc6d23158cedd97b85046e926df0"
+}

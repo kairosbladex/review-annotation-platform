@@ -1,0 +1,30 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆前窄后宽的三轮车，前部较窄，后部为较宽的载货车斗，整体尺度明显小于汽车。",
+   "reasoning": "目标轮廓和结构符合三轮车特征，位置与尺度也相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 39.58,
+   "health": {
+    "at": 1791537866.4536526,
+    "available_fraction": 0.4493208562509363,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9c8ea46804b7482ba76357018206296a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fd2a60a988726018af40f55810655a1349a82b6e01f23b27d463685ef319b77e"
+}

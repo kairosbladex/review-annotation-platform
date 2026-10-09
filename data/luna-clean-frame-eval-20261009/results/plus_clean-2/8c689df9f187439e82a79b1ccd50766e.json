@@ -1,0 +1,30 @@
+{
+ "unit": "8c689df9f187439e82a79b1ccd50766e",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "8c689df9f187439e82a79b1ccd50766e:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是一辆白色小汽车，车身呈细长圆角矩形，可见深色车窗带，停在路旁人行道区域，尺度和形状均符合机动车特征。",
+   "reasoning": "该候选框内目标外观明确为汽车，未见明显遮挡或出画情况，因此判断为真。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 54.59,
+   "health": {
+    "at": 1791539866.4681942,
+    "available_fraction": 0.4472481183569757,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9a3f156219554fc796822827b3fc0b2e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "29df0c7e82c587834556fda486941f8239069798f448c70706afec6c1e31c9db"
+}

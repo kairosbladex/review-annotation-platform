@@ -1,0 +1,30 @@
+{
+ "unit": "b141b534c1714419b86599c3f8861ed6",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "b141b534c1714419b86599c3f8861ed6:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，未见人员的头部、肩部或躯干腿部特征。",
+   "observed_object": "框内主要是水面、网状设施及其边缘的小型杂物，红色文字为叠加标注。",
+   "reasoning": "该位置不符合人员应位于可站立处且具有人员形态、尺度的特征，更像水面设施或杂物，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.25,
+   "health": {
+    "at": 1791537601.3028386,
+    "available_fraction": 0.45257177944040516,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0822bb8099044c8a8936d3eee744db22",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "97c03a424e7337982e46c2f9485f272ff3caa4578a2f8a9388b0f565ba00c33d"
+}

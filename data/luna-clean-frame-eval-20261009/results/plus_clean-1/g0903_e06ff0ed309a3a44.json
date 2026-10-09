@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_e06ff0ed309a3a44",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd593e9d564441f183d2be6d0f80548e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一块规则矩形的蓝绿色屋顶/顶棚，附着在建筑顶部区域。",
+   "reasoning": "目标呈蓝绿色平面覆盖物，形状规整且位置、尺度符合建筑上的彩钢板或篷布顶棚特征，符合“违建”类别的外观判断要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 30.62,
+   "health": {
+    "at": 1791537265.9635181,
+    "available_fraction": 0.44865676661886966,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c33126e7d73144378aedab45d92edc4d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d0ab6b295ffff287f3e56e0364ce22631daf5d0f3d97b7e57ca7079b33eafadd"
+}

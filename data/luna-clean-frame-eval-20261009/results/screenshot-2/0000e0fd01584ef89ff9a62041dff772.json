@@ -1,0 +1,30 @@
+{
+ "unit": "0000e0fd01584ef89ff9a62041dff772",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "0000e0fd01584ef89ff9a62041dff772:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于道路上的小型机动车，呈细长矩形车身，方向与道路一致。",
+   "reasoning": "目标的车身轮廓、尺度及道路位置均符合机动车特征，红色标注文字和框线不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.85,
+   "health": {
+    "at": 1791543967.339153,
+    "available_fraction": 0.44561985995536785,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9f91d61f953c40d4b8070cfae5bd67c0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "7932618452a54028223b3c825efa96e5bd98c3d8499f2ab3b732cd33ff117268"
+}

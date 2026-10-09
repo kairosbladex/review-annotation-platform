@@ -1,0 +1,30 @@
+{
+ "unit": "08af2f00853547d680679f99839a0f99",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:08af2f00853547d680679f99839a0f99:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被红色标注覆盖，无法清晰确认实际物体形状。",
+   "observed_object": "道路边缘疑似小型目标，但车身轮廓不可辨认。",
+   "reasoning": "位置靠近道路，具备车辆可能出现的场景条件，但框内目标过小且细节不足，无法确认是否符合机动车的长方形车身及挡风玻璃特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.2,
+   "health": {
+    "at": 1791545236.79139,
+    "available_fraction": 0.4487378132180498,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7f06bb3f4e474cf0a0afd09278733a6d",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2b4a70c5e156f8350ec86eee79159d572746092036425e4291c3112a2e14abfc"
+}

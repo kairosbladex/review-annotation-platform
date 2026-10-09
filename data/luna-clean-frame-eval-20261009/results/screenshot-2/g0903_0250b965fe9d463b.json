@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_0250b965fe9d463b",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a75748e3120243e6b2e4315b387c18a6",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见。",
+   "observed_object": "建筑屋顶上的灰白色区域及空调设备，未见蓝色或绿色顶棚。",
+   "reasoning": "违建类别要求主体为覆盖在建筑等上方的蓝色或绿色屋面；该框内实际为灰白色建筑屋顶，不符合类别特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 14.1,
+   "health": {
+    "at": 1791546590.0927317,
+    "available_fraction": 0.4496366826271112,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e023bfe29cc345b1b428dc5a613e7660",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "3d065532b6c7ef555affc3922656cdca0d098d99ff09e7f40bb4de0139041d5f"
+}

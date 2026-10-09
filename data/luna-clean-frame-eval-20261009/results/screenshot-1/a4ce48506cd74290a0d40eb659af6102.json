@@ -1,0 +1,70 @@
+{
+ "unit": "a4ce48506cd74290a0d40eb659af6102",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道附近的小型人员目标",
+   "reasoning": "框内可见与俯视人员尺度相符的小目标，位于可站立区域。",
+   "target_index": 0
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路边小型人员目标",
+   "reasoning": "框内目标呈人员尺度和形态，位于道路边缘可站立处。",
+   "target_index": 1
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路边小型人员目标",
+   "reasoning": "框内可见符合俯拍人员尺度的小目标，位置也适合人员停留。",
+   "target_index": 2
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道边的小型人员目标",
+   "reasoning": "目标为小型竖长/椭圆状物体，尺度明显小于车辆，符合人员外观。",
+   "target_index": 3
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "画面底部道路边缘的人员目标",
+   "reasoning": "框内可见小型人员样目标，位于道路旁可站立区域。",
+   "target_index": 4
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘的小型人员目标",
+   "reasoning": "框内目标尺度与俯拍人员相符，位置位于路侧可站立处。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 41.74,
+   "health": {
+    "at": 1791540994.0845582,
+    "available_fraction": 0.4272127059179461,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bcce7e94d062403c924c7cbfc78ccab8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1099a723047772f8479d6ab489e8e2061f01d84dadc71007018f482be818cbda"
+}

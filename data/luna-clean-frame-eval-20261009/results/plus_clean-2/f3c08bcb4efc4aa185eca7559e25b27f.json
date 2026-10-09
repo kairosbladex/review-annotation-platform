@@ -1,0 +1,38 @@
+{
+ "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:000",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "框内是蓝绿色矩形顶棚。",
+   "reasoning": "主体为覆盖在建筑区域上方的蓝绿色成片屋面，符合违建类别的外观要点。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:001",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "框内是蓝绿色矩形顶棚。",
+   "reasoning": "主体为覆盖在空地或棚架上方的蓝绿色成片屋面，边缘规整，符合违建类别的外观要点。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 45.41,
+   "health": {
+    "at": 1791539769.3250835,
+    "available_fraction": 0.44864591379219776,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "59d79b502a2e489986c1cc92b6d23ca7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "fdc6066362eb125312147ded59e07c966d259c09457a7a5ac8fdc4d1ed6b1062"
+}

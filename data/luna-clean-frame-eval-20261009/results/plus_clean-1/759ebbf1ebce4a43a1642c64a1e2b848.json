@@ -1,0 +1,38 @@
+{
+ "unit": "759ebbf1ebce4a43a1642c64a1e2b848",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小型机动车",
+   "reasoning": "框内可见道路上的细长矩形车体，位置和尺度与车道中的汽车相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小型机动车",
+   "reasoning": "框内可见沿道路行驶的小型车辆，形状、朝向和所在位置符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 16.26,
+   "health": {
+    "at": 1791545921.5140328,
+    "available_fraction": 0.44938782761552515,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6022447b8d804fcdae2909047e0ae8f0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "2e46c70dc177db77330a95df8d0a7b8a0d089f2ee730049abbf5b4a5b6f5271d"
+}

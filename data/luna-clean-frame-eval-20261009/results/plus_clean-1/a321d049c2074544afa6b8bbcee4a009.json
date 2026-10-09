@@ -1,0 +1,158 @@
+{
+ "unit": "a321d049c2074544afa6b8bbcee4a009",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见道路旁停车位中的机动车车身。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车位中的一辆车，车顶和车身轮廓清晰。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见停车区域中的机动车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路旁停车位中的车辆。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见停车位中的机动车车身。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车位中的车辆，虽接近画面上缘但车形明确。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见停车位中的机动车。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车区域中的车辆，车身轮廓可辨。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见停车位中的机动车。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路边缘的机动车，车顶和车身轮廓清晰。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车道上的机动车。",
+   "target_index": 10
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路上的机动车，形状和尺度符合车辆。",
+   "target_index": 11
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车道上的车辆。",
+   "target_index": 12
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路上的机动车。",
+   "target_index": 13
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车道中的机动车车身。",
+   "target_index": 14
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路上的车辆，车形明确。",
+   "target_index": 15
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见道路车道中的机动车。",
+   "target_index": 16
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 18.79,
+   "health": {
+    "at": 1791545366.7127197,
+    "available_fraction": 0.4500430708258509,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1772966b38d14339bb2875a2736cc104",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "84fb01d01460b6ad1879e3c21a266d9b2d7a13cdafa00c211bec4e4896c193d6"
+}

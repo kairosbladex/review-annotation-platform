@@ -1,0 +1,30 @@
+{
+ "unit": "b141b534c1714419b86599c3f8861ed6",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b141b534c1714419b86599c3f8861ed6:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，未见人员的头部、肩部或躯干腿部特征。",
+   "observed_object": "框内是红色叠加文字及其附近的岸边/水面区域，不是人员。",
+   "reasoning": "候选框位于左下方岸边，实际可见的是平台标注文字和地面纹理，未发现符合人员外观及尺度的目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 23.41,
+   "health": {
+    "at": 1791537577.8367107,
+    "available_fraction": 0.45207859902836495,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1258e39f392c47dd978e011e01f230f7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "97c03a424e7337982e46c2f9485f272ff3caa4578a2f8a9388b0f565ba00c33d"
+}

@@ -1,0 +1,38 @@
+{
+ "unit": "c34f4e7e7a484fb896634bb06d991d16",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色彩钢瓦顶棚",
+   "reasoning": "框内可见成片、边缘规整的蓝色条纹屋面，符合蓝色顶棚的类别特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色彩钢瓦顶棚",
+   "reasoning": "框内主体是覆盖在空地上的大面积蓝色条纹屋面，形状规整，符合蓝色顶棚特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.97,
+   "health": {
+    "at": 1791541236.2637827,
+    "available_fraction": 0.4228629720280401,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "091aadc79f344f629e345557d270f6d2",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "837bbfe7099742739366de9e57f85b540bdee26ec7a61da102d7ed80c6518a9c"
+}

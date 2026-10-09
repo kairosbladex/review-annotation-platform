@@ -1,0 +1,46 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "false",
+   "image_limitation": "目标区域可见。",
+   "observed_object": "灰白色建筑屋顶上的矩形结构，未见蓝色或绿色顶棚。",
+   "reasoning": "框内主体颜色为灰白色，且更像建筑屋面结构，不符合蓝色或绿色成片顶棚的违建判定要点。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "false",
+   "image_limitation": "目标区域可见。",
+   "observed_object": "灰白色建筑屋顶上的矩形结构，未见蓝色或绿色顶棚。",
+   "reasoning": "框内主体为灰白色屋面或建筑结构，不符合蓝色或绿色顶棚特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "false",
+   "image_limitation": "目标区域可见。",
+   "observed_object": "灰白色建筑屋顶上的矩形结构，未见蓝色或绿色顶棚。",
+   "reasoning": "框内主体颜色为灰白色，未见蓝绿色屋面，类别外观不匹配。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.64,
+   "health": {
+    "at": 1791542632.2570589,
+    "available_fraction": 0.42892605412867063,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cb8568e0593040a6b74f019d5da58956",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ae2a47795e4f16971ed4c2fc26488a708c6b36f44c3a85bfdd033d175badaa5a"
+}

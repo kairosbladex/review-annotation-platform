@@ -1,0 +1,30 @@
+{
+ "unit": "c18236608dd14deda807729b3d1699a9",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:c18236608dd14deda807729b3d1699a9:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车",
+   "reasoning": "框内可见一个位于道路车道上的小型机动车，呈细长矩形车身，尺度和朝向与道路相符，符合车的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 19.89,
+   "health": {
+    "at": 1791542483.628648,
+    "available_fraction": 0.41407315522618626,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4ba257c49315418e8cf069ba70124617",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "37d8f929a9e5bef9a905fe4bbfb53b562df8e9cc703b0612c38c100205e84bd9"
+}

@@ -1,0 +1,30 @@
+{
+ "unit": "cef85dabf2784e3d88326c430cc424b6",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "cef85dabf2784e3d88326c430cc424b6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯拍人员，呈小型白色躯干并带深色头部，位于可站立的铺装斜面区域。",
+   "reasoning": "目标外观与人员的俯拍特征相符，尺度较小且位置合理；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 34.24,
+   "health": {
+    "at": 1791546320.206018,
+    "available_fraction": 0.4504662702659058,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a4b47506d2864aa49a5952f2f96411c3",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "6449fb7918313ca89843aeff578144be0a22958f16028a3918dfff7d38fca333"
+}

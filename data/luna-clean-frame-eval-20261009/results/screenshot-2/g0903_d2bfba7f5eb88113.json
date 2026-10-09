@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_d2bfba7f5eb88113",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:7e7a4c2981244e299e8019aef1eb953f",
+   "decision": "false",
+   "image_limitation": "框内目标清晰可见，无遮挡或明显出画。",
+   "observed_object": "框内是红褐色的矩形屋面或棚顶，不是蓝色或绿色顶棚。",
+   "reasoning": "根据违建类别要点，目标主体颜色为红褐色，属于其他颜色屋面，因此不符合蓝色或绿色顶棚的外观要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 13.91,
+   "health": {
+    "at": 1791546156.4562829,
+    "available_fraction": 0.44871960357329777,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f6e2aa1d7f75466497d1d61f6a2f6ae0",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4789f5e0c74e44661b7b6b5222f2e58491579ab98e79fdeba5c1c8110847f63e"
+}

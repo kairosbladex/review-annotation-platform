@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_23ed7170a18100cb",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:838cb70eaa904657a3920b516a740ad2",
+   "decision": "false",
+   "image_limitation": "目标位于画面最右下角，部分出画且被标注框遮挡，但可见区域足以判断。",
+   "observed_object": "框内主要是建筑立面及边缘区域，未见蓝色或绿色顶棚。",
+   "reasoning": "该候选框覆盖的是高层建筑的灰色外墙/窗格区域，不是覆盖在建筑或空地上方的蓝绿色屋面，因此不符合“违建”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.02,
+   "health": {
+    "at": 1791546292.9244375,
+    "available_fraction": 0.4502026408180101,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2a19f4fa44bc4785b880f9d1a8e59d38",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ec1bd56e049e42e5ac273b5862bae846a34e0ee9a607b424f02014ade7c3cfa2"
+}

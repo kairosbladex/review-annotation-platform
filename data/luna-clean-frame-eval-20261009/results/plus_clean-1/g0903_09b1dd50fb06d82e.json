@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_09b1dd50fb06d82e",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a56e3d6fc2994361a3d774417ed6fdc9",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是浅灰色建筑屋面，旁侧有树冠遮挡。",
+   "reasoning": "目标区域可见的主体屋面呈灰白色，不是类别要求的蓝色或绿色顶棚，因此不符合“违建”外观定义。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 29.96,
+   "health": {
+    "at": 1791543930.2751822,
+    "available_fraction": 0.44422571252911114,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a501f3c73e264d8ab7f3b43f7b3f5b18",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "4cba03a4c0afd209611130bbe7574236f150be1d2511c1dcd17d9232c4de1850"
+}

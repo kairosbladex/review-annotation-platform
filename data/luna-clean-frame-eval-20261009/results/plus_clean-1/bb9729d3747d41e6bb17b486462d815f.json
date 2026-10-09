@@ -1,0 +1,46 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见一名站立行人，位于步道区域，形态和尺度符合人员特征。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见一名站立行人，位于建筑旁步道，竖长躯干与腿部轮廓清晰。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见另一名站立行人，位置和尺度符合步道上的人员目标。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.66,
+   "health": {
+    "at": 1791542566.4209838,
+    "available_fraction": 0.4078259702731045,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f76bc4e0411943ddbe09f2d696501b7b",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "0c4e363cd2e2d78ca9d082967e19cc438bb0ce8dcd8580b0b52a07f20b8b9a1e"
+}

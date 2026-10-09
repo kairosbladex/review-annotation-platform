@@ -1,0 +1,70 @@
+{
+ "unit": "a4ce48506cd74290a0d40eb659af6102",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见小型行人目标，位于道路旁可站立区域，形态和尺度符合人员。",
+   "target_index": 0
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内为道路边缘的小型行人，外观与尺度符合俯拍人员。",
+   "target_index": 1
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "可见细小行人目标，位于路面边缘，符合人员类别。",
+   "target_index": 2
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见站立行人，位置和尺度均符合人员。",
+   "target_index": 3
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "画面下边缘可见被部分截出的人员目标，虽出画但仍能确认其为人员。",
+   "target_index": 4
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见道路旁的小型行人目标，形态和位置符合人员。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 40.4,
+   "health": {
+    "at": 1791541009.0028412,
+    "available_fraction": 0.4279013892104541,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4808c0c58b7c49aebd3a9189a1bcaf2e",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "1099a723047772f8479d6ab489e8e2061f01d84dadc71007018f482be818cbda"
+}

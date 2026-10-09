@@ -1,0 +1,30 @@
+{
+ "unit": "bf64d4b40c7d4bf1b7ff193da2ba90f7",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bf64d4b40c7d4bf1b7ff193da2ba90f7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个位于水面绳索旁的人员，呈小型人体轮廓。",
+   "reasoning": "目标位于可站立或作业的水面绳索附近，框内实际物体具有人员的头部和躯干外观，尺度较小但符合俯拍人员特征；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 4.16,
+   "health": {
+    "at": 1791542512.199106,
+    "available_fraction": 0.40907526134336225,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a016298bafe44e7a9275d151e7646b5f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5a0d531317b3bf9fad782e48a7794c243cf218b169d2d26fc86ce365e980bba"
+}

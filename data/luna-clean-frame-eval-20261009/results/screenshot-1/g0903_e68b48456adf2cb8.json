@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_e68b48456adf2cb8",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:36640c2c3d8e475889e1069408609012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆位于地面道路旁的红色机动车，呈小型车辆形状。",
+   "reasoning": "目标位于地面道路区域，颜色和轮廓符合俯拍机动车特征，位置及尺度与周边道路相符，因此判断为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.2,
+   "health": {
+    "at": 1791546369.5432947,
+    "available_fraction": 0.4500689412894301,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "82822495063b404e9e287fbc5a602511",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "52d9a39272bd65125651f9d0134f3ce1b7bc02902d4f6bcc5e327d032b155e30"
+}

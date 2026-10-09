@@ -1,0 +1,30 @@
+{
+ "unit": "64f7b907e6214559ac09a8e57c577128",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "64f7b907e6214559ac09a8e57c577128:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈现浅色头顶或上身及深色衣物，位于岸边硬质步道上。",
+   "reasoning": "目标位于可站立的岸边步道，整体尺度小于车辆且外形符合俯拍人员特征；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.09,
+   "health": {
+    "at": 1791545569.509384,
+    "available_fraction": 0.4487725605034447,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "79d86254d20348958298b5f31ce13ed6",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "e43bfa1bce4cdefdc7243d89abcc7c6abf294c8d7ac73516e7865495d301d2c5"
+}

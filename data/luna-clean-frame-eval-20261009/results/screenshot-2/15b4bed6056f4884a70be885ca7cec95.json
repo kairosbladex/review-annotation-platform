@@ -1,0 +1,38 @@
+{
+ "unit": "15b4bed6056f4884a70be885ca7cec95",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:15b4bed6056f4884a70be885ca7cec95:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见细长圆角车身和深色车窗，位于道路车道旁，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:15b4bed6056f4884a70be885ca7cec95:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见沿道路方向停放的细长车身及深色车窗区域，位置和尺度符合机动车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 20.81,
+   "health": {
+    "at": 1791542681.6391203,
+    "available_fraction": 0.4282150571813245,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a6f3ab7e790645e79d127e19d14ac2f7",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "86b26a2a44b12ddc8f91b12453026b22f6513b1c8758cc39d232aaa630b28701"
+}

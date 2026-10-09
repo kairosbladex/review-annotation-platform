@@ -1,0 +1,30 @@
+{
+ "unit": "a8170b72d4c44b0db881db68fd4d165f",
+ "arm": "plus_clean",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a8170b72d4c44b0db881db68fd4d165f:000",
+   "decision": "false",
+   "image_limitation": "目标区域主要是红色叠加文字，未见可确认的人员外观；对应位置在建筑边缘处，也不像可站立人员。",
+   "observed_object": "红色标注文字及建筑表面",
+   "reasoning": "框内实际可见的是平台叠加的红色文字，不是人员。未见头部、肩部或竖长躯干等人员特征，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.45,
+   "health": {
+    "at": 1791544888.0528846,
+    "available_fraction": 0.43175274427554433,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0d445ed6912f4892a910bc9b000838a8",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f1939443c34de1cd35b470cffb94212d6447f5d8bf4d14ebae0ba5d8b23da4fa"
+}

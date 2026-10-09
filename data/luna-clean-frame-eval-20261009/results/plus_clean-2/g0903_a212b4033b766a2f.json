@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_a212b4033b766a2f",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:6b2ea968f3ee48bb95a6d709084b1995",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或明显出画。",
+   "observed_object": "框内主要是沿道路设置的蓝色施工围挡/广告牌，立在地面并呈长条状。",
+   "reasoning": "该类别要求蓝色或绿色顶棚，覆盖在建筑、棚架、院落或空地上方。框内蓝色物体是立面的围挡广告牌，不是顶棚，因此不符合“违建”外观口径。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.13,
+   "health": {
+    "at": 1791544617.2043633,
+    "available_fraction": 0.4499022576797885,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b1ebe7bf500d4ca3988eefe25ddf1e61",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "f5d8d4a595d6a6497435e6215bd4c9dcfeaf643cf85aeea7e92c51aebb85baa1"
+}

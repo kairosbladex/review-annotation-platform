@@ -1,0 +1,30 @@
+{
+ "unit": "19f44292074c4a988754d5aa6542aa43",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "19f44292074c4a988754d5aa6542aa43:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑屋面上的红色标注区域，实际可见为小型设施或标记状物体，并非人员头顶、肩部或躯干。",
+   "reasoning": "框内及紧邻区域位于屋面铺装上，未见符合俯拍人员特征的头部、肩部或身体轮廓；位置和外观更像屋面上的小物体，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 46.64,
+   "health": {
+    "at": 1791537638.3255806,
+    "available_fraction": 0.435313292225947,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2eb59fba2e8243db8b0e0d94e4c2621a",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "d15734887761320727df5e07b0901bc580e0c72cb399c8fb2115640da379f38e"
+}

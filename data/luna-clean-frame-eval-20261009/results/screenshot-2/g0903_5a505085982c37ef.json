@@ -1,0 +1,46 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "arm": "screenshot",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "true",
+   "image_limitation": "框内目标虽较小，但可见为建筑顶部的蓝绿色矩形顶棚，颜色和形状符合类别要点。",
+   "observed_object": "蓝绿色矩形顶棚",
+   "reasoning": "目标位于建筑屋顶区域，主体呈蓝绿色且边缘规整，符合违建类别的顶棚外观。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "true",
+   "image_limitation": "框内目标较小，但蓝绿色屋面主体仍清晰可辨。",
+   "observed_object": "蓝绿色矩形顶棚",
+   "reasoning": "可见成片蓝绿色矩形屋面，位置和尺度符合建筑顶部顶棚特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "true",
+   "image_limitation": "框内目标较小，但颜色、轮廓和所在屋顶位置可确认。",
+   "observed_object": "蓝绿色矩形顶棚",
+   "reasoning": "目标是建筑顶部规整的蓝绿色顶棚，不是车辆、围挡或其他地面物体。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 5.24,
+   "health": {
+    "at": 1791542629.8945937,
+    "available_fraction": 0.4296362302739995,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ea76ea0b79ff4e77bdd5ee0bd1f4c5c1",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ae2a47795e4f16971ed4c2fc26488a708c6b36f44c3a85bfdd033d175badaa5a"
+}

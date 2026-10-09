@@ -1,0 +1,30 @@
+{
+ "unit": "gold0924_2406cc0b0ece4ad9",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-016",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "规则摆放的盆栽植物，位于人行道边。",
+   "reasoning": "框内是绿色树冠和花盆，形态与盆栽一致，不是人员；其位置和尺度也符合沿通道规律摆放的盆栽。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 43.41,
+   "health": {
+    "at": 1791546172.4415264,
+    "available_fraction": 0.4504949375363585,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1692e61829fb4063a1e158a5bed00bab",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "42505f20fd1aa4e425f8d3ec5aac1accab0c1ce1b34a9b2820ef58d6d4459481"
+}

@@ -1,0 +1,70 @@
+{
+ "unit": "8bf8d838e4fe4cc096532ab64deb0d7c",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见车身、深色车窗及与道路一致的方向和尺度。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内物体呈明显的长方形车身轮廓，位于道路边缘，符合车辆特征。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "可见完整车身及深色车窗，位置和尺度与道路车辆相符。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可辨认出车顶和车身轮廓，朝向与道路一致。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内为具有车身和车窗结构的机动车，位于道路区域。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内物体虽较小但仍能看出车身、车窗和道路位置关系。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.63,
+   "health": {
+    "at": 1791546781.920632,
+    "available_fraction": 0.44396524468898535,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "47c3f87ca0384012805eb7f4f13aeeea",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "77044967ed98a7b8e7fd425aaa9050bd6d90983bc6f797589b66986790dda3ac"
+}

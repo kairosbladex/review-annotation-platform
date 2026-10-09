@@ -1,0 +1,38 @@
+{
+ "unit": "4f63543e5bae47728ed68f9de1fd9539",
+ "arm": "plus_clean",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆带明显驾驶室和后部长方形货厢分段的货车，整体尺寸明显大于小汽车。",
+   "reasoning": "目标外观符合卡车的俯拍特征，类别判断为真。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:002",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是一个细长的四边形小型物体，未见三轮车前窄后宽的轮廓。",
+   "reasoning": "形状更像其他小型车辆或物体，不能确认其为三轮车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 17.13,
+   "health": {
+    "at": 1791543055.4391112,
+    "available_fraction": 0.44568224090867525,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cd3d0053a7564bba96fefa67de5d228f",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "a6d8cec240ab11b91ede9e07d8522c0dba8e27b5442ce50765f50fc236421d64"
+}

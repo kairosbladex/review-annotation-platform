@@ -1,0 +1,30 @@
+{
+ "unit": "328f979932924fa79ccb3889e939d087",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:328f979932924fa79ccb3889e939d087:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是小型轿车或类似小汽车的车顶，未见驾驶室与后部货厢的明显分段。",
+   "reasoning": "目标整体尺寸和外形均更符合小汽车，不符合卡车应有的驾驶室加长方形货厢结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.67,
+   "health": {
+    "at": 1791541482.4856963,
+    "available_fraction": 0.4256083115749865,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "eec8919d499a4c39b43e0b8f3231f0fb",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "5a95e607eb43bbc86b2de885dd73906935cba428f774fb383148fe6cea4cfec2"
+}

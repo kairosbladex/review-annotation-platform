@@ -1,0 +1,30 @@
+{
+ "unit": "g0903_23ed7170a18100cb",
+ "arm": "screenshot",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:838cb70eaa904657a3920b516a740ad2",
+   "decision": "false",
+   "image_limitation": "目标位于画面最右下角，部分出画且被标注覆盖，但可见区域足以判断。",
+   "observed_object": "框内主要是建筑立面及边缘区域的紫色标记线，未见蓝色或绿色成片顶棚。",
+   "reasoning": "可见主体不是蓝色或绿色屋面，而是建筑及平台叠加标注，因此不符合“违建”类别的外观判定要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "status": "ok",
+   "seconds": 15.38,
+   "health": {
+    "at": 1791546298.0459177,
+    "available_fraction": 0.4493041058097704,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9628efee75c044788da889a1d1d04394",
+ "requested_model": "gpt-5.6-luna",
+ "prompt_sha256": "ec1bd56e049e42e5ac273b5862bae846a34e0ee9a607b424f02014ade7c3cfa2"
+}
