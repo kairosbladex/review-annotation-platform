@@ -1,0 +1,11 @@
+[Unit]
+Description=按需唤醒 Hermes 写报告并提交下一版提示词
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flock -n /data/workspace/jzheng/luna-prompt-autotune/brain.lock /bin/sh /data/workspace/jzheng/luna-prompt-autotune/src/run_brain_tick.sh
+MemoryMax=1G
+CPUQuota=50%
+TimeoutStartSec=1800
+StandardOutput=append:/data/workspace/jzheng/luna-prompt-autotune/logs/brain.log
+StandardError=append:/data/workspace/jzheng/luna-prompt-autotune/logs/brain.log
