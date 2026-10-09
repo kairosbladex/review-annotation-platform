@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_551e254b6e83fb9b",
+  "keys": [
+    "gold0903:b8035912c072454595a0ee25d7333706",
+    "gold0903:c423863d2dbb4939b6cca423e9b9ec11",
+    "gold0903:0f73d2a0e9c64bd08bbc96403d21cd93"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前分辨率无法唯一判断为车，不将框线和文字作为证据。",
+      "observedObject": "疑似道路旁的小型目标",
+      "imageLimitation": "目标区域过小且被标注框遮挡，无法清楚确认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法清楚看到车辆所需结构，因此不能明确归类为车。",
+      "observedObject": "疑似道路或绿地旁的小型目标",
+      "imageLimitation": "目标区域很小，细节不足且部分受标注框影响。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "无法确认车辆结构，不能据此判定符合类别。",
+      "observedObject": "疑似道路上的小型目标",
+      "imageLimitation": "目标位于图像边缘，尺寸极小且细节不可辨。"
+    }
+  ],
+  "elapsed": 15.051189806079492,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516639.3523223,
+      "status": "ok",
+      "elapsed": 15.019946003099903
+    }
+  ]
+}

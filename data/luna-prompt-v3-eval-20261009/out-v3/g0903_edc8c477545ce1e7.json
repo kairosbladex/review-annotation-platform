@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_edc8c477545ce1e7",
+  "keys": [
+    "gold0903:553aaf3027ee45b19cbeabe77e948a69"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前图像无法明确观察到两轮车所需的车轮、车架等结构，不能唯一判定。",
+      "observedObject": "疑似小型物体",
+      "imageLimitation": "候选框内目标尺寸很小且被标注覆盖，无法清晰确认是否为两轮车及其结构。"
+    }
+  ],
+  "elapsed": 15.113384621916339,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516953.732244,
+      "status": "ok",
+      "elapsed": 15.080991920083761
+    }
+  ]
+}

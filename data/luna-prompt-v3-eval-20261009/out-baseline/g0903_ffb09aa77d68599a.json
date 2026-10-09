@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_ffb09aa77d68599a",
+  "keys": [
+    "gold0903:546c0f1211024f28a1ffbabbd0d0b71e",
+    "gold0903:df2e68f730664a90a891ee21d6712370",
+    "gold0903:fa90eb87bdbd44dea08366bb3fcd12a3"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "未见足够清晰的公交车外形或结构证据，不能仅凭位置和标注判断。",
+      "observedObject": "疑似车辆，但无法确认是公交车。",
+      "imageLimitation": "目标区域过小且被标注文字和框线干扰，无法看清车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法清楚确认目标是否为车，证据不足。",
+      "observedObject": "疑似车辆。",
+      "imageLimitation": "候选框尺寸极小，目标细节不可辨认。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "无法清楚确认目标类别，不能仅凭框内模糊区域判断。",
+      "observedObject": "疑似车辆。",
+      "imageLimitation": "候选框尺寸极小且受标注干扰，无法辨认结构。"
+    }
+  ],
+  "elapsed": 15.939438126981258,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791517001.848435,
+      "status": "ok",
+      "elapsed": 15.914761965861544
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_7ef18515b529bd13",
+  "keys": [
+    "gold0903:5612ca9dc62249d6b62bc0f38bc152be",
+    "gold0903:984f3e20ab0345ef80817378a57c9006",
+    "gold0903:a16e9911ddd945408dd78e14b0f74e59",
+    "gold0903:fdd263baeee3478383979ae879f6628b"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "框内主要是植被，不是车辆，且位于道路旁树丛中。",
+      "observedObject": "树木和灌木",
+      "imageLimitation": "目标清晰可见。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "可见完整车身，位于道路可通行地面，尺度与车道相符。",
+      "observedObject": "白色车辆",
+      "imageLimitation": "车辆结构清晰可见。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "可见完整车身，位于道路可通行地面，尺度与车道相符。",
+      "observedObject": "白色车辆",
+      "imageLimitation": "车辆结构清晰可见。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "false",
+      "reasoning": "框内主要是植被，仅有疑似被树叶遮挡的物体，不能作为车辆证据。",
+      "observedObject": "树木和灌木",
+      "imageLimitation": "目标清晰可见。"
+    }
+  ],
+  "elapsed": 15.955684177111834,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516726.961876,
+      "status": "ok",
+      "elapsed": 15.93730215006508
+    }
+  ]
+}

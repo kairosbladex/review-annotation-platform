@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_30307ae0bd802781",
+  "keys": [
+    "gold0903:18172673ac38432aa6a1d99482f45439",
+    "gold0903:b52575f40fd548eab466771d11f3cc48"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "可见实体结构，但缺乏审批信息、规划依据或区域业务规则，不能据此判定违建。",
+      "observedObject": "左下方的小型建筑或构筑物",
+      "imageLimitation": "目标为建筑/棚状结构，但仅凭图像无法确认是否未经审批或属于违建。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "结构轮廓清晰，但违建类别需要审批或区域依据，图像本身不足以明确符合。",
+      "observedObject": "左下方的长条形棚状结构",
+      "imageLimitation": "目标为棚状建筑或构筑物，但无法从图像确认其审批状态或违法属性。"
+    }
+  ],
+  "elapsed": 14.775619046064094,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516561.6142871,
+      "status": "ok",
+      "elapsed": 14.75163950305432
+    }
+  ]
+}

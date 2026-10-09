@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_3fbdb93668a1e472",
+  "keys": [
+    "gold0903:b3cb2cabf1b94e08be56654dc14a2eb6"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框对应区域是叠加标注内容，不是光斑目标。",
+      "observedObject": "文字与标记框",
+      "imageLimitation": "候选框内未见符合光斑定义的目标，仅见红色文字和绿色标记。"
+    }
+  ],
+  "elapsed": 16.356581964995712,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516605.8538704,
+      "status": "ok",
+      "elapsed": 16.33116241195239
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_8c3c158b0d415781",
+  "keys": [
+    "gold0903:73f7eb6a9ce4489893ed3f7fd8c019dc",
+    "gold0903:1bebc9c971fc4869973013db786e6c74"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框内没有可确认的车辆。",
+      "observedObject": "树木及花盆",
+      "imageLimitation": "目标区域主要是树木和花盆，未见车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "可见完整汽车车身、车顶和车窗等车辆结构，符合“车”类别。",
+      "observedObject": "汽车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 16.240611925022677,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516745.495385,
+      "status": "ok",
+      "elapsed": 16.209028095006943
+    }
+  ]
+}

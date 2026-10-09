@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_68daf1b01a605bfe",
+  "keys": [
+    "gold0903:eb1d43e5beed475195384acd18498b6d",
+    "gold0903:a48b7d9d6bf345ea928a3350c251c108"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框覆盖的是既有绿化和通行铺装空间，未能仅凭外观确认其属于违建。",
+      "observedObject": "建筑旁的绿化带与狭长铺装区域。",
+      "imageLimitation": "仅凭图像无法确认是否具有审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "可见结构不足以证明存在未经审批的违法建设，按规则应判定为uncertain。",
+      "observedObject": "建筑边缘的狭长铺装区域及其围护结构。",
+      "imageLimitation": "仅凭图像无法确认是否具有审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.365508019924164,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516683.386863,
+      "status": "ok",
+      "elapsed": 15.341386690968648
+    }
+  ]
+}

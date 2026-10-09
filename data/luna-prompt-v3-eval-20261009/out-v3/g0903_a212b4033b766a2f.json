@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_a212b4033b766a2f",
+  "keys": [
+    "gold0903:6b2ea968f3ee48bb95a6d709084b1995"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标外观可能是施工围挡，但不能据此判断其违法建设属性；框线和文字不作为证据。",
+      "observedObject": "施工围挡",
+      "imageLimitation": "候选框内为施工围挡及其文字标识，无法仅凭图像确认是否属于违建，也缺少审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.446063195820898,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516833.5061526,
+      "status": "ok",
+      "elapsed": 15.414545721141621
+    }
+  ]
+}

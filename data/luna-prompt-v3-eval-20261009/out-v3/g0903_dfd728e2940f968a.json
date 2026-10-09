@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_dfd728e2940f968a",
+  "keys": [
+    "gold0903:1b1215b7886343c0b545b6639a919f33"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观判断，无法明确符合或不符合类别。",
+      "observedObject": "建筑顶部的矩形结构",
+      "imageLimitation": "候选框内为建筑顶部或平台区域的矩形结构，无法仅凭图像确认其是否属于未经审批的违建，也缺乏区域业务依据。"
+    }
+  ],
+  "elapsed": 14.000950406072661,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516930.8743498,
+      "status": "ok",
+      "elapsed": 13.983759925933555
+    }
+  ]
+}

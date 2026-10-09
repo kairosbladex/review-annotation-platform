@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_54967d98010a50a2",
+  "keys": [
+    "gold0903:26a46b1586614accb96b57f42efbdc5b",
+    "gold0903:a49f0198a71148e58a39e21a7007f5cf"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观确定，且框线和文字不作为证据。",
+      "observedObject": "候选框0内为一处地面上的长条状物体或堆放物，未见明确违建结构。",
+      "imageLimitation": "仅凭图像无法判断是否具备审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观确定，无法据此明确符合类别。",
+      "observedObject": "候选框1内为一处临时覆盖物或堆放区域，未见可明确判定的建筑结构。",
+      "imageLimitation": "仅凭图像无法判断是否具备审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.38291598088108,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516635.0088105,
+      "status": "ok",
+      "elapsed": 15.360717856092378
+    }
+  ]
+}

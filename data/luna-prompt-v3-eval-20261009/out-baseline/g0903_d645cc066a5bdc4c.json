@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "keys": [
+    "gold0903:3384f2739ad745b3b67ed154e7f5ac9f",
+    "gold0903:9f3b0ba9ab134358b8f1b202bdc5454a",
+    "gold0903:445ef456f78e4547b4064cd552e1cfb9"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内可见窗户及墙体，但没有足够证据判断其是否为违建。",
+      "observedObject": "建筑外墙窗户区域",
+      "imageLimitation": "图中只能确认候选框内是建筑或施工围挡等结构，缺乏审批信息和区域业务依据，无法据外观认定违建。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "外观无法唯一证明其属于违建。",
+      "observedObject": "蓝色施工围挡",
+      "imageLimitation": "图中只能确认候选框内是施工围挡或临时设施，缺乏审批信息和区域业务依据。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "目标遮挡且不完整，无法确认是否为违建。",
+      "observedObject": "蓝色施工围挡或临时设施",
+      "imageLimitation": "候选框部分位于图像边缘，目标结构不完整，且缺乏审批信息和区域业务依据。"
+    }
+  ],
+  "elapsed": 15.66815859801136,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516897.9893506,
+      "status": "ok",
+      "elapsed": 15.65056222002022
+    }
+  ]
+}

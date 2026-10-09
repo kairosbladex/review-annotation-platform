@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_ffda9753a1865e4b",
+  "keys": [
+    "gold0903:b72bceabedff4f33bd7e206db93cf80a",
+    "gold0903:b5353da4de4b4d3a98177fdaf39d2a1f",
+    "gold0903:d9194ee969e24131920de23a185f3fed",
+    "gold0903:a33bbf274cdc410cba575f56f21e2fb7"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "外观不能证明其属于违建，按要求判定为uncertain。",
+      "observedObject": "疑似建筑或棚体局部",
+      "imageLimitation": "仅见框内疑似搭建物，缺乏审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法仅凭图像确认违法建设属性。",
+      "observedObject": "蓝色顶棚状建筑",
+      "imageLimitation": "仅见一处蓝色顶棚或建筑局部，缺乏审批或区域业务依据。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "外观不足以证明属于违建。",
+      "observedObject": "长条形棚体",
+      "imageLimitation": "可见长条形蓝色顶棚，但缺乏审批或区域业务依据。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "无法仅凭图像确认违法建设属性。",
+      "observedObject": "棚体局部",
+      "imageLimitation": "可见狭长棚体或建筑边缘，缺乏审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 17.844050609041005,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791517012.5585685,
+      "status": "ok",
+      "elapsed": 17.81465866882354
+    }
+  ]
+}

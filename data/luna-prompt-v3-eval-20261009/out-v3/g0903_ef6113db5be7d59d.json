@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_ef6113db5be7d59d",
+  "keys": [
+    "gold0903:fd00f28b069049368321be0ad373f69f"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性需要审批或区域业务依据，图像中没有足够证据；框线和文字不作为判断依据。",
+      "observedObject": "建筑边缘的棚状/覆盖结构",
+      "imageLimitation": "候选框内为建筑边缘及疑似棚状结构，无法仅凭图像确认是否存在审批缺失或违建属性。"
+    }
+  ],
+  "elapsed": 14.324305064976215,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516957.6299918,
+      "status": "ok",
+      "elapsed": 14.30044654989615
+    }
+  ]
+}

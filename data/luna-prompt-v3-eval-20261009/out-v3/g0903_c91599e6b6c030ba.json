@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_c91599e6b6c030ba",
+  "keys": [
+    "gold0903:e1f344994b0142e0b8e1da31c1411fd9",
+    "gold0903:6d21063bf56642e3b68fe65c7b89bced"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不将框线或文字作为目标证据，现有图像细节不足以明确符合车辆类别。",
+      "observedObject": "候选框内仅见小型彩色标记区域，无法唯一辨认为车。",
+      "imageLimitation": "目标过小且被标注框遮挡，无法确认车辆结构及其是否位于可通行地面。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "不将框线或文字作为目标证据，现有图像细节不足以明确符合车辆类别。",
+      "observedObject": "候选框内仅见小型彩色标记区域，无法唯一辨认为车。",
+      "imageLimitation": "目标过小且被标注框遮挡，无法确认车辆结构及其是否位于可通行地面。"
+    }
+  ],
+  "elapsed": 15.903921866090968,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516865.792962,
+      "status": "ok",
+      "elapsed": 15.881055391859263
+    }
+  ]
+}

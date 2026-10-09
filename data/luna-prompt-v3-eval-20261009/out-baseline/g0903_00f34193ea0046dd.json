@@ -1,0 +1,89 @@
+{
+  "unit": "g0903_00f34193ea0046dd",
+  "keys": [
+    "gold0903:b838703057d34825a0dbd2215f2127dc",
+    "gold0903:9a124932f46f4899a48116bb18f486b5",
+    "gold0903:a44ea8008875482db84cc31ab3bbef0b",
+    "gold0903:f6bf0d1da0e54295814d9ec8b403d2dc",
+    "gold0903:96d4f105e86048c99afef277c943e069",
+    "gold0903:6a7e50ebf5a24bca966f6052af876f8e",
+    "gold0903:cbcb3eaae24e4210af3b9dc31e93f571",
+    "gold0903:1f86f9fdd0db45b18b3037f6cc7ebb73",
+    "gold0903:34a1dd0a3b354ba7a3150c09d0da86e4"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆目标，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆目标，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前可见外形不能明确确认所需的两轮结构。",
+      "observedObject": "疑似小型车辆",
+      "imageLimitation": "目标尺寸很小且结构细节不足，无法确认是否为两轮车。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "没有足够的三轮证据，不能仅凭外观判定为三轮车。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标过小且被标注文字及框线干扰，无法确认三轮结构。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆目标，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆目标，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆目标，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆目标，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 8,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆目标，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 18.402675479883328,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516467.2326584,
+      "status": "ok",
+      "elapsed": 18.376198086189106
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_d957dc0fe761e79a",
+  "keys": [
+    "gold0903:5e71755fac014323984e308f27b8789a"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标类别为违建，但图像中没有审批信息或明确的违建证据，不能仅凭外观确认。",
+      "observedObject": "建筑及其顶部区域",
+      "imageLimitation": "候选框仅覆盖一处建筑顶部/边缘区域，无法根据图像判断是否存在审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 16.023248319048434,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516911.6665165,
+      "status": "ok",
+      "elapsed": 16.00324962893501
+    }
+  ]
+}

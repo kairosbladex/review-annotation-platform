@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_0d92729232218495",
+  "keys": [
+    "gold0903:cc74adcb35e5423f95ab997d36672ae2",
+    "gold0903:f733538108d240f590ff61e466ea9a4d"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "目标符合“车”类别，框线和文字未作为判断依据。",
+      "observedObject": "框内可见一辆被树冠遮挡的车辆，能辨认出车体结构。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "目标符合“车”类别，框线和文字未作为判断依据。",
+      "observedObject": "框内可见一辆被树叶部分遮挡的车辆，可辨认出车体结构。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.630410147132352,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516497.2567081,
+      "status": "ok",
+      "elapsed": 15.610985476989299
+    }
+  ]
+}

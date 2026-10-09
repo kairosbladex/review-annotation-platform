@@ -1,0 +1,81 @@
+{
+  "unit": "g0903_2d60e266ae02013a",
+  "keys": [
+    "gold0903:550639a471cf4e7f8e9ec1582a0e0e54",
+    "gold0903:d876014dcc0c473995e0f6fe416cb24d",
+    "gold0903:80812c36c71a4d6198549ea36712bedc",
+    "gold0903:fba881c9469947ddbc7a4fcee5b1f904",
+    "gold0903:eb56553240484b9188c2a7d711227262",
+    "gold0903:ffa1b60b7e174fb1adbf894c8ca57d1a",
+    "gold0903:decaf5ebb325467a93b660494c8463eb",
+    "gold0903:e4ed4a4a5591482c8c799e8b8b0e93fd"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭外观确认违建。",
+      "observedObject": "疑似棚顶/建筑物",
+      "imageLimitation": "仅能看到疑似棚顶或建筑结构，缺乏审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏审批及区域业务依据。",
+      "observedObject": "疑似棚顶/建筑物",
+      "imageLimitation": "可见疑似棚顶结构，但无法判断是否具备违建属性。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭外观确认违建。",
+      "observedObject": "疑似建筑附属结构",
+      "imageLimitation": "目标框较小且主要覆盖边缘结构，无法明确判定属性。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏违建判定所需的审批或区域依据。",
+      "observedObject": "疑似棚顶/建筑物",
+      "imageLimitation": "可见长条形棚顶，但无法核实其建设性质或审批情况。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭外观确认违建。",
+      "observedObject": "疑似棚顶/建筑物",
+      "imageLimitation": "框内主要是棚顶和周边空地，无法确认是否违法建设。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "uncertain",
+      "reasoning": "无法唯一确认违建属性。",
+      "observedObject": "疑似棚顶/建筑物",
+      "imageLimitation": "可见棚顶结构，但目标被框线及其他区域部分干扰，且无审批信息。"
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏审批或区域业务依据，不能判定为违建。",
+      "observedObject": "疑似棚顶/建筑物",
+      "imageLimitation": "可见疑似棚顶及周边区域，但无法判断其建设合法性。"
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "uncertain",
+      "reasoning": "无法确认违建属性。",
+      "observedObject": "疑似建筑/棚顶结构",
+      "imageLimitation": "目标位于图像边缘，结构显示不完整，无法唯一判断。"
+    }
+  ],
+  "elapsed": 17.582715645898134,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516561.0223897,
+      "status": "ok",
+      "elapsed": 17.553661275887862
+    }
+  ]
+}

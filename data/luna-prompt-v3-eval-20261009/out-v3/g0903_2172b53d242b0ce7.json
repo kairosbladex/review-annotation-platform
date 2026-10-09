@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_2172b53d242b0ce7",
+  "keys": [
+    "gold0903:70e9f9bea8964e4a85870d4b808e3773",
+    "gold0903:78e3d11373c94753a258e7c81c313bdd",
+    "gold0903:f3af4269e30c43e09f0e2ba123b00f30"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标外观可能属于建筑或棚体，但违建属性不能仅凭外观判断。",
+      "observedObject": "候选框0内可见疑似棚状建筑结构。",
+      "imageLimitation": "仅凭图像无法确认是否具有审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法依据图像确认其是否未经审批或违反区域业务规定。",
+      "observedObject": "候选框1内可见蓝色棚顶或建筑结构。",
+      "imageLimitation": "仅凭图像无法确认是否具有审批或区域业务依据。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "外观可能是临时建筑，但缺少审批和区域依据，不能明确判定为违建。",
+      "observedObject": "候选框2内可见狭长蓝色棚顶或建筑结构。",
+      "imageLimitation": "仅凭图像无法确认是否具有审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.981890509137884,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516528.4729288,
+      "status": "ok",
+      "elapsed": 15.95776130585
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_9d25c20709a7eaec",
+  "keys": [
+    "gold0903:2d50306c7f1644a1ad5a05e0879be95e"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观或局部区域判断，当前证据不足。",
+      "observedObject": "仅能看到边缘处的局部彩色竖向区域和框线，无法唯一识别目标。",
+      "imageLimitation": "候选框位于图像最右侧边缘，目标大部分被裁切且被框线遮挡，无法确认是否存在违建及其区域业务依据。"
+    }
+  ],
+  "elapsed": 16.62480911705643,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516810.3084028,
+      "status": "ok",
+      "elapsed": 16.60071191098541
+    }
+  ]
+}

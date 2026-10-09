@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_33d1de191ead095e",
+  "keys": [
+    "gold0903:55f97b6a3f0540ccbb7e2a51818a37a0"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标区域过小、细节不足，不能唯一确认符合“车”类别。",
+      "observedObject": "无法明确辨识",
+      "imageLimitation": "候选框内目标尺寸极小且被标记遮挡，无法清晰确认车辆结构及其是否位于可通行地面。"
+    }
+  ],
+  "elapsed": 14.275038248160854,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516576.3026526,
+      "status": "ok",
+      "elapsed": 14.244855392025784
+    }
+  ]
+}

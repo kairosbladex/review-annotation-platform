@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_28c70d40b253b234",
+  "keys": [
+    "gold0903:325c7e4db91441718685ea2d6a6fa556"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性需要审批或区域业务依据，当前图像无法提供，不能据外观确认。",
+      "observedObject": "树木、围栏和建筑边缘",
+      "imageLimitation": "候选框内主要为树木、围栏及建筑边缘，且框线和文字不作为目标证据；无法依据图像判断是否存在违建及其审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 14.44284366001375,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516546.5656438,
+      "status": "ok",
+      "elapsed": 14.421175497816876
+    }
+  ]
+}

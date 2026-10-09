@@ -1,0 +1,65 @@
+{
+  "unit": "g0903_cd0ad1a1a9284e9b",
+  "keys": [
+    "gold0903:468af4db1e2e40c189fa8993aca6eed6",
+    "gold0903:bf9952ef45b743a3b3577765e755ce4e",
+    "gold0903:dd906b6d3c44436aafecf1650de03eff",
+    "gold0903:119e819afbe342e281c6cad859d09425",
+    "gold0903:4e6e2095a685473eb43c5ba1b2709e75",
+    "gold0903:f196e48f5d2d4b799475a54cbbed3078"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭候选框内的颜色和轮廓不能明确判断为车，不将框线或文字作为证据。",
+      "observedObject": "疑似小型物体或车辆",
+      "imageLimitation": "目标过小且被标注框覆盖，无法确认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏清晰可见的车辆结构，无法唯一确认类别。",
+      "observedObject": "疑似小型物体或车辆",
+      "imageLimitation": "目标过小且被标注框覆盖，无法确认车辆结构。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "目标细节不可辨，不能仅凭颜色和框内轮廓认定为车。",
+      "observedObject": "疑似小型物体或车辆",
+      "imageLimitation": "目标过小且被标注框覆盖，无法确认车辆结构。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "无法看清车身、车轮等必要结构，不能确认是车。",
+      "observedObject": "疑似小型物体",
+      "imageLimitation": "目标位于图像边缘，尺寸极小且被标注框覆盖。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "可见信息不足，无法唯一定位并确认车辆结构。",
+      "observedObject": "疑似小型物体",
+      "imageLimitation": "目标位于图像边缘，尺寸极小且被标注框覆盖。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏足够车辆结构证据，不能明确符合“车”类别。",
+      "observedObject": "疑似小型物体",
+      "imageLimitation": "目标尺寸极小且接近图像边缘，被标注框覆盖。"
+    }
+  ],
+  "elapsed": 15.98583303601481,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516874.6936235,
+      "status": "ok",
+      "elapsed": 15.96239833207801
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "unit": "g0903_27716fdbb4400c16",
+  "keys": [
+    "gold0903:b096bb89ce9d4cfb95387d789c3348c0",
+    "gold0903:3f8b101b04fa41fe8a6756f024aa2388",
+    "gold0903:0572062a68ab477b83e3ec9dc9298373",
+    "gold0903:830549717e1f4b6aa8dc97500a9cd1df",
+    "gold0903:e99b6517b0ad4cb683b5e19739cf2406"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆结构，位于可通行道路上，符合车类。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆结构，位于道路上，符合车类。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭当前图像确认其为符合车辆类别的目标。",
+      "observedObject": "楼顶边缘的小型目标",
+      "imageLimitation": "目标位于楼顶边缘且尺寸很小，无法确认是否为车辆或设备。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭当前图像确认其为符合车辆类别的目标。",
+      "observedObject": "楼顶边缘的小型目标",
+      "imageLimitation": "目标位于楼顶边缘且尺寸很小，无法确认是否为车辆或设备。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭当前图像确认其为符合车辆类别的目标。",
+      "observedObject": "楼顶边缘的小型目标",
+      "imageLimitation": "目标位于楼顶边缘且尺寸很小，无法确认是否为车辆或设备。"
+    }
+  ],
+  "elapsed": 15.478420219151303,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516544.4648206,
+      "status": "ok",
+      "elapsed": 15.449807028053328
+    }
+  ]
+}

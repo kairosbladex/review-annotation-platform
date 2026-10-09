@@ -1,0 +1,550 @@
+{
+ "groups": {
+  "人员": {
+   "baseline": {
+    "n": 49,
+    "uncertain": 23,
+    "wrong": 14,
+    "false_released": 11,
+    "auto_wrong": 11,
+    "gold_false": 35,
+    "right": 35,
+    "auto_right": 15,
+    "manual": 23,
+    "gold_true": 14,
+    "true_rejected": 3,
+    "accuracy": 0.7143,
+    "auto_accuracy": 0.5769
+   },
+   "v3": {
+    "n": 49,
+    "uncertain": 14,
+    "wrong": 16,
+    "false_released": 15,
+    "auto_wrong": 16,
+    "gold_false": 35,
+    "right": 33,
+    "auto_right": 19,
+    "manual": 14,
+    "gold_true": 14,
+    "true_rejected": 1,
+    "accuracy": 0.6735,
+    "auto_accuracy": 0.5429
+   },
+   "paired_n": 49
+  },
+  "人员/person_regression": {
+   "baseline": {
+    "n": 49,
+    "uncertain": 23,
+    "wrong": 14,
+    "false_released": 11,
+    "auto_wrong": 11,
+    "gold_false": 35,
+    "right": 35,
+    "auto_right": 15,
+    "manual": 23,
+    "gold_true": 14,
+    "true_rejected": 3,
+    "accuracy": 0.7143,
+    "auto_accuracy": 0.5769
+   },
+   "v3": {
+    "n": 49,
+    "uncertain": 14,
+    "wrong": 16,
+    "false_released": 15,
+    "auto_wrong": 16,
+    "gold_false": 35,
+    "right": 33,
+    "auto_right": 19,
+    "manual": 14,
+    "gold_true": 14,
+    "true_rejected": 1,
+    "accuracy": 0.6735,
+    "auto_accuracy": 0.5429
+   },
+   "paired_n": 49
+  },
+  "其他类别": {
+   "baseline": {
+    "n": 50,
+    "uncertain": 2,
+    "right": 38,
+    "auto_right": 36,
+    "gold_true": 35,
+    "wrong": 12,
+    "false_released": 12,
+    "auto_wrong": 12,
+    "gold_false": 15,
+    "manual": 2,
+    "accuracy": 0.76,
+    "auto_accuracy": 0.75
+   },
+   "v3": {
+    "n": 50,
+    "uncertain": 3,
+    "right": 40,
+    "auto_right": 37,
+    "gold_true": 35,
+    "wrong": 10,
+    "false_released": 10,
+    "auto_wrong": 10,
+    "gold_false": 15,
+    "manual": 3,
+    "accuracy": 0.8,
+    "auto_accuracy": 0.7872
+   },
+   "paired_n": 50
+  },
+  "其他类别/gold0903": {
+   "baseline": {
+    "n": 50,
+    "uncertain": 2,
+    "right": 38,
+    "auto_right": 36,
+    "gold_true": 35,
+    "wrong": 12,
+    "false_released": 12,
+    "auto_wrong": 12,
+    "gold_false": 15,
+    "manual": 2,
+    "accuracy": 0.76,
+    "auto_accuracy": 0.75
+   },
+   "v3": {
+    "n": 50,
+    "uncertain": 3,
+    "right": 40,
+    "auto_right": 37,
+    "gold_true": 35,
+    "wrong": 10,
+    "false_released": 10,
+    "auto_wrong": 10,
+    "gold_false": 15,
+    "manual": 3,
+    "accuracy": 0.8,
+    "auto_accuracy": 0.7872
+   },
+   "paired_n": 50
+  },
+  "车辆": {
+   "baseline": {
+    "n": 201,
+    "uncertain": 48,
+    "right": 159,
+    "auto_right": 148,
+    "gold_true": 188,
+    "wrong": 42,
+    "true_rejected": 40,
+    "manual": 48,
+    "gold_false": 13,
+    "false_released": 2,
+    "auto_wrong": 5,
+    "accuracy": 0.791,
+    "auto_accuracy": 0.9673
+   },
+   "v3": {
+    "n": 201,
+    "uncertain": 41,
+    "right": 157,
+    "auto_right": 148,
+    "gold_true": 188,
+    "manual": 41,
+    "gold_false": 13,
+    "wrong": 44,
+    "true_rejected": 40,
+    "auto_wrong": 12,
+    "false_released": 4,
+    "accuracy": 0.7811,
+    "auto_accuracy": 0.925
+   },
+   "paired_n": 201
+  },
+  "车辆/gold0903": {
+   "baseline": {
+    "n": 201,
+    "uncertain": 48,
+    "right": 159,
+    "auto_right": 148,
+    "gold_true": 188,
+    "wrong": 42,
+    "true_rejected": 40,
+    "manual": 48,
+    "gold_false": 13,
+    "false_released": 2,
+    "auto_wrong": 5,
+    "accuracy": 0.791,
+    "auto_accuracy": 0.9673
+   },
+   "v3": {
+    "n": 201,
+    "uncertain": 41,
+    "right": 157,
+    "auto_right": 148,
+    "gold_true": 188,
+    "manual": 41,
+    "gold_false": 13,
+    "wrong": 44,
+    "true_rejected": 40,
+    "auto_wrong": 12,
+    "false_released": 4,
+    "accuracy": 0.7811,
+    "auto_accuracy": 0.925
+   },
+   "paired_n": 201
+  },
+  "违建": {
+   "baseline": {
+    "n": 132,
+    "uncertain": 132,
+    "wrong": 71,
+    "true_rejected": 71,
+    "manual": 132,
+    "gold_true": 71,
+    "right": 61,
+    "gold_false": 61,
+    "accuracy": 0.4621,
+    "auto_accuracy": null
+   },
+   "v3": {
+    "n": 132,
+    "uncertain": 132,
+    "wrong": 71,
+    "true_rejected": 71,
+    "manual": 132,
+    "gold_true": 71,
+    "right": 61,
+    "gold_false": 61,
+    "accuracy": 0.4621,
+    "auto_accuracy": null
+   },
+   "paired_n": 132
+  },
+  "违建/gold0903": {
+   "baseline": {
+    "n": 132,
+    "uncertain": 132,
+    "wrong": 71,
+    "true_rejected": 71,
+    "manual": 132,
+    "gold_true": 71,
+    "right": 61,
+    "gold_false": 61,
+    "accuracy": 0.4621,
+    "auto_accuracy": null
+   },
+   "v3": {
+    "n": 132,
+    "uncertain": 132,
+    "wrong": 71,
+    "true_rejected": 71,
+    "manual": 132,
+    "gold_true": 71,
+    "right": 61,
+    "gold_false": 61,
+    "accuracy": 0.4621,
+    "auto_accuracy": null
+   },
+   "paired_n": 132
+  }
+ },
+ "transitions": {
+  "人员": {
+   "错→错": 11,
+   "对→对": 30,
+   "对→错": 5,
+   "错→对": 3
+  },
+  "其他类别": {
+   "对→对": 38,
+   "错→错": 10,
+   "错→对": 2
+  },
+  "车辆": {
+   "对→对": 148,
+   "错→对": 9,
+   "错→错": 33,
+   "对→错": 11
+  },
+  "违建": {
+   "错→错": 71,
+   "对→对": 61
+  }
+ },
+ "examples": {
+  "人员": {
+   "对→错": [
+    {
+     "key": "gold0924:B03-001",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "目标位于候选框内，虽有框线和文字标注，但框内可见人体形状，符合人员类别。"
+    },
+    {
+     "key": "gold0924:B03-029",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "框内目标具有可见的人体轮廓，框线和文字不作为判断依据。"
+    },
+    {
+     "key": "gold0924:B03-009",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "框内可见与标注位置对应的人体目标，符合人员类别。"
+    },
+    {
+     "key": "gold0924:B03-010",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "框内可见与标注位置对应的人体目标，符合人员类别。"
+    },
+    {
+     "key": "gold0924:B03-031",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "框内目标呈现可辨认的人体形态，符合人员类别；未将框线或文字作为判断依据。"
+    }
+   ],
+   "错→对": [
+    {
+     "key": "gold0924:B05-013",
+     "gold": "true",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "候选框位于道路上，框内可见人体形态，符合人员类别。"
+    },
+    {
+     "key": "gold0924:B03-028",
+     "gold": "false",
+     "class": "人员",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "候选框内目标细节不足，不能明确判断为人员。"
+    },
+    {
+     "key": "gold0924:B05-012",
+     "gold": "true",
+     "class": "人员",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "候选框内可见人体结构，目标符合人员类别。"
+    }
+   ]
+  },
+  "其他类别": {
+   "错→对": [
+    {
+     "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+     "gold": "false",
+     "class": "没戴头盔",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "“没戴头盔”需要先确认可见人体结构及头部状态；当前图像分辨率和目标尺寸不足，不能明确判定。"
+    },
+    {
+     "key": "gold0903:b07daf3b1c5b4b33bf3901c5948ee064",
+     "gold": "false",
+     "class": "光斑",
+     "baseline": "true",
+     "v3": "false",
+     "new_reasoning": "框内主要包含红色文字和绿色框线，不能将框线、文字作为目标证据；未见明确符合“光斑”类别的独立目标。"
+    }
+   ]
+  },
+  "车辆": {
+   "错→对": [
+    {
+     "key": "gold0903:a44ea8008875482db84cc31ab3bbef0b",
+     "gold": "true",
+     "class": "两轮车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "框内可见细长两轮车辆，位于道路上，符合两轮车类别。"
+    },
+    {
+     "key": "gold0903:ed5987ba00054ababb624eb1f47b6e9b",
+     "gold": "true",
+     "class": "两轮车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "候选框内可见细长的两轮车辆，位于道路边缘，符合两轮车类别。"
+    },
+    {
+     "key": "gold0903:a44f97e86cab4793aee76b880a372dd8",
+     "gold": "true",
+     "class": "两轮车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "框内可见细长的两轮车形态，位于道路旁可通行区域。"
+    },
+    {
+     "key": "gold0903:b8035912c072454595a0ee25d7333706",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "候选框内可见车辆，位于可通行道路附近，符合车辆类别。"
+    },
+    {
+     "key": "gold0903:c423863d2dbb4939b6cca423e9b9ec11",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "候选框内可见车辆，位于可通行地面，符合车辆类别。"
+    },
+    {
+     "key": "gold0903:60ccc35e79ae4b66a512329345df753b",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "候选框内可见一辆车，位于可通行地面区域，目标结构和尺度符合车辆类别。"
+    },
+    {
+     "key": "gold0903:daf1f353cc3c4e5cb3b90ce964b7b140",
+     "gold": "true",
+     "class": "两轮车",
+     "baseline": "false",
+     "v3": "true",
+     "new_reasoning": "候选框内可见两轮车，位于道路边缘的可通行地面。"
+    },
+    {
+     "key": "gold0903:4cde6d68e0114480ba55e55f3271a2db",
+     "gold": "true",
+     "class": "两轮车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "框内可辨认出两轮车，位于地面区域，符合“两轮车”类别。"
+    },
+    {
+     "key": "gold0903:28a37923464542a4b7cb5c6a90f659aa",
+     "gold": "true",
+     "class": "车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "候选框内可见车辆外形，位于道路边缘的地面区域，符合“车”类别。"
+    }
+   ],
+   "对→错": [
+    {
+     "key": "gold0903:0572062a68ab477b83e3ec9dc9298373",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "不能仅凭当前图像确认其为符合车辆类别的目标。"
+    },
+    {
+     "key": "gold0903:830549717e1f4b6aa8dc97500a9cd1df",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "不能仅凭当前图像确认其为符合车辆类别的目标。"
+    },
+    {
+     "key": "gold0903:e99b6517b0ad4cb683b5e19739cf2406",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "不能仅凭当前图像确认其为符合车辆类别的目标。"
+    },
+    {
+     "key": "gold0903:f3dcba65b03c428db88a26302b3365f5",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "框位于图像上边缘，目标大部分被截断，不能唯一确认。"
+    },
+    {
+     "key": "gold0903:3bdee556b5214439b2ba388425371516",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "无法完整核查目标是否为车辆。"
+    },
+    {
+     "key": "gold0903:3828d76fd0e643c8a33b1b28a8cde354",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "无法完整确认目标及其所在位置。"
+    },
+    {
+     "key": "gold0903:0f73d2a0e9c64bd08bbc96403d21cd93",
+     "gold": "false",
+     "class": "车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "候选框虽贴近右侧边缘，但仍可见车辆位于道路上，符合车辆类别。"
+    },
+    {
+     "key": "gold0903:0b2a0dc6b61a40a5919481c6f2f52198",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "仅凭当前裁剪区域不能唯一确认其为车，框线和文字不作为目标证据。"
+    },
+    {
+     "key": "gold0903:e381e3d4ac924ac28da9547c3d8e1096",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v3": "uncertain",
+     "new_reasoning": "遮挡过重，无法清晰确认车辆结构和是否位于可通行地面。"
+    },
+    {
+     "key": "gold0903:46a5dbd1b5874ff888c6a3d0a997476b",
+     "gold": "true",
+     "class": "车",
+     "baseline": "true",
+     "v3": "false",
+     "new_reasoning": "候选框内不是道路车辆，位于建筑旁步道区域，明显不符合车类目标。"
+    },
+    {
+     "key": "gold0903:d4d52d4d00e64f70b123286ebdf175a7",
+     "gold": "false",
+     "class": "卡车",
+     "baseline": "uncertain",
+     "v3": "true",
+     "new_reasoning": "目标符合车辆类初审条件，且可见结构支持判定为卡车；未将框线或文字作为依据。"
+    }
+   ]
+  },
+  "违建": {}
+ },
+ "elapsed": {
+  "baseline": {
+   "units": 143,
+   "median": 15.18,
+   "p90": 17.11,
+   "calls": 143,
+   "retried_units": 0
+  },
+  "v3": {
+   "units": 176,
+   "median": 15.04,
+   "p90": 17.38,
+   "calls": 176,
+   "retried_units": 0
+  }
+ }
+}

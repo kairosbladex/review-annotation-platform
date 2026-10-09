@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_1f0e5cb339af5236",
+  "keys": [
+    "gold0903:2cd11d7b5819449ab172365276f3f0ac",
+    "gold0903:6cc82b9318784e23b4f21a284383a83a"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内可见施工围挡和空地，但违建属性需要审批或区域业务依据，无法由外观唯一确认。",
+      "observedObject": "蓝色施工围挡及其围合区域",
+      "imageLimitation": "仅凭图像无法判断是否具备审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内可见施工围挡和空地，但违建属性需要审批或区域业务依据，无法由外观唯一确认。",
+      "observedObject": "蓝色施工围挡及其围合区域",
+      "imageLimitation": "仅凭图像无法判断是否具备审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 14.365284124854952,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516527.340824,
+      "status": "ok",
+      "elapsed": 14.344485747162253
+    }
+  ]
+}

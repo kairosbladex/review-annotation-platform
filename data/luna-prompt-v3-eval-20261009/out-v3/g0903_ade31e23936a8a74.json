@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_ade31e23936a8a74",
+  "keys": [
+    "gold0903:246912f1335c4acd8cbeacfa74df37fa",
+    "gold0903:7ffb8864ed17409e97ac78e8084b7877",
+    "gold0903:12a0e34670f0486a8e9b93f3d047ef24",
+    "gold0903:49c3524ddd4b4b8c822f93f7760ded81"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整车辆结构，位置与车辆尺度符合道路通行场景。",
+      "observedObject": "道路旁可通行地面上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆，位于道路旁的可通行地面，尺度合理。",
+      "observedObject": "道路旁可通行地面上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆结构，位于车道上且尺度与车道相符。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆结构，位于道路车道上，符合车辆类别。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.870448240078986,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516848.9565907,
+      "status": "ok",
+      "elapsed": 14.841826512943953
+    }
+  ]
+}

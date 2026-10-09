@@ -1,0 +1,65 @@
+{
+  "unit": "g0903_39b3d28c1a79ddde",
+  "keys": [
+    "gold0903:76006df30bd947ff942ee244b4fceb1a",
+    "gold0903:f9685b6cd29a4c6a8b29a13873685731",
+    "gold0903:67f3e79afd6c438db006916355b183a4",
+    "gold0903:3b95eefbf52a4243a6b283ab87d85cac",
+    "gold0903:2d6ee94a6bb94288a30fe86cd4a6129e",
+    "gold0903:1c1d5b93f6264de3969c2b59a390c2ea"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "可见建筑或顶棚，但违建属性不能仅凭外观确认。",
+      "observedObject": "局部蓝色顶棚/建筑结构",
+      "imageLimitation": "仅凭图像无法判断是否有审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "目标看似建筑顶棚，但无法据此确认违建。",
+      "observedObject": "狭长蓝色顶棚/建筑结构",
+      "imageLimitation": "缺乏审批及区域规划信息。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "可见建筑结构，但无法判断其是否未经审批。",
+      "observedObject": "大型蓝色顶棚建筑",
+      "imageLimitation": "缺乏审批及区域规划信息。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "图像只能确认建筑外观，不能确认违建属性。",
+      "observedObject": "蓝色顶棚建筑",
+      "imageLimitation": "缺乏审批及区域规划信息。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "可见建筑顶棚，但没有业务或审批依据判定为违建。",
+      "observedObject": "蓝色顶棚建筑",
+      "imageLimitation": "缺乏审批及区域规划信息。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "uncertain",
+      "reasoning": "目标为建筑或顶棚结构，无法仅凭外观确认违建。",
+      "observedObject": "蓝色顶棚建筑",
+      "imageLimitation": "缺乏审批及区域规划信息。"
+    }
+  ],
+  "elapsed": 17.38005561218597,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516586.7984648,
+      "status": "ok",
+      "elapsed": 17.35780837503262
+    }
+  ]
+}

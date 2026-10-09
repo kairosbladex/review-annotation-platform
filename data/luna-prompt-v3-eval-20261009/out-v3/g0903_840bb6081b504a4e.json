@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_840bb6081b504a4e",
+  "keys": [
+    "gold0903:308a37c0f6f44cb6af9487e83ffe83b5",
+    "gold0903:460476105a944c1983776d57323dd549"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭外观不能判定为违建，按规则输出uncertain。",
+      "observedObject": "建筑附近的疑似临时结构",
+      "imageLimitation": "图中可见候选区域疑似屋顶或临时搭建结构，但缺乏审批或区域业务依据，无法确认违建属性。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏审批或区域业务依据，不能仅凭外观判定违建。",
+      "observedObject": "远处建筑旁的疑似结构",
+      "imageLimitation": "候选区域较小且部分被框线遮挡，无法确认其是否为未经审批的建筑或搭建物。"
+    }
+  ],
+  "elapsed": 15.039038694929332,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516728.523118,
+      "status": "ok",
+      "elapsed": 15.021855032071471
+    }
+  ]
+}

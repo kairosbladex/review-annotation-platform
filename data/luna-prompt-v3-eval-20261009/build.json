@@ -1,0 +1,37 @@
+{
+ "units": 176,
+ "units_by_source": {
+  "gold0903": 143,
+  "person_regression": 33
+ },
+ "candidates": 435,
+ "scored_labels": 432,
+ "by_source_class_label": {
+  "gold0903/三轮车/false": 2,
+  "gold0903/两轮车/false": 1,
+  "gold0903/两轮车/true": 11,
+  "gold0903/光伏板/false": 1,
+  "gold0903/光伏板/true": 17,
+  "gold0903/光斑/false": 12,
+  "gold0903/光斑/true": 15,
+  "gold0903/公交车/false": 1,
+  "gold0903/公交车/true": 1,
+  "gold0903/卡车/false": 3,
+  "gold0903/卡车/true": 1,
+  "gold0903/没戴头盔/false": 2,
+  "gold0903/没戴头盔/true": 3,
+  "gold0903/车/false": 6,
+  "gold0903/车/true": 175,
+  "gold0903/违建/false": 61,
+  "gold0903/违建/true": 71,
+  "person_regression/人员/false": 35,
+  "person_regression/人员/true": 14
+ },
+ "excluded": {
+  "gold0903:auto_label": 6,
+  "gold0903:duplicate_box": 365,
+  "gold0903:image_used_before": 94,
+  "gold0903:conflicting_duplicate": 3
+ },
+ "dedupe": "image SHA256 vs design set (113 events) and v2 set (170 images); same-image boxes merged at IoU>=0.9"
+}

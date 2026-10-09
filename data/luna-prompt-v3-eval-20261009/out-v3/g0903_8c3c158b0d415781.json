@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_8c3c158b0d415781",
+  "keys": [
+    "gold0903:73f7eb6a9ce4489893ed3f7fd8c019dc",
+    "gold0903:1bebc9c971fc4869973013db786e6c74"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框内没有可确认的车辆结构，框线和文字不作为判断依据。",
+      "observedObject": "树木和花盆等绿化物，不是车辆。",
+      "imageLimitation": "目标区域清晰可见。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "可见车身、车顶和车窗等车辆结构，尺度与道路环境相符，明确符合“车”类别。",
+      "observedObject": "一辆白色汽车，位于道路旁可通行地面。",
+      "imageLimitation": "车辆大部分清晰可见，底部略接近图像边缘。"
+    }
+  ],
+  "elapsed": 14.858637474942952,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516747.2190998,
+      "status": "ok",
+      "elapsed": 14.83638755697757
+    }
+  ]
+}

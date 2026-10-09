@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_97effc5717ba345b",
+  "keys": [
+    "gold0903:055d3c9f12ae42139b8bd210e107ccd5"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内目标为建筑物；框线和“违建”文字不能作为目标证据，且缺乏审批或区域依据，不能明确判定为违建。",
+      "observedObject": "高层建筑",
+      "imageLimitation": "图中仅能确认候选框标注了一栋建筑，无法依据画面判断其是否具有违建审批或区域业务属性。"
+    }
+  ],
+  "elapsed": 14.815617531072348,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516792.2940094,
+      "status": "ok",
+      "elapsed": 14.796686685178429
+    }
+  ]
+}

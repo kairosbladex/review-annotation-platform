@@ -1,0 +1,97 @@
+{
+  "unit": "g0903_f46f4e48265d368d",
+  "keys": [
+    "gold0903:cba64fac1ebc49d6af46108b1e796637",
+    "gold0903:6ee23bb93e17469b8859c8f6939c019b",
+    "gold0903:ad307e33e0564dbdbbaf25954be85c60",
+    "gold0903:64697a4b252743de8c45090ad69a24c9",
+    "gold0903:31d1ab67bff04ba69ba4afb03e58b40f",
+    "gold0903:bc977180f2624f46ad143e37f308d15d",
+    "gold0903:2d1990c094c249d8bb1658717dd68c7e",
+    "gold0903:930d1d914b2c4cae91c2d8f933cabbcd",
+    "gold0903:15ebf9599d114e1f95d3409dbac3f071",
+    "gold0903:93b7e7fd75c142abaae21bc26516cff3"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "外观可能是新增或改建结构，但缺乏违建判定所需的审批、规划或区域依据。",
+      "observedObject": "疑似建筑或附属结构",
+      "imageLimitation": "仅凭图像无法确认是否有审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "可见建筑结构，但无法据此确认其违法建设属性。",
+      "observedObject": "疑似建筑或附属结构",
+      "imageLimitation": "仅凭图像无法确认是否有审批或区域业务依据。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "框内为建筑屋面或附属结构，缺乏审批及区域依据，不能明确判定为违建。",
+      "observedObject": "疑似建筑或附属结构",
+      "imageLimitation": "仅凭图像无法确认是否有审批或区域业务依据。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "图像显示建筑屋面，无法确认是否为未经批准的建设。",
+      "observedObject": "疑似建筑结构",
+      "imageLimitation": "仅凭图像无法确认是否有审批或区域业务依据。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "可见屋面或附属建筑，但没有足够依据判断其是否违建。",
+      "observedObject": "疑似建筑结构",
+      "imageLimitation": "仅凭图像无法确认是否有审批或区域业务依据。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "uncertain",
+      "reasoning": "只能确认存在屋面结构，不能从外观确认违法建设属性。",
+      "observedObject": "疑似建筑屋面",
+      "imageLimitation": "目标较小且细节有限，且缺乏审批或区域业务依据。"
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "uncertain",
+      "reasoning": "目标细节不足，无法唯一确认其性质，更不能判定为违建。",
+      "observedObject": "疑似小型结构",
+      "imageLimitation": "目标位于图像边缘且尺寸很小，无法清晰辨认；亦缺乏审批依据。"
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "uncertain",
+      "reasoning": "可见疑似附属建筑，但无法确认其是否未经批准建设。",
+      "observedObject": "疑似建筑附属结构",
+      "imageLimitation": "目标较小，且缺乏审批或区域业务依据。"
+    },
+    {
+      "target_index": 8,
+      "rawDecision": "uncertain",
+      "reasoning": "框内可见建筑结构，但没有足够信息判定为违建。",
+      "observedObject": "疑似长条形建筑或附属结构",
+      "imageLimitation": "仅凭图像无法确认是否有审批或区域业务依据。"
+    },
+    {
+      "target_index": 9,
+      "rawDecision": "uncertain",
+      "reasoning": "目标被边界截断，无法唯一定位和判断其性质，不能判定为违建。",
+      "observedObject": "疑似狭长结构",
+      "imageLimitation": "目标位于最右侧边缘且部分可见，无法清晰辨认；亦缺乏审批依据。"
+    }
+  ],
+  "elapsed": 19.67043726099655,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516971.3540971,
+      "status": "ok",
+      "elapsed": 19.64363804110326
+    }
+  ]
+}

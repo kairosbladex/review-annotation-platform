@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_4435733c135c7bf8",
+  "keys": [
+    "gold0903:0cd295e99b6741d49998713bc62acfc8",
+    "gold0903:484b19f821864769839f64deabf8c271",
+    "gold0903:0293d7dd81c94b4f881ecc2544e29a72"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观确认。",
+      "observedObject": "候选框内为蓝色顶棚建筑。",
+      "imageLimitation": "仅凭图像无法判断是否具有审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观确认。",
+      "observedObject": "候选框内为玻璃或半透明顶棚建筑。",
+      "imageLimitation": "仅凭图像无法判断是否具有审批或区域业务依据。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观确认。",
+      "observedObject": "候选框内为小型半透明顶棚建筑。",
+      "imageLimitation": "仅凭图像无法判断是否具有审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.403509397991002,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516605.3245733,
+      "status": "ok",
+      "elapsed": 15.382212156895548
+    }
+  ]
+}

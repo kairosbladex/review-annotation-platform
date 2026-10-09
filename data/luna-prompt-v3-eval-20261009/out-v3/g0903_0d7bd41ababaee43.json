@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_0d7bd41ababaee43",
+  "keys": [
+    "gold0903:cdd543ffaaad481885165446c2939f34",
+    "gold0903:82325faa9a82418181856bacfc284810"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭外观不能判定为违建，且没有审批或区域业务依据。",
+      "observedObject": "疑似小型蓝顶建筑",
+      "imageLimitation": "目标为一处小型蓝顶建筑，图像中无法确认其是否缺乏审批或违反区域建设规定。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏审批或区域业务依据，不能仅凭外观认定为违建。",
+      "observedObject": "疑似远处小型建筑或设施",
+      "imageLimitation": "目标位于远处，尺寸较小，无法确认其建筑属性及审批情况。"
+    }
+  ],
+  "elapsed": 14.656718601007015,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516484.417051,
+      "status": "ok",
+      "elapsed": 14.628401688067243
+    }
+  ]
+}

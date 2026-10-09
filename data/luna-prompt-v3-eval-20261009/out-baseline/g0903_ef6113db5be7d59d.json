@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_ef6113db5be7d59d",
+  "keys": [
+    "gold0903:fd00f28b069049368321be0ad373f69f"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭外观无法判定违建属性，按要求输出uncertain。",
+      "observedObject": "建筑边缘的狭长区域",
+      "imageLimitation": "目标区域较小且存在框线遮挡，无法确认是否属于违建，也缺乏审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 13.928754457971081,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516951.694293,
+      "status": "ok",
+      "elapsed": 13.906789389904588
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_1d35e28d6924f963",
+  "keys": [
+    "gold0903:4cd93aa19d634b979ab75724e9d56254"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观确认，且框线和文字不作为目标证据。",
+      "observedObject": "建筑或地面区域",
+      "imageLimitation": "候选框内仅见建筑/地面区域，无法从图像判断是否存在审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.177128662122414,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516516.1020758,
+      "status": "ok",
+      "elapsed": 15.153851894894615
+    }
+  ]
+}

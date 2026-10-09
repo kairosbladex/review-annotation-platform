@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_55ef034f43eba5f6",
+  "keys": [
+    "gold0903:15d2c44823124c169b6fe9b888537ff3"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内明确可见车辆，符合“车”类别。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": "目标较小且部分靠近图像底部，但可见车辆整体轮廓及车身结构，框线和文字未作为判断依据。"
+    }
+  ],
+  "elapsed": 15.123812374891713,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516647.5470357,
+      "status": "ok",
+      "elapsed": 15.090390522032976
+    }
+  ]
+}

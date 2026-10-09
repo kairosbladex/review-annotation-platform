@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_2b7ea8472ac851db",
+  "keys": [
+    "gold0903:d18a140d772d4ff9a62b0594e99b8b99"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前候选框内可见形状，无法明确判断为车辆；不将框线和文字作为目标证据。",
+      "observedObject": "疑似小型车辆或其他物体",
+      "imageLimitation": "目标区域过小且被标注文字和框线遮挡，无法清晰确认车辆结构。"
+    }
+  ],
+  "elapsed": 15.007014835020527,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516556.6356704,
+      "status": "ok",
+      "elapsed": 14.98837005207315
+    }
+  ]
+}

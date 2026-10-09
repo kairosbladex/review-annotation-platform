@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_f2b1833fcb38f7ab",
+  "keys": [
+    "gold0903:53499b1d092345a6ad46fa1577b24b27"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内仅见标注区域，缺乏足够车辆结构证据，不能明确判定为车。",
+      "observedObject": "无法唯一辨认的微小目标",
+      "imageLimitation": "目标过小且被标注框覆盖，无法清晰确认车辆结构及其所在位置。"
+    }
+  ],
+  "elapsed": 15.216624959139153,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516968.8497362,
+      "status": "ok",
+      "elapsed": 15.184270467143506
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_f7b7535a5d748f91",
+  "keys": [
+    "gold0903:fe528a0df8ae465d951d326edba41363"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅依据外观或框内存在物体判断，按规则应输出uncertain。",
+      "observedObject": "矩形框覆盖球场边缘及邻近设施，含框线和文字。",
+      "imageLimitation": "候选框内主要是场地边缘、围栏及文字等，无法仅凭图像确认是否属于违建，也缺乏审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.427610949845985,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516986.4179208,
+      "status": "ok",
+      "elapsed": 15.404043924063444
+    }
+  ]
+}

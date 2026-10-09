@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_a9b1ece891e1f72f",
+  "keys": [
+    "gold0903:ae99f356afb044bc9a34468084ae12ca",
+    "gold0903:08498b530c9543cbb9903c49b4c27650"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "无法看清足够的车辆结构，不能明确判定为车。",
+      "observedObject": "底部边缘的模糊局部",
+      "imageLimitation": "目标位于图像底部边缘，框内仅见极小且模糊的局部，无法确认车辆结构及其是否位于可通行地面。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "虽然位于道路区域附近，但无法唯一确认其为公交车，车辆细分类证据不足。",
+      "observedObject": "道路附近的模糊小目标",
+      "imageLimitation": "目标尺寸很小且被标注框和文字干扰，无法辨认公交车所需的车体结构。"
+    }
+  ],
+  "elapsed": 14.678023274987936,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516846.9447756,
+      "status": "ok",
+      "elapsed": 14.6546858639922
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_23ed7170a18100cb",
+  "keys": [
+    "gold0903:838cb70eaa904657a3920b516a740ad2"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不能仅凭外观判断违建属性，且目标不完整、无法唯一确认。",
+      "observedObject": "右下角局部建筑结构及标注文字",
+      "imageLimitation": "候选框位于图像右下角，目标大部分被裁切且仅见局部建筑/框线，无法确认是否为违建；图中没有审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 14.106482923962176,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516542.543147,
+      "status": "ok",
+      "elapsed": 14.072088191984221
+    }
+  ]
+}

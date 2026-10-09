@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_a08886e16154df2f",
+  "keys": [
+    "gold0903:f5aa6e24c5f34f3784da989c05b96889",
+    "gold0903:992ceaaf21ca4c748d7ee27bdc557e45"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标外观无法直接证明其属于违建，且框线和文字不作为判断依据。",
+      "observedObject": "框内可见建筑或设施局部。",
+      "imageLimitation": "仅凭图像无法判断是否存在审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "目标外观无法直接证明其属于违建，且框线不作为判断依据。",
+      "observedObject": "框内可见屋顶或建筑结构局部。",
+      "imageLimitation": "仅凭图像无法判断是否存在审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.979223703965545,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516830.971908,
+      "status": "ok",
+      "elapsed": 15.947582996916026
+    }
+  ]
+}

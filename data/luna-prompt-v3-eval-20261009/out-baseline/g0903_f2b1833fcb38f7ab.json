@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_f2b1833fcb38f7ab",
+  "keys": [
+    "gold0903:53499b1d092345a6ad46fa1577b24b27"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不将框线或文字作为目标证据；现有图像不足以明确符合“车”类别。",
+      "observedObject": "候选框内仅见疑似彩色小区域，无法唯一判断为车。",
+      "imageLimitation": "目标区域过小且清晰度不足，无法确认车辆及其结构。"
+    }
+  ],
+  "elapsed": 14.908830252941698,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516964.43245,
+      "status": "ok",
+      "elapsed": 14.875758816022426
+    }
+  ]
+}

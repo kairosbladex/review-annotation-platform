@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_8f6fabbfc97467d4",
+  "keys": [
+    "gold0903:60ccc35e79ae4b66a512329345df753b",
+    "gold0903:3c2d4a184e1f41c393fa74974dc7f848",
+    "gold0903:2d8199cb8b1c443c802503b159ee2437"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆车，位于可通行地面区域，目标结构和尺度符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆车，位于道路旁的可通行地面，目标结构和尺度符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见一辆车，位于道路车道内，目标结构和尺度符合车辆类别。",
+      "observedObject": "车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.840511974180117,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516774.0515506,
+      "status": "ok",
+      "elapsed": 14.819163338979706
+    }
+  ]
+}

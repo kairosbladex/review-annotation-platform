@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_8772805bce1cd3a5",
+  "keys": [
+    "gold0903:0f4a7549e8134468b02a4cabaeab093b"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "无法依据现有图像确定其审批状态或违法建设属性。",
+      "observedObject": "道路旁的棚状/车厢样结构",
+      "imageLimitation": "候选框内可见带文字标识的棚状物，但仅凭图像无法确认其是否属于未经审批的违建，文字和框线不作为证据。"
+    }
+  ],
+  "elapsed": 15.569782822858542,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516742.9371076,
+      "status": "ok",
+      "elapsed": 15.537771074101329
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_3c2815c757b85efe",
+  "keys": [
+    "gold0903:c191d4e9bc9d4a1bbbaf366f239a6b9a",
+    "gold0903:fd7b8bfdf4ac4a7ea4d68df269d7ace6"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整车辆结构，位于道路旁，尺度与道路环境相符，符合“车”类别。",
+      "observedObject": "道路旁可通行区域内的一辆车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆结构，位于道路车道区域，符合“车”类别。",
+      "observedObject": "道路上的一辆车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.750318931881338,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516590.6005788,
+      "status": "ok",
+      "elapsed": 14.699944817926735
+    }
+  ]
+}

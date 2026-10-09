@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_79eadeee6583677a",
+  "keys": [
+    "gold0903:2cf7a4824f80420e803333c63d9a3d12"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框内没有可见的车辆主体、车轮或其他车辆结构，不能将框线或红色物体作为车辆证据。",
+      "observedObject": "树叶及疑似红色物体",
+      "imageLimitation": "目标区域被树叶遮挡，未见可确认的车辆结构。"
+    }
+  ],
+  "elapsed": 14.561902316985652,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516702.5738904,
+      "status": "ok",
+      "elapsed": 14.539600173942745
+    }
+  ]
+}

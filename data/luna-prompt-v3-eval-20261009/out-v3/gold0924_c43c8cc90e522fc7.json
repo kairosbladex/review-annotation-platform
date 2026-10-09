@@ -1,0 +1,25 @@
+{
+  "unit": "gold0924_c43c8cc90e522fc7",
+  "keys": [
+    "gold0924:B03-028"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内目标细节不足，不能明确判断为人员。",
+      "observedObject": "道路上的小型目标，疑似人员但无法唯一确认。",
+      "imageLimitation": "目标过小且被遮挡，无法清晰确认可见人体结构。"
+    }
+  ],
+  "elapsed": 16.955385458888486,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791517126.7213883,
+      "status": "ok",
+      "elapsed": 16.92475672904402
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_482c70d3aa50f1eb",
+  "keys": [
+    "gold0903:a7dd89c518334fdfbece56b9baee3259",
+    "gold0903:a24c836c33804a0396b89aa4abb24137",
+    "gold0903:1ec0dd453e56492299708f333d491888",
+    "gold0903:cfebcc4cf52648f0b5726476c6510abc"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见明显的亮色斑点，与标注类别相符，框线和文字不作为判断依据。",
+      "observedObject": "光斑",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见独立的亮色斑点，符合光斑类别。",
+      "observedObject": "光斑",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见亮色斑点，目标清晰且符合类别。",
+      "observedObject": "光斑",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见独立的亮色斑点，符合光斑类别。",
+      "observedObject": "光斑",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.187465788796544,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516619.6934252,
+      "status": "ok",
+      "elapsed": 15.16418961295858
+    }
+  ]
+}

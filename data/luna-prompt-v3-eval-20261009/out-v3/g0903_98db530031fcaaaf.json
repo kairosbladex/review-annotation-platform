@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_98db530031fcaaaf",
+  "keys": [
+    "gold0903:0b2a0dc6b61a40a5919481c6f2f52198"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前裁剪区域不能唯一确认其为车，框线和文字不作为目标证据。",
+      "observedObject": "右下方绿地边缘疑似小型目标",
+      "imageLimitation": "目标区域很小且被紫色框线覆盖，无法清晰确认车辆结构及其是否位于可通行道路或停车位。"
+    }
+  ],
+  "elapsed": 14.812248182948679,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516803.149832,
+      "status": "ok",
+      "elapsed": 14.788048706948757
+    }
+  ]
+}

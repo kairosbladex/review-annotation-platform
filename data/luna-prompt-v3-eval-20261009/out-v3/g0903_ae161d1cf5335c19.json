@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_ae161d1cf5335c19",
+  "keys": [
+    "gold0903:d2d22b3f3c6340f2bc7e2124b6197f05"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭外观和当前图像无法判断违建属性；框线和文字不作为目标证据。",
+      "observedObject": "道路边缘疑似一个小型物体或设施",
+      "imageLimitation": "候选框位于道路边缘，目标区域较小且被框线、文字及周围环境干扰，无法确认是否为违建，也缺乏审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.274193258024752,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516849.9646275,
+      "status": "ok",
+      "elapsed": 15.251382640795782
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_7597294956ab6674",
+  "keys": [
+    "gold0903:9390a602e2d64f228465337f5dcb00ed"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标外观可能属于建筑物的一部分，但违建属性不能仅凭外观判断，因此不符合明确判定为true的条件。",
+      "observedObject": "建筑结构",
+      "imageLimitation": "候选框内可见建筑或平台结构，但仅凭图像无法确认其是否未经审批或违反区域业务规定。"
+    }
+  ],
+  "elapsed": 15.10990749206394,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516697.2918227,
+      "status": "ok",
+      "elapsed": 15.083609669003636
+    }
+  ]
+}

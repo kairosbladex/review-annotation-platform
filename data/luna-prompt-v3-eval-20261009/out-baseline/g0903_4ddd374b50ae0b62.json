@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_4ddd374b50ae0b62",
+  "keys": [
+    "gold0903:3fa27ca6c634474cbb3503de6750ba60",
+    "gold0903:0563a12f56c74c44bfc71963f019b71e"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框主要覆盖施工围挡、空地及其附近设施；仅凭外观不能判定为违法建设。",
+      "observedObject": "施工围挡和围挡内区域",
+      "imageLimitation": "可见施工围挡及围挡后的空地，缺乏审批或区域业务依据，无法确认是否属于违建。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框覆盖施工围挡及后方空地，未见足以证明违建的明确结构或业务依据。",
+      "observedObject": "施工围挡和围挡内区域",
+      "imageLimitation": "可见蓝色施工围挡及后方区域，但缺乏审批或区域业务依据，无法确认是否属于违建。"
+    }
+  ],
+  "elapsed": 25.31677796994336,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516622.218437,
+      "status": "ok",
+      "elapsed": 25.286074314964935
+    }
+  ]
+}

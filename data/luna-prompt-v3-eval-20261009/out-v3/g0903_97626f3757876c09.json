@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_97626f3757876c09",
+  "keys": [
+    "gold0903:fb0ded7fd77a459bb409a0c0349eb546",
+    "gold0903:d977e362249946369eb5258eca0cbeb1"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内是实际车辆，不是框线或其他标线，且位于可通行地面区域。",
+      "observedObject": "道路旁可见一辆车，车辆结构清晰，尺度与道路环境相符。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内目标符合车辆类别，位于道路旁的可通行地面，未见明显遮挡导致的不确定性。",
+      "observedObject": "道路旁可见一辆白色车，车辆结构清晰。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.570359432836995,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516787.2398565,
+      "status": "ok",
+      "elapsed": 17.540933017153293
+    }
+  ]
+}

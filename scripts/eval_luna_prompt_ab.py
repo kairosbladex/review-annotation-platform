@@ -20,7 +20,7 @@ import urllib.error
 import urllib.request
 
 MODEL = 'gpt-5.6-luna'
-TASK = Path('/data/workspace/jzheng/codex-luna-prompt-v2-20261009')
+ALLOWED_TASKS = {Path('/data/workspace/jzheng/codex-luna-prompt-v2-20261009'), Path('/data/workspace/jzheng/codex-luna-prompt-v3-20261009')}
 
 
 def write_json(path, value):
@@ -52,13 +52,16 @@ def normalize(body, n):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--arm', required=True, choices=['baseline', 'v2'])
+    p.add_argument('--arm', required=True, choices=['baseline', 'v2', 'v3'])
+    p.add_argument('--task-dir', type=Path, required=True)
+    p.add_argument('--skip-source', default='', help='跳过该来源的图片（如已复用旧结果）')
     p.add_argument('--url', required=True)
     p.add_argument('--token-file', type=Path, required=True)
     p.add_argument('--concurrency', type=int, default=4)
     args = p.parse_args()
-    root = TASK
-    manifest = json.loads((root / 'allowlist.json').read_text())
+    root = args.task_dir.resolve()
+    if root not in ALLOWED_TASKS: raise SystemExit('unexpected task directory')
+    manifest = [u for u in json.loads((root / 'allowlist.json').read_text()) if u.get('source') != args.skip_source]
     token = None
     for line in args.token_file.read_text().splitlines():
         k, sep, v = line.partition('=')

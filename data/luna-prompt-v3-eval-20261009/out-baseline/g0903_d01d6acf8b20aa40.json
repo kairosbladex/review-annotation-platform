@@ -1,0 +1,65 @@
+{
+  "unit": "g0903_d01d6acf8b20aa40",
+  "keys": [
+    "gold0903:89174fccc9f5400a995eb9f56c25b247",
+    "gold0903:daf1f353cc3c4e5cb3b90ce964b7b140",
+    "gold0903:3755a239c86d407e82568924dc1a7fad",
+    "gold0903:49b04eff501f4064adcfcd04ceb488f1",
+    "gold0903:46a5dbd1b5874ff888c6a3d0a997476b",
+    "gold0903:149d6e1a1222493794a19839c1eff499"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆的车身结构，符合“车”类别。",
+      "observedObject": "汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "false",
+      "reasoning": "框内目标呈现四轮车辆结构，不符合“两轮车”类别。",
+      "observedObject": "疑似汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆车身及轮廓，符合“车”类别。",
+      "observedObject": "汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "无法清晰确认其是否为车。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标较小且被树木遮挡，车辆结构不完整。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "框内可见明显车辆轮廓，符合“车”类别。",
+      "observedObject": "汽车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "框内可见较长车身及货运车辆外形，符合“卡车”类别。",
+      "observedObject": "卡车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.17488875798881,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516876.5949154,
+      "status": "ok",
+      "elapsed": 15.143895553890616
+    }
+  ]
+}

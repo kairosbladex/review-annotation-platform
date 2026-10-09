@@ -1,0 +1,73 @@
+{
+  "unit": "g0903_385647f21393c2d9",
+  "keys": [
+    "gold0903:ddb58d22ffe0470d864c992e6b9ef6b5",
+    "gold0903:54dbbb2823a44f9e83b6bd03b7b1c024",
+    "gold0903:1da0e68ffe1848a49240ca22ec5062e2",
+    "gold0903:80a8c32eecd24e64a907ad597572d5c9",
+    "gold0903:473ed12c8c0045a4bb54e76c50b92be1",
+    "gold0903:3a83fbdd25c048a7a9de7d4caf2d5ca9",
+    "gold0903:b0998843b62f4fc383a713a4846b1d13"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "框内目标被图像边界截断，不能依据框线或文字判断。",
+      "observedObject": "局部疑似车辆",
+      "imageLimitation": "目标位于左侧边缘，仅部分可见，无法唯一确认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "可见区域不足以明确判断为车。",
+      "observedObject": "局部疑似车辆",
+      "imageLimitation": "目标位于左下边缘且大幅遮挡，车辆结构不可完整确认。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆外形及车身结构，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见清晰的车辆车身和轮廓，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆外形，目标明确符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "框内可见清晰的车辆轮廓和车身结构，符合类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "框内可见明确的车辆外形与车身结构，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 16.401870330097154,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516578.6108482,
+      "status": "ok",
+      "elapsed": 16.37361467606388
+    }
+  ]
+}

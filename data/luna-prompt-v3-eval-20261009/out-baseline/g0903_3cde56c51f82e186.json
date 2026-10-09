@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_3cde56c51f82e186",
+  "keys": [
+    "gold0903:10e5a3da510748b2ac88cb5257ce142c"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "无法唯一确认目标为人员，也无法明确判断是否未戴头盔，因此不能判定为true或false。",
+      "observedObject": "候选框附近疑似有小型目标，但人体结构和头部细节不可辨。",
+      "imageLimitation": "候选框内目标较小且部分被框线遮挡，无法清晰确认人员及其头部是否未佩戴头盔。"
+    }
+  ],
+  "elapsed": 14.558637941954657,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516595.0151396,
+      "status": "ok",
+      "elapsed": 14.53436200809665
+    }
+  ]
+}

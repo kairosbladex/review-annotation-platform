@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_8772805bce1cd3a5",
+  "keys": [
+    "gold0903:0f4a7549e8134468b02a4cabaeab093b"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不将框线和文字作为目标证据；现有图像不能明确证明该物体属于违建类别。",
+      "observedObject": "棚顶/道路边缘区域",
+      "imageLimitation": "候选框内主要为棚顶及道路区域，缺乏审批或区域业务依据，无法仅凭图像判断是否违建。"
+    }
+  ],
+  "elapsed": 14.33184089208953,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516731.142942,
+      "status": "ok",
+      "elapsed": 14.310652927029878
+    }
+  ]
+}

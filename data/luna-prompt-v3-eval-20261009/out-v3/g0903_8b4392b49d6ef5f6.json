@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_8b4392b49d6ef5f6",
+  "keys": [
+    "gold0903:e5e966d90dc942ecaba436a0d5783307"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内可见的是施工围挡和底座，无法据此判定其违法建设属性。",
+      "observedObject": "蓝色施工围挡及其底部结构",
+      "imageLimitation": "仅凭图像无法确认该围挡是否属于未经审批的违建，缺少审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 14.830893101869151,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516744.2029958,
+      "status": "ok",
+      "elapsed": 14.801780719077215
+    }
+  ]
+}

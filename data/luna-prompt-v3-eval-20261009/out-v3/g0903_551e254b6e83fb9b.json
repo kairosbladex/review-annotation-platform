@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_551e254b6e83fb9b",
+  "keys": [
+    "gold0903:b8035912c072454595a0ee25d7333706",
+    "gold0903:c423863d2dbb4939b6cca423e9b9ec11",
+    "gold0903:0f73d2a0e9c64bd08bbc96403d21cd93"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆，位于可通行道路附近，符合车辆类别。",
+      "observedObject": "道路旁的一辆车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见车辆，位于可通行地面，符合车辆类别。",
+      "observedObject": "道路旁的一辆车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框虽贴近右侧边缘，但仍可见车辆位于道路上，符合车辆类别。",
+      "observedObject": "道路边的一辆车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.966280768858269,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516636.0134375,
+      "status": "ok",
+      "elapsed": 14.94170310604386
+    }
+  ]
+}

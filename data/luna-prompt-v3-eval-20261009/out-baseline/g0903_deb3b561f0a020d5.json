@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_deb3b561f0a020d5",
+  "keys": [
+    "gold0903:22f50e485cd4400f9828b3b8b218857a"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建判定需要审批或区域业务依据；图像中的框线和文字不能作为目标证据，因此无法明确符合类别。",
+      "observedObject": "建筑外立面局部及文字标识",
+      "imageLimitation": "候选框内主要为建筑外立面局部，缺乏审批或区域业务依据，无法仅凭图像确认违建属性。"
+    }
+  ],
+  "elapsed": 14.285438664956018,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516923.2949936,
+      "status": "ok",
+      "elapsed": 14.256050850031897
+    }
+  ]
+}

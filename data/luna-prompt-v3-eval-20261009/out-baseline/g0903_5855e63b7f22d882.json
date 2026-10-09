@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_5855e63b7f22d882",
+  "keys": [
+    "gold0903:d49492d50736447d96d6d93db7a2d01d"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内目标为建筑物本体；框线和文字不作为证据。仅凭外观无法确认违法建设属性。",
+      "observedObject": "高层建筑",
+      "imageLimitation": "图中仅能确认候选框内是一栋建筑，缺乏审批或区域业务依据，无法判定其是否为违建。"
+    }
+  ],
+  "elapsed": 14.502331847092137,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516649.0588384,
+      "status": "ok",
+      "elapsed": 14.47068544686772
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_4435733c135c7bf8",
+  "keys": [
+    "gold0903:0cd295e99b6741d49998713bc62acfc8",
+    "gold0903:484b19f821864769839f64deabf8c271",
+    "gold0903:0293d7dd81c94b4f881ecc2544e29a72"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "框内可见规则的蓝色棚顶，但没有足够证据判断其是否属于违建。",
+      "observedObject": "蓝色棚顶建筑或构筑物",
+      "imageLimitation": "目标为蓝色棚顶，缺乏审批或区域业务依据，无法仅凭外观确认违建。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "框内可见棚状结构，但不能据此判断其是否违法建设。",
+      "observedObject": "透明棚状建筑或构筑物",
+      "imageLimitation": "目标为透明棚状建筑，缺乏审批或区域业务依据，无法仅凭外观确认违建。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "框内可见棚状结构，但没有审批或规划信息，无法确认违建属性。",
+      "observedObject": "小型棚状建筑或构筑物",
+      "imageLimitation": "目标为小型棚状结构，缺乏审批或区域业务依据，无法仅凭外观确认违建。"
+    }
+  ],
+  "elapsed": 15.530879565980285,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516605.8715491,
+      "status": "ok",
+      "elapsed": 15.507622252916917
+    }
+  ]
+}

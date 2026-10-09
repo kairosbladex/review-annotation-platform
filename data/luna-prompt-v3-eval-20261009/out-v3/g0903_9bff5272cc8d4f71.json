@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_9bff5272cc8d4f71",
+  "keys": [
+    "gold0903:5db3e9b25cbe4bfe81bffb2e3e7b6199"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框过窄且被边界截断，不能据此确认光伏板类别。",
+      "observedObject": "顶部局部区域及框线",
+      "imageLimitation": "候选框仅覆盖图像顶部极窄区域，无法看清是否存在完整且规则的光伏组件结构。"
+    }
+  ],
+  "elapsed": 14.692690750118345,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516816.274909,
+      "status": "ok",
+      "elapsed": 14.661862623877823
+    }
+  ]
+}

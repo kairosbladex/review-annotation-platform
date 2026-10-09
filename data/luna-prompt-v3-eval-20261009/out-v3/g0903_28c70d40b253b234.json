@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_28c70d40b253b234",
+  "keys": [
+    "gold0903:325c7e4db91441718685ea2d6a6fa556"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建类别不能仅凭外观确认，且当前目标不清晰、存在遮挡，因此输出uncertain。",
+      "observedObject": "框内可见树木、建筑边缘及疑似棚架结构，无法唯一判断目标属性。",
+      "imageLimitation": "候选框位于图像顶部，目标被树木及框线部分遮挡，无法确认是否为违建，也缺乏审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 14.532687162049115,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516548.2510269,
+      "status": "ok",
+      "elapsed": 14.514552287990227
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_2470ce1d2d7e3799",
+  "keys": [
+    "gold0903:7d252ce7fdef4d7daa673f0ee6b1a76a",
+    "gold0903:1c0b4ba79e094d0181a355cc1cde0911",
+    "gold0903:186c85463a254adf9b29820b08f83aae"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "false",
+      "reasoning": "候选框位于绿化和建筑附近，不存在可确认的车辆目标。",
+      "observedObject": "建筑或文字标记",
+      "imageLimitation": "目标区域仅见建筑/树木及叠加文字，未见车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "false",
+      "reasoning": "不能将框线或文字当作车辆证据，未见符合车辆类别的目标。",
+      "observedObject": "文字标记及绿化背景",
+      "imageLimitation": "目标区域主要是文字标记和背景绿化，车辆结构不可见。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "false",
+      "reasoning": "候选框内没有可确认的车辆，明显不符合车类目标。",
+      "observedObject": "文字标记及背景绿化",
+      "imageLimitation": "目标区域主要是文字标记及背景，不见车辆轮廓或车体结构。"
+    }
+  ],
+  "elapsed": 15.968771846964955,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516541.7086263,
+      "status": "ok",
+      "elapsed": 15.947249280987307
+    }
+  ]
+}

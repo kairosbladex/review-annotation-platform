@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_30307ae0bd802781",
+  "keys": [
+    "gold0903:18172673ac38432aa6a1d99482f45439",
+    "gold0903:b52575f40fd548eab466771d11f3cc48"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "根据规则，违建没有审批或区域业务依据时一律输出uncertain，且不能把框线和文字作为目标证据。",
+      "observedObject": "候选框内为一处小型棚状/建筑结构，旁有红色文字标注。",
+      "imageLimitation": "图中可见候选区域及红色文字、框线，但缺乏审批或区域业务依据，无法仅凭外观确认违建属性。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "根据规则，违建没有审批或区域业务依据时一律输出uncertain，外观不足以明确判定其属于违建。",
+      "observedObject": "候选框内为一处较长的棚状/建筑结构，旁有红色文字标注。",
+      "imageLimitation": "图中可见候选区域及红色文字、框线，但缺乏审批或区域业务依据，无法仅凭外观确认违建属性。"
+    }
+  ],
+  "elapsed": 16.032645185943693,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516562.8020372,
+      "status": "ok",
+      "elapsed": 16.007085307035595
+    }
+  ]
+}

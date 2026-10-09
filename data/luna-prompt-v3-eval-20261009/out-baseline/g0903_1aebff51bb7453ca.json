@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_1aebff51bb7453ca",
+  "keys": [
+    "gold0903:5121e18f90e14774ad39ebf70f7afbbe",
+    "gold0903:03f5acaf5f2c4b98b5fffdbc2dd2a60b"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内目标为亮色斑点，不依赖框线或文字判断，符合“光斑”类别。",
+      "observedObject": "候选框内可见明显的亮色小斑块，符合光斑特征。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内目标为独立亮色斑点，不依赖框线或文字判断，符合“光斑”类别。",
+      "observedObject": "候选框内可见明显的亮色小斑块，符合光斑特征。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 14.60352974315174,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516514.784916,
+      "status": "ok",
+      "elapsed": 14.581340586999431
+    }
+  ]
+}

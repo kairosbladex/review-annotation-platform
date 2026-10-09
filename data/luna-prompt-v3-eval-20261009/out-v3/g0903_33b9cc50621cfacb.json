@@ -1,0 +1,121 @@
+{
+  "unit": "g0903_33b9cc50621cfacb",
+  "keys": [
+    "gold0903:7e79a0cefc6b4567af3f45602e35fcc1",
+    "gold0903:6701801edafd475aa30aa860fc3d9691",
+    "gold0903:7b3f8fa86d624a04a026759e9b81dba4",
+    "gold0903:d7125626920540a79f3ca344a6aa3c62",
+    "gold0903:f3dcba65b03c428db88a26302b3365f5",
+    "gold0903:328efbca59a141b89930d8d48af3d802",
+    "gold0903:b8587f1bb9774a40a99a4b913865510c",
+    "gold0903:3bdee556b5214439b2ba388425371516",
+    "gold0903:57b911b422fb4ce0aa4d2b440aa1b689",
+    "gold0903:edd73af2a4b7464f9d131b9ec3a98e93",
+    "gold0903:3828d76fd0e643c8a33b1b28a8cde354",
+    "gold0903:a759cedadd744ffa8eee688508f7e822",
+    "gold0903:ba62531a8ba04ddd887ae3aa483f1a2d"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆，位于可通行地面，符合车的类别。",
+      "observedObject": "道路旁地面上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "可见车辆主体，位于道路旁通行区域，符合车的类别。",
+      "observedObject": "道路旁地面上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体，位于道路旁地面，符合车的类别。",
+      "observedObject": "道路旁地面上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "可见车辆主体位于道路车道内，符合车的类别。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "框位于图像上边缘，目标大部分被截断，不能唯一确认。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标部分出画，无法完整确认车辆结构及位置。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "可见完整车辆，位于道路车道内且尺度符合，明确为车。",
+      "observedObject": "道路车道内的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "可见车辆主体位于道路上方车道区域，符合车的类别。",
+      "observedObject": "道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "uncertain",
+      "reasoning": "无法完整核查目标是否为车辆。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标位于图像上边缘并部分出画，车辆结构不完整。"
+    },
+    {
+      "target_index": 8,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体，位于道路或可通行地面，符合车的类别。",
+      "observedObject": "绿地旁道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 9,
+      "rawDecision": "true",
+      "reasoning": "可见车辆主体，位置与尺度均符合道路车辆特征。",
+      "observedObject": "绿地旁道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 10,
+      "rawDecision": "uncertain",
+      "reasoning": "无法完整确认目标及其所在位置。",
+      "observedObject": "疑似车辆",
+      "imageLimitation": "目标贴近图像上边缘，部分结构被截断。"
+    },
+    {
+      "target_index": 11,
+      "rawDecision": "true",
+      "reasoning": "框内可见车辆主体，位于可通行地面，符合车的类别。",
+      "observedObject": "绿地旁道路上的车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 12,
+      "rawDecision": "true",
+      "reasoning": "可见车辆主体，位于道路或停车区域，符合车的类别。",
+      "observedObject": "绿地旁道路上的车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.192283160053194,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516573.520673,
+      "status": "ok",
+      "elapsed": 17.16860830108635
+    }
+  ]
+}

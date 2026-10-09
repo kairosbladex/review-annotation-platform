@@ -1,0 +1,57 @@
+{
+  "unit": "g0903_0713ad34c99acc52",
+  "keys": [
+    "gold0903:20d7de3d38b44ffbb7d62507d6c4bd9b",
+    "gold0903:be81e4f7ead2469ca0960445e334421a",
+    "gold0903:7d4bf7e558984c179d1644701e3c3afb",
+    "gold0903:08ec3128ebd84a7fbcc0c2f41472b389",
+    "gold0903:a7c1a4cc3478465e89ab1f0f61b4630d"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "无法清晰看到完整的两轮车结构，不能明确符合类别。",
+      "observedObject": "候选框内可见疑似小型车辆或车体局部",
+      "imageLimitation": "目标仅部分可见且被边缘裁切、树木及框线遮挡，无法确认是否为两轮车。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整车体轮廓，符合车类别。",
+      "observedObject": "一辆车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见明显车体及车辆结构，符合车类别。",
+      "observedObject": "一辆白色车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整车体轮廓和车辆结构，符合车类别。",
+      "observedObject": "一辆黑色车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "候选框内可见完整车体轮廓和车辆结构，符合车类别。",
+      "observedObject": "一辆白色车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.889307116158307,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516467.235551,
+      "status": "ok",
+      "elapsed": 15.867642039898783
+    }
+  ]
+}

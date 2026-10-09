@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_2172b53d242b0ce7",
+  "keys": [
+    "gold0903:70e9f9bea8964e4a85870d4b808e3773",
+    "gold0903:78e3d11373c94753a258e7c81c313bdd",
+    "gold0903:f3af4269e30c43e09f0e2ba123b00f30"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "外观可能是建筑或棚体，但缺乏违建判定所需的审批、规划或区域业务依据。",
+      "observedObject": "左侧边缘可见一处狭长矩形构筑物，部分被裁切。",
+      "imageLimitation": "仅凭图像无法确认审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "只能确认存在棚体，无法据此判断其是否属于违建。",
+      "observedObject": "左下方可见蓝色顶棚状构筑物。",
+      "imageLimitation": "仅凭图像无法确认审批或区域业务依据。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "只能确认存在建筑或棚体，缺乏审批及区域依据，不能明确判定为违建。",
+      "observedObject": "道路旁可见带蓝色顶棚的狭长构筑物。",
+      "imageLimitation": "仅凭图像无法确认审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 15.912215027958155,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516530.4753175,
+      "status": "ok",
+      "elapsed": 15.884141037939116
+    }
+  ]
+}

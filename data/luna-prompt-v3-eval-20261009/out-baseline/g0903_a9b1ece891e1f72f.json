@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_a9b1ece891e1f72f",
+  "keys": [
+    "gold0903:ae99f356afb044bc9a34468084ae12ca",
+    "gold0903:08498b530c9543cbb9903c49b4c27650"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "看不清所需车辆结构，不能明确判定为“车”。",
+      "observedObject": "疑似车辆，但无法确认车型。",
+      "imageLimitation": "候选框过小且位于图像底部边缘，车辆结构不可辨认。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "未能清晰看到公交车所需的车身结构，不能明确归类为公交车。",
+      "observedObject": "疑似车辆，但无法确认公交车结构。",
+      "imageLimitation": "候选框很小，目标被远距离拍摄且细节不足。"
+    }
+  ],
+  "elapsed": 17.020942045142874,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516838.2561657,
+      "status": "ok",
+      "elapsed": 16.984958003042266
+    }
+  ]
+}

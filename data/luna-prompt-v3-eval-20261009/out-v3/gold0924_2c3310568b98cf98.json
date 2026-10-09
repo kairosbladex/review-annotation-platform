@@ -1,0 +1,41 @@
+{
+  "unit": "gold0924_2c3310568b98cf98",
+  "keys": [
+    "gold0924:B03-005",
+    "gold0924:B03-006",
+    "gold0924:B03-007"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框几乎完全出画，无法确认是否为人员。",
+      "observedObject": "左侧边缘局部区域",
+      "imageLimitation": "目标位于图像左侧边缘，人体结构不可完整确认。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法明确辨认可见人体结构。",
+      "observedObject": "屋顶附近小型疑似目标",
+      "imageLimitation": "候选框内目标尺寸很小且被红色框线与文字干扰，人体结构不清晰。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "无法明确辨认可见人体结构。",
+      "observedObject": "道路旁小型疑似目标",
+      "imageLimitation": "候选框内目标尺寸很小且被红色框线与文字干扰，人体结构不清晰。"
+    }
+  ],
+  "elapsed": 16.92715311399661,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791517039.2780316,
+      "status": "ok",
+      "elapsed": 16.89599099289626
+    }
+  ]
+}

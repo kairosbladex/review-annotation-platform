@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_5024d55148ec8d5c",
+  "keys": [
+    "gold0903:c779db3b1b024b0f9396d2326b2d9c18"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前图像不能明确看见车辆所需结构，因此不能判定为车。",
+      "observedObject": "候选框内疑似有小型目标，但无法唯一确认类别。",
+      "imageLimitation": "目标极小且部分难以辨认，无法确认车辆结构及其是否位于可通行道路上。"
+    }
+  ],
+  "elapsed": 51.710078350966796,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516625.3240182,
+      "status": "ok",
+      "elapsed": 51.68782813893631
+    }
+  ]
+}

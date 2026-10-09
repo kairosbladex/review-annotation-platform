@@ -1,0 +1,57 @@
+{
+  "unit": "g0903_0713ad34c99acc52",
+  "keys": [
+    "gold0903:20d7de3d38b44ffbb7d62507d6c4bd9b",
+    "gold0903:be81e4f7ead2469ca0960445e334421a",
+    "gold0903:7d4bf7e558984c179d1644701e3c3afb",
+    "gold0903:08ec3128ebd84a7fbcc0c2f41472b389",
+    "gold0903:a7c1a4cc3478465e89ab1f0f61b4630d"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标被严重遮挡并出画，不能唯一确认符合两轮车类别。",
+      "observedObject": "左侧边缘可见疑似小型车辆局部。",
+      "imageLimitation": "目标位于图像边缘且被裁切，无法确认是否为完整两轮车及其结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "可见车身轮廓，位于可通行的路旁停车区域，符合车类别。",
+      "observedObject": "树荫和人行区域旁可见一辆白色汽车。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "车身及车辆结构清晰，位于道路旁可通行区域，符合车类别。",
+      "observedObject": "树旁可见一辆白色汽车。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "车身轮廓和结构清晰，停放于可通行地面，符合车类别。",
+      "observedObject": "人行道旁可见一辆黑色汽车。",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "车身轮廓清晰，位于可通行地面，符合车类别。",
+      "observedObject": "人行道旁可见一辆白色汽车。",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 17.167502206983045,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516467.2378414,
+      "status": "ok",
+      "elapsed": 17.147953558014706
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_d73fb25ba94b6566",
+  "keys": [
+    "gold0903:c5cdb3d76ed045489a4f0dba8ac1f473"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "违建属性不能仅凭外观确认，按规则输出uncertain。",
+      "observedObject": "蓝色施工围挡及其后方地面、植被",
+      "imageLimitation": "候选框内主要是蓝色围挡，无法仅凭图像判断其是否属于违建，且缺乏审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 16.635199885815382,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516909.3466654,
+      "status": "ok",
+      "elapsed": 16.60269875288941
+    }
+  ]
+}

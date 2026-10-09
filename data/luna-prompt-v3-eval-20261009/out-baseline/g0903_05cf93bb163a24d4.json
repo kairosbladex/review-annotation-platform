@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_05cf93bb163a24d4",
+  "keys": [
+    "gold0903:f5598deadd5a4b18b58390ed06723930"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内目标为建筑物；“违建”属于需要审批或业务依据才能判断的属性，图像本身不足以明确符合类别。",
+      "observedObject": "一栋高层建筑",
+      "imageLimitation": "图中虽标注了一栋建筑，但缺少审批或区域业务依据，无法仅凭外观确认其为违建。"
+    }
+  ],
+  "elapsed": 16.05778710404411,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516467.2337027,
+      "status": "ok",
+      "elapsed": 16.035345721058547
+    }
+  ]
+}

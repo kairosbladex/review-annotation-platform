@@ -1,0 +1,73 @@
+{
+  "unit": "g0903_385647f21393c2d9",
+  "keys": [
+    "gold0903:ddb58d22ffe0470d864c992e6b9ef6b5",
+    "gold0903:54dbbb2823a44f9e83b6bd03b7b1c024",
+    "gold0903:1da0e68ffe1848a49240ca22ec5062e2",
+    "gold0903:80a8c32eecd24e64a907ad597572d5c9",
+    "gold0903:473ed12c8c0045a4bb54e76c50b92be1",
+    "gold0903:3a83fbdd25c048a7a9de7d4caf2d5ca9",
+    "gold0903:b0998843b62f4fc383a713a4846b1d13"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框大部分位于图像外，仅见局部，不能明确判断是否为车。",
+      "observedObject": "画面左侧边缘的部分目标",
+      "imageLimitation": "目标仅部分出画，无法唯一确认车辆结构及其所在位置。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "目标严重出画，虽外观可能类似车辆，但不能唯一定位并确认类别。",
+      "observedObject": "左下角边缘的蓝色物体",
+      "imageLimitation": "目标被边缘截断且分辨率有限，无法完整确认车辆结构。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "可见完整车体结构，位于可通行地面区域，尺度与道路环境相符。",
+      "observedObject": "道路旁地面上的白色车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "可见车体、车窗及轮廓，位于道路或停车通行区域，符合车类。",
+      "observedObject": "道路旁地面上的白色车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "true",
+      "reasoning": "可见完整车辆轮廓，位于道路旁可通行地面，符合车类目标。",
+      "observedObject": "道路旁地面上的深色车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "true",
+      "reasoning": "可见车辆结构，位于道路边缘可通行地面，尺度与道路环境相符。",
+      "observedObject": "道路旁地面上的白色车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "可见车体轮廓及车辆结构，位于道路或停车区域，明确符合车类。",
+      "observedObject": "道路旁地面上的深色车辆",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 16.522953857900575,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516578.8317351,
+      "status": "ok",
+      "elapsed": 16.503618026850745
+    }
+  ]
+}

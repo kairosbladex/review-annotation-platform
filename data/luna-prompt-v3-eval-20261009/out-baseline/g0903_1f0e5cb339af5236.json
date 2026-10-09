@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_1f0e5cb339af5236",
+  "keys": [
+    "gold0903:2cd11d7b5819449ab172365276f3f0ac",
+    "gold0903:6cc82b9318784e23b4f21a284383a83a"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭外观无法确认属于违建，不能将施工围挡直接判定为违法建设。",
+      "observedObject": "蓝色施工围挡、土路和植被",
+      "imageLimitation": "目标为施工围挡及其附近区域，图中没有审批信息或明确区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法仅根据图像确认存在未经批准的建设行为，因此不能明确判定为违建。",
+      "observedObject": "蓝色施工围挡、土路和植被",
+      "imageLimitation": "目标为蓝色施工围挡及道路区域，缺乏审批和规划依据。"
+    }
+  ],
+  "elapsed": 14.228585370117798,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516529.3951993,
+      "status": "ok",
+      "elapsed": 14.205479731084779
+    }
+  ]
+}

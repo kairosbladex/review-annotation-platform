@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_1c1b45404fbc7125",
+  "keys": [
+    "gold0903:0d67d605e66e4dca867820956397890d",
+    "gold0903:3d3b95af4b0e4452a52687a49353d68c",
+    "gold0903:68b8138e8b8a4a2eaac8b38111ecb823"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "可见信息不足，不能明确符合车辆类别。",
+      "observedObject": "候选框0内疑似小型物体，无法唯一判定为车。",
+      "imageLimitation": "目标区域过小且被彩色框线/文字干扰，无法确认车辆结构及其是否位于可通行地面。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "可见信息不足，不能明确符合车辆类别。",
+      "observedObject": "候选框1内疑似小型物体，无法唯一判定为车。",
+      "imageLimitation": "目标区域过小且被彩色框线/文字干扰，无法确认车辆结构及其是否位于可通行地面。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "可见信息不足，不能明确符合车辆类别。",
+      "observedObject": "候选框2内疑似小型物体，无法唯一判定为车。",
+      "imageLimitation": "目标区域过小且被彩色框线干扰，目标细节不足，无法确认车辆结构及其所在位置。"
+    }
+  ],
+  "elapsed": 14.410850416170433,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516514.0538797,
+      "status": "ok",
+      "elapsed": 14.390778167871758
+    }
+  ]
+}

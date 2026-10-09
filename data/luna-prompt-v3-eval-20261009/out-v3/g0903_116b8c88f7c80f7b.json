@@ -1,0 +1,57 @@
+{
+  "unit": "g0903_116b8c88f7c80f7b",
+  "keys": [
+    "gold0903:2d4c371798844dbf9a36d37e61182c7f",
+    "gold0903:ce454460638d4847afb91869c975d575",
+    "gold0903:b2983d65d2bb46ffb63fa30cb3ef3485",
+    "gold0903:31f81f5725194701965fa80820b9c06e",
+    "gold0903:dfbe06730b3546cd80fce738ed3f8b67"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "目标框内可见疑似建筑结构，但违建属性不能仅凭外观判定。",
+      "observedObject": "建筑物或附属结构",
+      "imageLimitation": "仅凭航拍外观无法确认是否缺乏审批或违反区域建设依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "目标框内可见建筑或附属结构，但没有审批或区域业务依据，无法确认违建。",
+      "observedObject": "建筑物或附属结构",
+      "imageLimitation": "仅凭航拍外观无法确认是否缺乏审批或违反区域建设依据。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "可见疑似附属结构，但不能据此确认其属于违建。",
+      "observedObject": "小型建筑或附属结构",
+      "imageLimitation": "目标较小且信息不足，无法核实建设属性。"
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "uncertain",
+      "reasoning": "目标框内疑似为建筑附属物，仅凭外观无法判断是否违建。",
+      "observedObject": "小型建筑或附属结构",
+      "imageLimitation": "目标尺寸较小，且缺少审批及区域依据。"
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "目标框内可见疑似建筑结构，但没有足够依据判定违建。",
+      "observedObject": "建筑物或附属结构",
+      "imageLimitation": "仅凭航拍外观无法确认是否缺乏审批或违反区域建设依据。"
+    }
+  ],
+  "elapsed": 15.95112994289957,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516497.115917,
+      "status": "ok",
+      "elapsed": 15.929170397808775
+    }
+  ]
+}

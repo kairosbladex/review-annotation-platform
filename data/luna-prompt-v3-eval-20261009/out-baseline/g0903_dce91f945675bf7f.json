@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_dce91f945675bf7f",
+  "keys": [
+    "gold0903:3ac2874581ae44338c8106918bca86f7"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "候选框内未能明确看见卡车的车厢、驾驶室等结构，不能仅凭局部外观判定为卡车。",
+      "observedObject": "疑似道路旁的小型车辆或车辆局部",
+      "imageLimitation": "目标区域很小且被标注文字和框线遮挡，无法清晰确认车辆所需结构。"
+    }
+  ],
+  "elapsed": 14.699424117105082,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516920.1805665,
+      "status": "ok",
+      "elapsed": 14.667219776893035
+    }
+  ]
+}

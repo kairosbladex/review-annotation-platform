@@ -1,0 +1,41 @@
+{
+  "unit": "gold0924_38bbe90e2bab2554",
+  "keys": [
+    "gold0924:B03-011",
+    "gold0924:B03-012",
+    "gold0924:B03-013"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭候选框内区域不能明确判断为人员，不将框线或文字作为证据。",
+      "observedObject": "疑似竖直物体或人员",
+      "imageLimitation": "框内主体过小且被红色框线遮挡，无法确认可见人体结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法确认符合人员类别，按看不清处理。",
+      "observedObject": "疑似人员或竖直物体",
+      "imageLimitation": "目标尺寸很小，且红色框线占据主要区域，人体结构不可辨认。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "不能唯一确认目标为人员，因此输出uncertain。",
+      "observedObject": "疑似人员或竖直物体",
+      "imageLimitation": "目标过小并被框线遮挡，缺乏可辨认的人体结构。"
+    }
+  ],
+  "elapsed": 18.2896230770275,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791517042.156762,
+      "status": "ok",
+      "elapsed": 18.261523192981258
+    }
+  ]
+}

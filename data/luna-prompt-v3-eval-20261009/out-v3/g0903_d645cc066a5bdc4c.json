@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "keys": [
+    "gold0903:3384f2739ad745b3b67ed154e7f5ac9f",
+    "gold0903:9f3b0ba9ab134358b8f1b202bdc5454a",
+    "gold0903:445ef456f78e4547b4064cd552e1cfb9"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭外观不能判定违建属性。",
+      "observedObject": "建筑窗户/围挡结构",
+      "imageLimitation": "图中可见建筑窗户及工地围挡等目标，但缺乏审批或区域业务依据，无法确认是否属于违建。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭外观不能确认其是否属于违建。",
+      "observedObject": "蓝色围挡结构",
+      "imageLimitation": "目标为工地围挡或临时结构，缺乏审批或区域业务依据。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "无法依据图像确认违建属性。",
+      "observedObject": "蓝色围挡结构",
+      "imageLimitation": "目标为部分可见的蓝色围挡或临时结构，且部分出画，缺乏审批或区域业务依据。"
+    }
+  ],
+  "elapsed": 17.013212442863733,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516905.044298,
+      "status": "ok",
+      "elapsed": 16.979069945169613
+    }
+  ]
+}

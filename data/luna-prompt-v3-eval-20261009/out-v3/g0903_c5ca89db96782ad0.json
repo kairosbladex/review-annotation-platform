@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_c5ca89db96782ad0",
+  "keys": [
+    "gold0903:384d96ab4eb14b5d976f7c288ffc8469"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "“没戴头盔”需要先确认可见人体结构及头部状态；当前图像分辨率和目标尺寸不足，不能明确判定。",
+      "observedObject": "疑似道路上的小型目标，无法唯一确认其为人员。",
+      "imageLimitation": "候选框内目标过小且被框线与文字干扰，无法清晰确认人体及是否佩戴头盔。"
+    }
+  ],
+  "elapsed": 14.707845999160782,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516863.8318975,
+      "status": "ok",
+      "elapsed": 14.67770647094585
+    }
+  ]
+}

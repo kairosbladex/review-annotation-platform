@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_2470ce1d2d7e3799",
+  "keys": [
+    "gold0903:7d252ce7fdef4d7daa673f0ee6b1a76a",
+    "gold0903:1c0b4ba79e094d0181a355cc1cde0911",
+    "gold0903:186c85463a254adf9b29820b08f83aae"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "缺乏足够可见的车辆结构，不能明确判定为车。",
+      "observedObject": "候选框内仅见疑似小型目标及标注文字。",
+      "imageLimitation": "目标过小且被彩色标注文字遮挡，无法确认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法确认车辆类别或车辆结构。",
+      "observedObject": "疑似小型目标。",
+      "imageLimitation": "目标尺寸极小并被红紫色文字覆盖，细节不可辨认。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "uncertain",
+      "reasoning": "无法唯一定位并确认车辆结构，不能明确判定为车。",
+      "observedObject": "疑似小型目标。",
+      "imageLimitation": "目标极小且与相邻候选框重叠，被标注文字遮挡。"
+    }
+  ],
+  "elapsed": 14.918614483904094,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516543.637181,
+      "status": "ok",
+      "elapsed": 14.884001218015328
+    }
+  ]
+}

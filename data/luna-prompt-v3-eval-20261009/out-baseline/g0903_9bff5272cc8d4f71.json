@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_9bff5272cc8d4f71",
+  "keys": [
+    "gold0903:5db3e9b25cbe4bfe81bffb2e3e7b6199"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭该局部区域无法明确判断为光伏板，且框线不能作为目标证据。",
+      "observedObject": "顶部可见一段带红色框线的区域",
+      "imageLimitation": "候选框仅覆盖图像顶部极窄区域，目标大部分被裁切，无法确认是否具有规则光伏组件结构。"
+    }
+  ],
+  "elapsed": 15.562174187041819,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516806.934584,
+      "status": "ok",
+      "elapsed": 15.535431035095826
+    }
+  ]
+}

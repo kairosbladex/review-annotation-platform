@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_965f79c401c6230d",
+  "keys": [
+    "gold0903:4cdfc0383c824b2e944c5acc1da5b904"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "现有图像不足以唯一确认其为车辆，不能仅凭框线或标记作出判断。",
+      "observedObject": "疑似道路附近的小型目标",
+      "imageLimitation": "候选框内目标尺寸极小且被红色标记遮挡，无法清晰确认车辆结构及其是否位于可通行道路上。"
+    }
+  ],
+  "elapsed": 14.307331966934726,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516786.5660427,
+      "status": "ok",
+      "elapsed": 14.27782975602895
+    }
+  ]
+}

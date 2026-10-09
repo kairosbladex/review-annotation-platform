@@ -1,0 +1,81 @@
+{
+  "unit": "g0903_d4c227e626da7475",
+  "keys": [
+    "gold0903:d5c6bd120b474b5281c4f27dcc6d613b",
+    "gold0903:1146cd4b87a04a198f7ef6b0c1fe909e",
+    "gold0903:647564a682d14a799bc2d1779d59b40f",
+    "gold0903:5f6fcba9150345d6ad048475dfb70120",
+    "gold0903:4cde6d68e0114480ba55e55f3271a2db",
+    "gold0903:1dfcfc699ffb4403ad187356e82803c8",
+    "gold0903:c6ccf1501b4b415a8ae167740caf48aa",
+    "gold0903:4ecc5217840d4a5bb9b66b267cc8ff21"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整汽车车身，符合“车”类别。",
+      "observedObject": "轿车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整汽车车身，符合“车”类别。",
+      "observedObject": "轿车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整汽车车身，符合“车”类别。",
+      "observedObject": "轿车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 3,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 4,
+      "rawDecision": "uncertain",
+      "reasoning": "可见疑似车辆局部，但缺乏清晰、完整的两轮证据。",
+      "observedObject": "疑似两轮车",
+      "imageLimitation": "目标较小且部分被遮挡，无法清晰确认两轮结构。"
+    },
+    {
+      "target_index": 5,
+      "rawDecision": "uncertain",
+      "reasoning": "外观可能是两轮车，但可见结构不足，不能明确判定。",
+      "observedObject": "疑似两轮车",
+      "imageLimitation": "目标被遮挡且尺寸较小，无法唯一确认车辆结构。"
+    },
+    {
+      "target_index": 6,
+      "rawDecision": "true",
+      "reasoning": "框内可见具有车架和两个车轮的两轮车结构。",
+      "observedObject": "两轮车",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 7,
+      "rawDecision": "true",
+      "reasoning": "框内可见清晰的两轮车外形与车轮结构。",
+      "observedObject": "两轮车",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 16.230953863123432,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516895.4356291,
+      "status": "ok",
+      "elapsed": 16.207770887063816
+    }
+  ]
+}

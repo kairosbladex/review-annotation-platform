@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_0d7bd41ababaee43",
+  "keys": [
+    "gold0903:cdd543ffaaad481885165446c2939f34",
+    "gold0903:82325faa9a82418181856bacfc284810"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭外观无法确认其属于违建，且缺乏审批及区域业务信息。",
+      "observedObject": "候选框0内可见一处蓝色顶棚或临时建筑样结构。",
+      "imageLimitation": "目标较小，无法判断是否存在审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭外观无法确认属于违建，按规则应判定为uncertain。",
+      "observedObject": "候选框1内可见一处低矮的棚状或建筑结构。",
+      "imageLimitation": "目标较小且部分被遮挡，无法判断其建设性质及审批依据。"
+    }
+  ],
+  "elapsed": 15.495757190976292,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516485.6412485,
+      "status": "ok",
+      "elapsed": 15.46750359912403
+    }
+  ]
+}

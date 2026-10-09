@@ -1,0 +1,41 @@
+{
+  "unit": "g0903_8f6fabbfc97467d4",
+  "keys": [
+    "gold0903:60ccc35e79ae4b66a512329345df753b",
+    "gold0903:3c2d4a184e1f41c393fa74974dc7f848",
+    "gold0903:2d8199cb8b1c443c802503b159ee2437"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "仅凭当前图像不能唯一确认框内为车。",
+      "observedObject": "疑似细长物体或车辆",
+      "imageLimitation": "目标细节较小且部分被框线遮挡，无法确认车辆结构。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "框内可见完整车身轮廓，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": "车辆较小，但轮廓和车身结构可见。"
+    },
+    {
+      "target_index": 2,
+      "rawDecision": "true",
+      "reasoning": "框内可见明显汽车车身及车窗轮廓，符合“车”类别。",
+      "observedObject": "车辆",
+      "imageLimitation": "车辆较小，局部细节受分辨率限制。"
+    }
+  ],
+  "elapsed": 15.49617312499322,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516771.1259198,
+      "status": "ok",
+      "elapsed": 15.476086033973843
+    }
+  ]
+}

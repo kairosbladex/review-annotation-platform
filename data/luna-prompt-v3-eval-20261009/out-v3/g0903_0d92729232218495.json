@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_0d92729232218495",
+  "keys": [
+    "gold0903:cc74adcb35e5423f95ab997d36672ae2",
+    "gold0903:f733538108d240f590ff61e466ea9a4d"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "true",
+      "reasoning": "可见目标位于道路可通行地面，尺度与车辆相符，符合车类别。",
+      "observedObject": "道路树荫下框选区域内可见车辆结构",
+      "imageLimitation": ""
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "true",
+      "reasoning": "可见目标位于道路可通行地面，能辨认车体轮廓，符合车类别。",
+      "observedObject": "道路树荫下框选区域内可见车辆结构",
+      "imageLimitation": ""
+    }
+  ],
+  "elapsed": 15.465104872127995,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516496.6572251,
+      "status": "ok",
+      "elapsed": 15.431780257029459
+    }
+  ]
+}

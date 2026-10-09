@@ -1,0 +1,25 @@
+{
+  "unit": "g0903_965f79c401c6230d",
+  "keys": [
+    "gold0903:4cdfc0383c824b2e944c5acc1da5b904"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "不能依据框线或标记判断目标类别，缺乏可见车辆结构，因此无法明确符合“车”类别。",
+      "observedObject": "候选框内仅见一个很小的彩色标记，无法确认是否为车辆。",
+      "imageLimitation": "目标区域过小且分辨率不足，无法看清车辆及车轮结构。"
+    }
+  ],
+  "elapsed": 14.463101807050407,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516776.7186174,
+      "status": "ok",
+      "elapsed": 14.443061119876802
+    }
+  ]
+}

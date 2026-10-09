@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_12dcae5800b529d9",
+  "keys": [
+    "gold0903:8b6399b684eb4b6a9eb6beac9f41f820",
+    "gold0903:f3cdb8b816ba422dafa1d3cf6c987901"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "外观可能与施工相关，但不能据此确认属于违建。",
+      "observedObject": "蓝色围挡及其后方的杂草、施工或堆放区域。",
+      "imageLimitation": "目标区域可见，但仅凭图像无法确认是否有审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "无法仅凭图像判断是否为未经审批的建筑或构筑物。",
+      "observedObject": "蓝色围挡附近的局部设施或堆放物。",
+      "imageLimitation": "目标较小，且被标注框和文字部分遮挡，无法确认其性质。"
+    }
+  ],
+  "elapsed": 14.984373115003109,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516499.0718763,
+      "status": "ok",
+      "elapsed": 14.959891868988052
+    }
+  ]
+}

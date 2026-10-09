@@ -1,0 +1,33 @@
+{
+  "unit": "g0903_12dcae5800b529d9",
+  "keys": [
+    "gold0903:8b6399b684eb4b6a9eb6beac9f41f820",
+    "gold0903:f3cdb8b816ba422dafa1d3cf6c987901"
+  ],
+  "success": true,
+  "results": [
+    {
+      "target_index": 0,
+      "rawDecision": "uncertain",
+      "reasoning": "未见足以证明违法建设属性的明确结构或审批依据，不能将围挡或杂物直接判定为违建。",
+      "observedObject": "蓝色围挡及围挡后的绿地、杂物",
+      "imageLimitation": "框内主要是蓝色围挡、绿地和杂物，无法仅凭画面确认是否存在违建及其审批或区域业务依据。"
+    },
+    {
+      "target_index": 1,
+      "rawDecision": "uncertain",
+      "reasoning": "没有审批或区域业务依据，且画面不足以唯一确认违法建设属性，因此不能判定为符合类别。",
+      "observedObject": "蓝色围挡及杂物区域",
+      "imageLimitation": "框内可见蓝色围挡和附近杂物，目标范围较小，无法确认是否为违建。"
+    }
+  ],
+  "elapsed": 14.975570406066254,
+  "attempts": [
+    {
+      "attempt": 1,
+      "started": 1791516499.8060348,
+      "status": "ok",
+      "elapsed": 14.954938964219764
+    }
+  ]
+}
