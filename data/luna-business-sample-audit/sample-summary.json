@@ -1,0 +1,41 @@
+{
+  "seed": 20261011,
+  "selection": "hash order, event round-robin, max 60 per class; no model decisions or old labels used",
+  "recent_window": [
+    "2026-09-25",
+    "2026-10-11"
+  ],
+  "recent_window_amendment": "initial Oct08-11 had only four events; metadata-only expansion before selection",
+  "diagnostic_counts": {
+    "人员": 5,
+    "违建": 11,
+    "道路裂纹": 60
+  },
+  "diagnostic_events": 45,
+  "recent_reserved_counts": {
+    "违建": 2,
+    "人员": 7
+  },
+  "recent_reserved_events": 5,
+  "certified_fresh_blind_samples": 0,
+  "exclusions": {
+    "人员:historical_holdout_task": 66,
+    "违建:historical_holdout_task": 3,
+    "违建:missing_local_source_manifest": 1,
+    "人员:unknown_task": 31,
+    "违建:unknown_task": 88,
+    "道路裂纹:clean_match_not_verified": 2,
+    "违建:clean_match_not_verified": 91,
+    "人员:clean_match_not_verified": 10,
+    "recent:invalid_boxes": 1
+  },
+  "holdout_tasks_known": 37,
+  "historical_items_without_task": 189,
+  "label_status": "all blank; no human gold created",
+  "media_fetch_count": 197,
+  "negative_sample_status": "candidate queue only; actual negatives require human labeling",
+  "historical_split_overlap_excluded": {
+    "dev": 67,
+    "unlabeled": 2
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "snapshot": "2026-10-11 01:41:29",
+  "transaction_read_only": 1,
+  "transaction_end": "rollback",
+  "events": 16,
+  "database_verified": 16,
+  "boxes": 72,
+  "confirmed": 55,
+  "rejected": 17,
+  "page_verified": 0,
+  "attempts": 17,
+  "unique_worker_and_terminal_and_api_matches": 17,
+  "attempt_statuses": {
+    "ok": 16,
+    "503": 1
+  },
+  "api_match_tolerance_ms": 50,
+  "worker_versions": [
+    "p000-pure-class-cards"
+  ],
+  "association_basis": "unique submission/start time + candidate count/classes + terminal/end time + API response; no shared end-to-end ID",
+  "historical_inputs_limit": "current input verified against persisted result geometry; no captured original request body"
+}
