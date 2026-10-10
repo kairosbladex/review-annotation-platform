@@ -1,0 +1,54 @@
+{
+ "class_name": "光斑",
+ "allow_still": true,
+ "qualification": "clean_usable_for_inference；指定类别时照片优先于视频",
+ "snapshot_events": 100,
+ "snapshot_boxes": 281,
+ "included_events": 37,
+ "included_boxes": 93,
+ "excluded_events": 63,
+ "sample_source_counts": {
+  "new": 93
+ },
+ "source_kind_box_counts": {
+  "still": 14,
+  "video": 79
+ },
+ "source_size_box_counts": {
+  "1280x1024:T": 12,
+  "1920x1080": 79,
+  "4032x3024:W": 2
+ },
+ "duplicate_events": [
+  "970b29cf52504f118389901d9604b513",
+  "9b28aa822901424ba435fe7845ce6c2d",
+  "a045a31c84aa43fabb54f3dcb2d45f84",
+  "cff626a7901d4644ac92ee487c417a54"
+ ],
+ "outside_boxes": [
+  "6f94e04545e24061abb67f1841546c13:000",
+  "6f94e04545e24061abb67f1841546c13:001",
+  "75eda058d13b4e868b3e4d4f0d800519:000",
+  "970b29cf52504f118389901d9604b513:000",
+  "970b29cf52504f118389901d9604b513:001",
+  "cae44fbbdeb345ee88004001bbd2ba1c:001",
+  "cae44fbbdeb345ee88004001bbd2ba1c:002",
+  "cae44fbbdeb345ee88004001bbd2ba1c:003",
+  "cae44fbbdeb345ee88004001bbd2ba1c:009",
+  "e27d1b417bea4e66b019fcbdf4bc8750:001",
+  "e27d1b417bea4e66b019fcbdf4bc8750:002"
+ ],
+ "excluded_reason_counts": {
+  "快照没有原照片或原视频": 40,
+  "照片不合格：几何预检未过；没有视频匹配记录": 8,
+  "照片不合格：候选区域或整图相关不够；没有视频匹配记录": 2,
+  "照片不合格：候选区域或整图相关不够；视频不合格：整图相关低于 0.80": 4,
+  "全部框投影后不在原图内": 4,
+  "照片不合格：候选区域或整图相关不够；视频不合格：几何预检未过": 4,
+  "没有照片匹配记录；视频不合格：几何预检未过": 1
+ },
+ "autotune_index_boxes": {
+  "dev": 22,
+  "holdout": 6
+ }
+}

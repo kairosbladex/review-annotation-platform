@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><title>光斑原图复标</title>
+<style>
+body{font-family:-apple-system,"PingFang SC",sans-serif;margin:16px;background:#f6f6f6;color:#222}
+.rule{background:#fff;padding:8px 12px;border-radius:6px;font-size:14px;line-height:1.6;margin-bottom:10px}
+.imgs{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.imgs figure{margin:0;background:#fff;padding:6px;border-radius:6px}
+figcaption{font-size:13px;color:#555;margin-top:4px}
+.bar{margin:12px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button{font-size:15px;padding:6px 14px;border-radius:6px;border:1px solid #888;background:#fff;cursor:pointer}
+button.on{background:#1f6feb;color:#fff;border-color:#1f6feb}
+#note{width:320px;font-size:14px;padding:5px}
+#pos{font-weight:600}
+.tag{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:10px;background:#eee;font-weight:500;font-size:13px}
+.tag.used{background:#fff3cd}
+</style></head><body>
+<div class="rule"><b>光斑</b> = 光伏板组件表面的<b>局部异常亮斑</b>。
+<b>不是</b>：不在光伏板上的一律不是；整片组件均匀发亮（整体反光）不是。看不清就选“看不清”，不要猜。<br>
+黄框是要判断的位置。左边两张是同一区域：平台截图局部，以及原图局部（放大）。右边是原图更大范围，用来判断亮斑在不在光伏板组件上、是不是整片反光。页面不显示截图上的旧标签，也不显示模型给出的判断。</div>
+<div class="bar"><span id="pos"></span><span id="src" class="tag"></span>
+<button data-l="是光斑">1 是光斑</button><button data-l="不是光斑">2 不是光斑</button><button data-l="看不清">3 看不清</button>
+<input id="note" placeholder="备注（可选，回车保存）"><button id="prev">← 上一个</button><button id="next">下一个 →</button><span id="msg"></span></div>
+<div class="imgs">
+<figure><img id="cmp" width="728"><figcaption id="cap">左：截图局部　右：原图局部（同一位置，放大）</figcaption></figure>
+<figure><img id="ctx" width="480"><figcaption id="ctxcap">原图大范围</figcaption></figure>
+</div>
+<script>
+let rows=[], i=0;
+const SOURCE = {autotune_dev:'自动迭代 dev（写过卡的样本）', autotune_holdout:'自动迭代 holdout（写过卡的样本）', new:'新样本'};
+async function load(){
+  rows = (await (await fetch('/api/rows')).json()).rows;
+  i = Math.max(0, rows.findIndex(r => !r.label));
+  if (i < 0) i = 0;
+  show();
+}
+function mediaName(r){
+  const size = (r.source_width && r.source_height) ? (r.source_width + '×' + r.source_height + ' ') : '';
+  if (r.source_kind === 'still' && r.source_visual === 'T') return size + '热成像照片';
+  if (r.source_kind === 'still') return size + '照片';
+  if (r.source_kind === 'video') return size + '原视频帧';
+  return '原图';
+}
+function show(){
+  const r = rows[i];
+  document.getElementById('cmp').src = '/images/compare/' + r.key + '.jpg';
+  document.getElementById('ctx').src = '/images/context/' + r.key + '.jpg';
+  document.getElementById('note').value = r.note || '';
+  const done = rows.filter(x => x.label).length;
+  document.getElementById('pos').textContent = `第 ${i + 1}/${rows.length} 框 · 已标 ${done}`;
+  const src = document.getElementById('src');
+  let text = SOURCE[r.sample_source] || r.sample_source || '新样本';
+  if (r.duplicate_of) text += ` · 与 ${r.duplicate_of} 是同一张截图`;
+  src.textContent = text;
+  src.classList.toggle('used', r.sample_source && r.sample_source !== 'new');
+  const name = mediaName(r);
+  document.getElementById('cap').textContent = `左：截图局部　右：${name}局部（同一位置，放大）`;
+  document.getElementById('ctxcap').textContent = `${name}大范围`;
+  document.querySelectorAll('button[data-l]').forEach(b => b.classList.toggle('on', b.dataset.l === r.label));
+}
+async function mark(label){
+  const r = rows[i];
+  const note = document.getElementById('note').value;
+  const res = await fetch('/api/label', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({key:r.key, label, note})});
+  if (!res.ok){ document.getElementById('msg').textContent = '保存失败'; return; }
+  r.label = label; r.note = note;
+  document.getElementById('msg').textContent = '已保存';
+  if (i < rows.length - 1) i++;
+  show();
+}
+document.querySelectorAll('button[data-l]').forEach(b => b.onclick = () => mark(b.dataset.l));
+document.getElementById('prev').onclick = () => { if (i > 0){ i--; show(); } };
+document.getElementById('next').onclick = () => { if (i < rows.length - 1){ i++; show(); } };
+document.addEventListener('keydown', e => {
+  if (e.target.id === 'note'){
+    if (e.key === 'Enter' && rows[i].label) mark(rows[i].label);
+    return;
+  }
+  if (e.key === '1') mark('是光斑');
+  if (e.key === '2') mark('不是光斑');
+  if (e.key === '3') mark('看不清');
+  if (e.key === 'ArrowLeft' && i > 0){ i--; show(); }
+  if (e.key === 'ArrowRight' && i < rows.length - 1){ i++; show(); }
+});
+load();
+</script></body></html>
