@@ -1,0 +1,249 @@
+{
+  "captured_at": "2026-10-10T04:54:47.776380+00:00",
+  "device": "AF5AFA566B175B72867FD565F9E5436B",
+  "start_inclusive": "2026-10-08 00:00:00",
+  "connection": {
+    "host": "192.168.110.10",
+    "port": 33066,
+    "database": "ktd_lx"
+  },
+  "queries": [
+    {
+      "name": "identity",
+      "sql": "SELECT DATABASE() db,@@hostname server,@@port port,NOW() db_now,@@session.transaction_read_only readonly",
+      "params": [],
+      "rows": [
+        {
+          "db": "ktd_lx",
+          "server": "Test-Mysql",
+          "port": 33066,
+          "db_now": "2026-10-10 12:54:47",
+          "readonly": 1
+        }
+      ]
+    },
+    {
+      "name": "event_extent",
+      "sql": "SELECT COUNT(*) n,MAX(event_time) latest_event,MAX(create_time) latest_create FROM bo_task_event",
+      "params": [],
+      "rows": [
+        {
+          "n": 8266,
+          "latest_event": "2026-10-09 16:17:53",
+          "latest_create": "2026-10-09 16:17:54"
+        }
+      ]
+    },
+    {
+      "name": "new_event_categories",
+      "sql": "SELECT upload_data_type,upload_data_type_name,COUNT(*) n FROM bo_task_event WHERE event_time >= %s GROUP BY 1,2",
+      "params": [
+        "2026-10-08"
+      ],
+      "rows": [
+        {
+          "upload_data_type": "202608120204",
+          "upload_data_type_name": "车辆识别",
+          "n": 11
+        }
+      ]
+    },
+    {
+      "name": "historical_crack_categories",
+      "sql": "SELECT upload_data_type,upload_data_type_name,COUNT(*) n,MAX(event_time) latest_event,MAX(create_time) latest_create FROM bo_task_event WHERE upload_data_type_name LIKE %s GROUP BY 1,2",
+      "params": [
+        "%裂%"
+      ],
+      "rows": [
+        {
+          "upload_data_type": "202609211957",
+          "upload_data_type_name": "路面裂纹",
+          "n": 57,
+          "latest_event": "2026-09-24 16:28:43",
+          "latest_create": "2026-09-24 16:28:46"
+        },
+        {
+          "upload_data_type": "20260721009",
+          "upload_data_type_name": "路面裂纹识别",
+          "n": 24,
+          "latest_event": "2026-08-24 17:44:04",
+          "latest_create": "2026-08-24 17:44:10"
+        },
+        {
+          "upload_data_type": "1990016",
+          "upload_data_type_name": "路面裂纹识别",
+          "n": 5,
+          "latest_event": "2026-07-02 15:14:41",
+          "latest_create": "2026-07-02 15:14:41"
+        },
+        {
+          "upload_data_type": "202602260084",
+          "upload_data_type_name": "路面裂纹识别",
+          "n": 1,
+          "latest_event": "2026-04-20 13:50:08",
+          "latest_create": "2026-04-20 13:50:22"
+        }
+      ]
+    },
+    {
+      "name": "newly_created_categories",
+      "sql": "SELECT upload_data_type,upload_data_type_name,COUNT(*) n,MIN(event_time) earliest_event,MAX(event_time) latest_event FROM bo_task_event WHERE create_time >= %s GROUP BY 1,2",
+      "params": [
+        "2026-10-08"
+      ],
+      "rows": [
+        {
+          "upload_data_type": "202608120204",
+          "upload_data_type_name": "车辆识别",
+          "n": 11,
+          "earliest_event": "2026-10-08 14:35:58",
+          "latest_event": "2026-10-09 16:17:53"
+        }
+      ]
+    },
+    {
+      "name": "new_crack_events_all_devices",
+      "sql": "SELECT id,event_time,create_time,terminal_id,task_id,upload_data_type,upload_data_type_name,imgxy FROM bo_task_event WHERE (event_time >= %s OR create_time >= %s) AND (upload_data_type_name LIKE %s OR upload_data_type IN (SELECT DISTINCT upload_data_type FROM bo_task_event WHERE upload_data_type_name LIKE %s)) ORDER BY event_time,id",
+      "params": [
+        "2026-10-08",
+        "2026-10-08",
+        "%裂%",
+        "%裂%"
+      ],
+      "rows": []
+    },
+    {
+      "name": "device_new_annex_summary",
+      "sql": "SELECT busi_type_code,file_type,COUNT(*) n,MIN(create_time) earliest,MAX(create_time) latest,SUM(imgxy IS NOT NULL AND imgxy <> '') with_boxes FROM sys_annex_file WHERE file_path LIKE %s AND (create_time >= %s OR file_path LIKE %s OR file_path LIKE %s OR file_path LIKE %s) GROUP BY 1,2",
+      "params": [
+        "%AF5AFA566B175B72867FD565F9E5436B%",
+        "2026-10-08",
+        "%/20261008/%",
+        "%/20261009/%",
+        "%/20261010/%"
+      ],
+      "rows": [
+        {
+          "busi_type_code": "CKIMG",
+          "file_type": ".JPG",
+          "n": 101,
+          "earliest": "2026-10-08 14:39:52",
+          "latest": "2026-10-09 13:49:34",
+          "with_boxes": "0"
+        },
+        {
+          "busi_type_code": "CKIMG",
+          "file_type": ".mp4",
+          "n": 42,
+          "earliest": "2026-10-08 10:50:00",
+          "latest": "2026-10-09 16:54:06",
+          "with_boxes": "0"
+        },
+        {
+          "busi_type_code": "PRIMARYIMG",
+          "file_type": ".JPG",
+          "n": 6,
+          "earliest": "2026-10-08 18:01:03",
+          "latest": "2026-10-08 18:01:07",
+          "with_boxes": "6"
+        }
+      ]
+    },
+    {
+      "name": "device_new_shots",
+      "sql": "SELECT id,busi_id,event_id,busi_type_code,file_type,file_path,create_time,date_time_original,imgxy FROM sys_annex_file WHERE file_path LIKE %s AND (create_time >= %s OR file_path LIKE %s OR file_path LIKE %s OR file_path LIKE %s) AND (busi_type_code='SHOTIMG' OR file_type='SHOTIMG') ORDER BY create_time,id",
+      "params": [
+        "%AF5AFA566B175B72867FD565F9E5436B%",
+        "2026-10-08",
+        "%/20261008/%",
+        "%/20261009/%",
+        "%/20261010/%"
+      ],
+      "rows": []
+    },
+    {
+      "name": "new_shot_event_links",
+      "sql": "SELECT e.upload_data_type_name,a.busi_type_code,COUNT(*) n FROM sys_annex_file a JOIN bo_task_event e ON a.busi_id=e.id OR a.event_id=e.id WHERE e.event_time >= %s GROUP BY 1,2",
+      "params": [
+        "2026-10-08"
+      ],
+      "rows": [
+        {
+          "upload_data_type_name": "车辆识别",
+          "busi_type_code": "PRIMARYIMG",
+          "n": 11
+        },
+        {
+          "upload_data_type_name": "车辆识别",
+          "busi_type_code": "SHOTIMG",
+          "n": 11
+        }
+      ]
+    },
+    {
+      "name": "device_new_boxed_annex",
+      "sql": "SELECT id,busi_id,event_id,busi_type_code,file_path,create_time,imgxy FROM sys_annex_file WHERE file_path LIKE %s AND create_time >= %s AND imgxy IS NOT NULL AND imgxy <> '' ORDER BY create_time,id",
+      "params": [
+        "%AF5AFA566B175B72867FD565F9E5436B%",
+        "2026-10-08"
+      ],
+      "rows": [
+        {
+          "id": "592d105457dd442989268537e569c78f",
+          "busi_id": "12cc8600219042cd9811b82f8ad4cabb",
+          "event_id": null,
+          "busi_type_code": "PRIMARYIMG",
+          "file_path": "/zm-zq-test/ktdTest/AF5AFA566B175B72867FD565F9E5436B/20261008/469615565442916608/DJI_20261008143717_0003_W_P2A3.JPG",
+          "create_time": "2026-10-08 18:01:03",
+          "imgxy": "[{\"frame_width\":4032,\"confidence\":0.6397355198860168,\"x\":1743,\"width\":33,\"y\":586,\"frame_height\":3024,\"class_name\":\"两轮车\",\"box_format\":\"xywh_top_left\",\"height\":80},{\"frame_width\":4032,\"confidence\":0.8774785399436951,\"x\":1920,\"width\":63,\"y\":601,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":144},{\"frame_width\":4032,\"confidence\":0.8615355491638184,\"x\":2545,\"width\":124,\"y\":1320,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":76}]"
+        },
+        {
+          "id": "df898d6379e7494d9abc879938fd9747",
+          "busi_id": "faa4e8c65ad041b886159dc7b877b866",
+          "event_id": null,
+          "busi_type_code": "PRIMARYIMG",
+          "file_path": "/zm-zq-test/ktdTest/AF5AFA566B175B72867FD565F9E5436B/20261008/469615833778495744/DJI_20261008145326_0002_W_P1A3.JPG",
+          "create_time": "2026-10-08 18:01:03",
+          "imgxy": "[{\"frame_width\":4032,\"confidence\":0.85584956407547,\"x\":122,\"width\":253,\"y\":1044,\"frame_height\":3024,\"class_name\":\"公交车\",\"box_format\":\"xywh_top_left\",\"height\":76},{\"frame_width\":4032,\"confidence\":0.8499711751937866,\"x\":1769,\"width\":92,\"y\":1427,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":93},{\"frame_width\":4032,\"confidence\":0.8723500967025757,\"x\":2483,\"width\":126,\"y\":2009,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":53},{\"frame_width\":4032,\"confidence\":0.6187803745269775,\"x\":3248,\"width\":100,\"y\":207,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":48}]"
+        },
+        {
+          "id": "4abe9d78ef3342b3bba813e99fac024b",
+          "busi_id": "2676d8d9d4524c59a20c2d615978218e",
+          "event_id": null,
+          "busi_type_code": "PRIMARYIMG",
+          "file_path": "/zm-zq-test/ktdTest/AF5AFA566B175B72867FD565F9E5436B/20261008/469615833778495744/DJI_20261008145424_0003_W_P2A3.JPG",
+          "create_time": "2026-10-08 18:01:04",
+          "imgxy": "[{\"frame_width\":4032,\"confidence\":0.613236665725708,\"x\":2034,\"width\":56,\"y\":1814,\"frame_height\":3024,\"class_name\":\"两轮车\",\"box_format\":\"xywh_top_left\",\"height\":33},{\"frame_width\":4032,\"confidence\":0.852936863899231,\"x\":2826,\"width\":139,\"y\":1286,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":57},{\"frame_width\":4032,\"confidence\":0.7446573972702026,\"x\":3064,\"width\":130,\"y\":1285,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":56}]"
+        },
+        {
+          "id": "597cd21c43c045f9b710d68eb515f0c3",
+          "busi_id": "4994f203ff8f4ec9af01a40c2fd7b5c5",
+          "event_id": null,
+          "busi_type_code": "PRIMARYIMG",
+          "file_path": "/zm-zq-test/ktdTest/AF5AFA566B175B72867FD565F9E5436B/20261008/469615565442916608/DJI_20261008143558_0001_W_P0A3.JPG",
+          "create_time": "2026-10-08 18:01:04",
+          "imgxy": "[{\"frame_width\":4032,\"confidence\":0.8376206755638123,\"x\":375,\"width\":71,\"y\":225,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":91},{\"frame_width\":4032,\"confidence\":0.6654106378555298,\"x\":1656,\"width\":49,\"y\":165,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":98}]"
+        },
+        {
+          "id": "2a62a7d508f847e692a935f33d867709",
+          "busi_id": "8841695d7d6747cfb628b171b9ab8624",
+          "event_id": null,
+          "busi_type_code": "PRIMARYIMG",
+          "file_path": "/zm-zq-test/ktdTest/AF5AFA566B175B72867FD565F9E5436B/20261008/469615833778495744/DJI_20261008145305_0001_W_P0A3.JPG",
+          "create_time": "2026-10-08 18:01:07",
+          "imgxy": "[{\"frame_width\":4032,\"confidence\":0.613236665725708,\"x\":1753,\"width\":58,\"y\":2625,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":122},{\"frame_width\":4032,\"confidence\":0.808067798614502,\"x\":1802,\"width\":56,\"y\":2478,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":127},{\"frame_width\":4032,\"confidence\":0.8175766468048096,\"x\":2075,\"width\":62,\"y\":2424,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":129}]"
+        },
+        {
+          "id": "7e98ba3913b34aa1a45d7092cb955bc7",
+          "busi_id": "c0630e05067942cf94639e3a011fd60b",
+          "event_id": null,
+          "busi_type_code": "PRIMARYIMG",
+          "file_path": "/zm-zq-test/ktdTest/AF5AFA566B175B72867FD565F9E5436B/20261008/469615565442916608/DJI_20261008143620_0002_W_P1A3.JPG",
+          "create_time": "2026-10-08 18:01:07",
+          "imgxy": "[{\"frame_width\":4032,\"confidence\":0.8577655553817749,\"x\":2479,\"width\":137,\"y\":2008,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":55},{\"frame_width\":4032,\"confidence\":0.6825742125511169,\"x\":3231,\"width\":92,\"y\":203,\"frame_height\":3024,\"class_name\":\"车\",\"box_format\":\"xywh_top_left\",\"height\":47}]"
+        }
+      ]
+    }
+  ],
+  "transaction_end": "ROLLBACK"
+}
