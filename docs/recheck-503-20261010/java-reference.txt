@@ -26,7 +26,7 @@ biz-inspection/src/main/java/com/fan/framework/inspection/recheck/service/impl/T
 820:             throw ex;
 821:         }
 822:     }
-823: 
+823:
 1032:     private List<RecheckImageSubmitContext> buildRecheckImageSubmitContexts(String eventId, TaskEvent taskEvent) {
 1033:         List<AnnexFile> fileList = annexFileService.findFullByBusiId(eventId);
 1034:         List<AnnexFile> shotImages = fileList.stream()
