@@ -1,0 +1,31 @@
+{
+  "purpose": "development_factorial_only_no_release",
+  "repeat": 2,
+  "conditions": {
+    "p000": "baseline prompt + legacy sheet",
+    "repair": "new card + legacy sheet",
+    "context": "baseline prompt + added context row",
+    "repair_context": "new card + added context row"
+  },
+  "modes": [
+    "screenshot",
+    "original"
+  ],
+  "planned_calls": 112,
+  "selection": "Compare each factor under fixed other factors. No final gate or integration without new independent labeled holdout. No post-result card revision in this run.",
+  "files": {
+    "labels.json": "57b029be48631babdc8470ba78f3d0610de3d083f05e6a2ff94afc8cc015fde6",
+    "fresh-data-inventory.json": "1a5b7a766d496fd29b6ec651825a2a3fd6f1be2b97759d63e9b4aeaa93b1d763",
+    "cards.json": "64c745854e6b21521a5fde8ea9c0860829d74c2a29d5022f5ca6c2c098c53fbc",
+    "split.json": "952850c96253676173b9c61f7b01a4585a8d93813425036a7e67507bac4fbe52",
+    "source/check_originals.py": "81da2534ca817ed527127ededa11ce9da9de3928392237e655d7f937e7d44261",
+    "source/experiment_worker.py": "a4a1ab5cbe9823549eb2b239b7f4bf6f9bb86be2e1d9bf86a3209f07ce783b33",
+    "source/production_worker.py": "3884f658862294bce0744ca170c5e1ee4324b24652eb5d1fa4d587171522060b",
+    "source/test_repair.py": "ef75cdf858becc7dea2b8ba67ecae128189b00e48bdfcb536a83d7966c45a8d3",
+    "source/evaluate.py": "745795a3c72b75ca5ac5f3a79f20c480a1e9314aeab1d0e1327682272ac15d94",
+    "source/input_views.py": "d2944ca97c1a3d86082503dbca5750bdd2495aa3ce934418f1a85bea28d58b14",
+    "source/inventory.py": "b0e08959b7f902b11e61f7ab54e4147eed2b330206e6d77680812b0a173fb11d",
+    "source/luna_prompts/p000.json": "0f265c686c73c751c545d440e3e3e5a1de7cc8206ca86c73e6710412f70e67e9",
+    "source/luna_prompts/p002.json": "8da46d8cf25ce51c92291e586561e0cedfa7c268dd3d03bb824f22e7366ffa45"
+  }
+}

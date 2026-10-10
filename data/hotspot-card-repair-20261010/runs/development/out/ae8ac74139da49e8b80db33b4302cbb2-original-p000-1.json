@@ -1,0 +1,44 @@
+{
+  "event_id": "ae8ac74139da49e8b80db33b4302cbb2",
+  "mode": "original",
+  "card": "p000",
+  "repeat": 1,
+  "keys": [
+    "ae8ac74139da49e8b80db33b4302cbb2_000"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "候选框内为太阳能光伏板表面的规则深色组件区域，无明显光斑目标。",
+        "reasoning": "该区域具有连续、规则的光伏组件纹理，不符合光斑类别；未将框线作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "cebfa9ff64f042adabffb4ecd1ca8714",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 22.605266579892486,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.7790699381862689, 0.43620149718388596, 0.7881413924549691, 0.44990944139498396]}]",
+  "prompt_sha256": "4b14f3712483f527dc4a45f0ef8f8813a5489a6533b33f278c3a378b6af8ce91",
+  "image_sha256": "c4147de948a0918fb17d1bb7eaeea839b57f286d272250ed2aa1a0c16b1e0b5a",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.7790699381862689,
+        0.43620149718388596,
+        0.7881413924549691,
+        0.44990944139498396
+      ]
+    }
+  ]
+}

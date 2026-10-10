@@ -1,0 +1,20 @@
+{
+  "scope": "/data/workspace/jzheng/codex-ktd-real-monitoring-20260924",
+  "counts": {
+    "pure_hotspot_events": 100,
+    "known_exposed_event": 58,
+    "duplicate_exposed_image": 2,
+    "same_task_as_exposed": 39,
+    "candidate_events": 1
+  },
+  "candidates": [
+    {
+      "event_id": "e12ace4ff4dd49e89d29743f7e6ef086",
+      "task_id": "8c51cd75e7b74b7caa7209a7f808ebfa",
+      "boxes": 1,
+      "status": "needs_source_lineage_and_human_labels"
+    }
+  ],
+  "new_human_labels_available": false,
+  "limitation": "Only this existing snapshot audited; zero does not mean no new data exists elsewhere."
+}

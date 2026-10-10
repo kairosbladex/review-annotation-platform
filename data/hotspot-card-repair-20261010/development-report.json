@@ -1,0 +1,423 @@
+{
+  "stage": "development",
+  "calls": 112,
+  "metrics": [
+    {
+      "mode": "original",
+      "card": "context",
+      "repeat": 1,
+      "n": 20,
+      "correct": 17,
+      "uncertain": 0,
+      "false_reject": 2,
+      "explicit_false_reject": 2,
+      "false_accept": 1,
+      "accuracy": 0.85
+    },
+    {
+      "mode": "original",
+      "card": "context",
+      "repeat": 2,
+      "n": 20,
+      "correct": 18,
+      "uncertain": 0,
+      "false_reject": 1,
+      "explicit_false_reject": 1,
+      "false_accept": 1,
+      "accuracy": 0.9
+    },
+    {
+      "mode": "original",
+      "card": "p000",
+      "repeat": 1,
+      "n": 20,
+      "correct": 17,
+      "uncertain": 0,
+      "false_reject": 2,
+      "explicit_false_reject": 2,
+      "false_accept": 1,
+      "accuracy": 0.85
+    },
+    {
+      "mode": "original",
+      "card": "p000",
+      "repeat": 2,
+      "n": 20,
+      "correct": 18,
+      "uncertain": 0,
+      "false_reject": 1,
+      "explicit_false_reject": 1,
+      "false_accept": 1,
+      "accuracy": 0.9
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "repeat": 1,
+      "n": 20,
+      "correct": 16,
+      "uncertain": 4,
+      "false_reject": 2,
+      "explicit_false_reject": 0,
+      "false_accept": 0,
+      "accuracy": 0.8
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "repeat": 2,
+      "n": 20,
+      "correct": 13,
+      "uncertain": 5,
+      "false_reject": 5,
+      "explicit_false_reject": 2,
+      "false_accept": 0,
+      "accuracy": 0.65
+    },
+    {
+      "mode": "original",
+      "card": "repair_context",
+      "repeat": 1,
+      "n": 20,
+      "correct": 18,
+      "uncertain": 1,
+      "false_reject": 0,
+      "explicit_false_reject": 0,
+      "false_accept": 1,
+      "accuracy": 0.9
+    },
+    {
+      "mode": "original",
+      "card": "repair_context",
+      "repeat": 2,
+      "n": 20,
+      "correct": 17,
+      "uncertain": 3,
+      "false_reject": 1,
+      "explicit_false_reject": 0,
+      "false_accept": 0,
+      "accuracy": 0.85
+    },
+    {
+      "mode": "screenshot",
+      "card": "context",
+      "repeat": 1,
+      "n": 20,
+      "correct": 18,
+      "uncertain": 0,
+      "false_reject": 0,
+      "explicit_false_reject": 0,
+      "false_accept": 2,
+      "accuracy": 0.9
+    },
+    {
+      "mode": "screenshot",
+      "card": "context",
+      "repeat": 2,
+      "n": 20,
+      "correct": 19,
+      "uncertain": 0,
+      "false_reject": 0,
+      "explicit_false_reject": 0,
+      "false_accept": 1,
+      "accuracy": 0.95
+    },
+    {
+      "mode": "screenshot",
+      "card": "p000",
+      "repeat": 1,
+      "n": 20,
+      "correct": 17,
+      "uncertain": 1,
+      "false_reject": 1,
+      "explicit_false_reject": 1,
+      "false_accept": 1,
+      "accuracy": 0.85
+    },
+    {
+      "mode": "screenshot",
+      "card": "p000",
+      "repeat": 2,
+      "n": 20,
+      "correct": 15,
+      "uncertain": 4,
+      "false_reject": 4,
+      "explicit_false_reject": 0,
+      "false_accept": 1,
+      "accuracy": 0.75
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "repeat": 1,
+      "n": 20,
+      "correct": 9,
+      "uncertain": 10,
+      "false_reject": 9,
+      "explicit_false_reject": 0,
+      "false_accept": 1,
+      "accuracy": 0.45
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "repeat": 2,
+      "n": 20,
+      "correct": 9,
+      "uncertain": 10,
+      "false_reject": 9,
+      "explicit_false_reject": 0,
+      "false_accept": 1,
+      "accuracy": 0.45
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair_context",
+      "repeat": 1,
+      "n": 20,
+      "correct": 9,
+      "uncertain": 10,
+      "false_reject": 9,
+      "explicit_false_reject": 0,
+      "false_accept": 1,
+      "accuracy": 0.45
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair_context",
+      "repeat": 2,
+      "n": 20,
+      "correct": 9,
+      "uncertain": 10,
+      "false_reject": 9,
+      "explicit_false_reject": 0,
+      "false_accept": 1,
+      "accuracy": 0.45
+    }
+  ],
+  "paired": [
+    {
+      "mode": "screenshot",
+      "card": "context",
+      "clusters": 7,
+      "events": 7,
+      "n": 20,
+      "delta": [
+        0.125,
+        0.025,
+        -0.125,
+        -0.125
+      ],
+      "ci95": [
+        [
+          0.0,
+          0.36363636363636365
+        ],
+        [
+          0.0,
+          0.125
+        ],
+        [
+          -0.36363636363636365,
+          0.0
+        ],
+        [
+          -0.36666666666666664,
+          0.0
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "clusters": 7,
+      "events": 7,
+      "n": 20,
+      "delta": [
+        -0.35,
+        0.0,
+        0.325,
+        0.375
+      ],
+      "ci95": [
+        [
+          -0.8,
+          -0.09375
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.07352941176470588,
+          0.7727272727272727
+        ],
+        [
+          0.109375,
+          0.8636363636363636
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair_context",
+      "clusters": 7,
+      "events": 7,
+      "n": 20,
+      "delta": [
+        -0.35,
+        0.0,
+        0.325,
+        0.375
+      ],
+      "ci95": [
+        [
+          -0.8,
+          -0.09375
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.07352941176470588,
+          0.7727272727272727
+        ],
+        [
+          0.109375,
+          0.8636363636363636
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "context",
+      "clusters": 7,
+      "events": 7,
+      "n": 20,
+      "delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ci95": [
+        [
+          -0.1,
+          0.1
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -0.1,
+          0.1
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "clusters": 7,
+      "events": 7,
+      "n": 20,
+      "delta": [
+        -0.15,
+        -0.05,
+        0.1,
+        0.225
+      ],
+      "ci95": [
+        [
+          -0.4666666666666667,
+          0.16666666666666666
+        ],
+        [
+          -0.09090909090909091,
+          0.0
+        ],
+        [
+          -0.25,
+          0.36363636363636365
+        ],
+        [
+          0.05263157894736842,
+          0.40625
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "repair_context",
+      "clusters": 7,
+      "events": 7,
+      "n": 20,
+      "delta": [
+        0.0,
+        -0.025,
+        -0.05,
+        0.1
+      ],
+      "ci95": [
+        [
+          -0.17647058823529413,
+          0.25
+        ],
+        [
+          -0.045454545454545456,
+          0.0
+        ],
+        [
+          -0.3333333333333333,
+          0.03571428571428571
+        ],
+        [
+          0.0,
+          0.2727272727272727
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    }
+  ],
+  "transport_retries": 1
+}
