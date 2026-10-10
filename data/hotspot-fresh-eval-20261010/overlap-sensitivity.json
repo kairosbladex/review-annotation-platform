@@ -1,0 +1,319 @@
+{
+  "method": "IoU>=0.5 connected groups; average decisions within each group and repetitions, then paired cluster bootstrap. Geometric sensitivity only; groups are not confirmed unique objects.",
+  "metrics": [
+    {
+      "mode": "screenshot",
+      "card": "p000",
+      "repeat": 1,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.8214285714285714,
+        0.17857142857142858,
+        0.09523809523809523
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "p000",
+      "repeat": 2,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.8095238095238095,
+        0.19047619047619047,
+        0.14285714285714285
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "repeat": 1,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.38095238095238093,
+        0.6190476190476191,
+        0.36904761904761907
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "repeat": 2,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.25,
+        0.75,
+        0.35714285714285715
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "repeat": 1,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.25,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "repeat": 2,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.2261904761904762,
+        0.7738095238095238,
+        0.75
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "p000",
+      "repeat": 1,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.9642857142857143,
+        0.03571428571428571,
+        0.011904761904761904
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "p000",
+      "repeat": 2,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.9642857142857143,
+        0.03571428571428571,
+        0.011904761904761904
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "repeat": 1,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.9047619047619048,
+        0.09523809523809523,
+        0.011904761904761904
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "repeat": 2,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.8928571428571429,
+        0.10714285714285714,
+        0.047619047619047616
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "repeat": 1,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.9642857142857143,
+        0.03571428571428571,
+        0.03571428571428571
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "repeat": 2,
+      "regions": 84,
+      "order": [
+        "accuracy",
+        "false_reject_per_region",
+        "uncertain_per_region"
+      ],
+      "values": [
+        0.9404761904761905,
+        0.05952380952380952,
+        0.05952380952380952
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "cluster_field": "event_id",
+      "clusters": 29,
+      "delta": [
+        -0.5
+      ],
+      "ci95": [
+        [
+          -0.6752594055429108,
+          -0.313331325301205
+        ]
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "cluster_field": "task_id",
+      "clusters": 3,
+      "delta": [
+        -0.5
+      ],
+      "ci95": [
+        [
+          -0.5446428571428571,
+          -0.3125
+        ]
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "cluster_field": "event_id",
+      "clusters": 29,
+      "delta": [
+        -0.5773809523809523
+      ],
+      "ci95": [
+        [
+          -0.7380952380952381,
+          -0.39673444527736174
+        ]
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "cluster_field": "task_id",
+      "clusters": 3,
+      "delta": [
+        -0.5773809523809523
+      ],
+      "ci95": [
+        [
+          -0.6875,
+          -0.25
+        ]
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "cluster_field": "event_id",
+      "clusters": 29,
+      "delta": [
+        -0.06547619047619048
+      ],
+      "ci95": [
+        [
+          -0.14705882352941177,
+          -0.005153324216284567
+        ]
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "cluster_field": "task_id",
+      "clusters": 3,
+      "delta": [
+        -0.06547619047619048
+      ],
+      "ci95": [
+        [
+          -0.125,
+          -0.041666666666666664
+        ]
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "cluster_field": "event_id",
+      "clusters": 29,
+      "delta": [
+        -0.011904761904761904
+      ],
+      "ci95": [
+        [
+          -0.056962025316455694,
+          0.03225806451612903
+        ]
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "cluster_field": "task_id",
+      "clusters": 3,
+      "delta": [
+        -0.011904761904761904
+      ],
+      "ci95": [
+        [
+          -0.041666666666666664,
+          0.0
+        ]
+      ]
+    }
+  ]
+}

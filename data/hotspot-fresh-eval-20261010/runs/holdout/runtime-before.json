@@ -1,0 +1,27 @@
+{
+  "time": "2026-10-10T17:25:16.005113+08:00",
+  "limits": {
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "cpu.max": "300000 100000"
+  },
+  "host": {
+    "time": "2026-10-10T17:25:16.015823+08:00",
+    "available_fraction": 0.3712063746767864,
+    "swap_free_kb": 108,
+    "pswpout": 749332,
+    "load": [
+      15.2509765625,
+      12.73486328125,
+      9.57275390625
+    ],
+    "memory_current": 35946496,
+    "swap_current": 0
+  },
+  "shared": {
+    "model": "gpt-5.6-luna",
+    "max_concurrency": 20,
+    "policy": "only_true_is_true_v1",
+    "prompt_version": "p000-pure-class-cards"
+  }
+}

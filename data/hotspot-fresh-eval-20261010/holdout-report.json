@@ -1,0 +1,318 @@
+{
+  "stage": "holdout",
+  "calls": 348,
+  "metrics": [
+    {
+      "mode": "original",
+      "card": "p000",
+      "repeat": 1,
+      "n": 123,
+      "correct": 120,
+      "uncertain": 1,
+      "false_reject": 3,
+      "explicit_false_reject": 2,
+      "false_accept": 0,
+      "accuracy": 0.975609756097561
+    },
+    {
+      "mode": "original",
+      "card": "p000",
+      "repeat": 2,
+      "n": 123,
+      "correct": 120,
+      "uncertain": 1,
+      "false_reject": 3,
+      "explicit_false_reject": 2,
+      "false_accept": 0,
+      "accuracy": 0.975609756097561
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "repeat": 1,
+      "n": 123,
+      "correct": 115,
+      "uncertain": 1,
+      "false_reject": 8,
+      "explicit_false_reject": 7,
+      "false_accept": 0,
+      "accuracy": 0.9349593495934959
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "repeat": 2,
+      "n": 123,
+      "correct": 113,
+      "uncertain": 4,
+      "false_reject": 10,
+      "explicit_false_reject": 6,
+      "false_accept": 0,
+      "accuracy": 0.9186991869918699
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "repeat": 1,
+      "n": 123,
+      "correct": 120,
+      "uncertain": 3,
+      "false_reject": 3,
+      "explicit_false_reject": 0,
+      "false_accept": 0,
+      "accuracy": 0.975609756097561
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "repeat": 2,
+      "n": 123,
+      "correct": 116,
+      "uncertain": 7,
+      "false_reject": 7,
+      "explicit_false_reject": 0,
+      "false_accept": 0,
+      "accuracy": 0.943089430894309
+    },
+    {
+      "mode": "screenshot",
+      "card": "p000",
+      "repeat": 1,
+      "n": 123,
+      "correct": 103,
+      "uncertain": 10,
+      "false_reject": 20,
+      "explicit_false_reject": 10,
+      "false_accept": 0,
+      "accuracy": 0.8373983739837398
+    },
+    {
+      "mode": "screenshot",
+      "card": "p000",
+      "repeat": 2,
+      "n": 123,
+      "correct": 99,
+      "uncertain": 18,
+      "false_reject": 24,
+      "explicit_false_reject": 6,
+      "false_accept": 0,
+      "accuracy": 0.8048780487804879
+    },
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "repeat": 1,
+      "n": 123,
+      "correct": 47,
+      "uncertain": 41,
+      "false_reject": 76,
+      "explicit_false_reject": 35,
+      "false_accept": 0,
+      "accuracy": 0.3821138211382114
+    },
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "repeat": 2,
+      "n": 123,
+      "correct": 34,
+      "uncertain": 38,
+      "false_reject": 89,
+      "explicit_false_reject": 51,
+      "false_accept": 0,
+      "accuracy": 0.2764227642276423
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "repeat": 1,
+      "n": 123,
+      "correct": 27,
+      "uncertain": 96,
+      "false_reject": 96,
+      "explicit_false_reject": 0,
+      "false_accept": 0,
+      "accuracy": 0.21951219512195122
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "repeat": 2,
+      "n": 123,
+      "correct": 28,
+      "uncertain": 93,
+      "false_reject": 95,
+      "explicit_false_reject": 2,
+      "false_accept": 0,
+      "accuracy": 0.22764227642276422
+    }
+  ],
+  "paired": [
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "clusters": 29,
+      "events": 29,
+      "n": 123,
+      "delta": [
+        -0.491869918699187,
+        0.0,
+        0.491869918699187,
+        0.2073170731707317
+      ],
+      "ci95": [
+        [
+          -0.6875110815602837,
+          -0.275
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.275,
+          0.6875110815602827
+        ],
+        [
+          0.065886521812935,
+          0.3488372093023256
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    },
+    {
+      "mode": "screenshot",
+      "card": "repair",
+      "clusters": 29,
+      "events": 29,
+      "n": 123,
+      "delta": [
+        -0.5975609756097561,
+        0.0,
+        0.5975609756097561,
+        0.6544715447154471
+      ],
+      "ci95": [
+        [
+          -0.7615384615384615,
+          -0.3970550333535479
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.3970550333535476,
+          0.7615384615384615
+        ],
+        [
+          0.4702955563413484,
+          0.8119275856661177
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "clusters": 29,
+      "events": 29,
+      "n": 123,
+      "delta": [
+        -0.04878048780487805,
+        0.0,
+        0.04878048780487805,
+        0.012195121951219513
+      ],
+      "ci95": [
+        [
+          -0.11170369211514393,
+          -0.004032258064516129
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.004032258064516129,
+          0.11170369211514379
+        ],
+        [
+          -0.013888888888888888,
+          0.043010752688172046
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "repair",
+      "clusters": 29,
+      "events": 29,
+      "n": 123,
+      "delta": [
+        -0.016260162601626018,
+        0.0,
+        0.016260162601626018,
+        0.032520325203252036
+      ],
+      "ci95": [
+        [
+          -0.05803571428571429,
+          0.021369047619047486
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -0.021369047619047617,
+          0.05803571428571429
+        ],
+        [
+          -0.008264462809917356,
+          0.08088235294117647
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    }
+  ],
+  "transport_retries": 3,
+  "negative_gold_count": 0,
+  "gates": [
+    {
+      "card": "p001_p002",
+      "passed": false,
+      "accuracy_lower": -0.6875110815602837,
+      "false_accept_not_increased_each_repeat": null,
+      "limitation": "No negative gold; false-accept gate cannot be assessed"
+    },
+    {
+      "card": "repair",
+      "passed": false,
+      "accuracy_lower": -0.7615384615384615,
+      "false_accept_not_increased_each_repeat": null,
+      "limitation": "No negative gold; false-accept gate cannot be assessed"
+    }
+  ]
+}

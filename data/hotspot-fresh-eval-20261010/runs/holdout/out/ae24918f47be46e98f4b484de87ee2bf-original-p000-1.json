@@ -1,0 +1,62 @@
+{
+  "event_id": "ae24918f47be46e98f4b484de87ee2bf",
+  "mode": "original",
+  "card": "p000",
+  "repeat": 1,
+  "keys": [
+    "ae24918f47be46e98f4b484de87ee2bf_000",
+    "ae24918f47be46e98f4b484de87ee2bf_001"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "规则光伏板组件上的局部高亮光斑",
+        "reasoning": "候选框内可见明显高亮区域，符合光斑类别；框线及文字未作为判断依据。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "规则光伏板组件上的局部高亮光斑",
+        "reasoning": "候选框内可见明显高亮区域，符合光斑类别；框线及文字未作为判断依据。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "e2922ab65f014b089f226483cb0a4293",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 14.63098323578015,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.18913680614825495, 0.7596165091691617, 0.2709750827201112, 0.8046801904004491]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.19162527929523032, 0.7638706961077845, 0.218819913464392, 0.7952946645770957]}]",
+  "prompt_sha256": "153e140040058ab7a7db2dd585c2fae20b8b9f885faf44fdb89c20315980e2fc",
+  "image_sha256": "0fe5aa6c1ea192ea34385e839b5a761daf4fdb65c57f3975ce92aca509b8b723",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.18913680614825495,
+        0.7596165091691617,
+        0.2709750827201112,
+        0.8046801904004491
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.19162527929523032,
+        0.7638706961077845,
+        0.218819913464392,
+        0.7952946645770957
+      ]
+    }
+  ]
+}
