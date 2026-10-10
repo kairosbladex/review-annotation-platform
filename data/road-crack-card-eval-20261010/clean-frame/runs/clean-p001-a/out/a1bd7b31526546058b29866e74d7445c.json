@@ -1,0 +1,59 @@
+{
+ "unit": "a1bd7b31526546058b29866e74d7445c",
+ "success": true,
+ "results": [
+  {
+   "key": "a1bd7b31526546058b29866e74d7445c:000",
+   "raw": "false",
+   "reasoning": "框内线条边缘平直、宽度均匀且走向规整，不符合道路裂纹特征。",
+   "observed": "规则笔直的道路标线或接缝",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "a1bd7b31526546058b29866e74d7445c:001",
+   "raw": "false",
+   "reasoning": "线条规整笔直，宽度较均匀，属于道路设施线条而非路面开裂。",
+   "observed": "规则道路标线或接缝",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "a1bd7b31526546058b29866e74d7445c:002",
+   "raw": "false",
+   "reasoning": "框内为细直且规则的道路线条，不见不规则、分叉的裂缝形态。",
+   "observed": "道路中心线附近的规则线条",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "a1bd7b31526546058b29866e74d7445c:003",
+   "raw": "false",
+   "reasoning": "目标线条平直规整、边缘均匀，不符合沥青路面裂缝。",
+   "observed": "道路上的规则标线或接缝",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "a1bd7b31526546058b29866e74d7445c:004",
+   "raw": "false",
+   "reasoning": "框内线条形态规则，明显更像道路标线或接缝，不是自然开裂。",
+   "observed": "道路中心线附近的规则线条",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "a1bd7b31526546058b29866e74d7445c:005",
+   "raw": "false",
+   "reasoning": "线条宽度和边缘较均匀、走向规整，未见道路裂纹的参差或分叉特征。",
+   "observed": "道路上的规则线条",
+   "limitation": "目标清晰可见"
+  }
+ ],
+ "elapsed": 72.42,
+ "attempts": [
+  {
+   "status": "http_503",
+   "elapsed": 32.29
+  },
+  {
+   "status": "ok",
+   "elapsed": 20.06
+  }
+ ]
+}

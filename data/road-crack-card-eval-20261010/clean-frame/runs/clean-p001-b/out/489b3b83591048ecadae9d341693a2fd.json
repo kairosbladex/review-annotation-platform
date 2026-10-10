@@ -1,0 +1,66 @@
+{
+ "unit": "489b3b83591048ecadae9d341693a2fd",
+ "success": true,
+ "results": [
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:000",
+   "raw": "false",
+   "reasoning": "位于道路路面上，但线条宽度均匀、边缘平直且颜色规则，符合车道标线特征。",
+   "observed": "黄色车道线",
+   "limitation": "目标为规则、笔直的黄色车道标线，不是路面裂缝。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:001",
+   "raw": "false",
+   "reasoning": "框内线条整体笔直规整、宽度均匀，不具备自然裂缝的参差、分叉或折线特征。",
+   "observed": "道路上的规则线状标线或接缝",
+   "limitation": "无明显遮挡。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:002",
+   "raw": "false",
+   "reasoning": "目标形态规则平直，属于道路设施线条，不是沥青或水泥路面本身的开裂。",
+   "observed": "路面规则标线/接缝",
+   "limitation": "无明显遮挡。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:003",
+   "raw": "false",
+   "reasoning": "线条边缘整齐、走向笔直且宽度较均匀，不符合道路裂纹特征。",
+   "observed": "道路上的规则线状标线或接缝",
+   "limitation": "无明显遮挡。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:004",
+   "raw": "false",
+   "reasoning": "框内为规则直线状痕迹，缺少裂缝常见的不规则走向、分叉和参差边缘。",
+   "observed": "道路上的规则线状标线或接缝",
+   "limitation": "无明显遮挡。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:005",
+   "raw": "false",
+   "reasoning": "目标为规整的黄色道路标线，颜色和形状均明显区别于路面裂缝。",
+   "observed": "道路上的黄色车道线",
+   "limitation": "无明显遮挡。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:006",
+   "raw": "false",
+   "reasoning": "框内主要是笔直、宽度均匀的黄色车道线，不是路面本身的裂缝。",
+   "observed": "黄色车道标线及其附近规则线条",
+   "limitation": "无明显遮挡。"
+  }
+ ],
+ "elapsed": 60.65,
+ "attempts": [
+  {
+   "status": "http_503",
+   "elapsed": 17.1
+  },
+  {
+   "status": "ok",
+   "elapsed": 23.51
+  }
+ ]
+}

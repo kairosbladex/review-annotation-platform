@@ -1,0 +1,41 @@
+{
+ "unit": "9175fd90fe1648219afe2a590971e3c0",
+ "success": true,
+ "results": [
+  {
+   "key": "9175fd90fe1648219afe2a590971e3c0:000",
+   "raw": "false",
+   "reasoning": "框内是宽度均匀、边缘平直的道路标线，不是沥青路面本身的不规则裂缝。",
+   "observed": "规则笔直的横向白色道路标线/标记。",
+   "limitation": "目标清晰可见。"
+  },
+  {
+   "key": "9175fd90fe1648219afe2a590971e3c0:001",
+   "raw": "false",
+   "reasoning": "线条规整、宽度均匀且颜色为白色，符合道路标线特征，不属于道路裂纹。",
+   "observed": "横向白色道路标线。",
+   "limitation": "目标清晰可见。"
+  },
+  {
+   "key": "9175fd90fe1648219afe2a590971e3c0:002",
+   "raw": "false",
+   "reasoning": "框内主要是笔直规整的黄色道路标线，不是路面开裂。",
+   "observed": "黄色道路中心线及其附近规则标线。",
+   "limitation": "目标清晰可见。"
+  },
+  {
+   "key": "9175fd90fe1648219afe2a590971e3c0:003",
+   "raw": "true",
+   "reasoning": "线条位于车道路面上，形态不规则、边缘不完全平直，符合路面本身裂纹的外观。",
+   "observed": "沥青路面上的细长不规则深色裂缝。",
+   "limitation": "目标清晰可见。"
+  }
+ ],
+ "elapsed": 20.19,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 20.17
+  }
+ ]
+}

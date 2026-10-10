@@ -1,0 +1,62 @@
+{
+ "unit": "489b3b83591048ecadae9d341693a2fd",
+ "success": true,
+ "results": [
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:000",
+   "raw": "false",
+   "reasoning": "不符合道路裂纹定义。",
+   "observed": "树木、路缘及非道路区域",
+   "limitation": "框内为树木和路缘附近区域，未见沥青路面裂纹。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:001",
+   "raw": "false",
+   "reasoning": "白色车道线不是道路裂纹。",
+   "observed": "沥青车道和白色边线",
+   "limitation": "框内可见均匀沥青路面及车道线，未见明显深色裂缝。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:002",
+   "raw": "false",
+   "reasoning": "目标更像车道标线或均匀路面，不符合裂纹特征。",
+   "observed": "沥青路面和车道标线",
+   "limitation": "框内主要是平整路面与标线区域，未见深色细裂缝。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:003",
+   "raw": "false",
+   "reasoning": "缺少道路裂纹的可见外观特征。",
+   "observed": "均匀沥青路面",
+   "limitation": "框内未见清晰的深色细线裂缝。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:004",
+   "raw": "false",
+   "reasoning": "黄色车道线不属于道路裂纹。",
+   "observed": "沥青路面及黄色车道线",
+   "limitation": "框内为路面标线附近区域，未见独立深色裂缝。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:005",
+   "raw": "false",
+   "reasoning": "不符合道路裂纹特征。",
+   "observed": "均匀沥青路面",
+   "limitation": "框内为较平整的沥青路面，未见明显深色细裂纹。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:006",
+   "raw": "false",
+   "reasoning": "框线位置明显不对应道路裂纹。",
+   "observed": "车道线、路缘和树木边缘",
+   "limitation": "框内包含车道线、路缘及树木遮挡区域，未见可确认的沥青裂缝。"
+  }
+ ],
+ "elapsed": 22.62,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 22.59
+  }
+ ]
+}

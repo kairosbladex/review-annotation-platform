@@ -1,0 +1,55 @@
+{
+ "unit": "9a35f4bbc9974bb5b3b257366d32f33a",
+ "success": true,
+ "results": [
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:000",
+   "raw": "false",
+   "reasoning": "框内是宽度均匀、边缘平直的道路标线，不是沥青路面裂缝。",
+   "observed": "规则的白色横向车道标线",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:001",
+   "raw": "false",
+   "reasoning": "框内线条笔直规整、宽度均匀，属于道路标线而非路面开裂。",
+   "observed": "规则的白色横向车道标线",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:002",
+   "raw": "false",
+   "reasoning": "框内为规则白色标线，形态和颜色均不符合道路裂纹。",
+   "observed": "道路上的白色标线",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:003",
+   "raw": "false",
+   "reasoning": "框内是规整的白色短线，属于车道标线，不是裂缝。",
+   "observed": "道路上的白色短标线",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:004",
+   "raw": "false",
+   "reasoning": "框内线条平直且宽度均匀，明显为道路标线。",
+   "observed": "道路上的白色横向标线",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:005",
+   "raw": "uncertain",
+   "reasoning": "该框内可见道路上的细长痕迹，但其形态被遮挡和低分辨率影响，不能明确区分裂缝、车道标线或其他路面线条。",
+   "observed": "疑似道路表面线状痕迹",
+   "limitation": "框内主要为道路区域，但候选框过长且部分区域受树冠和画面细节影响，无法确认是否存在连续的路面裂缝"
+  }
+ ],
+ "elapsed": 18.07,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 18.05
+  }
+ ]
+}

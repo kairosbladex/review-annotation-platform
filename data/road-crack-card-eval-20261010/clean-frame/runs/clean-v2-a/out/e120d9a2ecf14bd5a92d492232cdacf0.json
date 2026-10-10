@@ -1,0 +1,20 @@
+{
+ "unit": "e120d9a2ecf14bd5a92d492232cdacf0",
+ "success": true,
+ "results": [
+  {
+   "key": "e120d9a2ecf14bd5a92d492232cdacf0:000",
+   "raw": "false",
+   "reasoning": "候选框位于图像左上方，覆盖的是天空区域，没有符合道路裂纹特征的路面深色细线。",
+   "observed": "灰白色天空/雾气",
+   "limitation": "框内主要是雾天空，未见沥青或水泥路面及道路裂纹。"
+  }
+ ],
+ "elapsed": 16.94,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 16.92
+  }
+ ]
+}

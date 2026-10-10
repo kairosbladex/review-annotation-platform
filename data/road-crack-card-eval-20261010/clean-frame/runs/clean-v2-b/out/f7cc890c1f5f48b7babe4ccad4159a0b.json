@@ -1,0 +1,34 @@
+{
+ "unit": "f7cc890c1f5f48b7babe4ccad4159a0b",
+ "success": true,
+ "results": [
+  {
+   "key": "f7cc890c1f5f48b7babe4ccad4159a0b:000",
+   "raw": "false",
+   "reasoning": "该框位于车道标线区域，白色线条属于交通标线，不是沥青路面的深色开裂。",
+   "observed": "框内主要是白色车道标线及正常沥青路面，未见道路裂纹。",
+   "limitation": "无"
+  },
+  {
+   "key": "f7cc890c1f5f48b7babe4ccad4159a0b:001",
+   "raw": "true",
+   "reasoning": "线条颜色明显深于周围路面，位于沥青路面内部，符合道路裂纹特征。",
+   "observed": "框内可见沥青路面上的细长深色裂缝。",
+   "limitation": "无"
+  },
+  {
+   "key": "f7cc890c1f5f48b7babe4ccad4159a0b:002",
+   "raw": "true",
+   "reasoning": "该线位于沥青路面内部，颜色较周围路面深，且不属于白色或黄色交通标线，符合纵向道路裂纹。",
+   "observed": "框内可见沿道路方向延伸的细深色裂缝。",
+   "limitation": "无"
+  }
+ ],
+ "elapsed": 33.49,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 33.47
+  }
+ ]
+}

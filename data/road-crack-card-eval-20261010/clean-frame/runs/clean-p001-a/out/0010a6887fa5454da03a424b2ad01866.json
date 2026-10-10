@@ -1,0 +1,41 @@
+{
+ "unit": "0010a6887fa5454da03a424b2ad01866",
+ "success": true,
+ "results": [
+  {
+   "key": "0010a6887fa5454da03a424b2ad01866:000",
+   "raw": "false",
+   "reasoning": "该目标位于道路路面上，但形态规整、边缘平直且为白色标线，不是路面裂缝。",
+   "observed": "规则、笔直的白色车道标线",
+   "limitation": "框内目标清晰可见。"
+  },
+  {
+   "key": "0010a6887fa5454da03a424b2ad01866:001",
+   "raw": "false",
+   "reasoning": "线条宽度均匀、边缘平直，属于道路标线，不符合道路裂纹特征。",
+   "observed": "规则的白色车道标线",
+   "limitation": "框内目标清晰可见。"
+  },
+  {
+   "key": "0010a6887fa5454da03a424b2ad01866:002",
+   "raw": "uncertain",
+   "reasoning": "可见部分不足以判断是路面裂缝还是其他规则线条，无法确认。",
+   "observed": "疑似道路上的细线或标线",
+   "limitation": "框内区域部分被树冠遮挡，线条形态无法完整确认。"
+  },
+  {
+   "key": "0010a6887fa5454da03a424b2ad01866:003",
+   "raw": "false",
+   "reasoning": "目标呈笔直、均匀的白色线段，属于车道标线，不是沥青路面本身的开裂。",
+   "observed": "道路上的规则白色标线",
+   "limitation": "框内目标清晰可见。"
+  }
+ ],
+ "elapsed": 47.37,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 47.35
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "unit": "74785d978fc94260bfdf718e99f1c34e",
+ "success": true,
+ "results": [
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:000",
+   "raw": "true",
+   "reasoning": "框内可见比周围路面更深的细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的深色横向细裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:001",
+   "raw": "true",
+   "reasoning": "框内能看到沥青路面上的深色裂缝，虽部分被框线影响，仍符合类别。",
+   "observed": "跨越道路的深色不规则横向裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:002",
+   "raw": "true",
+   "reasoning": "框内可见明显深色细线，位于路面且不是道路标线。",
+   "observed": "沥青路面上的深色横向裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:003",
+   "raw": "false",
+   "reasoning": "框内主要是白色交通标线，不是沥青路面的深色裂缝。",
+   "observed": "白色道路箭头及车道标线",
+   "limitation": ""
+  },
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:004",
+   "raw": "true",
+   "reasoning": "框内可见沿道路方向延伸的深色细线，位于路面上且与车道线不重合，符合纵向道路裂纹。",
+   "observed": "沥青路面上的细长深色裂缝",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 22.86,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 22.84
+  }
+ ]
+}

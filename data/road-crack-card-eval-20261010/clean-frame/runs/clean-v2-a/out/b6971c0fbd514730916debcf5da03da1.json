@@ -1,0 +1,27 @@
+{
+ "unit": "b6971c0fbd514730916debcf5da03da1",
+ "success": true,
+ "results": [
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:000",
+   "raw": "uncertain",
+   "reasoning": "候选框0位于沥青路面，但框内线状痕迹过于模糊，无法明确判断为道路裂纹，也不能排除路面痕迹或压痕。",
+   "observed": "灰色路面上的模糊细线状痕迹。",
+   "limitation": "框内目标极细且图像模糊，无法确认是否为路面深色裂纹。"
+  },
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:001",
+   "raw": "false",
+   "reasoning": "框内主要是白色道路标线、路缘及普通路面，没有可确认的比路面更深的细裂纹；框的位置和尺度也明显覆盖了道路标线区域。",
+   "observed": "道路边缘、白色车道/人行横道标线及邻近路面区域。",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 36.89,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 36.87
+  }
+ ]
+}

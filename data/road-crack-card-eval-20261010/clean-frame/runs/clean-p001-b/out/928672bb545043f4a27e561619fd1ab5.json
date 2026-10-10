@@ -1,0 +1,55 @@
+{
+ "unit": "928672bb545043f4a27e561619fd1ab5",
+ "success": true,
+ "results": [
+  {
+   "key": "928672bb545043f4a27e561619fd1ab5:000",
+   "raw": "false",
+   "reasoning": "线条笔直、宽度均匀且边缘规整，符合道路标线特征。",
+   "observed": "白色车道线",
+   "limitation": "框内是规则的白色车道标线，不是路面裂缝。"
+  },
+  {
+   "key": "928672bb545043f4a27e561619fd1ab5:001",
+   "raw": "false",
+   "reasoning": "目标位于路面上但形态笔直规整、宽度均匀，属于车道线而非裂纹。",
+   "observed": "白色车道线",
+   "limitation": "框内可见规则白色车道标线。"
+  },
+  {
+   "key": "928672bb545043f4a27e561619fd1ab5:002",
+   "raw": "false",
+   "reasoning": "线条颜色和形态均符合道路中心标线，排除道路裂纹。",
+   "observed": "黄色中心标线",
+   "limitation": "框内是黄色道路中心线。"
+  },
+  {
+   "key": "928672bb545043f4a27e561619fd1ab5:003",
+   "raw": "false",
+   "reasoning": "线条连续、笔直且边缘平整，不具备裂缝的不规则特征。",
+   "observed": "白色车道线",
+   "limitation": "框内可辨认出规则的道路标线。"
+  },
+  {
+   "key": "928672bb545043f4a27e561619fd1ab5:004",
+   "raw": "false",
+   "reasoning": "目标为宽度均匀、走向笔直的黄色标线，不是路面开裂。",
+   "observed": "黄色道路中心线",
+   "limitation": "框内目标清晰可见。"
+  },
+  {
+   "key": "928672bb545043f4a27e561619fd1ab5:005",
+   "raw": "false",
+   "reasoning": "线条规整且宽度均匀，属于道路标线相关结构，不符合道路裂纹特征。",
+   "observed": "道路标线或其边缘",
+   "limitation": "框内目标清晰可见。"
+  }
+ ],
+ "elapsed": 22.81,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 22.79
+  }
+ ]
+}

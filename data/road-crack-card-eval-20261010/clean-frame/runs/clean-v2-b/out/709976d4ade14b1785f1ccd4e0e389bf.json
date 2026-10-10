@@ -1,0 +1,20 @@
+{
+ "unit": "709976d4ade14b1785f1ccd4e0e389bf",
+ "success": true,
+ "results": [
+  {
+   "key": "709976d4ade14b1785f1ccd4e0e389bf:000",
+   "raw": "false",
+   "reasoning": "框内没有清晰可见的比周围路面更深的细线，不能将浅色纹理或规则分界线判为道路裂纹。",
+   "observed": "灰色道路路面及浅色规则纹理",
+   "limitation": "框内可见的是均匀的灰色路面，未发现明显的深色细裂纹；目标区域还包含浅色规则纹理，不符合道路裂纹特征。"
+  }
+ ],
+ "elapsed": 56.81,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 56.8
+  }
+ ]
+}

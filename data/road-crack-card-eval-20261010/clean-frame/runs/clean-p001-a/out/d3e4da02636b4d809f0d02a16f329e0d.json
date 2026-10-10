@@ -1,0 +1,62 @@
+{
+ "unit": "d3e4da02636b4d809f0d02a16f329e0d",
+ "success": true,
+ "results": [
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:000",
+   "raw": "false",
+   "reasoning": "框位于道路外的人行道区域，不是沥青或水泥车道路面裂缝。",
+   "observed": "人行道上的浅色接缝或线状痕迹",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:001",
+   "raw": "uncertain",
+   "reasoning": "目标被框范围大、指向不明确，不能确认是路面本身裂缝，也不能完全排除局部裂缝。",
+   "observed": "道路路面及一辆摩托车附近的多种线状痕迹",
+   "limitation": "框较长且覆盖区域内有车辆、车道线及路面细线，无法唯一确认候选指向的具体线条。"
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:002",
+   "raw": "false",
+   "reasoning": "线条笔直、宽度均匀且颜色规则，属于道路标线而非路面裂缝。",
+   "observed": "规则的黄色车道标线",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:003",
+   "raw": "false",
+   "reasoning": "线条笔直规整、宽度均匀，是车道线，不是道路裂缝。",
+   "observed": "规则的白色车道标线",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:004",
+   "raw": "false",
+   "reasoning": "该线条规则、宽度均匀、颜色统一，符合道路标线特征。",
+   "observed": "横向黄色道路标线",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:005",
+   "raw": "false",
+   "reasoning": "目标为笔直规整的黄色标线，不是路面本身开裂。",
+   "observed": "道路上的黄色车道标线",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:006",
+   "raw": "false",
+   "reasoning": "框主要位于路缘和人行道附近，所见线条不符合道路路面裂缝特征。",
+   "observed": "道路边缘及人行道区域的线状痕迹",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 54.23,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 54.22
+  }
+ ]
+}

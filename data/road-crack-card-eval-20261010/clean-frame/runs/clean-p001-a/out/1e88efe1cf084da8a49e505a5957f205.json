@@ -1,0 +1,52 @@
+{
+ "unit": "1e88efe1cf084da8a49e505a5957f205",
+ "success": true,
+ "results": [
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:000",
+   "raw": "false",
+   "reasoning": "框0位于路面上，但框内是宽度均匀、边缘平直的白色标线，不是沥青路面裂缝。",
+   "observed": "道路上的规则白色车道标线",
+   "limitation": ""
+  },
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:001",
+   "raw": "false",
+   "reasoning": "框1对应笔直规整的白色车道线，属于道路标线，不符合道路裂纹特征。",
+   "observed": "道路上的规则白色车道标线",
+   "limitation": ""
+  },
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:002",
+   "raw": "false",
+   "reasoning": "框2位于道路中央黄色分隔线附近，线条规整且宽度均匀，属于道路标线而非裂缝。",
+   "observed": "道路中央黄色标线及其边缘",
+   "limitation": ""
+  },
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:003",
+   "raw": "false",
+   "reasoning": "框3内可见规整的白色车道线，边缘平直、宽度均匀，不是路面开裂。",
+   "observed": "道路上的规则白色车道标线",
+   "limitation": ""
+  },
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:004",
+   "raw": "false",
+   "reasoning": "框4对应路面上的白色标线，形态笔直规整，不符合道路裂纹定义。",
+   "observed": "道路上的规则白色车道标线",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 112.51,
+ "attempts": [
+  {
+   "status": "http_503",
+   "elapsed": 25.21
+  },
+  {
+   "status": "ok",
+   "elapsed": 67.24
+  }
+ ]
+}

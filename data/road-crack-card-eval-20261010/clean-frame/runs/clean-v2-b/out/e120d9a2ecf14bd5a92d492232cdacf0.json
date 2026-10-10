@@ -1,0 +1,24 @@
+{
+ "unit": "e120d9a2ecf14bd5a92d492232cdacf0",
+ "success": true,
+ "results": [
+  {
+   "key": "e120d9a2ecf14bd5a92d492232cdacf0:000",
+   "raw": "false",
+   "reasoning": "候选框不位于可辨识的道路路面上，未发现比路面更深的细裂纹线。",
+   "observed": "天空、远处建筑及雾霾背景",
+   "limitation": "框内主要是天空和远处模糊建筑，未见清晰的沥青路面及道路裂纹。"
+  }
+ ],
+ "elapsed": 89.34,
+ "attempts": [
+  {
+   "status": "http_503",
+   "elapsed": 18.7
+  },
+  {
+   "status": "ok",
+   "elapsed": 50.59
+  }
+ ]
+}

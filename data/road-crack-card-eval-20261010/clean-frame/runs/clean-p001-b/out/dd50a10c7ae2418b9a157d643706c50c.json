@@ -1,0 +1,52 @@
+{
+ "unit": "dd50a10c7ae2418b9a157d643706c50c",
+ "success": true,
+ "results": [
+  {
+   "key": "dd50a10c7ae2418b9a157d643706c50c:000",
+   "raw": "false",
+   "reasoning": "框内线条位于路面上，但宽度均匀、边缘平直且走向规则，符合车道标线特征，不是路面裂缝。",
+   "observed": "规则的道路标线或标线边缘",
+   "limitation": "目标清晰可见，无明显遮挡。"
+  },
+  {
+   "key": "dd50a10c7ae2418b9a157d643706c50c:001",
+   "raw": "false",
+   "reasoning": "框内为明亮且边缘规整的车道标线，不具备裂缝的不规则、分叉或参差形态。",
+   "observed": "规则的道路标线",
+   "limitation": "目标清晰可见，无明显遮挡。"
+  },
+  {
+   "key": "dd50a10c7ae2418b9a157d643706c50c:002",
+   "raw": "false",
+   "reasoning": "线条笔直、均匀且颜色规则，属于道路标线特征，不是沥青路面开裂。",
+   "observed": "道路标线或标线反光边缘",
+   "limitation": "目标清晰可见，无明显遮挡。"
+  },
+  {
+   "key": "dd50a10c7ae2418b9a157d643706c50c:003",
+   "raw": "false",
+   "reasoning": "框内线条边缘平直、宽度基本一致，形态与车道线相符，不符合道路裂纹。",
+   "observed": "规则的道路标线",
+   "limitation": "目标清晰可见，无明显遮挡。"
+  },
+  {
+   "key": "dd50a10c7ae2418b9a157d643706c50c:004",
+   "raw": "false",
+   "reasoning": "框内为规则的白色路面标线，走向笔直且宽度均匀，非路面本身的裂缝。",
+   "observed": "道路标线",
+   "limitation": "目标清晰可见，无明显遮挡。"
+  }
+ ],
+ "elapsed": 56.55,
+ "attempts": [
+  {
+   "status": "http_503",
+   "elapsed": 19.62
+  },
+  {
+   "status": "ok",
+   "elapsed": 16.87
+  }
+ ]
+}

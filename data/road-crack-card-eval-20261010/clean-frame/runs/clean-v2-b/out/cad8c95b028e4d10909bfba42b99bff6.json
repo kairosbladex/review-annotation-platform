@@ -1,0 +1,34 @@
+{
+ "unit": "cad8c95b028e4d10909bfba42b99bff6",
+ "success": true,
+ "results": [
+  {
+   "key": "cad8c95b028e4d10909bfba42b99bff6:000",
+   "raw": "false",
+   "reasoning": "目标位置与黄色中心线重合，属于道路标线而非沥青路面裂纹。",
+   "observed": "黄色道路标线",
+   "limitation": "框内可见为道路上的黄色中心标线及邻近路面，没有符合道路裂纹特征的深色细线。"
+  },
+  {
+   "key": "cad8c95b028e4d10909bfba42b99bff6:001",
+   "raw": "true",
+   "reasoning": "框内可见一条颜色较周围路面更深、横向跨越车道的细线，符合道路裂纹外观。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "cad8c95b028e4d10909bfba42b99bff6:002",
+   "raw": "true",
+   "reasoning": "框内可见路面上的深色细裂线，位置和尺度符合道路裂纹，而非车道标线。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 21.8,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 21.78
+  }
+ ]
+}

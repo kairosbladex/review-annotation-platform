@@ -1,0 +1,20 @@
+{
+ "unit": "e120d9a2ecf14bd5a92d492232cdacf0",
+ "success": true,
+ "results": [
+  {
+   "key": "e120d9a2ecf14bd5a92d492232cdacf0:000",
+   "raw": "false",
+   "reasoning": "候选框不位于道路路面上，框内没有符合道路裂纹特征的细长不规则深色裂缝。",
+   "observed": "天空、雾霾及远处建筑上方区域",
+   "limitation": "框内主要是天空和雾霾，未见道路路面或路面裂缝。"
+  }
+ ],
+ "elapsed": 37.18,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 37.16
+  }
+ ]
+}

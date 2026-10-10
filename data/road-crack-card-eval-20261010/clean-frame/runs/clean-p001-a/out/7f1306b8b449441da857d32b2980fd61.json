@@ -1,0 +1,62 @@
+{
+ "unit": "7f1306b8b449441da857d32b2980fd61",
+ "success": true,
+ "results": [
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:000",
+   "raw": "false",
+   "reasoning": "框内是宽度均匀、边缘平直的白色标线，不是沥青路面裂缝。",
+   "observed": "规则的横向白色道路标线",
+   "limitation": "无"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:001",
+   "raw": "false",
+   "reasoning": "目标呈直线且宽度均匀，属于道路标线而非路面开裂。",
+   "observed": "规则的横向白色道路标线",
+   "limitation": "无"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:002",
+   "raw": "false",
+   "reasoning": "线条规整、边缘平直，符合道路标线或标线边缘特征，不是裂纹。",
+   "observed": "黄色道路中心线附近的规则线状标记",
+   "limitation": "无"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:003",
+   "raw": "false",
+   "reasoning": "框内线条平直且宽度均匀，属于车道标线，不是道路裂纹。",
+   "observed": "规则的白色道路标线",
+   "limitation": "无"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:004",
+   "raw": "false",
+   "reasoning": "可见线条形态规整、边缘平直，缺少裂缝的不规则分叉特征。",
+   "observed": "规则的白色道路标线",
+   "limitation": "无"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:005",
+   "raw": "false",
+   "reasoning": "框内是连续、规整的黄色中心标线，不是路面本身的裂缝。",
+   "observed": "黄色道路中心线",
+   "limitation": "无"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:006",
+   "raw": "uncertain",
+   "reasoning": "框内可见部分可能是道路标线或裂缝，但被遮挡且纵向延伸较长，无法可靠确认。",
+   "observed": "道路上的细长线状区域",
+   "limitation": "目标区域被树冠和画面边缘遮挡，无法完整确认线条形态"
+  }
+ ],
+ "elapsed": 18.17,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 18.15
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "unit": "74785d978fc94260bfdf718e99f1c34e",
+ "success": true,
+ "results": [
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:000",
+   "raw": "true",
+   "reasoning": "位于沥青路面上，呈细长且不规则的深色线条，符合道路裂纹特征。",
+   "observed": "路面上的不规则深色横向裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:001",
+   "raw": "true",
+   "reasoning": "框内可见路面本身的深色裂缝，走向不规则并横跨路面，符合道路裂纹。",
+   "observed": "路面上的连续深色裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:002",
+   "raw": "true",
+   "reasoning": "目标位于道路表面，呈不规则深色线状开裂，不是规则标线或路缘交界。",
+   "observed": "路面裂缝及其延伸段",
+   "limitation": ""
+  },
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:003",
+   "raw": "uncertain",
+   "reasoning": "位置在道路表面，但可辨识形态不足，无法可靠排除阴影、污迹或接缝。",
+   "observed": "路面上的细小横向暗线",
+   "limitation": "框内线条较细且部分区域受画面细节限制，难以完全确认是裂缝还是其他暗线。"
+  },
+  {
+   "key": "74785d978fc94260bfdf718e99f1c34e:004",
+   "raw": "false",
+   "reasoning": "框内主要是规则的白色车道/导向标线，旁侧暗线更像影子或附属线缆，不符合道路裂纹。",
+   "observed": "道路标线、导向箭头及旁侧暗色线条",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 69.41,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 69.39
+  }
+ ]
+}

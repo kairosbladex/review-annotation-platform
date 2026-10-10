@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><title>道路裂纹原帧复标</title>
+<style>
+body{font-family:-apple-system,"PingFang SC",sans-serif;margin:16px;background:#f6f6f6;color:#222}
+.rule{background:#fff;padding:8px 12px;border-radius:6px;font-size:14px;line-height:1.6;margin-bottom:10px}
+.imgs{display:flex;gap:12px;align-items:flex-start}
+.imgs figure{margin:0;background:#fff;padding:6px;border-radius:6px}
+figcaption{font-size:13px;color:#555;margin-top:4px}
+.bar{margin:12px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button{font-size:15px;padding:6px 14px;border-radius:6px;border:1px solid #888;background:#fff;cursor:pointer}
+button.on{background:#1f6feb;color:#fff;border-color:#1f6feb}
+#note{width:320px;font-size:14px;padding:5px}
+#pos{font-weight:600}
+</style></head><body>
+<div class="rule"><b>道路裂纹</b> = 沥青或水泥<b>路面本身</b>的裂缝（横向、纵向、网状均可；在这个分辨率下横向裂缝看起来接近直线是正常的）。
+<b>不是</b>：标线；水泥板块之间规则的分格缝；路缘石交界线；影子、车辙、水渍；<b>不在路面上</b>的线条（墙面、屋顶、广场以外等）。看不清就选“看不清”，不要猜。<br>
+黄框是要判断的框。左边两张同一区域：截图（带平台红字）和原视频同一时刻的 1920×1080 原帧；右边是原帧更大范围，用来判断是否在路面上。</div>
+<div class="bar"><span id="pos"></span>
+<button data-l="是裂纹">1 是裂纹</button><button data-l="不是裂纹">2 不是裂纹</button><button data-l="看不清">3 看不清</button>
+<input id="note" placeholder="备注（可选，回车保存）"><button id="prev">← 上一个</button><button id="next">下一个 →</button><span id="msg"></span></div>
+<div class="imgs">
+<figure><img id="cmp" width="728"><figcaption>左：截图局部　右：原帧局部（同一位置，放大）</figcaption></figure>
+<figure><img id="ctx" width="480"><figcaption>原帧大范围</figcaption></figure>
+</div>
+<script>
+let rows=[],i=0;
+async function load(){rows=(await (await fetch('/api/rows')).json()).rows;i=Math.max(0,rows.findIndex(r=>!r.label));if(i<0)i=0;show()}
+function show(){const r=rows[i];document.getElementById('cmp').src='/images/compare/'+r.key+'.jpg';document.getElementById('ctx').src='/images/context/'+r.key+'.jpg';
+document.getElementById('note').value=r.note||'';const done=rows.filter(x=>x.label).length;
+document.getElementById('pos').textContent=`第 ${i+1}/${rows.length} 框 · 已标 ${done}`;
+document.querySelectorAll('button[data-l]').forEach(b=>b.classList.toggle('on',b.dataset.l===r.label))}
+async function mark(l){const r=rows[i];const note=document.getElementById('note').value;
+const res=await fetch('/api/label',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({key:r.key,label:l,note})});
+if(!res.ok){document.getElementById('msg').textContent='保存失败';return}r.label=l;r.note=note;document.getElementById('msg').textContent='已保存';if(i<rows.length-1)i++;show()}
+document.querySelectorAll('button[data-l]').forEach(b=>b.onclick=()=>mark(b.dataset.l));
+document.getElementById('prev').onclick=()=>{if(i>0){i--;show()}};document.getElementById('next').onclick=()=>{if(i<rows.length-1){i++;show()}};
+document.addEventListener('keydown',e=>{if(e.target.id==='note'){if(e.key==='Enter'&&rows[i].label)mark(rows[i].label);return}
+if(e.key==='1')mark('是裂纹');if(e.key==='2')mark('不是裂纹');if(e.key==='3')mark('看不清');
+if(e.key==='ArrowLeft'&&i>0){i--;show()}if(e.key==='ArrowRight'&&i<rows.length-1){i++;show()}});
+load();
+</script></body></html>

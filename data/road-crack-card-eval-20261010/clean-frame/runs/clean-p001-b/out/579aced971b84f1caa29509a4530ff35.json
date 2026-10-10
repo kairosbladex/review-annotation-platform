@@ -1,0 +1,48 @@
+{
+ "unit": "579aced971b84f1caa29509a4530ff35",
+ "success": true,
+ "results": [
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:000",
+   "raw": "false",
+   "reasoning": "框位于道路路面，但线条宽度均匀、边缘平直且走向规整，不符合不规则路面裂缝特征。",
+   "observed": "规则、笔直的道路标线或缝线",
+   "limitation": "无"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:001",
+   "raw": "false",
+   "reasoning": "框内为规整的白色路面标线，边缘平直、宽度均匀，不是沥青路面开裂。",
+   "observed": "规则道路标线",
+   "limitation": "无"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:002",
+   "raw": "false",
+   "reasoning": "目标呈笔直、规则的线状结构，缺少裂缝常见的参差边缘、分叉或折线特征。",
+   "observed": "道路标线或接缝",
+   "limitation": "无"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:003",
+   "raw": "false",
+   "reasoning": "框内线条平直且宽度基本均匀，属于道路标线类结构，不符合道路裂纹定义。",
+   "observed": "规则道路标线",
+   "limitation": "无"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:004",
+   "raw": "false",
+   "reasoning": "线条走向规整、边缘平直，位置和外观均更符合道路设施线条，而非路面本身的不规则裂缝。",
+   "observed": "规则道路标线或接缝",
+   "limitation": "无"
+  }
+ ],
+ "elapsed": 29.57,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 29.54
+  }
+ ]
+}

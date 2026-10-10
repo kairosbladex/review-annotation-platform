@@ -1,0 +1,34 @@
+{
+ "unit": "cad8c95b028e4d10909bfba42b99bff6",
+ "success": true,
+ "results": [
+  {
+   "key": "cad8c95b028e4d10909bfba42b99bff6:000",
+   "raw": "false",
+   "reasoning": "框内线条位于路面上，但边缘平直、走向规整且与道路标线形态一致，不是沥青路面本身的不规则裂缝。",
+   "observed": "规则、笔直且宽度均匀的道路标线/车道线",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "cad8c95b028e4d10909bfba42b99bff6:001",
+   "raw": "false",
+   "reasoning": "框内是笔直、宽度均匀的白色路面标线，形态规则，不符合道路裂纹的细长不规则特征。",
+   "observed": "规则的道路标线",
+   "limitation": "目标清晰可见"
+  },
+  {
+   "key": "cad8c95b028e4d10909bfba42b99bff6:002",
+   "raw": "false",
+   "reasoning": "框内为连续、规整且宽度均匀的黄色道路标线，不是路面本身的开裂。",
+   "observed": "黄色道路中心线",
+   "limitation": "目标清晰可见"
+  }
+ ],
+ "elapsed": 41.08,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 41.05
+  }
+ ]
+}

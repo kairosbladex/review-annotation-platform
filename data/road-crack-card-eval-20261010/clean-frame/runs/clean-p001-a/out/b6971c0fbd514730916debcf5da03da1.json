@@ -1,0 +1,31 @@
+{
+ "unit": "b6971c0fbd514730916debcf5da03da1",
+ "success": true,
+ "results": [
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:000",
+   "raw": "uncertain",
+   "reasoning": "虽位于道路路面，但缺少足够清晰的形态、边缘和走向特征，不能确认符合道路裂纹。",
+   "observed": "路面上的一小段浅色模糊线状痕迹。",
+   "limitation": "框内线条过于模糊且目标很小，无法确认是路面裂缝还是其他路面痕迹。"
+  },
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:001",
+   "raw": "false",
+   "reasoning": "候选框主要覆盖规则笔直的道路标线和路缘附近结构，不是沥青或水泥路面本身的不规则裂缝。",
+   "observed": "道路边缘、白色车道/边界标线及斑马线区域。",
+   "limitation": "框内区域清晰可见。"
+  }
+ ],
+ "elapsed": 107.54,
+ "attempts": [
+  {
+   "status": "http_503",
+   "elapsed": 34.32
+  },
+  {
+   "status": "ok",
+   "elapsed": 53.13
+  }
+ ]
+}
