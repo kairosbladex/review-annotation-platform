@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为蓝色顶棚覆盖的建筑屋面",
+   "reasoning": "候选框主体是建筑上方的蓝色屋面，符合蓝色顶棚类别定义；未将框线作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607853.831797,
+   "seconds": 16.001037120819092,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607853.8317943,
+ "finished": 1791607870.105352,
+ "health": {
+  "at": 1791607853.830131,
+  "available_fraction": 0.45557105081141447,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b3df36dec3fe415396df5c0302db8421",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "800a1a29559f78c6344b4ece70b510326e26f97d5263dd5c3270bbe6a45267f5",
+ "image_sha256": "06f4eb809abe1cb8965192dd73ac4e58295ec74ce9e97a4013b59a19592e1c58"
+}

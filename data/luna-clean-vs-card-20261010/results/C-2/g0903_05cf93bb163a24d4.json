@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "uncertain",
+   "image_limitation": "候选框仅覆盖道路及斑马线区域，无法据此判断是否存在违建，也缺乏审批或区域业务依据。",
+   "observed_object": "道路斑马线及路面设施",
+   "reasoning": "未见可明确认定为违建的建筑或构筑物，且违建属性不能仅凭外观判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605049.885055,
+   "seconds": 17.29838514328003,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605049.8850508,
+ "finished": 1791605067.733911,
+ "health": {
+  "at": 1791605049.8727741,
+  "available_fraction": 0.44176677208601905,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d92caaeec2f24ee88cdd9259fb72d8bb",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "398c6370b6717b4299a7e1b01cdb160bf2806ab7f01a82d86547d81ace5536c5",
+ "image_sha256": "a65d514e8b498e091cdd6af7ac5b0279a06e97f5d0af2755677e0a7f1e29a221"
+}

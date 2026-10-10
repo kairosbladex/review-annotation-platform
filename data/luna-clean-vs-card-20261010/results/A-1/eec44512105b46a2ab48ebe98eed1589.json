@@ -1,0 +1,35 @@
+{
+ "unit": "eec44512105b46a2ab48ebe98eed1589",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "eec44512105b46a2ab48ebe98eed1589:019",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆大型长方形车辆，符合公交车外形特征。",
+   "reasoning": "候选框内目标具有明显的大型车辆结构，符合公交车类别；未依据框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605219.632317,
+   "seconds": 15.277506828308105,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605219.6323147,
+ "finished": 1791605235.209521,
+ "health": {
+  "at": 1791605219.6175408,
+  "available_fraction": 0.44023746592759627,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "263e38212d8445638285d2166fdbe8b7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "861bd78a0b13755804757664810dfd79d9f0a9ae42d5cc116a59e7963189566a",
+ "image_sha256": "64a509c1239d0772b3ebe41916dce3e2aa0fe3a3bca892fc7edba35b16ecf47c"
+}

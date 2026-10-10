@@ -1,0 +1,91 @@
+{
+ "unit": "0b97d6eeb7d34027811edf81bd63ca99",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:000",
+   "decision": "true",
+   "image_limitation": "目标较小但车辆轮廓清晰可见。",
+   "observed_object": "道路上的汽车",
+   "reasoning": "框内可见完整汽车结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:001",
+   "decision": "true",
+   "image_limitation": "车辆较小但轮廓清晰。",
+   "observed_object": "道路上的汽车",
+   "reasoning": "框内可见汽车车身及车轮等结构，符合类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:002",
+   "decision": "true",
+   "image_limitation": "目标较小，部分被树木边缘影响，但车辆形状可辨。",
+   "observed_object": "停放的汽车",
+   "reasoning": "框内可见汽车主体，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:003",
+   "decision": "true",
+   "image_limitation": "车辆清晰可见。",
+   "observed_object": "道路上的汽车",
+   "reasoning": "框内可见完整汽车结构，符合类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:004",
+   "decision": "true",
+   "image_limitation": "车辆部分被树木遮挡，但车身轮廓可辨。",
+   "observed_object": "停放的汽车",
+   "reasoning": "框内可见汽车结构，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:005",
+   "decision": "true",
+   "image_limitation": "车辆较小且部分受画面边缘影响，但轮廓清晰。",
+   "observed_object": "停放的汽车",
+   "reasoning": "框内可见汽车车身，符合类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:006",
+   "decision": "true",
+   "image_limitation": "车辆部分位于画面边缘，但车身结构可见。",
+   "observed_object": "停放的汽车",
+   "reasoning": "框内可见汽车主体，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:007",
+   "decision": "true",
+   "image_limitation": "车辆部分被树木遮挡，但车身轮廓明确。",
+   "observed_object": "停放的汽车",
+   "reasoning": "框内可见汽车结构，符合类别。",
+   "target_index": 7
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601708.4110641,
+   "seconds": 16.03154158592224,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601708.4110618,
+ "finished": 1791601724.7448387,
+ "health": {
+  "at": 1791601708.4092233,
+  "available_fraction": 0.45728713502886303,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "83482905d8494565bf061f6d64c43372",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "669f17cf5ba93fd869b69a1f8fff93354aecab544f15e2d710d8cb865a48d19f",
+ "image_sha256": "57605af91bc8993569651d9fc552499a25b2870633d55f4fe724b1e7541fb0f5"
+}

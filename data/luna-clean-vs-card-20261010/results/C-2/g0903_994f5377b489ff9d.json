@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见一处建筑屋顶及周边设施，图像无法提供审批或区域业务依据，不能据此确认违建属性。",
+   "observed_object": "建筑屋顶及附属设施",
+   "reasoning": "违建类别需要审批或区域业务依据；仅凭外观无法判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607842.2721539,
+   "seconds": 15.58683729171753,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607842.2721512,
+ "finished": 1791607858.1451788,
+ "health": {
+  "at": 1791607842.2704766,
+  "available_fraction": 0.45530255735156494,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "545b45fe8e754b3fa328dbd778fb6894",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "eabefe607321602a6004b0a36fb128e7153a6db02a13c0702fed952b2ad44b2d",
+ "image_sha256": "06f4eb809abe1cb8965192dd73ac4e58295ec74ce9e97a4013b59a19592e1c58"
+}

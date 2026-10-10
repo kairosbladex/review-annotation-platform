@@ -1,0 +1,35 @@
+{
+ "unit": "6932e1b82c6448b3ab91dbe2cc4746a4",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "6932e1b82c6448b3ab91dbe2cc4746a4:000",
+   "decision": "true",
+   "image_limitation": "目标部分被树叶遮挡，但可见车辆车身及车窗结构，能够唯一定位为车辆。",
+   "observed_object": "一辆被树叶部分遮挡的汽车",
+   "reasoning": "框内可见明确的汽车车身、车窗和轮廓，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605660.3804574,
+   "seconds": 14.26958441734314,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605660.380455,
+ "finished": 1791605674.9601374,
+ "health": {
+  "at": 1791605660.356008,
+  "available_fraction": 0.44146714894966527,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ca9d046f93b14328ae667a8f6d95a21a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1e2b0083d585622be6842a5d2c64ea9b961954eb8822a27a8080d1a1f12d5c98",
+ "image_sha256": "ca4314bdc01ff522bcda88046ddf6c76e56591ec2fef4134504e8a23f5e8fae9"
+}

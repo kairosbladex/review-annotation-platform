@@ -1,0 +1,43 @@
+{
+ "unit": "251324d21a8f4471ae6997c9c78de2ee",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色成片顶棚",
+   "reasoning": "框内主体为覆盖在地面建筑或棚架上的浅蓝色、带平行条纹的屋面，符合蓝色顶棚类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色成片顶棚",
+   "reasoning": "框内主体为规整的浅蓝色条纹屋面，明显属于蓝色顶棚。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602791.6662073,
+   "seconds": 15.532106161117554,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602791.6662056,
+ "finished": 1791602807.5101793,
+ "health": {
+  "at": 1791602791.6653292,
+  "available_fraction": 0.42703848308977604,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "aaf56e415f18494aa6fec9d019272ed4",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "525740e453522498d37729a6df025e3a0c53aa00e4beec8747fc45003029d0f9",
+ "image_sha256": "751dd3699e4f19c6a85fdb5cfd8df77dc8fa7704cca4236f1d96c5ad7393896c"
+}

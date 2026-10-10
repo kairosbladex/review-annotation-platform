@@ -1,0 +1,43 @@
+{
+ "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:000",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到两个蓝色顶棚状结构，缺乏审批或区域业务依据，无法确认是否为违建。",
+   "observed_object": "蓝色顶棚/屋面结构",
+   "reasoning": "外观不能作为违建的充分证据，按要求无法唯一判断。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:001",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到一个蓝色顶棚状结构，缺乏审批或区域业务依据，无法确认是否为违建。",
+   "observed_object": "蓝色顶棚/屋面结构",
+   "reasoning": "外观不能作为违建的充分证据，按要求无法唯一判断。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609648.1423092,
+   "seconds": 28.998496770858765,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609648.1423073,
+ "finished": 1791609677.4320786,
+ "health": {
+  "at": 1791609648.140681,
+  "available_fraction": 0.4546528773549114,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "51c484fef4da4c1cbed5b1dbf7aad3b2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9001654049156b1d9940f279be16713e71e52e4e414a7e0f31eaee1e70b37b1f",
+ "image_sha256": "1d536210209fca6b11823108bb80a7a13ecab73ccd121b507e5d29b7c499b21b"
+}

@@ -1,0 +1,75 @@
+{
+ "unit": "g0903_39b3d28c1a79ddde",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:76006df30bd947ff942ee244b4fceb1a",
+   "decision": "uncertain",
+   "image_limitation": "框内仅见局部蓝色区域，目标形态和是否为顶棚无法唯一确认。",
+   "observed_object": "左上边缘局部蓝色区域",
+   "reasoning": "蓝色证据不足以确认其为覆盖在建筑或棚架上的顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f9685b6cd29a4c6a8b29a13873685731",
+   "decision": "uncertain",
+   "image_limitation": "框内主体被截断，蓝色区域形态不完整。",
+   "observed_object": "左侧边缘蓝色结构",
+   "reasoning": "无法排除其为屋面，也无法排除是其他蓝色结构，不能唯一定位。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:67f3e79afd6c438db006916355b183a4",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "左下方大面积蓝色屋面",
+   "reasoning": "框内清晰可见覆盖建筑的成片浅蓝色矩形屋面，符合蓝色顶棚特征。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:3b95eefbf52a4243a6b283ab87d85cac",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "中左部蓝色矩形屋面",
+   "reasoning": "框内主体是覆盖建筑的规整浅蓝色屋面，符合类别定义。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:2d6ee94a6bb94288a30fe86cd4a6129e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "左上部蓝色矩形屋面",
+   "reasoning": "框内清晰可见建筑上方成片蓝色屋面，边缘规整，符合蓝色顶棚特征。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:1c1d5b93f6264de3969c2b59a390c2ea",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "中左部蓝色矩形屋面",
+   "reasoning": "框内主体为覆盖建筑的浅蓝色矩形屋面，符合类别定义。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604589.2823637,
+   "seconds": 59.20890998840332,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604589.2823606,
+ "finished": 1791604648.7622945,
+ "health": {
+  "at": 1791604589.279771,
+  "available_fraction": 0.4381134127075231,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2a67f6c1bddf4fcc9d63f6e63cb6a889",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "88518f5df99118773545da8dce78e7242524758be28075cdeb4588dd1fdbe846",
+ "image_sha256": "2d0692948a8a2aea50862f025e4a86f3a3103e8bd5e1ff73ff0da4aa959d57c4"
+}

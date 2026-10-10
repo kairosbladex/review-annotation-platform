@@ -1,0 +1,35 @@
+{
+ "unit": "9934f9485dd840ed8b8a878117cc264e",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9934f9485dd840ed8b8a878117cc264e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见车辆的部分车身结构，符合车类别。",
+   "reasoning": "框内可见明显车辆外形及车身结构，未将框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606191.7165809,
+   "seconds": 14.861405611038208,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606191.7165787,
+ "finished": 1791606207.1196437,
+ "health": {
+  "at": 1791606191.7145088,
+  "available_fraction": 0.4533576821718397,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8e2b83f06fdd4e17aba79b1af7b30d79",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "78d662867c128dd10981c8885a9c069f581246739a003dc3fd011d9daab1a0e1",
+ "image_sha256": "468d8a25882f8c83d9504e6333f25e3e0efa78c76fbdc28a3f17bf431cfbdb12"
+}

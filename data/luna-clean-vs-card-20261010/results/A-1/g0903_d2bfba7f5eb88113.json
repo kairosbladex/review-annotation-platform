@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_d2bfba7f5eb88113",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:7e7a4c2981244e299e8019aef1eb953f",
+   "decision": "uncertain",
+   "image_limitation": "图中仅能看到一个疑似临时建筑或棚状物，缺乏审批信息及区域业务依据，无法确认其属于违建。",
+   "observed_object": "框内为棕色顶棚状物体，位于道路边缘。",
+   "reasoning": "违建属性不能仅凭外观判断，现有图像无法提供必要的审批或区域依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606863.2848647,
+   "seconds": 4.144610166549683,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606863.284863,
+ "finished": 1791606867.7924693,
+ "health": {
+  "at": 1791606863.272498,
+  "available_fraction": 0.4551651186137955,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "15542a66e2794265be48100ec6a9b0cf",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a3d0a102f18a85a64d4a947340863c4b2623e05d5d63eacb4378b65e5d7f22d3",
+ "image_sha256": "d2bfba7f5eb88113d61d799483570d6e1286b3967d5fb8cb75df0f3f12f36c3a"
+}

@@ -1,0 +1,120 @@
+{
+ "unit": "0e9f3cac3c4f498d902f2e28eca7dd2d",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆轮廓，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆及车身结构，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆轮廓，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见较完整车辆，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆车身，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆轮廓和车身结构，符合“车”类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见一辆车，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:007",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "非车辆物体",
+   "reasoning": "框内主要是白色弧形设施或结构，不具备可确认的车辆车身特征。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆车身和轮廓，符合“车”类别。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:009",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "非车辆物体",
+   "reasoning": "框内主要是白色弧形设施或结构，未见可确认的车辆结构。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆轮廓，符合“车”类别。",
+   "target_index": 10
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601653.363291,
+   "seconds": 32.481080770492554,
+   "status": "http_503"
+  },
+  {
+   "at": 1791601690.8690572,
+   "seconds": 29.36816954612732,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601653.363289,
+ "finished": 1791601720.5081778,
+ "health": {
+  "at": 1791601653.3608794,
+  "available_fraction": 0.45931393840993506,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3e1d47549e624b44aeab1931fb3d3d46",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "071ed3f00c16dae9010e032544b9519b16779e42072ef3ebc29dfad953902c28",
+ "image_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254"
+}

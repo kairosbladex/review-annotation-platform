@@ -1,0 +1,35 @@
+{
+ "unit": "9f3745b4d6bb4bb192a479ead431c528",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见小型设备状物，分辨率不足，无法确认三轮结构。",
+   "observed_object": "疑似屋顶设备",
+   "reasoning": "未观察到明确的三个车轮及车辆主体结构，不能判定为三轮车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606550.5257196,
+   "seconds": 20.107709169387817,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606550.5257177,
+ "finished": 1791606571.1633902,
+ "health": {
+  "at": 1791606550.5236263,
+  "available_fraction": 0.45672947605836034,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "706ffb3da5cb4ab5ba8b761fd52c7c79",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f95947fc209544f19182115cc1def18c10745825134b90334e1c5e1a831881ea",
+ "image_sha256": "3ef753e1773f8491240bde1c34809822a914288eb165d31fd8208a98cc51946d"
+}

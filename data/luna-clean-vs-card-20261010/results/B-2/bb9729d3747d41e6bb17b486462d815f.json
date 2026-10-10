@@ -1,0 +1,51 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "false",
+   "image_limitation": "目标区域仅见红色文字和框线，没有可辨认的人体结构。",
+   "observed_object": "文字/标注，不是人员",
+   "reasoning": "候选框内缺少头部、躯干或四肢等人员证据。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "false",
+   "image_limitation": "目标区域主要被标注框线和文字占据，未见清晰人体结构。",
+   "observed_object": "文字/标注，不是人员",
+   "reasoning": "不能将框线或文字作为人员目标证据。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "false",
+   "image_limitation": "目标区域未显示可辨认的人体结构，主要是标注框线及背景。",
+   "observed_object": "标注框线/背景，不是人员",
+   "reasoning": "缺少头部、躯干或四肢等明确人员证据。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609552.7360528,
+   "seconds": 32.91669058799744,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609552.7360508,
+ "finished": 1791609585.9236112,
+ "health": {
+  "at": 1791609552.7352977,
+  "available_fraction": 0.4541789401901634,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "06f70801844947a39344cabf4fa06044",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f57315de287a9a38b94b88163f65ad5871fcaca3d32b2b3bf081b984721d7937",
+ "image_sha256": "24a27ba779cf9126f703b0d158276386228162db2fe7df843c24814e1c2fa9f5"
+}

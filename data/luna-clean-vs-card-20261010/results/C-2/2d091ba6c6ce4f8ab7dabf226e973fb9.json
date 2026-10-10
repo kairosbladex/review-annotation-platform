@@ -1,0 +1,35 @@
+{
+ "unit": "2d091ba6c6ce4f8ab7dabf226e973fb9",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2d091ba6c6ce4f8ab7dabf226e973fb9:000",
+   "decision": "true",
+   "image_limitation": "目标位于图像底部，部分被裁切，但可见明显车辆结构。",
+   "observed_object": "车辆",
+   "reasoning": "候选框内可见车身及车厢/货斗等车辆结构，符合“车”类别；未依据框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604324.9125538,
+   "seconds": 14.299912691116333,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604324.912551,
+ "finished": 1791604339.4925888,
+ "health": {
+  "at": 1791604324.9108121,
+  "available_fraction": 0.4346799370694133,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d3117f67fdd34d59aed5b148aa26b2d1",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "786bee942ce93c4fa801db69e99454726bcb31ef93d87f0475852487dbc587ec",
+ "image_sha256": "8fb06c85d1e089e5b7a1d6031bd53d2582b4c4549617b5fe91ce4550f441f658"
+}

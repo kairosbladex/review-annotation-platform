@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_1d737b615da670e0",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f6d48b6995834bdbbc7752b756c23e90",
+   "decision": "uncertain",
+   "image_limitation": "框内目标面积较小且受俯拍分辨率限制，无法清晰确认其是否为蓝色或绿色顶棚。",
+   "observed_object": "建筑边缘处的小型蓝色矩形物体，可能为屋面或其他设施。",
+   "reasoning": "仅凭现有图像不能唯一判断其为符合类别定义的蓝色或绿色顶棚，因此不能明确判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608538.709601,
+   "seconds": 26.114964723587036,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608538.709599,
+ "finished": 1791608565.094861,
+ "health": {
+  "at": 1791608538.7076342,
+  "available_fraction": 0.45561862692833754,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c2cc7b933d9042dba294620b35649d31",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4c19faa9267432362f2ed194607d35d00c7321ccaaf37e4bababd3ed536e93ca",
+ "image_sha256": "c3e8ee8fc9dde7f979a99272e796949bfbc96e58e9da0cdd89d5641367d17a07"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "ebf8114691984fcfbde7f28d6c796398",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "ebf8114691984fcfbde7f28d6c796398:000",
+   "decision": "false",
+   "image_limitation": "目标区域可见，未见人体结构。",
+   "observed_object": "白色小型物体，疑似管道或设施部件。",
+   "reasoning": "候选框内不是人员，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608709.7446818,
+   "seconds": 18.894774913787842,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608709.74468,
+ "finished": 1791608729.1149445,
+ "health": {
+  "at": 1791608709.7440434,
+  "available_fraction": 0.45556241719019647,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "78710a55abeb435793b3cad68428db51",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "083bd7f327f12e2cf81dadd40f765a2e1ca402b9b4ebe6cef9e3763fc4720b33",
+ "image_sha256": "fdd58ed51f5a8b5896a4ab99e6a9be3466ae1480816a636083949a68ce3bc0b8"
+}

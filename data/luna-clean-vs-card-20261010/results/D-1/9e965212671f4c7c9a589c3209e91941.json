@@ -1,0 +1,35 @@
+{
+ "unit": "9e965212671f4c7c9a589c3209e91941",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9e965212671f4c7c9a589c3209e91941:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见一辆车的局部，具有车辆外形和车身结构特征。",
+   "reasoning": "候选框位于道路旁停车区域，框内目标明显为车辆，符合“车”类别；未依据框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605131.4896472,
+   "seconds": 32.721609115600586,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605131.4896445,
+ "finished": 1791605164.4831362,
+ "health": {
+  "at": 1791605131.4874573,
+  "available_fraction": 0.44026850440387644,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e50e6f231db843f9b40bb2074d4072c0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b5840ad57f524658d87d86bdcf0e752af71155c2a325a3630d9e61cde9b7d5db",
+ "image_sha256": "20a601b29955bc63eaf84f263039cecf8dbc92aca0acd45df5c02e9b7b8ffd04"
+}

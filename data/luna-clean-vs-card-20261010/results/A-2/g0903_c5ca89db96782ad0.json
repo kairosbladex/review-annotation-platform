@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_c5ca89db96782ad0",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名骑行人员，头部未见头盔结构。",
+   "reasoning": "目标与“没戴头盔”类别相符，框线和文字未作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607099.5526347,
+   "seconds": 6.694802761077881,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607099.5526323,
+ "finished": 1791607106.78762,
+ "health": {
+  "at": 1791607099.5517666,
+  "available_fraction": 0.4573889144789962,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ec4306e92b82464a8ea5327cbfd5e4fa",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9e29f1f3924b037a4db710d0a85c366c9c79db302653d6e2f89aab06baf15d77",
+ "image_sha256": "c5ca89db96782ad04e5f1402fe740743b5050725c55fa17cfab29245b52839cc"
+}

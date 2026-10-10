@@ -1,0 +1,35 @@
+{
+ "unit": "299652bfe7e648079e0168f99bb417ed",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "299652bfe7e648079e0168f99bb417ed:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见地面网格和污渍，未见可辨认的人体结构。",
+   "observed_object": "地面网格区域",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602504.24372,
+   "seconds": 16.9710910320282,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602504.2437174,
+ "finished": 1791602521.5164824,
+ "health": {
+  "at": 1791602504.2425716,
+  "available_fraction": 0.44019621302621315,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f6e7f2f53abc4847acfa6ec36aaa9d86",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "79f5832e03081623ccd74e20c7cb0b9d2c2554c353172907c1e105dc2a78e467",
+ "image_sha256": "8d197848d387c8a193993864ed08c3c4d6b97e29b08b3565bf6cbd743d30c699"
+}

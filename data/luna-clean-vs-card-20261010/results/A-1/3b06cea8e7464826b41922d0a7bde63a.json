@@ -1,0 +1,35 @@
+{
+ "unit": "3b06cea8e7464826b41922d0a7bde63a",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:3b06cea8e7464826b41922d0a7bde63a:000",
+   "decision": "uncertain",
+   "image_limitation": "框内仅见一处蓝色屋顶建筑，缺乏审批信息或区域业务依据，无法确认是否为违建。",
+   "observed_object": "蓝色屋顶建筑",
+   "reasoning": "建筑外观本身不能证明其属于违建，按要求应判定为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606438.8217235,
+   "seconds": 8.574868440628052,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606438.8217213,
+ "finished": 1791606447.6802053,
+ "health": {
+  "at": 1791606438.792101,
+  "available_fraction": 0.45360760118604065,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "94cc07465963444fa1154703eb6e5649",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6684d18542641ffc80db879a44b8bc832d379da264999982f483ec6b8d970f55",
+ "image_sha256": "f8692d72f874c14a689abc1e47e4df57a3ba00ab04c01a64dc28667c10d04231"
+}

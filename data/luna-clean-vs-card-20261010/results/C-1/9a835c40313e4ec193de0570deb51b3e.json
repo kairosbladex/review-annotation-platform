@@ -1,0 +1,35 @@
+{
+ "unit": "9a835c40313e4ec193de0570deb51b3e",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9a835c40313e4ec193de0570deb51b3e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色车辆，具有明显车身和车窗结构。",
+   "reasoning": "目标符合“车”类别，且可唯一定位。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603661.638501,
+   "seconds": 15.29877233505249,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603661.6384985,
+ "finished": 1791603677.2271736,
+ "health": {
+  "at": 1791603661.6364508,
+  "available_fraction": 0.4468890630745614,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "717d9b94f82f4c7cb7474fdc626b1247",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "96fade5c0cecd87d0cd30deec67854a4efaff0051c8f2237b6c21738163ff66a",
+ "image_sha256": "f32ce94d5f1dbad124e76c4056a0d73aced7f1b6f7fd66b1122d0db3ed4f3a5d"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_0250b965fe9d463b",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a75748e3120243e6b2e4315b387c18a6",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑屋顶上的小型灰色/白色设施或结构",
+   "reasoning": "候选框内未见蓝色或绿色顶棚，主体颜色偏灰白，明显不符合违建类别定义。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606507.4683223,
+   "seconds": 18.33851194381714,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606507.46832,
+ "finished": 1791606526.0781837,
+ "health": {
+  "at": 1791606507.4672675,
+  "available_fraction": 0.4554475961080122,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3f9debb9e25d452b929fa9d022c99946",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "22886e22dc38901a9e582e6aa5c077510d4ccfaf13d193c6490c1250f9d1ab09",
+ "image_sha256": "0250b965fe9d463bd3d36802b7c06e27eba4e44fd74c53126d538ca0bf6364f0"
+}

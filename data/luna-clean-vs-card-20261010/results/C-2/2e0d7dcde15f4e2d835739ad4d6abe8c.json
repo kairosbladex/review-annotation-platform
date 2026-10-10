@@ -1,0 +1,35 @@
+{
+ "unit": "2e0d7dcde15f4e2d835739ad4d6abe8c",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2e0d7dcde15f4e2d835739ad4d6abe8c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的汽车",
+   "reasoning": "候选框内可见完整四轮汽车结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609921.6711721,
+   "seconds": 14.74769639968872,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609921.6711702,
+ "finished": 1791609936.700107,
+ "health": {
+  "at": 1791609921.6690266,
+  "available_fraction": 0.4556831966870242,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0a79446f1d89463eb9ccb48d5f35ce54",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c5583e816f2ad9e64e430ae9e209ede1514b86d75de9eddcf58925956644e688",
+ "image_sha256": "e51c50bff301d7dd3636e62559222a71b215ac136ba80fec5614353619587593"
+}

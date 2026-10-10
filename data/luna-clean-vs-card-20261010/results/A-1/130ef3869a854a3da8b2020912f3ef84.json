@@ -1,0 +1,40 @@
+{
+ "unit": "130ef3869a854a3da8b2020912f3ef84",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "130ef3869a854a3da8b2020912f3ef84:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框区域被红色标注文字和框线遮挡，无法清晰确认完整可见的人体结构。",
+   "observed_object": "疑似人员标注区域",
+   "reasoning": "不能仅凭文字或框线作为目标证据，候选框内缺乏足够清晰、可唯一确认的人体结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602027.7279158,
+   "seconds": 32.89530539512634,
+   "status": "http_503"
+  },
+  {
+   "at": 1791602065.6441817,
+   "seconds": 4.058775424957275,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602027.7279134,
+ "finished": 1791602070.0086958,
+ "health": {
+  "at": 1791602027.727124,
+  "available_fraction": 0.4551964610908228,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0a8f2a3f71274f8e922671797689d0dc",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e598f7c86a93dd6b901049783321523dcc5f6f5ecbbaa7b6a396c8e036c7e3e8",
+ "image_sha256": "93a671d8ddfb5543f34761db6fe802a5996ae4b83ce9ae60d47c88fedd523dbf"
+}

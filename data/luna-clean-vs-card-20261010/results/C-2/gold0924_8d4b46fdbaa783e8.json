@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_8d4b46fdbaa783e8",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-001",
+   "decision": "false",
+   "image_limitation": "目标区域可见为盆栽，不是人员。",
+   "observed_object": "盆栽植物",
+   "reasoning": "候选框内没有可见人体结构，明确不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606845.5620167,
+   "seconds": 6.420519828796387,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606845.5620148,
+ "finished": 1791606852.2570221,
+ "health": {
+  "at": 1791606845.560547,
+  "available_fraction": 0.4555795932324083,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "15b6fe559f424fe1845a3c3039f4ded2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d920c65ad72d05aa8ed2ba891db021ef3937d3d82dbf7d69978ea1d29cef8291",
+ "image_sha256": "47720bc4d9ffca5b2523d4b31eb5305453a480614d9711b3d091b98ad2db1849"
+}

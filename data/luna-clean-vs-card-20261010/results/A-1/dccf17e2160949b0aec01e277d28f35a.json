@@ -1,0 +1,35 @@
+{
+ "unit": "dccf17e2160949b0aec01e277d28f35a",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:dccf17e2160949b0aec01e277d28f35a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见一辆车，具有车辆外形结构。",
+   "reasoning": "目标位于道路上，框内可见车辆本体，符合“车”类别；未依据框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602909.707927,
+   "seconds": 14.00521445274353,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602909.7079244,
+ "finished": 1791602923.985762,
+ "health": {
+  "at": 1791602909.7071755,
+  "available_fraction": 0.4268154377416198,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "14113b95ea354bcdbbc8c7809487d665",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8beda262782c9d2bd999d5d6a21c826fcd6a7f5356907791b51faa49078d7d6b",
+ "image_sha256": "2ebcf1dff7a3ad1e85efd3d63ebdc629acc52840a46c3c2fbc883ebbc470742e"
+}

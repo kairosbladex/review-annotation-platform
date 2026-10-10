@@ -1,0 +1,51 @@
+{
+ "unit": "61b6a8b48d6846b1aca70f777558012d",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:61b6a8b48d6846b1aca70f777558012d:003",
+   "decision": "uncertain",
+   "image_limitation": "目标位于树叶遮挡区域，车辆结构不完整且无法唯一确认。",
+   "observed_object": "树叶间疑似车辆的一部分",
+   "reasoning": "候选框内未清晰呈现完整车辆，不能据此明确判定为车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:61b6a8b48d6846b1aca70f777558012d:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:61b6a8b48d6846b1aca70f777558012d:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605020.305594,
+   "seconds": 16.80491280555725,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605020.3055916,
+ "finished": 1791605037.7077534,
+ "health": {
+  "at": 1791605020.2851632,
+  "available_fraction": 0.44128049249093837,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "275c990f4d8b472c969debbfc2ac3d41",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c82d431ff11d54d389aef3a3354af5fec5bc1947414772b6cbd98acfa1a27e75",
+ "image_sha256": "276ee3e24ecca6efc6c736170520c2d19544cac53865f580b4345ff9864e641f"
+}

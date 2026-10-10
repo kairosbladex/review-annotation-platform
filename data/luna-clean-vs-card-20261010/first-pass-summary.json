@@ -1,0 +1,47 @@
+{
+ "at": 1791610159.4136229,
+ "records": 2400,
+ "success": 2399,
+ "failures": [
+  {
+   "unit": "0b95a713df844f208001c01e00df1725",
+   "arm": "D",
+   "repeat": 2,
+   "success": false,
+   "results": [],
+   "attempts": [
+    {
+     "at": 1791602521.8624613,
+     "seconds": 20.064699411392212,
+     "status": "http_503"
+    },
+    {
+     "at": 1791602546.9443953,
+     "seconds": 48.717936515808105,
+     "status": "http_503"
+    }
+   ],
+   "started": 1791602521.8624594,
+   "finished": 1791602600.9881232,
+   "health": {
+    "at": 1791602521.8599954,
+    "available_fraction": 0.4388376032872938,
+    "shared": "running healthy 0"
+   },
+   "execution_id": null,
+   "requested_model": null,
+   "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+   "prompt_sha256": "f7005775be88bd0d4c7c4e657feee49b1af070fc46b013194424a96ae136707f",
+   "image_sha256": "6bf8e97397a53da8ca0a534464911ffa14e5cb7110ab59d521e9a53151e002d8"
+  }
+ ],
+ "completion": {
+  "at": 1791610124.7998817,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "health": {
+   "at": 1791610125.0851552,
+   "available_fraction": 0.456786992999714,
+   "shared": "running healthy 0"
+  }
+ }
+}

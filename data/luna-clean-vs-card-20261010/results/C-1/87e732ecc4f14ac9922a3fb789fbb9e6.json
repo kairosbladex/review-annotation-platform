@@ -1,0 +1,35 @@
+{
+ "unit": "87e732ecc4f14ac9922a3fb789fbb9e6",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "87e732ecc4f14ac9922a3fb789fbb9e6:000",
+   "decision": "false",
+   "image_limitation": "目标框内仅见地面上的小型物体，未见可确认的人体结构。",
+   "observed_object": "地面上的小型杂物或孔洞状物体",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605891.4694374,
+   "seconds": 15.103000164031982,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605891.4694357,
+ "finished": 1791605906.8453238,
+ "health": {
+  "at": 1791605891.4378302,
+  "available_fraction": 0.4520963222719216,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "cccf3996fe1e4390aa15d0cd6293e8c5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "502cceff5935ac598b372dd5e629039868e7cc93b79190bd965f474b2f229cc9",
+ "image_sha256": "af4fafd588778e07667a41154e20ed635441125e02bef62e18c638d9cd7f7c31"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "uncertain",
+   "image_limitation": "候选框内主要为道路、场地及框线，无法仅凭图像确认是否存在违建或审批、区域业务依据。",
+   "observed_object": "道路旁的长条形区域，含绿色场地边缘及标线",
+   "reasoning": "违建属性不能仅凭外观判断，且框线和文字不作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603398.3594177,
+   "seconds": 15.091459512710571,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603398.359415,
+ "finished": 1791603413.7310617,
+ "health": {
+  "at": 1791603398.3584988,
+  "available_fraction": 0.435410450864724,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4ddd2ddba40b4030a550aa1701b5c9a7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4fcfea64c6a5cbc7d2266a691c5bc0417dc5c08758573a1487b5b741055707a4",
+ "image_sha256": "f7b7535a5d748f9136c64b91276b6ad3461feae8c67103a44ae93ebfa729b3c0"
+}

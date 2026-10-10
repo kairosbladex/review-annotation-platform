@@ -1,0 +1,35 @@
+{
+ "unit": "64f7b907e6214559ac09a8e57c577128",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "64f7b907e6214559ac09a8e57c577128:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是警示文字和标注框，未见可确认的人体结构。",
+   "reasoning": "不能将框线或文字作为人员证据，框内未能确认存在人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603742.0976036,
+   "seconds": 13.879966497421265,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603742.0976012,
+ "finished": 1791603756.2673175,
+ "health": {
+  "at": 1791603742.09699,
+  "available_fraction": 0.446974274483977,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "95678b15b63b42828ca3c6615b9b8a60",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d3dfe4f4f439c460919233953b674b4d114f98bc30e5035f1aa4837630026f2d",
+ "image_sha256": "3c5ba610af3a9891625d4b769f1227f6e29b49e9b34b32eeab003d8c709a1ddd"
+}

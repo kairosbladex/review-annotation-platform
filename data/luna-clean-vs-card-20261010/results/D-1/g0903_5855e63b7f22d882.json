@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5855e63b7f22d882",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d49492d50736447d96d6d93db7a2d01d",
+   "decision": "uncertain",
+   "image_limitation": "候选框极小且位于图像边缘，无法清晰辨认框内主体是否为蓝色或绿色顶棚。",
+   "observed_object": "无法唯一辨认",
+   "reasoning": "现有图像分辨率下不能确认目标属于规定的蓝色或绿色顶棚类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606998.735724,
+   "seconds": 8.201576948165894,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606998.7357218,
+ "finished": 1791607007.2201152,
+ "health": {
+  "at": 1791606998.7160513,
+  "available_fraction": 0.45229960757151555,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a6068530456f49aa82dc9d8784f55b10",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0a70b8b025231af1e5d9b81e0287c9bebb358d9b8017a7a33dc796467b757e39",
+ "image_sha256": "17301bddb4d023c58c551af10a59183e6c8febbade3be72f7751ba17c80e6a5f"
+}

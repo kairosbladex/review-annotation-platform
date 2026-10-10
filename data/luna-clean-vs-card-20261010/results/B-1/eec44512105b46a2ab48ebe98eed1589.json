@@ -1,0 +1,35 @@
+{
+ "unit": "eec44512105b46a2ab48ebe98eed1589",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "eec44512105b46a2ab48ebe98eed1589:019",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅能看到被框出的车辆局部，图像分辨率和遮挡不足以确认公交车所需的车辆结构。",
+   "observed_object": "疑似车辆",
+   "reasoning": "不能仅凭位置或文字标注判断公交车类别，未见足够明确的公交车结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605236.0980132,
+   "seconds": 29.855743169784546,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605236.098011,
+ "finished": 1791605266.229066,
+ "health": {
+  "at": 1791605236.097021,
+  "available_fraction": 0.43972498146811445,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a074c43fd3b7426ebb0c28e12e2065e0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "861bd78a0b13755804757664810dfd79d9f0a9ae42d5cc116a59e7963189566a",
+ "image_sha256": "64a509c1239d0772b3ebe41916dce3e2aa0fe3a3bca892fc7edba35b16ecf47c"
+}

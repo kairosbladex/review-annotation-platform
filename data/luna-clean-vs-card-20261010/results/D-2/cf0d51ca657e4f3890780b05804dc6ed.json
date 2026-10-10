@@ -1,0 +1,35 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内为浅蓝色屋面，覆盖在建筑顶部，符合蓝色顶棚特征。",
+   "reasoning": "框内主体明确是蓝色屋面，不是文字、框线或其他地面物体，因此符合该类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606724.2530901,
+   "seconds": 7.893361568450928,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606724.2530878,
+ "finished": 1791606732.5619123,
+ "health": {
+  "at": 1791606724.2513602,
+  "available_fraction": 0.4567743161685594,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4216d75c102044cca6a9af1406ceba4d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "08781accdb09d8db365f658231f53ba18a2105b23b1df7eef43169d55adceedf",
+ "image_sha256": "b683e6ac34cc1ebc9340c5ab0dd4df804d2f0bd50f8d0400986c7e576fba8765"
+}

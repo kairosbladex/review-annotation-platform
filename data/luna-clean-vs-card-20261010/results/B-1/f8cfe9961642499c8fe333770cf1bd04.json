@@ -1,0 +1,51 @@
+{
+ "unit": "f8cfe9961642499c8fe333770cf1bd04",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:003",
+   "decision": "uncertain",
+   "image_limitation": "目标被红色框线和文字严重遮挡，无法清晰确认车辆本体结构。",
+   "observed_object": "框内主要可见框线、文字及局部背景，目标不清晰。",
+   "reasoning": "不能仅凭框线或文字判断为车，且车辆结构无法唯一确认。",
+   "target_index": 0
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:004",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被相邻红框和标注遮挡，仅露出局部，无法确认车辆结构。",
+   "observed_object": "局部疑似车辆区域，但细节不可辨。",
+   "reasoning": "可见信息不足，不能明确符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:009",
+   "decision": "true",
+   "image_limitation": "目标部分被红色标注覆盖，但可见轮廓和车身结构足以确认。",
+   "observed_object": "一辆车的俯视局部，具有明显车身轮廓。",
+   "reasoning": "框内可辨认出车辆主体，符合“车”类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608108.0997963,
+   "seconds": 17.85364532470703,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608108.0997941,
+ "finished": 1791608126.5189445,
+ "health": {
+  "at": 1791608108.0990067,
+  "available_fraction": 0.4575137979859099,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6866ebea8197461aa11dd0439ce97c2f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "afd7fb228e1ef51dca8b523f3c996d71d79b47305182cf69d5680b74c405a728",
+ "image_sha256": "cab32f9b83d3d4cc8c7d1033e0876ceb7e39c18d2ad0d9c7a6e49f7593df9aad"
+}

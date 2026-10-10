@@ -1,0 +1,35 @@
+{
+ "unit": "46e38da516a54f38ae3e713cf6322382",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "46e38da516a54f38ae3e713cf6322382:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内主要是建筑窗户及标注框，未见可确认的车辆结构。",
+   "reasoning": "框线和文字不作为目标证据；候选区域没有明显车体、车轮等车辆结构，因此不符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609353.519605,
+   "seconds": 20.53635549545288,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609353.5196035,
+ "finished": 1791609374.3288682,
+ "health": {
+  "at": 1791609353.518885,
+  "available_fraction": 0.45408992877140897,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3e8eefe3f1db42159e29f2de014b79b5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1383b51eb31254fa22301f49afc9fea65cb7742e6992bd654a40384485731f4e",
+ "image_sha256": "70aa782288dd13c036f9b6eba30662baa92819d1683aad486f0d8eb8786aff97"
+}

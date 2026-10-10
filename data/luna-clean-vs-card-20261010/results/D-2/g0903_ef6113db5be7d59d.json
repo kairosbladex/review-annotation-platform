@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_ef6113db5be7d59d",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd00f28b069049368321be0ad373f69f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为建筑立面上的蓝色文字或标识，不是覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+   "reasoning": "候选框主体是文字/标识，缺乏屋面结构证据，因此不符合违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606654.2866395,
+   "seconds": 5.3246612548828125,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606654.286637,
+ "finished": 1791606659.883946,
+ "health": {
+  "at": 1791606654.284525,
+  "available_fraction": 0.4578326035694065,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8baa0c7e2a144a09882925c0cc080394",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5a54c002ba87e627817b8633110745a32951af22f83a0d0b7817960a66562f9a",
+ "image_sha256": "3339ca80d9c1359f313ed65c6086fee00d878aedcbedf3c41eab81fd44667eb5"
+}

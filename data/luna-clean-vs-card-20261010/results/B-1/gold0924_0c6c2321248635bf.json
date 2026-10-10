@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_0c6c2321248635bf",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "可见一名人员的人体结构，位于道路旁框内。",
+   "reasoning": "框内能辨认出人员的头部、躯干和腿部，符合“人员”类别；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606051.6466198,
+   "seconds": 14.786832094192505,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606051.646618,
+ "finished": 1791606067.245695,
+ "health": {
+  "at": 1791606051.6459284,
+  "available_fraction": 0.4506175410376689,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "85ecd0d446fb4c249d540a563aeed6c0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "556e6aba3d21544d64628341520c32b8536a0b924a6cf76ab02c09d05c984c4b",
+ "image_sha256": "0c6c2321248635bfa29d7b6fd58a46bf41e24cd6252c3d22eedc4c405e09f3d2"
+}

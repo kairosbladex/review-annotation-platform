@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8772805bce1cd3a5",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0f4a7549e8134468b02a4cabaeab093b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝绿色的成片顶棚屋面，呈规则矩形并带有条纹结构。",
+   "reasoning": "主体符合蓝色顶棚的类别定义；判断依据为屋面颜色和顶棚形态，不以框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606626.125937,
+   "seconds": 18.70753264427185,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606626.1259348,
+ "finished": 1791606645.1208386,
+ "health": {
+  "at": 1791606626.125039,
+  "available_fraction": 0.455722899184597,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8bf8ddb2795a4c5cb27a72d054253b85",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c83d586af77d7d69d835a0f73c991fc6ff08b26646aa9b1588086fc222852b07",
+ "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

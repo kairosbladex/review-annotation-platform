@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_791e6578fa41f3c6",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:200d6dd57fd74ca08dab2ce96088fcf8",
+   "decision": "false",
+   "image_limitation": "框内可见主体为灰色屋面/地面结构，颜色不属于蓝色或绿色顶棚；框线和文字不作为判断依据。",
+   "observed_object": "灰色长条状屋面或地面结构",
+   "reasoning": "目标明显不是蓝色或绿色顶棚，符合类别判断中的排除情形。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605559.643597,
+   "seconds": 46.79883098602295,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605559.6435952,
+ "finished": 1791605606.712685,
+ "health": {
+  "at": 1791605559.642472,
+  "available_fraction": 0.44048583453798695,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d42b95df08ef40d9b2ec47c9e0322d33",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "06cccfb5dfebe62fd1ecdfd385caf64490124dc8f2cada8db440d534ae897d57",
+ "image_sha256": "791e6578fa41f3c61e7341d436fe0521d6e3bb85652d4eed22621d9609158d9d"
+}

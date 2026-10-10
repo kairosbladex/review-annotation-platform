@@ -1,0 +1,43 @@
+{
+ "unit": "c34f4e7e7a484fb896634bb06d991d16",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:000",
+   "decision": "uncertain",
+   "image_limitation": "目标为蓝色棚顶建筑，图像仅显示外观，缺乏审批或区域业务依据，无法确认是否违建。",
+   "observed_object": "蓝色屋顶的建筑或棚体",
+   "reasoning": "仅凭外观不能判定违建属性。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:001",
+   "decision": "uncertain",
+   "image_limitation": "目标为蓝色棚顶建筑，图像仅显示外观，缺乏审批或区域业务依据，无法确认是否违建。",
+   "observed_object": "蓝色屋顶的建筑或棚体",
+   "reasoning": "仅凭外观不能判定违建属性。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605457.1631854,
+   "seconds": 18.587632179260254,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605457.1631818,
+ "finished": 1791605476.0236344,
+ "health": {
+  "at": 1791605457.1129327,
+  "available_fraction": 0.4395460770284389,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ba81b33f29e74cd49c8f3aa193ec494d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "12ca15870a2a155c57a038ff0cfef9fa23281a0d93c9b6589c1b6eef5d33c330",
+ "image_sha256": "255c7e2c0c1d3d85c4cfd596bc7b420b59302af61e57042d589deedecb795d26"
+}

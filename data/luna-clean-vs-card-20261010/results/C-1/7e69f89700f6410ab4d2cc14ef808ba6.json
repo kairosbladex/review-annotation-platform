@@ -1,0 +1,35 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "uncertain",
+   "image_limitation": "目标被俯视且部分遮挡，未能清晰确认三轮结构。",
+   "observed_object": "框内可见一个带蓝色箱体和黄色部件的车辆或设备。",
+   "reasoning": "虽然外形疑似车辆，但图中缺乏可明确辨认的三轮证据，不能确认符合三轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605509.8925169,
+   "seconds": 14.753659963607788,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605509.8925145,
+ "finished": 1791605524.9171085,
+ "health": {
+  "at": 1791605509.8908527,
+  "available_fraction": 0.44015161611661174,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5417157cf10f4ba995ee33c880912121",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "216ee982be704dc45e67e9e148ecee64fd48e74e08d20647aad47edea7c3f069",
+ "image_sha256": "dfe8b9ce6f1008032dc9be5bb2221da756d6bff0730deea43c67d3a309d1c226"
+}

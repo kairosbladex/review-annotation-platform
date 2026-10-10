@@ -1,0 +1,75 @@
+{
+ "unit": "8bf8d838e4fe4cc096532ab64deb0d7c",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆外形，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体及车身轮廓，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体和车身结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见白色车辆及明确车身轮廓，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体和车身轮廓，符合“车”类别。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602751.8672254,
+   "seconds": 38.666237115859985,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602751.8672228,
+ "finished": 1791602791.0921185,
+ "health": {
+  "at": 1791602751.8647037,
+  "available_fraction": 0.441326427003827,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8480b1c229e446679c13cde0719ece70",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d9ec289b48f137cee2ccf4468f333539685fae71f6e8969213ce5bb45acb7f50",
+ "image_sha256": "1574b8271aaaf6e1993740490e41ca049f6aed6dedaf58fae52f3158cc667f77"
+}

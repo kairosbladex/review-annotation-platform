@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像顶部，目标区域过小且被热成像色彩与建筑背景混杂，无法确认可见人体结构。",
+   "observed_object": "顶部小块区域内疑似背景或建筑/植被纹理，未能唯一定位人员。",
+   "reasoning": "人员类别需要可见人体结构；当前证据不足，不能判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607155.0964742,
+   "seconds": 31.695985078811646,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607155.0964723,
+ "finished": 1791607187.078815,
+ "health": {
+  "at": 1791607155.0958564,
+  "available_fraction": 0.45547109536576397,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "213fa5e542f6415ca26a06ff848b536b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "49e7c8ddd7f7ea350cd901938775dbf9d920f19f8cefe382666a62dc1196cc4e",
+ "image_sha256": "1d91aba737e51b58fcbe61a05827a7e198e622d4178e63ffe64b33e7e4b0466a"
+}

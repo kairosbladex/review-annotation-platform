@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_783a28ac76814d6e",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5778bd2c683e4d079a34ef2f08718b88",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认该建筑附属结构是否缺乏审批或违反区域业务规定。",
+   "observed_object": "建筑外墙附近的矩形结构，带有框线标注。",
+   "reasoning": "不能将框线或文字作为目标证据，且缺乏违建所需的审批或区域依据，因此无法明确判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606001.4072928,
+   "seconds": 18.546138525009155,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606001.4072912,
+ "finished": 1791606020.4843564,
+ "health": {
+  "at": 1791606001.406346,
+  "available_fraction": 0.4506201250440193,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "64011c3634c54f6684105cb62d269f65",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fd2dc6ae9c10b5a3848376fcd913c63813dddf408a03ec4287cbf638dd674eb3",
+ "image_sha256": "783a28ac76814d6e599620a8f2c22520be41cdb845f6e20547b90a3e50182074"
+}

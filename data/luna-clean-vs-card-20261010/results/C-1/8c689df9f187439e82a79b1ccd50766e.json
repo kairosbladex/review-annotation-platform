@@ -1,0 +1,35 @@
+{
+ "unit": "8c689df9f187439e82a79b1ccd50766e",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "8c689df9f187439e82a79b1ccd50766e:008",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，虽部分被树枝遮挡，但车辆主体及车轮结构可辨认。",
+   "observed_object": "一辆白色汽车",
+   "reasoning": "候选框内明确是汽车，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606809.600235,
+   "seconds": 4.535080671310425,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606809.6002336,
+ "finished": 1791606814.4059556,
+ "health": {
+  "at": 1791606809.5985534,
+  "available_fraction": 0.45530179734969717,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2c854eed48be43e1835b06e5597376df",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ed5f1ba3eaa99c4c72bb477b222df8055c13e105396de9d04c16029b8066450b",
+ "image_sha256": "91b828222ccc44454771a24f13372d7d6817c6eb6e11961a4cee74cd39d9a700"
+}

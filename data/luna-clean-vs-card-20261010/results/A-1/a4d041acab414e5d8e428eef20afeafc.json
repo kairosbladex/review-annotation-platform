@@ -1,0 +1,35 @@
+{
+ "unit": "a4d041acab414e5d8e428eef20afeafc",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域较小且被框线与文字干扰，无法清楚确认车辆结构及三轮证据。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "仅凭当前候选框内可见部分，不能明确判断为三轮车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609132.0102122,
+   "seconds": 23.005407571792603,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609132.01021,
+ "finished": 1791609155.2861023,
+ "health": {
+  "at": 1791609132.009436,
+  "available_fraction": 0.45419371462647307,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a91adbd928c2492a86722836c838df9c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d48fe10cf86880c9eb08812170c178ec34a52aad91d64c5e68059721e735d524",
+ "image_sha256": "84a6c9d160ebf9e8aecbb551cc2bf7406ee28cfe6ade934cea4c0d812b33e176"
+}

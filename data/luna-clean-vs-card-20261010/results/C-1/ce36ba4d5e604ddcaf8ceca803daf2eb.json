@@ -1,0 +1,35 @@
+{
+ "unit": "ce36ba4d5e604ddcaf8ceca803daf2eb",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ce36ba4d5e604ddcaf8ceca803daf2eb:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且局部遮挡，无法确认车辆结构。",
+   "observed_object": "疑似建筑顶部的小型物体",
+   "reasoning": "仅凭当前候选框无法明确判断其是否为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605983.8168912,
+   "seconds": 17.849958419799805,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605983.8168893,
+ "finished": 1791606001.9473653,
+ "health": {
+  "at": 1791605983.8154929,
+  "available_fraction": 0.45015190309331704,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e41d045473904c209d2b0b425df88ae6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b604ca0b57e3f5e0c1ca572e445bcbdf7553df0ced0b7d8461f4276562abb74a",
+ "image_sha256": "8cd802ea3dac2cdd36a9a72bf6e9004cee48986d9a9b1823990b321ae4a03c7b"
+}

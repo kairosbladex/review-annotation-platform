@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_7e752d9beff9387a",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d0c64659575a47c0ab997593532f0db2",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且局部受框线影响，无法清晰确认是否为蓝色或绿色顶棚。",
+   "observed_object": "疑似建筑顶部的长条状区域",
+   "reasoning": "仅凭当前可见内容无法唯一判断框内主体是否符合蓝色或绿色顶棚标准，不能将框线或文字作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603105.2378433,
+   "seconds": 44.90160894393921,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603105.2378411,
+ "finished": 1791603150.685251,
+ "health": {
+  "at": 1791603105.21589,
+  "available_fraction": 0.43819756011432376,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c61d7ff5a313479a90e667e2f37566c6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bfefcde10a51a4d127d2e531fe059f016cb39d1cb6aef48e8daca526ea12a487",
+ "image_sha256": "7e752d9beff9387ae4834ec0d865fe6da6da039bdd7a772e998d21c697be47d9"
+}

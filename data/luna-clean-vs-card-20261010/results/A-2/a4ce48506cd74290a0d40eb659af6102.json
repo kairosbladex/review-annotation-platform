@@ -1,0 +1,75 @@
+{
+ "unit": "a4ce48506cd74290a0d40eb659af6102",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:003",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被红色标注框和文字遮挡，无法确认可见人体结构。",
+   "observed_object": "红色标注框及文字附近的模糊小目标",
+   "reasoning": "仅凭框线、文字不能作为人员证据，目标细节不可辨认。",
+   "target_index": 0
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:004",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注覆盖，无法确认人体结构。",
+   "observed_object": "标注框内的模糊区域",
+   "reasoning": "未能清晰看到人体结构，不能据此判定为人员。",
+   "target_index": 1
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:002",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小并被红色框线覆盖，细节不可辨认。",
+   "observed_object": "道路边缘的模糊小目标",
+   "reasoning": "没有足够可见的人体结构证据。",
+   "target_index": 2
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且被红色标注遮挡，无法唯一确认。",
+   "observed_object": "道路附近的模糊区域",
+   "reasoning": "不能将标注框或文字作为人员证据。",
+   "target_index": 3
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:005",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像底部边缘，部分区域超出画面且被标注遮挡。",
+   "observed_object": "底部道路旁的模糊小目标",
+   "reasoning": "遮挡和截断导致无法确认可见人体结构。",
+   "target_index": 4
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:001",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小，红色标注框和文字影响观察。",
+   "observed_object": "道路边缘的模糊小目标",
+   "reasoning": "无法清楚辨认人体结构，不能明确判定为人员。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607598.744698,
+   "seconds": 15.25454306602478,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607598.7446966,
+ "finished": 1791607614.2703252,
+ "health": {
+  "at": 1791607598.7439418,
+  "available_fraction": 0.4571327330494047,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "cb52f55c9ad44a3590781a1ba38c6da1",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "25e63eddda9df6e11f829e7c3b20a74ca84148653308ef9196c1b722a8d28946",
+ "image_sha256": "a154125d627022f338642399bccf3fa8dd9bba154fb09ea28f4d82cf41ca9543"
+}

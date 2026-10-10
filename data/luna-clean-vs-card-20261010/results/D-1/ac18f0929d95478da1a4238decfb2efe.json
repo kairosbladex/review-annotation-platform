@@ -1,0 +1,35 @@
+{
+ "unit": "ac18f0929d95478da1a4238decfb2efe",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:ac18f0929d95478da1a4238decfb2efe:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标分辨率过低且被遮挡，无法确认卡车所需的车辆结构。",
+   "observed_object": "疑似路边物品或小型车辆，无法唯一判断。",
+   "reasoning": "框内可见彩色物体，但目标过小、细节不清，缺乏卡车车身、驾驶室或货厢等明确证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609297.5088356,
+   "seconds": 20.957303762435913,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609297.5088336,
+ "finished": 1791609318.7839932,
+ "health": {
+  "at": 1791609297.506736,
+  "available_fraction": 0.4539429444101802,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a4d0a5f88b7a4946ad103b6be7da3b04",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0c88ab791dbac37d1fb9045329272679dfb07910f13065af6e1d4925ffa243d0",
+ "image_sha256": "eac059751a7387fc0010ea22ba15562b65a37b1e7a4deb156c25a730e3d25190"
+}

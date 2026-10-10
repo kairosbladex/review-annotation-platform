@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_d645cc066a5bdc4c",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3384f2739ad745b3b67ed154e7f5ac9f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑外墙上的窗户",
+   "reasoning": "框内是建筑墙面上的窗户，不是覆盖在上方的蓝色或绿色顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:9f3b0ba9ab134358b8f1b202bdc5454a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内主体为蓝色成片屋面，具有顶棚特征，符合类别定义。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:445ef456f78e4547b4064cd552e1cfb9",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内可见蓝色成片屋面，属于蓝色顶棚。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607858.4430616,
+   "seconds": 14.104835033416748,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607858.4430597,
+ "finished": 1791607872.8205693,
+ "health": {
+  "at": 1791607858.4300537,
+  "available_fraction": 0.4550548271427432,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "69efc6c5d646401dbcee619f5095001f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "147a5a1726b3ed48e825ae457b3948b9eb9a40c46ca09a2af196800865e6b1f4",
+ "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

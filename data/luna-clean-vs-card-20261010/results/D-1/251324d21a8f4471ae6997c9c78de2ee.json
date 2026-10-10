@@ -1,0 +1,43 @@
+{
+ "unit": "251324d21a8f4471ae6997c9c78de2ee",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色成片屋顶",
+   "reasoning": "框内主体为覆盖建筑上方的规整蓝色彩钢瓦屋面，符合类别定义。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色成片屋顶",
+   "reasoning": "框内主体为覆盖建筑或棚架上方的规整蓝色屋面，符合类别定义。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602791.6622071,
+   "seconds": 14.808521270751953,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602791.6622052,
+ "finished": 1791602806.748759,
+ "health": {
+  "at": 1791602791.6599486,
+  "available_fraction": 0.42706909596501025,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "04f4b59e8f024cbc8f61cc27297a4149",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fd7831c368c2d213bede97e1d0c0305eea378e26d97b5d55f36f4a3b476370aa",
+ "image_sha256": "9836a9eba3c9c25bec2e6e43bc7a35a686ac62fc485537e7bf656a291efe9c03"
+}

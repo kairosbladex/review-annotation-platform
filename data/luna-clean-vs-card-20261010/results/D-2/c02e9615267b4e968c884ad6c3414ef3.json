@@ -1,0 +1,35 @@
+{
+ "unit": "c02e9615267b4e968c884ad6c3414ef3",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c02e9615267b4e968c884ad6c3414ef3:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为小型杂物或污渍，未见可确认的人体结构。",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606018.2590046,
+   "seconds": 13.880826711654663,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606018.2590032,
+ "finished": 1791606032.4127407,
+ "health": {
+  "at": 1791606018.2461915,
+  "available_fraction": 0.4498828624321227,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0fb07a7d84d14deb9fd0e2562d4c4b49",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "41c911c70c5662c6360ba78cfaa4ba37aa0850f02084bf5930f5f3ed4a26a4e9",
+ "image_sha256": "5c30a8d04a37d628f78858e3c3d44eabb3872f622ebd309c5a6fde971d1b1c12"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "a117aac3a74545e1a82da8d0ce0f33d7",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a117aac3a74545e1a82da8d0ce0f33d7:000",
+   "decision": "true",
+   "image_limitation": "目标较小且部分细节不清，但可见其为道路上的车辆轮廓，符合“车”类别。",
+   "observed_object": "道路上的一辆车",
+   "reasoning": "候选框内可见明确的车辆外形，不依赖框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606592.7987034,
+   "seconds": 5.126727342605591,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606592.798701,
+ "finished": 1791606598.7433662,
+ "health": {
+  "at": 1791606592.7962446,
+  "available_fraction": 0.45624945887867013,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c89f3c5f6dbf43eaadd8d2e11e43b719",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ffa0f5ca04fe65e4255b77d191df22a2d4c6aab8363182a007f215f4924c70f1",
+ "image_sha256": "d85ef3672df692f0f055525f82bbc6cb6fabd861e25af3d18a6d433952eedde8"
+}

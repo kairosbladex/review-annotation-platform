@@ -1,0 +1,35 @@
+{
+ "unit": "9004cbad92554824930663ab17e0400c",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9004cbad92554824930663ab17e0400c:000",
+   "decision": "false",
+   "image_limitation": "候选框位于画面右下方，框内可见的是水面与岸边结构，无可辨认的人体结构。",
+   "observed_object": "水面及岸边平台边缘",
+   "reasoning": "框内未发现头部、躯干或四肢等人员证据，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604754.2275836,
+   "seconds": 14.68986201286316,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604754.2275815,
+ "finished": 1791604769.4568484,
+ "health": {
+  "at": 1791604754.2268627,
+  "available_fraction": 0.44208746247414776,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "42f41c8347d143be9b918cdddb4e54bb",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "faeac70dee6ad04cbf4102c4e5ade9bc26ae2d9d5922ec54e5134300bbffe402",
+ "image_sha256": "c0fa82fcecfa8af6ace93095cf86f1b40919a79542851db5268684fa238b327f"
+}

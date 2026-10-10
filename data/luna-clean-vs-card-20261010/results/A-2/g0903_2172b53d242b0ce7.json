@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_2172b53d242b0ce7",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:70e9f9bea8964e4a85870d4b808e3773",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否存在审批或区域业务依据。",
+   "observed_object": "候选框内可见疑似棚状建筑/构筑物。",
+   "reasoning": "外观可能是临时搭建物，但违建属性不能仅凭图像确认。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:78e3d11373c94753a258e7c81c313bdd",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否存在审批或区域业务依据。",
+   "observed_object": "候选框内可见蓝色顶棚状建筑。",
+   "reasoning": "可见构筑物，但无法据此确认其属于违建。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:f3af4269e30c43e09f0e2ba123b00f30",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否存在审批或区域业务依据。",
+   "observed_object": "候选框内可见细长蓝色顶棚状建筑。",
+   "reasoning": "可见疑似临时棚体，但缺少审批或区域依据，不能明确判定为违建。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603722.8804188,
+   "seconds": 16.47401452064514,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603722.8804169,
+ "finished": 1791603739.632235,
+ "health": {
+  "at": 1791603722.8794928,
+  "available_fraction": 0.44865524661513406,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9a71ca2e3b6c4095a3903a6ee566c49c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c516247421bcadc6a963c9b689bce898b75fb1799482b4328be54c181bcc7a09",
+ "image_sha256": "2172b53d242b0ce7d6d54e822870d31408117a4c6622913e35d0535ea680c11a"
+}

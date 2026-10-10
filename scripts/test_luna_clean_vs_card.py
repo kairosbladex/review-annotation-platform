@@ -40,4 +40,14 @@ class Scoring(unittest.TestCase):
         self.assertEqual(measure(rows,'A-1')['true_rejected'],1)
         self.assertIsNone(paired([],'A','B')['accuracy']['ci95_pp'])
 
+class LabelCorrections(unittest.TestCase):
+    def test_only_reviewed_changes_and_original_label_guard(self):
+        from score_luna_clean_vs_card import corrected_labels
+        labels={'x':{'label':'false','class_name':'车','split':'dev'},'y':{'label':'true','class_name':'人员','split':'holdout'}}
+        c=[{'key':'x','class_name':'车','original_label':'false','corrected_label':'true'}]
+        new=corrected_labels(labels,c)
+        self.assertEqual(new['x']['label'],'true');self.assertEqual(new['y'],labels['y']);self.assertEqual(labels['x']['label'],'false')
+        with self.assertRaises(AssertionError):corrected_labels(new,c)
+        with self.assertRaises(AssertionError):corrected_labels(labels,c+c)
+
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,35 @@
+{
+ "unit": "a4d041acab414e5d8e428eef20afeafc",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且部分被遮挡，无法清楚确认三轮结构及三个车轮。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "仅凭可见局部不能证明其为三轮车，不能将框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609121.1610086,
+   "seconds": 13.974422216415405,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609121.1610067,
+ "finished": 1791609135.66895,
+ "health": {
+  "at": 1791609121.1603022,
+  "available_fraction": 0.45538922796456666,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "eb581ddfa1514684974fd1ec32a60030",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d48fe10cf86880c9eb08812170c178ec34a52aad91d64c5e68059721e735d524",
+ "image_sha256": "84a6c9d160ebf9e8aecbb551cc2bf7406ee28cfe6ade934cea4c0d812b33e176"
+}

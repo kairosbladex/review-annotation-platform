@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_dfd728e2940f968a",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:1b1215b7886343c0b545b6639a919f33",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为灰色建筑屋面及规则排列的光伏板样结构，不是蓝色或绿色顶棚。",
+   "reasoning": "候选框主体呈灰白色，未见符合类别要求的蓝色或绿色成片顶棚；不能将光伏板作为违建证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609156.6849842,
+   "seconds": 22.526864290237427,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609156.6849828,
+ "finished": 1791609179.487992,
+ "health": {
+  "at": 1791609156.6839323,
+  "available_fraction": 0.4557657024897904,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "948f7885eb934d8d920b6e0860a42099",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f1bbe468a41895c348f1aeb5a302f3a6755162c8c47a4b70f9e56fd885f75daa",
+ "image_sha256": "dfd728e2940f968a8744a46c8727eb3e388fcf67fd8bd5e3f85b280d82d80f97"
+}

@@ -32,12 +32,12 @@ def run(root):
     token=(root/'token').read_text().strip()
     opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
     def one(u,a,n):
-        assert sha(BINARY)==binary_sha,'CLI changed'
         dest=e/'results'/f'{a}-{n}'/(u['unit']+'.json')
         if dest.exists() and read(dest).get('success'):
             assert read(dest)['binary_sha256']==binary_sha
             return True
-        state=health(); request=payload(root,u,a); started=time.time(); attempts=[]; result=None; body={}
+        assert sha(BINARY)==binary_sha,'CLI changed'
+        state=health(); request=payload(root,u,a); started=time.time(); attempts=read(dest)['attempts'] if dest.exists() else []; result=None; body={}
         for retry in range(2):
             t=time.time()
             try:
@@ -95,8 +95,15 @@ def start(root):
         props=base.properties(PREFIX+'-worker');cg=Path('/sys/fs/cgroup')/props['ControlGroup'].lstrip('/')
         limits={k:(cg/k).read_text().strip() for k in ('memory.max','memory.swap.max')};cpus=sorted(os.sched_getaffinity(int(props['MainPID'])))
         assert limits=={'memory.max':str(4*1024**3),'memory.swap.max':'0'} and len(cpus)<=3
-        write(root/'evidence/effective-limits-6.json',{'limits':limits,'allowed_cpus':cpus,'concurrency':6,'at':time.time(),'enforced_before_first_request':True})
-        write(root/'evidence/concurrency-amendment.json',{'at':time.time(),'before':4,'after':6,'reason':'首批资源测量后提高至用户允许上限，未查看类别结果；保留已成功结果，固定CLI/输入/随机顺序不变','preserved_successes':sum(read(p).get('success',False) for p in (root/'evidence/results').glob('*/*.json')),'binary_sha256':sha(BINARY),'script_sha256':sha(__file__)})
+        limit_record={'limits':limits,'allowed_cpus':cpus,'concurrency':6,'at':time.time(),'enforced_before_first_request':True}
+        if not (root/'evidence/effective-limits-6.json').exists():write(root/'evidence/effective-limits-6.json',limit_record)
+        else:
+            with (root/'evidence/resume-limits.jsonl').open('a') as f:f.write(json.dumps(limit_record)+'\n')
+        startup={'at':time.time(),'before':4,'after':6,'reason':'首批资源测量后提高至用户允许上限，未查看类别结果；保留已成功结果，固定CLI/输入/随机顺序不变','preserved_successes':sum(read(p).get('success',False) for p in (root/'evidence/results').glob('*/*.json')),'binary_sha256':sha(BINARY),'script_sha256':sha(__file__)}
+        if not (root/'evidence/concurrency-amendment.json').exists():write(root/'evidence/concurrency-amendment.json',startup)
+        else:
+            startup.update(before=6,after=6,reason='仅补跑未成功的调用；保留既有成功结果与失败尝试')
+            with (root/'evidence/resumptions.jsonl').open('a') as f:f.write(json.dumps(startup,ensure_ascii=False)+'\n')
         for role,memory,cpu in [('runner','1G','100%'),('watch','256M','100%')]:
             base.launch(root,role,memory,cpu,['/usr/bin/python3',str(root/'src/luna_clean_vs_card.py'),'run' if role=='runner' else 'watch','--root',str(root)])
     except BaseException:

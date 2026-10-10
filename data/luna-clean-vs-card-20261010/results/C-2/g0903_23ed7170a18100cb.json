@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_23ed7170a18100cb",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:838cb70eaa904657a3920b516a740ad2",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像右下角，目标区域过小且仅能看到建筑局部，无法判断是否存在违建及审批、区域业务依据。",
+   "observed_object": "建筑局部",
+   "reasoning": "违建属性不能仅凭外观或局部建筑结构确认，缺乏必要审批或区域业务依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601902.8417876,
+   "seconds": 6.980366230010986,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601902.8417854,
+ "finished": 1791601910.1001832,
+ "health": {
+  "at": 1791601902.8404846,
+  "available_fraction": 0.4563691135727335,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6e2f8297a5a04603806348b0380a337a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4f054940190555053f7aac8d090f6aa6862ada8c32e184385344f193626954ca",
+ "image_sha256": "440792b0920308dbca2bcf75771c33abfccd085fc7bfa0753dbcd0375325bdc0"
+}

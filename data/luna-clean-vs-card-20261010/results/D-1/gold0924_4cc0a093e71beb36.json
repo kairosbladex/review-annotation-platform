@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像顶部边缘，区域狭小且仅见热成像色块，无法确认可见人体结构。",
+   "observed_object": "无法唯一辨认目标类别",
+   "reasoning": "不具备明确的人体结构证据，按要求无法确认时输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607141.311306,
+   "seconds": 18.7986261844635,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607141.3113039,
+ "finished": 1791607160.3856974,
+ "health": {
+  "at": 1791607141.3106854,
+  "available_fraction": 0.45520096030188006,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0ca03259b8a145218a4d2194137e65b5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "49e7c8ddd7f7ea350cd901938775dbf9d920f19f8cefe382666a62dc1196cc4e",
+ "image_sha256": "1d91aba737e51b58fcbe61a05827a7e198e622d4178e63ffe64b33e7e4b0466a"
+}

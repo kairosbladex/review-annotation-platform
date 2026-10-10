@@ -1,0 +1,35 @@
+{
+ "unit": "9f3745b4d6bb4bb192a479ead431c528",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为屋顶上的方形设备，未见车辆或三轮结构。",
+   "reasoning": "目标不符合三轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606549.245832,
+   "seconds": 9.247556686401367,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606549.2458298,
+ "finished": 1791606558.7698066,
+ "health": {
+  "at": 1791606549.2437694,
+  "available_fraction": 0.4567078920053154,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b560d21db8ad4a1ca2230e1e67e78f1d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f95947fc209544f19182115cc1def18c10745825134b90334e1c5e1a831881ea",
+ "image_sha256": "3ef753e1773f8491240bde1c34809822a914288eb165d31fd8208a98cc51946d"
+}

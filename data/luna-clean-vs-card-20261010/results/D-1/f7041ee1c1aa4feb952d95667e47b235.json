@@ -1,0 +1,43 @@
+{
+ "unit": "f7041ee1c1aa4feb952d95667e47b235",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "两轮车",
+   "reasoning": "框内可见一辆小型两轮车，具有车身和两轮结构。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:001",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且局部模糊，无法确认是否具备两轮车所需结构。",
+   "observed_object": "疑似小型车辆或两轮车",
+   "reasoning": "仅凭当前清晰度无法唯一确认类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609229.224836,
+   "seconds": 26.318254947662354,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609229.224834,
+ "finished": 1791609255.813519,
+ "health": {
+  "at": 1791609229.222986,
+  "available_fraction": 0.45388837627607354,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a0282cb0f23c4a31a69aef27dead96aa",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "62c7e170636b8817db83839b31281a96fa9d7e1d5d39086c4a6fde57608f5100",
+ "image_sha256": "c4caaadf979307f0b26284343c89983d3635b4d0e841368dd2513de7882e6dca"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "19f44292074c4a988754d5aa6542aa43",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "19f44292074c4a988754d5aa6542aa43:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为地面铺装及污渍，未见人体结构。",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606057.9484725,
+   "seconds": 14.180979251861572,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606057.9484706,
+ "finished": 1791606072.5538971,
+ "health": {
+  "at": 1791606057.947259,
+  "available_fraction": 0.4505513296749478,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c35c5db5314e472b8ef88c8a8cf27d17",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9d7f87ed62b095a562924f946a899e83abb8d2e81c7bd9374d4134e0b1d03c0c",
+ "image_sha256": "92e7908c5a7de3ec491bd13f14d21213f192334314f652a1deb89cb4f2e567a3"
+}

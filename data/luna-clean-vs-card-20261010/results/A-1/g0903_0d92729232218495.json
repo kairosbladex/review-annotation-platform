@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_0d92729232218495",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cc74adcb35e5423f95ab997d36672ae2",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆被树木遮挡的汽车，能辨认出车体结构。",
+   "reasoning": "目标符合“车”类别，框线和文字不作为判断依据。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f733538108d240f590ff61e466ea9a4d",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车，能辨认出车顶、车身等结构。",
+   "reasoning": "目标符合“车”类别，虽有树叶遮挡但仍可唯一确认。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606579.4612265,
+   "seconds": 6.307226896286011,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606579.461224,
+ "finished": 1791606586.1580737,
+ "health": {
+  "at": 1791606579.4603145,
+  "available_fraction": 0.4563798447991066,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "999d411c1faf49d4af95979383b2e963",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d6e5ef6d8bbdc19cb05d8d7f58ea4adee46a9e0d882696aa208273ab12c8b5f3",
+ "image_sha256": "0d92729232218495b0eef34ec32fd5979f66082300ed18b8644cf9d1124ec0ad"
+}

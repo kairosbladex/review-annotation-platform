@@ -1,0 +1,35 @@
+{
+ "unit": "4149619ef9da4e378df52424563f31f6",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "4149619ef9da4e378df52424563f31f6:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见小型黑白物体，未见可确认的人体结构。",
+   "observed_object": "疑似管口或其他小物体",
+   "reasoning": "不符合人员类别，且框线本身不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607015.6675365,
+   "seconds": 6.037207365036011,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607015.6675313,
+ "finished": 1791607021.980381,
+ "health": {
+  "at": 1791607015.6654055,
+  "available_fraction": 0.45610533212446425,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d48111da94504bc18d720a0f88e5b9a8",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ae1474d611420d3a63276f1cc13a3ccb49b9074f4e1b2026889e5c58614e5061",
+ "image_sha256": "5e93a35d0a3f743a7418eff003876df9e410199c6696aca5b247f8c4d4949e7b"
+}

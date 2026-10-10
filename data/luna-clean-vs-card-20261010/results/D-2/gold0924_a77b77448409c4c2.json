@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_a77b77448409c4c2",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B04-004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见一辆白色汽车，具备明显车辆结构。",
+   "reasoning": "目标清晰可见，符合“车”类别；未依据框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601770.5371225,
+   "seconds": 5.242183446884155,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601770.5371208,
+ "finished": 1791601776.062807,
+ "health": {
+  "at": 1791601770.5348732,
+  "available_fraction": 0.45730324706846,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c44dc98580aa4f0e8503258d34e99470",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e2894ada62adba7aac3761d1327838e6ce13976ca59ffbab3c77f1a98ba59cf0",
+ "image_sha256": "11917b1907c069fd5f544ef33d8eda81696381d1ac5602566db03830eccca1c6"
+}

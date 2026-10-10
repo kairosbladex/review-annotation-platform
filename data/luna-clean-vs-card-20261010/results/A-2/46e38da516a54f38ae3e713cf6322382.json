@@ -1,0 +1,35 @@
+{
+ "unit": "46e38da516a54f38ae3e713cf6322382",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "46e38da516a54f38ae3e713cf6322382:000",
+   "decision": "uncertain",
+   "image_limitation": "目标框过小且被框线和文字标注干扰，无法清晰确认车辆的完整结构。",
+   "observed_object": "建筑玻璃上的疑似小型物体或反光区域",
+   "reasoning": "候选框内缺乏可辨认的车辆结构，不能明确符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609347.436275,
+   "seconds": 15.347265481948853,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609347.436273,
+ "finished": 1791609363.0642378,
+ "health": {
+  "at": 1791609347.4355433,
+  "available_fraction": 0.45267036688269363,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "25f8234b83874b82820fdccd2b93531a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1383b51eb31254fa22301f49afc9fea65cb7742e6992bd654a40384485731f4e",
+ "image_sha256": "70aa782288dd13c036f9b6eba30662baa92819d1683aad486f0d8eb8786aff97"
+}

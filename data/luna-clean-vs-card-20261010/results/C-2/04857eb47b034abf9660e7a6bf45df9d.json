@@ -1,0 +1,35 @@
+{
+ "unit": "04857eb47b034abf9660e7a6bf45df9d",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "04857eb47b034abf9660e7a6bf45df9d:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色汽车，具备明显的车身、车顶和四个车轮区域结构。",
+   "reasoning": "候选框内目标明确为汽车，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604778.7063897,
+   "seconds": 15.071523427963257,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604778.7063875,
+ "finished": 1791604794.050092,
+ "health": {
+  "at": 1791604778.6902318,
+  "available_fraction": 0.44517617086495753,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c51c9b6a1a7b48ce9e6525c893ab7e26",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4358c95d7d46d91ff23ac66cce464fc2ecd5a83f875c448aa492476801495798",
+ "image_sha256": "f18fadef56e9a9a8796b594cc5142441deef5c864be4778e7cb334a9719ef45f"
+}

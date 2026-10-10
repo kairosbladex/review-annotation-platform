@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_24d11b7bfccde471",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-017",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "花盆和灌木",
+   "reasoning": "候选框内可见的是一个花盆及植物，没有可见的人体结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606934.4388182,
+   "seconds": 4.727245569229126,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606934.4388163,
+ "finished": 1791606939.4389775,
+ "health": {
+  "at": 1791606934.4373338,
+  "available_fraction": 0.4545770899686563,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5784ff9daa9a4640b1662057168fd946",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d36a80e3bde17ebf78666465083e73982be79916bdf952ee7cf3da5546a296a0",
+ "image_sha256": "2cfecd292f5d915d88d0ccf67dbbecf32e7e65fd7971599ae18bc193046c5f32"
+}

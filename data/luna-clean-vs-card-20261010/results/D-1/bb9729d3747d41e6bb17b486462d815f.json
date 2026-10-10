@@ -1,0 +1,51 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见完整人体结构，包括头部、躯干和腿部。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见完整人体结构，包括头部、躯干和腿部。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见完整人体结构，包括头部、躯干和腿部。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609542.2411158,
+   "seconds": 18.298328399658203,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609542.2411141,
+ "finished": 1791609560.9792478,
+ "health": {
+  "at": 1791609542.2398903,
+  "available_fraction": 0.4549579117045638,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3f715b05bde54aaba8532f1c6e06f639",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5c5b36f18755ba28cffab3a2634e3b620eb127fbbeec875c46b3850b818ad622",
+ "image_sha256": "0f85b35535e823fac943f1c87c447f239d0abdc62667ec7118c4783d019ea802"
+}

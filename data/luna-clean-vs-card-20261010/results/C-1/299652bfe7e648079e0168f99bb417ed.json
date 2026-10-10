@@ -1,0 +1,40 @@
+{
+ "unit": "299652bfe7e648079e0168f99bb417ed",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "299652bfe7e648079e0168f99bb417ed:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见地面网格及小型孔洞/斑点，未见可辨认的人体结构。",
+   "observed_object": "地面网格与斑点",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602450.331226,
+   "seconds": 32.28710889816284,
+   "status": "http_503"
+  },
+  {
+   "at": 1791602487.637202,
+   "seconds": 15.715279340744019,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602450.3312237,
+ "finished": 1791602503.649103,
+ "health": {
+  "at": 1791602450.3300638,
+  "available_fraction": 0.4399391195943803,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "736486d07bfb410a90706948539ac10f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "79f5832e03081623ccd74e20c7cb0b9d2c2554c353172907c1e105dc2a78e467",
+ "image_sha256": "8d197848d387c8a193993864ed08c3c4d6b97e29b08b3565bf6cbd743d30c699"
+}

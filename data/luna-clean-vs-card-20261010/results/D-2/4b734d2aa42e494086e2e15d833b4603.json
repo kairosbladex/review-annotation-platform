@@ -1,0 +1,35 @@
+{
+ "unit": "4b734d2aa42e494086e2e15d833b4603",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "4b734d2aa42e494086e2e15d833b4603:000",
+   "decision": "true",
+   "image_limitation": "目标部分被树叶遮挡，但可见车身、车顶和车窗等车辆结构。",
+   "observed_object": "白色车辆",
+   "reasoning": "候选框内可见明确的汽车结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604733.4754694,
+   "seconds": 15.628077507019043,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604733.475467,
+ "finished": 1791604749.3769164,
+ "health": {
+  "at": 1791604733.4734523,
+  "available_fraction": 0.44240325845024797,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "084a38466ff34e78ad8303ae1fa9c533",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8ad54cbd92e7d894c24effe0e071f4cf70ba14f7df79f5a1fc4db799588afa22",
+ "image_sha256": "401f84b1c609b243eced994ac42a824cbb1e4d7d45440c0e6970863d5ff919bc"
+}

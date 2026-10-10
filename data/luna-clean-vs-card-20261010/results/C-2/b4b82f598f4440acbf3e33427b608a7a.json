@@ -1,0 +1,35 @@
+{
+ "unit": "b4b82f598f4440acbf3e33427b608a7a",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b4b82f598f4440acbf3e33427b608a7a:000",
+   "decision": "false",
+   "image_limitation": "目标区域可见为墙面上的小型孔洞或管件，无可辨认的人体结构。",
+   "observed_object": "墙面孔洞/管件",
+   "reasoning": "候选框内未见人员的头部、躯干或四肢等人体结构，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606631.9264212,
+   "seconds": 4.1840150356292725,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606631.926419,
+ "finished": 1791606636.391468,
+ "health": {
+  "at": 1791606631.9250276,
+  "available_fraction": 0.4565126931255946,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f5fe305021c64e38b08cb63cec2c6d6b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8986abed629a651798029ed542184cbf2c66c9013743d3d83905c5fb213c1b48",
+ "image_sha256": "b27e48964e1eaf2814f58fa2172c9eb856c264002ea579726ff0e33eb99c9ed4"
+}

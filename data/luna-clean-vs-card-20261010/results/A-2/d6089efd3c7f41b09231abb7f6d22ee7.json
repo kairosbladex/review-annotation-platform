@@ -1,0 +1,107 @@
+{
+ "unit": "d6089efd3c7f41b09231abb7f6d22ee7",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:000",
+   "decision": "false",
+   "image_limitation": "目标区域可见，为细小两轮车辆，未见明确两轮结构，且框内主要为车辆局部。",
+   "observed_object": "疑似小型车辆或车轮局部",
+   "reasoning": "不能明确确认符合“两轮车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见完整车辆目标，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆主体及车身结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603097.153503,
+   "seconds": 16.219951629638672,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603097.1535006,
+ "finished": 1791603113.932401,
+ "health": {
+  "at": 1791603097.1525583,
+  "available_fraction": 0.43842194306576726,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "44bdb26229464039a6ae77c03e240a12",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6c7a12a8cf162fef04a1dd093cbb6a00943bc66544aff77b962de6d834423837",
+ "image_sha256": "ecd4bbab21d754816c06b9ba4572426679b508b99b444534c03203a0de5ae2c2"
+}

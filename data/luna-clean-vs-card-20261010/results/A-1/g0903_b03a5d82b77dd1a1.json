@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_b03a5d82b77dd1a1",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4e95387d7e8c4667ba5c4c3e0544651b",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见一处蓝色棚状/建筑结构，缺乏审批或区域业务依据，无法确认是否为违建。",
+   "observed_object": "蓝色棚状建筑或临时结构",
+   "reasoning": "不能仅凭外观判断违建属性。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602969.7446408,
+   "seconds": 41.10575032234192,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602969.7446382,
+ "finished": 1791603011.138492,
+ "health": {
+  "at": 1791602969.7438507,
+  "available_fraction": 0.44043619121598354,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e543435d11144dec8538281b126b7918",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "062699eff131522f153bb5888b1ef96f4af6c5397b16470b003514dc74bfc63c",
+ "image_sha256": "b03a5d82b77dd1a1f90921e59dce915037619bed74875b952b81cf6f661b01d3"
+}

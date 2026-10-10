@@ -1,0 +1,43 @@
+{
+ "unit": "759ebbf1ebce4a43a1642c64a1e2b848",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:000",
+   "decision": "true",
+   "image_limitation": "目标较小，但可见车辆整体轮廓，未发现影响判断的遮挡。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "候选框内可见明确的车辆结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:002",
+   "decision": "true",
+   "image_limitation": "目标较小，但可见车辆整体轮廓，未发现影响判断的遮挡。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "候选框内可见明确的车辆结构，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606702.6902728,
+   "seconds": 4.335202217102051,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606702.690271,
+ "finished": 1791606707.569566,
+ "health": {
+  "at": 1791606702.6896737,
+  "available_fraction": 0.45585814911698724,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2e52c0cb8f674d3994010f95abd71048",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "cb720cd4b6d74e27dd2c309c5403f6c445c236d6ea532a03e774723dfa6802c5",
+ "image_sha256": "2f1d0e8b54c9f24de4a44388851ed13a4e67ca2e93407efe170b3252d2805a03"
+}

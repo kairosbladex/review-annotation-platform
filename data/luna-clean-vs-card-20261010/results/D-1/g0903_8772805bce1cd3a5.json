@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8772805bce1cd3a5",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0f4a7549e8134468b02a4cabaeab093b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见浅蓝色成片顶棚屋面，呈规则矩形覆盖结构。",
+   "reasoning": "主体符合蓝色顶棚的类别定义，浅蓝色属于蓝色范畴；未将框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606619.843276,
+   "seconds": 5.109983444213867,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606619.8432739,
+ "finished": 1791606625.236105,
+ "health": {
+  "at": 1791606619.8416092,
+  "available_fraction": 0.4550104734337395,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "771ba64cfa8f46d08d44d62e20f4e850",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b6dbe1b5bc65330057c4a4006193aa4ec9c2d70175f9cbcc28f77540900f1943",
+ "image_sha256": "4ea1cde8425be37853d022ff5071f26431cc15b5ecb26f145bccb8edff573edd"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5f8ae6af38734aaf",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0d716cff82d14e248530e2e8af69b96b",
+   "decision": "uncertain",
+   "image_limitation": "框内可见屋顶设备及标注文字，但仅凭影像无法确认是否存在审批缺失或区域业务依据。",
+   "observed_object": "屋顶上的设备/构筑物",
+   "reasoning": "不能将框线、文字或外观直接作为违建证据，缺少审批和区域业务信息，无法明确符合违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601343.7236006,
+   "seconds": 13.864086627960205,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601343.723599,
+ "finished": 1791601357.860544,
+ "health": {
+  "at": 1791601343.722591,
+  "available_fraction": 0.4637068100058563,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "de7bacc5d1e54f9b87fae52978d2e857",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "602321aa20808d308451fb635a9a6c3759077df529b894b5cf4eb9f0ca9e7c3b",
+ "image_sha256": "5f8ae6af38734aaf672539f4520d895307a2157cb462ded27a9ebb50d4d9b4fd"
+}

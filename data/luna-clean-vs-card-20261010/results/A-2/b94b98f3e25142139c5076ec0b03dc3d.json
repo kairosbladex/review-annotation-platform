@@ -1,0 +1,51 @@
+{
+ "unit": "b94b98f3e25142139c5076ec0b03dc3d",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:b94b98f3e25142139c5076ec0b03dc3d:001",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像底部且被框线部分遮挡，车辆结构不完整，无法唯一确认。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "可见框内有疑似车体，但目标超出图像边界且缺少足够结构证据。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:b94b98f3e25142139c5076ec0b03dc3d:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整的车辆形态和车身结构，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:b94b98f3e25142139c5076ec0b03dc3d:003",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像顶部边缘，车体大部分超出画面，结构不完整。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "仅凭露出的局部无法明确确认其为完整车辆。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608480.9539394,
+   "seconds": 18.9286847114563,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608480.953937,
+ "finished": 1791608500.1646693,
+ "health": {
+  "at": 1791608480.9365041,
+  "available_fraction": 0.45411677203737894,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b45f94457e554f6f99a0df45814633bf",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3cdc66ae2a1fd65a1aea511196cf7f3e1e9a862fd09d8ecb22f2f469b260e32a",
+ "image_sha256": "ae23ecfe1055bf156da5d28aaee6812751cc5993157f00fc7679330b25f3a479"
+}

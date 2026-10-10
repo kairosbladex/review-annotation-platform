@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_23ed7170a18100cb",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:838cb70eaa904657a3920b516a740ad2",
+   "decision": "uncertain",
+   "image_limitation": "候选框仅覆盖画面右下角局部建筑及标注区域，无法确认是否存在违建，也无审批或区域业务依据。",
+   "observed_object": "建筑局部与图中文字/框线",
+   "reasoning": "不能仅凭外观判断违建属性，且候选框内缺乏可核验的建设依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601907.9473214,
+   "seconds": 6.167498350143433,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601907.9473197,
+ "finished": 1791601914.4009504,
+ "health": {
+  "at": 1791601907.9467404,
+  "available_fraction": 0.45650436350512374,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "bbf654eb7ce840ff933848604c6fd315",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "827efd800fbdf21079dd08e8fa6e5d04e0ca57382ef7f744d8914a179fb9aa29",
+ "image_sha256": "23ed7170a18100cb415d37dc174e2ff0034246c76fcf336d0fd79180cfa0438d"
+}

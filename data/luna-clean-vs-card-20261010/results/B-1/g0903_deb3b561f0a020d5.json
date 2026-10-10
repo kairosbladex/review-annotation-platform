@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_deb3b561f0a020d5",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:22f50e485cd4400f9828b3b8b218857a",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是建筑外墙上的浅蓝色矩形区域，未见覆盖建筑、棚架或空地的蓝绿色顶棚结构。",
+   "reasoning": "该区域更像墙面或窗户，不符合蓝色或绿色顶棚的判定条件，因此输出false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604417.8158646,
+   "seconds": 27.954158067703247,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604417.8158624,
+ "finished": 1791604446.0436535,
+ "health": {
+  "at": 1791604417.7952352,
+  "available_fraction": 0.4463879786430963,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8734ea1aac91411ab5fea637445a26f6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "15990688016bfaf42de25eb49d6f2058c9b2a4334ea0b7c91d6e0ff098c8dafc",
+ "image_sha256": "deb3b561f0a020d5f9bfafb1040d5fe1f573c1b6d85fe7297dec54a50ff49aed"
+}

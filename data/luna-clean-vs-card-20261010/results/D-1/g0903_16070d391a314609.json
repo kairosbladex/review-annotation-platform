@@ -1,0 +1,59 @@
+{
+ "unit": "g0903_16070d391a314609",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ff202383d6674e13ade5162d89c90529",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，能辨认出车辆结构。",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见完整车辆外形，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:3039d76145f84aa1a60f92ed3c02519e",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，能辨认出车辆结构。",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆俯视轮廓，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:ed5987ba00054ababb624eb1f47b6e9b",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且部分细节不清，无法确认是否具备两轮车所需结构。",
+   "observed_object": "疑似小型车辆或两轮车",
+   "reasoning": "仅凭当前图像无法明确确认两轮结构，因此不能判定为“两轮车”。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:9989d35690a8475c8ed7b617e195428a",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，能辨认出车辆结构。",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆俯视轮廓，符合“车”类别。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606124.0814197,
+   "seconds": 18.9230477809906,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606124.081418,
+ "finished": 1791606143.3310447,
+ "health": {
+  "at": 1791606124.0787747,
+  "available_fraction": 0.45244248792265834,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5aab99c3571141d5843cf95482fe30da",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3295a240ea3ba106bbd7c9a38c57d70e31bc51a3de009a3599bc02cb67fbcdf6",
+ "image_sha256": "98fdfe44927dbfff37cc205b68f917cdb3ce9e65df3ef80d808878be4f3904b9"
+}

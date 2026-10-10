@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_12dcae5800b529d9",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b6399b684eb4b6a9eb6beac9f41f820",
+   "decision": "false",
+   "image_limitation": "候选框内可见的是地面上的蓝色围挡及绿地，并非覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+   "observed_object": "蓝色围挡、草地和杂物",
+   "reasoning": "主体为长条状立在地面的蓝色围挡，不符合违建类别中蓝绿色顶棚的定义。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f3cdb8b816ba422dafa1d3cf6c987901",
+   "decision": "false",
+   "image_limitation": "候选框内主要是地面上的蓝色围挡和旁侧杂物，未见蓝绿色屋面结构。",
+   "observed_object": "蓝色围挡及杂物",
+   "reasoning": "框内目标不是顶棚，而是立于地面的围挡，不能作为违建类别目标。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604060.9209905,
+   "seconds": 13.853492259979248,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604060.9209883,
+ "finished": 1791604075.0494738,
+ "health": {
+  "at": 1791604060.9202144,
+  "available_fraction": 0.452020595685816,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "00a00bcdb92c4f59be7823a0779e0484",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0ccfa89bb75362be7577cb6bc495b360d21a1fcdf229ed420965924ea350e3b8",
+ "image_sha256": "12dcae5800b529d9b92a85a2f5832cc20405bdecce2cba8c4293db5e28bc03ac"
+}

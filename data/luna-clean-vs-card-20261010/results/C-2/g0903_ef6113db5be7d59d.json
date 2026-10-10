@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_ef6113db5be7d59d",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd00f28b069049368321be0ad373f69f",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见建筑外墙及蓝色文字/标识，缺乏审批或区域业务依据，无法判断是否为违建。",
+   "observed_object": "建筑外墙上的蓝色文字或标识",
+   "reasoning": "不能仅凭外观认定违建，且文字不作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606666.2336774,
+   "seconds": 20.434441328048706,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606666.2336752,
+ "finished": 1791606686.9446876,
+ "health": {
+  "at": 1791606666.2320576,
+  "available_fraction": 0.4577439265514739,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "236dd22516cf43c6ad9a9b7bc7e1ae99",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "10cbd4f917348c29a0a2eac730fc1c1c25fdb5a361ff5e6d03e5a3288d389626",
+ "image_sha256": "3339ca80d9c1359f313ed65c6086fee00d878aedcbedf3c41eab81fd44667eb5"
+}

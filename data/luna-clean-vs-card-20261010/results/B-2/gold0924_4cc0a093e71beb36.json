@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且受热成像伪彩影响，无法清晰确认人体头部、躯干或四肢等结构。",
+   "observed_object": "疑似细长物体或局部热源",
+   "reasoning": "不能仅凭框内颜色和轮廓确认其为人员，依据不足。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607166.971631,
+   "seconds": 15.537174224853516,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607166.9716294,
+ "finished": 1791607182.7880118,
+ "health": {
+  "at": 1791607166.9711506,
+  "available_fraction": 0.45566854385101335,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "475bdb84bd3742a39999d712a3f56a68",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fe79387834a61b610d2fb88f3b294d8b92ffb2755fdddcd3cf1ede0d927914c1",
+ "image_sha256": "4cc0a093e71beb3631b6d1635a715c4118a2657764b329138e358ec56503a47a"
+}

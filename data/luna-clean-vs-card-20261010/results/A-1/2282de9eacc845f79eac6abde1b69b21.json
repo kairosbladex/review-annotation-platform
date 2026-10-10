@@ -1,0 +1,43 @@
+{
+ "unit": "2282de9eacc845f79eac6abde1b69b21",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2282de9eacc845f79eac6abde1b69b21:000",
+   "decision": "true",
+   "image_limitation": "目标位于图像底部，部分接近边缘，但车辆轮廓和车身结构可见。",
+   "observed_object": "车",
+   "reasoning": "候选框内可见明确的车辆主体结构，不将框线和文字作为依据。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:2282de9eacc845f79eac6abde1b69b21:001",
+   "decision": "true",
+   "image_limitation": "目标位于图像底部且与相邻框部分重叠，细节有限。",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆的车身轮廓，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609286.7806487,
+   "seconds": 25.092223644256592,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609286.7806466,
+ "finished": 1791609312.1435363,
+ "health": {
+  "at": 1791609286.7798567,
+  "available_fraction": 0.4542826652450781,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b9489d0d7d0c40459b668b96708e3cae",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e909a29b923ccffe2c9eb295961ec0aca0172306caf2ce87621218a2f88bb889",
+ "image_sha256": "c4ac9543ec8f8c582b17ee573d972c0d10d1db3c77c63eb9609bc42858af18f8"
+}

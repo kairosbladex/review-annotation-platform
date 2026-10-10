@@ -1,0 +1,35 @@
+{
+ "unit": "e69acd6b46474afebbf37d0a3f999c89",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e69acd6b46474afebbf37d0a3f999c89:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车",
+   "reasoning": "目标呈现出明确的汽车车身与车轮结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603755.0828106,
+   "seconds": 34.55893087387085,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603755.0828085,
+ "finished": 1791603789.9189427,
+ "health": {
+  "at": 1791603755.0791,
+  "available_fraction": 0.44656654868195006,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "580a4a4a772f4f469d08b3813e3902a0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fe17358220cde0bbcb771dc3abeda484e2f74b3074f501d206e97fb63de3b560",
+ "image_sha256": "7e905017219943f3f3d1738f15094076bec8d3693f2488bff709426df9ae4cd6"
+}

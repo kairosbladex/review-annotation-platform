@@ -1,0 +1,43 @@
+{
+ "unit": "4f63543e5bae47728ed68f9de1fd9539",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且被遮挡，无法确认车辆结构。",
+   "observed_object": "框内可见一组彩色物体，疑似车辆或物品。",
+   "reasoning": "无法明确辨认出卡车的车厢、驾驶室等必要结构，不能仅凭外观推断。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:002",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小，俯视角度下无法看清车轮数量及车体结构。",
+   "observed_object": "道路上的小型车辆状目标。",
+   "reasoning": "缺乏三轮车所需的三轮证据，不能确认符合三轮车类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605344.9737804,
+   "seconds": 16.508886575698853,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605344.973778,
+ "finished": 1791605361.756092,
+ "health": {
+  "at": 1791605344.9721477,
+  "available_fraction": 0.4415788388241543,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "938adb960ffa4c8cada7d76ab05755ba",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1790f66e3a9f38a85fcb05c78a3ad0549ef7f81731f1b0af9b3d5fb26788f5b0",
+ "image_sha256": "d821f9a3966b9feed3c7ad442f4c230043e0600277799d23dd6239fbcda17f66"
+}

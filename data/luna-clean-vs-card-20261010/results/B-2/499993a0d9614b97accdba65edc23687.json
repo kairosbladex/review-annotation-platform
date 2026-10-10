@@ -1,0 +1,139 @@
+{
+ "unit": "499993a0d9614b97accdba65edc23687",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "499993a0d9614b97accdba65edc23687:007",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小且被红色标注框、文字干扰，无法确认人体结构。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "无法仅凭框内清晰证据确认人员。",
+   "target_index": 0
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:014",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小并被文字和标注遮挡，人体结构不可辨。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "不能唯一确认可见人体结构。",
+   "target_index": 1
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:011",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小并被文字和标注遮挡，人体结构不可辨。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "不能唯一确认可见人体结构。",
+   "target_index": 2
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:013",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小，无法辨认人体结构。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "证据不足以确认人员。",
+   "target_index": 3
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:002",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小且标注干扰明显，无法看清人体结构。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "不能确认人员类别。",
+   "target_index": 4
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:003",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小并受标注遮挡，无法确认人体结构。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "无法唯一定位并确认人员。",
+   "target_index": 5
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:005",
+   "decision": "uncertain",
+   "image_limitation": "候选框很小且文字、框线干扰，人体结构不可见。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "不能确认符合人员类别。",
+   "target_index": 6
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:009",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小，目标细节不足且受标注干扰。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "无法确认可见人体结构。",
+   "target_index": 7
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:010",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于密集标注区域，目标被遮挡且过小。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "不能唯一确认人员。",
+   "target_index": 8
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:012",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小并被红色文字、框线遮挡。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "无法确认人体结构。",
+   "target_index": 9
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:006",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小且处于标注重叠区域，细节不可辨。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "证据不足以判定为人员。",
+   "target_index": 10
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小并被标注覆盖，无法看清目标。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "不能确认可见人体结构。",
+   "target_index": 11
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:008",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于树木和车辆附近，目标过小且被标注干扰。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "无法唯一确认人员。",
+   "target_index": 12
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小且与相邻标注重叠，人体结构不可辨。",
+   "observed_object": "疑似标注区域",
+   "reasoning": "不能确认人员类别。",
+   "target_index": 13
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606894.191607,
+   "seconds": 7.983726978302002,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606894.1916049,
+ "finished": 1791606902.507404,
+ "health": {
+  "at": 1791606894.1907911,
+  "available_fraction": 0.4556493614038706,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "224adb8e6c3545d3b8d5cfc97926765f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d727c389780f220caad5eb49042f212f5ebbe2755551b7bdfb7ac7ab070c70da",
+ "image_sha256": "46b7c6d7b14f538b338d6b9ac22d6607f524361b04d17a1e99054d1fe3741ffa"
+}

@@ -1,0 +1,75 @@
+{
+ "unit": "b995f84e52fd4bdab8bc1919844c3ff9",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:004",
+   "decision": "uncertain",
+   "image_limitation": "框内仅见小型红色标记及文字，无法确认人体结构。",
+   "observed_object": "红色标记/文字",
+   "reasoning": "不能把框线或文字作为人员证据，目标过小且无法看清人体结构。",
+   "target_index": 0
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:001",
+   "decision": "uncertain",
+   "image_limitation": "框内目标尺寸过小，无法确认可见人体结构。",
+   "observed_object": "疑似标记区域",
+   "reasoning": "仅凭红色标注无法判定为人员。",
+   "target_index": 1
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:002",
+   "decision": "uncertain",
+   "image_limitation": "框内被红色文字和标注干扰，目标过小无法确认人体结构。",
+   "observed_object": "疑似标记区域",
+   "reasoning": "没有足够的人体结构证据。",
+   "target_index": 2
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:005",
+   "decision": "uncertain",
+   "image_limitation": "框内仅见小型红色标记，无法确认人体结构。",
+   "observed_object": "红色标记/文字",
+   "reasoning": "不能将标注本身作为人员目标证据。",
+   "target_index": 3
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:000",
+   "decision": "uncertain",
+   "image_limitation": "目标极小且被标注覆盖，无法辨认人体结构。",
+   "observed_object": "疑似标记区域",
+   "reasoning": "无法唯一确认符合人员类别。",
+   "target_index": 4
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:003",
+   "decision": "uncertain",
+   "image_limitation": "框内目标过小并受红色文字干扰，无法确认人体结构。",
+   "observed_object": "疑似标记区域",
+   "reasoning": "缺少可见人体结构，不能明确判定为人员。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602254.9730048,
+   "seconds": 5.973008632659912,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602254.973003,
+ "finished": 1791602261.3502228,
+ "health": {
+  "at": 1791602254.9722505,
+  "available_fraction": 0.447575375161242,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "de44b9769a60418a8e922ab7d5c3f78a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d13e6604318b1e9ee857b3b8d2cce1f0bf16d5a1c9cae0228b01cdc51a372082",
+ "image_sha256": "d228961d1aab7b1179920d0907199bc0c71ff41dba46212daed0cc2001622d03"
+}

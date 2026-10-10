@@ -1,0 +1,35 @@
+{
+ "unit": "da7a896cc98348f993aaf5c874bfea97",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:da7a896cc98348f993aaf5c874bfea97:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像左下边缘，部分被裁切且被框线遮挡，无法确认完整车辆结构。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "可见区域不足以唯一确认其是否为车，不能据此判定符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607043.8889298,
+   "seconds": 9.509501934051514,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607043.8889275,
+ "finished": 1791607053.8785784,
+ "health": {
+  "at": 1791607043.8659313,
+  "available_fraction": 0.454729029542063,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "901ceb54aae94485a96cea3e67df9ebe",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3eb0c403fe4fdf9173c559d479bb0a25f8fd95a00c7b830a1055e81cb376b77e",
+ "image_sha256": "22277a4a4bf36f7ad0f0c38beca15ad157deff6e2191fe35d9769f6022383cfb"
+}

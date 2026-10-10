@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_eb288fad610cfac1",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:48f3ec3897b84c36a45312fed8798ed3",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑外墙的深浅灰色方格玻璃幕墙",
+   "reasoning": "框内主体是建筑立面，不是蓝色或绿色顶棚；不符合违建类别判定要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607730.2011764,
+   "seconds": 23.84551501274109,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607730.2011745,
+ "finished": 1791607754.3171678,
+ "health": {
+  "at": 1791607730.1997542,
+  "available_fraction": 0.4550919456339656,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8a595dbd27b2415998d9966cde385a4f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b83bb51487783598807d88e63ef0f4f82cf0e1d52af2a650e508918cce72cbff",
+ "image_sha256": "c17617cbaf7fe03e48d76c49d7c85aa618e6614e59016585237b6bc5fed9a2e9"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8e13ea8a27e0dec9",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4076feeb3c914a9ca6ddfc656e3ebc4b",
+   "decision": "uncertain",
+   "image_limitation": "候选框内主要为道路、树木及建筑边缘，无法据此确认是否存在未经审批或违反区域业务依据的建筑。",
+   "observed_object": "道路和建筑边缘",
+   "reasoning": "仅凭图像外观不能判断违建属性，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605875.3038256,
+   "seconds": 27.520612478256226,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605875.3038235,
+ "finished": 1791605903.6341512,
+ "health": {
+  "at": 1791605875.3015523,
+  "available_fraction": 0.4515345288912582,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e517446b3688438fbbb0a981aa14d76d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b91e0050696f899333010e4cc9a9c85fb845ed3a70e7dcf08b2a5ce7508c31ac",
+ "image_sha256": "acc17ccc78259c8cb87e6687c917c8e95e9e06e9215f7054934e36fe5285f1e4"
+}

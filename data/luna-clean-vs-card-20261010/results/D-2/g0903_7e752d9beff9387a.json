@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_7e752d9beff9387a",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d0c64659575a47c0ab997593532f0db2",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "候选框内可见规则的蓝色屋面，符合蓝色顶棚类别；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603114.4565578,
+   "seconds": 17.151771545410156,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603114.4565554,
+ "finished": 1791603131.8916252,
+ "health": {
+  "at": 1791603114.454707,
+  "available_fraction": 0.4360857581243592,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ad1f24b2486846179b1294e655027fdf",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "615b1573ff53e4d859f9df461a38a69c47bd50a8458442c6171f3a5e4bbf3f98",
+ "image_sha256": "57fec1b04572a9b133a37cc51dcb95e5b8a33cd1b79828cc146e7ba30eb7a44e"
+}

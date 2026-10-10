@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "false",
+   "image_limitation": "清晰可见",
+   "observed_object": "候选框内为建筑顶部的紫色/蓝紫色矩形物体",
+   "reasoning": "主体不是蓝色或绿色顶棚，且呈小型立体物体外观，不符合违建类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "false",
+   "image_limitation": "清晰可见",
+   "observed_object": "候选框内为建筑顶部的紫色/蓝紫色矩形物体",
+   "reasoning": "主体不是蓝色或绿色顶棚，且呈小型立体物体外观，不符合违建类别。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "false",
+   "image_limitation": "清晰可见",
+   "observed_object": "候选框内为建筑顶部的紫色/蓝紫色矩形物体",
+   "reasoning": "主体不是蓝色或绿色顶棚，且呈小型立体物体外观，不符合违建类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601949.8501863,
+   "seconds": 46.7728590965271,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601949.850184,
+ "finished": 1791601996.927941,
+ "health": {
+  "at": 1791601949.8492336,
+  "available_fraction": 0.45637084637699205,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "cf9ee4e6c12f4513b5b69efefb0c2a87",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "123aa4a7349af9a0fda39a3a5348079b30297b88c26c50edc744a6894d3d55a4",
+ "image_sha256": "5a505085982c37efb127b782fb3436e399fa1bdb1c9aadd42921fb9a06312ad9"
+}

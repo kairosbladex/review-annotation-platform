@@ -1,0 +1,35 @@
+{
+ "unit": "710af93e1e3b4c7798d29ee656391101",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "710af93e1e3b4c7798d29ee656391101:006",
+   "decision": "true",
+   "image_limitation": "目标较小但可见车辆整体结构，未读取车牌号码。",
+   "observed_object": "停放的一辆汽车。",
+   "reasoning": "候选框内清晰可见车辆车身及车轮，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606158.6614742,
+   "seconds": 14.499247550964355,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606158.6614726,
+ "finished": 1791606173.4331994,
+ "health": {
+  "at": 1791606158.659307,
+  "available_fraction": 0.4539433396111514,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "95cd9f89457f40d886b454867bec3634",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ed6d45b12bcf980d97f9be5a59c50dc2d38ea2a9a573bf1150648a7b78f6eaa6",
+ "image_sha256": "4e9e7d636660155f345ba8024b7dfb55f726a667234272cd5be9295634671aa2"
+}

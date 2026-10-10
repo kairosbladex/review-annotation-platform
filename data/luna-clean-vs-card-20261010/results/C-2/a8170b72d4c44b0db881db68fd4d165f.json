@@ -1,0 +1,35 @@
+{
+ "unit": "a8170b72d4c44b0db881db68fd4d165f",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a8170b72d4c44b0db881db68fd4d165f:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且局部模糊，无法确认是否具有人体结构。",
+   "observed_object": "疑似小型斑点或碎片状物体",
+   "reasoning": "不能从框内明确识别出人员，依据不足以判定为真或假。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607753.7740607,
+   "seconds": 14.300957918167114,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607753.7740588,
+ "finished": 1791607768.3529916,
+ "health": {
+  "at": 1791607753.77298,
+  "available_fraction": 0.45643106892499496,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "81c37ea6d42b4420b2befe7a1d90a1fe",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fe0a15ffb09def180bf4323b250a0e93b315cf7dad717837dec8b8d734030d0b",
+ "image_sha256": "c6de6566c293d1e6f907cb826e806c51f212e853efacf34b4f9354ad3eacc0a0"
+}

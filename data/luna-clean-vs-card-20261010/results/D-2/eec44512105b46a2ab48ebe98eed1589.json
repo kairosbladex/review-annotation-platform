@@ -1,0 +1,35 @@
+{
+ "unit": "eec44512105b46a2ab48ebe98eed1589",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "eec44512105b46a2ab48ebe98eed1589:019",
+   "decision": "false",
+   "image_limitation": "目标区域可见，为白色矩形物体及周边绿化，不具备公交车的车体、车窗或车轮结构。",
+   "observed_object": "白色矩形物体，可能为箱体或棚顶",
+   "reasoning": "候选框内没有可辨认的公交车结构，明确不符合公交车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605231.5796645,
+   "seconds": 28.200787782669067,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605231.579662,
+ "finished": 1791605260.0843234,
+ "health": {
+  "at": 1791605231.5773034,
+  "available_fraction": 0.4398580425951255,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a389686dae06418ba8ef656f7499814a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e25d47c12bb49a4cfe065e4108acde652cdefb326f609048e9c5176fb89da081",
+ "image_sha256": "3847f0e2bba733608527921d005fc91c399c8d5465669ff9f90c6b969b973cd1"
+}

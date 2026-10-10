@@ -5,7 +5,7 @@
  "video_yoloe_head": "ebfcee3b94191d41187854cf01557d54a62c6279",
  "video_java_head": "d93df44e55eeb8ee4a86df5ecd5cb882b534fa76",
  "tests": [
-  "2 focused unittest tests passed",
+  "3 focused unittest tests passed",
   "5 prompt composition cases byte-equal to task4 build_prompt"
  ],
  "resource_precheck": {
@@ -15,5 +15,16 @@
   "disk_available": "11T",
   "gpu": "NVML driver/library mismatch; no GPU used"
  },
- "ci": "Only validate/build auto jobs; compose integration manual, no automatic deployment"
+ "ci": "Only validate/build auto jobs; compose integration manual, no automatic deployment",
+ "adjudication_rechecked_after_1500_requests": {
+  "decisions": {
+   "维持原标签": 49,
+   "改为不是": 1,
+   "改为是": 3,
+   "看不清": 1
+  },
+  "corrections_exists": true
+ },
+ "correction_source_commit": "5b9a8dea",
+ "final_label_policy": "采用任务③更正清单，3个更正均落在本次dev；保留原冻结标签为基线，不修改原金标文件"
 }

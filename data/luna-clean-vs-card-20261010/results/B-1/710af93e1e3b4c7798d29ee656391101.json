@@ -1,0 +1,35 @@
+{
+ "unit": "710af93e1e3b4c7798d29ee656391101",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "710af93e1e3b4c7798d29ee656391101:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车的俯视轮廓及车身结构。",
+   "reasoning": "目标符合“车”类别，判断不依赖框线或文字。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606161.5494783,
+   "seconds": 14.825967788696289,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606161.5494766,
+ "finished": 1791606176.773102,
+ "health": {
+  "at": 1791606161.5485632,
+  "available_fraction": 0.45321942263205306,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4744dbf1c71a4133b0dc2899ada4a2b6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3b75523d9c5eb8804a0507be3c28ab9e6f9c34df5435180f0bfec167bb80e031",
+ "image_sha256": "706359d96296ba2bcc9d258d95301cbc181caded99000de5c7bca3e45640c1d3"
+}

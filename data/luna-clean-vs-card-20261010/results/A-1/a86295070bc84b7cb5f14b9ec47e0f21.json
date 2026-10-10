@@ -1,0 +1,83 @@
+{
+ "unit": "a86295070bc84b7cb5f14b9ec47e0f21",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:004",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且被标注文字、框线及周边物体干扰，无法确认可见人体结构。",
+   "observed_object": "疑似小型物体或人员，无法唯一辨认",
+   "reasoning": "不能仅凭框线或文字判断为人员，人体结构不可清晰确认。",
+   "target_index": 0
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:005",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸过小，受标注框线和文字影响，人体结构不可辨认。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "缺乏明确的人体头部、躯干或四肢证据。",
+   "target_index": 1
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:000",
+   "decision": "uncertain",
+   "image_limitation": "目标很小并与周围标注重叠，无法清晰确认人体结构。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "不能排除其他物体，无法明确符合人员类别。",
+   "target_index": 2
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:001",
+   "decision": "uncertain",
+   "image_limitation": "候选区域分辨率不足，标注框线遮挡细节。",
+   "observed_object": "疑似小型物体或人员",
+   "reasoning": "未能确认可见人体结构。",
+   "target_index": 3
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:002",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且位于车辆、道路等复杂背景中，细节不可辨。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "无法唯一定位并确认其为人员。",
+   "target_index": 4
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:003",
+   "decision": "uncertain",
+   "image_limitation": "候选框内细节模糊，周边物体和标注造成干扰。",
+   "observed_object": "疑似小型物体或人员",
+   "reasoning": "没有足够的人体结构证据。",
+   "target_index": 5
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:006",
+   "decision": "uncertain",
+   "image_limitation": "目标位于树木和铺装区域边缘，尺寸过小且被标注干扰。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "无法确认头部、躯干或四肢等人体结构。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604209.6945662,
+   "seconds": 18.332592964172363,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604209.694564,
+ "finished": 1791604228.3000484,
+ "health": {
+  "at": 1791604209.693835,
+  "available_fraction": 0.4470219722011989,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0d301ac0123f4f05830fa69cf772ce14",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "911e8c002949eaa6727b78e8822bbbd25ad6d640f3bf14e7084c6a49dcaf7644",
+ "image_sha256": "d0fad4d8c1e40b459f55efaa79c32ce914da5b13f4a4c494d6168d6845a09cac"
+}

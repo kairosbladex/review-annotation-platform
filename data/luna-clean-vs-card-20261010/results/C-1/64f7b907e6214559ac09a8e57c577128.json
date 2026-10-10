@@ -1,0 +1,35 @@
+{
+ "unit": "64f7b907e6214559ac09a8e57c577128",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "64f7b907e6214559ac09a8e57c577128:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见模糊的黑白物体，无法确认可见人体结构。",
+   "observed_object": "疑似黑白杂物或小型物体",
+   "reasoning": "目标类别为人员，但框内没有足够清晰、可唯一确认的人体结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603744.4129584,
+   "seconds": 15.12708568572998,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603744.4129565,
+ "finished": 1791603759.8154464,
+ "health": {
+  "at": 1791603744.4116564,
+  "available_fraction": 0.44665841770772735,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d11169970d0444478b6f6a822badc6dc",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a121352140e445927b390e4189fb0e0e77b77a571fbe1fe1801d823688733d80",
+ "image_sha256": "6a1561213d764638ca3f46fedabf1a8f3d12ac5a592b28d2c6fa84aaef9c8c82"
+}

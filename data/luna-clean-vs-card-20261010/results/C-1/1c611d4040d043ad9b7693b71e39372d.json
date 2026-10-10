@@ -1,0 +1,43 @@
+{
+ "unit": "1c611d4040d043ad9b7693b71e39372d",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "1c611d4040d043ad9b7693b71e39372d:003",
+   "decision": "true",
+   "image_limitation": "目标虽部分被树木遮挡，但可见车体轮廓，能够确认是车辆。",
+   "observed_object": "停放的车辆",
+   "reasoning": "框内可见明显车身和车轮区域，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "1c611d4040d043ad9b7693b71e39372d:018",
+   "decision": "true",
+   "image_limitation": "车辆完整度较好，未见影响类别判断的遮挡。",
+   "observed_object": "停放的车辆",
+   "reasoning": "框内可见清晰的车身、车窗及车轮结构，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603688.4477952,
+   "seconds": 15.003637075424194,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603688.447793,
+ "finished": 1791603703.7288678,
+ "health": {
+  "at": 1791603688.4457886,
+  "available_fraction": 0.446119880384218,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "035c909e34f24e19827b293f34b4d92a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "64f694e1d80818a57688b50ce899dc97ac1c0ccf727847a44ded20ba72ac9d12",
+ "image_sha256": "1d1933bbf267ebd2f45ada90c67e81a58f6a9dcbcce130a8f4f1ebaf5fdec981"
+}

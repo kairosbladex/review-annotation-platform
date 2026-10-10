@@ -1,0 +1,29 @@
+{
+ "seed": 20261010,
+ "arms": {
+  "A": "截图+p000",
+  "B": "截图+p000-building-only",
+  "C": "干净帧三视图+p000",
+  "D": "干净帧三视图+p000-building-only"
+ },
+ "images": 300,
+ "repeats": 2,
+ "requests": 2400,
+ "concurrency": 4,
+ "port": 18400,
+ "binary": "/data/workspace/jzheng/codex-luna-review/bin/codex-0.162.0-alpha.17.2/codex",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "binary_version": "codex-cli 0.162.0-alpha.17.2",
+ "labels": "原冻结标签；54项复核均未填写，无更正清单",
+ "prompt_source_commit": "42397238abe9e6fe544af826478f61757fb748ee",
+ "hashes": {
+  "p002.json": "8da46d8cf25ce51c92291e586561e0cedfa7c268dd3d03bb824f22e7366ffa45",
+  "included.json": "d23edc7e45a6d9246cbd5c2d103a4598e194248ab37298dcf3ca2285e2b1cf72",
+  "labels.json": "96fdca0bc4cc8e407760996082c3ddd0535fe6e6c2f9415ac5ee573daff3acde",
+  "prompt.json": "f27714ce963942210b869313e4fdec58e49113dc0bd1ac139caeae436bc51f0a",
+  "p000.json": "0f265c686c73c751c545d440e3e3e5a1de7cc8206ca86c73e6710412f70e67e9"
+ },
+ "gate": "holdout主判据：D-C违建准确率提升区间下界>0；车辆uncertain差值区间上界<0且人员非目标误放差值区间上界<=0。仅点估计改善不足以推荐。",
+ "bootstrap": "按原视频/原照片聚类，重复先平均，2000次百分位95%区间；dev/holdout分别报告；多比较为探索性区间。",
+ "started": 1791600949.3866668
+}

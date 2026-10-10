@@ -1,0 +1,43 @@
+{
+ "unit": "gold0924_4c30e8507b930fc5",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-035",
+   "decision": "false",
+   "image_limitation": "目标区域可见但未见人体结构。",
+   "observed_object": "屋顶上的深色设备或物体。",
+   "reasoning": "候选框内没有可辨认的头部、躯干或四肢等人员结构，不符合人员类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-036",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "白色墙面上的设备。",
+   "reasoning": "候选框内是固定设备，不具有人体结构，不符合人员类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606419.7307572,
+   "seconds": 6.39284086227417,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606419.730753,
+ "finished": 1791606426.400468,
+ "health": {
+  "at": 1791606419.6861777,
+  "available_fraction": 0.45221746656964584,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "05c456adccd944729609de8e19c52736",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ec2fc1181448274e3f2cf58d8e401ca57980c2801a37d614c11958233466df45",
+ "image_sha256": "4f16fdc44663054b27fc8739e16f49b2a905c2cf969b3bda63f9573681c35187"
+}

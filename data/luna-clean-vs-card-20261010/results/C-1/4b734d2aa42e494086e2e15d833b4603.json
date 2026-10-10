@@ -1,0 +1,35 @@
+{
+ "unit": "4b734d2aa42e494086e2e15d833b4603",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "4b734d2aa42e494086e2e15d833b4603:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见一辆白色汽车，具备明显的车身和车轮结构，符合“车”类别。",
+   "reasoning": "目标清晰可定位，车辆结构可见，未将框线或其他内容作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604723.3958218,
+   "seconds": 14.9114351272583,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604723.3958194,
+ "finished": 1791604738.580356,
+ "health": {
+  "at": 1791604723.3802488,
+  "available_fraction": 0.44148195378604965,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2cf3c86c7f21475b9e4cec8f9daa15e2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8ad54cbd92e7d894c24effe0e071f4cf70ba14f7df79f5a1fc4db799588afa22",
+ "image_sha256": "401f84b1c609b243eced994ac42a824cbb1e4d7d45440c0e6970863d5ff919bc"
+}

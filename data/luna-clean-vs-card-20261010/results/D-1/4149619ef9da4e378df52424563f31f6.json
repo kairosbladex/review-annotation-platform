@@ -1,0 +1,35 @@
+{
+ "unit": "4149619ef9da4e378df52424563f31f6",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "4149619ef9da4e378df52424563f31f6:000",
+   "decision": "false",
+   "image_limitation": "目标区域仅见一个小型黑白物体，未见可确认的人体结构。",
+   "observed_object": "疑似地面上的小型物体或孔洞",
+   "reasoning": "不符合“人员”类别，明确判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607018.153411,
+   "seconds": 6.019649505615234,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607018.1534088,
+ "finished": 1791607024.4508913,
+ "health": {
+  "at": 1791607018.1518793,
+  "available_fraction": 0.45483506500265575,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9d37ab4a306e47f0a5cb1343545142b1",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ae1474d611420d3a63276f1cc13a3ccb49b9074f4e1b2026889e5c58614e5061",
+ "image_sha256": "5e93a35d0a3f743a7418eff003876df9e410199c6696aca5b247f8c4d4949e7b"
+}

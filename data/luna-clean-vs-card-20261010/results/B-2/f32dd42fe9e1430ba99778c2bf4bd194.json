@@ -1,0 +1,75 @@
+{
+ "unit": "f32dd42fe9e1430ba99778c2bf4bd194",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:001",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，未见明显遮挡。",
+   "observed_object": "道路上的汽车",
+   "reasoning": "框内可辨认出完整车辆外形，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:002",
+   "decision": "true",
+   "image_limitation": "目标较小但结构仍可辨认。",
+   "observed_object": "道路上的汽车",
+   "reasoning": "框内可见车辆车身及车窗轮廓，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:003",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路上的汽车",
+   "reasoning": "框内可辨认出汽车主体和车窗结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:004",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路上的汽车",
+   "reasoning": "框内可见完整汽车轮廓，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:006",
+   "decision": "true",
+   "image_limitation": "目标较小，但定位明确。",
+   "observed_object": "道路上的汽车",
+   "reasoning": "框内可辨认出汽车车身和车窗，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:007",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路上的汽车",
+   "reasoning": "框内可辨认出汽车主体结构，符合“车”类别。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603547.5183752,
+   "seconds": 17.619017839431763,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603547.5183728,
+ "finished": 1791603565.4261253,
+ "health": {
+  "at": 1791603547.4979832,
+  "available_fraction": 0.43390652876868513,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "20e0adca91c241f3b0bbee2a897cad93",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "530be7b2607006e193c379dff34899c058bb641462dc3c1e13c6ee437b43d10d",
+ "image_sha256": "a7fa1807825d84e54bc61be627b15dbae48e10767659d2b2e15b6b774f292133"
+}

@@ -1,0 +1,43 @@
+{
+ "unit": "f7041ee1c1aa4feb952d95667e47b235",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被标注框、文字及周边植被/道路细节干扰，无法清晰确认车辆结构。",
+   "observed_object": "候选框内疑似小型车辆或车状物，但无法唯一确认是否为两轮车。",
+   "reasoning": "不将框线和文字作为证据；现有图像中看不清两轮车所需的明确结构，因此判定为uncertain。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:001",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小，框内细节不足，且受到标注框与文字遮挡。",
+   "observed_object": "候选框内疑似车辆局部，但无法确认轮数及车辆结构。",
+   "reasoning": "仅凭当前可见区域不能明确符合两轮车类别，按规则输出uncertain。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609204.2780516,
+   "seconds": 14.627514839172363,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609204.2780497,
+ "finished": 1791609219.1875834,
+ "health": {
+  "at": 1791609204.2629561,
+  "available_fraction": 0.45439851992980257,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9c464eb3b34a4b1e8a0e3c737ee72316",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0a4aa878a72e5c5da31bd535acdab4110ae41a8d5af7cfdf618c84a723fbaf2e",
+ "image_sha256": "7de4222f7c637bf20f5ea5b10ad8eaca9e682c05521907289eb092a46a33e235"
+}

@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_8c3c158b0d415781",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:73f7eb6a9ce4489893ed3f7fd8c019dc",
+   "decision": "false",
+   "image_limitation": "框内主要是树木和花盆，未见车辆结构。",
+   "observed_object": "树木及花盆",
+   "reasoning": "候选框内没有可确认的车辆目标，框线和文字不作为证据。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1bebc9c971fc4869973013db786e6c74",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色汽车",
+   "reasoning": "可清楚看到车身、车顶和车窗等车辆结构，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605644.7486749,
+   "seconds": 14.526775360107422,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605644.7486725,
+ "finished": 1791605659.814725,
+ "health": {
+  "at": 1791605644.747824,
+  "available_fraction": 0.44034091738183856,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1ff4e155e27943da8cd0bd2b171eadfd",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0673059ff853d38f6106858863841976da9ce1af39374a0e32bccd89c80232d5",
+ "image_sha256": "8c3c158b0d4157818aeccb11d9c75a3cfe1849f7a60bcbc2c3c62d671f172ac7"
+}

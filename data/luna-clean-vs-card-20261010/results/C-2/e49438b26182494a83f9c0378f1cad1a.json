@@ -1,0 +1,163 @@
+{
+ "unit": "e49438b26182494a83f9c0378f1cad1a",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆轮廓，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆轮廓及车身结构，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆，虽部分较小但目标轮廓明确。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见停放车辆的完整轮廓。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见白色车辆及车身结构。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:006",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像底部边缘，车辆大部分被裁切。",
+   "observed_object": "疑似车辆",
+   "reasoning": "可见局部车身，但无法完整确认目标。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:008",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像底部边缘且被裁切。",
+   "observed_object": "疑似车辆",
+   "reasoning": "可见部分车身，定位和类别证据不足。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见道路上的完整车辆轮廓。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:010",
+   "decision": "uncertain",
+   "image_limitation": "目标仅部分出现在图像底部边缘。",
+   "observed_object": "疑似车辆",
+   "reasoning": "可见区域过少，无法明确确认。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整白色车辆及车身结构。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆，轮廓和车身结构明确。",
+   "target_index": 10
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见道路上的车辆。",
+   "target_index": 11
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见停放车辆的完整轮廓。",
+   "target_index": 12
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:018",
+   "decision": "uncertain",
+   "image_limitation": "目标靠近图像底部边缘，部分被裁切。",
+   "observed_object": "疑似车辆",
+   "reasoning": "可见车身局部，但确认证据不足。",
+   "target_index": 13
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:020",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见白色车辆及车身轮廓。",
+   "target_index": 14
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:021",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见白色车辆，目标明确。",
+   "target_index": 15
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:022",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆轮廓及车身结构。",
+   "target_index": 16
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608018.1719427,
+   "seconds": 27.230870246887207,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608018.1719406,
+ "finished": 1791608045.674919,
+ "health": {
+  "at": 1791608018.1699755,
+  "available_fraction": 0.4560527399952138,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b2002f45a3784dc8b260d07e8840f47b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3b99b5047ec31c166c3b9178ae2e62d66d86c42b10d9f110da70740b06335dd5",
+ "image_sha256": "158ad4afea1bfaa386c55e351e160bc9f9646e2bddfaa576642bc3583227e065"
+}

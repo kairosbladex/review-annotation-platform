@@ -1,0 +1,35 @@
+{
+ "unit": "921ef7c18d9846589264f1195197448a",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "921ef7c18d9846589264f1195197448a:004",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且部分位于图像边缘，细节不足，无法确认车辆结构。",
+   "observed_object": "疑似屋顶或建筑边缘处的小型物体",
+   "reasoning": "目标不可清晰辨认，缺乏确认其为车的可见结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607974.4094906,
+   "seconds": 15.334583044052124,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607974.409489,
+ "finished": 1791607990.0133748,
+ "health": {
+  "at": 1791607974.4085271,
+  "available_fraction": 0.4563739471846126,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "731efc9fa92c4cdb85e0d4fcad4a2260",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "07a405d58bb825a5abc45edf4fb77b3212adb436660822f88392b6dec496c1f2",
+ "image_sha256": "0746c89d97fadd40df9f54e5797a86e7a25b7f055f6a35ba53780c837305a7a2"
+}

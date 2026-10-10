@@ -1,0 +1,43 @@
+{
+ "unit": "0131614611134eb6b8633658f24c5c44",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "0131614611134eb6b8633658f24c5c44:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且细节模糊，无法确认是否存在三轮结构。",
+   "observed_object": "疑似路边的彩色物体或车辆局部",
+   "reasoning": "无法看清三轮车所需的三个车轮及完整结构，不能明确判定符合三轮车类别。",
+   "target_index": 0
+  },
+  {
+   "key": "0131614611134eb6b8633658f24c5c44:001",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且细节模糊，无法确认车辆的完整车身和货厢结构。",
+   "observed_object": "疑似路边的彩色物体或车辆局部",
+   "reasoning": "看不清是否为具有货厢的卡车，不能明确判定符合卡车类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609692.97161,
+   "seconds": 17.045106172561646,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609692.971608,
+ "finished": 1791609710.2960432,
+ "health": {
+  "at": 1791609692.969667,
+  "available_fraction": 0.45244771673550865,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c30023b3fce049aba36b1e65a063afb7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "eaf283ef08482f11327e0e673c4334011564a4fd913cfb4c78776ca8c20a8449",
+ "image_sha256": "f83b5798d1664c2699e31e75b2d78482f43f1a7a8b081efb0f818f216c58c4df"
+}

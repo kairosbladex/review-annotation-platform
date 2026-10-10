@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为建筑墙面及热成像区域，未见可确认的人体结构。",
+   "reasoning": "目标不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608729.04611,
+   "seconds": 21.155490398406982,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608729.0461082,
+ "finished": 1791608750.4722097,
+ "health": {
+  "at": 1791608729.0453146,
+  "available_fraction": 0.45480442172734686,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d7ef0f504c1b478e91cd4e1a321ce96c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a4e8b74cd3860081f2ad913b3454ef336b9e2f1e20a548fba1e55346d8c82889",
+ "image_sha256": "301e3a422a6792584292047052c19dc76b7b812b778474182510654f4d0dd87c"
+}

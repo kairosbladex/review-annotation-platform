@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_28c70d40b253b234",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:325c7e4db91441718685ea2d6a6fa556",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像顶部，目标被树木和框线部分遮挡，且缺乏审批或区域业务依据，无法确认是否为违建。",
+   "observed_object": "树木后方可见部分建筑或设施",
+   "reasoning": "仅凭外观无法判断违建属性，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603900.7308512,
+   "seconds": 40.123124837875366,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603900.7308488,
+ "finished": 1791603941.1346798,
+ "health": {
+  "at": 1791603900.7285252,
+  "available_fraction": 0.4492309024298658,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "64ef2fc76b4d4b82a612ad68ca82bd92",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ca34d64e0f1ce2bfe7fd1efccd2c1bc431d18919ee2033e46060f816c7e1c737",
+ "image_sha256": "a5dd83995aa636dd37e34638284eaa06d6ea2f00648238c3f4095e046d526f23"
+}

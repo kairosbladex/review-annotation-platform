@@ -1,0 +1,35 @@
+{
+ "unit": "c6d2e063fa1f4e3c94bd8f7ab137b6d6",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c6d2e063fa1f4e3c94bd8f7ab137b6d6:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标被红色文字和框线遮挡，无法确认可见人体结构。",
+   "observed_object": "框内可见小型深色区域，无法唯一判断为人员。",
+   "reasoning": "仅凭现有图像不能明确确认人员类别，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605797.2414222,
+   "seconds": 14.58541488647461,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605797.2414205,
+ "finished": 1791605812.233667,
+ "health": {
+  "at": 1791605797.2409952,
+  "available_fraction": 0.435914180102689,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "49b33d98c2f441668f56f09ad5838766",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "10732d47e87e4e6e0c5720474d68bca824cc8de4a104e442c5da045540c7a57f",
+ "image_sha256": "c9c4c9adb1ab6d8e3dff81737dafaadd883e9099ef046cb5f9069db24cc8858a"
+}

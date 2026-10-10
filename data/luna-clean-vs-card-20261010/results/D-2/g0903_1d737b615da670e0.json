@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_1d737b615da670e0",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f6d48b6995834bdbbc7752b756c23e90",
+   "decision": "uncertain",
+   "image_limitation": "框内目标面积较小且分辨率有限，颜色与结构无法明确判断为蓝色或绿色顶棚。",
+   "observed_object": "建筑边缘的一小块蓝色矩形物体，可能为标牌或其他设施。",
+   "reasoning": "未能确认其为覆盖在建筑、棚架、院落或空地上方的蓝色/绿色屋面，不能仅凭颜色判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608526.876743,
+   "seconds": 16.36040496826172,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608526.8767412,
+ "finished": 1791608543.618597,
+ "health": {
+  "at": 1791608526.8747816,
+  "available_fraction": 0.4556497566048418,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "38ced2adec2d4840bdbeedae2445c482",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4c19faa9267432362f2ed194607d35d00c7321ccaaf37e4bababd3ed536e93ca",
+ "image_sha256": "c3e8ee8fc9dde7f979a99272e796949bfbc96e58e9da0cdd89d5641367d17a07"
+}

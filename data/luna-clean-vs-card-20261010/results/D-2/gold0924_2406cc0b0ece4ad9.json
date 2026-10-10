@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_2406cc0b0ece4ad9",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-016",
+   "decision": "false",
+   "image_limitation": "目标区域仅见盆栽植物，未见可辨认的人体结构。",
+   "observed_object": "盆栽植物",
+   "reasoning": "候选框内不是人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608451.98723,
+   "seconds": 26.996942043304443,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608451.987228,
+ "finished": 1791608479.5265007,
+ "health": {
+  "at": 1791608451.9862895,
+  "available_fraction": 0.4549622285151728,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e272374153464858a1a23eaa54777372",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8a995c89513a74075871eb93032bd2aa3823ef359abc7b40154ba1ad3a06dbf7",
+ "image_sha256": "8518b374d66d819500839c85db7b42a493abd1722fac232cb4f13b3f8ab013e7"
+}

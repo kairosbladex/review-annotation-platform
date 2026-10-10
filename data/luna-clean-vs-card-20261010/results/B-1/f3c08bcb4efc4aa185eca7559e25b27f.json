@@ -1,0 +1,48 @@
+{
+ "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:000",
+   "decision": "uncertain",
+   "image_limitation": "框内可见浅蓝色矩形物体，但无法唯一确认其为覆盖在建筑、棚架、院落或空地上方的顶棚，可能是立面或其他物体。",
+   "observed_object": "浅蓝色矩形长条状物体",
+   "reasoning": "颜色符合蓝色范畴，但仅凭图像无法确认其属于蓝色顶棚，因此不能明确判定为违建。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "浅蓝色矩形顶棚",
+   "reasoning": "框内主体为覆盖在空地或建筑区域上方的浅蓝色矩形屋面，符合蓝色顶棚类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609622.8531005,
+   "seconds": 16.478427410125732,
+   "status": "http_503"
+  },
+  {
+   "at": 1791609644.3494346,
+   "seconds": 31.176514625549316,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609622.8530989,
+ "finished": 1791609675.822682,
+ "health": {
+  "at": 1791609622.8522947,
+  "available_fraction": 0.45390445791559575,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "77dda76ff0914d19911cc51324d8ccd4",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8f380bbccefb077a7db8db1f718a7fb8acad012e516bd7bca9da46fde3903bee",
+ "image_sha256": "19ab37f6be657766c886027de842779416026e0e865dbd9728434c0d56322953"
+}

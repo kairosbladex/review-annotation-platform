@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_c0bfe131827b8cae",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见人员的人体结构，包含头部、躯干和四肢。",
+   "reasoning": "目标符合“人员”类别，且定位清晰、未被严重遮挡。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607819.4769194,
+   "seconds": 15.674008131027222,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607819.476917,
+ "finished": 1791607835.437035,
+ "health": {
+  "at": 1791607819.4748409,
+  "available_fraction": 0.4561824267139319,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e5c41e71566845b49958aee287d63de3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ff872591c29b53f3978902309c81a8b6c53d7b8d3efa209a970c9cefc866cdff",
+ "image_sha256": "4196e0264a6ebf326fc0787b9d9ef83c403ad84cb363e6b2cb5ec91091cd3556"
+}

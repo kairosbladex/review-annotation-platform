@@ -1,0 +1,35 @@
+{
+ "unit": "26f5758c999d4c03a0bfd39e1920ed60",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:26f5758c999d4c03a0bfd39e1920ed60:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像顶部边缘，目标仅部分可见，且缺乏审批或区域业务依据，无法确认是否为违建。",
+   "observed_object": "顶部边缘处部分可见的建筑或设施结构",
+   "reasoning": "仅凭外观和局部图像不能判断其是否属于违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791610054.193524,
+   "seconds": 23.528120517730713,
+   "status": "ok"
+  }
+ ],
+ "started": 1791610054.1935222,
+ "finished": 1791610077.9979868,
+ "health": {
+  "at": 1791610054.1914656,
+  "available_fraction": 0.4554522169193683,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8bd2afb97f684c2bb67e5378a080bc67",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6355b24a0a8acff6963b58ca51e280833557db3d23937e241318ee15b67dc9d1",
+ "image_sha256": "9a76316649eb9da4d6da7064308ba9ead96e1166f4d4a2e99645d209772a0220"
+}

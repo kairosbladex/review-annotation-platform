@@ -1,0 +1,35 @@
+{
+ "unit": "e803e5bda638434e8682efff43a65664",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e803e5bda638434e8682efff43a65664:000",
+   "decision": "false",
+   "image_limitation": "框内主要是红色标注框和文字，未见可确认的人体结构。",
+   "observed_object": "水面及岸边区域，含红色标注框和文字",
+   "reasoning": "不把框线、文字作为目标证据；框内未见人员可识别的人体结构，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606909.2736802,
+   "seconds": 6.622925519943237,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606909.2736785,
+ "finished": 1791606916.1676166,
+ "health": {
+  "at": 1791606909.2732625,
+  "available_fraction": 0.4577227984995496,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5ce272c36c284a14946a059d14f5ec44",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "71e11d899398c6f12d24874b709b3b47e0dae73a86b34050f543ff9d8cd91231",
+ "image_sha256": "faad818bf7915b799a5b506b8f3c313078093daf9ed69a12322c665636da4001"
+}

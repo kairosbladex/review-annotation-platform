@@ -1,0 +1,35 @@
+{
+ "unit": "e5c944f774634d849cada056b9539541",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e5c944f774634d849cada056b9539541:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "小型白色物体，未见可辨识的人体结构",
+   "reasoning": "候选框内没有可见的人体头部、躯干或四肢，不能判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604089.2882266,
+   "seconds": 29.539772272109985,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604089.2882237,
+ "finished": 1791604119.106681,
+ "health": {
+  "at": 1791604089.2860792,
+  "available_fraction": 0.44926704811869744,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "24a51037879245a08e5d6eb5999f6cb5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9541f9027ed61574bb7245d56b4bb01abe7039ea275ab521b367fbdac17f5067",
+ "image_sha256": "0e722953a988f6ee9f3b4d173bf16dbf43eae17c3b75f1ea72a91a36529d25a8"
+}

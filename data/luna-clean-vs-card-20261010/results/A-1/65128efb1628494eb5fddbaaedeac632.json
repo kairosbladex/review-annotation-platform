@@ -1,0 +1,35 @@
+{
+ "unit": "65128efb1628494eb5fddbaaedeac632",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "65128efb1628494eb5fddbaaedeac632:001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑外墙、雨棚及树木",
+   "reasoning": "候选框内未见车辆的可辨识结构，框线和文字不作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601647.9594598,
+   "seconds": 14.055998086929321,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601647.959458,
+ "finished": 1791601662.3182018,
+ "health": {
+  "at": 1791601647.9589276,
+  "available_fraction": 0.4585372773012127,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d0b99941be0f4ec7b6a0253edfd79644",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b1b9a31abfdac94677eef43a4193b05bb043dd589887d00a3276c2903bc0a69f",
+ "image_sha256": "e4287ef70d1d88bddb6dbe8258649607e9e59f73517d96abafb40c39ed6b3932"
+}

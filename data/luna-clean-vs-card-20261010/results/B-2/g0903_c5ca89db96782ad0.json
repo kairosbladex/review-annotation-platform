@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_c5ca89db96782ad0",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名骑行人员，头部未见头盔结构。",
+   "reasoning": "候选框内目标符合“没戴头盔”类别；判断依据为可见人员头部未佩戴头盔，不使用框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607102.0655444,
+   "seconds": 4.124719858169556,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607102.0655422,
+ "finished": 1791607106.679664,
+ "health": {
+  "at": 1791607102.0646849,
+  "available_fraction": 0.457337143151763,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5e67a2c5b0434cc58ad3954ad9f9aa86",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9e29f1f3924b037a4db710d0a85c366c9c79db302653d6e2f89aab06baf15d77",
+ "image_sha256": "c5ca89db96782ad04e5f1402fe740743b5050725c55fa17cfab29245b52839cc"
+}

@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见屋顶上的蓝色矩形结构，无法依据图像判断是否未经审批或属于违建。",
+   "observed_object": "屋顶上的蓝色矩形结构",
+   "reasoning": "目标外观不能单独证明违建属性，缺少审批或区域业务依据。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见屋顶上的蓝色矩形结构，无法依据图像判断是否未经审批或属于违建。",
+   "observed_object": "屋顶上的蓝色矩形结构",
+   "reasoning": "目标外观不能单独证明违建属性，缺少审批或区域业务依据。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见屋顶上的蓝色矩形结构，无法依据图像判断是否未经审批或属于违建。",
+   "observed_object": "屋顶上的蓝色矩形结构",
+   "reasoning": "目标外观不能单独证明违建属性，缺少审批或区域业务依据。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601954.088344,
+   "seconds": 44.236167192459106,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601954.088342,
+ "finished": 1791601998.7078743,
+ "health": {
+  "at": 1791601954.0864341,
+  "available_fraction": 0.45711707701092846,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "701c258b096f4020a10d28b563e17e7f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "febdd80b35d3c10ce914ba44bbfa7db23c30aecc501a89df682ccb11b4ea3248",
+ "image_sha256": "a7d12fe816fef958c6082503e99cf20a9a4b6d51ad7d08f0e792cdd2613789eb"
+}

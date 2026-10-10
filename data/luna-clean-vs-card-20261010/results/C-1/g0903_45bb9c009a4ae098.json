@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_45bb9c009a4ae098",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f8d35e43c925407a8be6483399e48216",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到蓝色屋顶及建筑外观，缺乏审批或区域业务依据。",
+   "observed_object": "蓝色屋顶建筑",
+   "reasoning": "无法仅凭图像确认其属于违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:dc0808002a5f424baf5d1d3c4abc71c3",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到蓝色屋顶及建筑外观，缺乏审批或区域业务依据。",
+   "observed_object": "蓝色屋顶建筑",
+   "reasoning": "无法仅凭图像确认其属于违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602625.7657306,
+   "seconds": 44.55171728134155,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602625.7657282,
+ "finished": 1791602670.5940125,
+ "health": {
+  "at": 1791602625.7635088,
+  "available_fraction": 0.43989461388500306,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "909fe91dea94491295cad101b70937ca",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "04b06fe28bee6e3162ec0e89c58206e8cd87b899fdb8b67cf3bcf65370b88593",
+ "image_sha256": "b7a6cf9c3f2f42931e17bfea5c2e4db29aa512d2a5433d41f35915ced20e2769"
+}

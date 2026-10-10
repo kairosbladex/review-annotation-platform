@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_09b1dd50fb06d82e",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a56e3d6fc2994361a3d774417ed6fdc9",
+   "decision": "false",
+   "image_limitation": "框内主要是道路边缘、白色建筑表面及树冠，未见蓝色或绿色顶棚。",
+   "observed_object": "道路、白色建筑和树木",
+   "reasoning": "候选框内没有符合定义的蓝色或绿色屋面，明显不属于该类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603454.8075073,
+   "seconds": 57.359824419021606,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603454.8075051,
+ "finished": 1791603512.4608214,
+ "health": {
+  "at": 1791603454.8063674,
+  "available_fraction": 0.43744114545535906,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ca2c0c93add34d868c6f0aa79e0c73ea",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8a62c10e6c6f7dfa905537af0f43c4e6700c35a09c00b24dbf41b482a5a38b56",
+ "image_sha256": "396a9add9dd600d5cca592ba722fa0e818ed5fe4d2469ddd58b350b56f8eb746"
+}

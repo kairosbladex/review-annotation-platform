@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8e13ea8a27e0dec9",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4076feeb3c914a9ca6ddfc656e3ebc4b",
+   "decision": "uncertain",
+   "image_limitation": "框内主要为道路、树木及建筑边缘，无法仅凭图像判断是否存在违建，也缺乏审批或区域业务依据。",
+   "observed_object": "道路和建筑外侧区域",
+   "reasoning": "候选框内未能明确识别出可确认的违建目标；违建属性不能仅凭外观推断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605869.3158293,
+   "seconds": 14.874953508377075,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605869.3158271,
+ "finished": 1791605884.4605558,
+ "health": {
+  "at": 1791605869.3119195,
+  "available_fraction": 0.451814999980544,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0c2ccd350dc74615bfbae7f1d548f700",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b91e0050696f899333010e4cc9a9c85fb845ed3a70e7dcf08b2a5ce7508c31ac",
+ "image_sha256": "acc17ccc78259c8cb87e6687c917c8e95e9e06e9215f7054934e36fe5285f1e4"
+}

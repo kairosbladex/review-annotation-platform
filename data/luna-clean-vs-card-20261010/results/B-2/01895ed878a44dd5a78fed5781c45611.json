@@ -1,0 +1,43 @@
+{
+ "unit": "01895ed878a44dd5a78fed5781c45611",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域严重模糊且被框线干扰，无法确认车辆结构。",
+   "observed_object": "疑似建筑背景或模糊物体，未见可确认的车辆结构。",
+   "reasoning": "候选框内没有清晰可辨的车身、车轮等车辆证据，不能仅凭框线或文字判定。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:001",
+   "decision": "uncertain",
+   "image_limitation": "目标区域严重模糊并部分被树木遮挡，无法确认车辆结构。",
+   "observed_object": "疑似建筑和树木区域，未见可确认的车辆结构。",
+   "reasoning": "候选框内缺乏清晰的车身及车轮等必要结构，无法唯一判断为车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609452.620796,
+   "seconds": 27.324416637420654,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609452.6207943,
+ "finished": 1791609480.218398,
+ "health": {
+  "at": 1791609452.6202633,
+  "available_fraction": 0.45351412095630367,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "90e974e27a3047598a191b4a20fa060b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7921fb5472b40dc61081256616f6d04232897825c03bc7059c905ed96c294068",
+ "image_sha256": "89db085160250eb2ec4832f627409020e04fb701202c5084b559380b0b04c59b"
+}

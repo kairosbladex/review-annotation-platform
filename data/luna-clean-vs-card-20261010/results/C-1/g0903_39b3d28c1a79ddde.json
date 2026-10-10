@@ -1,0 +1,75 @@
+{
+ "unit": "g0903_39b3d28c1a79ddde",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:76006df30bd947ff942ee244b4fceb1a",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认审批或区域业务依据。",
+   "observed_object": "局部建筑或屋顶结构",
+   "reasoning": "可见建筑物，但不能据此认定为违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f9685b6cd29a4c6a8b29a13873685731",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认审批或区域业务依据。",
+   "observed_object": "建筑及废墟区域",
+   "reasoning": "存在建筑和杂物堆放，但不能据此认定为违建。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:67f3e79afd6c438db006916355b183a4",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认审批或区域业务依据。",
+   "observed_object": "大型蓝色屋顶建筑",
+   "reasoning": "可见屋顶建筑，但不能确认其违法建设属性。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:3b95eefbf52a4243a6b283ab87d85cac",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认审批或区域业务依据。",
+   "observed_object": "蓝色屋顶建筑",
+   "reasoning": "可见建筑结构，但缺乏审批或区域依据，不能认定为违建。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:2d6ee94a6bb94288a30fe86cd4a6129e",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认审批或区域业务依据。",
+   "observed_object": "蓝色屋顶建筑",
+   "reasoning": "可见建筑物，但不能据此判断是否为违建。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:1c1d5b93f6264de3969c2b59a390c2ea",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认审批或区域业务依据。",
+   "observed_object": "蓝色屋顶建筑",
+   "reasoning": "可见建筑屋顶，但缺乏认定违建所需的业务依据。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604575.26301,
+   "seconds": 62.481489419937134,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604575.2630076,
+ "finished": 1791604638.0214958,
+ "health": {
+  "at": 1791604575.2604861,
+  "available_fraction": 0.4392372426694476,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "732b2a301e2a4bd48a0af008c385e480",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3376d40aaea996aa19d2269dbcb3c88b3ae9b1d489db7bfd431ecdb88a4caf57",
+ "image_sha256": "2d0692948a8a2aea50862f025e4a86f3a3103e8bd5e1ff73ff0da4aa959d57c4"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "08af2f00853547d680679f99839a0f99",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:08af2f00853547d680679f99839a0f99:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车",
+   "reasoning": "候选框内能清楚看到道路上的车辆，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607060.8573203,
+   "seconds": 4.302278995513916,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607060.8573184,
+ "finished": 1791607065.4879813,
+ "health": {
+  "at": 1791607060.856201,
+  "available_fraction": 0.4574510218316313,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a0fc44ad6c174f4e85a93823cbb47ef7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c13fa4c7788b550191b2c171f4e78e29f6d8d0beabe3927c22b7867058f84b4e",
+ "image_sha256": "f104468d7c5584f111ca16a48c672f40f453ea0798bbc39202eb98d2f1c2286f"
+}

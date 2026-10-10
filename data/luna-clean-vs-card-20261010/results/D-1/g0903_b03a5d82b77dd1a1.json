@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_b03a5d82b77dd1a1",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4e95387d7e8c4667ba5c4c3e0544651b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为成片蓝色屋顶棚面，边缘规整并覆盖在建筑结构上方。",
+   "reasoning": "依据类别规则，蓝色顶棚属于违建初审目标；不将框线或其他文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602938.5298908,
+   "seconds": 15.991692304611206,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602938.5298882,
+ "finished": 1791602954.797375,
+ "health": {
+  "at": 1791602938.5134647,
+  "available_fraction": 0.43655528727827403,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "03f0e0a513614cc6824e421355977fda",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7b40c23101b4965e0f5835841fcdf8f2f06906fd8f76b71412ee37d3790db2ce",
+ "image_sha256": "ceff7c7f52e07012586c8a273b8e550fa7da7f92b69f4e7387c8104be98cc8c4"
+}

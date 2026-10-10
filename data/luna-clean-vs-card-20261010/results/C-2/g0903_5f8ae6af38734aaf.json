@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5f8ae6af38734aaf",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0d716cff82d14e248530e2e8af69b96b",
+   "decision": "uncertain",
+   "image_limitation": "目标区域可见为屋顶上的蓝色矩形结构，但仅凭图像无法确认其是否为未经审批的违建。",
+   "observed_object": "屋顶蓝色矩形设施",
+   "reasoning": "缺乏审批信息或区域业务依据，不能据此判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601303.6639373,
+   "seconds": 15.026054859161377,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601303.6639354,
+ "finished": 1791601318.9606154,
+ "health": {
+  "at": 1791601303.661989,
+  "available_fraction": 0.4623941043797509,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9cd0a14ec976483bb68370c3874d1328",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4e6ae53a8be8cd7bce0a8c89dbc7627b99d0e83ab7e141c9ba144807c4dc993b",
+ "image_sha256": "dbd36725149266327b185a2edb476511a52da9ee3ecfcce0742845a4721962bb"
+}

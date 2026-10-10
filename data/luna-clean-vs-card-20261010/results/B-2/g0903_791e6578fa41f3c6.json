@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_791e6578fa41f3c6",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:200d6dd57fd74ca08dab2ce96088fcf8",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为灰色建筑屋面或地面区域",
+   "reasoning": "主体不是蓝色或绿色顶棚，不能依据框线或文字判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605575.9182498,
+   "seconds": 15.580785989761353,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605575.9182472,
+ "finished": 1791605591.7843456,
+ "health": {
+  "at": 1791605575.9170558,
+  "available_fraction": 0.44045388405946545,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c2ff8267766f417399a877cce3a12cb5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "06cccfb5dfebe62fd1ecdfd385caf64490124dc8f2cada8db440d534ae897d57",
+ "image_sha256": "791e6578fa41f3c61e7341d436fe0521d6e3bb85652d4eed22621d9609158d9d"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "c6d2e063fa1f4e3c94bd8f7ab137b6d6",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c6d2e063fa1f4e3c94bd8f7ab137b6d6:000",
+   "decision": "true",
+   "image_limitation": "目标较小但可见头部及人体上半身结构，定位明确。",
+   "observed_object": "人员",
+   "reasoning": "候选框内可见人员的头部和上半身，不将框线作为证据，符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605812.8289542,
+   "seconds": 30.391911506652832,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605812.828952,
+ "finished": 1791605843.4994655,
+ "health": {
+  "at": 1791605812.8281982,
+  "available_fraction": 0.4375617729518132,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "213c0c9af4574728babd93b005152d2a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5b91b56857625bf32e183286c277804e311588c7025c53a3dd87b3951703cd72",
+ "image_sha256": "f0b96461635d951bf23ee821e571cb07d5bdc4da3e5a91d4b349c52ab04e5c29"
+}

@@ -1,0 +1,40 @@
+{
+ "unit": "g0903_09b1dd50fb06d82e",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a56e3d6fc2994361a3d774417ed6fdc9",
+   "decision": "false",
+   "image_limitation": "框内主要为浅灰/白色建筑或地面及树冠，未见蓝色或绿色顶棚。",
+   "observed_object": "灰白色建筑边缘、地面和树木",
+   "reasoning": "候选框内没有符合类别定义的蓝色或绿色成片顶棚，明显不属于违建目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603414.0455837,
+   "seconds": 30.448439359664917,
+   "status": "http_503"
+  },
+  {
+   "at": 1791603449.5129547,
+   "seconds": 63.25749921798706,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603414.0455813,
+ "finished": 1791603513.0623238,
+ "health": {
+  "at": 1791603414.030245,
+  "available_fraction": 0.4358772136118402,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "92587116522c472ab1b6eaae9f3c4e4a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8a62c10e6c6f7dfa905537af0f43c4e6700c35a09c00b24dbf41b482a5a38b56",
+ "image_sha256": "396a9add9dd600d5cca592ba722fa0e818ed5fe4d2469ddd58b350b56f8eb746"
+}

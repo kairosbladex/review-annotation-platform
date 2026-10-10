@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_deb3b561f0a020d5",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:22f50e485cd4400f9828b3b8b218857a",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见建筑外墙及蓝色覆盖物，无法依据图像确认是否存在违建及审批、区域业务依据。",
+   "observed_object": "建筑外墙旁的蓝色覆盖物或棚状物",
+   "reasoning": "违建类别需要审批或区域业务依据，单凭外观不能明确判定，故输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604438.6858926,
+   "seconds": 69.67548513412476,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604438.68589,
+ "finished": 1791604508.6360867,
+ "health": {
+  "at": 1791604438.683639,
+  "available_fraction": 0.44504520734310155,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "55291be69ec649cab274811c406e000b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "408eba29ebad10ebeda8f6f9ecf7b76b6088abbcb1ed30e89d4dabaee9dcab4d",
+ "image_sha256": "ca9e61382f8a6c9e779e6483150dc03b9fcccdc5f534e8c37a38060e7c179b29"
+}

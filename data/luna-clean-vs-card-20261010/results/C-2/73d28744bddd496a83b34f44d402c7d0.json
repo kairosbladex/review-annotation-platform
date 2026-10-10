@@ -1,0 +1,35 @@
+{
+ "unit": "73d28744bddd496a83b34f44d402c7d0",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "73d28744bddd496a83b34f44d402c7d0:000",
+   "decision": "false",
+   "image_limitation": "目标区域仅见池边/地面上的小物体，未见可确认的人体结构。",
+   "observed_object": "小型不明物体",
+   "reasoning": "候选框内没有可见的人体头部、躯干或四肢等结构，不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604805.4292839,
+   "seconds": 16.747110605239868,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604805.429281,
+ "finished": 1791604822.4670568,
+ "health": {
+  "at": 1791604805.428556,
+  "available_fraction": 0.4441809940192109,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "872e2cf2460041858d995af41e0098d2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bee82e5bde3ce7ac35a4fdb240a61fd122c365e55f53be3e667c6106d1523eae",
+ "image_sha256": "bd2c56eed759414f087a62291179e6d8bf9a58c6fbad6a8a87ddf7714a052697"
+}

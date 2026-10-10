@@ -1,0 +1,35 @@
+{
+ "unit": "130ef3869a854a3da8b2020912f3ef84",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "130ef3869a854a3da8b2020912f3ef84:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "白色小型物体，未见可辨认的人体结构。",
+   "reasoning": "候选框内不是人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602020.1956532,
+   "seconds": 48.03331708908081,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602020.1956508,
+ "finished": 1791602068.512237,
+ "health": {
+  "at": 1791602020.1941686,
+  "available_fraction": 0.45726144696573207,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "da240bed43094007b7e59db0970d3476",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e28262a744aad37f4b44f92216532804e7f29a2311812d1342db298a4da3edf9",
+ "image_sha256": "4a594d927e20a6012f915a9b813b1f16d67157c82168e7ca6be7ca5fff505816"
+}

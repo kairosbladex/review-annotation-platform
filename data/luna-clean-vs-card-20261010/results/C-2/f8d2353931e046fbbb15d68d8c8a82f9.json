@@ -1,0 +1,35 @@
+{
+ "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000",
+   "decision": "false",
+   "image_limitation": "目标区域可见，为路边的小型物体/摊状物，不具备卡车的车身、驾驶室或货厢结构。",
+   "observed_object": "路边小型杂物或摊状物",
+   "reasoning": "候选框内没有可见卡车结构，明显不符合“卡车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603300.7696567,
+   "seconds": 35.44009447097778,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603300.7696543,
+ "finished": 1791603336.4903696,
+ "health": {
+  "at": 1791603300.7679293,
+  "available_fraction": 0.4404634600829995,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4950e43e07674ed3b5310d53352bdcc5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8f136a2fe8cbb55c10ed8b41ee083d7be1b04e781f826762cfb1af59bea54bfb",
+ "image_sha256": "1c146c79d354d787191fac0cbd6de323217a9dbbb37924a760a3c70c608cb249"
+}

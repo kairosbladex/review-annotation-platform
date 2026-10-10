@@ -1,0 +1,40 @@
+{
+ "unit": "g0903_ffd6228264016892",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:88d964f96f454fe0ad2b06349c2a6068",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑立面的窗户/玻璃区域",
+   "reasoning": "框内是建筑立面上的窗户，不是覆盖在建筑、棚架或空地上方的蓝色或绿色顶棚；蓝色部分属于玻璃反光或窗体，不能作为违建顶棚证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603001.1494489,
+   "seconds": 22.617406368255615,
+   "status": "http_503"
+  },
+  {
+   "at": 1791603028.7942033,
+   "seconds": 26.499104261398315,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603001.1494467,
+ "finished": 1791603055.572265,
+ "health": {
+  "at": 1791603001.1481073,
+  "available_fraction": 0.43832226122078916,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b6023333a01a4c7cafa43a5d928275ed",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "343ac96c0a378508b1e082f29ca67255474f4c27fae9c525be5e79e024927487",
+ "image_sha256": "19d61a911de2737aa0c1059ac72a89e568fa1cd4c451abcdcda4dd86eecd42e3"
+}

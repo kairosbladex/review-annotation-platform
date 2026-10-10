@@ -1,0 +1,51 @@
+{
+ "unit": "f8cfe9961642499c8fe333770cf1bd04",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:003",
+   "decision": "uncertain",
+   "image_limitation": "目标位于多个红框和文字重叠区域，无法唯一确认候选框内是否为完整车辆。",
+   "observed_object": "疑似车辆或车辆标注区域",
+   "reasoning": "不能将框线、文字作为目标证据，候选框内车辆结构不足以清晰确认。",
+   "target_index": 0
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:004",
+   "decision": "uncertain",
+   "image_limitation": "候选框与相邻红色框线、文字严重重叠，车辆本体不清晰。",
+   "observed_object": "疑似车辆",
+   "reasoning": "缺少可明确辨认的车辆结构，无法完成类别初审。",
+   "target_index": 1
+  },
+  {
+   "key": "f8cfe9961642499c8fe333770cf1bd04:009",
+   "decision": "true",
+   "image_limitation": "目标较小但车辆轮廓和车身结构可见。",
+   "observed_object": "车辆",
+   "reasoning": "候选框内可见明确的车辆本体，符合“车”类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608098.979105,
+   "seconds": 14.535858154296875,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608098.979103,
+ "finished": 1791608113.8033118,
+ "health": {
+  "at": 1791608098.978254,
+  "available_fraction": 0.45526097004936,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ff248af22a0041ca85c57e28681c1fbb",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "afd7fb228e1ef51dca8b523f3c996d71d79b47305182cf69d5680b74c405a728",
+ "image_sha256": "cab32f9b83d3d4cc8c7d1033e0876ceb7e39c18d2ad0d9c7a6e49f7593df9aad"
+}

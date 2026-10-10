@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_23ed7170a18100cb",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:838cb70eaa904657a3920b516a740ad2",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是建筑立面边缘及紫色框线/标记，未见蓝色或绿色顶棚。",
+   "reasoning": "候选框内没有符合定义的蓝色或绿色屋面，框线和文字不作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601908.2319148,
+   "seconds": 28.141029357910156,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601908.2319126,
+ "finished": 1791601936.67104,
+ "health": {
+  "at": 1791601908.2312443,
+  "available_fraction": 0.4562659661192383,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3ffa16afc9b94ef8ac629a5131204b7f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ad446e329b7f942abb2c75bb8ee93a4f53f5e4091fcd38ee6e95b0796094ad32",
+ "image_sha256": "23ed7170a18100cb415d37dc174e2ff0034246c76fcf336d0fd79180cfa0438d"
+}

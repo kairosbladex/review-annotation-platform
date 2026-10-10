@@ -1,0 +1,59 @@
+{
+ "unit": "904a08babe5d41bfa4355c1a7a13264f",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:004",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被树木遮挡且框线、文字干扰明显，无法确认完整车辆结构。",
+   "observed_object": "疑似被遮挡的物体",
+   "reasoning": "仅凭局部外观不能明确判定为车。",
+   "target_index": 0
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见完整车身轮廓，符合汽车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见明显车身及车辆结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见清晰的车身轮廓和车窗等结构，符合“车”类别。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607268.2381327,
+   "seconds": 34.25644898414612,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607268.2381306,
+ "finished": 1791607302.76462,
+ "health": {
+  "at": 1791607268.2372425,
+  "available_fraction": 0.4564855762589522,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d91b574ebee54e9688d64a732b3bb3ab",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4149004723e1fe2e2cf84ea498ff69cb860680168d317f351e0f42b8971ffdbb",
+ "image_sha256": "e4a1b223396b44174acdaeea14aed913645ec83e4651ff084f0e94a744cb021b"
+}

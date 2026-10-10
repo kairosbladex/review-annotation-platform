@@ -1,0 +1,43 @@
+{
+ "unit": "251324d21a8f4471ae6997c9c78de2ee",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:000",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍外观无法确认是否具有审批或区域业务依据。",
+   "observed_object": "候选框内为带蓝色屋顶的建筑或棚体。",
+   "reasoning": "目标外观与标注文字不能证明其属于违建，缺少审批及区域业务信息。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:001",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍外观无法确认是否具有审批或区域业务依据。",
+   "observed_object": "候选框内为沿道路分布的狭长蓝色屋顶建筑或棚体。",
+   "reasoning": "目标外观与标注文字不能证明其属于违建，缺少审批及区域业务信息。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602804.3935099,
+   "seconds": 32.406837463378906,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602804.3935065,
+ "finished": 1791602837.0860744,
+ "health": {
+  "at": 1791602804.3924577,
+  "available_fraction": 0.4286003477282146,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2e5e08b7beba47d79a636f05d2e600af",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ec6e31931cfb98d7bb121ce1897d22cbfba92d7ec333dada029b918dc6c6ef2d",
+ "image_sha256": "751dd3699e4f19c6a85fdb5cfd8df77dc8fa7704cca4236f1d96c5ad7393896c"
+}

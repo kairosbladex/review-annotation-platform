@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_1d737b615da670e0",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f6d48b6995834bdbbc7752b756c23e90",
+   "decision": "uncertain",
+   "image_limitation": "可见框内疑似为建筑屋顶或标识区域，无法仅凭图像确认是否存在审批或区域业务依据上的违建属性。",
+   "observed_object": "建筑顶部局部及框线附近的图案/文字",
+   "reasoning": "违建类别需要审批或区域业务依据，当前图像仅显示建筑局部，不能据此明确判定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608538.1807854,
+   "seconds": 15.757559776306152,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608538.1807835,
+ "finished": 1791608554.2118986,
+ "health": {
+  "at": 1791608538.1798625,
+  "available_fraction": 0.4558574499152689,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "dbd6d47a7f574966a973d9ce00c54e14",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "abc403cdedecd388bac64f49489816fc1f4c4ba1b0fa17359e129e0b54fa6ede",
+ "image_sha256": "1d737b615da670e0c415f3e1be7c8e210284361129ab8765980fe7b320929dd2"
+}

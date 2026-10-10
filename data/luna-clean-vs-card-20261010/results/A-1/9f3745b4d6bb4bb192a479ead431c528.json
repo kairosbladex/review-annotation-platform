@@ -1,0 +1,35 @@
+{
+ "unit": "9f3745b4d6bb4bb192a479ead431c528",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见矩形物体，未见车辆结构或三轮证据。",
+   "observed_object": "地面上的矩形物体",
+   "reasoning": "不符合三轮车类别，且不能依据框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606543.8961606,
+   "seconds": 15.961889266967773,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606543.8961587,
+ "finished": 1791606560.1386898,
+ "health": {
+  "at": 1791606543.8839352,
+  "available_fraction": 0.4560814680658159,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "20251e4f039f403589aef33d1652e91f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "32c821d4a7aeef6c40f507f39dd70221e21b9dc79f1f476a0c72ffd36ed5d1fc",
+ "image_sha256": "e191104a902164594511b468ce6a3ff731310411ceb297ad65b7a0e268efd376"
+}

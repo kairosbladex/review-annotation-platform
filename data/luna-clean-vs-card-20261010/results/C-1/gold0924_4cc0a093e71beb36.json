@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "false",
+   "image_limitation": "目标区域仅见建筑/屋顶及热成像色块，未见可确认的人体结构。",
+   "observed_object": "屋顶或建筑区域",
+   "reasoning": "候选框内没有可见的人体结构，不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607138.5980372,
+   "seconds": 15.617409944534302,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607138.598035,
+ "finished": 1791607154.762546,
+ "health": {
+  "at": 1791607138.5971308,
+  "available_fraction": 0.45533724383681046,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7143505f22e0444bbfe5f3762bccc602",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "49e7c8ddd7f7ea350cd901938775dbf9d920f19f8cefe382666a62dc1196cc4e",
+ "image_sha256": "1d91aba737e51b58fcbe61a05827a7e198e622d4178e63ffe64b33e7e4b0466a"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_5c42156a21e911fb",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-034",
+   "decision": "false",
+   "image_limitation": "目标区域仅见建筑/地面及标注框，未见可确认的人体结构。",
+   "observed_object": "非人员目标",
+   "reasoning": "候选框内没有头部、躯干或四肢等可见人体结构，不能判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609570.839124,
+   "seconds": 26.28066897392273,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609570.8391218,
+ "finished": 1791609597.3910077,
+ "health": {
+  "at": 1791609570.8385217,
+  "available_fraction": 0.45440031353421056,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "483ed8af1ca8486ba708fea121755932",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "118c9b9f195821ec3932e7b8b5924c2384aebf772f28fac9a4a27707b2a04ed0",
+ "image_sha256": "5c42156a21e911fbc7169046907b646301f3f8ab5d1e0ce7fcb565acd5a635ce"
+}

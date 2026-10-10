@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_0c6c2321248635bf",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-015",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且部分被遮挡，无法清晰确认完整人体结构。",
+   "observed_object": "疑似人员或其他竖直物体",
+   "reasoning": "仅凭当前图像无法明确判断为人员，因此不能输出true；也无充分证据判定为非人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606040.3106706,
+   "seconds": 16.70919394493103,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606040.310668,
+ "finished": 1791606057.3672934,
+ "health": {
+  "at": 1791606040.3092473,
+  "available_fraction": 0.4505973553880606,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "699828dfd2a541b282b82f3db0b0b7ae",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ee0c8d41994cec53ba4c62280505ed8efd97af7db5ada65ca0f6620b4594ccce",
+ "image_sha256": "8a56999c843f0158233cb83d2d47502a03dacde044988de0041f72402e7b1426"
+}

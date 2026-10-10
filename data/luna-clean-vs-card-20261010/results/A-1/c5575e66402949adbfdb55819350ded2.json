@@ -1,0 +1,59 @@
+{
+ "unit": "c5575e66402949adbfdb55819350ded2",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:000",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，未见明显遮挡。",
+   "observed_object": "框内可见一辆车。",
+   "reasoning": "目标具有车辆外观，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:001",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，未见明显遮挡。",
+   "observed_object": "框内可见一辆卡车。",
+   "reasoning": "目标体型和车厢结构符合卡车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:002",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小，结构细节不足。",
+   "observed_object": "疑似两轮车，但无法清楚确认车轮及整体结构。",
+   "reasoning": "缺乏足够的两轮结构证据，不能明确判定。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:003",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，未见明显遮挡。",
+   "observed_object": "框内可见一辆车。",
+   "reasoning": "目标具有车辆外观，符合“车”类别。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607917.76385,
+   "seconds": 17.195049285888672,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607917.7638483,
+ "finished": 1791607935.2380235,
+ "health": {
+  "at": 1791607917.74778,
+  "available_fraction": 0.4553458470579537,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3602b9b9d8114d35b497d0e94e8f7411",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "20db47acc9d3c8b35ff24c9bbe8588aaefdb45bfb0c49d0a78848583174de939",
+ "image_sha256": "35debce8db95b023c3dac8d9c1ac33fcfa8faf7813865c130002ec6bc9f6ee17"
+}

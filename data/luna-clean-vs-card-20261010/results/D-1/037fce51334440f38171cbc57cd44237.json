@@ -1,0 +1,35 @@
+{
+ "unit": "037fce51334440f38171cbc57cd44237",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "037fce51334440f38171cbc57cd44237:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅能看到屋顶上的小型物体，目标过小且细节不足，无法确认是否为卡车。",
+   "observed_object": "屋顶上的小型设备或物体",
+   "reasoning": "未观察到足以确认卡车的车身、驾驶室或车轮等结构，因此不能判定符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608603.871108,
+   "seconds": 14.234341144561768,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608603.8711061,
+ "finished": 1791608618.620001,
+ "health": {
+  "at": 1791608603.86922,
+  "available_fraction": 0.4544449104438119,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7ebd917c0b4c4bfa84ac7f54a3044cd5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "425c840aa3328f313b1930ec28c768bb4a8001222310fb752864f96a74b49fe5",
+ "image_sha256": "5dc02bd7aabb32fe95331e53412581a2304bcfc2e9a70982368c2069151b4104"
+}

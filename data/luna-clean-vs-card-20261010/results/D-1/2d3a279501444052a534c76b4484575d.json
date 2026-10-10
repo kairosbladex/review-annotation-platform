@@ -1,0 +1,51 @@
+{
+ "unit": "2d3a279501444052a534c76b4484575d",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "2d3a279501444052a534c76b4484575d:004",
+   "decision": "true",
+   "image_limitation": "目标部分清晰可见，能确认是车辆。",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆轮廓及车身结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:005",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，虽为俯视角但车身结构明确。",
+   "observed_object": "车辆",
+   "reasoning": "框内可见明显的汽车车身和车顶，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:008",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，部分区域受俯视角影响但不妨碍类别判断。",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆车身、车顶及轮廓，符合“车”类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791610010.7818813,
+   "seconds": 21.919472455978394,
+   "status": "ok"
+  }
+ ],
+ "started": 1791610010.7818797,
+ "finished": 1791610032.9802475,
+ "health": {
+  "at": 1791610010.7799811,
+  "available_fraction": 0.45605474640014476,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "292483ccd342452daae776214b767567",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e910c2b86adeaa15a8321ca6431789bd7e57afc36b7aa1823ce929a2ad5750c7",
+ "image_sha256": "fb1e75b19351661f60a2a4390ebb4eb44ef6b791e04fb10755fa8426f35e6777"
+}

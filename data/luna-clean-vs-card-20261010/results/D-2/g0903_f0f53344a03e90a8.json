@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f0f53344a03e90a8",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd58701a40a44a4187c2167ba59721f0",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为浅灰白色的屋顶或建筑表面，不是蓝色或绿色顶棚。",
+   "reasoning": "候选框主体颜色为灰白色，依据类别规则不符合蓝色或绿色顶棚定义。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609619.7417886,
+   "seconds": 14.013493776321411,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609619.741787,
+ "finished": 1791609634.0313728,
+ "health": {
+  "at": 1791609619.7402234,
+  "available_fraction": 0.4539565940437255,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4ce7bbeabca64fb493acc171adf40eca",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bebaf0e126e6dc3605e7335bdbaf5a61d6feb6a977f40e468942fd6bc30855a4",
+ "image_sha256": "3183008c07381f4615806cf9c4311958777f418e1cd94659af92a7b7e62e71ad"
+}

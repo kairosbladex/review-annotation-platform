@@ -1,0 +1,35 @@
+{
+ "unit": "3b06cea8e7464826b41922d0a7bde63a",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:3b06cea8e7464826b41922d0a7bde63a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为覆盖在建筑上的浅蓝色、带平行条纹的矩形彩钢瓦屋面，属于蓝色顶棚。",
+   "reasoning": "目标主体明确是蓝色顶棚，符合该类别判定条件；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606432.3225973,
+   "seconds": 7.874104261398315,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606432.3225944,
+ "finished": 1791606440.4820938,
+ "health": {
+  "at": 1791606432.2990596,
+  "available_fraction": 0.4506737203757352,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "79c0dc469736413c8044d86a1f72cef4",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "76417689a8f07348a7e37d7cfec277030523d36f4b52e059de8b64194f975905",
+ "image_sha256": "f8692d72f874c14a689abc1e47e4df57a3ba00ab04c01a64dc28667c10d04231"
+}

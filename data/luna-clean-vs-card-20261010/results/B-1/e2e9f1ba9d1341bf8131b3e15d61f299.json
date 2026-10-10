@@ -1,0 +1,35 @@
+{
+ "unit": "e2e9f1ba9d1341bf8131b3e15d61f299",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e2e9f1ba9d1341bf8131b3e15d61f299:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像顶部边缘，目标仅部分可见且被框线遮挡，无法确认车辆所需结构。",
+   "observed_object": "候选框内可见局部矩形区域，疑似车辆局部或其他物体。",
+   "reasoning": "无法唯一确认其为车，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609009.8405914,
+   "seconds": 13.659271717071533,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609009.8405895,
+ "finished": 1791609023.7736015,
+ "health": {
+  "at": 1791609009.8397253,
+  "available_fraction": 0.4541995210407429,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e432e7449a804290a7f0cd946d93c988",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bf614d18aca388ac19998742027e6a70f84432e451757f8ed66600c0b3c929ac",
+ "image_sha256": "6e16bd109eceebea6905a25564827f13ad29dfff10e72cf31bbb7457877a41f1"
+}

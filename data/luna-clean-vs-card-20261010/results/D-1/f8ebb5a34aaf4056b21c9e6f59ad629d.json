@@ -1,0 +1,35 @@
+{
+ "unit": "f8ebb5a34aaf4056b21c9e6f59ad629d",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f8ebb5a34aaf4056b21c9e6f59ad629d:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被遮挡，无法确认是否具有三轮车所需的三轮结构。",
+   "observed_object": "疑似路边堆放物或车辆局部",
+   "reasoning": "候选框内未能清晰看到完整车体及三轮结构，不能明确符合三轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608962.1562004,
+   "seconds": 85.25545358657837,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608962.1561985,
+ "finished": 1791609047.6829374,
+ "health": {
+  "at": 1791608962.1545677,
+  "available_fraction": 0.4540491926712959,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f87195691829409a81f25c2c0973437a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d6aeec99b0ea17cd10183b5dfe01a376f50be806152a98d19db42457de435ba1",
+ "image_sha256": "73255cf1cf8233fd07f1529dcc9e8bdc488ede6fe35de06e36fd833a8fbe2963"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_e06ff0ed309a3a44",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd593e9d564441f183d2be6d0f80548e",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认该处是否未经审批或违反区域建设规定。",
+   "observed_object": "建筑屋顶上的矩形区域，可能是设备或其他设施。",
+   "reasoning": "未提供审批信息或区域业务依据，不能仅凭外观判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609230.7661767,
+   "seconds": 22.858664989471436,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609230.766175,
+ "finished": 1791609253.895126,
+ "health": {
+  "at": 1791609230.7479615,
+  "available_fraction": 0.45376215516587254,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3f9ca10167824906858cd8c245523aa7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "11cb7af8f63f36d1a89fda79cbc80a6b4d17f07c6a9dea403e4a76f1f602464e",
+ "image_sha256": "e06ff0ed309a3a44e35fd318a5e0a3203c35cd06ed326781f4e97a0e236698f7"
+}

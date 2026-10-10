@@ -1,0 +1,83 @@
+{
+ "unit": "a86295070bc84b7cb5f14b9ec47e0f21",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:004",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且模糊，无法确认人体结构。",
+   "observed_object": "候选框内仅见难以辨认的小型物体。",
+   "reasoning": "不能仅凭模糊外观确认是人员。",
+   "target_index": 0
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:005",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且模糊，无法确认人体结构。",
+   "observed_object": "候选框内仅见难以辨认的小型物体。",
+   "reasoning": "不能仅凭模糊外观确认是人员。",
+   "target_index": 1
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且模糊，无法确认人体结构。",
+   "observed_object": "候选框内仅见难以辨认的小型物体。",
+   "reasoning": "不能仅凭模糊外观确认是人员。",
+   "target_index": 2
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:001",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且模糊，无法确认人体结构。",
+   "observed_object": "候选框内仅见难以辨认的小型物体。",
+   "reasoning": "不能仅凭模糊外观确认是人员。",
+   "target_index": 3
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:002",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且模糊，无法确认人体结构。",
+   "observed_object": "候选框内仅见难以辨认的小型物体。",
+   "reasoning": "不能仅凭模糊外观确认是人员。",
+   "target_index": 4
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:003",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且模糊，无法确认人体结构。",
+   "observed_object": "候选框内仅见难以辨认的小型物体。",
+   "reasoning": "不能仅凭模糊外观确认是人员。",
+   "target_index": 5
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:006",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且模糊，无法确认人体结构。",
+   "observed_object": "候选框内可见疑似小型物体，但细节不足。",
+   "reasoning": "无法确认可见人体结构，不能明确判定为人员。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604232.254709,
+   "seconds": 27.585759162902832,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604232.2547066,
+ "finished": 1791604260.1199007,
+ "health": {
+  "at": 1791604232.253012,
+  "available_fraction": 0.4478690398829524,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c4ffdca1b9b44dabb17143f2914e5fee",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5a49c6bfe3e129dd022fffbacb2d6a0e0f40c771e72cf97081a91a0db4f33307",
+ "image_sha256": "14ed74718f2e699ab53ef4857669868d82cd410ccbdc2ebb48d4ca4d569a4864"
+}

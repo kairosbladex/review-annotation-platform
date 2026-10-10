@@ -1,0 +1,35 @@
+{
+ "unit": "f4e3055e95fd47c68356f029e6da1ab0",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "f4e3055e95fd47c68356f029e6da1ab0:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内是一个小型摄像头或墙面装置，并非人员。",
+   "reasoning": "框内未见可辨认的人体结构，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608826.887089,
+   "seconds": 29.37642550468445,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608826.8870866,
+ "finished": 1791608856.556593,
+ "health": {
+  "at": 1791608826.885318,
+  "available_fraction": 0.45429412607324426,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "aeb8763e56b040a9ad1a06869a1fc9ac",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "311c87d661905a77069d1014bf668e0fc6332d59efad6ad5bd326842fb4a0cb9",
+ "image_sha256": "62c8203edfc71013d95add44381ca15aa6320ceaa8578ac9e647b99e67ebffd5"
+}

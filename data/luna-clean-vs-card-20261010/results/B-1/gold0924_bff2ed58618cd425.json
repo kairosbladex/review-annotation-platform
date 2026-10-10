@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_bff2ed58618cd425",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-013",
+   "decision": "false",
+   "image_limitation": "候选框内仅见车辆及标注文字，未见可确认的人体结构。",
+   "observed_object": "车辆",
+   "reasoning": "候选框对应道路上的小型车辆，不符合人员类别；文字和框线不作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604685.1642792,
+   "seconds": 15.323377132415771,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604685.164277,
+ "finished": 1791604700.7627518,
+ "health": {
+  "at": 1791604685.1634543,
+  "available_fraction": 0.44140324799262226,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f446abea9ce5451ea7937e71e9181a87",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5c9c6e474f3988cac2dab8afdde348924ed0ea14fdaea5b66523b7acc1f603e0",
+ "image_sha256": "bff2ed58618cd42598dae15be78b29476d40b7cbb1ff7206fe63b3899db79f14"
+}

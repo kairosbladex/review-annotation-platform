@@ -1,0 +1,48 @@
+{
+ "unit": "g0903_45bb9c009a4ae098",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f8d35e43c925407a8be6483399e48216",
+   "decision": "uncertain",
+   "image_limitation": "框内可见疑似临时棚顶或建筑物，但仅凭航拍外观无法确认是否未经审批或属于违建。",
+   "observed_object": "蓝色顶棚状建筑/设施",
+   "reasoning": "目标外观不足以证明违法建设属性，不能据此明确判定为违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:dc0808002a5f424baf5d1d3c4abc71c3",
+   "decision": "uncertain",
+   "image_limitation": "框内可见疑似临时棚顶或建筑物，但仅凭航拍外观无法确认是否未经审批或属于违建。",
+   "observed_object": "蓝色顶棚状建筑/设施",
+   "reasoning": "目标外观不足以证明违法建设属性，不能据此明确判定为违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602629.2439182,
+   "seconds": 26.942091941833496,
+   "status": "http_503"
+  },
+  {
+   "at": 1791602661.2056537,
+   "seconds": 22.73280119895935,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602629.2439163,
+ "finished": 1791602684.4924822,
+ "health": {
+  "at": 1791602629.242994,
+  "available_fraction": 0.4403040420912138,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "054ec31ab03e4c07bc57fc6b0b9e40c6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b1ed1c2b0038fae11b0c73a4b4fbc9e6907e4df1d10fafe76edc5fe3f9e329a0",
+ "image_sha256": "45bb9c009a4ae09893b702d7ff1447f40239faae16d2ebf107536106133c8dfe"
+}

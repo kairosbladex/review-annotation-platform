@@ -1,0 +1,35 @@
+{
+ "unit": "87e732ecc4f14ac9922a3fb789fbb9e6",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "87e732ecc4f14ac9922a3fb789fbb9e6:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "墙面上的小型黑白斑点或孔洞",
+   "reasoning": "候选框内未见可辨认的人体结构，不能归类为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605904.0033138,
+   "seconds": 17.09887981414795,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605904.0033116,
+ "finished": 1791605921.693553,
+ "health": {
+  "at": 1791605904.00163,
+  "available_fraction": 0.45356792908854254,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "802767b3e12842e6b96a9d80875e9705",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "502cceff5935ac598b372dd5e629039868e7cc93b79190bd965f474b2f229cc9",
+ "image_sha256": "af4fafd588778e07667a41154e20ed635441125e02bef62e18c638d9cd7f7c31"
+}

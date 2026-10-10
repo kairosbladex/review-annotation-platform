@@ -1,0 +1,139 @@
+{
+ "unit": "499993a0d9614b97accdba65edc23687",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "499993a0d9614b97accdba65edc23687:007",
+   "decision": "uncertain",
+   "image_limitation": "目标框极小且被红色框线、文字和复杂背景干扰，无法确认可见人体结构。",
+   "observed_object": "道路及标注区域",
+   "reasoning": "不能仅凭候选框或文字判定为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:014",
+   "decision": "uncertain",
+   "image_limitation": "目标框极小并与红色标注密集重叠，无法确认人体结构。",
+   "observed_object": "植被及标注区域",
+   "reasoning": "缺乏清晰的人体证据。",
+   "target_index": 1
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:011",
+   "decision": "uncertain",
+   "image_limitation": "目标框极小并与其他标注重叠，无法唯一定位目标。",
+   "observed_object": "标注密集区域",
+   "reasoning": "不能确认可见人体结构。",
+   "target_index": 2
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:013",
+   "decision": "uncertain",
+   "image_limitation": "目标框仅覆盖很小区域，细节不足。",
+   "observed_object": "道路上的小目标",
+   "reasoning": "无法确认是否为人员。",
+   "target_index": 3
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:002",
+   "decision": "uncertain",
+   "image_limitation": "目标框很小，受红色标注干扰。",
+   "observed_object": "道路边缘区域",
+   "reasoning": "未能清晰辨认人体结构。",
+   "target_index": 4
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:003",
+   "decision": "uncertain",
+   "image_limitation": "目标框极小且位于道路标线附近，无法看清目标。",
+   "observed_object": "道路及标注区域",
+   "reasoning": "不能确认人员类别。",
+   "target_index": 5
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:005",
+   "decision": "uncertain",
+   "image_limitation": "目标框很小并被标注覆盖，无法确认人体形态。",
+   "observed_object": "人行道边缘区域",
+   "reasoning": "缺乏明确的人体结构证据。",
+   "target_index": 6
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:009",
+   "decision": "uncertain",
+   "image_limitation": "目标框极小，位于草地和红色文字附近，细节不可辨。",
+   "observed_object": "草地及标注区域",
+   "reasoning": "不能依据文字确认人员。",
+   "target_index": 7
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:010",
+   "decision": "uncertain",
+   "image_limitation": "目标框与密集红色标注重叠，无法唯一定位。",
+   "observed_object": "道路边缘及标注区域",
+   "reasoning": "无法确认可见人体结构。",
+   "target_index": 8
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:012",
+   "decision": "uncertain",
+   "image_limitation": "目标框极小并与相邻标注重叠，细节不足。",
+   "observed_object": "植被和道路边缘区域",
+   "reasoning": "不能明确判定为人员。",
+   "target_index": 9
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:006",
+   "decision": "uncertain",
+   "image_limitation": "候选框与多个红色框线、文字重叠，目标不可清晰辨认。",
+   "observed_object": "道路标注区域",
+   "reasoning": "无法确认人体结构。",
+   "target_index": 10
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:000",
+   "decision": "uncertain",
+   "image_limitation": "目标框很小且位于道路区域，无法看清目标形态。",
+   "observed_object": "道路及标注区域",
+   "reasoning": "不能确认人员类别。",
+   "target_index": 11
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:008",
+   "decision": "uncertain",
+   "image_limitation": "目标框很小并被文字和植被干扰，细节不足。",
+   "observed_object": "道路旁植被区域",
+   "reasoning": "未见足够清晰的人体结构证据。",
+   "target_index": 12
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:001",
+   "decision": "uncertain",
+   "image_limitation": "与相邻候选及红色标注重叠，无法唯一定位和辨认。",
+   "observed_object": "道路及标注区域",
+   "reasoning": "不能仅凭标注文字判定为人员。",
+   "target_index": 13
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606877.3044386,
+   "seconds": 8.224537134170532,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606877.3044364,
+ "finished": 1791606885.8014703,
+ "health": {
+  "at": 1791606877.283332,
+  "available_fraction": 0.4548439418244714,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "549b92fda6b04159ac8eb13d877d4dd3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d727c389780f220caad5eb49042f212f5ebbe2755551b7bdfb7ac7ab070c70da",
+ "image_sha256": "46b7c6d7b14f538b338d6b9ac22d6607f524361b04d17a1e99054d1fe3741ffa"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8772805bce1cd3a5",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0f4a7549e8134468b02a4cabaeab093b",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见疑似建筑顶部/浅色结构，缺乏审批或区域业务依据，无法确认是否为违建。",
+   "observed_object": "建筑顶部的浅色矩形结构",
+   "reasoning": "违建属性不能仅凭外观判断，证据不足。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606620.9076056,
+   "seconds": 4.657201290130615,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606620.9076037,
+ "finished": 1791606625.837202,
+ "health": {
+  "at": 1791606620.9060428,
+  "available_fraction": 0.45606559922681666,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9e76feb3d871439dabfd9a1f6576d166",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "44c719eace66741f45b3c7c4c1e245cec2b7b3f749c1d3c838b576d80901743c",
+ "image_sha256": "4ea1cde8425be37853d022ff5071f26431cc15b5ecb26f145bccb8edff573edd"
+}

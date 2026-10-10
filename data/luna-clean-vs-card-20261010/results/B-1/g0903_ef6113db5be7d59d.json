@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_ef6113db5be7d59d",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd00f28b069049368321be0ad373f69f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为成片蓝色矩形顶棚，具有明显屋面覆盖特征。",
+   "reasoning": "目标主体符合蓝色顶棚定义；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606654.1211255,
+   "seconds": 28.76456069946289,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606654.1211233,
+ "finished": 1791606683.1606195,
+ "health": {
+  "at": 1791606653.4006083,
+  "available_fraction": 0.45721973806322824,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ead03db7bfff449bb84d6f8c76d2cb57",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5b752ece22f27ebcc5106c20353cbb7755a02716480a68ec6bb4d05f5b185756",
+ "image_sha256": "ef6113db5be7d59d3297cca956c944b57751c26ac6ccaa67956fcb682272e182"
+}

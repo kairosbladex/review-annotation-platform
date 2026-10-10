@@ -1,0 +1,35 @@
+{
+ "unit": "ac89dffcf200454d97dd8e3cf8681a67",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "ac89dffcf200454d97dd8e3cf8681a67:000",
+   "decision": "true",
+   "image_limitation": "目标较小但可见车辆的整体轮廓，细节有限。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "候选框内可见明显的机动车轮廓，符合“车”类别；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603972.3808072,
+   "seconds": 15.722537517547607,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603972.3808043,
+ "finished": 1791603988.395737,
+ "health": {
+  "at": 1791603972.3789873,
+  "available_fraction": 0.446369586597896,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "180d204874a64a6ea194722f221b27de",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "295c4ebdc04bd03e54e5a645c2184426e0a2db0170f5cc99c9710ab8ce3591e2",
+ "image_sha256": "e47eae093d95a903b0839d658e73100ff7fd8f971824e7a71f382eb143e8950a"
+}

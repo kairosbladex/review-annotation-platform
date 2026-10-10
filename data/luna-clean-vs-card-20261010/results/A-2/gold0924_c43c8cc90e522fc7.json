@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_c43c8cc90e522fc7",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-028",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名人员，能辨认出人体结构。",
+   "reasoning": "候选框内目标符合“人员”类别，不将框线作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603373.0129516,
+   "seconds": 33.60416340827942,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603373.0129488,
+ "finished": 1791603406.902058,
+ "health": {
+  "at": 1791603372.9906757,
+  "available_fraction": 0.43036574086684476,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0a0f762bcefe4951b0812755ab3c023b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9628f20a1c8b9ed067e0630c0f8425264ba1b4c3267e35cf1d06fd1b67a9042c",
+ "image_sha256": "c43c8cc90e522fc7c90d2db0511a2e31ed3f67b8fcee8c4ab4d70fbb8941ec26"
+}

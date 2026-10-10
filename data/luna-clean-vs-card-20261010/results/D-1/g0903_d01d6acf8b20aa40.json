@@ -1,0 +1,75 @@
+{
+ "unit": "g0903_d01d6acf8b20aa40",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:89174fccc9f5400a995eb9f56c25b247",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见完整机动车车身，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:daf1f353cc3c4e5cb3b90ce964b7b140",
+   "decision": "uncertain",
+   "image_limitation": "目标较小且被裁切/遮挡，无法确认是否为两轮车及其车轮结构。",
+   "observed_object": "疑似两轮车或小型物体",
+   "reasoning": "仅凭当前框内外观不能明确确认两轮车类别。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:3755a239c86d407e82568924dc1a7fad",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见完整机动车车身，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:49b04eff501f4064adcfcd04ceb488f1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见机动车车身，虽部分被树叶遮挡但车辆目标明确，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:46a5dbd1b5874ff888c6a3d0a997476b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见明确的机动车车身，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:149d6e1a1222493794a19839c1eff499",
+   "decision": "uncertain",
+   "image_limitation": "框内车辆尺寸较小，车身结构和货厢特征不够清晰。",
+   "observed_object": "疑似小型车辆",
+   "reasoning": "可确认是车辆，但无法从可见结构明确判定为卡车。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603822.7104878,
+   "seconds": 41.86716628074646,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603822.7104857,
+ "finished": 1791603864.850714,
+ "health": {
+  "at": 1791603822.7083633,
+  "available_fraction": 0.4479064015747725,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5a7adc50ec6b410f9155d0b342f25b43",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8a674db6a998970dae28323ed0b3de4227593da1b469832ef5bf4d679014c4f4",
+ "image_sha256": "9e12fe1616ecef6fb301454e4fcb9fe89d01efee01174e2effe460d4f784c1f5"
+}

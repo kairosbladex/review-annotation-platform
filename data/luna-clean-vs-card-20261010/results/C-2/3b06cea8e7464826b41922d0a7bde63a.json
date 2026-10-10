@@ -1,0 +1,35 @@
+{
+ "unit": "3b06cea8e7464826b41922d0a7bde63a",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:3b06cea8e7464826b41922d0a7bde63a:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内可见建筑及蓝色屋顶，但仅凭航拍外观无法确认是否未经审批或违反区域业务规定。",
+   "observed_object": "建筑物和蓝色金属屋顶",
+   "reasoning": "违建需要审批或区域业务依据，图像中没有提供相关证据，因此不能明确判定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606441.8880308,
+   "seconds": 22.599303483963013,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606441.8880274,
+ "finished": 1791606464.7570655,
+ "health": {
+  "at": 1791606441.856697,
+  "available_fraction": 0.4496794859323046,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "16b7252e20b9484cb895bc2500b79912",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ad6ed7c8eacc2305da73f10c4415cefa2e53d497f396855c1eed12bc325ae05b",
+ "image_sha256": "2f26e54aba90edffe5fe81fda34bcc101cfaf25b9f1aa409299ef835397fbd3b"
+}

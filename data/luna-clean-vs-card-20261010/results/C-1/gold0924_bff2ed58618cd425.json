@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_bff2ed58618cd425",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-013",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且分辨率有限，无法清晰确认可见人体结构。",
+   "observed_object": "道路中央疑似小型物体或车辆，无法唯一判断为人员。",
+   "reasoning": "候选框内未能明确观察到人体结构，不能判定符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604684.6702027,
+   "seconds": 14.094324827194214,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604684.6702003,
+ "finished": 1791604699.0457542,
+ "health": {
+  "at": 1791604684.66826,
+  "available_fraction": 0.4417232087789579,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3da23ff4d0c24fe9b5669ad73528dc11",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "dfb8d01ca4fb1ddae2ff111bf98c4734d9cf8db32badbc4434999a2fe4fa8913",
+ "image_sha256": "1c8093b2528c06217da9c4f1363d6ec3847a731de61d95f28fb75a90c5a57b75"
+}

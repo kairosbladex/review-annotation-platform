@@ -1,0 +1,35 @@
+{
+ "unit": "80d244bd5c7243f884081df5ae768702",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "80d244bd5c7243f884081df5ae768702:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车",
+   "reasoning": "目标具有明显的汽车车身与四轮车辆结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606415.0197737,
+   "seconds": 5.6582159996032715,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606415.0197716,
+ "finished": 1791606420.9528954,
+ "health": {
+  "at": 1791606415.0177581,
+  "available_fraction": 0.45281415923607776,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b02fa03cdba34be1bb4bb9d17c857472",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a6e5972d9b535eff71dc0716eff246a8f9a7f2e3331a4397382e70165ca709a9",
+ "image_sha256": "f00f1b642f38b1f958a79143327c30c254e1539c9f2b52ad0109dded84072648"
+}

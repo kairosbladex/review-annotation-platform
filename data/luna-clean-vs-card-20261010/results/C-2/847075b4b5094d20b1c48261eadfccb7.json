@@ -1,0 +1,147 @@
+{
+ "unit": "847075b4b5094d20b1c48261eadfccb7",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见完整车辆，目标类别明确。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见白色车辆，目标类别明确。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见道路上的车辆，结构足以确认。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆主体，目标类别明确。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆，结构足以确认。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆主体，目标类别明确。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见停放车辆，目标类别明确。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见道路车辆，目标类别明确。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆主体，目标类别明确。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆，目标类别明确。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆主体，目标类别明确。",
+   "target_index": 10
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见道路车辆，目标类别明确。",
+   "target_index": 11
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见白色车辆，目标类别明确。",
+   "target_index": 12
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆主体，目标类别明确。",
+   "target_index": 13
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:020",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像最右边缘，仅部分可见，无法完整确认。",
+   "observed_object": "部分车辆",
+   "reasoning": "可见疑似车辆，但目标被边缘截断，不能唯一、充分确认类别。",
+   "target_index": 14
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606943.6119106,
+   "seconds": 30.330345392227173,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606943.611909,
+ "finished": 1791606974.2226102,
+ "health": {
+  "at": 1791606943.5938997,
+  "available_fraction": 0.456786780199191,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3ac97dbce0814b639c2d1721cc639bda",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1d0d442de3d460922afd281f32b5d7f809efaaa7ef17eea90fef247ef5d86dc1",
+ "image_sha256": "b6f64e19a36b1912eb86ef5faa3b212d07734c5a7fda78517fc2c574ed39378e"
+}

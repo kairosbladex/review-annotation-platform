@@ -1,0 +1,35 @@
+{
+ "unit": "bf64d4b40c7d4bf1b7ff193da2ba90f7",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bf64d4b40c7d4bf1b7ff193da2ba90f7:000",
+   "decision": "uncertain",
+   "image_limitation": "目标很小且细节模糊，无法确认是否具有人体结构。",
+   "observed_object": "框内疑似漂浮物或小型物体，无法唯一辨认为人员。",
+   "reasoning": "未见足够清晰、可确认的人体结构，因此不能判定符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603211.7111402,
+   "seconds": 15.304290294647217,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603211.7111375,
+ "finished": 1791603227.549582,
+ "health": {
+  "at": 1791603211.6917167,
+  "available_fraction": 0.4405934508024647,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4c3b580a1a9849018f4f68c9a23d3953",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e8e9cbe2fff015f81ee4dafbb86c4bd08fca7caabf4035a259dc321b6d818bd7",
+ "image_sha256": "d12aa2da94791d1d4aac2153f091e2e19a5ae2131e5d111f27f9ee9f37ed0f5a"
+}

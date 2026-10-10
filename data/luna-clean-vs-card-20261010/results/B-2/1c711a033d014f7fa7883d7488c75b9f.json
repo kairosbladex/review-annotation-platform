@@ -1,0 +1,59 @@
+{
+ "unit": "1c711a033d014f7fa7883d7488c75b9f",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且被框线遮挡，无法确认是否为两轮车及其结构。",
+   "observed_object": "疑似车辆",
+   "reasoning": "看不清车轮和车身结构，不能明确符合“两轮车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:001",
+   "decision": "true",
+   "image_limitation": "车辆较小，但车身轮廓可见。",
+   "observed_object": "汽车",
+   "reasoning": "框内可见完整车辆外观，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:002",
+   "decision": "true",
+   "image_limitation": "车辆较小且部分被树木遮挡。",
+   "observed_object": "汽车",
+   "reasoning": "框内可见车辆主体，明确属于“车”。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:003",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像边缘，严重截断且尺寸过小。",
+   "observed_object": "疑似车辆",
+   "reasoning": "无法唯一确认目标的完整车辆结构。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604121.6461012,
+   "seconds": 23.502363920211792,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604121.6460986,
+ "finished": 1791604145.4676924,
+ "health": {
+  "at": 1791604121.6285503,
+  "available_fraction": 0.4458288908690822,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "380af1c3787249f0ad4be75d401a67c6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0ec358ac4ad6133c41cad0719f6e39a1dde5375278692bb08e2297d7accde0f3",
+ "image_sha256": "5eb28156ca58505c3a837d8b878d44cc0575369fe6b5a09a6b863acd936d8e71"
+}

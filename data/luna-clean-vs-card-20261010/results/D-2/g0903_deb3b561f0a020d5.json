@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_deb3b561f0a020d5",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:22f50e485cd4400f9828b3b8b218857a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为建筑侧边覆盖的浅蓝色矩形顶棚或篷布，颜色和形态符合蓝色顶棚特征。",
+   "reasoning": "目标主体是蓝色覆盖面，不是文字、框线或车辆等其他物体，符合“违建”类别判定标准。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604423.8983655,
+   "seconds": 24.852798461914062,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604423.8983629,
+ "finished": 1791604449.0366042,
+ "health": {
+  "at": 1791604423.8961155,
+  "available_fraction": 0.44534014886794987,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b36a2e1ccaaf4410bfc1aea3aded9c19",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "010440ca9beff1dad5e2ae7b6a897ec25d3653afebc9faa89523e647b6b4b4d1",
+ "image_sha256": "ca9e61382f8a6c9e779e6483150dc03b9fcccdc5f534e8c37a38060e7c179b29"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_bff2ed58618cd425",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-013",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小，且被红色文字和框线严重干扰，无法清晰确认可见人体结构。",
+   "observed_object": "道路上的小型红色标记区域",
+   "reasoning": "不能仅凭框线或文字判定为人员，候选框内缺乏清晰、可核验的人体结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604675.9635847,
+   "seconds": 31.713780641555786,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604675.9635813,
+ "finished": 1791604707.957815,
+ "health": {
+  "at": 1791604675.9620862,
+  "available_fraction": 0.4403662710441477,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9a5448e63af3463d9ed40b3c266614cd",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5c9c6e474f3988cac2dab8afdde348924ed0ea14fdaea5b66523b7acc1f603e0",
+ "image_sha256": "bff2ed58618cd42598dae15be78b29476d40b7cbb1ff7206fe63b3899db79f14"
+}

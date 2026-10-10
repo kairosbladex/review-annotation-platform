@@ -1,0 +1,35 @@
+{
+ "unit": "46e38da516a54f38ae3e713cf6322382",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "46e38da516a54f38ae3e713cf6322382:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框区域过小且被框线/标注干扰，无法清楚辨认车辆结构。",
+   "observed_object": "疑似车体局部或标注区域",
+   "reasoning": "仅凭当前候选框内可见内容，无法确认目标是否为车辆，不能唯一定位。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609340.2621274,
+   "seconds": 25.84146022796631,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609340.2621255,
+ "finished": 1791609366.3752935,
+ "health": {
+  "at": 1791609340.246161,
+  "available_fraction": 0.45407314793016834,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d6e9ed56a643426391f0545109847b9d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1383b51eb31254fa22301f49afc9fea65cb7742e6992bd654a40384485731f4e",
+ "image_sha256": "70aa782288dd13c036f9b6eba30662baa92819d1683aad486f0d8eb8786aff97"
+}

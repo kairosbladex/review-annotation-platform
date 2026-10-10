@@ -1,0 +1,59 @@
+{
+ "unit": "g0903_ffda9753a1865e4b",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:b72bceabedff4f33bd7e206db93cf80a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内可见蓝色成片屋面，符合蓝色顶棚类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b5353da4de4b4d3a98177fdaf39d2a1f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内主体为成片浅蓝色屋面，属于蓝色顶棚。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:d9194ee969e24131920de23a185f3fed",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内可见规则矩形蓝色屋面，符合类别要求。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:a33bbf274cdc410cba575f56f21e2fb7",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内可见蓝色长条状成片屋面，位于建筑或棚架上方，符合蓝色顶棚定义。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602310.0716536,
+   "seconds": 58.85023832321167,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602310.0716517,
+ "finished": 1791602369.1988945,
+ "health": {
+  "at": 1791602310.0693362,
+  "available_fraction": 0.44539213299570607,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2b2adaadd90f4445b090170afc823d49",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8afa9ef55d78eeb7fe54ac464ec6a516bce38b0afaba63936ae9675fe79a89b6",
+ "image_sha256": "41a98e93ee5aca2c58b2a5d1a38b691677433d5879585d34ba981a042abf305f"
+}

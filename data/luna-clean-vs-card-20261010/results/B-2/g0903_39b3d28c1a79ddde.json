@@ -1,0 +1,75 @@
+{
+ "unit": "g0903_39b3d28c1a79ddde",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:76006df30bd947ff942ee244b4fceb1a",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且主要被边框与文字占据，无法清晰确认是否为蓝绿色顶棚。",
+   "observed_object": "左上角局部区域",
+   "reasoning": "仅凭可见局部无法唯一判断目标主体是否符合蓝绿色顶棚类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f9685b6cd29a4c6a8b29a13873685731",
+   "decision": "uncertain",
+   "image_limitation": "框内为狭长局部，受边缘裁切、文字和遮挡影响，无法确认主体是否为顶棚。",
+   "observed_object": "左侧狭长蓝绿色区域",
+   "reasoning": "无法排除围挡等非顶棚物体，证据不足。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:67f3e79afd6c438db006916355b183a4",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "大面积浅蓝色矩形屋面/顶棚",
+   "reasoning": "框内主体为成片浅蓝色屋面，边缘规整，符合蓝色顶棚定义。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:3b95eefbf52a4243a6b283ab87d85cac",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "浅蓝色矩形屋面/顶棚",
+   "reasoning": "框内主体明显是覆盖建筑的成片浅蓝色顶棚，符合类别要求。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:2d6ee94a6bb94288a30fe86cd4a6129e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形屋面/顶棚",
+   "reasoning": "框内可见规整的蓝色成片屋面，符合蓝色顶棚定义。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:1c1d5b93f6264de3969c2b59a390c2ea",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "浅蓝色矩形屋面/顶棚",
+   "reasoning": "框内主体为清晰可见的成片浅蓝色顶棚，符合类别要求。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604562.0388434,
+   "seconds": 49.26564168930054,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604562.0388405,
+ "finished": 1791604611.5873375,
+ "health": {
+  "at": 1791604562.0376873,
+  "available_fraction": 0.4403595830277113,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2c3e11f573c7431aa0c872e18110229d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1d41ae4ca397242594e93e8eca585770e28f8b923fccbd3c5714de7e8e9432a8",
+ "image_sha256": "39b3d28c1a79dddee4b1ec3a3f05fe7475f237a0cca5b2610415679e38567cdd"
+}

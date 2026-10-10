@@ -1,0 +1,59 @@
+{
+ "unit": "g0903_ffda9753a1865e4b",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:b72bceabedff4f33bd7e206db93cf80a",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到被框出的建筑或棚体，缺乏审批及区域业务依据。",
+   "observed_object": "局部棚体/建筑结构",
+   "reasoning": "违建属性不能仅凭外观和框内目标确认。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b5353da4de4b4d3a98177fdaf39d2a1f",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到一处大型棚体，缺乏审批及区域业务依据。",
+   "observed_object": "大型棚体/建筑结构",
+   "reasoning": "违建属性不能仅凭外观和框内目标确认。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:d9194ee969e24131920de23a185f3fed",
+   "decision": "uncertain",
+   "image_limitation": "可见长条形棚体，但缺乏审批及区域业务依据。",
+   "observed_object": "长条形棚体",
+   "reasoning": "违建属性不能仅凭外观和框内目标确认。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:a33bbf274cdc410cba575f56f21e2fb7",
+   "decision": "uncertain",
+   "image_limitation": "可见顶部棚体或临时结构，但缺乏审批及区域业务依据。",
+   "observed_object": "棚体/临时结构",
+   "reasoning": "违建属性不能仅凭外观和框内目标确认。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602296.924281,
+   "seconds": 69.54154586791992,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602296.9242785,
+ "finished": 1791602366.7468922,
+ "health": {
+  "at": 1791602296.9230795,
+  "available_fraction": 0.4474570276703912,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "50bdaaa7ae944e1ebdc6aa8b2e3765d6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "20e662c3bed50e06a99cf02f8bd7dd5bdd48902f6edc7345a7d43c56806ec959",
+ "image_sha256": "ffda9753a1865e4b5cb4499463eb6255d8a7632e23da8c912ec78d59816b5940"
+}

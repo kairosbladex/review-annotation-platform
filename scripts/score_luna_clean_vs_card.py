@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """四组八条件完整性审计，以及按原片聚类的配对百分位区间。"""
-import argparse, collections, json, random
+import argparse, collections, csv, hashlib, json, random
 from pathlib import Path
 from score_luna_clean_frame import measure
 CONDITIONS=[f'{a}-{n}' for a in 'ABCD' for n in (1,2)]
@@ -24,8 +24,23 @@ def paired(rows,a,b):
         metrics[metric]={'n':len(selected),'source_clusters':len(totals),'delta_pp':100*sum(v[0] for v in totals)/len(selected),'ci95_pp':[boot[49],boot[1949]],'single_cluster':len(totals)==1}
     return metrics
 
+def corrected_labels(labels, corrections):
+    result={k:dict(v) for k,v in labels.items()};seen=set()
+    for c in corrections:
+        key=c['key'];assert key not in seen;seen.add(key)
+        assert key in result and result[key]['label']==c['original_label']
+        assert result[key]['class_name']==c['class_name']
+        assert c['corrected_label'] in ('true','false') and c['corrected_label']!=c['original_label']
+        result[key]['label']=c['corrected_label']
+    return result
+
 def score(root,baseline):
     units=read(baseline/'included.json');labels=read(baseline/'labels.json');protocol=read(root/'protocol.json')
+    corrections=list(csv.DictReader((root/'corrections.csv').open(encoding='utf-8-sig'))) if (root/'corrections.csv').exists() else []
+    labels=corrected_labels(labels,corrections)
+    selected={c['key'] for u in units for c in u['candidates']}
+    save(root/'labels-used.json',labels)
+    save(root/'label-audit.json',{'corrections':corrections,'applied_in_300_images':[c['key'] for c in corrections if c['key'] in selected],'outside_300_images':[c['key'] for c in corrections if c['key'] not in selected],'splits':{c['key']:labels[c['key']]['split'] for c in corrections},'corrections_sha256':hashlib.sha256((root/'corrections.csv').read_bytes()).hexdigest() if corrections else None})
     assert len(units)==300 and len({u['unit'] for u in units})==300
     records={c:{p.stem:read(p) for p in (root/'results'/c).glob('*.json')} for c in CONDITIONS}
     assert all(set(group)<={u['unit'] for u in units} for group in records.values())

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_dfd728e2940f968a",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:1b1215b7886343c0b545b6639a919f33",
+   "decision": "uncertain",
+   "image_limitation": "候选框内可见玻璃结构，但仅凭图像无法确认是否属于违建，缺乏审批或区域业务依据。",
+   "observed_object": "一处玻璃围护的小型建筑或设施",
+   "reasoning": "违建属性不能仅凭外观判断，因此无法明确符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609135.9648862,
+   "seconds": 23.032565593719482,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609135.9648845,
+ "finished": 1791609159.2866204,
+ "health": {
+  "at": 1791609135.9624226,
+  "available_fraction": 0.45538925836464134,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2182fc4013564239a0b30b8e697f0981",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ae6c430fa8077487e00c8831a2ff727732709455c65652ee1d2101e04380d2a4",
+ "image_sha256": "3645cc1383907af4a3e1d2d81a1f3e02dbc7cfb84e48da5b7203079aa1b159a7"
+}

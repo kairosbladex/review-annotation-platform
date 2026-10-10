@@ -1,0 +1,35 @@
+{
+ "unit": "e5c944f774634d849cada056b9539541",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e5c944f774634d849cada056b9539541:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "小型白色物体或设施部件，无可见人体结构。",
+   "reasoning": "候选框内未见人员，不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604096.2055645,
+   "seconds": 17.23369002342224,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604096.205562,
+ "finished": 1791604113.715008,
+ "health": {
+  "at": 1791604096.203725,
+  "available_fraction": 0.4479992738030153,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2f09b7de7030467b8c41b185ff5a3f9d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9541f9027ed61574bb7245d56b4bb01abe7039ea275ab521b367fbdac17f5067",
+ "image_sha256": "0e722953a988f6ee9f3b4d173bf16dbf43eae17c3b75f1ea72a91a36529d25a8"
+}

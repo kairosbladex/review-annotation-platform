@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_30307ae0bd802781",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:18172673ac38432aa6a1d99482f45439",
+   "decision": "uncertain",
+   "image_limitation": "框内仅见局部蓝绿色长条物体，无法唯一确认其为覆盖在建筑、棚架或院落上方的顶棚。",
+   "observed_object": "左下角局部蓝绿色物体",
+   "reasoning": "目标过小且被边缘裁切，蓝绿色外观不足以排除围挡、管道等非顶棚物体。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b52575f40fd548eab466771d11f3cc48",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "成片蓝绿色顶棚",
+   "reasoning": "框内可见规则的蓝绿色长条屋面，覆盖在棚架上方，符合蓝色或绿色顶棚类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605719.5437107,
+   "seconds": 18.620802879333496,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605719.5437083,
+ "finished": 1791605738.4514158,
+ "health": {
+  "at": 1791605719.5412443,
+  "available_fraction": 0.4412223371480158,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "58784ddde8994f23b11ad4c19185cedd",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3baa32956cd2fe7e7bf346ce163110cdcab001d569ee883fc14f06991f276924",
+ "image_sha256": "9510c2f291bf282872a940274686a753d493c8b2f870f64549729249b0772c05"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "87e732ecc4f14ac9922a3fb789fbb9e6",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "87e732ecc4f14ac9922a3fb789fbb9e6:000",
+   "decision": "false",
+   "image_limitation": "框内为红色文字/标识，不见可辨认的人体结构。",
+   "observed_object": "文字标识",
+   "reasoning": "候选框主要覆盖“人员”等文字及图形标记，不能作为人员目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605904.1529992,
+   "seconds": 16.650169134140015,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605904.152997,
+ "finished": 1791605921.0786276,
+ "health": {
+  "at": 1791605904.1522439,
+  "available_fraction": 0.4533776246208503,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3c117125f0744cc99916ba6bc939893f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1041abfae04691da38e789998a668d41d5fa20d814d4fc3c3be684eb38dd650f",
+ "image_sha256": "6f16a10ff0cbc4304b458906f08244a165ad3d58d984bb513ff6e54d2a69942b"
+}

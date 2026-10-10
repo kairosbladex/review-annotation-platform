@@ -1,0 +1,40 @@
+{
+ "unit": "gold0924_a77b77448409c4c2",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B04-004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车",
+   "reasoning": "候选框内可见完整车辆结构，符合“车”类别；判断未依据框线或文字。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601771.7172437,
+   "seconds": 33.41338109970093,
+   "status": "http_503"
+  },
+  {
+   "at": 1791601810.1474073,
+   "seconds": 13.02203369140625,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601771.717241,
+ "finished": 1791601823.8367617,
+ "health": {
+  "at": 1791601771.7163746,
+  "available_fraction": 0.4570532976541843,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "fe0f9c118cd64c76ab9ca36a3a00dc82",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "dc158c4a31087cfbbeb292887d4b3c475e829a846ef5b2cd1e78d44ee923199d",
+ "image_sha256": "a77b77448409c4c2ebfc97ba7b2e15f58dd6d2dc46bc004d964054256ca13f80"
+}

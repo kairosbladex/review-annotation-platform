@@ -1,0 +1,35 @@
+{
+ "unit": "a8170b72d4c44b0db881db68fd4d165f",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a8170b72d4c44b0db881db68fd4d165f:000",
+   "decision": "false",
+   "image_limitation": "目标区域仅见小块污渍或孔洞，没有可见人体结构。",
+   "observed_object": "墙面上的小斑点/孔洞",
+   "reasoning": "候选框内未发现人员，不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607768.6411602,
+   "seconds": 26.85694932937622,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607768.6411583,
+ "finished": 1791607795.769389,
+ "health": {
+  "at": 1791607768.6400757,
+  "available_fraction": 0.4538918114845159,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d5dd37b6205944688dba89f6d7fb9252",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fe0a15ffb09def180bf4323b250a0e93b315cf7dad717837dec8b8d734030d0b",
+ "image_sha256": "c6de6566c293d1e6f907cb826e806c51f212e853efacf34b4f9354ad3eacc0a0"
+}

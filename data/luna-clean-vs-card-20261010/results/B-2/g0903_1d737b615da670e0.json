@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_1d737b615da670e0",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f6d48b6995834bdbbc7752b756c23e90",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为建筑立面上的小型蓝色标识或装饰物，未见蓝色或绿色顶棚结构。",
+   "reasoning": "主体不是覆盖在建筑、棚架、院落或空地上方的蓝绿色屋面，不能作为违建类别目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608525.2077303,
+   "seconds": 15.670854091644287,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608525.207728,
+ "finished": 1791608541.1520524,
+ "health": {
+  "at": 1791608525.2067297,
+  "available_fraction": 0.4554806409892233,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "20b8ab1d54dd4f9cb36c0fccfa808800",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d2ead4f08870109f17cf608978b136af1a1756839711fcf3192ee1983c93975e",
+ "image_sha256": "1d737b615da670e0c415f3e1be7c8e210284361129ab8765980fe7b320929dd2"
+}

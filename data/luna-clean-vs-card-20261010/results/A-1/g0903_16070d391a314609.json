@@ -1,0 +1,59 @@
+{
+ "unit": "g0903_16070d391a314609",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ff202383d6674e13ade5162d89c90529",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆车辆，目标结构与“车”类别相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:3039d76145f84aa1a60f92ed3c02519e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆车辆，目标结构与“车”类别相符。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:ed5987ba00054ababb624eb1f47b6e9b",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小且被框线覆盖，无法清晰确认是否为两轮车或判断车轮结构。",
+   "observed_object": "疑似车辆",
+   "reasoning": "仅凭当前图像无法确认“两轮车”所需的两轮结构证据。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:9989d35690a8475c8ed7b617e195428a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆车辆，目标结构与“车”类别相符。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606127.298724,
+   "seconds": 15.183966159820557,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606127.2987218,
+ "finished": 1791606142.7627587,
+ "health": {
+  "at": 1791606127.297731,
+  "available_fraction": 0.4526413044112697,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "bbf16e3cf4c04aa085f4fb446cb35765",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "22aa4629a4c7a3c4a39ba437fc626f564836db67772e01b1594aead8f1b891cb",
+ "image_sha256": "16070d391a3146095a03e2b07fa2b3ec2b18ae52fa79ef0dfb123b714fe879eb"
+}

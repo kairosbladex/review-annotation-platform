@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_eb288fad610cfac1",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:48f3ec3897b84c36a45312fed8798ed3",
+   "decision": "uncertain",
+   "image_limitation": "候选框内主要是建筑立面及框线，无法仅凭图像确认是否存在审批或区域业务依据。",
+   "observed_object": "建筑立面",
+   "reasoning": "违建属性不能仅凭外观判断，证据不足。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607733.901102,
+   "seconds": 17.414320707321167,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607733.9011,
+ "finished": 1791607751.5907464,
+ "health": {
+  "at": 1791607733.9005094,
+  "available_fraction": 0.45586830274194085,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "de7658b26b224d2f9f468ae60fc4667c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "06f6873205dbfa330679c728e8c9e112d4f1d27ae4886d06cdee3f203c4af645",
+ "image_sha256": "eb288fad610cfac10c0bee57546f8e0740db78ef064453db0476771171adb2bf"
+}

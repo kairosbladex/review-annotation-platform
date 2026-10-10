@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_d2bfba7f5eb88113",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:7e7a4c2981244e299e8019aef1eb953f",
+   "decision": "uncertain",
+   "image_limitation": "目标为一处简易棚状结构，仅凭图像无法确认是否未经审批或违反区域建设规定。",
+   "observed_object": "道路旁的棕色顶棚/简易棚状物。",
+   "reasoning": "外观可见棚状结构，但缺乏审批信息和区域业务依据，不能据此判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606866.4783905,
+   "seconds": 10.242064714431763,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606866.4783885,
+ "finished": 1791606876.994609,
+ "health": {
+  "at": 1791606866.4678771,
+  "available_fraction": 0.45476788083754394,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f0237c78016f4c5881ddad0d3037982d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ed094bde8cfe4d152a865ca9e9652a2e09cdcab9d93c9b9390aaf0d0ce77ac37",
+ "image_sha256": "68592f6bd0e74a1e32600f17398c6ffd2ac840b135489b19dc1cf5b02f73a3f9"
+}

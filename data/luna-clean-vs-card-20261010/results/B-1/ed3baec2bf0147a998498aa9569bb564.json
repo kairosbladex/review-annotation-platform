@@ -1,0 +1,59 @@
+{
+ "unit": "ed3baec2bf0147a998498aa9569bb564",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:ed3baec2bf0147a998498aa9569bb564:000",
+   "decision": "true",
+   "image_limitation": "目标部分贴近左侧边缘，但车体结构可见。",
+   "observed_object": "车辆",
+   "reasoning": "框内可见明显汽车车体轮廓，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:ed3baec2bf0147a998498aa9569bb564:001",
+   "decision": "true",
+   "image_limitation": "目标贴近左侧边缘，但主体结构基本可见。",
+   "observed_object": "车辆",
+   "reasoning": "框内可见汽车车体及车窗等结构，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:ed3baec2bf0147a998498aa9569bb564:002",
+   "decision": "true",
+   "image_limitation": "目标较小，但车体轮廓和车窗结构仍可辨认。",
+   "observed_object": "车辆",
+   "reasoning": "框内可见一辆汽车，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:ed3baec2bf0147a998498aa9569bb564:007",
+   "decision": "true",
+   "image_limitation": "目标尺寸较小，但车辆轮廓和车窗结构清晰可见。",
+   "observed_object": "车辆",
+   "reasoning": "框内可见明显汽车车体，符合“车”类别。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607090.151978,
+   "seconds": 8.843132734298706,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607090.1519756,
+ "finished": 1791607099.2653317,
+ "health": {
+  "at": 1791607090.1508265,
+  "available_fraction": 0.45694942059889604,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4025e1277cda4bf5a0324ec3310e8abd",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a671a9f81c91cb6f2e4619ee3b86489892d8daee55b1936fd256c8f22c568b12",
+ "image_sha256": "849710f594e86930324ffa532d47c6abec1e66ae252f8564b390fa69c93fb348"
+}

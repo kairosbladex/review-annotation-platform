@@ -1,0 +1,35 @@
+{
+ "unit": "72aa876839cf4001989ac1377c7b4871",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "72aa876839cf4001989ac1377c7b4871:006",
+   "decision": "true",
+   "image_limitation": "目标位于图像顶部，车辆结构整体可见但尺寸较小。",
+   "observed_object": "道路上的小型车辆。",
+   "reasoning": "候选框内可见明确的车辆外形，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601874.782315,
+   "seconds": 6.05578351020813,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601874.7823124,
+ "finished": 1791601881.1250927,
+ "health": {
+  "at": 1791601874.7799032,
+  "available_fraction": 0.4567319688644867,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "adaddfe5156544c0bee16b1b9c6b1ec0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "83356b40d6e2e9ba70a56fc2dff6d01168c2521b1f7f18ceb2b3d49c47e78f54",
+ "image_sha256": "ce82fe1dbc014a48ad3bab8827d51f7d87e4f20ca2b2a0af54e5f3b573ccb559"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "bf64d4b40c7d4bf1b7ff193da2ba90f7",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "bf64d4b40c7d4bf1b7ff193da2ba90f7:000",
+   "decision": "false",
+   "image_limitation": "目标区域较小但可见，未见明确人体结构；目标更像漂浮或附着在绳索上的物体。",
+   "observed_object": "绳索上的浅色物体",
+   "reasoning": "候选框内没有可确认的头部、躯干或四肢等人体结构，不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603228.1597056,
+   "seconds": 44.14024233818054,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603228.159704,
+ "finished": 1791603272.5928783,
+ "health": {
+  "at": 1791603228.1582663,
+  "available_fraction": 0.44070088466649415,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2cdb54f91399465bb822b03957283d55",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e8e9cbe2fff015f81ee4dafbb86c4bd08fca7caabf4035a259dc321b6d818bd7",
+ "image_sha256": "d12aa2da94791d1d4aac2153f091e2e19a5ae2131e5d111f27f9ee9f37ed0f5a"
+}

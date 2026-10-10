@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8e13ea8a27e0dec9",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4076feeb3c914a9ca6ddfc656e3ebc4b",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是灰色道路/通道及建筑边缘，不是蓝色或绿色顶棚。",
+   "reasoning": "候选框内未见符合类别定义的蓝色或绿色屋面，明显不属于违建目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605886.9680948,
+   "seconds": 15.570463418960571,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605886.9680927,
+ "finished": 1791605903.2058146,
+ "health": {
+  "at": 1791605886.965839,
+  "available_fraction": 0.45273590944377107,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "483903cd678b4dcc902bfa8f926044e1",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f66de4c82787b91529af22140120b023576fc15cf4bb70f3698e759a8863c422",
+ "image_sha256": "acc17ccc78259c8cb87e6687c917c8e95e9e06e9215f7054934e36fe5285f1e4"
+}

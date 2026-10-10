@@ -1,0 +1,35 @@
+{
+ "unit": "c02e9615267b4e968c884ad6c3414ef3",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c02e9615267b4e968c884ad6c3414ef3:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且细节不清，无法确认可见人体结构。",
+   "observed_object": "候选框内为一个小型浅色斑块，伴有深色细节。",
+   "reasoning": "不能仅凭该斑块唯一确认是人员，依据不足。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606032.7003863,
+   "seconds": 13.83060073852539,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606032.700384,
+ "finished": 1791606046.803369,
+ "health": {
+  "at": 1791606032.699573,
+  "available_fraction": 0.4508944249181387,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6422dfa79e804475b9825958b0967523",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "41c911c70c5662c6360ba78cfaa4ba37aa0850f02084bf5930f5f3ed4a26a4e9",
+ "image_sha256": "5c30a8d04a37d628f78858e3c3d44eabb3872f622ebd309c5a6fde971d1b1c12"
+}

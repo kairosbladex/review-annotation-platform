@@ -1,0 +1,43 @@
+{
+ "unit": "050c0225148447599f271d45797e1b41",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像左侧边缘，目标大部分被裁切，无法确认车辆结构及类别。",
+   "observed_object": "仅能看到局部道路区域和疑似车辆边缘，无法唯一判断为公交车。",
+   "reasoning": "框内目标不完整，缺乏足够可见结构，不能明确符合公交车类别。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像左下边缘，目标严重裁切且尺寸很小。",
+   "observed_object": "仅见局部疑似车辆区域，无法确认车辆类型。",
+   "reasoning": "车辆结构不可辨认，不能明确判定为车类目标。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605937.06715,
+   "seconds": 16.859288215637207,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605937.0671475,
+ "finished": 1791605954.4648368,
+ "health": {
+  "at": 1791605937.0662215,
+  "available_fraction": 0.44988109922778946,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "266f38a482cb4c17868dbf4d61c0b151",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a9139bc49f2f0319d67d8fc48b8eaac4b2dcdc0441a0c55b134cf5ece42cd07a",
+ "image_sha256": "ee5d6639cf950420dfb45fd5bf69e8d9e3cfa08daa7fcca8cb15c44a2ec4414c"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "26f5758c999d4c03a0bfd39e1920ed60",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:26f5758c999d4c03a0bfd39e1920ed60:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝绿色顶棚屋面",
+   "reasoning": "候选框内主体为覆盖在建筑上的蓝绿色成片屋面，符合该类别定义。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791610057.138091,
+   "seconds": 22.82291316986084,
+   "status": "ok"
+  }
+ ],
+ "started": 1791610057.138089,
+ "finished": 1791610080.234603,
+ "health": {
+  "at": 1791610057.1359344,
+  "available_fraction": 0.4555390699328183,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "976e1eecb3e5482fbdb74aad3e806bf8",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5b19465f876ce29b1f4e65b0df77cc27ddce5bc0c0612dd7dc5a55b735faaf0a",
+ "image_sha256": "9a76316649eb9da4d6da7064308ba9ead96e1166f4d4a2e99645d209772a0220"
+}

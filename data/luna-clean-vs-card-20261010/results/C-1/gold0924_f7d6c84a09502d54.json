@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_f7d6c84a09502d54",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见一名人员，具有人体结构。",
+   "reasoning": "目标位于道路上，候选框内可辨认出人的头部和身体，符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605150.3281422,
+   "seconds": 15.406747579574585,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605150.3281393,
+ "finished": 1791605166.025394,
+ "health": {
+  "at": 1791605150.3263721,
+  "available_fraction": 0.4448677013068627,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "987ab6b3103f478880b30c3fed46cd18",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "406550afdf9c0062816336a8bc1f3c5ef49c33ff5a79d86cd4f46d44fed93a82",
+ "image_sha256": "2cd68478678d164887930b3e922472ab59c7cf70c39b65a8d7e40649a4713cea"
+}

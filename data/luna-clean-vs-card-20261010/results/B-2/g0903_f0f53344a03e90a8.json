@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f0f53344a03e90a8",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd58701a40a44a4187c2167ba59721f0",
+   "decision": "uncertain",
+   "image_limitation": "框内屋面颜色与材质受分辨率及遮挡影响，无法明确判断是否为蓝色或绿色顶棚。",
+   "observed_object": "疑似建筑顶部的浅色屋面",
+   "reasoning": "候选框内可见规则矩形屋面，但颜色偏灰白且不清晰，不能确认属于蓝色或绿色顶棚，不能仅凭框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609601.2470307,
+   "seconds": 14.712980270385742,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609601.247029,
+ "finished": 1791609616.2342632,
+ "health": {
+  "at": 1791609601.2462428,
+  "available_fraction": 0.4554474137075639,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f0b6e61aab6a4e42ae861d18ec515724",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1f0d7f12d1e2c9f668e775619af86e7506d129a389a3eb74e8df373e3a7392e5",
+ "image_sha256": "f0f53344a03e90a875e94a8252609bf0a1ae43bfc5110a3cb15db7f0cb7d926b"
+}

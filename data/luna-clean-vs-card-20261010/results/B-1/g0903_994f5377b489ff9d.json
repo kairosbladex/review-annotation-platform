@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为屋顶边缘的灰白色区域，未见蓝色或绿色顶棚。",
+   "reasoning": "候选框内主体不是蓝色或绿色屋面，不符合该类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607849.7992435,
+   "seconds": 29.189186811447144,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607849.7992418,
+ "finished": 1791607879.513144,
+ "health": {
+  "at": 1791607849.798481,
+  "available_fraction": 0.4561168841528545,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2ed41cec30ad492182c37137c6621cb8",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "861ed1fd8f980f27b51aa8fdb0be6993d2b9f4f42b7f50181ecd17dc994195fe",
+ "image_sha256": "994f5377b489ff9d2b731d33ee27474745a64950dfdb770b75f1b648023595dc"
+}

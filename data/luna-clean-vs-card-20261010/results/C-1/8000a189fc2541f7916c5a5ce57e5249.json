@@ -1,0 +1,35 @@
+{
+ "unit": "8000a189fc2541f7916c5a5ce57e5249",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "8000a189fc2541f7916c5a5ce57e5249:001",
+   "decision": "true",
+   "image_limitation": "目标较小但可见人体结构，位于道路施工区域内。",
+   "observed_object": "人员",
+   "reasoning": "候选框内可见疑似人的头部和身体轮廓，符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607344.109491,
+   "seconds": 14.54277777671814,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607344.1094892,
+ "finished": 1791607358.9252174,
+ "health": {
+  "at": 1791607344.108345,
+  "available_fraction": 0.45659270612223457,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9210d5b549cb4fe094fb30988d3a2108",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4cd116997441a51c9c128af34e74672aa502fb43f82b486549c614c72c12759f",
+ "image_sha256": "24f589ba73ce40995a68b222adba2f9bf6f640a6cc7b8073c61b0e1ef7a43a3a"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "ac18f0929d95478da1a4238decfb2efe",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:ac18f0929d95478da1a4238decfb2efe:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被俯视遮挡，无法清晰确认车辆结构及卡车类别。",
+   "observed_object": "路边一处色彩斑杂的小型目标，疑似车辆或物品。",
+   "reasoning": "无法看清驾驶室、货厢等卡车所需结构，不能明确符合卡车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609304.1427455,
+   "seconds": 14.569696187973022,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609304.1427436,
+ "finished": 1791609319.2717197,
+ "health": {
+  "at": 1791609304.1411963,
+  "available_fraction": 0.45525698763957284,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "eb5e2232d7674c8da4dacd53f1f9d56a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0c88ab791dbac37d1fb9045329272679dfb07910f13065af6e1d4925ffa243d0",
+ "image_sha256": "eac059751a7387fc0010ea22ba15562b65a37b1e7a4deb156c25a730e3d25190"
+}

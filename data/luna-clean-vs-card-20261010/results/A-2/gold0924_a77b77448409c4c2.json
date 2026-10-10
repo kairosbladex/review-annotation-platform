@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_a77b77448409c4c2",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B04-004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车，具有明显车身和车窗结构。",
+   "reasoning": "目标符合“车”类别；判断未依据框线或文字。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601767.7586915,
+   "seconds": 45.8008508682251,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601767.7586896,
+ "finished": 1791601814.2868004,
+ "health": {
+  "at": 1791601767.7493944,
+  "available_fraction": 0.45789288691755886,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1624b864a698428d8a9332587c9adce5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "dc158c4a31087cfbbeb292887d4b3c475e829a846ef5b2cd1e78d44ee923199d",
+ "image_sha256": "a77b77448409c4c2ebfc97ba7b2e15f58dd6d2dc46bc004d964054256ca13f80"
+}

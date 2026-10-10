@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8d96afc9716b5f30",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:83a02537fc5f4618b5f731afabc168eb",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且被遮挡，无法确认是否为具有明确两轮结构的车辆。",
+   "observed_object": "疑似小型车辆或物体",
+   "reasoning": "当前图像分辨率和遮挡情况不足以唯一确认两轮车类别，不能仅凭外观推断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602016.32373,
+   "seconds": 8.418231010437012,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602016.3237278,
+ "finished": 1791602025.0117214,
+ "health": {
+  "at": 1791602016.32278,
+  "available_fraction": 0.45706864969191346,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b2983700a0a9468fac1365f1dcc9a47e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "355c001bbe775cf4ebe744a11d9ca9868ee99f0c2762d7bfc8cdb9a464196033",
+ "image_sha256": "8d96afc9716b5f30c07ae47af2542b460118bf1a7d00af155e40d7f922125826"
+}

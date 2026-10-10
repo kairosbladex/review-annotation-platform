@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见人员的人体轮廓，虽部分被遮挡但结构可辨认。",
+   "reasoning": "候选框内存在可见的人体结构，符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608750.7598863,
+   "seconds": 20.766812562942505,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608750.7598846,
+ "finished": 1791608771.8002055,
+ "health": {
+  "at": 1791608750.7594898,
+  "available_fraction": 0.45428564445239983,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "83d27c17b28843bc9ac36e73f4d02349",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d7d7416cce568f81c10efe63bbd8cab7a4c01c4231765af54c49b92b8d071137",
+ "image_sha256": "9897e142dd11404227a3c3ce17afb450d18cff77725b3d099bb9719b77dccdef"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "f4e3055e95fd47c68356f029e6da1ab0",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f4e3055e95fd47c68356f029e6da1ab0:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "墙面上的小型黑白物体，未见可辨认的人体结构。",
+   "reasoning": "不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608811.6766405,
+   "seconds": 20.739012002944946,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608811.6766376,
+ "finished": 1791608832.6953077,
+ "health": {
+  "at": 1791608811.674768,
+  "available_fraction": 0.454284671650009,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3e795c12c85e4c0684faca6613d45ee9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "311c87d661905a77069d1014bf668e0fc6332d59efad6ad5bd326842fb4a0cb9",
+ "image_sha256": "62c8203edfc71013d95add44381ca15aa6320ceaa8578ac9e647b99e67ebffd5"
+}

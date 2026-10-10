@@ -1,0 +1,35 @@
+{
+ "unit": "696f6f35721a47b99e7f8fe86bd267c5",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "696f6f35721a47b99e7f8fe86bd267c5:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见一辆完整汽车，具有车身、车顶和车窗等车辆结构，符合“车”类别。",
+   "reasoning": "目标结构清晰且可唯一定位，不依赖框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609390.0229278,
+   "seconds": 17.178539514541626,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609390.0229256,
+ "finished": 1791609407.4834418,
+ "health": {
+  "at": 1791609390.022241,
+  "available_fraction": 0.4542419291449651,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f5b67520c5de4b2fac805b1cbb7c40e6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "678d44398de730c5a5b540f904dbe560ff420eff9b9beb58df18a9696bd41e21",
+ "image_sha256": "13856bd131a097bcec172278e9a4d7b10c1fa9a86fe23d47b3a6bfb851402d49"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "3c743957ed964e279866fafebf5a8a86",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c743957ed964e279866fafebf5a8a86:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内主要是建筑立面和框线文字，未能看清可确认的车辆结构。",
+   "observed_object": "建筑立面及遮挡区域",
+   "reasoning": "无法依据可见目标结构确认属于车辆类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607548.2847383,
+   "seconds": 49.43871593475342,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607548.2847362,
+ "finished": 1791607598.455025,
+ "health": {
+  "at": 1791607548.2842026,
+  "available_fraction": 0.45668934795974153,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ea049f07e95f4498a1d5db210aa133e6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5471a0223a1063320d2c3ec39f0162d6387468a9edba555aa3688803e6d55e7f",
+ "image_sha256": "53fdd718bcd9606588b8a420620afa9834ac86a77c29a53e2febb3fef13cf002"
+}

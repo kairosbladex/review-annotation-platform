@@ -1,0 +1,35 @@
+{
+ "unit": "e5c944f774634d849cada056b9539541",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e5c944f774634d849cada056b9539541:000",
+   "decision": "false",
+   "image_limitation": "目标区域可见为墙面上的小型孔洞或固定件，无可见人体结构。",
+   "observed_object": "墙面孔洞/固定件",
+   "reasoning": "候选框内不是人员，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604091.7657495,
+   "seconds": 17.45498776435852,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604091.7657473,
+ "finished": 1791604109.5245256,
+ "health": {
+  "at": 1791604091.763948,
+  "available_fraction": 0.4481869942643571,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d5b7842600c4422ab3e6f99851f383e3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9541f9027ed61574bb7245d56b4bb01abe7039ea275ab521b367fbdac17f5067",
+ "image_sha256": "0e722953a988f6ee9f3b4d173bf16dbf43eae17c3b75f1ea72a91a36529d25a8"
+}

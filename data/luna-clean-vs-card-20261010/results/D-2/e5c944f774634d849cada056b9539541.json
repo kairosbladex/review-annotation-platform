@@ -1,0 +1,35 @@
+{
+ "unit": "e5c944f774634d849cada056b9539541",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e5c944f774634d849cada056b9539541:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见小型孔洞或设施部件，未见可辨识的人体结构。",
+   "observed_object": "地面上的小型孔洞/设施部件",
+   "reasoning": "目标不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604095.8802397,
+   "seconds": 23.997928857803345,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604095.880237,
+ "finished": 1791604120.1569211,
+ "health": {
+  "at": 1791604095.8782911,
+  "available_fraction": 0.4467527187394816,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "042315fcd09c45c0a37ae0e0b53ecc9b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9541f9027ed61574bb7245d56b4bb01abe7039ea275ab521b367fbdac17f5067",
+ "image_sha256": "0e722953a988f6ee9f3b4d173bf16dbf43eae17c3b75f1ea72a91a36529d25a8"
+}

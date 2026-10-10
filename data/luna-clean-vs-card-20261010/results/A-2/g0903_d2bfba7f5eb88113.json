@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_d2bfba7f5eb88113",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:7e7a4c2981244e299e8019aef1eb953f",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见疑似建筑或棚体，缺乏审批信息或区域业务依据，无法确认违建属性。",
+   "observed_object": "框内为一处棕色矩形屋顶或棚体。",
+   "reasoning": "外观不能直接证明其为违建，依据要求应判定为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606868.5655043,
+   "seconds": 4.308563232421875,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606868.5655026,
+ "finished": 1791606873.1457667,
+ "health": {
+  "at": 1791606868.5648243,
+  "available_fraction": 0.4528351048875538,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "194ff5deede248c8b08f6c2e4069e15b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a3d0a102f18a85a64d4a947340863c4b2623e05d5d63eacb4378b65e5d7f22d3",
+ "image_sha256": "d2bfba7f5eb88113d61d799483570d6e1286b3967d5fb8cb75df0f3f12f36c3a"
+}

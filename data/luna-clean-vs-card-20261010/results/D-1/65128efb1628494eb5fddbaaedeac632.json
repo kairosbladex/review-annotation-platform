@@ -1,0 +1,35 @@
+{
+ "unit": "65128efb1628494eb5fddbaaedeac632",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "65128efb1628494eb5fddbaaedeac632:001",
+   "decision": "false",
+   "image_limitation": "框内仅见建筑外墙、雨棚及树木，未见车辆或可确认的车辆结构。",
+   "observed_object": "建筑外墙、雨棚和树木",
+   "reasoning": "候选框内没有可见车辆目标，明显不符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601624.251668,
+   "seconds": 22.837780237197876,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601624.2516658,
+ "finished": 1791601647.6725047,
+ "health": {
+  "at": 1791601624.2506297,
+  "available_fraction": 0.45992370310849273,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "727ec9aedd9440979488a7dab7224151",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7ac30c47e1f0e9b20b4cccdacf96a9e85e127eedc99f599e8e1fb06fcd514b57",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60"
+}

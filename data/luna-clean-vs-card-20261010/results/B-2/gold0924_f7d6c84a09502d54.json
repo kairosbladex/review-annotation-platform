@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_f7d6c84a09502d54",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-012",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且分辨率有限，无法清晰确认可见人体结构。",
+   "observed_object": "道路上的小型疑似目标，旁有“人员”文字标注。",
+   "reasoning": "不能将框线或文字作为目标证据；现有图像不足以明确确认人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605153.1068244,
+   "seconds": 27.10020351409912,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605153.1068223,
+ "finished": 1791605180.4792967,
+ "health": {
+  "at": 1791605153.1060555,
+  "available_fraction": 0.44331608149360185,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1531eb70f70442eeb040ce73575f385d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8de253c6de12cb5eed5cf8631a09ba5ed232f298d2f91fd7acabf1e899af3834",
+ "image_sha256": "f7d6c84a09502d545451cb50735a017d37d4e0462c021569008d71ec00e9fbae"
+}

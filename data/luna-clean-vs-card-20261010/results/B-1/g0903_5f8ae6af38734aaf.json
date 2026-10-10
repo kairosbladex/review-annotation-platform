@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5f8ae6af38734aaf",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0d716cff82d14e248530e2e8af69b96b",
+   "decision": "uncertain",
+   "image_limitation": "框内主要为建筑顶部设备及标注文字，未能明确辨认出蓝色或绿色顶棚。",
+   "observed_object": "建筑屋顶上的设备/结构",
+   "reasoning": "候选框内没有足够证据表明主体是蓝色或绿色屋面，不能仅凭局部颜色和文字判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601309.0206769,
+   "seconds": 16.739076137542725,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601309.0206747,
+ "finished": 1791601326.0390372,
+ "health": {
+  "at": 1791601309.0055802,
+  "available_fraction": 0.4639119497100076,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7b4ec51fb3bb46f8ae442aeb30989d80",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e651fa43a98934ecf8b11517e3013e7e53f6e7caed42f5d4bee080b3ed6d2704",
+ "image_sha256": "5f8ae6af38734aaf672539f4520d895307a2157cb462ded27a9ebb50d4d9b4fd"
+}

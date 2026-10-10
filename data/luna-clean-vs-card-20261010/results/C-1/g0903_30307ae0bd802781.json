@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_30307ae0bd802781",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:18172673ac38432aa6a1d99482f45439",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像边缘，分辨率和视角不足，无法确认是否属于违建。",
+   "observed_object": "疑似道路旁的棚状结构或顶棚",
+   "reasoning": "仅凭外观无法判断其是否未经审批或属于业务定义中的违建，不能据此确认。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b52575f40fd548eab466771d11f3cc48",
+   "decision": "uncertain",
+   "image_limitation": "可见结构为道路旁的长条形棚状设施，但缺少审批和区域业务依据。",
+   "observed_object": "道路旁的长条形顶棚或通道",
+   "reasoning": "外观本身不能证明其为违建，按规则应输出uncertain。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605691.4257631,
+   "seconds": 17.505757331848145,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605691.4257605,
+ "finished": 1791605709.215647,
+ "health": {
+  "at": 1791605691.4023778,
+  "available_fraction": 0.4425975149276527,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "86b7cd776cec47139098b0385e36475b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f480c7672ada2690b528e04c8122b16cea977830461bb873b5bec83835a903aa",
+ "image_sha256": "9510c2f291bf282872a940274686a753d493c8b2f870f64549729249b0772c05"
+}

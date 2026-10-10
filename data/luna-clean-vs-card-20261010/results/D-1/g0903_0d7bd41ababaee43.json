@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_0d7bd41ababaee43",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cdd543ffaaad481885165446c2939f34",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内可见成片、边缘规整的蓝色屋面，符合类别定义。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:82325faa9a82418181856bacfc284810",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内可见建筑上的蓝色屋面，符合蓝色顶棚判定标准。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605074.696483,
+   "seconds": 14.503400325775146,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605074.6964803,
+ "finished": 1791605089.4883926,
+ "health": {
+  "at": 1791605074.694864,
+  "available_fraction": 0.4402715444113475,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "731380675dd54d8dac2e590b62471c50",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7d5bd26212016407f30d87335ed9d335b3ecb19605abc81057da0b337b37a4e3",
+ "image_sha256": "80fab5194e6d11f120eeece93063953cc902f81c6f3f92fcc99c3827988a64bf"
+}

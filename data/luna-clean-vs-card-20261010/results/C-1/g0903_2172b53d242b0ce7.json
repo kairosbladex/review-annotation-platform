@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_2172b53d242b0ce7",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:70e9f9bea8964e4a85870d4b808e3773",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像左侧边缘，画面仅显示局部，无法判断是否为违建。",
+   "observed_object": "局部蓝色屋顶或建筑结构",
+   "reasoning": "仅凭外观无法确认缺乏审批或违反区域规划，因此不能明确判定为违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:78e3d11373c94753a258e7c81c313bdd",
+   "decision": "uncertain",
+   "image_limitation": "可见蓝色屋顶建筑，但缺少审批、规划或区域业务依据。",
+   "observed_object": "蓝色屋顶建筑",
+   "reasoning": "建筑外观本身不足以证明其为违建，按规则应判定为uncertain。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:f3af4269e30c43e09f0e2ba123b00f30",
+   "decision": "uncertain",
+   "image_limitation": "可见狭长蓝色屋顶建筑，但无法核实其合法性或建设依据。",
+   "observed_object": "蓝色屋顶建筑",
+   "reasoning": "没有审批或区域规划证据，不能仅凭图像外观认定为违建。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603708.6020298,
+   "seconds": 17.155123233795166,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603708.6020274,
+ "finished": 1791603726.0338883,
+ "health": {
+  "at": 1791603708.599796,
+  "available_fraction": 0.4457695803233206,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6a3debef81be400f8d7de7871b99fb22",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b83ab9f574c3bd7f3ac239d2d0cc80010bd4929551bb22042690f6ea7a27d2ba",
+ "image_sha256": "ceeda3bafd80c86dda52d6d3d5df7dfe1af94301dbb710b4acd21a90850e6e37"
+}

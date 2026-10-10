@@ -1,0 +1,59 @@
+{
+ "unit": "5d8d7ca962814912a7365cfa344ab9d4",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:5d8d7ca962814912a7365cfa344ab9d4:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "候选框内可清晰看到一辆车的车身结构。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:5d8d7ca962814912a7365cfa344ab9d4:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "候选框内可清晰看到一辆车的车身结构。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:5d8d7ca962814912a7365cfa344ab9d4:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "候选框内可清晰看到一辆车的车身结构。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:5d8d7ca962814912a7365cfa344ab9d4:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "候选框内可清晰看到一辆车的车身结构。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608042.9230402,
+   "seconds": 26.631433248519897,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608042.9230382,
+ "finished": 1791608069.8584807,
+ "health": {
+  "at": 1791608042.9109035,
+  "available_fraction": 0.45343340875794536,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "08abd861bb104adb96fda78aa8ab3b39",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f591332a6429180ec8979162ae7820cdbe2b15a11e51daa9bd2276e6693a77a3",
+ "image_sha256": "e2a20f65792a89cdf7c13283ba011050b66f881c5dba57071fa21e2d57485fb1"
+}

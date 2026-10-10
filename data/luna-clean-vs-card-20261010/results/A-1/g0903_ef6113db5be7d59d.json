@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_ef6113db5be7d59d",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd00f28b069049368321be0ad373f69f",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到建筑顶部的长条区域及框线，缺乏审批或区域业务依据，无法确认是否为违建。",
+   "observed_object": "建筑顶部一处长条结构",
+   "reasoning": "违建属性不能仅凭外观判断，现有图像无法提供明确符合类别的证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606660.170896,
+   "seconds": 4.380443811416626,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606660.1708941,
+ "finished": 1791606664.8396091,
+ "health": {
+  "at": 1791606660.170071,
+  "available_fraction": 0.4561720906885301,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a27bdccb724a4c2297bdadbd53c64fa8",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f3ff24632df9155c7a4bdee5b2b1e21a47c9d338f5879c4a261e87ad3f0a19ac",
+ "image_sha256": "ef6113db5be7d59d3297cca956c944b57751c26ac6ccaa67956fcb682272e182"
+}

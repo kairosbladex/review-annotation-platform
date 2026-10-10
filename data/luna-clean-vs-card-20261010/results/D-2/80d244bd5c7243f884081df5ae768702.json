@@ -1,0 +1,35 @@
+{
+ "unit": "80d244bd5c7243f884081df5ae768702",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "80d244bd5c7243f884081df5ae768702:007",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，未见明显遮挡。",
+   "observed_object": "道路上的汽车，可见车身和四个车轮的车辆结构。",
+   "reasoning": "候选框内明确是汽车，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606404.4367027,
+   "seconds": 6.1506102085113525,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606404.4367003,
+ "finished": 1791606410.8664699,
+ "health": {
+  "at": 1791606404.4346392,
+  "available_fraction": 0.45285377053342646,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d7a728aa0d0440598f00e1167a1a2e8e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a6e5972d9b535eff71dc0716eff246a8f9a7f2e3331a4397382e70165ca709a9",
+ "image_sha256": "f00f1b642f38b1f958a79143327c30c254e1539c9f2b52ad0109dded84072648"
+}

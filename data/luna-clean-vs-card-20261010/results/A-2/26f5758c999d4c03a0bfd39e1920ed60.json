@@ -1,0 +1,35 @@
+{
+ "unit": "26f5758c999d4c03a0bfd39e1920ed60",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:26f5758c999d4c03a0bfd39e1920ed60:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框仅覆盖建筑顶部局部区域，无法据此确认是否存在违建及其审批或区域业务依据。",
+   "observed_object": "建筑顶部局部区域",
+   "reasoning": "不将框线和文字作为目标证据，现有图像缺乏判定违建所需的审批或区域依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791610058.014984,
+   "seconds": 14.721115589141846,
+   "status": "ok"
+  }
+ ],
+ "started": 1791610058.0149822,
+ "finished": 1791610073.0064287,
+ "health": {
+  "at": 1791610058.0039618,
+  "available_fraction": 0.45558394044309203,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d4c85c0f31eb41a2b3b9a4c85292a10a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3122ab0a5d950736d3369615a7ed31ba733ea642c3c81abc6a7cbf6c79861da5",
+ "image_sha256": "369a12acd305d101fe805d2ab52b4729157c0822fa8b210f96d027d9c2a8a4c9"
+}

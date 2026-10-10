@@ -1,0 +1,35 @@
+{
+ "unit": "378a5ec012a741d687cf2ce630cbe133",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "378a5ec012a741d687cf2ce630cbe133:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车",
+   "reasoning": "目标具有明显的车辆外形和车身结构，符合“车”类别；未将框线或其他背景作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601433.242399,
+   "seconds": 15.354625225067139,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601433.242398,
+ "finished": 1791601448.9163437,
+ "health": {
+  "at": 1791601433.2405615,
+  "available_fraction": 0.45808690019436593,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2bd642e051c24a2e8fe79952284b9584",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fedec20da04d87261214b83d1c183b245cdf4d332ff504749b83fe38e6629e7f",
+ "image_sha256": "c684f5a39769d31cc275161468c82b9432936acfc35075c90526268adb5651c7"
+}

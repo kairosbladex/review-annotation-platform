@@ -1,0 +1,35 @@
+{
+ "unit": "ca442d67817040f7a1db0349f315ac7a",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ca442d67817040f7a1db0349f315ac7a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车，具有明确的车辆结构。",
+   "reasoning": "目标位于建筑前的铺装区域内，框内可辨认出车体及车窗等车辆结构，符合“车”类别；未将框线作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609080.1054928,
+   "seconds": 23.82591152191162,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609080.1054904,
+ "finished": 1791609104.2019641,
+ "health": {
+  "at": 1791609080.1033168,
+  "available_fraction": 0.4541149176328216,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c60c92e4cb5f4f2b996cac9329bb9a34",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "226cdd7dd8390bef63540aadfe5fa5a186e310ba8b91b2e7391c157fef662097",
+ "image_sha256": "ad1b20ac73e39946971a17575b5cf1c157366826a6077a25ff1b7d8ad7a2edbc"
+}

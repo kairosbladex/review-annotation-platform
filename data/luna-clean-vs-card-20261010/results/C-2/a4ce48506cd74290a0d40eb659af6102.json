@@ -1,0 +1,75 @@
+{
+ "unit": "a4ce48506cd74290a0d40eb659af6102",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:003",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节不足，无法确认可见人体结构。",
+   "observed_object": "候选框内疑似小型物体或人员",
+   "reasoning": "仅凭当前图像无法明确判断为人员，不满足明确符合类别的要求。",
+   "target_index": 0
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:004",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节不足，无法确认可见人体结构。",
+   "observed_object": "候选框内疑似小型物体",
+   "reasoning": "无法唯一确认存在可见人体结构。",
+   "target_index": 1
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:002",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节不足，无法确认可见人体结构。",
+   "observed_object": "候选框内疑似小型物体",
+   "reasoning": "无法明确判定为人员。",
+   "target_index": 2
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节不足，无法确认可见人体结构。",
+   "observed_object": "候选框内疑似小型物体",
+   "reasoning": "无法确认可见人体结构，不能据此判定为人员。",
+   "target_index": 3
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:005",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像边缘且部分超出画面，细节不可辨。",
+   "observed_object": "候选框内疑似小型物体",
+   "reasoning": "遮挡和截断导致无法唯一确认人员。",
+   "target_index": 4
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:001",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节不足，无法确认可见人体结构。",
+   "observed_object": "候选框内疑似小型物体",
+   "reasoning": "无法明确判定为人员。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607598.8938155,
+   "seconds": 16.909968376159668,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607598.8938136,
+ "finished": 1791607616.0787902,
+ "health": {
+  "at": 1791607598.8920488,
+  "available_fraction": 0.4570178207669963,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "76d333e99c5f425f8ffd2f7403bed857",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6457a5e1794385766580ffe964a94f4a23c29100f15ea3594b19cf35490c38e4",
+ "image_sha256": "5aeb1b7f3702a60db720fe014eed72c72fe555e5cb9ac15428a636a838d49c4b"
+}

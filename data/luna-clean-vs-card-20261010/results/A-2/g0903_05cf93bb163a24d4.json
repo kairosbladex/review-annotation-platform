@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "uncertain",
+   "image_limitation": "图像仅显示建筑外观，缺乏审批或区域业务依据。",
+   "observed_object": "被框选的一栋高层建筑。",
+   "reasoning": "不能仅凭外观确认其属于违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605038.2992067,
+   "seconds": 28.734386444091797,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605038.2992046,
+ "finished": 1791605067.4456584,
+ "health": {
+  "at": 1791605038.2791035,
+  "available_fraction": 0.4574477386235624,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2cc6111a688b44a184e3797c7c0f4782",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9096e6bd646932841ffb8e27062043622d79b668bcec111e6aca7bff57c77e7f",
+ "image_sha256": "05cf93bb163a24d4931cfb764310d24eef5a0a1ffa02b30900b11aa001db9c51"
+}

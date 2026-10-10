@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_d2bfba7f5eb88113",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:7e7a4c2981244e299e8019aef1eb953f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为红褐色屋面或棚体",
+   "reasoning": "候选框内主体颜色为红褐色，不属于蓝色或绿色顶棚；不将框线和文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606868.3687682,
+   "seconds": 3.85990834236145,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606868.368766,
+ "finished": 1791606872.5063515,
+ "health": {
+  "at": 1791606868.3678257,
+  "available_fraction": 0.4529303179215493,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9a7065f9ad564c6aaaccfbbf5b92a35b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "38b7337641b11ef83bad43ec663a42f9e3ae7ac535cf9da70d21eef8d4697276",
+ "image_sha256": "d2bfba7f5eb88113d61d799483570d6e1286b3967d5fb8cb75df0f3f12f36c3a"
+}

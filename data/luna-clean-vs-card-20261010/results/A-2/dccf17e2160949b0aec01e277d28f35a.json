@@ -1,0 +1,35 @@
+{
+ "unit": "dccf17e2160949b0aec01e277d28f35a",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:dccf17e2160949b0aec01e277d28f35a:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为道路上的小型车辆目标，但无法确认属于所需特定车辆类别。",
+   "reasoning": "框内可见车辆轮廓，未见足以支持更细分类的必要结构；按初审类别不能明确符合。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602883.6386516,
+   "seconds": 44.02330565452576,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602883.6386492,
+ "finished": 1791602927.95837,
+ "health": {
+  "at": 1791602883.6190255,
+  "available_fraction": 0.42725359401843266,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "bdabcd236e6e49248e782f12ffd3a875",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8beda262782c9d2bd999d5d6a21c826fcd6a7f5356907791b51faa49078d7d6b",
+ "image_sha256": "2ebcf1dff7a3ad1e85efd3d63ebdc629acc52840a46c3c2fbc883ebbc470742e"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "12c135c77a9c4e53a9c94d1c0d3071af",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "12c135c77a9c4e53a9c94d1c0d3071af:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见人体结构，疑似人员。",
+   "reasoning": "框内目标具有明显的人体形态，可判定符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607455.8537686,
+   "seconds": 24.475617170333862,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607455.853767,
+ "finished": 1791607480.5996637,
+ "health": {
+  "at": 1791607455.8526402,
+  "available_fraction": 0.45628575656787534,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "776ebcfa898242a4b2d697ac1a208dc9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "83282fc94d90bdf41f6040869de7582123f0395bb8fc7e8d77fbc8eb8d3cd57d",
+ "image_sha256": "c072bc26999cde30aae229a9f9a5d629805168b42523fc1da213cebb8f8fdffb"
+}

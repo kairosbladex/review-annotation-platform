@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_b03a5d82b77dd1a1",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4e95387d7e8c4667ba5c4c3e0544651b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见浅蓝色矩形顶棚屋面",
+   "reasoning": "候选框主体是覆盖在空地/棚架上的浅蓝色屋面，符合蓝色顶棚的违建初审类别；不以框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602986.6155174,
+   "seconds": 44.196301221847534,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602986.6155152,
+ "finished": 1791603031.100384,
+ "health": {
+  "at": 1791602986.614622,
+  "available_fraction": 0.43873226702841944,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6fea4da23509422baed9481bc048a5eb",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "2b76af3e2bfa044fa58df5bb84f5b0b4e914a038f3836401a221f51529dec7d2",
+ "image_sha256": "b03a5d82b77dd1a1f90921e59dce915037619bed74875b952b81cf6f661b01d3"
+}

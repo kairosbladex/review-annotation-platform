@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_dfd728e2940f968a",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:1b1215b7886343c0b545b6639a919f33",
+   "decision": "uncertain",
+   "image_limitation": "候选框内为玻璃材质的矩形结构，颜色与是否为蓝色或绿色顶棚无法明确判断。",
+   "observed_object": "玻璃结构或棚架",
+   "reasoning": "无法确认主体是符合类别定义的蓝色或绿色顶棚，不能仅凭外观推断为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609153.3965716,
+   "seconds": 27.726756811141968,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609153.39657,
+ "finished": 1791609181.3940797,
+ "health": {
+  "at": 1791609153.3943212,
+  "available_fraction": 0.4557368528188895,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6b17246c17164f3ead7b9543ee4d4d1c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1515f50c17cfac68c5a116f76e292cf265205ea863463373b10af64393238f45",
+ "image_sha256": "3645cc1383907af4a3e1d2d81a1f3e02dbc7cfb84e48da5b7203079aa1b159a7"
+}

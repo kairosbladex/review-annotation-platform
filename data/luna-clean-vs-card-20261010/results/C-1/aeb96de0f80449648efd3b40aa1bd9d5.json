@@ -1,0 +1,35 @@
+{
+ "unit": "aeb96de0f80449648efd3b40aa1bd9d5",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "aeb96de0f80449648efd3b40aa1bd9d5:000",
+   "decision": "false",
+   "image_limitation": "目标区域过小但可见为白色物体及黑色斑块，未见可辨识的人体结构。",
+   "observed_object": "疑似小型杂物或碎片",
+   "reasoning": "候选框内没有可见的人体结构，不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608617.0711818,
+   "seconds": 16.977094650268555,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608617.0711799,
+ "finished": 1791608634.3279068,
+ "health": {
+  "at": 1791608617.0452063,
+  "available_fraction": 0.4538332609406221,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8673a85c1df9420e964a879e12e5bcd0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "957636aeb0a3ecf4d8c9c5d5e44b623b215984bc5b84f38ee23390b56b7148fe",
+ "image_sha256": "13e1b6c91bc9357f97ac80c2a69dac5976bc4ca8eb708a0fc9732d3709a55e6a"
+}

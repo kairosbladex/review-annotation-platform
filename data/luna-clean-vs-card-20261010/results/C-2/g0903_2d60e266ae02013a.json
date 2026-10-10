@@ -1,0 +1,91 @@
+{
+ "unit": "g0903_2d60e266ae02013a",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:550639a471cf4e7f8e9ec1582a0e0e54",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认是否有审批或区域业务依据。",
+   "observed_object": "蓝色顶棚及简易建筑",
+   "reasoning": "可见建筑形态，但违建属性不能仅依据外观判定。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:d876014dcc0c473995e0f6fe416cb24d",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认是否有审批或区域业务依据。",
+   "observed_object": "蓝色顶棚建筑",
+   "reasoning": "可见建筑，但无法据此认定为违建。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:80812c36c71a4d6198549ea36712bedc",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小，且缺乏审批或区域依据。",
+   "observed_object": "小型蓝色顶棚/建筑局部",
+   "reasoning": "无法确认其是否属于违建。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:fba881c9469947ddbc7a4fcee5b1f904",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认是否有审批或区域业务依据。",
+   "observed_object": "蓝色顶棚建筑群",
+   "reasoning": "建筑存在，但违建属性无法从图像唯一判断。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:eb56553240484b9188c2a7d711227262",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认是否有审批或区域业务依据。",
+   "observed_object": "蓝色顶棚建筑",
+   "reasoning": "无法确认该建筑是否未经审批。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:ffa1b60b7e174fb1adbf894c8ca57d1a",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认是否有审批或区域业务依据。",
+   "observed_object": "蓝色顶棚建筑",
+   "reasoning": "外观不足以证明属于违建。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0903:decaf5ebb325467a93b660494c8463eb",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认是否有审批或区域业务依据。",
+   "observed_object": "蓝色顶棚建筑及附属区域",
+   "reasoning": "可见建筑，但不能仅凭外观认定违建。",
+   "target_index": 6
+  },
+  {
+   "key": "gold0903:e4ed4a4a5591482c8c799e8b8b0e93fd",
+   "decision": "uncertain",
+   "image_limitation": "目标部分位于图像边缘，且缺乏审批或区域依据。",
+   "observed_object": "蓝色顶棚建筑局部",
+   "reasoning": "无法确认是否为违建。",
+   "target_index": 7
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605724.18213,
+   "seconds": 18.781352996826172,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605724.1821277,
+ "finished": 1791605743.2371473,
+ "health": {
+  "at": 1791605724.167355,
+  "available_fraction": 0.44213342738711114,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c1a8db2c1455488998d96186a7d72442",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bf60e457cccd783fc0775d60c58ef09d8fc481fbcc473e456c9bdd67cdc4d554",
+ "image_sha256": "8b48b9f9d9ff395cd35e377c7d93cb143616feaf939f89aa0c40dec74ecdf85d"
+}

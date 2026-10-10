@@ -1,0 +1,59 @@
+{
+ "unit": "g0903_6bf599d99ef023cd",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a82100ed118e4944a48241d6d142d144",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到建筑及蓝色屋顶，缺少审批或区域业务依据，无法确认违建属性。",
+   "observed_object": "左上边缘的蓝色屋顶建筑",
+   "reasoning": "外观可能是建筑，但不能仅凭图像判断是否违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:54a11852953f4933ad89285392db9391",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到建筑及蓝色屋顶，缺少审批或区域业务依据，无法确认违建属性。",
+   "observed_object": "左下方的蓝色屋顶建筑",
+   "reasoning": "外观可能是建筑，但不能仅凭图像判断是否违建。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:70eb8b3f439748889cc09947b4b076b4",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到蓝色屋顶建筑，缺少审批或区域业务依据，无法确认违建属性。",
+   "observed_object": "左上部横向蓝色屋顶建筑",
+   "reasoning": "外观可能是建筑，但不能仅凭图像判断是否违建。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:db0ef5dcea73476580ff4679401a739f",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到蓝色屋顶建筑，缺少审批或区域业务依据，无法确认违建属性。",
+   "observed_object": "道路左侧的蓝色屋顶建筑",
+   "reasoning": "外观可能是建筑，但不能仅凭图像判断是否违建。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609666.2769766,
+   "seconds": 33.51960253715515,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609666.2769747,
+ "finished": 1791609700.09129,
+ "health": {
+  "at": 1791609666.2743723,
+  "available_fraction": 0.45451784022304415,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d214059018834a35b577936f5eafd035",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "2c08eed8062248102a8283a4bad73111ed888a3936e4303df93c72f3ce0412bc",
+ "image_sha256": "1f0391417564c1437c386966b00167b99b6f089db199c9d3b82eb2e2535b09cc"
+}

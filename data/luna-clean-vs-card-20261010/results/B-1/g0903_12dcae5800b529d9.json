@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_12dcae5800b529d9",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b6399b684eb4b6a9eb6beac9f41f820",
+   "decision": "false",
+   "image_limitation": "框内主要是地面上的蓝色围挡及绿化，不是覆盖在上方的蓝绿色顶棚。",
+   "observed_object": "蓝色围挡、草地和杂物",
+   "reasoning": "目标类别要求主体为蓝色或绿色顶棚；该框内可见物为立在地面的长条状围挡，明显不符合。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f3cdb8b816ba422dafa1d3cf6c987901",
+   "decision": "false",
+   "image_limitation": "框内可辨认的是蓝色围挡及其文字区域，没有可见屋面结构。",
+   "observed_object": "蓝色围挡/广告牌",
+   "reasoning": "该目标不是覆盖在建筑、棚架、院落或空地上方的蓝绿色屋面，而是地面立式围挡，明显不符合类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604072.3587213,
+   "seconds": 16.347259044647217,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604072.3587193,
+ "finished": 1791604088.9901855,
+ "health": {
+  "at": 1791604072.3579402,
+  "available_fraction": 0.45100897239965054,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "778be6a73cc942449cc49347eb34cd75",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0ccfa89bb75362be7577cb6bc495b360d21a1fcdf229ed420965924ea350e3b8",
+ "image_sha256": "12dcae5800b529d9b92a85a2f5832cc20405bdecce2cba8c4293db5e28bc03ac"
+}

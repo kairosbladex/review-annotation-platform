@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_3cde56c51f82e186",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:10e5a3da510748b2ac88cb5257ce142c",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且细节不足，无法确认是否佩戴头盔。",
+   "observed_object": "框内可见一个浅绿色/蓝色物体，疑似车辆或其他物体，未能唯一确认人员及头部结构。",
+   "reasoning": "“没戴头盔”需要清晰可见的人体和头部证据；当前图像无法满足，不能据外观推断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605285.5524578,
+   "seconds": 15.059133052825928,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605285.5524545,
+ "finished": 1791605300.8833592,
+ "health": {
+  "at": 1791605285.5500011,
+  "available_fraction": 0.4403816230818769,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "dd9c7bad841743958043b4d18c181cdb",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "38f00e3dd60cb0d9b2bd09f9adcd89b73ec567e301b333d9ea30174d3086acf5",
+ "image_sha256": "098d597a4bf3b4463ad24a5c155320549256283b479d20da8bf42e9be6c0f807"
+}

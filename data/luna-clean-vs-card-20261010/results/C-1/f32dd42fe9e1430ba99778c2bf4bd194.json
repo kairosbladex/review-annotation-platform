@@ -1,0 +1,75 @@
+{
+ "unit": "f32dd42fe9e1430ba99778c2bf4bd194",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见完整四轮机动车结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见停放的四轮机动车，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见四轮机动车车身结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见停放的四轮机动车，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见完整四轮机动车，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见四轮机动车结构，符合“车”类别。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603565.7220492,
+   "seconds": 17.404426336288452,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603565.722047,
+ "finished": 1791603583.8742862,
+ "health": {
+  "at": 1791603565.7193518,
+  "available_fraction": 0.43481369739814274,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7368198419e3472d9509c0753afb67f2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "91d5edf365e9917513eea98c6d8f73fc34c3f73c7c2a01f3629b60886e0589c4",
+ "image_sha256": "a42d8248be74f5e6315cbf4919a1598e4637b7eecf63fc42c8d51f49faf8ad1c"
+}

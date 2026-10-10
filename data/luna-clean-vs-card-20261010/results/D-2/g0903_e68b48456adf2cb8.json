@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_e68b48456adf2cb8",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:36640c2c3d8e475889e1069408609012",
+   "decision": "false",
+   "image_limitation": "目标区域过小，但可见为道路边缘的矩形标记/框线状物，未见车辆结构。",
+   "observed_object": "小型矩形物体或图像标记",
+   "reasoning": "候选框内没有可辨认的车身、车轮等车辆结构，不能判定为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602086.10685,
+   "seconds": 29.713597536087036,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602086.1068478,
+ "finished": 1791602116.1909065,
+ "health": {
+  "at": 1791602086.10534,
+  "available_fraction": 0.442428520912333,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0e95979610b44125951f8d5cfd5d7463",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fa4bf756f5b783407d1a9a6300698a884e1cac2ba941aedc576a0ec4d0413ec5",
+ "image_sha256": "1a8ebc42551a2738e6b67a388448612127cd8d3110b7ac91519b7d44cc443a4a"
+}

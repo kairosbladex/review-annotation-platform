@@ -1,0 +1,35 @@
+{
+ "unit": "52db33c764424228b1e7292d65787322",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:52db33c764424228b1e7292d65787322:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车辆，具有明显车身和车轮结构。",
+   "reasoning": "目标符合“车”类别，且定位清晰可辨。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606533.0174396,
+   "seconds": 5.957035064697266,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606533.017437,
+ "finished": 1791606539.4983673,
+ "health": {
+  "at": 1791606533.0155659,
+  "available_fraction": 0.4560393943624156,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3d018a669bc441c28c088840ee7e7667",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ddd16d41d372706e2f8db0fa5ed5733a61ffddc227639c89f23cfabca41fef6f",
+ "image_sha256": "af5b2ee29dfeccdd12d23d7cf0962550105ef520ed73f9b99d7b6508158daef0"
+}

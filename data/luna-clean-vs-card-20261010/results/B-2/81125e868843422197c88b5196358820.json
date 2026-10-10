@@ -1,0 +1,35 @@
+{
+ "unit": "81125e868843422197c88b5196358820",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "81125e868843422197c88b5196358820:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见车辆目标",
+   "reasoning": "框内目标呈现明确的车辆结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603588.922369,
+   "seconds": 14.929800033569336,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603588.9223673,
+ "finished": 1791603604.1374679,
+ "health": {
+  "at": 1791603588.9170427,
+  "available_fraction": 0.4344329364623846,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "bb88d72d0e014435a64f71fc7d7cf4e1",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8710bd2c756aaf3b7cd748c98f09d27dfc1442fcd3f63c65d4e76d6ac43ee405",
+ "image_sha256": "8337f0b1fbc3644f3e6a276827b147b8d5c04219aa360fccdb82eb294c22efe7"
+}

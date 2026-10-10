@@ -1,0 +1,35 @@
+{
+ "unit": "2afc52e75d5645a69a620a7418d8733b",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "2afc52e75d5645a69a620a7418d8733b:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标尺寸极小且细节模糊，无法确认可见的人体结构。",
+   "observed_object": "疑似道路旁的小型目标",
+   "reasoning": "仅凭当前图像无法明确判断为人员，不能据此判定符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607670.336221,
+   "seconds": 31.433184385299683,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607670.3362186,
+ "finished": 1791607702.04641,
+ "health": {
+  "at": 1791607670.3349245,
+  "available_fraction": 0.4570066639395773,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "639f6ed1ed91403f9976d5e1e3a56438",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e09716fee071d4375e94716bd73cea07c1e33529fc6fcb93dd8242ae3209f871",
+ "image_sha256": "4d5c98de187ae7946827cfa8ab5311c0317a6ede2728f6e97c8be09981272595"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "cf5ff50d4505496fa7d2aaf834123747",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:cf5ff50d4505496fa7d2aaf834123747:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像左上角，仅包含道路边缘和疑似车辆的局部，车辆结构不可完整确认。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "无法唯一确认框内目标是否为完整车辆，因此不能明确判定符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609928.1017878,
+   "seconds": 15.952836751937866,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609928.1017861,
+ "finished": 1791609944.3260963,
+ "health": {
+  "at": 1791609928.0992155,
+  "available_fraction": 0.4554562905293796,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8e72c06cda8b434e9443709121b9393a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "257043dbd3b5f7b233bc70727ffd83e5bf231e8917e03d7608e18d95ff5982dd",
+ "image_sha256": "43358570b79b203dec0da077690ea9125a39409bf8e7a7348ec9e473555eb0db"
+}

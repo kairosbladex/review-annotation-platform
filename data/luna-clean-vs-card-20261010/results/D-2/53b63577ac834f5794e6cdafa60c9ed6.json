@@ -1,0 +1,35 @@
+{
+ "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且分辨率有限，无法清晰确认车辆类型及卡车所需结构。",
+   "observed_object": "候选框内可见疑似车辆，但细节不足。",
+   "reasoning": "无法明确判断为卡车，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601939.1716936,
+   "seconds": 6.48077392578125,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601939.1716914,
+ "finished": 1791601946.0914953,
+ "health": {
+  "at": 1791601939.1703424,
+  "available_fraction": 0.4575680621192695,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8aad72b5fc824ea3a9c08c867ce09f6c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "148b542d56f5ffadb23f283d890f78ca46f130e26546f1b6812a2e5d0f77cf62",
+ "image_sha256": "10737dccfe055845463b0509f70b2c9e018f65760e323fcce4cac4d43d2dd6ec"
+}

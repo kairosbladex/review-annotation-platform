@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_2172b53d242b0ce7",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:70e9f9bea8964e4a85870d4b808e3773",
+   "decision": "uncertain",
+   "image_limitation": "目标大部分位于图像左侧边缘，框内可见区域过少，无法确认是否为蓝绿色顶棚。",
+   "observed_object": "左侧边缘的局部狭长区域",
+   "reasoning": "可见范围不足，不能唯一判断主体是否为符合类别的蓝色或绿色顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:78e3d11373c94753a258e7c81c313bdd",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚，表面可见平行条纹，边缘规整。",
+   "reasoning": "框内主体明确是覆盖在空地或建筑上的成片浅蓝色屋面，符合违建类别定义。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:f3af4269e30c43e09f0e2ba123b00f30",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色狭长矩形顶棚，表面有规则平行条纹。",
+   "reasoning": "框内主体明确为蓝绿色彩钢瓦类顶棚，符合违建类别定义。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603696.2932127,
+   "seconds": 17.731236934661865,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603696.29321,
+ "finished": 1791603714.4106658,
+ "health": {
+  "at": 1791603696.2922168,
+  "available_fraction": 0.450216229651406,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "fbd460a87b814be1a8448325dd70f1fa",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "604e1d40994e91ac02842ab40a6e232e87ccbd18deb74ce409db0b313f35e582",
+ "image_sha256": "2172b53d242b0ce7d6d54e822870d31408117a4c6622913e35d0535ea680c11a"
+}

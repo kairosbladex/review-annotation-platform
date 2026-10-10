@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_783a28ac76814d6e",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5778bd2c683e4d079a34ef2f08718b88",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "建筑边缘覆盖的浅蓝色矩形顶棚",
+   "reasoning": "框内主体是覆盖在建筑外侧的浅蓝色屋面，符合蓝色顶棚类别；未将框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605992.74666,
+   "seconds": 14.871207475662231,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605992.746658,
+ "finished": 1791606007.9046779,
+ "health": {
+  "at": 1791605992.7442968,
+  "available_fraction": 0.4520780822270949,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c92c558baa384f5f97cb1732c26e3ffa",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "14bf143de69340a5e71c6b689b922591d0608d5afb20ec2e19964556a504e32a",
+ "image_sha256": "22dc7995c8c3b9431cf3fb39528e5cde2dd9ea997c9d1d25bb5f90d6b2aec658"
+}

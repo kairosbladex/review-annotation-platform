@@ -1,0 +1,35 @@
+{
+ "unit": "6932e1b82c6448b3ab91dbe2cc4746a4",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "6932e1b82c6448b3ab91dbe2cc4746a4:000",
+   "decision": "false",
+   "image_limitation": "目标区域主要是树叶和植被，未见可确认的车辆结构。",
+   "observed_object": "植被",
+   "reasoning": "候选框内没有可见车身、车轮或其他车辆结构，不能将框线或文字作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605689.8002136,
+   "seconds": 14.137341737747192,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605689.8002117,
+ "finished": 1791605704.5008397,
+ "health": {
+  "at": 1791605689.7994013,
+  "available_fraction": 0.44185265229707826,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "db70dfc6433a43c7969bd14ae2974065",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "16cbff158c7d5a2ac758fe74459ffd9a41d6d5b962f9044445f6e9ff4274d7bb",
+ "image_sha256": "c8ed125115a4421c9580bf8a273c237ebeb2819007d40bb65101dfc30679f8ec"
+}

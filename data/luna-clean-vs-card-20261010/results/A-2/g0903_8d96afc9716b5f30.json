@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8d96afc9716b5f30",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:83a02537fc5f4618b5f731afabc168eb",
+   "decision": "uncertain",
+   "image_limitation": "目标框较小且分辨率有限，无法清晰确认是否为两轮车及其必要结构。",
+   "observed_object": "框内疑似小型车辆或物体",
+   "reasoning": "现有图像不足以唯一确认两轮车结构，不能据此判定符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602016.944985,
+   "seconds": 37.6392605304718,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602016.9449828,
+ "finished": 1791602054.8668327,
+ "health": {
+  "at": 1791602016.9438095,
+  "available_fraction": 0.4565602996425924,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f5007b1986a84937b2bc9e46122f9a5d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "355c001bbe775cf4ebe744a11d9ca9868ee99f0c2762d7bfc8cdb9a464196033",
+ "image_sha256": "8d96afc9716b5f30c07ae47af2542b460118bf1a7d00af155e40d7f922125826"
+}

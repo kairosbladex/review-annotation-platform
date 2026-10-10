@@ -1,0 +1,35 @@
+{
+ "unit": "77355afff7c0430faf66716abec2c94f",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "77355afff7c0430faf66716abec2c94f:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见水面与岸边结构，未见可辨认的人体结构。",
+   "observed_object": "水面及岸边平台",
+   "reasoning": "框内没有人员目标，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604346.2077577,
+   "seconds": 14.695132970809937,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604346.207756,
+ "finished": 1791604361.184874,
+ "health": {
+  "at": 1791604346.2072434,
+  "available_fraction": 0.44383005555674454,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4b80a689f1334671a7f90c95e1a8a7f6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "489ed37be6655f276aa6e6c525968cae38768a1dc0555fb80eaf6ec4787b6efe",
+ "image_sha256": "f7df440ddc036f3249ab143d256f413dd48fb76511788a62623f2fafebfce787"
+}

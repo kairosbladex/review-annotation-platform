@@ -1,0 +1,43 @@
+{
+ "unit": "5e4f0e152305449ea4d40ad08d4276fc",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:000",
+   "decision": "uncertain",
+   "image_limitation": "目标较小且被框线、标注文字和阴影干扰，无法清晰确认车辆所需结构。",
+   "observed_object": "框内可见细长的浅色区域，疑似物体但车辆结构不可辨。",
+   "reasoning": "仅凭当前图像不能明确判断为车，按规则输出uncertain。",
+   "target_index": 0
+  },
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:003",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小，受框线、文字和周围植被遮挡，车辆结构无法清晰辨认。",
+   "observed_object": "框内可见浅色斜向物体，无法唯一确认其类别。",
+   "reasoning": "缺乏足够车辆结构证据，不能明确符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602152.5690498,
+   "seconds": 4.689803838729858,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602152.5690477,
+ "finished": 1791602157.535142,
+ "health": {
+  "at": 1791602152.5681517,
+  "available_fraction": 0.450051795647293,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "da6cf9a27e7946f6967d5f4cf9422031",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "86e26f93f722a1f0a8ec548953f1d8807f19c41e2cda874998b03c0b87bba841",
+ "image_sha256": "2faf029b58f222f3040e8d925fec08ab39f4f2db0651a230e4d8b0213dbbc870"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_a212b4033b766a2f",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:6b2ea968f3ee48bb95a6d709084b1995",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡/广告牌",
+   "reasoning": "框内主体是立在地面的长条状蓝色围挡，不是覆盖在建筑、棚架、院落或空地上方的蓝色顶棚，按类别定义应判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607899.9062266,
+   "seconds": 15.277937889099121,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607899.906224,
+ "finished": 1791607915.456673,
+ "health": {
+  "at": 1791607899.9055293,
+  "available_fraction": 0.4562200620064244,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "dc71a1ed486f4d6395a5b0b04d9e9f1b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "148165dba16214eb042fa8cd77cbaa295eaf9ebf58c3b12966990a815cab0aa9",
+ "image_sha256": "a212b4033b766a2fc2240beadeabdc742c213c239160bcc8919d9944c7d611e9"
+}

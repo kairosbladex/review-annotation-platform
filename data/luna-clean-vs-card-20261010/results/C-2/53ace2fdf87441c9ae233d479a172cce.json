@@ -1,0 +1,35 @@
+{
+ "unit": "53ace2fdf87441c9ae233d479a172cce",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "53ace2fdf87441c9ae233d479a172cce:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于远处且尺寸较小，细节不足以确认人体结构。",
+   "observed_object": "绳索上的小型浅色物体",
+   "reasoning": "候选框内可见一个附着在绳索上的浅色物体，但无法清晰辨认头部、躯干或四肢等人体结构，因此不能明确判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607366.555792,
+   "seconds": 15.03463101387024,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607366.5557904,
+ "finished": 1791607381.862187,
+ "health": {
+  "at": 1791607366.5544107,
+  "available_fraction": 0.4554629785458161,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a0eca863744f40b5bf0af9ecc48452b2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c9d97a96a297e49ec69e49ea0a835d7f50959df662f8de3286d91e35bf33dca2",
+ "image_sha256": "514c9733ce6112298f58a3c57bd7c9bb9f6269c4c33744ab952f34df3f94f334"
+}

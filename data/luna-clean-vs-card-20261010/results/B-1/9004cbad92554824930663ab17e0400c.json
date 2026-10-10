@@ -1,0 +1,35 @@
+{
+ "unit": "9004cbad92554824930663ab17e0400c",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9004cbad92554824930663ab17e0400c:000",
+   "decision": "false",
+   "image_limitation": "框内主要是红色文字和印章样式图形，未见可确认的人体结构。",
+   "observed_object": "文字/印章标记",
+   "reasoning": "不符合人员类别，且不能将文字或框线作为人员证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604764.3735986,
+   "seconds": 14.896768808364868,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604764.3735967,
+ "finished": 1791604779.542417,
+ "health": {
+  "at": 1791604764.373116,
+  "available_fraction": 0.44359764698557724,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0e9cfb604cb44b7cb0336558f7085970",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3795c4016d75d23dae1d7c19b3a77c8f50f3fa6a28e368e44951128472138de5",
+ "image_sha256": "6b8af91dcebd5b12777ad5893b524005faff2422ed9e43a70b7b15c418820350"
+}

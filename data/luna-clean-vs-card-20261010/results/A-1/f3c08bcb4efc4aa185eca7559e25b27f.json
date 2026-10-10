@@ -1,0 +1,43 @@
+{
+ "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:000",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍外观无法确认是否具备审批或区域业务依据。",
+   "observed_object": "候选框内可见一处小型矩形设施或棚状物。",
+   "reasoning": "目标外观不能直接证明其属于未经审批的违建，依据不足。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:001",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍外观无法确认是否具备审批或区域业务依据。",
+   "observed_object": "候选框内可见一处狭长矩形设施或棚状物。",
+   "reasoning": "目标外观不能直接证明其属于未经审批的违建，依据不足。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609636.781044,
+   "seconds": 28.69640064239502,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609636.7810419,
+ "finished": 1791609666.029235,
+ "health": {
+  "at": 1791609636.7803168,
+  "available_fraction": 0.4545756307650702,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "bd42dd88efbe42c889c11036dbd35f74",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f308ac6d19b5d31eef0719e1692b2a3d371a3df3df387d5ff32cd27dfa2d7123",
+ "image_sha256": "19ab37f6be657766c886027de842779416026e0e865dbd9728434c0d56322953"
+}

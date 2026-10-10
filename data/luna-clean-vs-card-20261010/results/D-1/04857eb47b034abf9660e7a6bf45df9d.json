@@ -1,0 +1,35 @@
+{
+ "unit": "04857eb47b034abf9660e7a6bf45df9d",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "04857eb47b034abf9660e7a6bf45df9d:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色汽车",
+   "reasoning": "候选框内清晰可见车辆整体结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604785.2564967,
+   "seconds": 16.48231315612793,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604785.256494,
+ "finished": 1791604802.0105538,
+ "health": {
+  "at": 1791604785.2545397,
+  "available_fraction": 0.44349629313649,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "72f63894280745da872fbbacea3a097a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4358c95d7d46d91ff23ac66cce464fc2ecd5a83f875c448aa492476801495798",
+ "image_sha256": "f18fadef56e9a9a8796b594cc5142441deef5c864be4778e7cb334a9719ef45f"
+}

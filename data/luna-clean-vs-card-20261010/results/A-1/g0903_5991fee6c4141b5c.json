@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5991fee6c4141b5c",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b74e2ff5b5f4ce6957fed4fb3f41b98",
+   "decision": "uncertain",
+   "image_limitation": "目标为建筑玻璃棚状结构，但仅凭图像无法确认是否未经审批或违反区域业务规定。",
+   "observed_object": "框内可见一处玻璃顶棚/棚状建筑结构。",
+   "reasoning": "未提供审批、规划或区域管理依据，不能据外观认定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606648.0149484,
+   "seconds": 4.83005952835083,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606648.0149465,
+ "finished": 1791606653.1141353,
+ "health": {
+  "at": 1791606648.0131438,
+  "available_fraction": 0.45645511538409156,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4909f4e8a92848f1990d16d49b164ce7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "333ba7d3896d3ca608332c0462318a4d11d4b74cf7f6e3b709a7b3fddc5ddf1a",
+ "image_sha256": "5991fee6c4141b5cdbc042932102b4c255ec09fd45326a70be22c3cdfc46af92"
+}

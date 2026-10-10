@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像底部，目标面积小且被框线、文字及图像边缘干扰，无法可靠辨认是否为蓝色或绿色顶棚。",
+   "observed_object": "疑似底部建筑上的小型矩形物体/区域。",
+   "reasoning": "仅凭现有图像无法排除框线、文字或其他非顶棚物体，不能明确符合违建类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像底部，目标面积小且被框线、文字及图像边缘干扰，无法可靠辨认是否为蓝色或绿色顶棚。",
+   "observed_object": "疑似底部建筑上的小型矩形物体/区域。",
+   "reasoning": "无法唯一确认框内主体是蓝色或绿色顶棚，依据不足。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像底部，目标面积小且被框线、文字及图像边缘干扰，无法可靠辨认是否为蓝色或绿色顶棚。",
+   "observed_object": "疑似底部建筑上的小型矩形物体/区域。",
+   "reasoning": "目标细节不足，不能排除其为框线、文字或其他非顶棚结构，因此判定为uncertain。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601949.6786737,
+   "seconds": 61.39253783226013,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601949.6786716,
+ "finished": 1791602011.348362,
+ "health": {
+  "at": 1791601949.6606326,
+  "available_fraction": 0.45656619725708636,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "da325d994aaf4847b8ab496ba1872511",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "123aa4a7349af9a0fda39a3a5348079b30297b88c26c50edc744a6894d3d55a4",
+ "image_sha256": "5a505085982c37efb127b782fb3436e399fa1bdb1c9aadd42921fb9a06312ad9"
+}

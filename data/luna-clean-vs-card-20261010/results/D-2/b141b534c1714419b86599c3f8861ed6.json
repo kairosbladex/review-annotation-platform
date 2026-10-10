@@ -1,0 +1,35 @@
+{
+ "unit": "b141b534c1714419b86599c3f8861ed6",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b141b534c1714419b86599c3f8861ed6:000",
+   "decision": "false",
+   "image_limitation": "框内仅见水面/网面及小型物体，未见可确认的人体结构。",
+   "observed_object": "疑似小型漂浮物或设施部件",
+   "reasoning": "候选框内没有头部、躯干或四肢等人员结构，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602182.713973,
+   "seconds": 53.17343354225159,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602182.713971,
+ "finished": 1791602236.411363,
+ "health": {
+  "at": 1791602182.7131243,
+  "available_fraction": 0.45144202146391194,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3ce82464847940aaba3fcfe1b99bdd63",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "eee88cada7e08611728181ee4f778899e7750e52ac3a25757c58cdb341228a82",
+ "image_sha256": "2f6a8c6c4338fdc4dc9885a8832fa17d710d6e8c63295da9386827f6d20dd000"
+}

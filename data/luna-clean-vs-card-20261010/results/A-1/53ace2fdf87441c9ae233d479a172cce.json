@@ -1,0 +1,35 @@
+{
+ "unit": "53ace2fdf87441c9ae233d479a172cce",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "53ace2fdf87441c9ae233d479a172cce:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标很小且被水面、绳索及标注文字遮挡，无法清晰确认可见人体结构。",
+   "observed_object": "疑似人员或标注区域",
+   "reasoning": "仅凭框线和文字不能作为目标证据，当前无法唯一确认人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607350.4831796,
+   "seconds": 15.512153625488281,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607350.4831774,
+ "finished": 1791607366.2671938,
+ "health": {
+  "at": 1791607350.4742122,
+  "available_fraction": 0.45507984640423055,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e298b0f2342d430fbd70baaa9c9492e7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "22d75368845e5649e2cd439c114ea8c17f99bef03b584e0083f339bdb877418d",
+ "image_sha256": "f31e91e94b909bfbf1838af40312bc309c2fe9e9af9c45da0fc2f01549af2d4e"
+}

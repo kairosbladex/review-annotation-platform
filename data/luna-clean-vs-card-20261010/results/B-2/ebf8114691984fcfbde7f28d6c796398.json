@@ -1,0 +1,35 @@
+{
+ "unit": "ebf8114691984fcfbde7f28d6c796398",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "ebf8114691984fcfbde7f28d6c796398:000",
+   "decision": "false",
+   "image_limitation": "候选框内主要为红色标注文字和框线，未见可确认的人体结构。",
+   "observed_object": "标注文字及框线",
+   "reasoning": "不能将框线、文字作为人员目标证据，候选框内未发现可见人体结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608716.3606832,
+   "seconds": 20.940315008163452,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608716.3606803,
+ "finished": 1791608737.573607,
+ "health": {
+  "at": 1791608716.3600457,
+  "available_fraction": 0.4544203167833705,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "cf7f9cbdc7e8402e95f595af7b15d479",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a178f251dc3b6924ccc515ac5bcf3ab4ddd25c98986f6141bd3197ec0cdfaf04",
+ "image_sha256": "02ba29556b5e6e7312e7aa4bb8faddf609e2c77c872207ec515f5d17ba18ca77"
+}

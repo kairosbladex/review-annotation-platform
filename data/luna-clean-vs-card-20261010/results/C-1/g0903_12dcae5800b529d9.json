@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_12dcae5800b529d9",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b6399b684eb4b6a9eb6beac9f41f820",
+   "decision": "uncertain",
+   "image_limitation": "画面可见蓝色围挡、道路和杂草区域，但缺乏审批或区域业务依据，无法确认违建属性。",
+   "observed_object": "蓝色围挡及其后的道路、植被和杂物区域",
+   "reasoning": "仅凭外观不能判断是否属于未经审批的违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f3cdb8b816ba422dafa1d3cf6c987901",
+   "decision": "uncertain",
+   "image_limitation": "画面可见小段蓝色围挡及杂物，目标范围有限，无法确认其建筑属性或审批情况。",
+   "observed_object": "蓝色围挡和围挡后的杂物区域",
+   "reasoning": "缺乏审批及区域业务依据，不能据此认定为违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604061.368583,
+   "seconds": 14.755046844482422,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604061.3685806,
+ "finished": 1791604076.4046419,
+ "health": {
+  "at": 1791604061.3507435,
+  "available_fraction": 0.4514122901908444,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "02c8f4bc9b4f4f9a8b1bc355fbc22f12",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c45626fa2435fa091f27865eba058583e80170e2a172b64382b91e135965f831",
+ "image_sha256": "1cea3deec2eef028290253c1ea04a44483aeed9d79238d14dd47a251a8136457"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "130ef3869a854a3da8b2020912f3ef84",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "130ef3869a854a3da8b2020912f3ef84:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见一个小型物体，未见可确认的人体结构。",
+   "observed_object": "疑似小型摄像头或管线附件",
+   "reasoning": "框内目标不具备可见的人体结构，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602030.1025631,
+   "seconds": 26.305234909057617,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602030.1025608,
+ "finished": 1791602056.7634792,
+ "health": {
+  "at": 1791602030.1010942,
+  "available_fraction": 0.45699784791791104,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "38fcc305f8e34e6ca823f81fadff3e9b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e28262a744aad37f4b44f92216532804e7f29a2311812d1342db298a4da3edf9",
+ "image_sha256": "4a594d927e20a6012f915a9b813b1f16d67157c82168e7ca6be7ca5fff505816"
+}

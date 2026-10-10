@@ -1,0 +1,35 @@
+{
+ "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域较小且被红色框线、文字干扰，无法清晰确认车辆所需的卡车结构。",
+   "observed_object": "框内疑似车辆或物体",
+   "reasoning": "仅凭当前图像不能明确判断为卡车；不将框线和文字作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603299.8397067,
+   "seconds": 14.300097465515137,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603299.839704,
+ "finished": 1791603314.4229374,
+ "health": {
+  "at": 1791603299.8150258,
+  "available_fraction": 0.43881814723947865,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b0d5873be7164ed9accced8a698537de",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6bbadcb96f7965edb76bb920408785596bcd56c3af0fa515ebcfa7eb9d5ad5e6",
+ "image_sha256": "0000a1b83fa21448c803b05119d3fe5af63c4a69d73a5197c16fc35f42da4a8c"
+}

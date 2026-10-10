@@ -1,0 +1,59 @@
+{
+ "unit": "g0903_ffda9753a1865e4b",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:b72bceabedff4f33bd7e206db93cf80a",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像最左侧，目标仅部分可见，无法唯一判断是否为蓝绿色顶棚。",
+   "observed_object": "局部蓝色区域及红色标注框",
+   "reasoning": "目标被图像边缘截断，证据不足。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b5353da4de4b4d3a98177fdaf39d2a1f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "浅蓝色成片矩形屋面/顶棚",
+   "reasoning": "框内主体是规则的浅蓝色覆盖屋面，符合蓝色顶棚类别。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:d9194ee969e24131920de23a185f3fed",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "浅蓝绿色长条形顶棚",
+   "reasoning": "框内可见连续、规则的浅蓝绿色屋面，并有类似彩钢瓦的平行条纹，符合蓝绿色顶棚类别。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:a33bbf274cdc410cba575f56f21e2fb7",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝灰色成片屋面/顶棚",
+   "reasoning": "框内主体为覆盖在棚架上的蓝灰色成片屋面，属于蓝色范畴，符合类别。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602307.1381557,
+   "seconds": 59.79831790924072,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602307.1381536,
+ "finished": 1791602367.325881,
+ "health": {
+  "at": 1791602307.137124,
+  "available_fraction": 0.44701476738349233,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "91669c3887864840a946e5e8c236d611",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "52c6e9379904fe92bdd207e47ad31b907606a8c3f482a325afedf92e740ca49f",
+ "image_sha256": "ffda9753a1865e4b5cb4499463eb6255d8a7632e23da8c912ec78d59816b5940"
+}

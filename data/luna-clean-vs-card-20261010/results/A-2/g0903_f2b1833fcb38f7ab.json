@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f2b1833fcb38f7ab",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:53499b1d092345a6ad46fa1577b24b27",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小且目标细节不可辨，无法确认是否为车辆及其结构。",
+   "observed_object": "框内仅见一个小型彩色区域，疑似标记或其他物体。",
+   "reasoning": "不能仅凭框线、文字或模糊外观判断为车，缺乏可见车辆结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606918.3465593,
+   "seconds": 5.21189284324646,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606918.3465574,
+ "finished": 1791606924.0270603,
+ "health": {
+  "at": 1791606918.3308003,
+  "available_fraction": 0.45597892861381495,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c24a638f743f47efb3000a8dbe0fe47d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bdea6fb556838ee9d6779b056082a4e362b4770bccddb34faba5c68f6238e2a5",
+ "image_sha256": "f2b1833fcb38f7ab5bbe8e0d83331757a4d0cfe0e354d520e7846a0603cfee8b"
+}

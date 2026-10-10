@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_e2d382ae797765fb",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-031",
+   "decision": "false",
+   "image_limitation": "候选框内未见可确认的人体结构。",
+   "observed_object": "建筑及周边地表/植被区域",
+   "reasoning": "框内呈现的是地面或建筑边缘，不符合人员类别，且没有可见人体结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606987.779776,
+   "seconds": 4.92448091506958,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606987.779774,
+ "finished": 1791606992.9785728,
+ "health": {
+  "at": 1791606987.7791696,
+  "available_fraction": 0.45566146063360563,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3f09da8f90e24f40851b5391ad20b3f2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "33976c4804283d7ff22784315d1b28d3ebd4dc6a447e2dfc745c578b9805a5da",
+ "image_sha256": "3618d8b7ee87f5815d727598ca89916346827edc79ad44a8fa30459267a8bb75"
+}

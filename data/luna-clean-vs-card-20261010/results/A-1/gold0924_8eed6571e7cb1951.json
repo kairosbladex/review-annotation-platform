@@ -1,0 +1,83 @@
+{
+ "unit": "gold0924_8eed6571e7cb1951",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-018",
+   "decision": "uncertain",
+   "image_limitation": "框内主要是红色标注框和文字，未能清晰确认人体结构。",
+   "observed_object": "疑似人员目标",
+   "reasoning": "不能仅依据框线或文字判定人员，目标本身过小且细节不可辨。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-019",
+   "decision": "uncertain",
+   "image_limitation": "框内主要是红色标注框和文字，未能清晰确认人体结构。",
+   "observed_object": "疑似人员目标",
+   "reasoning": "不能仅依据框线或文字判定人员，目标本身过小且细节不可辨。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0924:B03-020",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，人体结构不可清晰辨认。",
+   "observed_object": "疑似人员目标",
+   "reasoning": "无法确认可见人体结构。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0924:B03-021",
+   "decision": "uncertain",
+   "image_limitation": "框内可见标注和深色背景，人体结构不清晰。",
+   "observed_object": "疑似人员目标",
+   "reasoning": "不能排除其他物体或标注干扰，无法唯一确认人员。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0924:B03-022",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且部分细节被标注遮挡，人体结构不可辨。",
+   "observed_object": "疑似人员目标",
+   "reasoning": "无法依据清晰人体结构确认类别。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0924:B03-023",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且被红色框线、文字干扰，人体结构不可辨。",
+   "observed_object": "疑似人员目标",
+   "reasoning": "不能把框线或文字作为人员证据，无法确认目标类别。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0924:B03-024",
+   "decision": "uncertain",
+   "image_limitation": "目标细节不足，未能清晰辨认人体结构。",
+   "observed_object": "疑似人员目标",
+   "reasoning": "无法唯一确认框内存在可见人体。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602119.38237,
+   "seconds": 33.269333600997925,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602119.3823674,
+ "finished": 1791602153.20436,
+ "health": {
+  "at": 1791602119.3811054,
+  "available_fraction": 0.4359990571112828,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2eebc908682640ff9c6b28765cb11627",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "914facb7d113bc8b57f6e1a9622e20216b4a6b9f3b13a1d985752cdf84169e24",
+ "image_sha256": "8eed6571e7cb1951903ce5dd6ccb17bc41ca08e7e66128604c740ac677759ab3"
+}

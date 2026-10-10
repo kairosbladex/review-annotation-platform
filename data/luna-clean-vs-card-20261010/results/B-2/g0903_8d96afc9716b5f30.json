@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8d96afc9716b5f30",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:83a02537fc5f4618b5f731afabc168eb",
+   "decision": "uncertain",
+   "image_limitation": "目标框很小且被粉色标注覆盖，无法清楚确认车辆轮数及结构。",
+   "observed_object": "疑似停放在车位附近的车辆目标",
+   "reasoning": "现有图像分辨率和遮挡不足以确认其为两轮车，不能仅凭位置或外观推断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602011.6352818,
+   "seconds": 4.116250038146973,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602011.6352797,
+ "finished": 1791602016.0347233,
+ "health": {
+  "at": 1791602011.6343334,
+  "available_fraction": 0.45591609165938685,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "30859fee1c294b58af39dfa32e4d0be9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "355c001bbe775cf4ebe744a11d9ca9868ee99f0c2762d7bfc8cdb9a464196033",
+ "image_sha256": "8d96afc9716b5f30c07ae47af2542b460118bf1a7d00af155e40d7f922125826"
+}

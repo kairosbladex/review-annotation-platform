@@ -1,0 +1,35 @@
+{
+ "unit": "5d5bc4bd44924db892a2dcf42bf4bbf4",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:5d5bc4bd44924db892a2dcf42bf4bbf4:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且雾霾遮挡，无法清晰确认车辆结构。",
+   "observed_object": "道路上的疑似小型目标",
+   "reasoning": "候选框内目标细节不可辨，不能明确判定为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605260.3755534,
+   "seconds": 14.594745397567749,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605260.375551,
+ "finished": 1791605275.251798,
+ "health": {
+  "at": 1791605260.37455,
+  "available_fraction": 0.4408905203325428,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1fd9da72bb594a3abf7c41d1d3c6782c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4653672bbcc96e462c4a51b7855c97a59a7198e6bf11fdfb96ead495f15dda4a",
+ "image_sha256": "d54e0deb75634a7a65dcbe19daf1fb849feadb9d27ac1ff2533efac227cc77e5"
+}

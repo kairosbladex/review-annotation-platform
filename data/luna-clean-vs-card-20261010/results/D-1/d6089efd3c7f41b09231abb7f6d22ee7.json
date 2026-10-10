@@ -1,0 +1,107 @@
+{
+ "unit": "d6089efd3c7f41b09231abb7f6d22ee7",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且局部模糊，无法确认是否为两轮车。",
+   "observed_object": "疑似小型车辆或两轮车",
+   "reasoning": "缺乏清晰可见的两轮结构证据。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:001",
+   "decision": "uncertain",
+   "image_limitation": "目标被裁切且分辨率不足。",
+   "observed_object": "车辆",
+   "reasoning": "可以看出疑似车辆，但细节不足以作出明确类别确认。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆轮廓及车身结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色车辆",
+   "reasoning": "可见明确的汽车车身和车轮结构，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "深色车辆",
+   "reasoning": "可见明确的汽车轮廓及车身结构，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "浅色车辆",
+   "reasoning": "可见汽车车身和车轮结构，符合“车”类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色车辆",
+   "reasoning": "可见明确的汽车结构，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色车辆",
+   "reasoning": "可见汽车车身轮廓，符合“车”类别。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "深色车辆",
+   "reasoning": "可见明确的车辆车身结构，符合“车”类别。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:d6089efd3c7f41b09231abb7f6d22ee7:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色车辆",
+   "reasoning": "可见明确的汽车轮廓，符合“车”类别。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603044.6800578,
+   "seconds": 47.14380121231079,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603044.6800554,
+ "finished": 1791603092.0997143,
+ "health": {
+  "at": 1791603044.6775415,
+  "available_fraction": 0.4382791539148487,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1e86bd4db31d4b45b14ee3aa093755b8",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d4af62787e2d1b5cdc06c37138e8866d7ac84995164524a86aa731f98274c544",
+ "image_sha256": "2beebe18a6ee0b5eb83acf53bc72fa1edaedd97ba963fca90af36e2ac0b6b80f"
+}

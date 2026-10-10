@@ -1,0 +1,35 @@
+{
+ "unit": "aeb96de0f80449648efd3b40aa1bd9d5",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "aeb96de0f80449648efd3b40aa1bd9d5:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且模糊，无法确认可见人体结构。",
+   "observed_object": "疑似白色小物体或不明目标",
+   "reasoning": "不能明确判断为人员，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608635.9927325,
+   "seconds": 15.723366975784302,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608635.992728,
+ "finished": 1791608651.9913156,
+ "health": {
+  "at": 1791608635.990256,
+  "available_fraction": 0.45423426832613784,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a69e1377c5bd411da2fd703b061c5956",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "957636aeb0a3ecf4d8c9c5d5e44b623b215984bc5b84f38ee23390b56b7148fe",
+ "image_sha256": "13e1b6c91bc9357f97ac80c2a69dac5976bc4ca8eb708a0fc9732d3709a55e6a"
+}

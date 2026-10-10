@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_0250b965fe9d463b",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a75748e3120243e6b2e4315b387c18a6",
+   "decision": "uncertain",
+   "image_limitation": "框内目标面积很小且被紫色框线、红色文字干扰，无法可靠辨认其是否为蓝色或绿色顶棚。",
+   "observed_object": "建筑边缘处的小型物体/区域",
+   "reasoning": "不能排除是其他物体或标注覆盖区域，缺乏明确的蓝绿色屋面结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606499.0760546,
+   "seconds": 14.503334522247314,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606499.0760524,
+ "finished": 1791606513.8680177,
+ "health": {
+  "at": 1791606499.0750766,
+  "available_fraction": 0.45477228884837706,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2aa9a29894d74e65a6425d1f68875304",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "22886e22dc38901a9e582e6aa5c077510d4ccfaf13d193c6490c1250f9d1ab09",
+ "image_sha256": "0250b965fe9d463bd3d36802b7c06e27eba4e44fd74c53126d538ca0bf6364f0"
+}

@@ -1,0 +1,107 @@
+{
+ "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:000",
+   "decision": "false",
+   "image_limitation": "目标可见，明显为小型车辆，不符合公交车类别。",
+   "observed_object": "小型车辆",
+   "reasoning": "框内目标体型和结构均不符合公交车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆外形，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆结构，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "卡车",
+   "reasoning": "框内可见一排具有货运车特征的车辆，符合卡车类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆目标，符合“车”类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆目标，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆目标，符合“车”类别。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆目标，符合“车”类别。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆目标，符合“车”类别。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603941.4465718,
+   "seconds": 16.72689437866211,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603941.4465697,
+ "finished": 1791603958.7304118,
+ "health": {
+  "at": 1791603941.4444985,
+  "available_fraction": 0.44911823975298604,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b02ebc2fd3ce4218a26dbda3d09438ba",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "edbaf4cb99ca903368a37b585d77eea0e794160a4ce2feeda2d160afe67569d9",
+ "image_sha256": "a1a86478363e2539cf48b8c9e19e6e6922dff658171fe9762ad03d447edf4a70"
+}

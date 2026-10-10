@@ -1,0 +1,35 @@
+{
+ "unit": "5ee426c45e8c429b8a0e82697f8af182",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "5ee426c45e8c429b8a0e82697f8af182:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车的车身和车顶结构，虽部分被树木遮挡但车辆目标明确。",
+   "reasoning": "候选框内明确可见车辆结构，符合“车”类别；框线不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609330.694897,
+   "seconds": 21.736226081848145,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609330.6948948,
+ "finished": 1791609352.9717,
+ "health": {
+  "at": 1791609330.6938071,
+  "available_fraction": 0.4544722401109773,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d17d3b6060094ab58c0551c3e5bf40d9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3eb8800db049cb7564da520a2b5aa2826564bc26598ed5d31eee433544281a06",
+ "image_sha256": "dc6b503e248bdb7288aa8f5a72d36746baf8d1706fa514c625d593cb3a4764e6"
+}

@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_0d92729232218495",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cc74adcb35e5423f95ab997d36672ae2",
+   "decision": "false",
+   "image_limitation": "目标大部分被树冠遮挡，仅见疑似车辆局部，无法确认完整车辆结构。",
+   "observed_object": "树木和疑似车辆局部",
+   "reasoning": "候选框内主要是树冠，车辆仅部分可见，不能明确核查为车。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f733538108d240f590ff61e466ea9a4d",
+   "decision": "true",
+   "image_limitation": "车辆被树叶部分遮挡，但车身轮廓和车顶等结构清晰可见。",
+   "observed_object": "一辆汽车",
+   "reasoning": "框内可见明确的汽车车身结构，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606571.7158082,
+   "seconds": 25.864493131637573,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606571.7158062,
+ "finished": 1791606597.9494019,
+ "health": {
+  "at": 1791606571.713746,
+  "available_fraction": 0.4558205138244948,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5eede80b878d49f2915e93d302bfb022",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4cc8b0053bf1d7d302aaa013a71d0cea9fb5dd4b81afcdab0dc601f34067d0c4",
+ "image_sha256": "426fcf5d93f827d99c08a340e73777104832602daf11d829f7c2479556157f25"
+}

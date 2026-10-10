@@ -1,0 +1,91 @@
+{
+ "unit": "g0903_d4c227e626da7475",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d5c6bd120b474b5281c4f27dcc6d613b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可清楚看到一辆红色汽车。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1146cd4b87a04a198f7ef6b0c1fe909e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可清楚看到一辆汽车。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:647564a682d14a799bc2d1779d59b40f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可清楚看到一辆黑色汽车。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:5f6fcba9150345d6ad048475dfb70120",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可清楚看到一辆白色车辆。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:4cde6d68e0114480ba55e55f3271a2db",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "两轮车",
+   "reasoning": "框内可见具有两个轮子的车辆结构。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:1dfcfc699ffb4403ad187356e82803c8",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "两轮车",
+   "reasoning": "框内可见具有两个轮子的车辆结构。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0903:c6ccf1501b4b415a8ae167740caf48aa",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "两轮车",
+   "reasoning": "框内可见一辆两轮车。",
+   "target_index": 6
+  },
+  {
+   "key": "gold0903:4ecc5217840d4a5bb9b66b267cc8ff21",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "两轮车",
+   "reasoning": "框内可见一辆两轮车及骑行者。",
+   "target_index": 7
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605525.227949,
+   "seconds": 31.552581787109375,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605525.2279468,
+ "finished": 1791605557.062961,
+ "health": {
+  "at": 1791605525.2076228,
+  "available_fraction": 0.44198306861758946,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "51a17222fa174cadb8c870cd9e2df753",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7f155c46caae6bfdbc07014424dd933b8ed480546cac5a8ea0b9c91d69ca6ef1",
+ "image_sha256": "77b7944d5cc20cff03a1ae17ffd1369d93fed96d30602afd9075e380e9352a70"
+}

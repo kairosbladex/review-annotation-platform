@@ -1,0 +1,35 @@
+{
+ "unit": "6932e1b82c6448b3ab91dbe2cc4746a4",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "6932e1b82c6448b3ab91dbe2cc4746a4:000",
+   "decision": "uncertain",
+   "image_limitation": "目标大部分被树叶遮挡，仅能看到局部疑似车辆结构，无法确认完整车辆。",
+   "observed_object": "树丛及局部疑似车辆",
+   "reasoning": "候选框内可见部分车体，但遮挡严重，不能明确核实为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605691.122625,
+   "seconds": 15.245914697647095,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605691.1226227,
+ "finished": 1791605706.651193,
+ "health": {
+  "at": 1791605691.121789,
+  "available_fraction": 0.4422635093068005,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "878a0de981a349ad9337146d1a97ee8a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "16cbff158c7d5a2ac758fe74459ffd9a41d6d5b962f9044445f6e9ff4274d7bb",
+ "image_sha256": "c8ed125115a4421c9580bf8a273c237ebeb2819007d40bb65101dfc30679f8ec"
+}

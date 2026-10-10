@@ -1,0 +1,35 @@
+{
+ "unit": "3b06cea8e7464826b41922d0a7bde63a",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:3b06cea8e7464826b41922d0a7bde63a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为覆盖建筑上方的浅蓝色成片彩钢瓦顶棚，具有规则平行条纹。",
+   "reasoning": "目标主体明确是蓝色顶棚，符合违建类别判定口径；未将框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606430.8223333,
+   "seconds": 7.2271201610565186,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606430.822331,
+ "finished": 1791606438.3339791,
+ "health": {
+  "at": 1791606430.7725117,
+  "available_fraction": 0.45134531882625556,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5787b54d90524468bf1b56550acc09c8",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "76417689a8f07348a7e37d7cfec277030523d36f4b52e059de8b64194f975905",
+ "image_sha256": "f8692d72f874c14a689abc1e47e4df57a3ba00ab04c01a64dc28667c10d04231"
+}

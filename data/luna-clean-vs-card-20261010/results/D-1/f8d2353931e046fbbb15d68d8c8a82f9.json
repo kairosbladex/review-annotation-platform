@@ -1,0 +1,35 @@
+{
+ "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被遮挡，无法清晰确认卡车所需的车身结构。",
+   "observed_object": "路边一处颜色杂乱的物体，疑似堆放物或小型车辆部件。",
+   "reasoning": "不能唯一确认其为卡车，因此按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603317.234593,
+   "seconds": 16.503554105758667,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603317.2345903,
+ "finished": 1791603334.0193326,
+ "health": {
+  "at": 1791603317.23226,
+  "available_fraction": 0.44028726124997325,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ef9168c1019d4a69804061241bad5c35",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8f136a2fe8cbb55c10ed8b41ee083d7be1b04e781f826762cfb1af59bea54bfb",
+ "image_sha256": "1c146c79d354d787191fac0cbd6de323217a9dbbb37924a760a3c70c608cb249"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "a8170b72d4c44b0db881db68fd4d165f",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a8170b72d4c44b0db881db68fd4d165f:000",
+   "decision": "false",
+   "image_limitation": "目标区域仅见小型斑点，未见可确认的人体结构。",
+   "observed_object": "疑似污渍或小型物体",
+   "reasoning": "候选框内没有可见的人体结构，不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607751.880832,
+   "seconds": 15.589087963104248,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607751.8808303,
+ "finished": 1791607767.746559,
+ "health": {
+  "at": 1791607751.879425,
+  "available_fraction": 0.45691826052231704,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "564c04aab7564dfaba98e74910102015",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fe0a15ffb09def180bf4323b250a0e93b315cf7dad717837dec8b8d734030d0b",
+ "image_sha256": "c6de6566c293d1e6f907cb826e806c51f212e853efacf34b4f9354ad3eacc0a0"
+}

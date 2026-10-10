@@ -1,0 +1,35 @@
+{
+ "unit": "ac18f0929d95478da1a4238decfb2efe",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:ac18f0929d95478da1a4238decfb2efe:000",
+   "decision": "uncertain",
+   "image_limitation": "目标框内车辆尺寸较小且分辨率有限，无法清晰确认卡车所需的车身结构。",
+   "observed_object": "框内可见一辆小型车辆，但车型结构不清晰。",
+   "reasoning": "不能仅凭外观和有限细节确认其属于卡车，因此判定为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609309.10385,
+   "seconds": 21.027497053146362,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609309.103848,
+ "finished": 1791609330.4047027,
+ "health": {
+  "at": 1791609309.1031053,
+  "available_fraction": 0.45589584520962917,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f77b05dddf024ad594fce136a038a2cf",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9316442b6873224f1aa7f72b5ff236cd88562b7b9c90b1eeda2b47b55cb909ec",
+ "image_sha256": "b168cac5166c0dd068e0bcd8361050617c0a71c6940f4b2c776ecab2a6cfe7e9"
+}

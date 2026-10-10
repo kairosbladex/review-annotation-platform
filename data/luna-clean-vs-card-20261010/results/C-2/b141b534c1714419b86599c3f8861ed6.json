@@ -1,0 +1,35 @@
+{
+ "unit": "b141b534c1714419b86599c3f8861ed6",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b141b534c1714419b86599c3f8861ed6:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且细节不足，无法确认可见人体结构。",
+   "observed_object": "疑似小型漂浮物或局部物体",
+   "reasoning": "不能依据当前图像明确判断为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602182.3724852,
+   "seconds": 5.110676527023315,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602182.3724825,
+ "finished": 1791602188.2793694,
+ "health": {
+  "at": 1791602182.3716116,
+  "available_fraction": 0.45065073791925353,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "db869495aa5346c497476fc86597a634",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "eee88cada7e08611728181ee4f778899e7750e52ac3a25757c58cdb341228a82",
+ "image_sha256": "2f6a8c6c4338fdc4dc9885a8832fa17d710d6e8c63295da9386827f6d20dd000"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "4149619ef9da4e378df52424563f31f6",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "4149619ef9da4e378df52424563f31f6:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，未见人体结构。",
+   "observed_object": "疑似墙面上的小型物体或孔洞",
+   "reasoning": "候选框内不是人员，缺乏可见的人体结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607019.9647102,
+   "seconds": 7.209204196929932,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607019.9647079,
+ "finished": 1791607027.4476008,
+ "health": {
+  "at": 1791607019.9632034,
+  "available_fraction": 0.45417845378896804,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5d1f2a2be3604adf9463878bab9e80f4",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ae1474d611420d3a63276f1cc13a3ccb49b9074f4e1b2026889e5c58614e5061",
+ "image_sha256": "5e93a35d0a3f743a7418eff003876df9e410199c6696aca5b247f8c4d4949e7b"
+}

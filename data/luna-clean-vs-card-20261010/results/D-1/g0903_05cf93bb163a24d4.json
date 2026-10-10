@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为道路斑马线及路面标线，不是蓝色或绿色顶棚。",
+   "reasoning": "目标类别要求主体是蓝色或绿色屋面；框内未见符合条件的顶棚结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605063.6661227,
+   "seconds": 32.26562833786011,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605063.66612,
+ "finished": 1791605096.228808,
+ "health": {
+  "at": 1791605063.6495614,
+  "available_fraction": 0.4405555419092998,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2b141c8dce3142f887707c1cb686f1cc",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c57ea52631468200d51e0d43db01f263ccbd822d029300d9e8e94467fc0e3121",
+ "image_sha256": "a65d514e8b498e091cdd6af7ac5b0279a06e97f5d0af2755677e0a7f1e29a221"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "ebf8114691984fcfbde7f28d6c796398",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "ebf8114691984fcfbde7f28d6c796398:000",
+   "decision": "false",
+   "image_limitation": "候选框内未见可确认的人体结构。",
+   "observed_object": "白色小型物体/设施部件",
+   "reasoning": "框内目标呈现为固定在边缘处的白色物体，不具备可见的人体结构，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608697.9326062,
+   "seconds": 17.85118842124939,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608697.9326043,
+ "finished": 1791608716.0630915,
+ "health": {
+  "at": 1791608697.9319427,
+  "available_fraction": 0.45406262950431825,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c065ae5fe41c4dfbba23417314ab2fb7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "083bd7f327f12e2cf81dadd40f765a2e1ca402b9b4ebe6cef9e3763fc4720b33",
+ "image_sha256": "fdd58ed51f5a8b5896a4ab99e6a9be3466ae1480816a636083949a68ce3bc0b8"
+}

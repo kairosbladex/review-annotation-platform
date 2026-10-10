@@ -1,0 +1,35 @@
+{
+ "unit": "19180436c82b45a9938e90640c334526",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "19180436c82b45a9938e90640c334526:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见道路车辆的车身及车轮结构",
+   "reasoning": "候选框内明确可见一辆车，符合“车”类别；未将框线或道路标线作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605357.6507227,
+   "seconds": 16.13825559616089,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605357.6507206,
+ "finished": 1791605374.0807698,
+ "health": {
+  "at": 1791605357.6484997,
+  "available_fraction": 0.44208363206473417,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "838674cd55344d31add7868adf5f3897",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "29b5e490be7fe42602dfd36bd6a6138b3cf815e1217265d627f6ba6f4ae5d8c0",
+ "image_sha256": "a740b1d5c70e8146a48ea3dc64ac1356bfbda0ef449e3b9d6ff2ea3ce95bcceb"
+}

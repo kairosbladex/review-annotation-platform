@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5855e63b7f22d882",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d49492d50736447d96d6d93db7a2d01d",
+   "decision": "uncertain",
+   "image_limitation": "候选框极小且仅覆盖局部绿化/建筑边缘，无法唯一判断是否存在违建。",
+   "observed_object": "无法清晰辨认目标。",
+   "reasoning": "违建属性需要审批或区域业务依据，现有图像中没有足够证据支持明确判定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606993.2856038,
+   "seconds": 47.48396587371826,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606993.2856004,
+ "finished": 1791607041.0425556,
+ "health": {
+  "at": 1791606993.2682278,
+  "available_fraction": 0.4551222849085274,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "61702d30256f404e818e21651cf4b8f4",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "eb1fa93746d30f0ea38e075b611f4d2296a91b0c658e41d7805c21b96a19ce60",
+ "image_sha256": "17301bddb4d023c58c551af10a59183e6c8febbade3be72f7751ba17c80e6a5f"
+}

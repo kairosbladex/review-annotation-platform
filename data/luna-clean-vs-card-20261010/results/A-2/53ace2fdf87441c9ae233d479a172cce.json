@@ -1,0 +1,35 @@
+{
+ "unit": "53ace2fdf87441c9ae233d479a172cce",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "53ace2fdf87441c9ae233d479a172cce:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见人员的人体结构，位于水面边缘绳索附近。",
+   "reasoning": "候选框内能看到明确的人体目标，符合“人员”类别；框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607374.5983684,
+   "seconds": 13.764115571975708,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607374.5983665,
+ "finished": 1791607388.6353288,
+ "health": {
+  "at": 1791607374.5976892,
+  "available_fraction": 0.45652600835831814,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "54ffa4b28426433eb04f9e39d58f4f4a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "22d75368845e5649e2cd439c114ea8c17f99bef03b584e0083f339bdb877418d",
+ "image_sha256": "f31e91e94b909bfbf1838af40312bc309c2fe9e9af9c45da0fc2f01549af2d4e"
+}

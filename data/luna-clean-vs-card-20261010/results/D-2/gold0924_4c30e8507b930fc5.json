@@ -1,0 +1,43 @@
+{
+ "unit": "gold0924_4c30e8507b930fc5",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-035",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节模糊，无法确认是否具有人体结构。",
+   "observed_object": "候选框内为屋顶上的深色小物体，疑似设备或杂物。",
+   "reasoning": "未观察到清晰可见的人体结构，因此不能判定为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-036",
+   "decision": "false",
+   "image_limitation": "目标虽可见但尺寸较小。",
+   "observed_object": "候选框内为白色墙面设备，外形类似小型装置。",
+   "reasoning": "可见物体不具有人体结构，明显不符合人员类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606423.445943,
+   "seconds": 8.287642002105713,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606423.4459407,
+ "finished": 1791606432.0094945,
+ "health": {
+  "at": 1791606423.428817,
+  "available_fraction": 0.4499223217290979,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4ca30708fc4c403cb0467abc87a70f8b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ec2fc1181448274e3f2cf58d8e401ca57980c2801a37d614c11958233466df45",
+ "image_sha256": "4f16fdc44663054b27fc8739e16f49b2a905c2cf969b3bda63f9573681c35187"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_d2bfba7f5eb88113",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:7e7a4c2981244e299e8019aef1eb953f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为红褐色金属顶棚或箱体状物体",
+   "reasoning": "主体颜色为红褐色，不属于蓝色或绿色顶棚；不符合该类别判断标准。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606861.5204976,
+   "seconds": 6.104957580566406,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606861.5204952,
+ "finished": 1791606868.1741645,
+ "health": {
+  "at": 1791606861.480773,
+  "available_fraction": 0.4561423290153878,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c9be34ba96f449f38592620c2425dbd5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "22050a77c12bc85d43fbd67ba6c7277d015bb2ec679fd583f443d8fc6a5617d6",
+ "image_sha256": "68592f6bd0e74a1e32600f17398c6ffd2ac840b135489b19dc1cf5b02f73a3f9"
+}

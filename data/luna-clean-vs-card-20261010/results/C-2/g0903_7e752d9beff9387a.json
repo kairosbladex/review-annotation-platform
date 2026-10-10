@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_7e752d9beff9387a",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d0c64659575a47c0ab997593532f0db2",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅能看到远处建筑/棚顶区域，无法确认是否为违建，且缺乏审批或区域业务依据。",
+   "observed_object": "远处建筑或棚顶结构",
+   "reasoning": "外观无法证明其属于违建，按规则应判定为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603132.1906595,
+   "seconds": 17.6454758644104,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603132.1906574,
+ "finished": 1791603150.1138666,
+ "health": {
+  "at": 1791603132.1889956,
+  "available_fraction": 0.43745996310160534,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "856442e3a3414f2a876b85b058f3b0af",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e6b3de1cf134fe0b273ab3ba5dc4fd0e2c3d945e369ebc3de5a2578ac117bb9f",
+ "image_sha256": "57fec1b04572a9b133a37cc51dcb95e5b8a33cd1b79828cc146e7ba30eb7a44e"
+}

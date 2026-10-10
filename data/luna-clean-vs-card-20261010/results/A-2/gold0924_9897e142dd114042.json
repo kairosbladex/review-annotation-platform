@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标被热成像伪彩和植被遮挡，无法清晰确认完整人体结构。",
+   "observed_object": "框内仅见局部高温区域，不能唯一判断为人员。",
+   "reasoning": "初审需有可见人体结构；当前证据不足，不能明确符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608729.40379,
+   "seconds": 21.842005491256714,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608729.403788,
+ "finished": 1791608751.5286746,
+ "health": {
+  "at": 1791608729.4033976,
+  "available_fraction": 0.4546537285570033,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1678810d2b9b409998f9c8d1d67da8b9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d7d7416cce568f81c10efe63bbd8cab7a4c01c4231765af54c49b92b8d071137",
+ "image_sha256": "9897e142dd11404227a3c3ce17afb450d18cff77725b3d099bb9719b77dccdef"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "53ace2fdf87441c9ae233d479a172cce",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "53ace2fdf87441c9ae233d479a172cce:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域较小且被红色文字、框线及水面背景遮挡，无法清晰确认完整人体结构。",
+   "observed_object": "框内可见疑似人员局部，但人体结构不明确。",
+   "reasoning": "不能仅依据标注文字和框线判定为人员，现有图像不足以唯一确认类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607379.7614784,
+   "seconds": 13.78969693183899,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607379.7614765,
+ "finished": 1791607393.8360283,
+ "health": {
+  "at": 1791607379.7608192,
+  "available_fraction": 0.45461624526488437,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a964fa526f2640f681871120586b99e3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "22d75368845e5649e2cd439c114ea8c17f99bef03b584e0083f339bdb877418d",
+ "image_sha256": "f31e91e94b909bfbf1838af40312bc309c2fe9e9af9c45da0fc2f01549af2d4e"
+}

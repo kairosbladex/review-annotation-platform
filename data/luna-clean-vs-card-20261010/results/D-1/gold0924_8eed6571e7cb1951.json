@@ -1,0 +1,83 @@
+{
+ "unit": "gold0924_8eed6571e7cb1951",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-018",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法清晰确认人体结构。",
+   "observed_object": "候选框内疑似小型物体或人员",
+   "reasoning": "分辨率不足，不能依据外观唯一确认其为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-019",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法清晰确认人体结构。",
+   "observed_object": "候选框内疑似小型物体或人员",
+   "reasoning": "分辨率不足，不能依据外观唯一确认其为人员。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0924:B03-020",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法清晰确认人体结构。",
+   "observed_object": "候选框内疑似小型物体或人员",
+   "reasoning": "无法清晰辨认头部、躯干或四肢等人体结构。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0924:B03-021",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "疑似人员",
+   "reasoning": "框内可见明显的人体形状与着装，符合人员类别。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0924:B03-022",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法清晰确认人体结构。",
+   "observed_object": "候选框内疑似小型物体或人员",
+   "reasoning": "无法唯一确认可见物体为人员。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0924:B03-023",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法清晰确认人体结构。",
+   "observed_object": "候选框内疑似小型物体或人员",
+   "reasoning": "目标细节不足，不能确认人体结构。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0924:B03-024",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且部分细节不清",
+   "observed_object": "候选框内疑似人员或其他物体",
+   "reasoning": "无法清楚辨认人体结构，不能明确归类为人员。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602130.0228982,
+   "seconds": 7.255963087081909,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602130.0228956,
+ "finished": 1791602137.5504327,
+ "health": {
+  "at": 1791602130.0095534,
+  "available_fraction": 0.4489549001515626,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "74ec539c5e274cf7881d9a90cc87f605",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1dfa74568fe2ba6ac66ea6b12559201036a5a1ea3bf064e97d40630991f803a2",
+ "image_sha256": "d3726e9b0293ecb2c12370dff2c41f6809e61f98b08f914e3098fadba32647a2"
+}

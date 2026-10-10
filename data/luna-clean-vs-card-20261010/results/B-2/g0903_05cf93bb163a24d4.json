@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "高层建筑立面",
+   "reasoning": "候选框内主体是建筑物及窗户，不是蓝色或绿色顶棚；框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605065.4920774,
+   "seconds": 31.525852918624878,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605065.4920752,
+ "finished": 1791605097.2930434,
+ "health": {
+  "at": 1791605065.491041,
+  "available_fraction": 0.4388933570243142,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "558bab8fc61a4e1bb31200d70f23cbd3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a99e97ee720bda4fbe127bb3d7669b584665ad72190a49d124e8c84da3c51728",
+ "image_sha256": "05cf93bb163a24d4931cfb764310d24eef5a0a1ffa02b30900b11aa001db9c51"
+}

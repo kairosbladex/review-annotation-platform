@@ -1,0 +1,35 @@
+{
+ "unit": "037fce51334440f38171cbc57cd44237",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "037fce51334440f38171cbc57cd44237:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且细节不足，无法确认车辆结构及是否为卡车。",
+   "observed_object": "疑似车辆或设备，无法唯一辨识。",
+   "reasoning": "目标虽位于建筑顶部区域，但分辨率不足，不能依据框内可见特征明确判定为卡车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608593.1552715,
+   "seconds": 15.131160497665405,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608593.1552694,
+ "finished": 1791608608.5674446,
+ "health": {
+  "at": 1791608593.153408,
+  "available_fraction": 0.4532900724056819,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "84a9ff52b7ad4970ae4d22935028474c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "425c840aa3328f313b1930ec28c768bb4a8001222310fb752864f96a74b49fe5",
+ "image_sha256": "5dc02bd7aabb32fe95331e53412581a2304bcfc2e9a70982368c2069151b4104"
+}

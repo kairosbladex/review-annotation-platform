@@ -1,0 +1,51 @@
+{
+ "unit": "3bec910f1cbc4c4ea3ba275779cd5c51",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "3bec910f1cbc4c4ea3ba275779cd5c51:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车",
+   "reasoning": "车辆轮廓和车身结构清晰可辨，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "3bec910f1cbc4c4ea3ba275779cd5c51:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车",
+   "reasoning": "可见完整车身轮廓，能够明确判断为车辆。",
+   "target_index": 1
+  },
+  {
+   "key": "3bec910f1cbc4c4ea3ba275779cd5c51:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车",
+   "reasoning": "可见汽车车身及车轮等结构，符合“车”类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606695.9016645,
+   "seconds": 5.446338653564453,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606695.9016628,
+ "finished": 1791606701.9384365,
+ "health": {
+  "at": 1791606695.8994744,
+  "available_fraction": 0.45805735132174663,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9f4a812fc9d3454698f83550337419cd",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9786d9a73cc7480ddf39b11673efcbb171d36ec72a2b91aa08a40f2eeec7b52d",
+ "image_sha256": "d1d286e58672b7fa5cf4347775935c75bcfb0771a7282e5012c112b42a64517f"
+}

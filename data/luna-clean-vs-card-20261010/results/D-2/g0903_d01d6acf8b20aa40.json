@@ -1,0 +1,75 @@
+{
+ "unit": "g0903_d01d6acf8b20aa40",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:89174fccc9f5400a995eb9f56c25b247",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路上的小型汽车",
+   "reasoning": "框内可见完整四轮机动车结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:daf1f353cc3c4e5cb3b90ce964b7b140",
+   "decision": "true",
+   "image_limitation": "目标较小但结构可辨。",
+   "observed_object": "路边两轮车",
+   "reasoning": "框内可见车身及两轮结构，符合“两轮车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:3755a239c86d407e82568924dc1a7fad",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路上的小型汽车",
+   "reasoning": "框内可见完整四轮机动车结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:49b04eff501f4064adcfcd04ceb488f1",
+   "decision": "true",
+   "image_limitation": "目标部分受树木遮挡，但主体结构可辨。",
+   "observed_object": "停车区内的汽车",
+   "reasoning": "可见汽车车身及四轮机动车形态，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:46a5dbd1b5874ff888c6a3d0a997476b",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "停车区内的汽车",
+   "reasoning": "可见完整四轮机动车结构，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:149d6e1a1222493794a19839c1eff499",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "两辆小型汽车",
+   "reasoning": "框内主要是小型汽车，不具备卡车所需的大型车身或货厢结构，明显不符合“卡车”类别。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603806.9030838,
+   "seconds": 20.826425790786743,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603806.9030812,
+ "finished": 1791603828.0058897,
+ "health": {
+  "at": 1791603806.8840556,
+  "available_fraction": 0.4471858286038924,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e56e256bf6c14a0fadad7499353bf89c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8a674db6a998970dae28323ed0b3de4227593da1b469832ef5bf4d679014c4f4",
+ "image_sha256": "9e12fe1616ecef6fb301454e4fcb9fe89d01efee01174e2effe460d4f784c1f5"
+}

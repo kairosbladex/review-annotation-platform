@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_791e6578fa41f3c6",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:200d6dd57fd74ca08dab2ce96088fcf8",
+   "decision": "uncertain",
+   "image_limitation": "画面仅显示建筑边缘及一处狭长区域，无法确认是否存在违建，也没有审批或区域业务依据。",
+   "observed_object": "建筑旁的狭长灰色区域及周边绿化",
+   "reasoning": "不能仅凭外观判断违建属性，且候选框内目标无法唯一确认类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605559.478917,
+   "seconds": 26.38791584968567,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605559.4789145,
+ "finished": 1791605586.1436439,
+ "health": {
+  "at": 1791605559.464935,
+  "available_fraction": 0.4407050798768043,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c31e561b7fe54caaaff92da2b600c116",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "480d2d750b9bf94b6f3bc0416f57ba9daa6b3632c238e346fad24ed067f782d9",
+ "image_sha256": "791e6578fa41f3c61e7341d436fe0521d6e3bb85652d4eed22621d9609158d9d"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "fdb392405f404886813e23aa33a2ec1a",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:fdb392405f404886813e23aa33a2ec1a:000",
+   "decision": "false",
+   "image_limitation": "候选框内未见可确认的车辆结构。",
+   "observed_object": "建筑立面及墙面涂鸦",
+   "reasoning": "框内主要是建筑墙面、窗户和涂鸦，没有可见车身、车轮或其他车辆结构，明显不符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603796.7596924,
+   "seconds": 14.012072086334229,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603796.7596905,
+ "finished": 1791603811.052453,
+ "health": {
+  "at": 1791603796.758646,
+  "available_fraction": 0.4498966032658922,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7375c3f24bb84794be607043ebc50756",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "2141df85cdf10e0d94b9009f21b9513a02e4a656f85ff7fd56a8bfe710847c4e",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60"
+}

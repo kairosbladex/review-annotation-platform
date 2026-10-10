@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_c43c8cc90e522fc7",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-028",
+   "decision": "false",
+   "image_limitation": "目标区域可见道路及阴影，未见可确认的人体结构。",
+   "observed_object": "道路与车辆/设施阴影",
+   "reasoning": "候选框内没有可见人体头部、躯干或四肢等人员结构，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603356.5196354,
+   "seconds": 41.255913496017456,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603356.5196319,
+ "finished": 1791603398.0551782,
+ "health": {
+  "at": 1791603356.4895601,
+  "available_fraction": 0.43237980661661274,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f005eb99148647deaf1c34b68e70b151",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "70a26e48ecdcc2c068837ba5e28ec9fc55dabdd29d7e150d6937a3a69cb39dfb",
+ "image_sha256": "c6638c1a951abcb841108c949caa708fa276f54eb6915c636f4001b34d3fd774"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_1d737b615da670e0",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f6d48b6995834bdbbc7752b756c23e90",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见建筑顶部的蓝色标识或装饰，无法确认是否存在违建，且缺乏审批或区域业务依据。",
+   "observed_object": "建筑顶部蓝色标识区域",
+   "reasoning": "违建属性不能仅凭外观判断，现有图像不足以明确符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608533.8500822,
+   "seconds": 26.346607208251953,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608533.85008,
+ "finished": 1791608560.4805415,
+ "health": {
+  "at": 1791608533.8481987,
+  "available_fraction": 0.4546414165267453,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ecd6899b455241dbac706c15bd788ceb",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3d7a58bec0d65d6c4708fffa411f4a600ec96ed5f8199ee5b80037df8952d294",
+ "image_sha256": "c3e8ee8fc9dde7f979a99272e796949bfbc96e58e9da0cdd89d5641367d17a07"
+}

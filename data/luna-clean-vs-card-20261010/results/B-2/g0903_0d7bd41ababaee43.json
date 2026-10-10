@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_0d7bd41ababaee43",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cdd543ffaaad481885165446c2939f34",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色屋顶棚",
+   "reasoning": "框内可见成片浅蓝色、边缘规整的屋面结构，符合蓝色顶棚类别；不依据框线或文字判断。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:82325faa9a82418181856bacfc284810",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "浅蓝色长条屋顶棚",
+   "reasoning": "框内可见浅蓝色屋面结构，属于蓝色顶棚；虽面积较小但颜色和屋面形态明确。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605096.5268743,
+   "seconds": 14.133757829666138,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605096.526872,
+ "finished": 1791605110.9555686,
+ "health": {
+  "at": 1791605096.5261347,
+  "available_fraction": 0.43976082315619897,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ee1b82ccd28042fd96b89e711393ae94",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3bca55ecc06dc056c5239c2d5863e2e509564f04f15df5ab868ef7ac4b63c8bc",
+ "image_sha256": "0d7bd41ababaee43e8da4c47c05970a0d8b47ecf4a671a2cc12174a367817cb4"
+}

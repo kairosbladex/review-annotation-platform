@@ -1,0 +1,35 @@
+{
+ "unit": "f24adba80cd64f79a85653bf3145b435",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f24adba80cd64f79a85653bf3145b435:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车的车身结构",
+   "reasoning": "候选框内能看到明确的车辆目标，框线和文字未作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608205.4997582,
+   "seconds": 19.725409746170044,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608205.4997566,
+ "finished": 1791608225.5009863,
+ "health": {
+  "at": 1791608205.498396,
+  "available_fraction": 0.4547265671360114,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "463527d18cb24f79b58a4651d317ca21",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "258af327ae9c4f7db88b083077666b746828d4ff85066924888b6a90a995a702",
+ "image_sha256": "1c2e54807caa5284c54aac28b69e17156fc9a9d7d25fbef8c5284cffb34d4152"
+}

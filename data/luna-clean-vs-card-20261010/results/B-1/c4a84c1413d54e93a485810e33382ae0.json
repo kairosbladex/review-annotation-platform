@@ -1,0 +1,40 @@
+{
+ "unit": "c4a84c1413d54e93a485810e33382ae0",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c4a84c1413d54e93a485810e33382ae0:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车，结构与类别相符。",
+   "reasoning": "候选框内能清楚看到车辆本体，不依赖框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601248.0046344,
+   "seconds": 25.538678884506226,
+   "status": "http_503"
+  },
+  {
+   "at": 1791601278.5621061,
+   "seconds": 15.804783582687378,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601248.0046332,
+ "finished": 1791601294.7093399,
+ "health": {
+  "at": 1791601247.9807293,
+  "available_fraction": 0.465273812256921,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "61c67345bf3c4b2d8662534a929705cf",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1978fce5c5ac6741ff5e68ca6fb3be6c6c2884121cec2fd8ddda3e06295bac7e",
+ "image_sha256": "3e6d0e21ef963cf12f41eac49195e442468352d541b3015751ed4e4f5709940c"
+}

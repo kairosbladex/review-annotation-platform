@@ -1,0 +1,35 @@
+{
+ "unit": "91a11ec7cf91453995e19d7732c088ec",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "91a11ec7cf91453995e19d7732c088ec:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见人员的人体结构，包含头部和身体轮廓。",
+   "reasoning": "候选框内能明确定位到人员目标，框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607510.1483295,
+   "seconds": 33.59594440460205,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607510.1483276,
+ "finished": 1791607544.0222192,
+ "health": {
+  "at": 1791607510.1478107,
+  "available_fraction": 0.4558674211397742,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e1d12e7561c4437d965e9c96503a4865",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9085660a59b9b94d8a2b9bf873d743427fb5f2d725664aa61ff21ae6d97a64a6",
+ "image_sha256": "14ef42c328a55a86fcaaa3a9aba7af234dab017a65c8c89d8054812b2da44252"
+}

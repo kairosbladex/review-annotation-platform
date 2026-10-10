@@ -1,0 +1,35 @@
+{
+ "unit": "7b60255b248c4620bb7b253826487108",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "7b60255b248c4620bb7b253826487108:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见人体结构，疑似一名人员。",
+   "reasoning": "候选框内能看到头部及身体轮廓，符合人员类别；框线不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609403.6805472,
+   "seconds": 16.74567699432373,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609403.6805449,
+ "finished": 1791609420.7004576,
+ "health": {
+  "at": 1791609403.6798172,
+  "available_fraction": 0.4536926605950827,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2640a056118c41ef9c1ecbcad1274ef9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "132034a571601ca201d4c1b10c751e8a47260aba007762604d777d10f212a5b7",
+ "image_sha256": "dce28fdecd7fbdfccada86d8b44d05e064ddf9292d9212fe999bda6061883af9"
+}

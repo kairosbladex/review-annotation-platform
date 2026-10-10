@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_30307ae0bd802781",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:18172673ac38432aa6a1d99482f45439",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色矩形顶棚",
+   "reasoning": "候选框内可见成片蓝绿色屋面，边缘规整，符合违建类别定义；未将框线或文字作为依据。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b52575f40fd548eab466771d11f3cc48",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色长条状顶棚",
+   "reasoning": "候选框内主体为蓝绿色覆盖屋面，呈规整矩形并具有顶棚特征，符合违建类别定义；未将框线或文字作为依据。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605716.623251,
+   "seconds": 17.163392543792725,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605716.623249,
+ "finished": 1791605734.0817893,
+ "health": {
+  "at": 1791605716.622237,
+  "available_fraction": 0.44093350603818443,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "aad84c3c8b6a4825a2b384c3e7ddc8ed",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "261f2a8c517c9a3be0070dff2d8e30984a7d2aeff214b301d92aff6b25f3eab6",
+ "image_sha256": "30307ae0bd802781b8a599d530e1b24f024facd24ede66d40aa8f53e4e8cb2a2"
+}

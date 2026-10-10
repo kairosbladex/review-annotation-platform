@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_2172b53d242b0ce7",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:70e9f9bea8964e4a85870d4b808e3773",
+   "decision": "uncertain",
+   "image_limitation": "框内仅见边缘区域，主体不完整，无法唯一判断是否为蓝绿色顶棚。",
+   "observed_object": "画面左侧边缘的局部蓝色区域",
+   "reasoning": "目标区域过小且被截断，不能确认其是否为屋面顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:78e3d11373c94753a258e7c81c313bdd",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "左下方大面积浅蓝色矩形屋顶",
+   "reasoning": "框内主体是覆盖建筑上方的成片浅蓝色屋面，边缘规整，符合蓝色顶棚类别。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:f3af4269e30c43e09f0e2ba123b00f30",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路左侧狭长的浅蓝色彩钢瓦屋顶",
+   "reasoning": "框内主体为覆盖建筑的成片浅蓝色顶棚，呈规整矩形并可见平行条纹，符合类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603705.8294652,
+   "seconds": 34.074273109436035,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603705.8294632,
+ "finished": 1791603740.2021039,
+ "health": {
+  "at": 1791603705.8050323,
+  "available_fraction": 0.44762295127816504,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d69c63ae582f4789a8ff2051938aa8b4",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "77605972513adf896531a6d79e7a395109de55e03fa65fe98ddb0fd060fdf0bd",
+ "image_sha256": "ceeda3bafd80c86dda52d6d3d5df7dfe1af94301dbb710b4acd21a90850e6e37"
+}

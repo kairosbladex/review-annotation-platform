@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_d2bfba7f5eb88113",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:7e7a4c2981244e299e8019aef1eb953f",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到一个锈蚀顶棚或箱体，缺乏审批信息及区域业务依据，无法确认是否为违建。",
+   "observed_object": "棕锈色矩形顶棚状物体",
+   "reasoning": "目标外观不能直接证明其属于违建，依据要求应判定为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606872.8031187,
+   "seconds": 6.204261541366577,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606872.8031163,
+ "finished": 1791606879.2808752,
+ "health": {
+  "at": 1791606872.791112,
+  "available_fraction": 0.45645852019245925,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1777626f007c4cf598d0a43e39fb8f8a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ed094bde8cfe4d152a865ca9e9652a2e09cdcab9d93c9b9390aaf0d0ce77ac37",
+ "image_sha256": "68592f6bd0e74a1e32600f17398c6ffd2ac840b135489b19dc1cf5b02f73a3f9"
+}

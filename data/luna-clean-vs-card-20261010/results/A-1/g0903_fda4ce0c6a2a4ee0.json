@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_fda4ce0c6a2a4ee0",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:79627723ab3842b3b626d4b9397aec45",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车的俯视图，具备车身和四轮车辆结构。",
+   "reasoning": "目标明显为车辆，符合“车”类别；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602156.118319,
+   "seconds": 3.6945042610168457,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602156.118317,
+ "finished": 1791602160.0921123,
+ "health": {
+  "at": 1791602156.117606,
+  "available_fraction": 0.4514914823854671,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "39cff24bc8984225be226651615db06d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3fbfa85ed6bd57a1a99fb086f45b3983207e719bb631349f2e4effef9bbef95b",
+ "image_sha256": "fda4ce0c6a2a4ee09245ca8334776e860e872808fbcc80481d9debb4335a93f1"
+}

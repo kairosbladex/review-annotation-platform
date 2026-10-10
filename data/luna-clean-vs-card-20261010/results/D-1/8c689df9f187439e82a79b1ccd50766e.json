@@ -1,0 +1,35 @@
+{
+ "unit": "8c689df9f187439e82a79b1ccd50766e",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "8c689df9f187439e82a79b1ccd50766e:008",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，车辆主体结构完整，未见明显遮挡。",
+   "observed_object": "一辆白色小汽车",
+   "reasoning": "候选框内明确可见完整汽车，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606805.9089503,
+   "seconds": 13.041558742523193,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606805.9089482,
+ "finished": 1791606819.6449077,
+ "health": {
+  "at": 1791606805.9072435,
+  "available_fraction": 0.45658322129892465,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3982b936ab8c415ebef80dc0556b1722",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ed5f1ba3eaa99c4c72bb477b222df8055c13e105396de9d04c16029b8066450b",
+ "image_sha256": "91b828222ccc44454771a24f13372d7d6817c6eb6e11961a4cee74cd39d9a700"
+}

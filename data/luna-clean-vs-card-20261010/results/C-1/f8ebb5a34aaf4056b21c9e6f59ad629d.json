@@ -1,0 +1,35 @@
+{
+ "unit": "f8ebb5a34aaf4056b21c9e6f59ad629d",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f8ebb5a34aaf4056b21c9e6f59ad629d:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且局部遮挡，无法清晰确认完整车体及三轮结构。",
+   "observed_object": "疑似堆放物或小型车辆部件",
+   "reasoning": "仅凭当前可见区域没有足够证据确认存在三轮车，也不能排除其他物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608950.1348555,
+   "seconds": 22.37083077430725,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608950.1348534,
+ "finished": 1791608972.7789457,
+ "health": {
+  "at": 1791608950.1323144,
+  "available_fraction": 0.45391816834929055,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c51cb58e6b5a40c1b98c42f661aa3c3a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d6aeec99b0ea17cd10183b5dfe01a376f50be806152a98d19db42457de435ba1",
+ "image_sha256": "73255cf1cf8233fd07f1529dcc9e8bdc488ede6fe35de06e36fd833a8fbe2963"
+}

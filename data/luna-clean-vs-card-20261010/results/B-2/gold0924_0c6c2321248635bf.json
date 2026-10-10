@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_0c6c2321248635bf",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见人员的人体结构，目标为行人。",
+   "reasoning": "候选框内能看到人的头部、躯干和腿部等人体结构，符合“人员”类别；框线和文字未作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606041.7629278,
+   "seconds": 15.455511331558228,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606041.7629259,
+ "finished": 1791606057.7623801,
+ "health": {
+  "at": 1791606041.762242,
+  "available_fraction": 0.449814401463873,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "82a939e2d1c740d5b8a95ab497c488ed",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "556e6aba3d21544d64628341520c32b8536a0b924a6cf76ab02c09d05c984c4b",
+ "image_sha256": "0c6c2321248635bfa29d7b6fd58a46bf41e24cd6252c3d22eedc4c405e09f3d2"
+}

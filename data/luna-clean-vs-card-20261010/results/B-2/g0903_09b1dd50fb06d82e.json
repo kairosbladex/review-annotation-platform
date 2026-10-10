@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_09b1dd50fb06d82e",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a56e3d6fc2994361a3d774417ed6fdc9",
+   "decision": "uncertain",
+   "image_limitation": "框内主要为浅灰色屋面，局部受树木遮挡，无法确认是否属于蓝色或绿色顶棚。",
+   "observed_object": "建筑屋面/棚顶",
+   "reasoning": "候选框内未见明确的蓝色或绿色成片顶棚结构，不能仅凭框线或文字判定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603456.560937,
+   "seconds": 19.010998487472534,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603456.560935,
+ "finished": 1791603475.8747764,
+ "health": {
+  "at": 1791603456.5603478,
+  "available_fraction": 0.43930001882372627,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ca58e34e7a6a4283b239e77544ef5809",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "58adc6cc6053b6fb9d02108488a671d8b2eb42aa0a1451c8a7d6386a13d5c21d",
+ "image_sha256": "09b1dd50fb06d82e6db4fe5445c27c69e88247188470faaf37c846db82132094"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内主要为建筑屋面或深色矩形区域，未见可确认的人体结构。",
+   "reasoning": "框内没有头部、躯干或四肢等人员证据，不能将框线或文字作为目标依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607162.2564847,
+   "seconds": 15.573258399963379,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607162.2564833,
+ "finished": 1791607178.1204436,
+ "health": {
+  "at": 1791607162.2560768,
+  "available_fraction": 0.456354643137171,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c72aabfb6e1e42bda775302c755ec614",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fe79387834a61b610d2fb88f3b294d8b92ffb2755fdddcd3cf1ede0d927914c1",
+ "image_sha256": "4cc0a093e71beb3631b6d1635a715c4118a2657764b329138e358ec56503a47a"
+}

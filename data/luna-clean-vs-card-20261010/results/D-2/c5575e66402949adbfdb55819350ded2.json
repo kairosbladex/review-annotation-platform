@@ -1,0 +1,59 @@
+{
+ "unit": "c5575e66402949adbfdb55819350ded2",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型车辆",
+   "reasoning": "框内可见明确的车辆外形，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:001",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节不清，无法确认是否具备卡车结构。",
+   "observed_object": "疑似车辆",
+   "reasoning": "仅凭当前框内影像不能唯一判断为卡车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:002",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小，无法看清车轮数量及两轮结构。",
+   "observed_object": "疑似车辆",
+   "reasoning": "缺乏确认两轮车所需的结构证据。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:003",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，车辆结构不可清晰辨认。",
+   "observed_object": "疑似车辆",
+   "reasoning": "无法明确确认符合“车”类别。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607939.6023524,
+   "seconds": 16.064850330352783,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607939.60235,
+ "finished": 1791607955.9373426,
+ "health": {
+  "at": 1791607939.6000755,
+  "available_fraction": 0.4575949661853889,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "60690d584a264318adcba548a4e8216b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e60d70b8ab8fa43a5ed66545b0151a0db8002346c596d7032a15090b0bd445c4",
+ "image_sha256": "962bd55bb3263a3f915a6f42ab590208e1fa1d52d0162af24aab0a2991bc0c64"
+}

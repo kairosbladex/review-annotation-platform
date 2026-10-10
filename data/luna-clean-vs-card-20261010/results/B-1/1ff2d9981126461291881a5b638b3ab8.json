@@ -1,0 +1,35 @@
+{
+ "unit": "1ff2d9981126461291881a5b638b3ab8",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "1ff2d9981126461291881a5b638b3ab8:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车的车身轮廓，符合“车”类别。",
+   "reasoning": "目标结构清晰且可唯一定位，框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601849.0548916,
+   "seconds": 24.20453119277954,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601849.054889,
+ "finished": 1791601874.0595708,
+ "health": {
+  "at": 1791601849.0363324,
+  "available_fraction": 0.4568532347625098,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6767ad47f707453f986fc9b41ed57b4f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "35de13424a8f8f7845847cd3459ac407234b918584bbb7d51b68bad426e55bc1",
+ "image_sha256": "db5be036d9995d68c1290024774f714e903d4760936c667c0537bc7d3b696a6d"
+}

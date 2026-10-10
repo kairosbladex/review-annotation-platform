@@ -1,0 +1,35 @@
+{
+ "unit": "596dbc4ade5e4742ad955faf49d340d7",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "596dbc4ade5e4742ad955faf49d340d7:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标尺寸很小且被红色框线、文字及水面背景干扰，无法清晰确认可见人体结构。",
+   "observed_object": "疑似小型目标，具体形态不可辨认",
+   "reasoning": "人员类别必须有明确可见的人体结构；当前图像无法唯一确认，因此不能判定为true。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606608.1484244,
+   "seconds": 5.2560036182403564,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606608.1484227,
+ "finished": 1791606613.9427366,
+ "health": {
+  "at": 1791606608.1477928,
+  "available_fraction": 0.4563663167658601,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8a3e10ee26e7484d9b297c58c94e59c6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "eadb2cdb98d27c3b02616b6138e7c9024556e3c7b5a694557928c6865a4b8d96",
+ "image_sha256": "90ca65d459444f9bcf9ea1a7711ed99a0684de08ec88e17692806f8f3c0d6486"
+}

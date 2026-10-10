@@ -1,0 +1,35 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标面积很小且受框线、文字及低分辨率影响，无法可靠判断其是否为蓝色或绿色顶棚。",
+   "observed_object": "疑似地面上的小型物体或区域，目标性质不清。",
+   "reasoning": "候选框未能清晰显示符合违建类别定义的蓝色或绿色屋面，不能唯一定位并确认目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606728.041706,
+   "seconds": 5.455076456069946,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606728.041704,
+ "finished": 1791606733.9476511,
+ "health": {
+  "at": 1791606728.0408893,
+  "available_fraction": 0.45595126454582774,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ea04b1a8c22f4cdebcc09e1bfc2c2829",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d46ef56e7bbf5140c003c9172868c484d8dd706b3933e3f0254e4d8231eeed88",
+ "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

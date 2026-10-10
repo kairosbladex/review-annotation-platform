@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_c0bfe131827b8cae",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-017",
+   "decision": "true",
+   "image_limitation": "目标较小但可见人体轮廓及头部、躯干和肢体结构。",
+   "observed_object": "道路上的人员",
+   "reasoning": "候选框内可见明确的人体结构，符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607812.5028856,
+   "seconds": 23.939587354660034,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607812.5028837,
+ "finished": 1791607836.7233422,
+ "health": {
+  "at": 1791607812.50066,
+  "available_fraction": 0.45650603550923285,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "dceb16eb9c21441fb9d23b8ba9f38204",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ff872591c29b53f3978902309c81a8b6c53d7b8d3efa209a970c9cefc866cdff",
+ "image_sha256": "4196e0264a6ebf326fc0787b9d9ef83c403ad84cb363e6b2cb5ec91091cd3556"
+}

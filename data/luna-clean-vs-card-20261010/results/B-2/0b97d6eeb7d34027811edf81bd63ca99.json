@@ -1,0 +1,91 @@
+{
+ "unit": "0b97d6eeb7d34027811edf81bd63ca99",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内可见完整车辆轮廓，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见道路上的车辆目标，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆轮廓，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "轿车",
+   "reasoning": "框内清晰可见一辆轿车，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆目标，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆轮廓，符合“车”类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆目标，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆轮廓，符合“车”类别。",
+   "target_index": 7
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601736.830447,
+   "seconds": 4.2242348194122314,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601736.830445,
+ "finished": 1791601741.4676797,
+ "health": {
+  "at": 1791601736.8295946,
+  "available_fraction": 0.45640869447000754,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "afd2efc670694a6e951c4f9c46961567",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1c01772438fe095b3436a659babae9ad22faa37f9f189d439a2d9c0618fbb612",
+ "image_sha256": "29f7188e78c31088eaf57bf0ab3ce324f71f2ebac104ec55c1914049073c98ec"
+}

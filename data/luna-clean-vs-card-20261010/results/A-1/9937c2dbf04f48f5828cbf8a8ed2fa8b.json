@@ -1,0 +1,35 @@
+{
+ "unit": "9937c2dbf04f48f5828cbf8a8ed2fa8b",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9937c2dbf04f48f5828cbf8a8ed2fa8b:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为红色文字“临水”等标注，不是可见人体结构。",
+   "reasoning": "框内没有人员的头部、躯干或四肢等人体结构，文字不能作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608430.3952756,
+   "seconds": 16.468159914016724,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608430.3952737,
+ "finished": 1791608447.1406035,
+ "health": {
+  "at": 1791608430.3946571,
+  "available_fraction": 0.4547177207142704,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8f3121b76ed240ae9a04445f44091c2b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e1dc8624d0943f0aff61b2f81a1062c134794a0ec2b6f626a1df49bb12b54d82",
+ "image_sha256": "ec7c48c792dc1f5c9413b2777f2709172fd44262308d03db73c1920992f53723"
+}

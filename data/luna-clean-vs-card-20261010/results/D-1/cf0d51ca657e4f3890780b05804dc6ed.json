@@ -1,0 +1,35 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "建筑屋顶上的浅蓝色顶棚",
+   "reasoning": "框内可见规则的浅蓝色屋面，属于类别要求的蓝色顶棚；未将框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606727.0963848,
+   "seconds": 30.888832330703735,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606727.0963826,
+ "finished": 1791606758.271763,
+ "health": {
+  "at": 1791606727.0946314,
+  "available_fraction": 0.45648220185065924,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f514ffb43a464533ac23bad6f1eb80a4",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "08781accdb09d8db365f658231f53ba18a2105b23b1df7eef43169d55adceedf",
+ "image_sha256": "b683e6ac34cc1ebc9340c5ab0dd4df804d2f0bd50f8d0400986c7e576fba8765"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且受遮挡，无法清晰确认车辆结构及卡车类别。",
+   "observed_object": "疑似道路上的小型车辆",
+   "reasoning": "仅凭当前可见区域不能唯一判断为卡车，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601944.8142564,
+   "seconds": 4.104189157485962,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601944.8142543,
+ "finished": 1791601949.4540567,
+ "health": {
+  "at": 1791601944.8129752,
+  "available_fraction": 0.45751242998254793,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7aaa01ca83ed4caf9984a9f9d56f61a1",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "148b542d56f5ffadb23f283d890f78ca46f130e26546f1b6812a2e5d0f77cf62",
+ "image_sha256": "10737dccfe055845463b0509f70b2c9e018f65760e323fcce4cac4d43d2dd6ec"
+}

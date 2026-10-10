@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_783a28ac76814d6e",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5778bd2c683e4d079a34ef2f08718b88",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见建筑外立面及蓝色遮挡物，缺乏审批或区域业务依据，无法判定为违建。",
+   "observed_object": "建筑外立面上的蓝色矩形物体",
+   "reasoning": "违建属性不能仅凭外观判断，现有图像不足以确认类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606004.5366166,
+   "seconds": 15.098564386367798,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606004.5366147,
+ "finished": 1791606019.9172318,
+ "health": {
+  "at": 1791606004.5345185,
+  "available_fraction": 0.4506821715965049,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3819c5343b144af5ac1250a974be3069",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bb6c5b2357856746d1242ec3519ab38b184963b3fff5039eaa7b4296ba60c467",
+ "image_sha256": "22dc7995c8c3b9431cf3fb39528e5cde2dd9ea997c9d1d25bb5f90d6b2aec658"
+}

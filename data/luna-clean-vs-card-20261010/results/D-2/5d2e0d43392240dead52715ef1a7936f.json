@@ -1,0 +1,35 @@
+{
+ "unit": "5d2e0d43392240dead52715ef1a7936f",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:5d2e0d43392240dead52715ef1a7936f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车，具有明显车体结构。",
+   "reasoning": "候选框内目标符合“车”类别，未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609894.2345414,
+   "seconds": 16.329896450042725,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609894.2345393,
+ "finished": 1791609911.1330311,
+ "health": {
+  "at": 1791609894.2323701,
+  "available_fraction": 0.4566718071166332,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c7b48ddb552f48ada7248ad3edb0d863",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6cd0b1f93a7a0eb34cd7cdf0fa38a81fc6b30660093498ffc7d4fdd280667027",
+ "image_sha256": "c6546638efc862cf0f521427b6ac5f9fb7f9136aef89375acd7c0f919cdee9d2"
+}

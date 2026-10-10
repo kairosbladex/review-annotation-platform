@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_30307ae0bd802781",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:18172673ac38432aa6a1d99482f45439",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否有审批或区域业务依据。",
+   "observed_object": "左下方道路旁的小型棚状结构。",
+   "reasoning": "可见棚体，但无法据此认定为违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b52575f40fd548eab466771d11f3cc48",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否有审批或区域业务依据。",
+   "observed_object": "左下方道路旁的长条形棚状结构。",
+   "reasoning": "可见长条棚体，但无法据此认定为违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605706.9411845,
+   "seconds": 16.649385929107666,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605706.9411821,
+ "finished": 1791605723.8712175,
+ "health": {
+  "at": 1791605706.9387636,
+  "available_fraction": 0.44211692014654297,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "db90da1124ac4846a48961aee850bf89",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f480c7672ada2690b528e04c8122b16cea977830461bb873b5bec83835a903aa",
+ "image_sha256": "9510c2f291bf282872a940274686a753d493c8b2f870f64549729249b0772c05"
+}

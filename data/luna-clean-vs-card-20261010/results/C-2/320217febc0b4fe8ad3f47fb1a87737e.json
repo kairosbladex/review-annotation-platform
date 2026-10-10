@@ -1,0 +1,35 @@
+{
+ "unit": "320217febc0b4fe8ad3f47fb1a87737e",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "320217febc0b4fe8ad3f47fb1a87737e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名人员，具有人体头部、躯干和腿部结构。",
+   "reasoning": "目标符合“人员”类别，未将框线或其他物体作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604388.410403,
+   "seconds": 15.630581378936768,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604388.410401,
+ "finished": 1791604404.3314173,
+ "health": {
+  "at": 1791604388.4092462,
+  "available_fraction": 0.4433039214637174,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3457a837038d4b658285b257c121607c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8235e2e462bf31296025b31224920e5131a00fe13d7c64d4da3fb4aa8964813c",
+ "image_sha256": "a72caae20353cfb3e42c518ef5c3c0b28ce086f8200dddf39444e191ec5cbfe4"
+}

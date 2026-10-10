@@ -1,0 +1,35 @@
+{
+ "unit": "8c6403a541ae4a218a1300f45baa79c9",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "8c6403a541ae4a218a1300f45baa79c9:001",
+   "decision": "true",
+   "image_limitation": "候选框内可见一辆汽车，车辆结构清晰可辨。",
+   "observed_object": "汽车",
+   "reasoning": "目标符合“车”类别，未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607709.5887532,
+   "seconds": 23.743722677230835,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607709.5887508,
+ "finished": 1791607733.6085715,
+ "health": {
+  "at": 1791607709.586841,
+  "available_fraction": 0.4554072248087957,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "dc6589da15fe443ca6e0ddb23def946d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "61280a5f6c5d5dfd60edc7df81729083128e3d6327c704f1a453747671c6d86d",
+ "image_sha256": "001cd630b4b7a91d829c6f735887831d9f5bc4bd233a73145ffd2ce8bd9b919f"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "c2b66e6c0fd641188ae3962c36f600d1",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "c2b66e6c0fd641188ae3962c36f600d1:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见人员的人体结构",
+   "reasoning": "候选框内能看到明显的人体形态，符合“人员”类别；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608988.4012246,
+   "seconds": 13.750156164169312,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608988.401223,
+ "finished": 1791609002.427395,
+ "health": {
+  "at": 1791608988.4007864,
+  "available_fraction": 0.45283145687858845,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "287010b182444792996fd94a843cb700",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8d2004b0debf88ded64ba6056e63960686d41fa3c764cc7c91884803ef7a2058",
+ "image_sha256": "514c2cff2968d3902c336356bc21106828a304b526166a8be506834408bf5876"
+}

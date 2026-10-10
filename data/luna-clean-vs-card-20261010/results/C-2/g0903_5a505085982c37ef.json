@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到建筑屋顶边缘的局部结构，缺乏审批或区域业务依据，无法判定为违建。",
+   "observed_object": "建筑屋顶局部蓝色矩形结构",
+   "reasoning": "外观局部不足以证明存在违法建设。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于建筑屋顶边缘，仅呈现局部结构，缺乏审批或区域业务依据。",
+   "observed_object": "建筑屋顶局部蓝色矩形结构",
+   "reasoning": "不能仅凭该外观判断为违建。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于建筑屋顶边缘，仅呈现局部结构，缺乏审批或区域业务依据。",
+   "observed_object": "建筑屋顶局部蓝色矩形结构",
+   "reasoning": "没有足够证据证明其属于违建。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601997.2194133,
+   "seconds": 32.317662954330444,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601997.2194107,
+ "finished": 1791602029.8135304,
+ "health": {
+  "at": 1791601997.2174559,
+  "available_fraction": 0.45628140935719164,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f0765e2b766045c8a1aa03bd83345be0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "febdd80b35d3c10ce914ba44bbfa7db23c30aecc501a89df682ccb11b4ea3248",
+ "image_sha256": "a7d12fe816fef958c6082503e99cf20a9a4b6d51ad7d08f0e792cdd2613789eb"
+}

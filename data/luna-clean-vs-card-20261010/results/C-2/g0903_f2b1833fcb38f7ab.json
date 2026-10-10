@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f2b1833fcb38f7ab",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:53499b1d092345a6ad46fa1577b24b27",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见车辆结构，符合“车”类别。",
+   "reasoning": "框内目标呈现为道路旁停放的车辆，可见车身及车轮等车辆结构；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606923.8159175,
+   "seconds": 20.286988973617554,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606923.8159156,
+ "finished": 1791606944.3735793,
+ "health": {
+  "at": 1791606923.8143275,
+  "available_fraction": 0.45706092807293686,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "39f466421caa412bbe6a8c8c0210af87",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4f89a132033c7edebda59344471342d9b8e6bf3e3d98c1e625bf941346d07286",
+ "image_sha256": "db83909f08bf248cf8d27331f7bc66baa0f4bfd5014b785b4219fe4a34f3b869"
+}

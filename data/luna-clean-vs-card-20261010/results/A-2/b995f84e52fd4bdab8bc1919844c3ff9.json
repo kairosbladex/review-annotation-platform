@@ -1,0 +1,75 @@
+{
+ "unit": "b995f84e52fd4bdab8bc1919844c3ff9",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:004",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小且仅见标注/局部纹理，无法确认人体结构。",
+   "observed_object": "无法明确辨认目标",
+   "reasoning": "框内没有足够清晰、可唯一定位的人体结构证据。",
+   "target_index": 0
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小，目标细节不可辨认。",
+   "observed_object": "无法明确辨认目标",
+   "reasoning": "不能仅凭框线或文字标注判定为人员。",
+   "target_index": 1
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:002",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小且存在文字/标注干扰，无法确认人体结构。",
+   "observed_object": "无法明确辨认目标",
+   "reasoning": "缺少可见人体结构，不能明确符合人员类别。",
+   "target_index": 2
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:005",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小，无法看清目标结构。",
+   "observed_object": "无法明确辨认目标",
+   "reasoning": "不能排除框内主要是标注或背景，缺乏人员证据。",
+   "target_index": 3
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框极小，无法确认是否存在人体。",
+   "observed_object": "无法明确辨认目标",
+   "reasoning": "不可依据红色文字或框线判定人员。",
+   "target_index": 4
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:003",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小并受标注遮挡，无法确认人体结构。",
+   "observed_object": "无法明确辨认目标",
+   "reasoning": "目标不可清晰辨识，不能明确判定为人员。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602250.6567478,
+   "seconds": 5.618116140365601,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602250.656746,
+ "finished": 1791602256.545741,
+ "health": {
+  "at": 1791602250.6559925,
+  "available_fraction": 0.44627102955568226,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "dfdea017d93d4fefbbbdd973ae22f056",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d13e6604318b1e9ee857b3b8d2cce1f0bf16d5a1c9cae0228b01cdc51a372082",
+ "image_sha256": "d228961d1aab7b1179920d0907199bc0c71ff41dba46212daed0cc2001622d03"
+}

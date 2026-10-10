@@ -1,0 +1,107 @@
+{
+ "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像边缘且被裁切，无法确认公交车结构。",
+   "observed_object": "边缘处疑似车辆局部",
+   "reasoning": "仅凭框内局部和框线不能明确判定为公交车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+   "decision": "uncertain",
+   "image_limitation": "车辆被俯视且分辨率有限，卡车所需车厢或明显大型车辆结构不清晰。",
+   "observed_object": "疑似车辆",
+   "reasoning": "能看到目标区域内有车辆，但不足以确认卡车细分类。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小型车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603943.386313,
+   "seconds": 22.42122793197632,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603943.386311,
+ "finished": 1791603966.086084,
+ "health": {
+  "at": 1791603943.3853269,
+  "available_fraction": 0.4501537270977997,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3f7bf565bea744d6a0f08838b7616e28",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7c26139f6bb917ea63533413564a34b471d0b210758bed74c93b180e7e0415b7",
+ "image_sha256": "c6057a5485c3e7c88d259e4f641a37b552857cb38c53ae907c1b522b6b783735"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "9004cbad92554824930663ab17e0400c",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9004cbad92554824930663ab17e0400c:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见水面、平台边缘及框线，未见可辨认的人体结构。",
+   "observed_object": "水面与平台边缘",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604757.8542511,
+   "seconds": 28.931509733200073,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604757.854249,
+ "finished": 1791604787.0593834,
+ "health": {
+  "at": 1791604757.8535128,
+  "available_fraction": 0.4415168226717434,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a70b6d460bb040fe9d4d991dcfd82f43",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "faeac70dee6ad04cbf4102c4e5ade9bc26ae2d9d5922ec54e5134300bbffe402",
+ "image_sha256": "c0fa82fcecfa8af6ace93095cf86f1b40919a79542851db5268684fa238b327f"
+}

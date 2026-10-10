@@ -1,0 +1,43 @@
+{
+ "unit": "4f63543e5bae47728ed68f9de1fd9539",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:000",
+   "decision": "uncertain",
+   "image_limitation": "目标较小且被俯视角度压缩，无法确认车辆结构及货车特征。",
+   "observed_object": "候选框内可见一辆小型车辆或物体。",
+   "reasoning": "仅凭当前图像无法明确判断为卡车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:002",
+   "decision": "uncertain",
+   "image_limitation": "目标分辨率较低且俯视，无法看清车轮数量和车身结构。",
+   "observed_object": "候选框内可见一辆小型车辆。",
+   "reasoning": "没有足够的三轮证据，不能确认属于三轮车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605337.2716606,
+   "seconds": 34.00746965408325,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605337.2716582,
+ "finished": 1791605371.5700653,
+ "health": {
+  "at": 1791605337.2700357,
+  "available_fraction": 0.4396395268581012,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "90897a810fbe42cc89649504e2a8deb7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1790f66e3a9f38a85fcb05c78a3ad0549ef7f81731f1b0af9b3d5fb26788f5b0",
+ "image_sha256": "d821f9a3966b9feed3c7ad442f4c230043e0600277799d23dd6239fbcda17f66"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "8000a189fc2541f7916c5a5ce57e5249",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "8000a189fc2541f7916c5a5ce57e5249:001",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且分辨率有限，无法清晰确认可见人体结构。",
+   "observed_object": "框内仅见疑似小型目标，无法唯一判断为人员。",
+   "reasoning": "不能仅依据框线或文字判定目标；当前图像不足以确认人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607320.585299,
+   "seconds": 24.139131546020508,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607320.585297,
+ "finished": 1791607345.2689297,
+ "health": {
+  "at": 1791607320.57203,
+  "available_fraction": 0.4565847717027349,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "947ee0ab4319407aa50112c4c6c6e458",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ce03088b02323a4904d01e81fc052ddc30a60f25cf4621a6bcfa08e1ee422dd1",
+ "image_sha256": "df97950af8a74d54a4feec9458727b906149abdca04fce30a670229bb036ba93"
+}

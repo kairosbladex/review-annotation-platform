@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5f8ae6af38734aaf",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0d716cff82d14e248530e2e8af69b96b",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要为建筑屋顶上的灰白色设备/结构，未见蓝色或绿色顶棚。",
+   "reasoning": "依据类别要求，违建目标必须是蓝色或绿色屋面；该框内主体颜色为灰白色，明显不符合。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601342.2705913,
+   "seconds": 32.4571418762207,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601342.2705886,
+ "finished": 1791601374.999255,
+ "health": {
+  "at": 1791601342.2694209,
+  "available_fraction": 0.46406492288595447,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d274df40cb8e46c4b64a1d175c20e495",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e651fa43a98934ecf8b11517e3013e7e53f6e7caed42f5d4bee080b3ed6d2704",
+ "image_sha256": "5f8ae6af38734aaf672539f4520d895307a2157cb462ded27a9ebb50d4d9b4fd"
+}

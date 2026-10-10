@@ -1,0 +1,51 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "uncertain",
+   "image_limitation": "候选框内主要是标注框及远处模糊区域，无法确认可见人体结构。",
+   "observed_object": "无法唯一辨认目标",
+   "reasoning": "仅凭框线和附近文字不能作为人员证据，目标过小且不清晰。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小、模糊，无法确认人体结构。",
+   "observed_object": "无法唯一辨认目标",
+   "reasoning": "看不清是否存在头部、躯干或四肢，不能据此判定为人员。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小、模糊，无法确认人体结构。",
+   "observed_object": "无法唯一辨认目标",
+   "reasoning": "看不清是否存在头部、躯干或四肢，不能据此判定为人员。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609556.1202347,
+   "seconds": 38.78121829032898,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609556.1202328,
+ "finished": 1791609595.6539872,
+ "health": {
+  "at": 1791609556.1196246,
+  "available_fraction": 0.45502789267654903,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "babab370220f428396d7f3c15f09376b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f57315de287a9a38b94b88163f65ad5871fcaca3d32b2b3bf081b984721d7937",
+ "image_sha256": "24a27ba779cf9126f703b0d158276386228162db2fe7df843c24814e1c2fa9f5"
+}

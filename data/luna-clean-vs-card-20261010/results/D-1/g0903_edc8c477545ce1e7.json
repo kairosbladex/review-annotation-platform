@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_edc8c477545ce1e7",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:553aaf3027ee45b19cbeabe77e948a69",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标尺寸过小且细节模糊，无法确认是否具备两轮车结构。",
+   "observed_object": "建筑屋顶边缘附近的模糊小目标",
+   "reasoning": "仅凭当前图像无法清晰辨认车轮及车体结构，不能明确符合两轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606320.2856421,
+   "seconds": 30.881845235824585,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606320.2856402,
+ "finished": 1791606351.446166,
+ "health": {
+  "at": 1791606320.2833743,
+  "available_fraction": 0.4565535204259318,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "eb3e4ee5d9ab4fa28a59cedef8193ba9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "58ca355da8180ffe6cbe7fb4bc41efebc091dce1007762aa42a469373d3823ae",
+ "image_sha256": "8d34379422466d2b6f02730a88aa436c095c6a8d6325d340f2272070f65cb475"
+}

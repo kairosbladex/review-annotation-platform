@@ -1,0 +1,83 @@
+{
+ "unit": "gold0924_8eed6571e7cb1951",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-018",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被红色框线和文字严重遮挡，无法确认可见人体结构。",
+   "observed_object": "候选框内疑似小物体",
+   "reasoning": "不能仅凭框线或文字判定为人员，人体结构不可清晰辨认。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-019",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被红色框线和文字严重遮挡，无法确认可见人体结构。",
+   "observed_object": "候选框内疑似小物体",
+   "reasoning": "不能仅凭框线或文字判定为人员，人体结构不可清晰辨认。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0924:B03-020",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被红色框线和文字遮挡，目标过小，无法确认人体结构。",
+   "observed_object": "候选框内疑似小物体",
+   "reasoning": "缺乏明确可见的人体结构，不能确认符合人员类别。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0924:B03-021",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被红色框线和文字遮挡，目标过小，无法确认人体结构。",
+   "observed_object": "候选框内疑似小物体",
+   "reasoning": "缺乏明确可见的人体结构，不能确认符合人员类别。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0924:B03-022",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被红色框线和文字遮挡，无法确认可见人体结构。",
+   "observed_object": "候选框内疑似小物体",
+   "reasoning": "不能仅凭框线或文字判定为人员，人体结构不可清晰辨认。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0924:B03-023",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被红色框线和文字遮挡，无法确认可见人体结构。",
+   "observed_object": "候选框内疑似小物体",
+   "reasoning": "不能仅凭框线或文字判定为人员，人体结构不可清晰辨认。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0924:B03-024",
+   "decision": "uncertain",
+   "image_limitation": "目标区域被红色框线和文字遮挡，目标过小，无法确认人体结构。",
+   "observed_object": "候选框内疑似小物体",
+   "reasoning": "缺乏明确可见的人体结构，不能确认符合人员类别。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602116.4831011,
+   "seconds": 5.808330297470093,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602116.4830992,
+ "finished": 1791602122.5658948,
+ "health": {
+  "at": 1791602116.4823873,
+  "available_fraction": 0.43892789150918615,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "66e4b4665d764f908ed663c65913da3e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "914facb7d113bc8b57f6e1a9622e20216b4a6b9f3b13a1d985752cdf84169e24",
+ "image_sha256": "8eed6571e7cb1951903ce5dd6ccb17bc41ca08e7e66128604c740ac677759ab3"
+}

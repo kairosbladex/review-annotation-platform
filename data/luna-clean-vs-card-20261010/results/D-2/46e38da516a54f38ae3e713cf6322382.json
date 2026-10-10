@@ -1,0 +1,35 @@
+{
+ "unit": "46e38da516a54f38ae3e713cf6322382",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "46e38da516a54f38ae3e713cf6322382:000",
+   "decision": "true",
+   "image_limitation": "目标区域较小，但可见车辆外形与车窗，能够唯一定位为车辆。",
+   "observed_object": "建筑玻璃反射中的一辆车",
+   "reasoning": "候选框内可见明显车辆结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609363.3549628,
+   "seconds": 19.45672869682312,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609363.354961,
+ "finished": 1791609383.093847,
+ "health": {
+  "at": 1791609363.3532412,
+  "available_fraction": 0.4529141754818777,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "bc89e82294a645a0bb339856cf3e3f48",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0e5f0dd82f9600c846c1018e4afbce55ccbc07e0e5191fafb7c7dc82757c255f",
+ "image_sha256": "11a8976c1bdcc812f22e6abac474c919071443c170f82627a6cfd9911daa973e"
+}

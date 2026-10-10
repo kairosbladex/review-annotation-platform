@@ -1,0 +1,83 @@
+{
+ "unit": "a86295070bc84b7cb5f14b9ec47e0f21",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:004",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且被标注框、文字干扰，无法确认可见人体结构。",
+   "observed_object": "小型被标注区域",
+   "reasoning": "不能仅凭框线或文字判定为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:005",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节不足，无法确认人体结构。",
+   "observed_object": "小型被标注区域",
+   "reasoning": "无法唯一确认人员目标。",
+   "target_index": 1
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小并受标注覆盖，无法确认人体结构。",
+   "observed_object": "小型被标注区域",
+   "reasoning": "不能将标注框或文字作为人员证据。",
+   "target_index": 2
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:001",
+   "decision": "uncertain",
+   "image_limitation": "候选区域细节不足，无法确认人体结构。",
+   "observed_object": "小型被标注区域",
+   "reasoning": "无法明确判断为人员。",
+   "target_index": 3
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:002",
+   "decision": "uncertain",
+   "image_limitation": "目标很小且被标注框覆盖，无法确认人体结构。",
+   "observed_object": "小型被标注区域",
+   "reasoning": "缺乏明确的人体结构证据。",
+   "target_index": 4
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:003",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法辨认人体结构。",
+   "observed_object": "小型被标注区域",
+   "reasoning": "不能仅依据标注框判定类别。",
+   "target_index": 5
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:006",
+   "decision": "uncertain",
+   "image_limitation": "远距离目标细节不足，无法确认人体结构。",
+   "observed_object": "小型被标注区域",
+   "reasoning": "无法明确判断为人员。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604215.4180675,
+   "seconds": 44.80443620681763,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604215.4180653,
+ "finished": 1791604260.72826,
+ "health": {
+  "at": 1791604215.4173398,
+  "available_fraction": 0.44811151087884915,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "fb4c555e184f4bcc80ec4a515bbac979",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "911e8c002949eaa6727b78e8822bbbd25ad6d640f3bf14e7084c6a49dcaf7644",
+ "image_sha256": "d0fad4d8c1e40b459f55efaa79c32ce914da5b13f4a4c494d6168d6845a09cac"
+}

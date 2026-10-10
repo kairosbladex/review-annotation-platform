@@ -1,0 +1,35 @@
+{
+ "unit": "e803e5bda638434e8682efff43a65664",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e803e5bda638434e8682efff43a65664:000",
+   "decision": "false",
+   "image_limitation": "框内主要是红色标注框和文字，未见可确认的人体结构。",
+   "observed_object": "建筑边缘及标注内容",
+   "reasoning": "候选框内没有可见人体结构，不能将框线或文字作为人员证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606897.733609,
+   "seconds": 4.667825937271118,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606897.733607,
+ "finished": 1791606902.9798114,
+ "health": {
+  "at": 1791606897.7184465,
+  "available_fraction": 0.45536049989396454,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a466dfe6ee6f4613a832d8737354d0cc",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "71e11d899398c6f12d24874b709b3b47e0dae73a86b34050f543ff9d8cd91231",
+ "image_sha256": "faad818bf7915b799a5b506b8f3c313078093daf9ed69a12322c665636da4001"
+}

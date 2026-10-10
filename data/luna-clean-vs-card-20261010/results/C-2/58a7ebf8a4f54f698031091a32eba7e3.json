@@ -1,0 +1,35 @@
+{
+ "unit": "58a7ebf8a4f54f698031091a32eba7e3",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:58a7ebf8a4f54f698031091a32eba7e3:000",
+   "decision": "true",
+   "image_limitation": "目标位于图像左下角，车辆大部分可见但尺寸较小，细分类结构不清晰。",
+   "observed_object": "可见一辆车的车身及车窗轮廓。",
+   "reasoning": "候选框内明确可见车辆结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604913.1863787,
+   "seconds": 15.50723671913147,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604913.186376,
+ "finished": 1791604928.9699671,
+ "health": {
+  "at": 1791604913.1847394,
+  "available_fraction": 0.44410827704050165,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0ff0d22e3bb34a148f5de6a4a85f5407",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6ae3cfe1f8d039bf12b07a17f904ace9f7f23f734120709ebd2b797257a5cc23",
+ "image_sha256": "739bacdc305a16a2550252c7abc400501068b5340e1c47395176b1bdf6e8d4e7"
+}

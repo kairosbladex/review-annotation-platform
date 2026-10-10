@@ -1,0 +1,35 @@
+{
+ "unit": "67963890aa6a4b54b2de49c274b015bc",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:67963890aa6a4b54b2de49c274b015bc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见一辆车的整体结构，符合“车”类别。",
+   "reasoning": "框内目标呈现明确的车辆形态，判断不依赖框线或文字。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608475.4087613,
+   "seconds": 14.896917581558228,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608475.4087598,
+ "finished": 1791608490.5752852,
+ "health": {
+  "at": 1791608475.4079058,
+  "available_fraction": 0.45314132484011993,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "34b1b9fef7b34e04a59820bda7be44f6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6e858b4a758c01d6601e1da5532f7e4a09e1f500364aa00fbac6a7d63bd94d33",
+ "image_sha256": "d5a0ea7e178e7f29f7a257f2f3c7fcbbabddd7228196585d440b096a3fa1978c"
+}

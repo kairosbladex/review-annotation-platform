@@ -1,0 +1,107 @@
+{
+ "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:000",
+   "decision": "false",
+   "image_limitation": "目标可见，结构清楚。",
+   "observed_object": "蓝色小汽车",
+   "reasoning": "可见为小型轿车，不符合公交车类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:001",
+   "decision": "true",
+   "image_limitation": "目标较小但可辨认。",
+   "observed_object": "白色小汽车",
+   "reasoning": "可见为车辆，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+   "decision": "true",
+   "image_limitation": "目标较小但可辨认。",
+   "observed_object": "白色车辆",
+   "reasoning": "可见车辆外形，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+   "decision": "true",
+   "image_limitation": "目标较小但可辨认。",
+   "observed_object": "黑白车辆",
+   "reasoning": "可见车辆结构，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+   "decision": "true",
+   "image_limitation": "目标较小，但车体和货厢结构可见。",
+   "observed_object": "卡车",
+   "reasoning": "可见具有车头和货厢的车辆，符合卡车类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+   "decision": "true",
+   "image_limitation": "目标很小，但仍能辨认车辆轮廓。",
+   "observed_object": "白色车辆",
+   "reasoning": "可见为车辆，符合“车”类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+   "decision": "true",
+   "image_limitation": "目标很小，但仍能辨认车辆轮廓。",
+   "observed_object": "白色车辆",
+   "reasoning": "可见为车辆，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+   "decision": "true",
+   "image_limitation": "目标很小，但仍能辨认车辆轮廓。",
+   "observed_object": "白色车辆",
+   "reasoning": "可见为车辆，符合“车”类别。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+   "decision": "true",
+   "image_limitation": "目标很小，但仍能辨认车辆轮廓。",
+   "observed_object": "白色车辆",
+   "reasoning": "可见为车辆，符合“车”类别。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011",
+   "decision": "true",
+   "image_limitation": "目标很小，但仍能辨认车辆轮廓。",
+   "observed_object": "白色车辆",
+   "reasoning": "可见为车辆，符合“车”类别。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603918.9602242,
+   "seconds": 52.837461948394775,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603918.9602218,
+ "finished": 1791603972.076408,
+ "health": {
+  "at": 1791603918.958181,
+  "available_fraction": 0.45356464588047374,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5cae51d0964b4e369194c9a5636d38c0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "edbaf4cb99ca903368a37b585d77eea0e794160a4ce2feeda2d160afe67569d9",
+ "image_sha256": "a1a86478363e2539cf48b8c9e19e6e6922dff658171fe9762ad03d447edf4a70"
+}

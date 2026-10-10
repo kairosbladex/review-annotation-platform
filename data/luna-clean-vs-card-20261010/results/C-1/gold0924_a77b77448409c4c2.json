@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_a77b77448409c4c2",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B04-004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车，具备明显车身和车轮结构。",
+   "reasoning": "候选框内目标明确为车辆，符合“车”类别；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601815.1481035,
+   "seconds": 12.940127849578857,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601815.1481013,
+ "finished": 1791601828.3710473,
+ "health": {
+  "at": 1791601815.1459692,
+  "available_fraction": 0.4578008050912586,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "33e0a7e2c19148e2b0448718f69a7b9e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e2894ada62adba7aac3761d1327838e6ce13976ca59ffbab3c77f1a98ba59cf0",
+ "image_sha256": "11917b1907c069fd5f544ef33d8eda81696381d1ac5602566db03830eccca1c6"
+}

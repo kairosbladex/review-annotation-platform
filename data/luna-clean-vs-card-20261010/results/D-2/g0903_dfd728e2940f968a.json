@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_dfd728e2940f968a",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:1b1215b7886343c0b545b6639a919f33",
+   "decision": "uncertain",
+   "image_limitation": "框内为玻璃结构，颜色和是否为蓝绿色顶棚无法清晰确认。",
+   "observed_object": "疑似玻璃房或玻璃棚结构",
+   "reasoning": "目标主体看起来是透明/灰白色玻璃结构，不具备明确的蓝色或绿色成片屋面证据，无法确认符合违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609158.969968,
+   "seconds": 15.403900861740112,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609158.9699647,
+ "finished": 1791609174.6486204,
+ "health": {
+  "at": 1791609158.96756,
+  "available_fraction": 0.4542888364602445,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a8601481058e42bcabca0a1637ac5d0b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1515f50c17cfac68c5a116f76e292cf265205ea863463373b10af64393238f45",
+ "image_sha256": "3645cc1383907af4a3e1d2d81a1f3e02dbc7cfb84e48da5b7203079aa1b159a7"
+}

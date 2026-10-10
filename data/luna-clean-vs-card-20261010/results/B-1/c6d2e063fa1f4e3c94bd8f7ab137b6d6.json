@@ -1,0 +1,35 @@
+{
+ "unit": "c6d2e063fa1f4e3c94bd8f7ab137b6d6",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c6d2e063fa1f4e3c94bd8f7ab137b6d6:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且被红色文字和框线遮挡，无法清晰确认完整人体结构。",
+   "observed_object": "候选框内可见疑似小型目标，但人体结构不可辨认。",
+   "reasoning": "仅凭框线、文字及模糊局部不能确认属于人员，因此不能判定为true或false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605797.5769553,
+   "seconds": 14.412483215332031,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605797.5769536,
+ "finished": 1791605812.5409803,
+ "health": {
+  "at": 1791605797.5764947,
+  "available_fraction": 0.43560476814227816,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7c61a6808ff449cdb0ee5280c416491f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "10732d47e87e4e6e0c5720474d68bca824cc8de4a104e442c5da045540c7a57f",
+ "image_sha256": "c9c4c9adb1ab6d8e3dff81737dafaadd883e9099ef046cb5f9069db24cc8858a"
+}

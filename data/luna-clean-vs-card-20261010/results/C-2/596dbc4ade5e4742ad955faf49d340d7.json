@@ -1,0 +1,35 @@
+{
+ "unit": "596dbc4ade5e4742ad955faf49d340d7",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "596dbc4ade5e4742ad955faf49d340d7:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "绳索上的小型物体，疑似漂浮物或其他物件",
+   "reasoning": "候选框内未见可确认的人体结构，不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606603.4568145,
+   "seconds": 4.855551481246948,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606603.4568129,
+ "finished": 1791606608.8183322,
+ "health": {
+  "at": 1791606603.4444954,
+  "available_fraction": 0.45557472922045456,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6d6ae360527645009b79ac2f7b2a38c7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5b261ce600721470deee9b3edf08dc689882f698f3e8c52dbbdc616ccbfcc3c1",
+ "image_sha256": "31411703f774b75415e3a078b61896e6c9afbc6a61505ef990e989a2fb65e0c5"
+}

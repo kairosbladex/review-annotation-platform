@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_deb3b561f0a020d5",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:22f50e485cd4400f9828b3b8b218857a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "建筑上的蓝色顶棚",
+   "reasoning": "候选框内可见覆盖在建筑区域上方的成片浅蓝色顶棚，主体颜色符合蓝色顶棚类别；未将框线或文字作为依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604404.6255262,
+   "seconds": 33.495919942855835,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604404.6255236,
+ "finished": 1791604438.3942618,
+ "health": {
+  "at": 1791604404.6231647,
+  "available_fraction": 0.4461891621544849,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "eeb0948766a9467e87b12f0cba9b69d2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "010440ca9beff1dad5e2ae7b6a897ec25d3653afebc9faa89523e647b6b4b4d1",
+ "image_sha256": "ca9e61382f8a6c9e779e6483150dc03b9fcccdc5f534e8c37a38060e7c179b29"
+}

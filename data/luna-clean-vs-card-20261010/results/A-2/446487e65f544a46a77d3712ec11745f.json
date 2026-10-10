@@ -1,0 +1,43 @@
+{
+ "unit": "446487e65f544a46a77d3712ec11745f",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "446487e65f544a46a77d3712ec11745f:000",
+   "decision": "uncertain",
+   "image_limitation": "目标大部分位于图像左边缘，结构不完整，无法确认是否为车辆。",
+   "observed_object": "左侧边缘处仅见候选框内的局部目标及框线，车辆结构不可辨。",
+   "reasoning": "可见信息不足，不能明确符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "446487e65f544a46a77d3712ec11745f:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见一辆车辆的完整车身轮廓。",
+   "reasoning": "可见目标具有明确的车辆结构，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609179.7804322,
+   "seconds": 33.093976974487305,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609179.78043,
+ "finished": 1791609213.1474144,
+ "health": {
+  "at": 1791609179.7793086,
+  "available_fraction": 0.4528647145603225,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "de83852cbd06425880fcc7fc9a791204",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "766113ed246ad7f3e1845639dfb91456755dbec1ea1146f19daa48c0c088478c",
+ "image_sha256": "2d6743930331576d6271074021d568dc7017c24508e71a026be6163baf84936b"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_24d11b7bfccde471",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名人员的人体结构",
+   "reasoning": "候选框内能看到明确的人体轮廓和头部、躯干等结构，符合“人员”类别；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606930.4587328,
+   "seconds": 18.285264492034912,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606930.458731,
+ "finished": 1791606949.0151176,
+ "health": {
+  "at": 1791606930.438433,
+  "available_fraction": 0.45576187208037683,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5d9451b341354cab878f27dd9a596c10",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "999347053084521a90aa06bd82e7000eaf7b55820f02663cad4bde8e2bd79977",
+ "image_sha256": "24d11b7bfccde471cce87e8eb802759cc0a78340b417551311a98703cb431030"
+}

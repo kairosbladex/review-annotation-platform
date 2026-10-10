@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_bff2ed58618cd425",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见车辆，未见人体结构。",
+   "reasoning": "目标明显不是人员，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604669.2940373,
+   "seconds": 14.745409965515137,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604669.2940347,
+ "finished": 1791604684.8458474,
+ "health": {
+  "at": 1791604669.2921305,
+  "available_fraction": 0.4398779546440613,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e69f9468b4664a03a02b1924e976c60e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "dfb8d01ca4fb1ddae2ff111bf98c4734d9cf8db32badbc4434999a2fe4fa8913",
+ "image_sha256": "1c8093b2528c06217da9c4f1363d6ec3847a731de61d95f28fb75a90c5a57b75"
+}

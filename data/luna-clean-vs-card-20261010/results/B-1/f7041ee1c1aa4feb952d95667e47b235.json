@@ -1,0 +1,43 @@
+{
+ "unit": "f7041ee1c1aa4feb952d95667e47b235",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且分辨率有限，无法清晰确认车辆结构。",
+   "observed_object": "候选框内可见疑似车辆或车体局部，但细节不足。",
+   "reasoning": "仅凭框内轮廓无法明确判断为两轮车，不将框线或文字作为证据。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:001",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且分辨率有限，无法清晰确认车辆结构。",
+   "observed_object": "候选框内可见疑似车辆或车体局部，但细节不足。",
+   "reasoning": "无法清楚看到足以确认两轮车类别的车轮及车身结构，因此不能判定为true。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609219.4810488,
+   "seconds": 14.164528369903564,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609219.4810472,
+ "finished": 1791609233.928561,
+ "health": {
+  "at": 1791609219.4802434,
+  "available_fraction": 0.4542001290422371,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d0a489e4c9b9441d80d6d7e0a90cde66",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0a4aa878a72e5c5da31bd535acdab4110ae41a8d5af7cfdf618c84a723fbaf2e",
+ "image_sha256": "7de4222f7c637bf20f5ea5b10ad8eaca9e682c05521907289eb092a46a33e235"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "88c83731653046c6ab6849e1aebdbf01",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "88c83731653046c6ab6849e1aebdbf01:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名人员，能辨认头部、躯干和四肢等人体结构。",
+   "reasoning": "候选框内目标符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601843.7302046,
+   "seconds": 4.548778772354126,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601843.730203,
+ "finished": 1791601848.5601623,
+ "health": {
+  "at": 1791601843.7292461,
+  "available_fraction": 0.4552872661139852,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "78acec37618747d3b236eeaa0232b635",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a1f6b986ae85f3ffd6681397f9395e6a608ae48d9708c1b7d18685ada752dcb9",
+ "image_sha256": "aaff5cd9e884add7dda595269458a1386377905a116f9e523c5342b98fca695d"
+}

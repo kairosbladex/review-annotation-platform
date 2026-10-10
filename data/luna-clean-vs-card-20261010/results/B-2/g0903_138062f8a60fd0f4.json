@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_138062f8a60fd0f4",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:dc48f0371bc44bc48d4510962182ca1f",
+   "decision": "false",
+   "image_limitation": "框内主体为地面上的蓝色围挡/广告牌，不是覆盖在建筑、棚架、院落或空地上方的蓝绿色顶棚。",
+   "observed_object": "蓝色施工围挡及其广告文字",
+   "reasoning": "依据类别规则，蓝绿色围挡不属于违建目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608120.1027653,
+   "seconds": 27.60403037071228,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608120.1027622,
+ "finished": 1791608147.9767125,
+ "health": {
+  "at": 1791608120.1020532,
+  "available_fraction": 0.45588897479274443,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f990f9e348c04f5a8f464c951264b66a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6bcd7fa981cfcbd9e40e8fd6d42fb8327669dd70652c7c54b37dea84f5237d1f",
+ "image_sha256": "138062f8a60fd0f4bf2959ab87d6e22a1955c214fc1037b9f226cbda75fab856"
+}

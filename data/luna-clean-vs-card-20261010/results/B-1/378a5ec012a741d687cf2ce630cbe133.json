@@ -1,0 +1,35 @@
+{
+ "unit": "378a5ec012a741d687cf2ce630cbe133",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "378a5ec012a741d687cf2ce630cbe133:004",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像边缘且被红色框线、文字干扰，目标结构不可清晰辨认。",
+   "observed_object": "疑似车辆或车辆相关区域",
+   "reasoning": "无法仅凭框内可见内容明确确认属于车，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601433.2458532,
+   "seconds": 30.004696130752563,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601433.2458522,
+ "finished": 1791601463.5467446,
+ "health": {
+  "at": 1791601433.2449863,
+  "available_fraction": 0.45814627154027693,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8700b9aef13c4fd3b59bd7d707b2a717",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c1920b33c677053c12927f47d4b3c797aece2eba57e4e6adb7c351ae187b7ce2",
+ "image_sha256": "a7b26703be0ab8d9cae80d920e6663d642ad8c62fc6d4eb6b0c8f722c43abeab"
+}

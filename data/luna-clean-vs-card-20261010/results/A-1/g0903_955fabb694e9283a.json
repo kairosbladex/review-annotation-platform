@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_955fabb694e9283a",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5bebebc5919b437da90eb125d0dc2324",
+   "decision": "uncertain",
+   "image_limitation": "目标区域较小，且仅凭图像无法判断是否具有审批或区域业务依据。",
+   "observed_object": "疑似建筑或设施局部",
+   "reasoning": "无法依据可见外观确认其属于违建类别；按规则输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605583.8565397,
+   "seconds": 15.224761962890625,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605583.8565369,
+ "finished": 1791605599.3597765,
+ "health": {
+  "at": 1791605583.8554325,
+  "available_fraction": 0.4397657175682275,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "dec884951c674faf8b5bdf8eda986cab",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b20cff411a1e43823518e3be25814f896cc38d945570487d90c988b380470aa3",
+ "image_sha256": "955fabb694e9283a1fff660796b3ba24d5da650af4e0e14e0c4b131b98390b52"
+}

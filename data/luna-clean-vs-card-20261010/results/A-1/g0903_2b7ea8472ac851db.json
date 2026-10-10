@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_2b7ea8472ac851db",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d18a140d772d4ff9a62b0594e99b8b99",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被框内文字遮挡，车辆结构不可清晰辨认。",
+   "observed_object": "疑似小型车辆或其他物体",
+   "reasoning": "无法确认车辆的必要结构，不能明确符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606106.5895278,
+   "seconds": 16.919878244400024,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606106.5895262,
+ "finished": 1791606123.782715,
+ "health": {
+  "at": 1791606106.5888262,
+  "available_fraction": 0.45152975607952855,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "bf17d58dc61f4bad9979e3970c6e6ec3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bf63a2f8be2a7d11cbb0628da919b862b02739d4f5c161eb05acc80cc37f0d6a",
+ "image_sha256": "2b7ea8472ac851db12c5cbe7bd12232453d4d1cbcf76d70c4a7359498601b7b0"
+}

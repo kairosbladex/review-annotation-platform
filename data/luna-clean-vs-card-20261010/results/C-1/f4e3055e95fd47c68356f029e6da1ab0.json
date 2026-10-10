@@ -1,0 +1,35 @@
+{
+ "unit": "f4e3055e95fd47c68356f029e6da1ab0",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f4e3055e95fd47c68356f029e6da1ab0:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被遮挡，无法确认是否具备可见人体结构。",
+   "observed_object": "候选框内为一个小型黑白物体，疑似摄像头或其他设施。",
+   "reasoning": "未能明确观察到人员的人体结构，因此不能判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608818.1669319,
+   "seconds": 14.838105201721191,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608818.16693,
+ "finished": 1791608833.2792397,
+ "health": {
+  "at": 1791608818.1651301,
+  "available_fraction": 0.45332284368622067,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "784051fff3fe4c7899e872d3143b7fff",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "311c87d661905a77069d1014bf668e0fc6332d59efad6ad5bd326842fb4a0cb9",
+ "image_sha256": "62c8203edfc71013d95add44381ca15aa6320ceaa8578ac9e647b99e67ebffd5"
+}

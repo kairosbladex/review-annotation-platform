@@ -1,0 +1,35 @@
+{
+ "unit": "eec44512105b46a2ab48ebe98eed1589",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "eec44512105b46a2ab48ebe98eed1589:019",
+   "decision": "false",
+   "image_limitation": "候选框内可见为白色矩形物体，未见公交车所需的车身、车窗或车轮结构。",
+   "observed_object": "白色矩形物体",
+   "reasoning": "目标外观明显不符合公交车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605219.4359715,
+   "seconds": 15.795483589172363,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605219.4359684,
+ "finished": 1791605235.7828214,
+ "health": {
+  "at": 1791605219.4310117,
+  "available_fraction": 0.439915681136778,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "65e213ad4cde4803a8581ff19370ed37",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e25d47c12bb49a4cfe065e4108acde652cdefb326f609048e9c5176fb89da081",
+ "image_sha256": "3847f0e2bba733608527921d005fc91c399c8d5465669ff9f90c6b969b973cd1"
+}

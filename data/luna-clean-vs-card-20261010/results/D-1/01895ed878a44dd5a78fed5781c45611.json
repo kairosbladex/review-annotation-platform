@@ -1,0 +1,43 @@
+{
+ "unit": "01895ed878a44dd5a78fed5781c45611",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+   "decision": "false",
+   "image_limitation": "画面模糊，但候选框内未见可辨识车辆结构。",
+   "observed_object": "建筑墙面、窗户及涂鸦",
+   "reasoning": "候选框0覆盖的是建筑立面区域，没有车体、车轮等车辆证据。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:001",
+   "decision": "false",
+   "image_limitation": "画面模糊且部分被树木遮挡，但候选框内仍未见车辆结构。",
+   "observed_object": "建筑外墙、雨棚及树木",
+   "reasoning": "候选框1内没有可辨识的车体或车轮，明显不符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609425.7978075,
+   "seconds": 25.78629732131958,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609425.7978053,
+ "finished": 1791609452.0276368,
+ "health": {
+  "at": 1791609425.7689917,
+  "available_fraction": 0.4543931999167281,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3b6bfa2912964189a8f9a806c0b78186",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1e13fb22e047e65f3ffcd9f0753ab284d15ce983bcc906307fd4dad69fecdd37",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60"
+}

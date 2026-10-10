@@ -1,0 +1,131 @@
+{
+ "unit": "0989cdd286bb4deb8e8a20a499f5bbdd",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:005",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法确认完整人体结构。",
+   "observed_object": "画面底部附近的小型模糊目标",
+   "reasoning": "仅凭候选框内的模糊像素不能明确判断为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:012",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小且细节不足。",
+   "observed_object": "台阶附近的小型模糊目标",
+   "reasoning": "无法确认可见人体结构。",
+   "target_index": 1
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:001",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且部分模糊。",
+   "observed_object": "道路边的小型目标",
+   "reasoning": "不能唯一确认是人员。",
+   "target_index": 2
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:006",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小，人体结构不可辨。",
+   "observed_object": "广场上的小型模糊目标",
+   "reasoning": "无法明确确认头部、躯干或四肢等人体结构。",
+   "target_index": 3
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:008",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且清晰度不足。",
+   "observed_object": "广场上的小型目标",
+   "reasoning": "不能确认其为人员。",
+   "target_index": 4
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:004",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小，细节不足。",
+   "observed_object": "广场下方的小型模糊目标",
+   "reasoning": "缺乏可见人体结构证据。",
+   "target_index": 5
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:007",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且模糊。",
+   "observed_object": "广场上的小型目标",
+   "reasoning": "无法明确判断为人员。",
+   "target_index": 6
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:009",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小，无法辨认结构。",
+   "observed_object": "广场边缘的小型模糊目标",
+   "reasoning": "不能确认可见人体结构。",
+   "target_index": 7
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:003",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面顶部且尺寸极小。",
+   "observed_object": "台阶附近的小型目标",
+   "reasoning": "细节不足，无法确认是人员。",
+   "target_index": 8
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:014",
+   "decision": "uncertain",
+   "image_limitation": "目标较小并被周围环境干扰。",
+   "observed_object": "树木和步道附近的小型目标",
+   "reasoning": "无法清晰确认人体结构。",
+   "target_index": 9
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:013",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小且模糊。",
+   "observed_object": "台阶附近的小型目标",
+   "reasoning": "不能唯一判断为人员。",
+   "target_index": 10
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:011",
+   "decision": "uncertain",
+   "image_limitation": "目标较小，细节不可辨。",
+   "observed_object": "草坪附近的小型目标",
+   "reasoning": "缺乏明确的人体结构证据。",
+   "target_index": 11
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于道路边且尺寸很小。",
+   "observed_object": "道路附近的小型模糊目标",
+   "reasoning": "无法确认其为人员。",
+   "target_index": 12
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606746.360586,
+   "seconds": 16.84580397605896,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606746.360584,
+ "finished": 1791606763.4803445,
+ "health": {
+  "at": 1791606746.3584077,
+  "available_fraction": 0.4556250717441763,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ac4f550e045149d7b288db8d02c81835",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "959b2a421ef79811c0dea94ee0e662ee26e3815f5db72c8e86783be9dc26ba9c",
+ "image_sha256": "dd696cb0193b46f1c515c47892cd419c57109975377617f824cdce402b9435b7"
+}

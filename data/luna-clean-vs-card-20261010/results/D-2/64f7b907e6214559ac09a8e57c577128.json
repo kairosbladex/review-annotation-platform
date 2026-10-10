@@ -1,0 +1,35 @@
+{
+ "unit": "64f7b907e6214559ac09a8e57c577128",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "64f7b907e6214559ac09a8e57c577128:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域较小且图像模糊，无法确认是否具有完整可见的人体结构。",
+   "observed_object": "白黑色不规则小物体",
+   "reasoning": "候选框内未能清晰辨认头部、躯干或四肢等人体结构，不能明确判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603726.3419344,
+   "seconds": 15.169945001602173,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603726.3419323,
+ "finished": 1791603741.8075418,
+ "health": {
+  "at": 1791603726.3263059,
+  "available_fraction": 0.4508769448751797,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c7d075efb97c41b0947d13d411c5d6b3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a121352140e445927b390e4189fb0e0e77b77a571fbe1fe1801d823688733d80",
+ "image_sha256": "6a1561213d764638ca3f46fedabf1a8f3d12ac5a592b28d2c6fa84aaef9c8c82"
+}

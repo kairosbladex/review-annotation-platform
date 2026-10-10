@@ -1,0 +1,35 @@
+{
+ "unit": "ac18f0929d95478da1a4238decfb2efe",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:ac18f0929d95478da1a4238decfb2efe:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为一辆小型轿车或普通小客车，不具备卡车所需的明显货厢或大型车身结构。",
+   "reasoning": "目标可见且能唯一定位，但车辆结构明显不符合卡车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609288.9444451,
+   "seconds": 19.40039086341858,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609288.9444435,
+ "finished": 1791609308.6143937,
+ "health": {
+  "at": 1791609288.9437008,
+  "available_fraction": 0.45495122368812735,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "21cb0a7e7739479fa19dc7b7ae23c0ef",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9316442b6873224f1aa7f72b5ff236cd88562b7b9c90b1eeda2b47b55cb909ec",
+ "image_sha256": "b168cac5166c0dd068e0bcd8361050617c0a71c6940f4b2c776ecab2a6cfe7e9"
+}

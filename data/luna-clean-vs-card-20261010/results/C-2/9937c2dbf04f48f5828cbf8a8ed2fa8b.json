@@ -1,0 +1,35 @@
+{
+ "unit": "9937c2dbf04f48f5828cbf8a8ed2fa8b",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "9937c2dbf04f48f5828cbf8a8ed2fa8b:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为地面铺装纹理，无可见人体结构。",
+   "reasoning": "框内没有人员目标，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608412.414173,
+   "seconds": 25.080259799957275,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608412.414171,
+ "finished": 1791608437.7656121,
+ "health": {
+  "at": 1791608412.412954,
+  "available_fraction": 0.45306520305304304,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7b6da7a58ce54f0cb602f680193c4d30",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8b868e7bdb2e0a015fbf2215a5e7042a7943314abacc125e938667869534cc94",
+ "image_sha256": "92e7908c5a7de3ec491bd13f14d21213f192334314f652a1deb89cb4f2e567a3"
+}

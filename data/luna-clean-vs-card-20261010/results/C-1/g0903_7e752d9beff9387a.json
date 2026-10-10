@@ -1,0 +1,40 @@
+{
+ "unit": "g0903_7e752d9beff9387a",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d0c64659575a47c0ab997593532f0db2",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见远处建筑屋顶或棚状结构，缺乏审批、区域业务依据，无法确认违建属性。",
+   "observed_object": "远处建筑屋顶上的长条状结构",
+   "reasoning": "不能仅凭外观判断是否违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603106.6921475,
+   "seconds": 31.352184295654297,
+   "status": "http_503"
+  },
+  {
+   "at": 1791603143.064141,
+   "seconds": 68.0482108592987,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603106.6921453,
+ "finished": 1791603211.4001656,
+ "health": {
+  "at": 1791603106.6675014,
+  "available_fraction": 0.4360941789450542,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "15ae1a677a7044518e31ba15dbc630ae",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e6b3de1cf134fe0b273ab3ba5dc4fd0e2c3d945e369ebc3de5a2578ac117bb9f",
+ "image_sha256": "57fec1b04572a9b133a37cc51dcb95e5b8a33cd1b79828cc146e7ba30eb7a44e"
+}

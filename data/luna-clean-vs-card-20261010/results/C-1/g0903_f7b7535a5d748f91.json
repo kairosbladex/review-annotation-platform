@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "uncertain",
+   "image_limitation": "候选框内主要为篮球场边缘及道路，无法依据图像判断是否存在违建及审批、区域业务依据。",
+   "observed_object": "篮球场边缘、道路及绿化",
+   "reasoning": "目标类别为违建，但图像没有提供审批或区域业务依据，按规则不能明确判定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603409.7896276,
+   "seconds": 43.608834981918335,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603409.7896254,
+ "finished": 1791603453.9443884,
+ "health": {
+  "at": 1791603409.7874954,
+  "available_fraction": 0.43780846955809477,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a4da5057a7ed44dba70cd553930c13c7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6f6a99865b87615f2a29407be898e1c7f2d29ee9e3e952b74fa1ca4e594e973c",
+ "image_sha256": "72cffed57ec37ad6ebb2301e1c17274e0ea6ba06433382126323d58308ea67bc"
+}

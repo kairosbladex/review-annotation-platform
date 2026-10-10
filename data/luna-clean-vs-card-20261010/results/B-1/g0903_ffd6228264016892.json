@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_ffd6228264016892",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:88d964f96f454fe0ad2b06349c2a6068",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑立面的窗户或墙面结构",
+   "reasoning": "候选框内不是蓝色或绿色顶棚，而是建筑立面上的竖向窗户区域，不符合违建类别判定标准。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602996.4591856,
+   "seconds": 31.978359937667847,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602996.4591832,
+ "finished": 1791603028.7273557,
+ "health": {
+  "at": 1791602996.4431536,
+  "available_fraction": 0.4364384597911588,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8cce0c1bbf9f44bb8f86c3cdf8aca1e9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d3e4fb4972f3b45ee66bd77b37bb8e279f08abe39c46b9217ea8e9769ac68af6",
+ "image_sha256": "ffd6228264016892b07fa71cf15c7219831b1607593cbdde94d66987027f013d"
+}

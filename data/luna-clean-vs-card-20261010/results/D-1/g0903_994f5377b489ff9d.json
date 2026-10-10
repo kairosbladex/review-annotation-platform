@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝色顶棚，覆盖在建筑上方，呈规则屋面结构。",
+   "reasoning": "目标主体是蓝色屋面，符合类别中蓝色顶棚的判定条件；未将框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607847.013678,
+   "seconds": 15.704466104507446,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607847.013676,
+ "finished": 1791607862.9958417,
+ "health": {
+  "at": 1791607847.0121012,
+  "available_fraction": 0.4556926207101847,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4bfda3c7cd044360a5832e39c82514b5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "800a1a29559f78c6344b4ece70b510326e26f97d5263dd5c3270bbe6a45267f5",
+ "image_sha256": "06f4eb809abe1cb8965192dd73ac4e58295ec74ce9e97a4013b59a19592e1c58"
+}

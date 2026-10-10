@@ -1,0 +1,43 @@
+{
+ "unit": "55c06990a1714703b3a318c53021182a",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "55c06990a1714703b3a318c53021182a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见车辆的一部分及明确车体结构。",
+   "reasoning": "框内目标符合“车”类别，虽部分出框但可唯一判断为车辆。",
+   "target_index": 0
+  },
+  {
+   "key": "55c06990a1714703b3a318c53021182a:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见一辆车辆，能辨认车体结构。",
+   "reasoning": "目标明显属于车辆，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608185.1575055,
+   "seconds": 30.6918466091156,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608185.1575036,
+ "finished": 1791608216.1314926,
+ "health": {
+  "at": 1791608185.1552994,
+  "available_fraction": 0.4562706477307439,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "be2239a378fb4a7aab15f97fba08013f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "2e09f5213b33d05e1a751b81c3a15b44d5c9af45f1ec6138a8c303a5c236d3c0",
+ "image_sha256": "b1540d3dd66fda570c9d98c1456184fc7fd28841797cdf3bfbf4627dc1d9a085"
+}

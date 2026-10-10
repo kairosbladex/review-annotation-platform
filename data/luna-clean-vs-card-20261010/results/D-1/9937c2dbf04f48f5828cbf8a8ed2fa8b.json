@@ -1,0 +1,35 @@
+{
+ "unit": "9937c2dbf04f48f5828cbf8a8ed2fa8b",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9937c2dbf04f48f5828cbf8a8ed2fa8b:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见地面瓷砖及纹理，未见可辨识的人体结构。",
+   "observed_object": "地面瓷砖区域",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608426.0471015,
+   "seconds": 15.095062971115112,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608426.0470994,
+ "finished": 1791608441.4138868,
+ "health": {
+  "at": 1791608426.0458674,
+  "available_fraction": 0.45454176508184185,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "654c23a9de4548078501086b100cefd8",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8b868e7bdb2e0a015fbf2215a5e7042a7943314abacc125e938667869534cc94",
+ "image_sha256": "92e7908c5a7de3ec491bd13f14d21213f192334314f652a1deb89cb4f2e567a3"
+}

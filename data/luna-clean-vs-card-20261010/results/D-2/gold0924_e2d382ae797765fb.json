@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_e2d382ae797765fb",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-031",
+   "decision": "false",
+   "image_limitation": "候选框位于建筑及道路附近，未见可确认的人体结构。",
+   "observed_object": "建筑屋顶/周边区域",
+   "reasoning": "框内未发现人员的头部、躯干或四肢等可见人体结构，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606980.4262133,
+   "seconds": 17.709554195404053,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606980.4262116,
+ "finished": 1791606998.414081,
+ "health": {
+  "at": 1791606980.4060924,
+  "available_fraction": 0.4558546835084702,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "67f959caee52405a99f7174f6b71de0a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "33976c4804283d7ff22784315d1b28d3ebd4dc6a447e2dfc745c578b9805a5da",
+ "image_sha256": "3618d8b7ee87f5815d727598ca89916346827edc79ad44a8fa30459267a8bb75"
+}

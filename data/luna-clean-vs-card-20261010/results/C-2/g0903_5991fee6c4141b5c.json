@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5991fee6c4141b5c",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b74e2ff5b5f4ce6957fed4fb3f41b98",
+   "decision": "uncertain",
+   "image_limitation": "候选框内可见玻璃顶棚样结构，但仅凭图像无法确认是否属于违建，缺乏审批或区域业务依据。",
+   "observed_object": "建筑旁的玻璃顶棚或连廊结构",
+   "reasoning": "违建属性不能仅凭外观判断，无法明确符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606641.363778,
+   "seconds": 5.466632843017578,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606641.3637762,
+ "finished": 1791606647.318741,
+ "health": {
+  "at": 1791606641.3611689,
+  "available_fraction": 0.4571466866836972,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6946033b7d2440a994159474973caeeb",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "101c58b08f09c985b7f6b9998da061804c57ffee915f29ad9008b2833e834369",
+ "image_sha256": "9ea25bda25e9b13697a9ae7087e062be1e3cf653108cc9df565433c611894fff"
+}

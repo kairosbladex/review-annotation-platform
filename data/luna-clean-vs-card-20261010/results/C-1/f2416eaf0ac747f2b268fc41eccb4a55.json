@@ -1,0 +1,107 @@
+{
+ "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:000",
+   "decision": "false",
+   "image_limitation": "目标可见，为小型轿车，不是公交车。",
+   "observed_object": "小型轿车",
+   "reasoning": "框内车辆体型和结构明显不符合公交车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见明确的汽车外形。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见明确的汽车结构。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见明确的汽车结构。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+   "decision": "uncertain",
+   "image_limitation": "目标较小且分辨率不足，无法确认是否为卡车。",
+   "observed_object": "疑似车辆",
+   "reasoning": "可见车辆形状，但不足以确认卡车所需结构。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见明确的汽车。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见明确的汽车。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见明确的汽车。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见明确的汽车。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见明确的汽车。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603909.4673338,
+   "seconds": 33.36515212059021,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603909.4673314,
+ "finished": 1791603943.3842096,
+ "health": {
+  "at": 1791603909.4650602,
+  "available_fraction": 0.44881235420124166,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "17b1848ff5f546dcaa33dd0e996fe899",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "edbaf4cb99ca903368a37b585d77eea0e794160a4ce2feeda2d160afe67569d9",
+ "image_sha256": "a1a86478363e2539cf48b8c9e19e6e6922dff658171fe9762ad03d447edf4a70"
+}

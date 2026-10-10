@@ -1,0 +1,43 @@
+{
+ "unit": "gold0924_bce9af033301ae81",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-002",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且较模糊，无法确认可见人体结构。",
+   "observed_object": "疑似盆栽或其他物体，未能确认是人员。",
+   "reasoning": "候选框内没有清晰、可唯一确认的人体结构，不能据此判定为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-003",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且遮挡/模糊，无法确认可见人体结构。",
+   "observed_object": "疑似盆栽或其他物体，未能确认是人员。",
+   "reasoning": "候选框内缺乏清晰的人体结构证据，不能据此判定为人员。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609741.6609583,
+   "seconds": 29.591155767440796,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609741.6609564,
+ "finished": 1791609771.529158,
+ "health": {
+  "at": 1791609741.6596336,
+  "available_fraction": 0.4543424317919604,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8604e5a608194cb68495b7e3494ae1fe",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ac46d244efa0086e8e66dbad093327070c991986763594d55a87fad29a168212",
+ "image_sha256": "2be71130f50820460df14e551d1e565e313cfe630955e5a86200b84ab05eaf48"
+}

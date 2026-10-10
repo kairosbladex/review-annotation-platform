@@ -1,0 +1,35 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆带车厢的车辆，能观察到三轮结构特征，符合三轮车类别。",
+   "reasoning": "目标本体结构支持三轮车判断，未将框线或文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605516.623918,
+   "seconds": 16.027540683746338,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605516.6239161,
+ "finished": 1791605532.9237247,
+ "health": {
+  "at": 1791605516.6232343,
+  "available_fraction": 0.44113235292687053,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "14fec3d9bb4a4b01a5f58fe284d840ad",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5861b50c88c502cb4bc7f6ff435983234a7fab9a62d06a3981508a3a12029872",
+ "image_sha256": "7afab9f829a3b458b8aff2ccfff476aa2ab1acfb2454a478ec567214f15186b5"
+}

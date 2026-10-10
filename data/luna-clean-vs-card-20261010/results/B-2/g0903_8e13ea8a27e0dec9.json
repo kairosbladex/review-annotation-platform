@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8e13ea8a27e0dec9",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4076feeb3c914a9ca6ddfc656e3ebc4b",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为灰色长条形屋面或道路状结构，不是蓝色或绿色顶棚。",
+   "reasoning": "依据类别要求，违建仅指蓝色或绿色顶棚；该候选框主体明显为灰色，故不符合。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605884.7496104,
+   "seconds": 17.72189974784851,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605884.7496085,
+ "finished": 1791605903.0166223,
+ "health": {
+  "at": 1791605884.7485466,
+  "available_fraction": 0.4523372124639333,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8fae92f454c54363887d20df383694b9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "56d8aeda93b128e52964e76fb50c398e40b22e38acc139f81d5cd6ef481fa78d",
+ "image_sha256": "8e13ea8a27e0dec95ffa439f8370a43c9090679dd95ccc8afef785fafaf91b03"
+}

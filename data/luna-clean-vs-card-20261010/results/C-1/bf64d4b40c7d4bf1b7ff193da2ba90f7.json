@@ -1,0 +1,35 @@
+{
+ "unit": "bf64d4b40c7d4bf1b7ff193da2ba90f7",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bf64d4b40c7d4bf1b7ff193da2ba90f7:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且部分受绳索遮挡，无法清晰确认可见人体结构。",
+   "observed_object": "绳索上的浅色小物体",
+   "reasoning": "不能明确判断为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603213.1822276,
+   "seconds": 14.876224279403687,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603213.1822255,
+ "finished": 1791603228.4782546,
+ "health": {
+  "at": 1791603213.1807334,
+  "available_fraction": 0.4387146045850122,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "343843c62c904e63be7180595e301695",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e8e9cbe2fff015f81ee4dafbb86c4bd08fca7caabf4035a259dc321b6d818bd7",
+ "image_sha256": "d12aa2da94791d1d4aac2153f091e2e19a5ae2131e5d111f27f9ee9f37ed0f5a"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见小面积浅蓝色矩形顶棚状结构",
+   "reasoning": "候选框主体为覆盖在建筑或场地上方的浅蓝色屋面，符合蓝色顶棚类别；不依据框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606729.917023,
+   "seconds": 3.672398567199707,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606729.9170206,
+ "finished": 1791606734.1327832,
+ "health": {
+  "at": 1791606729.9162111,
+  "available_fraction": 0.45608973688613735,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "01a37140dfb348c6b46e5606a5786f04",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d46ef56e7bbf5140c003c9172868c484d8dd706b3933e3f0254e4d8231eeed88",
+ "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

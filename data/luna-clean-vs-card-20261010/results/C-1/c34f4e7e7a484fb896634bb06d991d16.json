@@ -1,0 +1,43 @@
+{
+ "unit": "c34f4e7e7a484fb896634bb06d991d16",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:000",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍外观无法确认是否未经审批或违反区域建设规定。",
+   "observed_object": "候选框内为蓝色屋顶建筑。",
+   "reasoning": "可见建筑实体，但没有审批、规划或区域业务依据，不能据外观判定为违建。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:001",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍外观无法确认是否未经审批或违反区域建设规定。",
+   "observed_object": "候选框内为蓝色屋顶建筑。",
+   "reasoning": "可见建筑实体，但没有审批、规划或区域业务依据，不能据外观判定为违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605484.7323558,
+   "seconds": 18.163203477859497,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605484.7323534,
+ "finished": 1791605503.1672392,
+ "health": {
+  "at": 1791605484.718682,
+  "available_fraction": 0.43575035410007024,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e783661112f9436ba5eb65cf7037367d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "167d777e1e1f25f266abc6c84bc87a88b44de32fce8914a87a1b5ce6d6ef1832",
+ "image_sha256": "72ee2b5422ae9f6a7a56121d74bd27d53fe3ad208a168b9f6d74ad7a609f7604"
+}

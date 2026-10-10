@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f0f53344a03e90a8",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd58701a40a44a4187c2167ba59721f0",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认该建筑或构筑物是否未经审批，且候选框内目标结构细节不清晰。",
+   "observed_object": "候选框内可见一处浅色矩形屋面或建筑区域。",
+   "reasoning": "违建属性需要审批或区域业务依据，图像外观不足以明确判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609595.9984448,
+   "seconds": 22.716043710708618,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609595.9984431,
+ "finished": 1791609619.1571784,
+ "health": {
+  "at": 1791609595.9737554,
+  "available_fraction": 0.4554755033765971,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "98eea6eb61894a29994fa5f4ebc41801",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "da6ca687faafbb6311c1b6ccbd7a77c975ef58ccbc1bb51672200b47d4f6fe39",
+ "image_sha256": "f0f53344a03e90a875e94a8252609bf0a1ae43bfc5110a3cb15db7f0cb7d926b"
+}

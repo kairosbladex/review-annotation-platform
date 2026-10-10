@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且热成像细节有限，无法确认完整人体结构。",
+   "observed_object": "疑似小型热源目标，位于建筑前方区域。",
+   "reasoning": "仅凭当前框内可见信息，不能明确判断为人员，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608727.2807543,
+   "seconds": 21.828884840011597,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608727.2807524,
+ "finished": 1791608749.3832679,
+ "health": {
+  "at": 1791608727.2799647,
+  "available_fraction": 0.4548391082125923,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ce1ebda8003942a29850548931498df3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a4e8b74cd3860081f2ad913b3454ef336b9e2f1e20a548fba1e55346d8c82889",
+ "image_sha256": "301e3a422a6792584292047052c19dc76b7b812b778474182510654f4d0dd87c"
+}

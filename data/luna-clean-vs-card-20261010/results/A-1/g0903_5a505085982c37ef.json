@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "uncertain",
+   "image_limitation": "候选框仅定位到建筑顶部边缘及标注区域，无法依据图像判断是否属于违建。",
+   "observed_object": "建筑顶部局部结构",
+   "reasoning": "违建认定需要审批或区域业务依据，现有图像不足以确认。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "uncertain",
+   "image_limitation": "候选框仅定位到建筑顶部边缘及标注区域，无法依据图像判断是否属于违建。",
+   "observed_object": "建筑顶部局部结构",
+   "reasoning": "违建认定需要审批或区域业务依据，现有图像不足以确认。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "uncertain",
+   "image_limitation": "候选框仅定位到建筑顶部边缘及标注区域，无法依据图像判断是否属于违建。",
+   "observed_object": "建筑顶部局部结构",
+   "reasoning": "违建认定需要审批或区域业务依据，现有图像不足以确认。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601972.5961354,
+   "seconds": 25.907326459884644,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601972.5961328,
+ "finished": 1791601999.0503056,
+ "health": {
+  "at": 1791601972.5952418,
+  "available_fraction": 0.45718122116856913,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0832610faad64527bf4ce17e6a7372ff",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3980fe3c3d3b288dbe95f07e2369cb8dd0e1b4faabd4026085b1bd99c525ad7c",
+ "image_sha256": "5a505085982c37efb127b782fb3436e399fa1bdb1c9aadd42921fb9a06312ad9"
+}

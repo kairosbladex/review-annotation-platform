@@ -1,0 +1,131 @@
+{
+ "unit": "0989cdd286bb4deb8e8a20a499f5bbdd",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:005",
+   "decision": "uncertain",
+   "image_limitation": "框内主要是红色标注框或文字，未见可确认的人体结构。",
+   "observed_object": "标注区域",
+   "reasoning": "不能仅凭框线和文字判定为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:012",
+   "decision": "uncertain",
+   "image_limitation": "框内主要是标注及背景，未见清晰人体结构。",
+   "observed_object": "标注区域",
+   "reasoning": "无法确认目标是否为人员。",
+   "target_index": 1
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:001",
+   "decision": "uncertain",
+   "image_limitation": "框内目标过小且被标注遮挡，人体结构不可辨。",
+   "observed_object": "小型目标",
+   "reasoning": "不能唯一确认人员类别。",
+   "target_index": 2
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:006",
+   "decision": "uncertain",
+   "image_limitation": "框内主要为红色标注，目标细节不足。",
+   "observed_object": "标注区域",
+   "reasoning": "未见足够人体结构证据。",
+   "target_index": 3
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:008",
+   "decision": "uncertain",
+   "image_limitation": "框内目标尺寸过小并受文字标注影响。",
+   "observed_object": "小型目标",
+   "reasoning": "无法确认是否为人员。",
+   "target_index": 4
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:004",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，细节不足以辨认人体结构。",
+   "observed_object": "小型目标",
+   "reasoning": "不能明确符合人员类别。",
+   "target_index": 5
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:007",
+   "decision": "uncertain",
+   "image_limitation": "框内被标注文字和框线占据，目标不可清晰辨认。",
+   "observed_object": "标注区域",
+   "reasoning": "缺乏可见人体结构。",
+   "target_index": 6
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:009",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且部分受标注遮挡。",
+   "observed_object": "小型目标",
+   "reasoning": "无法唯一定位并确认人员。",
+   "target_index": 7
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:003",
+   "decision": "uncertain",
+   "image_limitation": "图像边缘处目标极小，人体结构不可辨。",
+   "observed_object": "小型目标",
+   "reasoning": "不能确认人员类别。",
+   "target_index": 8
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:014",
+   "decision": "uncertain",
+   "image_limitation": "框内主要为树木和标注区域，未见清晰人体结构。",
+   "observed_object": "背景及标注",
+   "reasoning": "无法确认目标为人员。",
+   "target_index": 9
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:013",
+   "decision": "uncertain",
+   "image_limitation": "目标过小并被标注遮挡，细节不足。",
+   "observed_object": "小型目标",
+   "reasoning": "不能明确符合人员类别。",
+   "target_index": 10
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:011",
+   "decision": "uncertain",
+   "image_limitation": "框内目标尺寸过小，未见可辨人体结构。",
+   "observed_object": "小型目标",
+   "reasoning": "无法确认是否为人员。",
+   "target_index": 11
+  },
+  {
+   "key": "0989cdd286bb4deb8e8a20a499f5bbdd:000",
+   "decision": "uncertain",
+   "image_limitation": "道路边缘目标较小且受标注影响，人体结构不可确认。",
+   "observed_object": "小型目标",
+   "reasoning": "不能仅凭标注判定为人员。",
+   "target_index": 12
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606758.5630352,
+   "seconds": 7.850757837295532,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606758.5630336,
+ "finished": 1791606766.6885989,
+ "health": {
+  "at": 1791606758.562196,
+  "available_fraction": 0.45656479885364964,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2bb7a3cdc4b04a3db5b99b7191b3730b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "058c1e5eabc59e6708b7d5f8ef4c9f72cfe1e788919055838edccc3337c2459d",
+ "image_sha256": "87ad2e77bdb61d697784380625bc8ec75334acfabb9bdecf96436c2f919947e1"
+}

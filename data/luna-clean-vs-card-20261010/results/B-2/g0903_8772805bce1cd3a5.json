@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8772805bce1cd3a5",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0f4a7549e8134468b02a4cabaeab093b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝绿色顶棚，呈覆盖式屋面结构。",
+   "reasoning": "候选框主体是蓝绿色的成片顶棚，符合该类别定义；不以框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606620.1026254,
+   "seconds": 6.046868801116943,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606620.1026235,
+ "finished": 1791606626.4262416,
+ "health": {
+  "at": 1791606620.0877507,
+  "available_fraction": 0.45459976842439087,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f388219bf96e4bb7af8e64efe31e09ac",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c83d586af77d7d69d835a0f73c991fc6ff08b26646aa9b1588086fc222852b07",
+ "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

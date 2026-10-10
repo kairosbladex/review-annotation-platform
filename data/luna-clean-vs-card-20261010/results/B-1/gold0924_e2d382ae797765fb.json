@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_e2d382ae797765fb",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-031",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且被热成像伪彩与标注干扰，无法清晰确认可见人体结构。",
+   "observed_object": "框内仅见局部高亮区域，不能唯一判断为人员。",
+   "reasoning": "不将框线、文字或热源颜色作为人员证据；缺乏明确人体结构，因此不能判定符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606979.1775677,
+   "seconds": 4.611851215362549,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606979.1775658,
+ "finished": 1791606984.063416,
+ "health": {
+  "at": 1791606979.1599243,
+  "available_fraction": 0.45490686997912366,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0682e2333f8743e293bff1cac41ffd9f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d4c64e0c81c262a99c0a3ab005fa58714e60b7393948dee91dd1e6089f130f61",
+ "image_sha256": "e2d382ae797765fbe5c8ceca16872d923b0a26e092f9021969fa65e230a73dda"
+}

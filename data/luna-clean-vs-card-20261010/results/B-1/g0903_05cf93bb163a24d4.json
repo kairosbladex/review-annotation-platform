@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为高层建筑立面，未见蓝色或绿色顶棚。",
+   "reasoning": "框内主体是建筑外墙和窗户，不符合违建类别要求的蓝色或绿色屋面。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605050.5645094,
+   "seconds": 14.330994367599487,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605050.5645075,
+ "finished": 1791605065.17628,
+ "health": {
+  "at": 1791605050.5637202,
+  "available_fraction": 0.44184386667548675,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1bf29af63dee4b5481bc59ae20172046",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a99e97ee720bda4fbe127bb3d7669b584665ad72190a49d124e8c84da3c51728",
+ "image_sha256": "05cf93bb163a24d4931cfb764310d24eef5a0a1ffa02b30900b11aa001db9c51"
+}

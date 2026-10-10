@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_7e752d9beff9387a",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d0c64659575a47c0ab997593532f0db2",
+   "decision": "uncertain",
+   "image_limitation": "图中仅能看到建筑顶部区域，缺乏审批或区域业务依据，无法确认是否为违建。",
+   "observed_object": "建筑物顶部局部",
+   "reasoning": "不能仅凭外观判断违建属性。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603131.2584286,
+   "seconds": 40.304636001586914,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603131.2584262,
+ "finished": 1791603171.8363109,
+ "health": {
+  "at": 1791603131.2576957,
+  "available_fraction": 0.4378471688532022,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8524015d06074abd832b7d12f9164b0d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "04e9a420c7b4667e4b66e391a3da8aa4d60cfde15be34ff466d2f7e9d239f6c0",
+ "image_sha256": "7e752d9beff9387ae4834ec0d865fe6da6da039bdd7a772e998d21c697be47d9"
+}

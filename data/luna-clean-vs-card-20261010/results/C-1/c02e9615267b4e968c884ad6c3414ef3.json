@@ -1,0 +1,35 @@
+{
+ "unit": "c02e9615267b4e968c884ad6c3414ef3",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "c02e9615267b4e968c884ad6c3414ef3:000",
+   "decision": "false",
+   "image_limitation": "目标区域可见，但未见可确认的人体结构。",
+   "observed_object": "疑似小型杂物或污渍",
+   "reasoning": "候选框内不是人员，未观察到头部、躯干或四肢等人体结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606021.854767,
+   "seconds": 13.84112286567688,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606021.8547654,
+ "finished": 1791606035.9678707,
+ "health": {
+  "at": 1791606021.8539946,
+  "available_fraction": 0.4507722470178743,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0d59b2fc39504477a7e969e18a391bea",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "41c911c70c5662c6360ba78cfaa4ba37aa0850f02084bf5930f5f3ed4a26a4e9",
+ "image_sha256": "5c30a8d04a37d628f78858e3c3d44eabb3872f622ebd309c5a6fde971d1b1c12"
+}

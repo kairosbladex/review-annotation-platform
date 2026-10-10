@@ -1,0 +1,155 @@
+{
+ "unit": "214fef1ffdb547388fda426bec40d8da",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:001",
+   "decision": "false",
+   "image_limitation": "框内可见的是道路/车辆等，不见人体结构。",
+   "observed_object": "道路区域",
+   "reasoning": "候选框未定位到人员。",
+   "target_index": 0
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:013",
+   "decision": "false",
+   "image_limitation": "框内可见的是车辆或道路设施，不见人体结构。",
+   "observed_object": "车辆/道路区域",
+   "reasoning": "不符合人员类别。",
+   "target_index": 1
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:005",
+   "decision": "uncertain",
+   "image_limitation": "框很小且被红色标注文字和框线干扰，无法确认人体结构。",
+   "observed_object": "疑似小目标",
+   "reasoning": "不能唯一确认是人员。",
+   "target_index": 2
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:007",
+   "decision": "uncertain",
+   "image_limitation": "框内目标被标注文字遮挡，人体结构不可清晰辨认。",
+   "observed_object": "疑似小目标",
+   "reasoning": "证据不足。",
+   "target_index": 3
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:012",
+   "decision": "false",
+   "image_limitation": "框内未见可确认的人体结构。",
+   "observed_object": "道路/车辆区域",
+   "reasoning": "不符合人员类别。",
+   "target_index": 4
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:014",
+   "decision": "false",
+   "image_limitation": "框内未见可确认的人体结构。",
+   "observed_object": "道路区域",
+   "reasoning": "不符合人员类别。",
+   "target_index": 5
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:011",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小，且受文字及标注框干扰，无法确认人体结构。",
+   "observed_object": "疑似小目标",
+   "reasoning": "无法明确判定为人员。",
+   "target_index": 6
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:008",
+   "decision": "uncertain",
+   "image_limitation": "候选框被密集文字和框线覆盖，无法清晰观察目标。",
+   "observed_object": "疑似小目标",
+   "reasoning": "不能唯一定位并确认人体。",
+   "target_index": 7
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:004",
+   "decision": "false",
+   "image_limitation": "框内明显为车辆，不见人体结构。",
+   "observed_object": "车辆",
+   "reasoning": "不符合人员类别。",
+   "target_index": 8
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:006",
+   "decision": "uncertain",
+   "image_limitation": "框内目标被文字和框线遮挡，人体结构不清楚。",
+   "observed_object": "疑似小目标",
+   "reasoning": "证据不足，无法确认是人员。",
+   "target_index": 9
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:009",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且被标注干扰，无法辨认人体结构。",
+   "observed_object": "疑似小目标",
+   "reasoning": "不能明确判定为人员。",
+   "target_index": 10
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:010",
+   "decision": "false",
+   "image_limitation": "框内可见的是道路边缘/车辆区域，未见人体结构。",
+   "observed_object": "道路/车辆区域",
+   "reasoning": "不符合人员类别。",
+   "target_index": 11
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:015",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸较小并受标注干扰，无法确认人体结构。",
+   "observed_object": "疑似小目标",
+   "reasoning": "无法唯一确认是人员。",
+   "target_index": 12
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:016",
+   "decision": "false",
+   "image_limitation": "框内明显为车辆，不见人体结构。",
+   "observed_object": "车辆",
+   "reasoning": "不符合人员类别。",
+   "target_index": 13
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:002",
+   "decision": "uncertain",
+   "image_limitation": "框内目标较小，部分被标注文字覆盖，人体结构无法清晰确认。",
+   "observed_object": "疑似小目标",
+   "reasoning": "证据不足。",
+   "target_index": 14
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:000",
+   "decision": "uncertain",
+   "image_limitation": "框内目标很小且受标注遮挡，无法确认可见人体结构。",
+   "observed_object": "疑似小目标",
+   "reasoning": "不能明确判定为人员。",
+   "target_index": 15
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603272.8865783,
+   "seconds": 58.682151317596436,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603272.8865762,
+ "finished": 1791603331.8756459,
+ "health": {
+  "at": 1791603272.8858092,
+  "available_fraction": 0.43849736565112585,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c7cd713e3bad430badcbe53484b6984d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f7b49279ad168cad3e3ed8a7039ae4d5533f3fd21c97951ba027708b05ec9aa6",
+ "image_sha256": "86acb60f795e0b5b980e8825af1d429bfb2d3c61b53bd9c4e1e4056d838388c5"
+}

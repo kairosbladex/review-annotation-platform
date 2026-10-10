@@ -1,0 +1,35 @@
+{
+ "unit": "1a8b9df1399942459bf5c1eef6edfa21",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "1a8b9df1399942459bf5c1eef6edfa21:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且细节不清，无法确认车辆结构。",
+   "observed_object": "疑似小型物体或车辆",
+   "reasoning": "目标仅能看到模糊轮廓，无法明确判断是否为车，因此不能判定为true或false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607485.3400476,
+   "seconds": 15.909116983413696,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607485.3400455,
+ "finished": 1791607501.5216787,
+ "health": {
+  "at": 1791607485.337793,
+  "available_fraction": 0.4551803794513005,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1e40ca72fc174a488a3f3eec76b2fed9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "70cde76c09d94eac472ce892daabb113d555704cee35760d29d9a1723e3b54ce",
+ "image_sha256": "392bf611c3dddb0df400b947a273f1d16f97bd4ae209dbd71164f2b3f445b853"
+}

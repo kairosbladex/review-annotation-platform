@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_955fabb694e9283a",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5bebebc5919b437da90eb125d0dc2324",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于画面右侧边缘，仅能看到建筑或设施局部，无法确认是否属于违建，也没有审批或区域业务依据。",
+   "observed_object": "建筑或设施局部",
+   "reasoning": "仅凭外观无法判断违建属性，且目标部分被画面边缘截断，不能唯一确认类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605586.4593263,
+   "seconds": 42.92078518867493,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605586.459323,
+ "finished": 1791605629.661556,
+ "health": {
+  "at": 1791605586.458167,
+  "available_fraction": 0.44085215543825723,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b2a4a8cfc60041329b65d8c50803b31f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b20cff411a1e43823518e3be25814f896cc38d945570487d90c988b380470aa3",
+ "image_sha256": "955fabb694e9283a1fff660796b3ba24d5da650af4e0e14e0c4b131b98390b52"
+}

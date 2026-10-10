@@ -1,0 +1,35 @@
+{
+ "unit": "78eecc2386124af7a70774ff9cb12bb7",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "78eecc2386124af7a70774ff9cb12bb7:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆汽车",
+   "reasoning": "候选框内能清楚看到车辆主体结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602071.8796265,
+   "seconds": 29.19376826286316,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602071.8796241,
+ "finished": 1791602101.3511114,
+ "health": {
+  "at": 1791602071.8787115,
+  "available_fraction": 0.4487859061362429,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6024582affb84a9088646bb9d0185bb0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c32060b20537007fd8fc13138e1f39592075ecbcdc1c39dcca9111f6f9e4f1b9",
+ "image_sha256": "5e9219f1119f7d99d5482572b5ed4eed344a4a72a57f99cb69655cd61d9f5d4b"
+}

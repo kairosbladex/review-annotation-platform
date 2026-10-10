@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5991fee6c4141b5c",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b74e2ff5b5f4ce6957fed4fb3f41b98",
+   "decision": "false",
+   "image_limitation": "框内可见为透明玻璃顶棚/棚架，主体呈灰白色，无明确蓝色或绿色屋面。",
+   "observed_object": "灰白色玻璃棚架",
+   "reasoning": "不符合蓝色或绿色顶棚的违建类别定义。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606645.4255457,
+   "seconds": 5.7143378257751465,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606645.425544,
+ "finished": 1791606651.428673,
+ "health": {
+  "at": 1791606645.423046,
+  "available_fraction": 0.4560141319003306,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "59ef56f2f68c47c7b7e50a5a38e8b503",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "4a6de7f3ff9799818fcc7c522e8c3e58f68f8572de9e4bddc08d87b297c76629",
+ "image_sha256": "9ea25bda25e9b13697a9ae7087e062be1e3cf653108cc9df565433c611894fff"
+}

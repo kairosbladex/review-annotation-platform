@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_5c42156a21e911fb",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-034",
+   "decision": "uncertain",
+   "image_limitation": "目标区域仅见小型建筑/物体，分辨率和遮挡不足以确认人体结构。",
+   "observed_object": "候选框内未能清晰辨认出人员。",
+   "reasoning": "人员类别必须有可见人体结构；当前证据不足，不能唯一确认。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609565.0398622,
+   "seconds": 14.207587242126465,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609565.03986,
+ "finished": 1791609579.520401,
+ "health": {
+  "at": 1791609565.0262463,
+  "available_fraction": 0.45545388892347743,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "02d0275c9b3c4b359164a132bd6dd970",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "118c9b9f195821ec3932e7b8b5924c2384aebf772f28fac9a4a27707b2a04ed0",
+ "image_sha256": "5c42156a21e911fbc7169046907b646301f3f8ab5d1e0ce7fcb565acd5a635ce"
+}

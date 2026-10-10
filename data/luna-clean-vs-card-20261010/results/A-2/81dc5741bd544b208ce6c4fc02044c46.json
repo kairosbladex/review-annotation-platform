@@ -1,0 +1,75 @@
+{
+ "unit": "81dc5741bd544b208ce6c4fc02044c46",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:81dc5741bd544b208ce6c4fc02044c46:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609843.351991,
+   "seconds": 16.286704540252686,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609843.3519893,
+ "finished": 1791609860.0536277,
+ "health": {
+  "at": 1791609843.3290725,
+  "available_fraction": 0.4550529423381111,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5a9ea7296e644675b6cf4c85374a2f1a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "2174106f9f05aea735338dba1d05d1653f73f80f8db1e8d6ab179ababe0087de",
+ "image_sha256": "a8fcb74b5922382f240fcd923a6ac216819a4d0ec9700dfb2f31a73433516d48"
+}

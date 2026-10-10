@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5855e63b7f22d882",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d49492d50736447d96d6d93db7a2d01d",
+   "decision": "uncertain",
+   "image_limitation": "候选框极小且仅覆盖局部绿化区域，无法确认是否存在建筑或违建事实，也没有审批或区域业务依据。",
+   "observed_object": "局部绿化植被",
+   "reasoning": "目标不可清晰唯一定位，且违建属性不能仅凭图像外观判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606996.470404,
+   "seconds": 8.150035858154297,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606996.4704,
+ "finished": 1791607004.9245486,
+ "health": {
+  "at": 1791606996.4521198,
+  "available_fraction": 0.45311356957190857,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "41afab14772e48af872d09074a5c5a67",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "eb1fa93746d30f0ea38e075b611f4d2296a91b0c658e41d7805c21b96a19ce60",
+ "image_sha256": "17301bddb4d023c58c551af10a59183e6c8febbade3be72f7751ba17c80e6a5f"
+}

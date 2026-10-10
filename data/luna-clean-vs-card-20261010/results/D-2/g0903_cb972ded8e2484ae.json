@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_cb972ded8e2484ae",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3c3067022cb84c019a6255f288b98309",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑外墙的黑灰色方格立面",
+   "reasoning": "候选框内主体是建筑外墙，不是蓝色或绿色顶棚，明显不符合该类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604032.7846475,
+   "seconds": 39.00677943229675,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604032.7846453,
+ "finished": 1791604072.0695944,
+ "health": {
+  "at": 1791604032.7832081,
+  "available_fraction": 0.44945118137122336,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e7e1b1830cb64cd4a9d6f20d39edf415",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "899004174a7a1653944d099d707184517d8397c9e7914be9a05c30a007494aba",
+ "image_sha256": "acd83a7c39af38456247b6c758ec4958fa154b29a2dd8ebe91964b4e10ab8b39"
+}

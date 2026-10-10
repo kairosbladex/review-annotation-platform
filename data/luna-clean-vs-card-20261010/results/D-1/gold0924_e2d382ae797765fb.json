@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_e2d382ae797765fb",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-031",
+   "decision": "false",
+   "image_limitation": "候选框内未见可确认的人体结构。",
+   "observed_object": "疑似建筑物或地面区域",
+   "reasoning": "框内主要是热成像下的建筑/地面纹理，没有可见头部、躯干或四肢等人员结构，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606983.7813735,
+   "seconds": 4.20112943649292,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606983.7813716,
+ "finished": 1791606988.256685,
+ "health": {
+  "at": 1791606983.7807813,
+  "available_fraction": 0.45627630214464016,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "13811c8c045b4bfc8a3ffe817c286a6d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "33976c4804283d7ff22784315d1b28d3ebd4dc6a447e2dfc745c578b9805a5da",
+ "image_sha256": "3618d8b7ee87f5815d727598ca89916346827edc79ad44a8fa30459267a8bb75"
+}

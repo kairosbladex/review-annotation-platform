@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_1d737b615da670e0",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f6d48b6995834bdbbc7752b756c23e90",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见建筑边缘处的蓝色标识牌，无法据此判断是否存在违建，且缺乏审批或区域业务依据。",
+   "observed_object": "建筑边缘及蓝色标识牌",
+   "reasoning": "目标类别为违建，但图像中没有足够证据确认其违法建设属性；框线和文字不作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608509.0088627,
+   "seconds": 15.640792846679688,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608509.0088606,
+ "finished": 1791608524.9189916,
+ "health": {
+  "at": 1791608509.0067306,
+  "available_fraction": 0.45545656413005203,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b129556119a1406192ce34d7e6602cf6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3d7a58bec0d65d6c4708fffa411f4a600ec96ed5f8199ee5b80037df8952d294",
+ "image_sha256": "c3e8ee8fc9dde7f979a99272e796949bfbc96e58e9da0cdd89d5641367d17a07"
+}

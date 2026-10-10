@@ -1,0 +1,75 @@
+{
+ "unit": "g0903_39b3d28c1a79ddde",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:76006df30bd947ff942ee244b4fceb1a",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到航拍中的建筑及蓝色屋顶，缺乏审批或区域业务依据。",
+   "observed_object": "局部建筑/屋顶",
+   "reasoning": "无法仅凭外观确认是否为违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f9685b6cd29a4c6a8b29a13873685731",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到建筑及屋顶，缺乏审批或区域业务依据。",
+   "observed_object": "建筑/屋顶",
+   "reasoning": "无法仅凭外观确认是否为违建。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:67f3e79afd6c438db006916355b183a4",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到大型蓝色屋顶建筑，缺乏审批或区域业务依据。",
+   "observed_object": "建筑/屋顶",
+   "reasoning": "无法仅凭外观确认是否为违建。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:3b95eefbf52a4243a6b283ab87d85cac",
+   "decision": "uncertain",
+   "image_limitation": "航拍视角下只能确认蓝色屋顶建筑，缺乏审批或区域业务依据。",
+   "observed_object": "建筑/屋顶",
+   "reasoning": "无法仅凭外观确认是否为违建。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:2d6ee94a6bb94288a30fe86cd4a6129e",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到蓝色屋顶建筑，缺乏审批或区域业务依据。",
+   "observed_object": "建筑/屋顶",
+   "reasoning": "无法仅凭外观确认是否为违建。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:1c1d5b93f6264de3969c2b59a390c2ea",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到一处蓝色屋顶建筑，缺乏审批或区域业务依据。",
+   "observed_object": "建筑/屋顶",
+   "reasoning": "无法仅凭外观确认是否为违建。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604569.5498712,
+   "seconds": 19.13404655456543,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604569.5498683,
+ "finished": 1791604588.9931004,
+ "health": {
+  "at": 1791604569.54729,
+  "available_fraction": 0.4411571289877602,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "096438c1f6fb4d0f85f2a0b052d1517e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3376d40aaea996aa19d2269dbcb3c88b3ae9b1d489db7bfd431ecdb88a4caf57",
+ "image_sha256": "2d0692948a8a2aea50862f025e4a86f3a3103e8bd5e1ff73ff0da4aa959d57c4"
+}

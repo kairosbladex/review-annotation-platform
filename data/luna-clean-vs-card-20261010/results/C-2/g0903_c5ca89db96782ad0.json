@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_c5ca89db96782ad0",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节模糊，无法明确确认头部是否佩戴头盔。",
+   "observed_object": "道路上的疑似骑行者",
+   "reasoning": "仅凭候选框内可见轮廓，无法清晰辨认头部及头盔结构，因此不能明确判定为没戴头盔。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607109.094944,
+   "seconds": 6.669372320175171,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607109.0949411,
+ "finished": 1791607116.0374062,
+ "health": {
+  "at": 1791607109.092896,
+  "available_fraction": 0.4561518442387724,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9371bba741c3468db468b40853585e49",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f13662a0ed89e10f68f6e85fc0b0f1c010bb5d9a75ff5ab1bf67235320e01d91",
+ "image_sha256": "cebbbf0965e030d78bb1fc6c96a9324f60ca09d0e11df9af3a2672a8e1695d41"
+}

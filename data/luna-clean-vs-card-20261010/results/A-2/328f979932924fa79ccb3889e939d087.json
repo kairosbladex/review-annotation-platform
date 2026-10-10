@@ -1,0 +1,35 @@
+{
+ "unit": "328f979932924fa79ccb3889e939d087",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:328f979932924fa79ccb3889e939d087:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且受框线、俯视角度影响，无法清晰确认车辆所需结构。",
+   "observed_object": "疑似车辆",
+   "reasoning": "仅凭当前图像不能明确判断其是否为卡车，不能据此判定符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602938.2059476,
+   "seconds": 47.82333707809448,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602938.2059455,
+ "finished": 1791602986.3069432,
+ "health": {
+  "at": 1791602938.2051277,
+  "available_fraction": 0.43863404438702747,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ef4a1ea3b49f4bb19ef14bbd2afb60b3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b1de8269e91b6bc2337f1c26d9d415e5e02de355b8d2296fffa232375c4e5cca",
+ "image_sha256": "f532a334bafb364804ede60736b6a48c91bc5037f1414dd0a1be1af8f37f0b35"
+}

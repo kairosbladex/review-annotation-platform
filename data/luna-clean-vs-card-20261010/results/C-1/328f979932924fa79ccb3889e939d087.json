@@ -1,0 +1,35 @@
+{
+ "unit": "328f979932924fa79ccb3889e939d087",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:328f979932924fa79ccb3889e939d087:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "路边的一堆杂物或袋装物品，不是车辆。",
+   "reasoning": "候选框内未见卡车所需的车身、驾驶室或货厢结构，明确不符合卡车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602924.282227,
+   "seconds": 54.065881967544556,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602924.282225,
+ "finished": 1791602978.6400812,
+ "health": {
+  "at": 1791602924.2805204,
+  "available_fraction": 0.4285511604073318,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4f26a94283384303b91387f774f3d723",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "582fd664e07accb0e9b01e18ae627fe803fcbf9e6959b69470d783dc589bd6d4",
+ "image_sha256": "c13b410518cb6ba80719bc5398fa05a3522a2c12f298faf9b47b1e1f11120082"
+}

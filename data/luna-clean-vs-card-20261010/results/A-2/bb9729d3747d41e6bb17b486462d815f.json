@@ -1,0 +1,51 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被框线和文字干扰，无法清晰确认人体结构。",
+   "observed_object": "疑似文字或标注附近的小型区域",
+   "reasoning": "看不清可见人体结构，不能据此确认属于人员。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被框线和文字干扰，无法清晰确认人体结构。",
+   "observed_object": "疑似文字或标注附近的小型区域",
+   "reasoning": "缺乏清晰的人体结构证据，无法确认类别。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被框线和文字干扰，无法清晰确认人体结构。",
+   "observed_object": "疑似文字或标注附近的小型区域",
+   "reasoning": "目标细节不可辨，不能确认存在可见人体结构。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609537.9367976,
+   "seconds": 14.541654586791992,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609537.9367957,
+ "finished": 1791609552.9005737,
+ "health": {
+  "at": 1791609537.9242427,
+  "available_fraction": 0.45462597328879195,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e8cd86bc80474782b70a11048e7158ff",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f57315de287a9a38b94b88163f65ad5871fcaca3d32b2b3bf081b984721d7937",
+ "image_sha256": "24a27ba779cf9126f703b0d158276386228162db2fe7df843c24814e1c2fa9f5"
+}

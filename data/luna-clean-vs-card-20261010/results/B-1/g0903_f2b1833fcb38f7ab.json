@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f2b1833fcb38f7ab",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:53499b1d092345a6ad46fa1577b24b27",
+   "decision": "uncertain",
+   "image_limitation": "目标框极小且分辨率有限，无法清晰辨认车辆及其必要结构。",
+   "observed_object": "框内仅见疑似小型彩色区域，不能唯一确认是车辆。",
+   "reasoning": "无法明确符合“车”类别，依据不足，判定为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606920.1345696,
+   "seconds": 4.559061050415039,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606920.134568,
+ "finished": 1791606924.9658399,
+ "health": {
+  "at": 1791606920.1339543,
+  "available_fraction": 0.45708646413569426,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "100e29161ac84c6c8b0ac753409e7a89",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bdea6fb556838ee9d6779b056082a4e362b4770bccddb34faba5c68f6238e2a5",
+ "image_sha256": "f2b1833fcb38f7ab5bbe8e0d83331757a4d0cfe0e354d520e7846a0603cfee8b"
+}

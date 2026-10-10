@@ -1,0 +1,35 @@
+{
+ "unit": "3b06cea8e7464826b41922d0a7bde63a",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:3b06cea8e7464826b41922d0a7bde63a:000",
+   "decision": "uncertain",
+   "image_limitation": "图中可见为带蓝色及彩色金属屋面的建筑或棚屋，但缺少审批、规划或区域业务依据，无法判定为违建。",
+   "observed_object": "建筑屋面及院落",
+   "reasoning": "仅凭航拍外观不能确认违法建设属性，按规则输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606440.8885474,
+   "seconds": 34.12406349182129,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606440.8885438,
+ "finished": 1791606475.2852697,
+ "health": {
+  "at": 1791606440.8213077,
+  "available_fraction": 0.4497755805684668,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "185892c4fce54cc9b2ba5960b84aa2c0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ad6ed7c8eacc2305da73f10c4415cefa2e53d497f396855c1eed12bc325ae05b",
+ "image_sha256": "2f26e54aba90edffe5fe81fda34bcc101cfaf25b9f1aa409299ef835397fbd3b"
+}

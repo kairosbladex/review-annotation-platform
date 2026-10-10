@@ -1,0 +1,35 @@
+{
+ "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000",
+   "decision": "false",
+   "image_limitation": "目标较小但可见，图中仅显示一辆小型车辆，未见卡车所需的大型车身或货厢结构。",
+   "observed_object": "小型车辆",
+   "reasoning": "候选框内目标明显不符合卡车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603335.7062733,
+   "seconds": 15.701300144195557,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603335.7062712,
+ "finished": 1791603351.6891396,
+ "health": {
+  "at": 1791603335.705522,
+  "available_fraction": 0.4383246932267661,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2a2d77d0cf044957a728418efd836b47",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6bbadcb96f7965edb76bb920408785596bcd56c3af0fa515ebcfa7eb9d5ad5e6",
+ "image_sha256": "0000a1b83fa21448c803b05119d3fe5af63c4a69d73a5197c16fc35f42da4a8c"
+}

@@ -1,0 +1,75 @@
+{
+ "unit": "g0903_d01d6acf8b20aa40",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:89174fccc9f5400a995eb9f56c25b247",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:daf1f353cc3c4e5cb3b90ce964b7b140",
+   "decision": "uncertain",
+   "image_limitation": "目标较小且被框线、文字部分遮挡，无法确认是否为两轮车。",
+   "observed_object": "疑似车辆",
+   "reasoning": "可见部分不足以确认所需的两轮结构。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:3755a239c86d407e82568924dc1a7fad",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:49b04eff501f4064adcfcd04ceb488f1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:46a5dbd1b5874ff888c6a3d0a997476b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见车辆主体，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:149d6e1a1222493794a19839c1eff499",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "卡车",
+   "reasoning": "框内可见较大型车辆及货厢结构，符合“卡车”类别。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603807.258387,
+   "seconds": 18.79157280921936,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603807.2583852,
+ "finished": 1791603826.3394787,
+ "health": {
+  "at": 1791603807.2574897,
+  "available_fraction": 0.4479840737656597,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "73065c6d405a40afb711c160f47acb6b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3b281c14eb9d8b1f9e3b3573018b70d8ce65ea1d6a47e76781a965ea3bfc2de4",
+ "image_sha256": "d01d6acf8b20aa40747d1c13a0a2ed6ac054843dc3eb12a7f7a367c430faf881"
+}

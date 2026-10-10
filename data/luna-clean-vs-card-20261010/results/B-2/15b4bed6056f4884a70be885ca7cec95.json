@@ -1,0 +1,43 @@
+{
+ "unit": "15b4bed6056f4884a70be885ca7cec95",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:15b4bed6056f4884a70be885ca7cec95:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见车辆结构，符合“车”类别。",
+   "reasoning": "框内目标呈现清晰的车身轮廓，可唯一定位为车辆，未将框线或文字作为判断依据。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:15b4bed6056f4884a70be885ca7cec95:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见车辆结构，符合“车”类别。",
+   "reasoning": "框内目标呈现清晰的车身轮廓，可唯一定位为车辆，未将框线或文字作为判断依据。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606352.529423,
+   "seconds": 16.0741925239563,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606352.529421,
+ "finished": 1791606368.873244,
+ "health": {
+  "at": 1791606352.528358,
+  "available_fraction": 0.4557425376328605,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4434109a4909445ea19431347424e0a9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b5579bae7953ab69817de2d0b59fa3e6538cb4ed28b9c5f0824874118096f2e8",
+ "image_sha256": "e9a16e92a239ecf9f6534b83006b544f61ec09de80145079d65cafe6db261258"
+}

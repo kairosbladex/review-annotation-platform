@@ -1,0 +1,43 @@
+{
+ "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:000",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍外观无法确认是否无审批或违反区域建设规定。",
+   "observed_object": "框内为一处浅蓝色矩形顶棚或构筑物。",
+   "reasoning": "可定位到构筑物，但缺少审批信息及区域业务依据，不能据此认定为违建。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f3c08bcb4efc4aa185eca7559e25b27f:001",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍外观无法确认是否无审批或违反区域建设规定。",
+   "observed_object": "框内为一处浅蓝色矩形顶棚或构筑物。",
+   "reasoning": "可定位到构筑物，但缺少审批信息及区域业务依据，不能据此认定为违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609634.319215,
+   "seconds": 14.11950945854187,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609634.3192134,
+ "finished": 1791609648.7101712,
+ "health": {
+  "at": 1791609634.3184874,
+  "available_fraction": 0.45450820339936066,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "bbcd676d8ba2474b80a9596272aa3511",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f308ac6d19b5d31eef0719e1692b2a3d371a3df3df387d5ff32cd27dfa2d7123",
+ "image_sha256": "19ab37f6be657766c886027de842779416026e0e865dbd9728434c0d56322953"
+}

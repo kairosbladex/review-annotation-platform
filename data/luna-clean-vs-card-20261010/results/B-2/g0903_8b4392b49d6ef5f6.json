@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8b4392b49d6ef5f6",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:e5e966d90dc942ecaba436a0d5783307",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡/广告牌的立面与底部，不是顶棚",
+   "reasoning": "候选框内主体为竖直的蓝色围挡，属于地面立起的长条状物体，不符合蓝色或绿色顶棚的定义。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601872.4018095,
+   "seconds": 6.701035022735596,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601872.4018068,
+ "finished": 1791601879.6088133,
+ "health": {
+  "at": 1791601872.401039,
+  "available_fraction": 0.4566886791580979,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3ed8a65eeee74bf6bb8a5a59a05fb390",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6066f38163a55e603293092b8783fafdf8d9a97a9df01b245c3e855b3fa5ef89",
+ "image_sha256": "8b4392b49d6ef5f6e4ca79fb0bee70640141f67e3d7fe8813a967f1e93ca3977"
+}

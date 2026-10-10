@@ -1,0 +1,35 @@
+{
+ "unit": "0000e0fd01584ef89ff9a62041dff772",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "0000e0fd01584ef89ff9a62041dff772:005",
+   "decision": "true",
+   "image_limitation": "目标较小且画面略有模糊，但可见车辆外形结构，未将框线作为依据。",
+   "observed_object": "一辆汽车",
+   "reasoning": "候选框内可辨认出汽车车身及车窗等结构，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607198.4250786,
+   "seconds": 25.80634045600891,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607198.4250765,
+ "finished": 1791607224.5050726,
+ "health": {
+  "at": 1791607198.423519,
+  "available_fraction": 0.4565879333105049,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "62aef3ef1cab496cb8285054e5fc7d83",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9bbb19cf0bdefffa044d1816b19720258c66de33016bc20630bff3bd1479aa26",
+ "image_sha256": "1bc8fb0101ecac8b09da645a71d53f8f1dd74c782ae9e9097e17a45428ac5d8b"
+}

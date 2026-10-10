@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_d73fb25ba94b6566",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c5cdb3d76ed045489a4f0dba8ac1f473",
+   "decision": "false",
+   "image_limitation": "框内可见为地面上的蓝色围挡，不是覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+   "observed_object": "蓝色围挡",
+   "reasoning": "根据类别要点，蓝绿色围挡不属于违建目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603528.447844,
+   "seconds": 15.260998487472534,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603528.447842,
+ "finished": 1791603543.9876447,
+ "health": {
+  "at": 1791603528.4299126,
+  "available_fraction": 0.43846875918082256,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e4454df5d1ef4afea9e5e3cc9f232f61",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "44aed6f183f260c97b8e343894f7be703e9f01d3cf55630272c72766c102f978",
+ "image_sha256": "d8d1d58ae59d5d490c37c91fca565610d521ea8f5114e0d1864585f08c35f2ba"
+}

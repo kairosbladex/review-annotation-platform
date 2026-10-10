@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_791e6578fa41f3c6",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:200d6dd57fd74ca08dab2ce96088fcf8",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "灰色道路或硬化地面及树木阴影，不是蓝色或绿色顶棚",
+   "reasoning": "候选框内主体为灰色长条状地面区域，未见符合类别的蓝色或绿色屋面结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605553.5652957,
+   "seconds": 14.547213315963745,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605553.5652933,
+ "finished": 1791605568.3975935,
+ "health": {
+  "at": 1791605553.562547,
+  "available_fraction": 0.4391719129088932,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "efbccbda9e2d48cbad299100eae29f07",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "74f4697be3a3424c3ecad595b0dfa67e5634ce48dc270f3e3179f5ace240275a",
+ "image_sha256": "5c6b07d55300ef8e5c62bb7ce90952358cee9c65073b7e3ee3ec63f8c9ee9e26"
+}

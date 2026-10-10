@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_eb288fad610cfac1",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:48f3ec3897b84c36a45312fed8798ed3",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是建筑外墙及窗户",
+   "reasoning": "候选框内未见蓝色或绿色顶棚，不能依据框线或文字判断为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607733.130554,
+   "seconds": 27.238154888153076,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607733.130552,
+ "finished": 1791607760.6478612,
+ "health": {
+  "at": 1791607733.1298585,
+  "available_fraction": 0.45604094476622586,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "bcf9ca053b104898a16cf556452d6d9e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f5d977118fd72e73d5b637febd537ac5ad9a6130a3f2dbb27b36906c455052d0",
+ "image_sha256": "eb288fad610cfac10c0bee57546f8e0740db78ef064453db0476771171adb2bf"
+}

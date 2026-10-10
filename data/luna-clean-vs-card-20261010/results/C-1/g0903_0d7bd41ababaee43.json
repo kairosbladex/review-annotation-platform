@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_0d7bd41ababaee43",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cdd543ffaaad481885165446c2939f34",
+   "decision": "uncertain",
+   "image_limitation": "目标为临时建筑或棚屋，画面无法提供审批或区域业务依据。",
+   "observed_object": "蓝色顶棚建筑",
+   "reasoning": "仅凭外观无法确认其是否属于违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:82325faa9a82418181856bacfc284810",
+   "decision": "uncertain",
+   "image_limitation": "目标较小且信息有限，画面无法提供审批或区域业务依据。",
+   "observed_object": "低矮建筑或棚屋",
+   "reasoning": "仅凭外观无法确认其是否属于违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605068.2128103,
+   "seconds": 16.113472938537598,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605068.212808,
+ "finished": 1791605084.6036441,
+ "health": {
+  "at": 1791605068.1914632,
+  "available_fraction": 0.439367841390407,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2f2414856c094b5dacf0fb5cae633288",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "34469abd8ac893f6c240540ae5c1a4bcbe7d90f28ee8e931e48919d0a92fb4b1",
+ "image_sha256": "80fab5194e6d11f120eeece93063953cc902f81c6f3f92fcc99c3827988a64bf"
+}

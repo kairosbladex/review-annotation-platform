@@ -1,0 +1,35 @@
+{
+ "unit": "9f3745b4d6bb4bb192a479ead431c528",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为一个矩形物体，未见三轮车的三个车轮或车体结构",
+   "reasoning": "目标不具备可确认的三轮车结构，明显不符合三轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606550.8676593,
+   "seconds": 28.029991388320923,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606550.8676574,
+ "finished": 1791606579.17255,
+ "health": {
+  "at": 1791606550.866757,
+  "available_fraction": 0.4565362835835705,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "edfcf6ea139f4efdbd47d9be2e594b3d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "32c821d4a7aeef6c40f507f39dd70221e21b9dc79f1f476a0c72ffd36ed5d1fc",
+ "image_sha256": "e191104a902164594511b468ce6a3ff731310411ceb297ad65b7a0e268efd376"
+}

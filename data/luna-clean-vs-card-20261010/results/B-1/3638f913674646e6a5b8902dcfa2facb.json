@@ -1,0 +1,35 @@
+{
+ "unit": "3638f913674646e6a5b8902dcfa2facb",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "3638f913674646e6a5b8902dcfa2facb:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车的车体结构，符合“车”类别。",
+   "reasoning": "目标位于道路停止线附近，框内可见明确车辆轮廓；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608652.2829108,
+   "seconds": 21.965137243270874,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608652.2829084,
+ "finished": 1791608674.520631,
+ "health": {
+  "at": 1791608652.2820077,
+  "available_fraction": 0.453672201344802,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "11785b1aaf3b4f30bbc2f12c16f3c7ce",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b232299f2de2a384b586c0aff7bc1e5e6b2725680276d7be86a58c63ceef6dd9",
+ "image_sha256": "df4bef25bf76150e2048e8be2dd7020c0954192e800bec560a800f0466873283"
+}

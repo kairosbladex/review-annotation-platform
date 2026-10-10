@@ -1,0 +1,35 @@
+{
+ "unit": "3b06cea8e7464826b41922d0a7bde63a",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:3b06cea8e7464826b41922d0a7bde63a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见成片蓝色彩钢瓦顶棚，覆盖在建筑上方，具有规则屋面结构。",
+   "reasoning": "主体明确为蓝色顶棚，符合该类别判定标准。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606440.1662111,
+   "seconds": 10.33534574508667,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606440.166208,
+ "finished": 1791606450.7734385,
+ "health": {
+  "at": 1791606440.1362512,
+  "available_fraction": 0.4506577299364371,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2d2d0de791e34496a285f48803304c67",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "faa28fdf627f97b16cb4c8a89dd13b323097548b28c8d7791cbd8610951ba521",
+ "image_sha256": "2f26e54aba90edffe5fe81fda34bcc101cfaf25b9f1aa409299ef835397fbd3b"
+}

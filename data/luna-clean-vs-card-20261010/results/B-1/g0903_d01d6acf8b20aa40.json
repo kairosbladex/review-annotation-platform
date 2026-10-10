@@ -1,0 +1,75 @@
+{
+ "unit": "g0903_d01d6acf8b20aa40",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:89174fccc9f5400a995eb9f56c25b247",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见完整汽车车身，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:daf1f353cc3c4e5cb3b90ce964b7b140",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "两轮车",
+   "reasoning": "框内可见两轮车结构，符合类别。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:3755a239c86d407e82568924dc1a7fad",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆车身，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:49b04eff501f4064adcfcd04ceb488f1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆结构，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:46a5dbd1b5874ff888c6a3d0a997476b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见车辆结构，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:149d6e1a1222493794a19839c1eff499",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "卡车",
+   "reasoning": "框内可见较大型货运车辆，符合卡车类别。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603828.2951055,
+   "seconds": 15.167045593261719,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603828.2951038,
+ "finished": 1791603843.7378516,
+ "health": {
+  "at": 1791603828.2942185,
+  "available_fraction": 0.4507773846305005,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e58035f95b5c46c9b6e983a0af7a9f3d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3b281c14eb9d8b1f9e3b3573018b70d8ce65ea1d6a47e76781a965ea3bfc2de4",
+ "image_sha256": "d01d6acf8b20aa40747d1c13a0a2ed6ac054843dc3eb12a7f7a367c430faf881"
+}

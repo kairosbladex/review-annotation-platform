@@ -1,0 +1,35 @@
+{
+ "unit": "19f44292074c4a988754d5aa6542aa43",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "19f44292074c4a988754d5aa6542aa43:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为地面砖面及污渍，未见可识别的人体结构。",
+   "reasoning": "候选框内没有头部、躯干或四肢等人员证据，不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606067.6000013,
+   "seconds": 15.674431324005127,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606067.6,
+ "finished": 1791606084.0938828,
+ "health": {
+  "at": 1791606067.5988343,
+  "available_fraction": 0.4539378675977034,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0e5584b8d25b4bacb188554561cc1acf",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9d7f87ed62b095a562924f946a899e83abb8d2e81c7bd9374d4134e0b1d03c0c",
+ "image_sha256": "92e7908c5a7de3ec491bd13f14d21213f192334314f652a1deb89cb4f2e567a3"
+}

@@ -1,0 +1,59 @@
+{
+ "unit": "g0903_6bf599d99ef023cd",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a82100ed118e4944a48241d6d142d144",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否具备违建审批或区域业务依据。",
+   "observed_object": "画面左上侧的狭长建筑或棚体",
+   "reasoning": "可见建筑结构，但违建属性不能仅凭外观判断。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:54a11852953f4933ad89285392db9391",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否具备违建审批或区域业务依据。",
+   "observed_object": "画面左下侧的大型蓝色顶棚或建筑",
+   "reasoning": "可见顶棚建筑，但无法据此确认其是否属于违建。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:70eb8b3f439748889cc09947b4b076b4",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否具备违建审批或区域业务依据。",
+   "observed_object": "道路左侧上方的蓝色顶棚或建筑",
+   "reasoning": "可见顶棚建筑，但缺少审批或区域依据，不能确认违建。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:db0ef5dcea73476580ff4679401a739f",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否具备违建审批或区域业务依据。",
+   "observed_object": "道路左侧中部的蓝色顶棚或建筑",
+   "reasoning": "可见顶棚建筑，但仅凭外观无法确认违建属性。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609677.7230854,
+   "seconds": 19.315366506576538,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609677.7230833,
+ "finished": 1791609697.580084,
+ "health": {
+  "at": 1791609677.7221124,
+  "available_fraction": 0.4535640986791289,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5d7907e8ce504ee2a98660a685d187ea",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5411fefb610833f92529e27bc39d45833df1997c5390ff488e78608ab8ef1972",
+ "image_sha256": "6bf599d99ef023cd300473f2c82dbdfaf0088b2b4fad0ec55fce187595f1958a"
+}

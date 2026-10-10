@@ -1,0 +1,35 @@
+{
+ "unit": "4bfb96abaaa24d78be0f008191c36212",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "4bfb96abaaa24d78be0f008191c36212:000",
+   "decision": "true",
+   "image_limitation": "目标较小但可见头部、躯干及四肢等人体结构，能够唯一定位。",
+   "observed_object": "人员",
+   "reasoning": "候选框内可见明确的人体结构，符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608934.02276,
+   "seconds": 15.152681827545166,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608934.022758,
+ "finished": 1791608949.7152274,
+ "health": {
+  "at": 1791608934.021716,
+  "available_fraction": 0.4555557595738347,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8250f40a39e04e1cb9d9f2dba5a6a89b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "087da32943172e423cb0188d3fe5b7aab1dbbd057954ddedb2674b6c3120cc30",
+ "image_sha256": "53ec2c756fb16ea128942d6a5261d2ba1c4f47b487dd9c8039c7a9959f28eac6"
+}

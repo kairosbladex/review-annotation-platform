@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_cb972ded8e2484ae",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3c3067022cb84c019a6255f288b98309",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见成片蓝绿色屋面/棚顶，具有规整矩形覆盖结构。",
+   "reasoning": "候选框主体是建筑上方的蓝绿色顶棚，符合违建类别判定要点；框线和文字未作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604046.0122666,
+   "seconds": 14.20051383972168,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604046.0122645,
+ "finished": 1791604060.4871566,
+ "health": {
+  "at": 1791604046.0115366,
+  "available_fraction": 0.4491361453969909,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "58f6abc7b6f141bd878e216372b176e3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c544a9eb01cb7cd10e1ffc2b8228f60567b05ea1945b646c51362ebdc4088aa6",
+ "image_sha256": "cb972ded8e2484aee44914c7fb157c88897ac5c1bbc10953ef2040096be1ca23"
+}

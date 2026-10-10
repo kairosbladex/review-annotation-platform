@@ -1,0 +1,35 @@
+{
+ "unit": "b141b534c1714419b86599c3f8861ed6",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b141b534c1714419b86599c3f8861ed6:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小，无法清晰确认可见人体结构。",
+   "observed_object": "红色文字/标记附近的微小区域",
+   "reasoning": "不能仅凭框内颜色或文字判定为人员，缺乏明确人体结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602188.9404938,
+   "seconds": 48.1839656829834,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602188.940492,
+ "finished": 1791602237.716027,
+ "health": {
+  "at": 1791602188.9400082,
+  "available_fraction": 0.4508321351650554,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7424d1f90b6d46d98c7424cd7253d16c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "65dd4c0a9b9465d91b845905e9a7354ac078da0d5b63c9e4b9dcb9934b2ea4f7",
+ "image_sha256": "ebb2ffe33fa45f988e4e8a95d7453951b9685e577b625085f0d8bf1352c36400"
+}

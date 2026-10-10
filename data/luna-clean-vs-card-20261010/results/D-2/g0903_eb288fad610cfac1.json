@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_eb288fad610cfac1",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:48f3ec3897b84c36a45312fed8798ed3",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为建筑外墙的深浅灰色方格幕墙，不是蓝色或绿色顶棚。",
+   "reasoning": "目标主体明显是立面墙体，未见符合类别定义的蓝色或绿色屋面结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607747.2298524,
+   "seconds": 39.33964967727661,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607747.2298503,
+ "finished": 1791607786.8415983,
+ "health": {
+  "at": 1791607747.228507,
+  "available_fraction": 0.4563271918697067,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d0cbdd9f67c34972891333c0a5d12f10",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b83bb51487783598807d88e63ef0f4f82cf0e1d52af2a650e508918cce72cbff",
+ "image_sha256": "c17617cbaf7fe03e48d76c49d7c85aa618e6614e59016585237b6bc5fed9a2e9"
+}

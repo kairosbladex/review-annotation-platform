@@ -1,0 +1,51 @@
+{
+ "unit": "a8f2626d28c6499e9ef6f1c1bfa1e2f9",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:003",
+   "decision": "uncertain",
+   "image_limitation": "目标较小且部分被树木、标注框遮挡，车辆结构不可清晰核验。",
+   "observed_object": "疑似车辆或车辆状物体",
+   "reasoning": "无法仅依据可见区域唯一确认其为车。",
+   "target_index": 0
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:005",
+   "decision": "uncertain",
+   "image_limitation": "目标较小，受红色框线和周围物体干扰，车辆结构不完整。",
+   "observed_object": "疑似车辆",
+   "reasoning": "可见形状不足以明确确认车辆类别。",
+   "target_index": 1
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:011",
+   "decision": "true",
+   "image_limitation": "目标较小，但轮廓和车身形态基本可见。",
+   "observed_object": "车辆",
+   "reasoning": "框内可见具有车身和车辆轮廓的目标，符合“车”类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604866.6882353,
+   "seconds": 14.552002906799316,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604866.6882322,
+ "finished": 1791604881.5125685,
+ "health": {
+  "at": 1791604866.6366632,
+  "available_fraction": 0.4441294962926501,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7cd1acdb25764839b980f260d8a2195e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "897bcf355a987f9f099230ec50d86b82d7a0d9adb7b79f5d1b659329f31c8ea9",
+ "image_sha256": "dcf0323e7583087c31cbfccaac214a27ff6d89dd7b18194fe7faa64517046df8"
+}

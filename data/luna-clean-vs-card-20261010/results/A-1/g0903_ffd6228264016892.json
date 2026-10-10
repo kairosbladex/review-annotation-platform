@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_ffd6228264016892",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:88d964f96f454fe0ad2b06349c2a6068",
+   "decision": "uncertain",
+   "image_limitation": "仅凭画面无法确认是否存在审批或区域业务依据。",
+   "observed_object": "建筑立面上的窗户或玻璃结构。",
+   "reasoning": "候选框内可见的是建筑窗户区域，画面没有提供足够证据证明其属于违建；框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603011.4358299,
+   "seconds": 38.871143102645874,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603011.435828,
+ "finished": 1791603050.5893753,
+ "health": {
+  "at": 1791603011.435244,
+  "available_fraction": 0.4400643375021158,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8f997b4654a748ab9f6f8415a4d65ca0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "11d8f64abd399aafa9c41e3cda9861053d0314f706ff4d0114d6e4d49cdadd0f",
+ "image_sha256": "ffd6228264016892b07fa71cf15c7219831b1607593cbdde94d66987027f013d"
+}

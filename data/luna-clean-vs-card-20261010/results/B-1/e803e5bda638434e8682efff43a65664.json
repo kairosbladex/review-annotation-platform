@@ -1,0 +1,35 @@
+{
+ "unit": "e803e5bda638434e8682efff43a65664",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "e803e5bda638434e8682efff43a65664:000",
+   "decision": "false",
+   "image_limitation": "框内未见可确认的人体结构，主要为地面及标注文字、框线。",
+   "observed_object": "地面与标注框",
+   "reasoning": "不将框线和文字作为目标证据，框内没有明确可见人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606909.6916153,
+   "seconds": 4.58310604095459,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606909.6916137,
+ "finished": 1791606914.5467017,
+ "health": {
+  "at": 1791606909.691206,
+  "available_fraction": 0.4572931846437306,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "88f15c62e87c48259ad480439df1ec07",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "71e11d899398c6f12d24874b709b3b47e0dae73a86b34050f543ff9d8cd91231",
+ "image_sha256": "faad818bf7915b799a5b506b8f3c313078093daf9ed69a12322c665636da4001"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "false",
+   "image_limitation": "框内仅见建筑物/地表热成像区域，未见可辨认的人体结构。",
+   "observed_object": "建筑物及周边区域",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607145.879526,
+   "seconds": 29.964935779571533,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607145.879524,
+ "finished": 1791607176.1562896,
+ "health": {
+  "at": 1791607145.8789086,
+  "available_fraction": 0.45619993715696555,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7bb689454b22465a9211bb0fb0adf7ea",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "49e7c8ddd7f7ea350cd901938775dbf9d920f19f8cefe382666a62dc1196cc4e",
+ "image_sha256": "1d91aba737e51b58fcbe61a05827a7e198e622d4178e63ffe64b33e7e4b0466a"
+}

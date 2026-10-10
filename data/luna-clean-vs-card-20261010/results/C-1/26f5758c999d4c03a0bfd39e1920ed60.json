@@ -1,0 +1,35 @@
+{
+ "unit": "26f5758c999d4c03a0bfd39e1920ed60",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:26f5758c999d4c03a0bfd39e1920ed60:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于图像右上角，目标区域极小且部分贴近边界，无法确认是否存在违建及其审批或区域业务依据。",
+   "observed_object": "可见建筑或设施局部，无法唯一判断其性质。",
+   "reasoning": "违建属性不能仅凭外观判断，且当前图像信息不足。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791610061.7135808,
+   "seconds": 17.399099826812744,
+   "status": "ok"
+  }
+ ],
+ "started": 1791610061.7135787,
+ "finished": 1791610079.3866365,
+ "health": {
+  "at": 1791610061.7115064,
+  "available_fraction": 0.45540123599407756,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d3b55ff832af4182b2bb1ee710d89bf2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6355b24a0a8acff6963b58ca51e280833557db3d23937e241318ee15b67dc9d1",
+ "image_sha256": "9a76316649eb9da4d6da7064308ba9ead96e1166f4d4a2e99645d209772a0220"
+}

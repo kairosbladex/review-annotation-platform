@@ -1,0 +1,51 @@
+{
+ "unit": "g0903_d645cc066a5bdc4c",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3384f2739ad745b3b67ed154e7f5ac9f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑外墙上的蓝色玻璃窗",
+   "reasoning": "框内是立于建筑外墙上的窗户，不是覆盖在上方的蓝色或绿色顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:9f3b0ba9ab134358b8f1b202bdc5454a",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡",
+   "reasoning": "框内主体是地面上的长条状蓝色围挡，不是蓝色或绿色顶棚。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:445ef456f78e4547b4064cd552e1cfb9",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡",
+   "reasoning": "框内主体是地面上的蓝色围挡，不是覆盖在建筑、棚架、院落或空地上方的顶棚。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607866.2673666,
+   "seconds": 50.91919922828674,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607866.2673643,
+ "finished": 1791607917.4585211,
+ "health": {
+  "at": 1791607866.26496,
+  "available_fraction": 0.455863438729987,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "fceed8cea763439d9ea044bef55b77a5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "061b450aec9441646c370d982cffd631460273b1e50f058c9933d4c03cbbec4f",
+ "image_sha256": "69f72ba9cbad42b33c5b5070f9e6b70fed9cbf0f25a2de3fd0a3928d18474770"
+}

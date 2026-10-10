@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_30307ae0bd802781",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:18172673ac38432aa6a1d99482f45439",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到候选框内的建筑或棚状结构，缺乏审批或区域业务依据。",
+   "observed_object": "候选框0内为局部建筑/棚体结构，无法确认违建属性。",
+   "reasoning": "违建类别不能仅凭外观判断，缺少审批或区域依据，因此不作肯定判断。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b52575f40fd548eab466771d11f3cc48",
+   "decision": "uncertain",
+   "image_limitation": "仅能看到候选框内的棚状结构，缺乏审批或区域业务依据。",
+   "observed_object": "候选框1内为长条棚体或建筑结构，无法确认违建属性。",
+   "reasoning": "违建类别不能仅凭外观判断，缺少审批或区域依据，因此不作肯定判断。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605709.5040503,
+   "seconds": 15.358412265777588,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605709.5040479,
+ "finished": 1791605725.2861238,
+ "health": {
+  "at": 1791605709.5030735,
+  "available_fraction": 0.4420089390811687,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "38964597e7b544599a7ab70b8f4478f1",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "33061ef7f55a6a67484ae9254d370dfd998112bd84168dcc04a7867386460c11",
+ "image_sha256": "30307ae0bd802781b8a599d530e1b24f024facd24ede66d40aa8f53e4e8cb2a2"
+}

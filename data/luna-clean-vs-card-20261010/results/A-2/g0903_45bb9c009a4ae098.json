@@ -1,0 +1,48 @@
+{
+ "unit": "g0903_45bb9c009a4ae098",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f8d35e43c925407a8be6483399e48216",
+   "decision": "uncertain",
+   "image_limitation": "目标区域可见蓝色顶棚或板状结构，但仅凭航拍外观无法确认其是否属于违建，缺少审批或区域业务依据。",
+   "observed_object": "左下方一处蓝色顶棚状结构",
+   "reasoning": "不能将外观、框线或周边环境作为违建证据。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:dc0808002a5f424baf5d1d3c4abc71c3",
+   "decision": "uncertain",
+   "image_limitation": "目标区域可见蓝色顶棚或板状结构，但仅凭航拍外观无法确认其是否属于违建，缺少审批或区域业务依据。",
+   "observed_object": "左下方另一处蓝色顶棚状结构",
+   "reasoning": "不能将外观、框线或周边环境作为违建证据。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602630.5429726,
+   "seconds": 25.991523265838623,
+   "status": "http_503"
+  },
+  {
+   "at": 1791602661.5562177,
+   "seconds": 16.0464608669281,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602630.5429707,
+ "finished": 1791602677.8803825,
+ "health": {
+  "at": 1791602630.5420694,
+  "available_fraction": 0.4393842878308258,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7d118dea6c354bc18bc6c0c20825982c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b1ed1c2b0038fae11b0c73a4b4fbc9e6907e4df1d10fafe76edc5fe3f9e329a0",
+ "image_sha256": "45bb9c009a4ae09893b702d7ff1447f40239faae16d2ebf107536106133c8dfe"
+}

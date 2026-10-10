@@ -1,0 +1,43 @@
+{
+ "unit": "c34f4e7e7a484fb896634bb06d991d16",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "成片蓝色顶棚",
+   "reasoning": "框内可见规则矩形蓝色彩钢瓦屋面，符合类别定义。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "成片蓝色顶棚",
+   "reasoning": "框内可见规则矩形蓝色屋面，符合类别定义。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605468.0389633,
+   "seconds": 19.09007954597473,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605468.0389607,
+ "finished": 1791605487.4040582,
+ "health": {
+  "at": 1791605468.027649,
+  "available_fraction": 0.4393845614314982,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "02de3f518c484361a0b6d2494d49eea7",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ce7902a9a55b5412914437bf10e260aecc0bbd91fcda7bdfe3d970b80a8a6d01",
+ "image_sha256": "255c7e2c0c1d3d85c4cfd596bc7b420b59302af61e57042d589deedecb795d26"
+}

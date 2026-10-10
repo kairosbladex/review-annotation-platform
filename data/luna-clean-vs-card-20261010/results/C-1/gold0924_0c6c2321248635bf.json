@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_0c6c2321248635bf",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-015",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且部分被遮挡，无法清晰确认完整人体结构。",
+   "observed_object": "疑似行人或竖直物体",
+   "reasoning": "目标细节不足，不能唯一确认符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606051.4077845,
+   "seconds": 14.699378728866577,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606051.4077823,
+ "finished": 1791606066.751762,
+ "health": {
+  "at": 1791606051.406319,
+  "available_fraction": 0.4510290668490347,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7053fe93a9a04f2db7b214e6614dc440",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ee0c8d41994cec53ba4c62280505ed8efd97af7db5ada65ca0f6620b4594ccce",
+ "image_sha256": "8a56999c843f0158233cb83d2d47502a03dacde044988de0041f72402e7b1426"
+}

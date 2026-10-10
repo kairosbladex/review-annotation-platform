@@ -1,0 +1,35 @@
+{
+ "unit": "b141b534c1714419b86599c3f8861ed6",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "b141b534c1714419b86599c3f8861ed6:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内为水面及小型漂浮物，未见可确认的人体结构。",
+   "reasoning": "目标类别为人员，但框内没有头部、躯干或四肢等人体结构证据，明显不符合。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602181.0908432,
+   "seconds": 54.20033359527588,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602181.0908413,
+ "finished": 1791602235.565443,
+ "health": {
+  "at": 1791602181.0721638,
+  "available_fraction": 0.4506683395625113,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3dc334fe76374b86a6e9acefd6721f3f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "eee88cada7e08611728181ee4f778899e7750e52ac3a25757c58cdb341228a82",
+ "image_sha256": "2f6a8c6c4338fdc4dc9885a8832fa17d710d6e8c63295da9386827f6d20dd000"
+}

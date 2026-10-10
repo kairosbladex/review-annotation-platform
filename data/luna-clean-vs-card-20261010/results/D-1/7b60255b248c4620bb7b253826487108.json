@@ -1,0 +1,35 @@
+{
+ "unit": "7b60255b248c4620bb7b253826487108",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "7b60255b248c4620bb7b253826487108:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且部分被遮挡，无法确认可见人体结构。",
+   "observed_object": "疑似小型物体或局部目标",
+   "reasoning": "不能唯一确认其为人员，因此按规则输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609397.8032515,
+   "seconds": 20.934391975402832,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609397.8032491,
+ "finished": 1791609419.0121825,
+ "health": {
+  "at": 1791609397.78575,
+  "available_fraction": 0.4546399573231591,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8f20d406776d43a9b3d2369b431f2116",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "132034a571601ca201d4c1b10c751e8a47260aba007762604d777d10f212a5b7",
+ "image_sha256": "dce28fdecd7fbdfccada86d8b44d05e064ddf9292d9212fe999bda6061883af9"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "9004cbad92554824930663ab17e0400c",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "9004cbad92554824930663ab17e0400c:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见道路边缘和水面，未见可辨认的人体结构。",
+   "observed_object": "道路边缘及水面",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604770.0260599,
+   "seconds": 14.664910078048706,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604770.0260568,
+ "finished": 1791604784.9643233,
+ "health": {
+  "at": 1791604770.0252929,
+  "available_fraction": 0.44258991490897487,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ed7a8820eb004defaebc7c3339e57d50",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "faeac70dee6ad04cbf4102c4e5ade9bc26ae2d9d5922ec54e5134300bbffe402",
+ "image_sha256": "c0fa82fcecfa8af6ace93095cf86f1b40919a79542851db5268684fa238b327f"
+}

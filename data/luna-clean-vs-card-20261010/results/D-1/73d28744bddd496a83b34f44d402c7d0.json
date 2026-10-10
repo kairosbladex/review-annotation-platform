@@ -1,0 +1,35 @@
+{
+ "unit": "73d28744bddd496a83b34f44d402c7d0",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "73d28744bddd496a83b34f44d402c7d0:000",
+   "decision": "false",
+   "image_limitation": "目标区域可清晰辨认，未见人体结构。",
+   "observed_object": "池边地面上的小型杂物或孔洞。",
+   "reasoning": "候选框内不是人员，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604822.7742467,
+   "seconds": 28.29680585861206,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604822.7742443,
+ "finished": 1791604851.3441257,
+ "health": {
+  "at": 1791604822.7735298,
+  "available_fraction": 0.4455672982261921,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a904a52b82474aa2bb808b7c0314dfe0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "bee82e5bde3ce7ac35a4fdb240a61fd122c365e55f53be3e667c6106d1523eae",
+ "image_sha256": "bd2c56eed759414f087a62291179e6d8bf9a58c6fbad6a8a87ddf7714a052697"
+}

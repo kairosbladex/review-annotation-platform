@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8e13ea8a27e0dec9",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4076feeb3c914a9ca6ddfc656e3ebc4b",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为灰色长条状建筑屋面或道路状结构，不是蓝色或绿色顶棚。",
+   "reasoning": "候选框主体颜色为灰灰色，未见符合类别要求的蓝色或绿色屋面；框线和文字不作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605865.1507747,
+   "seconds": 21.256321907043457,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605865.1507728,
+ "finished": 1791605886.679148,
+ "health": {
+  "at": 1791605865.1292427,
+  "available_fraction": 0.4504099693275406,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "812cd7588a384476a06105162e9c710d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "56d8aeda93b128e52964e76fb50c398e40b22e38acc139f81d5cd6ef481fa78d",
+ "image_sha256": "8e13ea8a27e0dec95ffa439f8370a43c9090679dd95ccc8afef785fafaf91b03"
+}

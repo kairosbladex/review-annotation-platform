@@ -1,0 +1,35 @@
+{
+ "unit": "51af317312034153ad2da103915c8138",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "51af317312034153ad2da103915c8138:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆车的车体结构",
+   "reasoning": "候选框内明确可见车辆目标，符合“车”类别；未依据框线或文字判断，未读取车牌号码。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606849.846131,
+   "seconds": 5.45248007774353,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606849.8461294,
+ "finished": 1791606855.5805058,
+ "health": {
+  "at": 1791606849.8285718,
+  "available_fraction": 0.4551789810478638,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6ae41cd73d1d4bdabe64399828726a15",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d353fe36c45cb27fdd0348bcd63c81111550aef37cf0d16cabf95f5dfee8c8cc",
+ "image_sha256": "be15627f8c0b51387f81bd1736f15c07b8fac6b61031036338faa2e5b4467aec"
+}

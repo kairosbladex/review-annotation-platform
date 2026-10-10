@@ -1,0 +1,35 @@
+{
+ "unit": "e3b1630d80f648b995c20ab25c3ba087",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e3b1630d80f648b995c20ab25c3ba087:003",
+   "decision": "uncertain",
+   "image_limitation": "候选框内主要被红色框线和文字标注遮挡，无法清晰、唯一确认车辆结构。",
+   "observed_object": "疑似车辆或标注区域",
+   "reasoning": "不将框线、文字作为目标证据；候选框内缺乏足够可见的车辆结构，不能明确符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609514.8244162,
+   "seconds": 15.5213942527771,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609514.8244145,
+ "finished": 1791609530.6281366,
+ "health": {
+  "at": 1791609514.8234332,
+  "available_fraction": 0.45385402419164983,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0afa675b2faf476fb911d1cb1e76e901",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b6a46bee3978e3dc9fc15e2d9e8d018af656fcf11ddfca3574503730606ddba9",
+ "image_sha256": "370de29e99d7b2797dc302cffdc64636f549d953808b3b1285ef7f74ffaf8b7e"
+}

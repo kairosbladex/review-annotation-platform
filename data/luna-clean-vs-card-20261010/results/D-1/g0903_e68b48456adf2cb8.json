@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_e68b48456adf2cb8",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:36640c2c3d8e475889e1069408609012",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且细节不可辨，无法确认是否为车辆。",
+   "observed_object": "远处疑似小型目标",
+   "reasoning": "仅凭候选框内模糊外观无法明确确认车辆类别，不能唯一定位车辆结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602080.4173546,
+   "seconds": 5.811188459396362,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602080.4173522,
+ "finished": 1791602086.5209296,
+ "health": {
+  "at": 1791602080.4158003,
+  "available_fraction": 0.44563721839802795,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f5042e02b77740eeaa1ccd34cf5a79b4",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fa4bf756f5b783407d1a9a6300698a884e1cac2ba941aedc576a0ec4d0413ec5",
+ "image_sha256": "1a8ebc42551a2738e6b67a388448612127cd8d3110b7ac91519b7d44cc443a4a"
+}

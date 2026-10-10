@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_ef6113db5be7d59d",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd00f28b069049368321be0ad373f69f",
+   "decision": "uncertain",
+   "image_limitation": "仅见建筑外立面上的狭长区域，无法确认是否属于违建，也缺少审批或区域业务依据。",
+   "observed_object": "建筑外立面上的狭长蓝色区域",
+   "reasoning": "不能仅凭外观判断违建属性。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606665.7625453,
+   "seconds": 5.965242385864258,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606665.7625437,
+ "finished": 1791606672.2187939,
+ "health": {
+  "at": 1791606665.761729,
+  "available_fraction": 0.45804260728551166,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b7dd81911a424e299f356841fb919745",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f3ff24632df9155c7a4bdee5b2b1e21a47c9d338f5879c4a261e87ad3f0a19ac",
+ "image_sha256": "ef6113db5be7d59d3297cca956c944b57751c26ac6ccaa67956fcb682272e182"
+}

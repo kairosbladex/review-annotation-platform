@@ -1,0 +1,43 @@
+{
+ "unit": "gold0924_bce9af033301ae81",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见人员的人体结构",
+   "reasoning": "候选框内可见人员目标，符合“人员”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见人员的人体结构",
+   "reasoning": "候选框内可见人员目标，符合“人员”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609743.4128199,
+   "seconds": 24.393125772476196,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609743.4128182,
+ "finished": 1791609768.077058,
+ "health": {
+  "at": 1791609743.4122179,
+  "available_fraction": 0.4541346776813839,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b66cc576f5434ff38702b2702429ccb2",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "64550015239c0c1f9ac0d551ec75b078274296ca31593131bdacc6730659a55a",
+ "image_sha256": "bce9af033301ae814bb1281f40bf173aadc1ecdaa24bb093d417d7fe94b4a528"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "eec44512105b46a2ab48ebe98eed1589",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "eec44512105b46a2ab48ebe98eed1589:019",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "白色厢式车辆或车厢顶部",
+   "reasoning": "候选框内可见白色矩形车辆顶部，未见公交车所需的车身结构、车窗或车门等明显特征，明显不符合公交车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605241.0284667,
+   "seconds": 14.883217811584473,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605241.0284646,
+ "finished": 1791605256.2156534,
+ "health": {
+  "at": 1791605241.0260313,
+  "available_fraction": 0.44020785625482756,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "521f5b8a76974cf5bd473b754f8d8a43",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e25d47c12bb49a4cfe065e4108acde652cdefb326f609048e9c5176fb89da081",
+ "image_sha256": "3847f0e2bba733608527921d005fc91c399c8d5465669ff9f90c6b969b973cd1"
+}

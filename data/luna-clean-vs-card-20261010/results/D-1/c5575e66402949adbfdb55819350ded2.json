@@ -1,0 +1,59 @@
+{
+ "unit": "c5575e66402949adbfdb55819350ded2",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节不可辨，无法确认是否为车辆。",
+   "observed_object": "疑似车辆或设备",
+   "reasoning": "框内目标分辨率不足，未能清晰看到符合“车”类别的结构。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:001",
+   "decision": "uncertain",
+   "image_limitation": "目标被俯视且尺寸较小，无法确认卡车结构。",
+   "observed_object": "疑似车辆",
+   "reasoning": "未清晰看到车厢、驾驶室等卡车特征，不能据此判定为卡车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:002",
+   "decision": "uncertain",
+   "image_limitation": "目标极小且被俯视，无法辨认车轮数量及两轮车结构。",
+   "observed_object": "疑似车辆或物体",
+   "reasoning": "缺乏两轮车所需的明确结构证据。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:003",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸较小，细节不足，无法确认车辆类别。",
+   "observed_object": "疑似车辆或设备",
+   "reasoning": "未能清晰辨认车体及车辆结构，不能明确符合“车”类别。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607950.832997,
+   "seconds": 15.68608832359314,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607950.8329947,
+ "finished": 1791607966.7894697,
+ "health": {
+  "at": 1791607950.8307667,
+  "available_fraction": 0.4556673582480996,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2042071ec71a4d199d75472abfe84e02",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e60d70b8ab8fa43a5ed66545b0151a0db8002346c596d7032a15090b0bd445c4",
+ "image_sha256": "962bd55bb3263a3f915a6f42ab590208e1fa1d52d0162af24aab0a2991bc0c64"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "ac89dffcf200454d97dd8e3cf8681a67",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "ac89dffcf200454d97dd8e3cf8681a67:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且细节不清，无法确认车辆结构。",
+   "observed_object": "疑似道路旁蓝色标志或小型目标",
+   "reasoning": "无法唯一确认候选框内是否为车，不能仅凭外观或框线作出判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603959.2319498,
+   "seconds": 38.607969760894775,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603959.2319474,
+ "finished": 1791603998.119348,
+ "health": {
+  "at": 1791603959.208014,
+  "available_fraction": 0.44840623960317444,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e20a8b57e6e8498499d2b3d1300153e6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "295c4ebdc04bd03e54e5a645c2184426e0a2db0170f5cc99c9710ab8ce3591e2",
+ "image_sha256": "e47eae093d95a903b0839d658e73100ff7fd8f971824e7a71f382eb143e8950a"
+}

@@ -1,0 +1,67 @@
+{
+ "unit": "29ba2174de9143cabf218f7a17e6a00f",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "候选框内可清楚看到一辆汽车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "候选框内可见停放的汽车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "候选框内可见停放的汽车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "候选框内可见停放的汽车。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:004",
+   "decision": "uncertain",
+   "image_limitation": "候选框过窄且目标大部分被截断，无法唯一确认是否为车。",
+   "observed_object": "局部车辆或停车区域",
+   "reasoning": "可见区域不足以明确判定为完整车辆。",
+   "target_index": 4
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606741.233518,
+   "seconds": 24.36597752571106,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606741.2335157,
+ "finished": 1791606765.8903553,
+ "health": {
+  "at": 1791606741.2306335,
+  "available_fraction": 0.45620860117825823,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7dba5e3af0d346089ba65d0b8a82ab47",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "626a522f05c3cc2c829d55bf43e493bf51be7b5731bb95226d53c3c72e7056db",
+ "image_sha256": "cb35faff5eac5ab990134e3ccc862661b032b85cd8a3ebb542c1bab9b0925251"
+}

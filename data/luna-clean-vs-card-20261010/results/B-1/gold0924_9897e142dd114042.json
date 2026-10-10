@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见热成像矩形标记区域，无法确认可见人体结构。",
+   "observed_object": "疑似高温区域或被标注区域",
+   "reasoning": "不能将框线或文字作为人员证据，候选框内缺乏足够的人体结构信息。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608749.6717987,
+   "seconds": 13.752538442611694,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608749.6717973,
+ "finished": 1791608763.7024453,
+ "health": {
+  "at": 1791608749.671388,
+  "available_fraction": 0.4544833057381722,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a9abdb61548842bab3b8a2f7fc6a160b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d7d7416cce568f81c10efe63bbd8cab7a4c01c4231765af54c49b92b8d071137",
+ "image_sha256": "9897e142dd11404227a3c3ce17afb450d18cff77725b3d099bb9719b77dccdef"
+}

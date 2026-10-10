@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是蓝绿色长条状物体，呈围挡或场地边缘结构，不是覆盖在建筑、棚架或空地上方的顶棚。",
+   "reasoning": "根据框内形态可见其为长条状地面/边缘设施，缺乏蓝色或绿色屋面的覆盖结构，因此不符合违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603397.0708683,
+   "seconds": 55.51568031311035,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603397.070865,
+ "finished": 1791603452.8716636,
+ "health": {
+  "at": 1791603397.0438452,
+  "available_fraction": 0.4371894936368996,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c1a689c9aa804778b3ae5a737710284e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7f829a9fcf14cc272cbf5ae141f4c4c450634b543f51577d52b561229a820a71",
+ "image_sha256": "72cffed57ec37ad6ebb2301e1c17274e0ea6ba06433382126323d58308ea67bc"
+}

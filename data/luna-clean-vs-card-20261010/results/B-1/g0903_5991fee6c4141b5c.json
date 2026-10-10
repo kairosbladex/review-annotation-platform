@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5991fee6c4141b5c",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b74e2ff5b5f4ce6957fed4fb3f41b98",
+   "decision": "false",
+   "image_limitation": "框内可见为灰白色透明棚架/顶棚，未见明确蓝色或绿色屋面。",
+   "observed_object": "灰白色棚架结构",
+   "reasoning": "候选框内主体不是蓝色或绿色顶棚，符合违建类别的证据不足，判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606642.7027898,
+   "seconds": 22.103641510009766,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606642.7027879,
+ "finished": 1791606665.3482969,
+ "health": {
+  "at": 1791606642.6825254,
+  "available_fraction": 0.4564430161543565,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ee7eacfa50774af2b0fd8229e87f3e01",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b7c71affba1c6dd98997ccf8b9f2f3554c5e78b4a5ce746efffcd6bd2cf41770",
+ "image_sha256": "5991fee6c4141b5cdbc042932102b4c255ec09fd45326a70be22c3cdfc46af92"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_8d4b46fdbaa783e8",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "盆栽植物及花盆",
+   "reasoning": "候选框内可见的是一盆修剪成球状的植物和花盆，没有可见人体结构，不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606844.601431,
+   "seconds": 4.652809381484985,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606844.6014283,
+ "finished": 1791606849.528577,
+ "health": {
+  "at": 1791606844.599877,
+  "available_fraction": 0.45477928086556063,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9d489edf1a194ea0a946b11b433213cd",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d920c65ad72d05aa8ed2ba891db021ef3937d3d82dbf7d69978ea1d29cef8291",
+ "image_sha256": "47720bc4d9ffca5b2523d4b31eb5305453a480614d9711b3d091b98ad2db1849"
+}

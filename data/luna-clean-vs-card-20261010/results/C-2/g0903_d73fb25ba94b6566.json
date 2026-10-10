@@ -1,0 +1,40 @@
+{
+ "unit": "g0903_d73fb25ba94b6566",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c5cdb3d76ed045489a4f0dba8ac1f473",
+   "decision": "uncertain",
+   "image_limitation": "框内仅能看到蓝色围挡、地面及植被，无法据此确认是否为违建，也缺乏审批或区域业务依据。",
+   "observed_object": "蓝色施工围挡及周边环境",
+   "reasoning": "目标类别为违建，但图中没有足够证据证明该设施属于违法建设。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603529.4998732,
+   "seconds": 32.30860877037048,
+   "status": "http_503"
+  },
+  {
+   "at": 1791603566.8268967,
+   "seconds": 16.52062749862671,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603529.4998713,
+ "finished": 1791603584.1404402,
+ "health": {
+  "at": 1791603529.4985898,
+  "available_fraction": 0.4350240355150697,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6d9f476bf3434420b495ea95017934f9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "57d29b1860528316b0d003cf21b2aa55eea9307b57ae52866809f522eb495fb8",
+ "image_sha256": "d8d1d58ae59d5d490c37c91fca565610d521ea8f5114e0d1864585f08c35f2ba"
+}

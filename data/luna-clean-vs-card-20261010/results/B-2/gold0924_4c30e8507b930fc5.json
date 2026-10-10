@@ -1,0 +1,43 @@
+{
+ "unit": "gold0924_4c30e8507b930fc5",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-035",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被红色框线、文字干扰，无法清楚确认人体结构。",
+   "observed_object": "疑似小目标，无法唯一判断为人员。",
+   "reasoning": "不将框线和文字作为目标证据，候选框内缺乏清晰可见的人体结构。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-036",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且被红色框线、文字干扰，细节不可辨。",
+   "observed_object": "疑似小目标，无法唯一判断为人员。",
+   "reasoning": "不将框线和文字作为目标证据，无法确认头部、躯干或四肢等人体结构。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606417.451014,
+   "seconds": 22.094974040985107,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606417.4510124,
+ "finished": 1791606439.8268824,
+ "health": {
+  "at": 1791606417.4502418,
+  "available_fraction": 0.45224668104144333,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "84e650c66b924168a6626be61b3520c3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c14c75f85d2da935a081b8c43a648324baa77395ebfa5d0d77753675b1803305",
+ "image_sha256": "4c30e8507b930fc5ca0a0a6d3934692bb37ed39322d7f96b54c0eeb78ddfea8a"
+}

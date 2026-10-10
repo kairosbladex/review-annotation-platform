@@ -1,0 +1,59 @@
+{
+ "unit": "g0903_16070d391a314609",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ff202383d6674e13ade5162d89c90529",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见明确的车辆结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:3039d76145f84aa1a60f92ed3c02519e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见明确的车辆结构，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:ed5987ba00054ababb624eb1f47b6e9b",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小且被遮挡，无法确认是否具备两轮车所需的明确结构。",
+   "observed_object": "疑似车辆",
+   "reasoning": "仅凭当前框内外观不能唯一确认是两轮车。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:9989d35690a8475c8ed7b617e195428a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见明确的车辆结构，符合“车”类别。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606143.6207933,
+   "seconds": 14.316652774810791,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606143.6207912,
+ "finished": 1791606158.477521,
+ "health": {
+  "at": 1791606143.6198208,
+  "available_fraction": 0.45347837046844325,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0e33f7c580934684b3d3d0b2a6da1a00",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "22aa4629a4c7a3c4a39ba437fc626f564836db67772e01b1594aead8f1b891cb",
+ "image_sha256": "16070d391a3146095a03e2b07fa2b3ec2b18ae52fa79ef0dfb123b714fe879eb"
+}

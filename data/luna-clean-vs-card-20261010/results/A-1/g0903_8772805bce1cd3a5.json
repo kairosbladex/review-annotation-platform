@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8772805bce1cd3a5",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0f4a7549e8134468b02a4cabaeab093b",
+   "decision": "uncertain",
+   "image_limitation": "候选框内可见棚顶及文字标记，但缺乏审批或区域业务依据，无法确认是否为违建。",
+   "observed_object": "建筑或棚状结构",
+   "reasoning": "违建属性不能仅凭外观判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606626.7144089,
+   "seconds": 3.9686222076416016,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606626.7144072,
+ "finished": 1791606630.9627156,
+ "health": {
+  "at": 1791606626.7136688,
+  "available_fraction": 0.4554235496489156,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e7f08deb72f347859739e5b1da6b3492",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8bb296efe8ab57d0f37e1b780d4d676c53915d31bc2154b4c831389e51e42920",
+ "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

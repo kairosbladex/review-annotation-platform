@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_c43c8cc90e522fc7",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-028",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被框线及阴影遮挡，无法清晰确认完整人体结构。",
+   "observed_object": "疑似道路上的小型目标或人员",
+   "reasoning": "仅凭当前候选框内可见信息，不能明确确认存在可见人体结构，因此无法判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603336.8288095,
+   "seconds": 17.55123233795166,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603336.8288064,
+ "finished": 1791603354.6673331,
+ "health": {
+  "at": 1791603336.778567,
+  "available_fraction": 0.4403611030314468,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6b09f354ea3f4b7a9defd8de284098f6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9628f20a1c8b9ed067e0630c0f8425264ba1b4c3267e35cf1d06fd1b67a9042c",
+ "image_sha256": "c43c8cc90e522fc7c90d2db0511a2e31ed3f67b8fcee8c4ab4d70fbb8941ec26"
+}

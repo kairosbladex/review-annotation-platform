@@ -1,0 +1,35 @@
+{
+ "unit": "e3b1630d80f648b995c20ab25c3ba087",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "e3b1630d80f648b995c20ab25c3ba087:003",
+   "decision": "uncertain",
+   "image_limitation": "候选框位于红色标注和文字重叠区域，目标结构被遮挡且无法唯一辨认。",
+   "observed_object": "疑似车辆，但仅凭现有裁剪无法确认。",
+   "reasoning": "框线、文字不能作为目标证据；候选区域中可见内容不足以明确确认车辆类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609537.7012515,
+   "seconds": 14.33910846710205,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609537.70125,
+ "finished": 1791609552.3097856,
+ "health": {
+  "at": 1791609537.7002683,
+  "available_fraction": 0.45501251023874517,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "929527720e7440b4a381dfdb3851dd2c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b6a46bee3978e3dc9fc15e2d9e8d018af656fcf11ddfca3574503730606ddba9",
+ "image_sha256": "370de29e99d7b2797dc302cffdc64636f549d953808b3b1285ef7f74ffaf8b7e"
+}

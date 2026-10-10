@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "false",
+   "image_limitation": "框内可见为蓝绿色长条状场地边缘/围挡结构，未显示为覆盖在建筑、棚架或空地上方的成片顶棚。",
+   "observed_object": "蓝绿色球场及其边缘结构",
+   "reasoning": "依据类别要求，长条状蓝绿色物体、球场不属于蓝绿色顶棚，明显不符合违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603407.776299,
+   "seconds": 45.607168674468994,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603407.7762966,
+ "finished": 1791603453.9432428,
+ "health": {
+  "at": 1791603407.7738662,
+  "available_fraction": 0.43831709320808826,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3fccd124b6c84ea5b8e371430dc43ea6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7f829a9fcf14cc272cbf5ae141f4c4c450634b543f51577d52b561229a820a71",
+ "image_sha256": "72cffed57ec37ad6ebb2301e1c17274e0ea6ba06433382126323d58308ea67bc"
+}

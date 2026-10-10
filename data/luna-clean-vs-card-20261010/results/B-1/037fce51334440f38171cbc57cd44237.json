@@ -1,0 +1,35 @@
+{
+ "unit": "037fce51334440f38171cbc57cd44237",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "037fce51334440f38171cbc57cd44237:001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "候选框内主要是黄色标牌/文字区域，未见可确认的卡车结构。",
+   "reasoning": "候选框未显示车辆主体，不能依据框线或文字判定为卡车；明显不符合该类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608577.9950833,
+   "seconds": 14.599021911621094,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608577.9950814,
+ "finished": 1791608592.8658564,
+ "health": {
+  "at": 1791608577.9838128,
+  "available_fraction": 0.45389846910087767,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3936a9b054ef428984067fe403bea406",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "48b505190d44aac92a9331a442a1518304d32ed4fd14346d6e111a218be644cf",
+ "image_sha256": "9f35d1fca5f9409ade03717b54595ed1016f83ebbf6bd7398b13b7b7a3ac801f"
+}

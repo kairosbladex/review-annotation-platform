@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_28c70d40b253b234",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:325c7e4db91441718685ea2d6a6fa556",
+   "decision": "false",
+   "image_limitation": "框内可见的是树木、道路及建筑边缘，未见明确蓝色或绿色顶棚。",
+   "observed_object": "植被和建筑边缘",
+   "reasoning": "候选框主体不符合蓝色或绿色成片屋面的类别要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603884.3561196,
+   "seconds": 20.368714809417725,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603884.3561175,
+ "finished": 1791603905.0108604,
+ "health": {
+  "at": 1791603884.353626,
+  "available_fraction": 0.44819012547205234,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0c3114b204f245f98f4f3854a9018dec",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "e2b23ab680260bbd6076b49f7155045dc9016b232fac8392f55494ec00e74607",
+ "image_sha256": "a5dd83995aa636dd37e34638284eaa06d6ea2f00648238c3f4095e046d526f23"
+}

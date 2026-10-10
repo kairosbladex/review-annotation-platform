@@ -1,0 +1,35 @@
+{
+ "unit": "12c135c77a9c4e53a9c94d1c0d3071af",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "12c135c77a9c4e53a9c94d1c0d3071af:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅能看到被文字和框线覆盖的小区域，无法清晰确认可见人体结构。",
+   "observed_object": "疑似设备或标记区域，未能唯一确认是人员。",
+   "reasoning": "初审类别为人员，但候选框内没有足够清晰、可见的人体结构证据，不能据此判定符合。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607441.4619753,
+   "seconds": 50.202678203582764,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607441.4619734,
+ "finished": 1791607491.9392676,
+ "health": {
+  "at": 1791607441.452044,
+  "available_fraction": 0.4565825220972063,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "ccf98967059941328e0ea9862165d574",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "75335048e725d0dde165d93912360f7e6ec35d87605b20c636ab513b1e18e9c6",
+ "image_sha256": "a26bd53161c158b3b24b774cc7f2a3f9c7ec2c9cc970151855ad9ec0b40d6354"
+}

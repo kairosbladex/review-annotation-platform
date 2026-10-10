@@ -1,0 +1,35 @@
+{
+ "unit": "cef85dabf2784e3d88326c430cc424b6",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "cef85dabf2784e3d88326c430cc424b6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见人体头部、躯干及肢体结构，属于人员。",
+   "reasoning": "目标虽较小，但在候选框内可唯一定位并能辨认出人体结构，符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606382.326141,
+   "seconds": 14.614349603652954,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606382.3261395,
+ "finished": 1791606397.216249,
+ "health": {
+  "at": 1791606382.325114,
+  "available_fraction": 0.4562549916922676,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "91275dc9acd44ab2b0a1e5aa44f781fc",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c0fae0f51563a6f541750f88b2b30e97c1905a748bd73548ff8f3d95ed0b807c",
+ "image_sha256": "5c3bef6764591bf63cf2d7f2441fce53aafbd228be265ae36a46e85be011fcf9"
+}

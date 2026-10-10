@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_c5ca89db96782ad0",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名骑行人员，头部未见头盔结构。",
+   "reasoning": "目标位于道路上，框内可见人体及车辆轮廓；未发现头盔，不将框线和文字作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607093.826237,
+   "seconds": 14.713018655776978,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607093.8262348,
+ "finished": 1791607108.8088262,
+ "health": {
+  "at": 1791607093.825332,
+  "available_fraction": 0.45593892211549497,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "601caf4bd0744cb7a0d1542c7c8ebc87",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9e29f1f3924b037a4db710d0a85c366c9c79db302653d6e2f89aab06baf15d77",
+ "image_sha256": "c5ca89db96782ad04e5f1402fe740743b5050725c55fa17cfab29245b52839cc"
+}

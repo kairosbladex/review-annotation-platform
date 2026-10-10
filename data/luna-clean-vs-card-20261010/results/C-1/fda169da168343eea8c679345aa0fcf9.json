@@ -1,0 +1,35 @@
+{
+ "unit": "fda169da168343eea8c679345aa0fcf9",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:fda169da168343eea8c679345aa0fcf9:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框仅覆盖图像最左侧极小区域，目标被边界截断且细节不可辨认，无法确认是否为车辆。",
+   "observed_object": "可见局部疑似物体，但无法唯一辨识",
+   "reasoning": "框内缺乏足够清晰、完整的车辆结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604687.1248274,
+   "seconds": 35.679163217544556,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604687.1248248,
+ "finished": 1791604723.085582,
+ "health": {
+  "at": 1791604687.096558,
+  "available_fraction": 0.440884288317227,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d479f141e8484033ad86ff23e6cc2842",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "70319ec6a4094a66bbd804817fe933ae5599a1a1fb1d5458afa1791586789454",
+ "image_sha256": "d3048fe2ea945fe1de5323cd1356b3e668a192b7b24de00997715fda53323281"
+}

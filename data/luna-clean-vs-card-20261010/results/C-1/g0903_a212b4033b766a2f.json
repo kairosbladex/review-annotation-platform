@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_a212b4033b766a2f",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:6b2ea968f3ee48bb95a6d709084b1995",
+   "decision": "uncertain",
+   "image_limitation": "框内主要是施工围挡及宣传文字，无法仅凭图像确认是否存在违建或缺乏审批依据。",
+   "observed_object": "蓝色施工围挡及其后的高层建筑",
+   "reasoning": "目标类别为违建，但图像未提供审批信息或明确的区域业务依据，不能据外观判定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607916.6264896,
+   "seconds": 22.407233715057373,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607916.6264875,
+ "finished": 1791607939.314124,
+ "health": {
+  "at": 1791607916.6252396,
+  "available_fraction": 0.45561829252751573,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "78a3bcdf1e634a358380cc3e0d704c8c",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ed60ed0d0e715ca7615a78f25318c89a7efba0fe7db9fe2e9e19457e1c864df4",
+ "image_sha256": "8726da9dadf87a6801571d2806b1057d0e69bdfe69c9a668fa13264dfa32ebee"
+}

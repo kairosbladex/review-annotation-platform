@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_5c42156a21e911fb",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-034",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标尺寸较小且受遥感影像纹理干扰，无法清晰辨认完整人体结构。",
+   "observed_object": "疑似小型目标或地物纹理",
+   "reasoning": "仅凭当前图像不能确认存在可见人体结构，因此不能判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609579.17174,
+   "seconds": 14.500037431716919,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609579.1717381,
+ "finished": 1791609594.19947,
+ "health": {
+  "at": 1791609579.1710105,
+  "available_fraction": 0.45587809156599784,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a4fae7ad8193454ea84986e2b426b678",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1efaf449f864e20f669b2f3ddbb813b752bcaa80ac4008df10b02c4706e50041",
+ "image_sha256": "1ba0a3f38cc4bc758de18014a552dfffad4de01351e38a46f5d4c9c2cc9b0f67"
+}

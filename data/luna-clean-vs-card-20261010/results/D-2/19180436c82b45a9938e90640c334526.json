@@ -1,0 +1,35 @@
+{
+ "unit": "19180436c82b45a9938e90640c334526",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "19180436c82b45a9938e90640c334526:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见道路上的车辆，能辨认出车身和车道内的车辆结构。",
+   "reasoning": "候选框内目标符合“车”类别，且不依赖框线或文字判断。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605364.1505818,
+   "seconds": 15.671936273574829,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605364.15058,
+ "finished": 1791605380.0933437,
+ "health": {
+  "at": 1791605364.1485465,
+  "available_fraction": 0.4418424378719753,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1c692fa2bd4246afa0e74325eb569505",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "29b5e490be7fe42602dfd36bd6a6138b3cf815e1217265d627f6ba6f4ae5d8c0",
+ "image_sha256": "a740b1d5c70e8146a48ea3dc64ac1356bfbda0ef449e3b9d6ff2ea3ce95bcceb"
+}

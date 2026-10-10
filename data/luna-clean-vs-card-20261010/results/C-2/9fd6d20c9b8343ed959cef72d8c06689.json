@@ -1,0 +1,35 @@
+{
+ "unit": "9fd6d20c9b8343ed959cef72d8c06689",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "9fd6d20c9b8343ed959cef72d8c06689:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "候选框内可见人员的人体结构，包括头部和身体。",
+   "reasoning": "框内目标具有明确可见的人体形态，符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604633.6083746,
+   "seconds": 16.078166484832764,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604633.6083722,
+ "finished": 1791604649.95853,
+ "health": {
+  "at": 1791604633.6075964,
+  "available_fraction": 0.4411064216631419,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a82583f5a66342c998778c94727cd552",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8d241e5e6803633e13018b6166fcf99993cf3622503d62c2bdd934a96cbdf0b7",
+ "image_sha256": "6fa2c04b3b389ed884262f2d2a0ca20e69f32944b84f44e620c1e6038e3c3bb7"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆三轮车，能看到车体及货斗结构，符合三轮车类别。",
+   "reasoning": "目标结构清晰可辨，三轮车特征明确，未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605519.857206,
+   "seconds": 15.236238718032837,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605519.8572032,
+ "finished": 1791605535.3640234,
+ "health": {
+  "at": 1791605519.8564785,
+  "available_fraction": 0.44079837770609304,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "13b64f9a92784e46a1e2430b94d292ce",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5861b50c88c502cb4bc7f6ff435983234a7fab9a62d06a3981508a3a12029872",
+ "image_sha256": "7afab9f829a3b458b8aff2ccfff476aa2ab1acfb2454a478ec567214f15186b5"
+}

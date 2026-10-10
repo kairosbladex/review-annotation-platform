@@ -1,0 +1,67 @@
+{
+ "unit": "29ba2174de9143cabf218f7a17e6a00f",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体结构，符合“车”类别；红色框线和文字不作为判断依据。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体结构，符合“车”类别；红色框线和文字不作为判断依据。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体结构，符合“车”类别；红色框线和文字不作为判断依据。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆主体结构，符合“车”类别；红色框线和文字不作为判断依据。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:004",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像最右边缘且被严重截断，无法唯一确认完整车辆主体。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "可见区域过窄，主要受边缘截断和标注影响，无法明确判断是否为车。",
+   "target_index": 4
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606744.9037404,
+   "seconds": 5.587571144104004,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606744.9037387,
+ "finished": 1791606750.7627664,
+ "health": {
+  "at": 1791606744.9026074,
+  "available_fraction": 0.4563636415592855,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "980bba304022426094785f1cc53f26f5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ba23957ee2cb96ca3c60a42da3b5a25100ac6083fecb69666b4a9731247379e6",
+ "image_sha256": "d5d3e59fb4dd79445d2f040a452f8373048671ceea7e7bf99f6cc7d5f9e68c60"
+}

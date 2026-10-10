@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_0d7bd41ababaee43",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cdd543ffaaad481885165446c2939f34",
+   "decision": "uncertain",
+   "image_limitation": "候选框内可见疑似建筑或设施，但缺乏审批信息及区域业务依据，无法确认是否为违建。",
+   "observed_object": "候选框0内为一处带蓝色顶棚的小型建筑或设施。",
+   "reasoning": "仅凭外观无法判断其是否属于未经审批的违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:82325faa9a82418181856bacfc284810",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小，且缺乏审批信息及区域业务依据，无法确认是否为违建。",
+   "observed_object": "候选框1内为远处一处低矮建筑或设施。",
+   "reasoning": "仅凭外观无法判断其是否属于未经审批的违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605085.1840885,
+   "seconds": 14.142300605773926,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605085.1840866,
+ "finished": 1791605099.8971248,
+ "health": {
+  "at": 1791605085.1673963,
+  "available_fraction": 0.4371534999484415,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6c3fce4c4a2c47558ed9eb8e09b41ddb",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "112a879a90e4e35baa181dad90660279f4966c845914109897ead79f0d398d30",
+ "image_sha256": "0d7bd41ababaee43e8da4c47c05970a0d8b47ecf4a671a2cc12174a367817cb4"
+}

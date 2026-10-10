@@ -1,0 +1,59 @@
+{
+ "unit": "1c711a033d014f7fa7883d7488c75b9f",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:000",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且被树木遮挡，无法确认是否为两轮车。",
+   "observed_object": "疑似车辆或其他物体",
+   "reasoning": "框内可见部分目标，但缺乏清晰的两个轮子及车身结构证据。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可清晰看到汽车车身和车轮轮廓，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "汽车",
+   "reasoning": "框内可见完整的汽车车身轮廓，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:003",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像边缘且严重裁切、遮挡，无法唯一确认类型。",
+   "observed_object": "疑似车辆",
+   "reasoning": "可见局部深色目标，但车辆结构不完整，无法明确判定为车。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604145.2242782,
+   "seconds": 16.22857165336609,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604145.2242758,
+ "finished": 1791604161.7266297,
+ "health": {
+  "at": 1791604145.2222753,
+  "available_fraction": 0.44849558542275075,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "51acfc4c776844a7b62d767a285d7315",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "afede2c3648b7e2628f75a00f30f4068819b31940e060b357f520d3fb409325e",
+ "image_sha256": "301936440fa768fd189d2685083b1d37ad5619b71ead42bc77f3fa3580e5db14"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝色矩形顶棚屋面",
+   "reasoning": "候选框主体为覆盖在建筑区域上方的蓝色屋面，符合类别定义；判断未依据框线或文字。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607837.0125842,
+   "seconds": 16.23019242286682,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607837.012582,
+ "finished": 1791607853.529336,
+ "health": {
+  "at": 1791607837.0118246,
+  "available_fraction": 0.4556665070460077,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "baf4f1c150c94230901735da91c5a394",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "861ed1fd8f980f27b51aa8fdb0be6993d2b9f4f42b7f50181ecd17dc994195fe",
+ "image_sha256": "994f5377b489ff9d2b731d33ee27474745a64950dfdb770b75f1b648023595dc"
+}

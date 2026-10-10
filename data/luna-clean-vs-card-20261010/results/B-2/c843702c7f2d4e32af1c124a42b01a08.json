@@ -1,0 +1,35 @@
+{
+ "unit": "c843702c7f2d4e32af1c124a42b01a08",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c843702c7f2d4e32af1c124a42b01a08:001",
+   "decision": "false",
+   "image_limitation": "目标区域较小但可见，为一辆四轮汽车，而非两轮车。",
+   "observed_object": "四轮汽车",
+   "reasoning": "候选框内可见车辆具有车身和四轮汽车的整体结构，不符合两轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602368.202623,
+   "seconds": 31.726817846298218,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602368.2026212,
+ "finished": 1791602400.4723215,
+ "health": {
+  "at": 1791602368.201874,
+  "available_fraction": 0.4470169257887968,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e7259c60f36d49d19fba2a4ef7d044e9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "522cffccf040c6eb8e60d01a3387437165234be6ad87ea716cef36d1a180e58e",
+ "image_sha256": "74183afa0ca1a365e0fab09f49aafce63db82c98290d22c5d994cf4e7831940d"
+}

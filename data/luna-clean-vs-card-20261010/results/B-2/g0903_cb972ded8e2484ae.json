@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_cb972ded8e2484ae",
+ "arm": "B",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3c3067022cb84c019a6255f288b98309",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为建筑立面上的深色窗格/幕墙，不是蓝色或绿色顶棚。",
+   "reasoning": "候选框主体是竖直建筑立面，未见覆盖在建筑、棚架、院落或空地上方的蓝绿色屋面，因此明显不符合违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791604016.9246798,
+   "seconds": 29.21378993988037,
+   "status": "ok"
+  }
+ ],
+ "started": 1791604016.9246774,
+ "finished": 1791604046.4242365,
+ "health": {
+  "at": 1791604016.9118397,
+  "available_fraction": 0.4520959878710998,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "e574375f2e09495dbfd784748e8b04ca",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c544a9eb01cb7cd10e1ffc2b8228f60567b05ea1945b646c51362ebdc4088aa6",
+ "image_sha256": "cb972ded8e2484aee44914c7fb157c88897ac5c1bbc10953ef2040096be1ca23"
+}

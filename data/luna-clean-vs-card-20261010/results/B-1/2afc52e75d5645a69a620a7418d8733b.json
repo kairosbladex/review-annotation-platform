@@ -1,0 +1,35 @@
+{
+ "unit": "2afc52e75d5645a69a620a7418d8733b",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "2afc52e75d5645a69a620a7418d8733b:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小且目标被遮挡，无法确认可见人体结构。",
+   "observed_object": "候选框位于道路附近，未能清晰辨认目标。",
+   "reasoning": "仅凭模糊局部和框线无法确认符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607652.9854145,
+   "seconds": 27.775259256362915,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607652.985412,
+ "finished": 1791607681.036626,
+ "health": {
+  "at": 1791607652.9730666,
+  "available_fraction": 0.45499290219055644,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "f8f2948b4ddb417fa0725d167483e348",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c47b099eaad2fec73bd199b8014e1aa4f298f86a5ddb24e823a77899e28e1d18",
+ "image_sha256": "aede64e371ae6b97e019af9551a3d5ac8e0eb63775cb5b33111b13a8ccb6ab89"
+}

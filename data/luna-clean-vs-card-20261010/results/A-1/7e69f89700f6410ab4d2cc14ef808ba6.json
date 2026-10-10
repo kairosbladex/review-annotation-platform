@@ -1,0 +1,35 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "uncertain",
+   "image_limitation": "目标被俯视且部分被文字和框线遮挡，无法清晰确认三轮结构。",
+   "observed_object": "疑似车辆",
+   "reasoning": "仅凭当前可见外观不能明确证明存在三轮结构，因此不能判定为三轮车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605493.2146878,
+   "seconds": 32.584675550460815,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605493.2146857,
+ "finished": 1791605526.0793328,
+ "health": {
+  "at": 1791605493.1982117,
+  "available_fraction": 0.4336072096330784,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8250ba7d36b846dabe530e6fd0870bab",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5861b50c88c502cb4bc7f6ff435983234a7fab9a62d06a3981508a3a12029872",
+ "image_sha256": "7afab9f829a3b458b8aff2ccfff476aa2ab1acfb2454a478ec567214f15186b5"
+}

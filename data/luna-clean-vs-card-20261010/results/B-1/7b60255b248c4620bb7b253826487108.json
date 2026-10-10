@@ -1,0 +1,35 @@
+{
+ "unit": "7b60255b248c4620bb7b253826487108",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "7b60255b248c4620bb7b253826487108:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域很小且被红色标注文字和框线遮挡，无法清晰确认可见人体结构。",
+   "observed_object": "疑似人员目标，但仅能看到被标注遮挡的局部区域。",
+   "reasoning": "不能仅凭框线或文字判断为人员，当前图像不足以确认人体结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609416.8731682,
+   "seconds": 21.163919925689697,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609416.873166,
+ "finished": 1791609438.3188484,
+ "health": {
+  "at": 1791609416.8727365,
+  "available_fraction": 0.4537045774243695,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2b8292d873264a92b3088383d0f756f4",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b8895922ec2687a10a20c28bfe6576fb0074f6b9f421cee3bbce19a818f0104e",
+ "image_sha256": "733489c07bec553ed43fbf29164bf1f9929197d0bf3211ce4dba0fea52f657c8"
+}

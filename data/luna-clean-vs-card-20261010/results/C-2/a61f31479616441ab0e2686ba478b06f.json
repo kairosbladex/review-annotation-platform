@@ -1,0 +1,64 @@
+{
+ "unit": "a61f31479616441ab0e2686ba478b06f",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:002",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，虽部分被树木遮挡，但可确认是车辆。",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见完整车辆轮廓及车身结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:003",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，部分被植被遮挡。",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见车辆的车身和车顶结构，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:006",
+   "decision": "true",
+   "image_limitation": "目标较小但轮廓和车身结构可辨认。",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见明显的车辆车身，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:016",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "一辆车",
+   "reasoning": "框内可见白色车辆的车身和车顶，符合“车”类别。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603184.1564996,
+   "seconds": 19.61320948600769,
+   "status": "http_503"
+  },
+  {
+   "at": 1791603208.7882445,
+   "seconds": 62.85520124435425,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603184.1564972,
+ "finished": 1791603271.9387891,
+ "health": {
+  "at": 1791603184.154095,
+  "available_fraction": 0.43762150909862074,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "15770489670d4f13add46a818b07390f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a8a266eebfe9b8980753b78c962840ed1244ad82f6fe950d59123225bcadba82",
+ "image_sha256": "8a626ffbddba10a203a23c41b2e50a864ad1d225cccc1acee8f197c9266c7074"
+}

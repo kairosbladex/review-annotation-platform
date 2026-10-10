@@ -1,0 +1,35 @@
+{
+ "unit": "8c6403a541ae4a218a1300f45baa79c9",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "8c6403a541ae4a218a1300f45baa79c9:001",
+   "decision": "true",
+   "image_limitation": "目标较小但可见车辆整体轮廓，细分类要求不适用。",
+   "observed_object": "停放的小汽车",
+   "reasoning": "框内可见明显的车辆车身和车窗轮廓，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607683.3944762,
+   "seconds": 14.876599311828613,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607683.394474,
+ "finished": 1791607698.5459294,
+ "health": {
+  "at": 1791607683.368504,
+  "available_fraction": 0.45681553866986785,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c054f4f7b2434d899f63d45cc03ad696",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "61280a5f6c5d5dfd60edc7df81729083128e3d6327c704f1a453747671c6d86d",
+ "image_sha256": "001cd630b4b7a91d829c6f735887831d9f5bc4bd233a73145ffd2ce8bd9b919f"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "738a692ce92c474381c08e1fc6215f19",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "738a692ce92c474381c08e1fc6215f19:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框内主要为建筑、遮棚和树木，未能清晰确认车辆结构。",
+   "observed_object": "建筑外立面、遮棚及树木",
+   "reasoning": "框线和文字不作为目标证据；候选区域内没有可唯一定位且具备车辆所需结构的目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606087.008209,
+   "seconds": 15.732925415039062,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606087.0082068,
+ "finished": 1791606103.013124,
+ "health": {
+  "at": 1791606087.007621,
+  "available_fraction": 0.4505093471717716,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4204985337c94ae0b3941548d6dedded",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a19886e02f9265f37200d2437b04f55f94826fe5a1e8bbe2be19dcf5a2463696",
+ "image_sha256": "cd20bd37480167bb15d92dc94fdfa868630b8249652c273554472ce0d1861afb"
+}

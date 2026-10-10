@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_5855e63b7f22d882",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d49492d50736447d96d6d93db7a2d01d",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内为一栋高层建筑的立面，未见蓝色或绿色顶棚",
+   "reasoning": "候选框主体是建筑外墙和窗户，不是蓝色或绿色屋面；不能将框线或文字作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607004.5786426,
+   "seconds": 4.567922592163086,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607004.5786388,
+ "finished": 1791607009.4201627,
+ "health": {
+  "at": 1791607004.5772624,
+  "available_fraction": 0.452011749264075,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "d79b93d4e1764d918555013d22e73706",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "cf74c86b528e6d3fc4eb714b98aaa5ca012c5ce9f207d346537e1d188962f8bf",
+ "image_sha256": "5855e63b7f22d882980c76f67fb51c27a6286fafa5b30b6be3eca96c4befa45f"
+}

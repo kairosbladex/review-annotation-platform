@@ -1,0 +1,107 @@
+{
+ "unit": "dc82bfbae0984d7b9759862a3887538e",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:003",
+   "decision": "uncertain",
+   "image_limitation": "目标大部分位于图像底部边缘，仅露出局部，无法确认完整车辆结构。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "可见信息不足，不能唯一确认类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆结构，符合“车”类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆结构，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构，符合“车”类别。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606828.1710815,
+   "seconds": 5.538806200027466,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606828.1710794,
+ "finished": 1791606833.9856584,
+ "health": {
+  "at": 1791606828.169335,
+  "available_fraction": 0.4562602509051926,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "97b3d8cfe8fc471eb34f3464fff6a697",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "b640ec7a0da5d8c55af49b609bcf102f2e3bdc1682db2473d2cd7fadb6ae7a4b",
+ "image_sha256": "11cc781c9c21214501f4a564f9092dec10ae93ecae53a262527bf2746eb9ab6f"
+}

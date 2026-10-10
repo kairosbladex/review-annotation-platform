@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_ffd6228264016892",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:88d964f96f454fe0ad2b06349c2a6068",
+   "decision": "uncertain",
+   "image_limitation": "目标为建筑局部窗体，图中没有审批信息或区域业务依据，无法确认是否违建。",
+   "observed_object": "建筑立面上的窗体/结构",
+   "reasoning": "仅凭外观不能判定违建属性，按规则输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603031.3986115,
+   "seconds": 58.691839933395386,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603031.3986092,
+ "finished": 1791603090.3632069,
+ "health": {
+  "at": 1791603031.3979747,
+  "available_fraction": 0.43800020282929847,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "86bbf71c0be041dc8bef7ea913e2a99a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "11d8f64abd399aafa9c41e3cda9861053d0314f706ff4d0114d6e4d49cdadd0f",
+ "image_sha256": "ffd6228264016892b07fa71cf15c7219831b1607593cbdde94d66987027f013d"
+}

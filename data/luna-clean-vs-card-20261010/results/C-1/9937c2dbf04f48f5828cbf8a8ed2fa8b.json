@@ -1,0 +1,35 @@
+{
+ "unit": "9937c2dbf04f48f5828cbf8a8ed2fa8b",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "9937c2dbf04f48f5828cbf8a8ed2fa8b:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见地面纹理，无可见人体结构。",
+   "observed_object": "铺装地面及污渍",
+   "reasoning": "框内未发现人员目标，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608411.4738765,
+   "seconds": 14.557447910308838,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608411.4738746,
+ "finished": 1791608426.3184378,
+ "health": {
+  "at": 1791608411.4723282,
+  "available_fraction": 0.45332454609040446,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "cd9e3850efc54e56bd8912fe0ff406b3",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8b868e7bdb2e0a015fbf2215a5e7042a7943314abacc125e938667869534cc94",
+ "image_sha256": "92e7908c5a7de3ec491bd13f14d21213f192334314f652a1deb89cb4f2e567a3"
+}

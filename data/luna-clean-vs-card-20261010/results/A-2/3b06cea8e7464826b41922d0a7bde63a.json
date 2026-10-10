@@ -1,0 +1,35 @@
+{
+ "unit": "3b06cea8e7464826b41922d0a7bde63a",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:3b06cea8e7464826b41922d0a7bde63a:000",
+   "decision": "uncertain",
+   "image_limitation": "仅凭航拍图无法确认该建筑是否无审批或违反区域规划，且框线和文字不作为证据。",
+   "observed_object": "框内为一处带蓝色彩钢顶棚的建筑或棚屋。",
+   "reasoning": "目标外观可见，但缺乏审批信息或明确区域业务依据，不能判定为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606434.149291,
+   "seconds": 6.803072214126587,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606434.1492887,
+ "finished": 1791606441.445805,
+ "health": {
+  "at": 1791606434.1257548,
+  "available_fraction": 0.4506943924265388,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "9fb5c952318e4f308a242aff63098442",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "6684d18542641ffc80db879a44b8bc832d379da264999982f483ec6b8d970f55",
+ "image_sha256": "f8692d72f874c14a689abc1e47e4df57a3ba00ab04c01a64dc28667c10d04231"
+}

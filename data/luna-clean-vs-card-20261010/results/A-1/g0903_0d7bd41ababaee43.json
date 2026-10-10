@@ -1,0 +1,43 @@
+{
+ "unit": "g0903_0d7bd41ababaee43",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cdd543ffaaad481885165446c2939f34",
+   "decision": "uncertain",
+   "image_limitation": "目标为远处建筑或棚状结构，缺乏审批及区域业务依据，无法确认是否违建。",
+   "observed_object": "框内可见一处小型棚状建筑结构。",
+   "reasoning": "仅凭外观无法判断其是否属于未经审批的违建。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:82325faa9a82418181856bacfc284810",
+   "decision": "uncertain",
+   "image_limitation": "目标距离较远且细节不清，缺乏审批及区域业务依据。",
+   "observed_object": "框内可见一处低矮的长条形建筑或设施。",
+   "reasoning": "仅凭外观无法确认是否为违建。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605097.5919015,
+   "seconds": 17.107484340667725,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605097.5918996,
+ "finished": 1791605115.1282842,
+ "health": {
+  "at": 1791605097.5912058,
+  "available_fraction": 0.4396726933396112,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7c12c58a328d438bb787b73b471b8779",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "112a879a90e4e35baa181dad90660279f4966c845914109897ead79f0d398d30",
+ "image_sha256": "0d7bd41ababaee43e8da4c47c05970a0d8b47ecf4a671a2cc12174a367817cb4"
+}

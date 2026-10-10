@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_c0bfe131827b8cae",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名人员，具有人体头部、躯干和肢体结构。",
+   "reasoning": "目标符合人员类别，且可唯一定位。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607829.5185242,
+   "seconds": 16.931572914123535,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607829.518522,
+ "finished": 1791607846.724717,
+ "health": {
+  "at": 1791607829.5164237,
+  "available_fraction": 0.4548800571132284,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a12ab6cf6b6d4f848a442123df8b527a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ff872591c29b53f3978902309c81a8b6c53d7b8d3efa209a970c9cefc866cdff",
+ "image_sha256": "4196e0264a6ebf326fc0787b9d9ef83c403ad84cb363e6b2cb5ec91091cd3556"
+}

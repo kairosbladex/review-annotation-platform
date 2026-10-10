@@ -1,0 +1,163 @@
+{
+ "unit": "e49438b26182494a83f9c0378f1cad1a",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:006",
+   "decision": "uncertain",
+   "image_limitation": "目标仅部分位于图像边缘，车辆结构不完整。",
+   "observed_object": "疑似车辆",
+   "reasoning": "无法充分确认。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:008",
+   "decision": "uncertain",
+   "image_limitation": "目标贴近图像边缘且部分遮挡，结构不完整。",
+   "observed_object": "疑似车辆",
+   "reasoning": "无法充分确认。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:010",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像底部边缘，仅部分可见。",
+   "observed_object": "疑似车辆",
+   "reasoning": "无法充分确认。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆结构。",
+   "target_index": 10
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构。",
+   "target_index": 11
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构。",
+   "target_index": 12
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:018",
+   "decision": "uncertain",
+   "image_limitation": "目标贴近图像底部边缘，车辆结构不完整。",
+   "observed_object": "疑似车辆",
+   "reasoning": "无法充分确认。",
+   "target_index": 13
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:020",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆结构。",
+   "target_index": 14
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:021",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见车辆结构。",
+   "target_index": 15
+  },
+  {
+   "key": "released_fp:e49438b26182494a83f9c0378f1cad1a:022",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见完整车辆结构。",
+   "target_index": 16
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607983.1635587,
+   "seconds": 60.05964994430542,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607983.1635566,
+ "finished": 1791608043.5015182,
+ "health": {
+  "at": 1791607983.1611392,
+  "available_fraction": 0.45696434703557925,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "01b45aad7a6c46fd932fb9d120ea9262",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3b99b5047ec31c166c3b9178ae2e62d66d86c42b10d9f110da70740b06335dd5",
+ "image_sha256": "158ad4afea1bfaa386c55e351e160bc9f9646e2bddfaa576642bc3583227e065"
+}

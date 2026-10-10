@@ -1,0 +1,35 @@
+{
+ "unit": "46e38da516a54f38ae3e713cf6322382",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "46e38da516a54f38ae3e713cf6322382:000",
+   "decision": "true",
+   "image_limitation": "目标较小但可见车辆轮廓及车身结构，未见明显遮挡。",
+   "observed_object": "建筑玻璃反射或窗内可见的一辆车。",
+   "reasoning": "候选框内能辨认出车辆形态，符合“车”类别；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609353.4823632,
+   "seconds": 22.38566756248474,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609353.482361,
+ "finished": 1791609376.4135473,
+ "health": {
+  "at": 1791609353.4805765,
+  "available_fraction": 0.45409758959023616,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "99e400e8a9c24b4aae53b644d732a6a6",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "0e5f0dd82f9600c846c1018e4afbce55ccbc07e0e5191fafb7c7dc82757c255f",
+ "image_sha256": "11a8976c1bdcc812f22e6abac474c919071443c170f82627a6cfd9911daa973e"
+}

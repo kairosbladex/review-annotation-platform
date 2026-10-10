@@ -1,0 +1,35 @@
+{
+ "unit": "921ef7c18d9846589264f1195197448a",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "921ef7c18d9846589264f1195197448a:004",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且部分位于图像边缘，无法清晰确认车辆所需结构。",
+   "observed_object": "疑似屋顶或其他物体，无法唯一判断为车。",
+   "reasoning": "图中未见足以明确证明车辆类别的结构，不能仅凭框内模糊外观判定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607972.4525828,
+   "seconds": 15.596864700317383,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607972.452581,
+ "finished": 1791607988.4662619,
+ "health": {
+  "at": 1791607972.4516373,
+  "available_fraction": 0.45653491558020853,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c6fff8271272448e80fb00f908dc93f5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "07a405d58bb825a5abc45edf4fb77b3212adb436660822f88392b6dec496c1f2",
+ "image_sha256": "0746c89d97fadd40df9f54e5797a86e7a25b7f055f6a35ba53780c837305a7a2"
+}

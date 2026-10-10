@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_e2d382ae797765fb",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-031",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且受热成像伪彩与文字遮挡影响，无法确认可见人体结构。",
+   "observed_object": "疑似小型目标",
+   "reasoning": "不能仅凭框内颜色或位置判定为人员，缺乏明确人体结构证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606987.517793,
+   "seconds": 4.223668813705444,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606987.5177913,
+ "finished": 1791606992.2515225,
+ "health": {
+  "at": 1791606987.5172863,
+  "available_fraction": 0.4548139977508809,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "989275069de34851bf426450e2cab939",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d4c64e0c81c262a99c0a3ab005fa58714e60b7393948dee91dd1e6089f130f61",
+ "image_sha256": "e2d382ae797765fbe5c8ceca16872d923b0a26e092f9021969fa65e230a73dda"
+}

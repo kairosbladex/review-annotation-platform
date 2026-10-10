@@ -1,0 +1,35 @@
+{
+ "unit": "9f3745b4d6bb4bb192a479ead431c528",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡。",
+   "observed_object": "屋顶上的小型设备箱或空调外机，未见车辆结构或三轮证据。",
+   "reasoning": "候选框内不是三轮车，无法观察到三个车轮及车体结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606540.104865,
+   "seconds": 8.519574880599976,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606540.1048632,
+ "finished": 1791606548.954338,
+ "health": {
+  "at": 1791606540.07888,
+  "available_fraction": 0.4557135663616607,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "96487a6455a84b1087a40d5eff6cff4d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f95947fc209544f19182115cc1def18c10745825134b90334e1c5e1a831881ea",
+ "image_sha256": "3ef753e1773f8491240bde1c34809822a914288eb165d31fd8208a98cc51946d"
+}

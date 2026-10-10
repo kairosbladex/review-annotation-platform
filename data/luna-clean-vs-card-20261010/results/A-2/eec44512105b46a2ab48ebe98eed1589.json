@@ -1,0 +1,35 @@
+{
+ "unit": "eec44512105b46a2ab48ebe98eed1589",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "eec44512105b46a2ab48ebe98eed1589:019",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标较小且被标注框覆盖，无法清晰确认其车辆结构及是否为公交车。",
+   "observed_object": "疑似车辆或车身区域",
+   "reasoning": "仅凭当前图像无法明确判断为公交车，不能将框线或文字作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605225.0159204,
+   "seconds": 14.987544298171997,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605225.015918,
+ "finished": 1791605240.5676947,
+ "health": {
+  "at": 1791605225.0149426,
+  "available_fraction": 0.4406235164763541,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "fd38858060e44bccbd0a6a657fe04674",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "861bd78a0b13755804757664810dfd79d9f0a9ae42d5cc116a59e7963189566a",
+ "image_sha256": "64a509c1239d0772b3ebe41916dce3e2aa0fe3a3bca892fc7edba35b16ecf47c"
+}

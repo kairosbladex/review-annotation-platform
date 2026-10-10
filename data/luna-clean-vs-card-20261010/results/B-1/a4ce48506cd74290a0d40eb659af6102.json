@@ -1,0 +1,75 @@
+{
+ "unit": "a4ce48506cd74290a0d40eb659af6102",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:003",
+   "decision": "uncertain",
+   "image_limitation": "候选框仅覆盖很小区域，无法清晰确认完整人体结构。",
+   "observed_object": "小型标记区域，疑似人员框内目标",
+   "reasoning": "不能仅依据框线或文字判定人员，人体结构不可见或不完整。",
+   "target_index": 0
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:004",
+   "decision": "uncertain",
+   "image_limitation": "候选框较小且目标细节不足，无法确认人体结构。",
+   "observed_object": "小型标记区域，疑似人员框内目标",
+   "reasoning": "未能清晰看到可辨认的人体结构。",
+   "target_index": 1
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:002",
+   "decision": "uncertain",
+   "image_limitation": "候选框尺寸很小，目标被道路背景和标注影响，无法确认人体结构。",
+   "observed_object": "小型标记区域，疑似人员框内目标",
+   "reasoning": "不把文字和框线作为目标证据，现有图像不足以明确判定人员。",
+   "target_index": 2
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框过小，无法看清目标是否具有人体结构。",
+   "observed_object": "小型标记区域",
+   "reasoning": "缺乏清晰可见的人体结构，不能明确符合人员类别。",
+   "target_index": 3
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:005",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像底部边缘且被裁切，无法确认完整人体结构。",
+   "observed_object": "底部边缘的小型标记区域",
+   "reasoning": "目标严重不完整，不能唯一确认是人员。",
+   "target_index": 4
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框较小，目标细节不足，无法确认人体结构。",
+   "observed_object": "小型标记区域，疑似人员框内目标",
+   "reasoning": "不能依据标注文字或框线判定人员，人体结构不可清晰辨认。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607614.5582194,
+   "seconds": 17.117682933807373,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607614.5582175,
+ "finished": 1791607631.9540253,
+ "health": {
+  "at": 1791607614.5574548,
+  "available_fraction": 0.45747029547899815,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "76e6d84b5fae4b2bb085904e3034a1c1",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "25e63eddda9df6e11f829e7c3b20a74ca84148653308ef9196c1b722a8d28946",
+ "image_sha256": "a154125d627022f338642399bccf3fa8dd9bba154fb09ea28f4d82cf41ca9543"
+}

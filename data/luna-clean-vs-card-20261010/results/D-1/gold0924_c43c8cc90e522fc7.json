@@ -1,0 +1,35 @@
+{
+ "unit": "gold0924_c43c8cc90e522fc7",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-028",
+   "decision": "false",
+   "image_limitation": "目标区域仅见道路及阴影，未见可辨认的人体结构。",
+   "observed_object": "道路、路旁设施及阴影",
+   "reasoning": "候选框内没有人员可见证据，明显不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603358.423129,
+   "seconds": 48.75532245635986,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603358.423125,
+ "finished": 1791603407.4779272,
+ "health": {
+  "at": 1791603358.3924117,
+  "available_fraction": 0.4317062625613109,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5ea0b4c5efc74955b1eccb1a439aa56d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "70a26e48ecdcc2c068837ba5e28ec9fc55dabdd29d7e150d6937a3a69cb39dfb",
+ "image_sha256": "c6638c1a951abcb841108c949caa708fa276f54eb6915c636f4001b34d3fd774"
+}

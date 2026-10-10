@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_8b4392b49d6ef5f6",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:e5e966d90dc942ecaba436a0d5783307",
+   "decision": "uncertain",
+   "image_limitation": "候选框内主要是围挡底部及地面，缺乏审批或区域业务依据，无法判定为违建。",
+   "observed_object": "蓝色施工围挡及其底部区域",
+   "reasoning": "仅凭围挡外观不能确认存在违法建设行为。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601859.4554358,
+   "seconds": 7.381633043289185,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601859.4554334,
+ "finished": 1791601867.1191814,
+ "health": {
+  "at": 1791601859.454132,
+  "available_fraction": 0.4563484719220046,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0276841a93bf460ab3021cbd3bd6b19b",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "95474bf45a4509d2d5923a57fd2a5d003f01794bcb44545aa606ab32dbb9f978",
+ "image_sha256": "65aa13015c1f3ed27e17cb8d0428537f483548b8cbd4f42fb37f41761fca326a"
+}

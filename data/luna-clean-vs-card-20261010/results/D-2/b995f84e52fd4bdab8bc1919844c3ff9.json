@@ -1,0 +1,75 @@
+{
+ "unit": "b995f84e52fd4bdab8bc1919844c3ff9",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:004",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法清晰确认人体结构。",
+   "observed_object": "远处小型疑似目标",
+   "reasoning": "框内细节不足，不能唯一确认是人员。",
+   "target_index": 0
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:001",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节模糊，无法确认人体结构。",
+   "observed_object": "蓝色步道附近的小型疑似目标",
+   "reasoning": "仅凭当前图像不能明确判断为人员。",
+   "target_index": 1
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:002",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且存在遮挡或模糊，无法确认人体结构。",
+   "observed_object": "步道旁的小型疑似目标",
+   "reasoning": "缺乏可见的人体结构证据。",
+   "target_index": 2
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:005",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法清晰辨认人体结构。",
+   "observed_object": "白色步道上的小型疑似目标",
+   "reasoning": "无法明确确认目标为人员。",
+   "target_index": 3
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:000",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸极小，细节不可辨。",
+   "observed_object": "广场上的小型疑似目标",
+   "reasoning": "看不清是否具有人体结构，因此不能判定为人员。",
+   "target_index": 4
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:003",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且图像细节不足，无法确认人体结构。",
+   "observed_object": "蓝色步道附近的小型疑似目标",
+   "reasoning": "不能唯一确认该目标为人员。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602247.2025664,
+   "seconds": 7.194455146789551,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602247.202564,
+ "finished": 1791602254.683649,
+ "health": {
+  "at": 1791602247.0136414,
+  "available_fraction": 0.447204919850811,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "6a3d9e0d6a9b4d91bb4d3fc06900e079",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a54f412df66712ff2be60c9e4b2fd3f287a58739e4be7bf1bde6d32c416d1ea1",
+ "image_sha256": "24f06951bd0742cf1da9590e0a71b87ec8506b50c42172af300d6ae532ec43ad"
+}

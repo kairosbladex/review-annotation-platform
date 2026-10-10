@@ -1,0 +1,88 @@
+{
+ "unit": "gold0924_8eed6571e7cb1951",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-018",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小，无法清晰确认人体结构。",
+   "observed_object": "疑似小型目标",
+   "reasoning": "仅凭当前分辨率不能明确判定为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-019",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小，无法清晰确认人体结构。",
+   "observed_object": "疑似小型目标",
+   "reasoning": "仅凭当前分辨率不能明确判定为人员。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0924:B03-020",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小，无法清晰确认人体结构。",
+   "observed_object": "疑似小型目标",
+   "reasoning": "仅凭当前分辨率不能明确判定为人员。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0924:B03-021",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小，无法清晰确认人体结构。",
+   "observed_object": "疑似小型目标",
+   "reasoning": "仅凭当前分辨率不能明确判定为人员。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0924:B03-022",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小，无法清晰确认人体结构。",
+   "observed_object": "疑似小型目标",
+   "reasoning": "仅凭当前分辨率不能明确判定为人员。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0924:B03-023",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小，无法清晰确认人体结构。",
+   "observed_object": "疑似小型目标",
+   "reasoning": "仅凭当前分辨率不能明确判定为人员。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0924:B03-024",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小，无法清晰确认人体结构。",
+   "observed_object": "疑似小型目标",
+   "reasoning": "仅凭当前分辨率不能明确判定为人员。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602122.867817,
+   "seconds": 32.68961024284363,
+   "status": "http_503"
+  },
+  {
+   "at": 1791602160.5982077,
+   "seconds": 22.055661916732788,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602122.867814,
+ "finished": 1791602182.957196,
+ "health": {
+  "at": 1791602122.8538775,
+  "available_fraction": 0.4352307864231807,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a865f289b79e43fa8038477b46de802e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "1dfa74568fe2ba6ac66ea6b12559201036a5a1ea3bf064e97d40630991f803a2",
+ "image_sha256": "d3726e9b0293ecb2c12370dff2c41f6809e61f98b08f914e3098fadba32647a2"
+}

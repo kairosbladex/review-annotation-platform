@@ -1,0 +1,51 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "uncertain",
+   "image_limitation": "候选框内仅见远处小目标，人体结构不清晰，无法唯一确认是人员。",
+   "observed_object": "疑似竖直物体或模糊目标",
+   "reasoning": "框内缺乏可辨认的人体头部、躯干或四肢等结构，不能据此判定为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小且图像模糊，人体结构不可辨认。",
+   "observed_object": "疑似竖直物体或模糊目标",
+   "reasoning": "未能清楚观察到完整人体结构，无法确认符合人员类别。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "uncertain",
+   "image_limitation": "候选区域目标过小、细节不足，无法排除文字或其他物体。",
+   "observed_object": "疑似竖直物体或模糊目标",
+   "reasoning": "没有明确可见的人体结构，因此不能判定为人员。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609561.2694857,
+   "seconds": 15.212132692337036,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609561.2694838,
+ "finished": 1791609576.7504625,
+ "health": {
+  "at": 1791609561.2688842,
+  "available_fraction": 0.45545054491525916,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "a63e1734b5384ccb95892c651f2c5156",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "f57315de287a9a38b94b88163f65ad5871fcaca3d32b2b3bf081b984721d7937",
+ "image_sha256": "24a27ba779cf9126f703b0d158276386228162db2fe7df843c24814e1c2fa9f5"
+}

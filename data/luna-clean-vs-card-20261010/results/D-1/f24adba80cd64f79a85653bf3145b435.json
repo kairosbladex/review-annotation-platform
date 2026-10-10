@@ -1,0 +1,35 @@
+{
+ "unit": "f24adba80cd64f79a85653bf3145b435",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "f24adba80cd64f79a85653bf3145b435:003",
+   "decision": "true",
+   "image_limitation": "目标较小但可辨认车辆的车身结构，未见框线作为依据。",
+   "observed_object": "停放的汽车",
+   "reasoning": "候选框内可见完整车辆外形，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608225.7929695,
+   "seconds": 15.548671007156372,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608225.7929673,
+ "finished": 1791608241.6222544,
+ "health": {
+  "at": 1791608225.7908485,
+  "available_fraction": 0.45578558413865156,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "0d61c92f6ff941fd9845e35581c5e53d",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d1a074efea45cd6364ea82dfc258b91b79992ec3a3643085cb207d30f7906753",
+ "image_sha256": "dfc3f5d63e3982d2d84937681751a52930ba4dd592dcb04ce6bc77425e9ec7cb"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "uncertain",
+   "image_limitation": "图中仅能确认框内为一栋建筑，缺乏审批或区域业务依据，无法判定为违建。",
+   "observed_object": "高层建筑",
+   "reasoning": "候选框内目标是建筑物本体；框线和“违建”文字不作为证据。仅凭外观无法确认其违法建设属性。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605048.8338532,
+   "seconds": 14.25487756729126,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605048.8338509,
+ "finished": 1791605063.3626857,
+ "health": {
+  "at": 1791605048.8331583,
+  "available_fraction": 0.44039585031684175,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "da55ac36718540e4ac2e4491f248aa39",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "9096e6bd646932841ffb8e27062043622d79b668bcec111e6aca7bff57c77e7f",
+ "image_sha256": "05cf93bb163a24d4931cfb764310d24eef5a0a1ffa02b30900b11aa001db9c51"
+}

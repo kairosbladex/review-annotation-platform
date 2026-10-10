@@ -1,0 +1,35 @@
+{
+ "unit": "64f7b907e6214559ac09a8e57c577128",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "64f7b907e6214559ac09a8e57c577128:000",
+   "decision": "uncertain",
+   "image_limitation": "目标区域过小且部分遮挡，无法清晰确认完整人体结构。",
+   "observed_object": "疑似白色物体或人物局部",
+   "reasoning": "无法依据可见证据确认符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603739.939585,
+   "seconds": 13.812926530838013,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603739.939583,
+ "finished": 1791603754.0331535,
+ "health": {
+  "at": 1791603739.938292,
+  "available_fraction": 0.4476651161817895,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1e211ac488064c8abec68e673ff11ef5",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a121352140e445927b390e4189fb0e0e77b77a571fbe1fe1801d823688733d80",
+ "image_sha256": "6a1561213d764638ca3f46fedabf1a8f3d12ac5a592b28d2c6fa84aaef9c8c82"
+}

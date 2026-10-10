@@ -1,0 +1,51 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "远处可见一名行人，具有人体结构。",
+   "reasoning": "候选框内能明确看到头部、躯干和腿部，符合人员类别。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "近处可见一名行人，具有人体结构。",
+   "reasoning": "候选框内能明确看到头部、躯干和腿部，符合人员类别。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "近处可见一名行人，具有人体结构。",
+   "reasoning": "候选框内能明确看到头部、躯干和腿部，符合人员类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609539.1688294,
+   "seconds": 25.300050258636475,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609539.1688275,
+ "finished": 1791609564.7395523,
+ "health": {
+  "at": 1791609539.1674569,
+  "available_fraction": 0.45438249909042977,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "28103c2ce61a476abfde3f86c89467af",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5c5b36f18755ba28cffab3a2634e3b620eb127fbbeec875c46b3850b818ad622",
+ "image_sha256": "0f85b35535e823fac943f1c87c447f239d0abdc62667ec7118c4783d019ea802"
+}

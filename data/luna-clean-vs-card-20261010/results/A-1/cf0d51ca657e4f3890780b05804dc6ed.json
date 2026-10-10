@@ -1,0 +1,35 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "uncertain",
+   "image_limitation": "图中仅能看到候选框标注的建筑/地面区域，缺乏审批信息或明确区域业务依据，无法确认违建属性。",
+   "observed_object": "建筑旁的地面或设施区域",
+   "reasoning": "不能仅凭外观判断是否属于违建，且框线和文字不作为目标证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606723.56949,
+   "seconds": 3.9090590476989746,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606723.5694878,
+ "finished": 1791606727.7528503,
+ "health": {
+  "at": 1791606723.5548718,
+  "available_fraction": 0.4567255544487226,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "3a956fff07ce4efd86826ca208e02b38",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "303f0de939d399fdb820665d8687ecb0120f8e4d25dc4c7f52802821a0ead4af",
+ "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

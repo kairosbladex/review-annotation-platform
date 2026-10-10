@@ -1,0 +1,139 @@
+{
+ "unit": "499993a0d9614b97accdba65edc23687",
+ "arm": "D",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "499993a0d9614b97accdba65edc23687:007",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节不足，无法确认可见人体结构。",
+   "observed_object": "疑似小型物体/行人",
+   "reasoning": "仅凭候选框内模糊外观，不能明确判定为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:014",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且被周边物体干扰，人体结构不可辨。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "无法确认头部、躯干或四肢等人体结构。",
+   "target_index": 1
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:011",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且细节模糊，无法确认人体结构。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "不能明确判定为人员。",
+   "target_index": 2
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:013",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小，人体结构不可清晰辨认。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "现有图像不足以确认人员类别。",
+   "target_index": 3
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:002",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，细节不足。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "无法唯一确认可见人体结构。",
+   "target_index": 4
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:003",
+   "decision": "uncertain",
+   "image_limitation": "目标较小且模糊，无法辨认人体结构。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "不能明确符合人员类别。",
+   "target_index": 5
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:005",
+   "decision": "uncertain",
+   "image_limitation": "目标被环境背景干扰且尺寸很小。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "无法确认头部、躯干或四肢。",
+   "target_index": 6
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:009",
+   "decision": "uncertain",
+   "image_limitation": "目标极小，无法看清其结构。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "不足以明确判定为人员。",
+   "target_index": 7
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:010",
+   "decision": "uncertain",
+   "image_limitation": "目标位于复杂背景中且细节不足。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "看不清可见人体结构，不能确认类别。",
+   "target_index": 8
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:012",
+   "decision": "uncertain",
+   "image_limitation": "目标过小且与周边目标接近，无法清晰分辨。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "不能唯一定位并确认人员结构。",
+   "target_index": 9
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:006",
+   "decision": "uncertain",
+   "image_limitation": "目标很小，细节不足以识别人体。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "无法明确判定为人员。",
+   "target_index": 10
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:000",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸小且图像模糊。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "缺乏明确人体结构证据。",
+   "target_index": 11
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:008",
+   "decision": "uncertain",
+   "image_limitation": "目标位于道路边缘，尺寸较小且细节不可辨。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "不能确认其为人员。",
+   "target_index": 12
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:001",
+   "decision": "uncertain",
+   "image_limitation": "目标与相邻目标接近且细节不足。",
+   "observed_object": "疑似小型物体",
+   "reasoning": "无法唯一确认可见人体结构。",
+   "target_index": 13
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606889.1206558,
+   "seconds": 42.26328921318054,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606889.1206536,
+ "finished": 1791606931.6545956,
+ "health": {
+  "at": 1791606889.1187758,
+  "available_fraction": 0.45381091688570935,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "fec636255fea44219ec5c717b9f05fee",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "996cc645615daa0071f297e66c0a41d6903ff44aa440166ebafe97a54ed93001",
+ "image_sha256": "66edddb8c542c8b42eb93d88d4b866c18483831d73a16066b6202a2950b6b213"
+}

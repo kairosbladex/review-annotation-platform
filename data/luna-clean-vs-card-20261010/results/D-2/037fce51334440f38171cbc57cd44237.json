@@ -1,0 +1,35 @@
+{
+ "unit": "037fce51334440f38171cbc57cd44237",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "037fce51334440f38171cbc57cd44237:001",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标分辨率过低且局部遮挡，无法清晰确认车辆结构及卡车特征。",
+   "observed_object": "疑似车辆或设备，无法唯一判定。",
+   "reasoning": "不能仅凭当前可见局部明确判断其属于卡车，因此输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608608.8689163,
+   "seconds": 21.773789405822754,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608608.8689137,
+ "finished": 1791608630.946663,
+ "health": {
+  "at": 1791608608.8669798,
+  "available_fraction": 0.4530884895102718,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1a9e033e94534738bf3b9a141f681bbe",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "425c840aa3328f313b1930ec28c768bb4a8001222310fb752864f96a74b49fe5",
+ "image_sha256": "5dc02bd7aabb32fe95331e53412581a2304bcfc2e9a70982368c2069151b4104"
+}

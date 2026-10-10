@@ -1,0 +1,6801 @@
+{
+ "complete_images": 300,
+ "incomplete_images": [],
+ "scored_candidates": 685,
+ "unscored_candidates": 22,
+ "requests": {
+  "records": 2400,
+  "success": 2400,
+  "attempt_status": {
+   "ok": 2400,
+   "http_503": 32
+  },
+  "models": [
+   "gpt-5.6-luna"
+  ],
+  "start": 1791601247.966531,
+  "finish": 1791610179.1704457
+ },
+ "splits": {
+  "dev": {
+   "全部": {
+    "A-1": {
+     "n": 376,
+     "true_n": 281,
+     "false_n": 95,
+     "correct": 254,
+     "accuracy": 0.675531914893617,
+     "true_rejected": 97,
+     "false_accepted": 25,
+     "uncertain": 145,
+     "true_uncertain": 84
+    },
+    "A-2": {
+     "n": 376,
+     "true_n": 281,
+     "false_n": 95,
+     "correct": 251,
+     "accuracy": 0.6675531914893617,
+     "true_rejected": 102,
+     "false_accepted": 23,
+     "uncertain": 146,
+     "true_uncertain": 87
+    },
+    "B-1": {
+     "n": 376,
+     "true_n": 281,
+     "false_n": 95,
+     "correct": 270,
+     "accuracy": 0.7180851063829787,
+     "true_rejected": 80,
+     "false_accepted": 26,
+     "uncertain": 115,
+     "true_uncertain": 67
+    },
+    "B-2": {
+     "n": 376,
+     "true_n": 281,
+     "false_n": 95,
+     "correct": 266,
+     "accuracy": 0.7074468085106383,
+     "true_rejected": 75,
+     "false_accepted": 35,
+     "uncertain": 96,
+     "true_uncertain": 55
+    },
+    "C-1": {
+     "n": 376,
+     "true_n": 281,
+     "false_n": 95,
+     "correct": 283,
+     "accuracy": 0.7526595744680851,
+     "true_rejected": 80,
+     "false_accepted": 13,
+     "uncertain": 137,
+     "true_uncertain": 70
+    },
+    "C-2": {
+     "n": 376,
+     "true_n": 281,
+     "false_n": 95,
+     "correct": 281,
+     "accuracy": 0.7473404255319149,
+     "true_rejected": 80,
+     "false_accepted": 15,
+     "uncertain": 136,
+     "true_uncertain": 70
+    },
+    "D-1": {
+     "n": 376,
+     "true_n": 281,
+     "false_n": 95,
+     "correct": 306,
+     "accuracy": 0.8138297872340425,
+     "true_rejected": 49,
+     "false_accepted": 21,
+     "uncertain": 88,
+     "true_uncertain": 39
+    },
+    "D-2": {
+     "n": 376,
+     "true_n": 281,
+     "false_n": 95,
+     "correct": 304,
+     "accuracy": 0.8085106382978723,
+     "true_rejected": 52,
+     "false_accepted": 20,
+     "uncertain": 86,
+     "true_uncertain": 42
+    }
+   },
+   "三轮车": {
+    "A-1": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "A-2": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 1,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "B-2": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 1,
+     "true_uncertain": 0
+    },
+    "C-1": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    }
+   },
+   "两轮车": {
+    "A-1": {
+     "n": 6,
+     "true_n": 3,
+     "false_n": 3,
+     "correct": 3,
+     "accuracy": 0.5,
+     "true_rejected": 3,
+     "false_accepted": 0,
+     "uncertain": 5,
+     "true_uncertain": 3
+    },
+    "A-2": {
+     "n": 6,
+     "true_n": 3,
+     "false_n": 3,
+     "correct": 3,
+     "accuracy": 0.5,
+     "true_rejected": 2,
+     "false_accepted": 1,
+     "uncertain": 4,
+     "true_uncertain": 2
+    },
+    "B-1": {
+     "n": 6,
+     "true_n": 3,
+     "false_n": 3,
+     "correct": 4,
+     "accuracy": 0.6666666666666666,
+     "true_rejected": 2,
+     "false_accepted": 0,
+     "uncertain": 5,
+     "true_uncertain": 2
+    },
+    "B-2": {
+     "n": 6,
+     "true_n": 3,
+     "false_n": 3,
+     "correct": 4,
+     "accuracy": 0.6666666666666666,
+     "true_rejected": 1,
+     "false_accepted": 1,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "C-1": {
+     "n": 6,
+     "true_n": 3,
+     "false_n": 3,
+     "correct": 3,
+     "accuracy": 0.5,
+     "true_rejected": 3,
+     "false_accepted": 0,
+     "uncertain": 5,
+     "true_uncertain": 3
+    },
+    "C-2": {
+     "n": 6,
+     "true_n": 3,
+     "false_n": 3,
+     "correct": 3,
+     "accuracy": 0.5,
+     "true_rejected": 3,
+     "false_accepted": 0,
+     "uncertain": 6,
+     "true_uncertain": 3
+    },
+    "D-1": {
+     "n": 6,
+     "true_n": 3,
+     "false_n": 3,
+     "correct": 2,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 3,
+     "false_accepted": 1,
+     "uncertain": 5,
+     "true_uncertain": 3
+    },
+    "D-2": {
+     "n": 6,
+     "true_n": 3,
+     "false_n": 3,
+     "correct": 4,
+     "accuracy": 0.6666666666666666,
+     "true_rejected": 2,
+     "false_accepted": 0,
+     "uncertain": 5,
+     "true_uncertain": 2
+    }
+   },
+   "人员": {
+    "A-1": {
+     "n": 84,
+     "true_n": 45,
+     "false_n": 39,
+     "correct": 41,
+     "accuracy": 0.4880952380952381,
+     "true_rejected": 37,
+     "false_accepted": 6,
+     "uncertain": 54,
+     "true_uncertain": 26
+    },
+    "A-2": {
+     "n": 84,
+     "true_n": 45,
+     "false_n": 39,
+     "correct": 45,
+     "accuracy": 0.5357142857142857,
+     "true_rejected": 37,
+     "false_accepted": 2,
+     "uncertain": 51,
+     "true_uncertain": 24
+    },
+    "B-1": {
+     "n": 84,
+     "true_n": 45,
+     "false_n": 39,
+     "correct": 44,
+     "accuracy": 0.5238095238095238,
+     "true_rejected": 32,
+     "false_accepted": 8,
+     "uncertain": 47,
+     "true_uncertain": 22
+    },
+    "B-2": {
+     "n": 84,
+     "true_n": 45,
+     "false_n": 39,
+     "correct": 47,
+     "accuracy": 0.5595238095238095,
+     "true_rejected": 31,
+     "false_accepted": 6,
+     "uncertain": 47,
+     "true_uncertain": 18
+    },
+    "C-1": {
+     "n": 84,
+     "true_n": 45,
+     "false_n": 39,
+     "correct": 55,
+     "accuracy": 0.6547619047619048,
+     "true_rejected": 29,
+     "false_accepted": 0,
+     "uncertain": 49,
+     "true_uncertain": 21
+    },
+    "C-2": {
+     "n": 84,
+     "true_n": 45,
+     "false_n": 39,
+     "correct": 51,
+     "accuracy": 0.6071428571428571,
+     "true_rejected": 32,
+     "false_accepted": 1,
+     "uncertain": 52,
+     "true_uncertain": 25
+    },
+    "D-1": {
+     "n": 84,
+     "true_n": 45,
+     "false_n": 39,
+     "correct": 53,
+     "accuracy": 0.6309523809523809,
+     "true_rejected": 30,
+     "false_accepted": 1,
+     "uncertain": 52,
+     "true_uncertain": 23
+    },
+    "D-2": {
+     "n": 84,
+     "true_n": 45,
+     "false_n": 39,
+     "correct": 54,
+     "accuracy": 0.6428571428571429,
+     "true_rejected": 30,
+     "false_accepted": 0,
+     "uncertain": 50,
+     "true_uncertain": 22
+    }
+   },
+   "光伏板": {
+    "A-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "A-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    }
+   },
+   "光斑": {
+    "A-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "A-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    }
+   },
+   "公交车": {
+    "A-1": {
+     "n": 3,
+     "true_n": 2,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 1,
+     "false_accepted": 1,
+     "uncertain": 1,
+     "true_uncertain": 1
+    },
+    "A-2": {
+     "n": 3,
+     "true_n": 2,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 2,
+     "false_accepted": 0,
+     "uncertain": 3,
+     "true_uncertain": 2
+    },
+    "B-1": {
+     "n": 3,
+     "true_n": 2,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 2,
+     "false_accepted": 0,
+     "uncertain": 3,
+     "true_uncertain": 2
+    },
+    "B-2": {
+     "n": 3,
+     "true_n": 2,
+     "false_n": 1,
+     "correct": 0,
+     "accuracy": 0.0,
+     "true_rejected": 2,
+     "false_accepted": 1,
+     "uncertain": 2,
+     "true_uncertain": 2
+    },
+    "C-1": {
+     "n": 3,
+     "true_n": 2,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 2,
+     "false_accepted": 0,
+     "uncertain": 1,
+     "true_uncertain": 1
+    },
+    "C-2": {
+     "n": 3,
+     "true_n": 2,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 2,
+     "false_accepted": 0,
+     "uncertain": 1,
+     "true_uncertain": 1
+    },
+    "D-1": {
+     "n": 3,
+     "true_n": 2,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 2,
+     "false_accepted": 0,
+     "uncertain": 1,
+     "true_uncertain": 1
+    },
+    "D-2": {
+     "n": 3,
+     "true_n": 2,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 2,
+     "false_accepted": 0,
+     "uncertain": 1,
+     "true_uncertain": 1
+    }
+   },
+   "卡车": {
+    "A-1": {
+     "n": 7,
+     "true_n": 0,
+     "false_n": 7,
+     "correct": 5,
+     "accuracy": 0.7142857142857143,
+     "true_rejected": 0,
+     "false_accepted": 2,
+     "uncertain": 3,
+     "true_uncertain": 0
+    },
+    "A-2": {
+     "n": 7,
+     "true_n": 0,
+     "false_n": 7,
+     "correct": 4,
+     "accuracy": 0.5714285714285714,
+     "true_rejected": 0,
+     "false_accepted": 3,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 7,
+     "true_n": 0,
+     "false_n": 7,
+     "correct": 6,
+     "accuracy": 0.8571428571428571,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 4,
+     "true_uncertain": 0
+    },
+    "B-2": {
+     "n": 7,
+     "true_n": 0,
+     "false_n": 7,
+     "correct": 6,
+     "accuracy": 0.8571428571428571,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 5,
+     "true_uncertain": 0
+    },
+    "C-1": {
+     "n": 7,
+     "true_n": 0,
+     "false_n": 7,
+     "correct": 7,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 6,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 7,
+     "true_n": 0,
+     "false_n": 7,
+     "correct": 6,
+     "accuracy": 0.8571428571428571,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 5,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 7,
+     "true_n": 0,
+     "false_n": 7,
+     "correct": 6,
+     "accuracy": 0.8571428571428571,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 6,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 7,
+     "true_n": 0,
+     "false_n": 7,
+     "correct": 7,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 4,
+     "true_uncertain": 0
+    }
+   },
+   "没戴头盔": {
+    "A-1": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 1,
+     "true_uncertain": 0
+    },
+    "A-2": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 1,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "B-2": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 1,
+     "true_uncertain": 0
+    },
+    "C-1": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 2,
+     "true_n": 0,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    }
+   },
+   "车": {
+    "A-1": {
+     "n": 224,
+     "true_n": 204,
+     "false_n": 20,
+     "correct": 180,
+     "accuracy": 0.8035714285714286,
+     "true_rejected": 29,
+     "false_accepted": 15,
+     "uncertain": 31,
+     "true_uncertain": 27
+    },
+    "A-2": {
+     "n": 224,
+     "true_n": 204,
+     "false_n": 20,
+     "correct": 175,
+     "accuracy": 0.78125,
+     "true_rejected": 34,
+     "false_accepted": 15,
+     "uncertain": 36,
+     "true_uncertain": 32
+    },
+    "B-1": {
+     "n": 224,
+     "true_n": 204,
+     "false_n": 20,
+     "correct": 182,
+     "accuracy": 0.8125,
+     "true_rejected": 33,
+     "false_accepted": 9,
+     "uncertain": 42,
+     "true_uncertain": 32
+    },
+    "B-2": {
+     "n": 224,
+     "true_n": 204,
+     "false_n": 20,
+     "correct": 177,
+     "accuracy": 0.7901785714285714,
+     "true_rejected": 30,
+     "false_accepted": 17,
+     "uncertain": 29,
+     "true_uncertain": 27
+    },
+    "C-1": {
+     "n": 224,
+     "true_n": 204,
+     "false_n": 20,
+     "correct": 192,
+     "accuracy": 0.8571428571428571,
+     "true_rejected": 19,
+     "false_accepted": 13,
+     "uncertain": 24,
+     "true_uncertain": 18
+    },
+    "C-2": {
+     "n": 224,
+     "true_n": 204,
+     "false_n": 20,
+     "correct": 195,
+     "accuracy": 0.8705357142857143,
+     "true_rejected": 16,
+     "false_accepted": 13,
+     "uncertain": 20,
+     "true_uncertain": 14
+    },
+    "D-1": {
+     "n": 224,
+     "true_n": 204,
+     "false_n": 20,
+     "correct": 201,
+     "accuracy": 0.8973214285714286,
+     "true_rejected": 10,
+     "false_accepted": 13,
+     "uncertain": 16,
+     "true_uncertain": 10
+    },
+    "D-2": {
+     "n": 224,
+     "true_n": 204,
+     "false_n": 20,
+     "correct": 194,
+     "accuracy": 0.8660714285714286,
+     "true_rejected": 14,
+     "false_accepted": 16,
+     "uncertain": 16,
+     "true_uncertain": 13
+    }
+   },
+   "违建": {
+    "A-1": {
+     "n": 48,
+     "true_n": 27,
+     "false_n": 21,
+     "correct": 21,
+     "accuracy": 0.4375,
+     "true_rejected": 27,
+     "false_accepted": 0,
+     "uncertain": 48,
+     "true_uncertain": 27
+    },
+    "A-2": {
+     "n": 48,
+     "true_n": 27,
+     "false_n": 21,
+     "correct": 21,
+     "accuracy": 0.4375,
+     "true_rejected": 27,
+     "false_accepted": 0,
+     "uncertain": 48,
+     "true_uncertain": 27
+    },
+    "B-1": {
+     "n": 48,
+     "true_n": 27,
+     "false_n": 21,
+     "correct": 29,
+     "accuracy": 0.6041666666666666,
+     "true_rejected": 11,
+     "false_accepted": 8,
+     "uncertain": 10,
+     "true_uncertain": 9
+    },
+    "B-2": {
+     "n": 48,
+     "true_n": 27,
+     "false_n": 21,
+     "correct": 30,
+     "accuracy": 0.625,
+     "true_rejected": 11,
+     "false_accepted": 7,
+     "uncertain": 9,
+     "true_uncertain": 7
+    },
+    "C-1": {
+     "n": 48,
+     "true_n": 27,
+     "false_n": 21,
+     "correct": 21,
+     "accuracy": 0.4375,
+     "true_rejected": 27,
+     "false_accepted": 0,
+     "uncertain": 48,
+     "true_uncertain": 27
+    },
+    "C-2": {
+     "n": 48,
+     "true_n": 27,
+     "false_n": 21,
+     "correct": 21,
+     "accuracy": 0.4375,
+     "true_rejected": 27,
+     "false_accepted": 0,
+     "uncertain": 48,
+     "true_uncertain": 27
+    },
+    "D-1": {
+     "n": 48,
+     "true_n": 27,
+     "false_n": 21,
+     "correct": 39,
+     "accuracy": 0.8125,
+     "true_rejected": 4,
+     "false_accepted": 5,
+     "uncertain": 4,
+     "true_uncertain": 2
+    },
+    "D-2": {
+     "n": 48,
+     "true_n": 27,
+     "false_n": 21,
+     "correct": 40,
+     "accuracy": 0.8333333333333334,
+     "true_rejected": 4,
+     "false_accepted": 4,
+     "uncertain": 6,
+     "true_uncertain": 4
+    }
+   }
+  },
+  "holdout": {
+   "全部": {
+    "A-1": {
+     "n": 309,
+     "true_n": 260,
+     "false_n": 49,
+     "correct": 238,
+     "accuracy": 0.7702265372168284,
+     "true_rejected": 60,
+     "false_accepted": 11,
+     "uncertain": 92,
+     "true_uncertain": 57
+    },
+    "A-2": {
+     "n": 309,
+     "true_n": 260,
+     "false_n": 49,
+     "correct": 235,
+     "accuracy": 0.7605177993527508,
+     "true_rejected": 64,
+     "false_accepted": 10,
+     "uncertain": 95,
+     "true_uncertain": 61
+    },
+    "B-1": {
+     "n": 309,
+     "true_n": 260,
+     "false_n": 49,
+     "correct": 257,
+     "accuracy": 0.8317152103559871,
+     "true_rejected": 41,
+     "false_accepted": 11,
+     "uncertain": 50,
+     "true_uncertain": 30
+    },
+    "B-2": {
+     "n": 309,
+     "true_n": 260,
+     "false_n": 49,
+     "correct": 246,
+     "accuracy": 0.7961165048543689,
+     "true_rejected": 53,
+     "false_accepted": 10,
+     "uncertain": 74,
+     "true_uncertain": 47
+    },
+    "C-1": {
+     "n": 309,
+     "true_n": 260,
+     "false_n": 49,
+     "correct": 237,
+     "accuracy": 0.7669902912621359,
+     "true_rejected": 67,
+     "false_accepted": 5,
+     "uncertain": 100,
+     "true_uncertain": 64
+    },
+    "C-2": {
+     "n": 309,
+     "true_n": 260,
+     "false_n": 49,
+     "correct": 252,
+     "accuracy": 0.8155339805825242,
+     "true_rejected": 54,
+     "false_accepted": 3,
+     "uncertain": 89,
+     "true_uncertain": 52
+    },
+    "D-1": {
+     "n": 309,
+     "true_n": 260,
+     "false_n": 49,
+     "correct": 272,
+     "accuracy": 0.8802588996763754,
+     "true_rejected": 35,
+     "false_accepted": 2,
+     "uncertain": 62,
+     "true_uncertain": 32
+    },
+    "D-2": {
+     "n": 309,
+     "true_n": 260,
+     "false_n": 49,
+     "correct": 276,
+     "accuracy": 0.8932038834951457,
+     "true_rejected": 30,
+     "false_accepted": 3,
+     "uncertain": 56,
+     "true_uncertain": 28
+    }
+   },
+   "三轮车": {
+    "A-1": {
+     "n": 2,
+     "true_n": 1,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "A-2": {
+     "n": 2,
+     "true_n": 1,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "B-1": {
+     "n": 2,
+     "true_n": 1,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "B-2": {
+     "n": 2,
+     "true_n": 1,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "C-1": {
+     "n": 2,
+     "true_n": 1,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "C-2": {
+     "n": 2,
+     "true_n": 1,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "D-1": {
+     "n": 2,
+     "true_n": 1,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "D-2": {
+     "n": 2,
+     "true_n": 1,
+     "false_n": 1,
+     "correct": 1,
+     "accuracy": 0.5,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 1
+    }
+   },
+   "两轮车": {
+    "A-1": {
+     "n": 8,
+     "true_n": 7,
+     "false_n": 1,
+     "correct": 3,
+     "accuracy": 0.375,
+     "true_rejected": 5,
+     "false_accepted": 0,
+     "uncertain": 6,
+     "true_uncertain": 5
+    },
+    "A-2": {
+     "n": 8,
+     "true_n": 7,
+     "false_n": 1,
+     "correct": 3,
+     "accuracy": 0.375,
+     "true_rejected": 5,
+     "false_accepted": 0,
+     "uncertain": 5,
+     "true_uncertain": 4
+    },
+    "B-1": {
+     "n": 8,
+     "true_n": 7,
+     "false_n": 1,
+     "correct": 6,
+     "accuracy": 0.75,
+     "true_rejected": 2,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "B-2": {
+     "n": 8,
+     "true_n": 7,
+     "false_n": 1,
+     "correct": 3,
+     "accuracy": 0.375,
+     "true_rejected": 5,
+     "false_accepted": 0,
+     "uncertain": 5,
+     "true_uncertain": 4
+    },
+    "C-1": {
+     "n": 8,
+     "true_n": 7,
+     "false_n": 1,
+     "correct": 5,
+     "accuracy": 0.625,
+     "true_rejected": 3,
+     "false_accepted": 0,
+     "uncertain": 4,
+     "true_uncertain": 3
+    },
+    "C-2": {
+     "n": 8,
+     "true_n": 7,
+     "false_n": 1,
+     "correct": 5,
+     "accuracy": 0.625,
+     "true_rejected": 3,
+     "false_accepted": 0,
+     "uncertain": 4,
+     "true_uncertain": 3
+    },
+    "D-1": {
+     "n": 8,
+     "true_n": 7,
+     "false_n": 1,
+     "correct": 5,
+     "accuracy": 0.625,
+     "true_rejected": 3,
+     "false_accepted": 0,
+     "uncertain": 4,
+     "true_uncertain": 3
+    },
+    "D-2": {
+     "n": 8,
+     "true_n": 7,
+     "false_n": 1,
+     "correct": 5,
+     "accuracy": 0.625,
+     "true_rejected": 3,
+     "false_accepted": 0,
+     "uncertain": 4,
+     "true_uncertain": 3
+    }
+   },
+   "人员": {
+    "A-1": {
+     "n": 52,
+     "true_n": 24,
+     "false_n": 28,
+     "correct": 27,
+     "accuracy": 0.5192307692307693,
+     "true_rejected": 21,
+     "false_accepted": 4,
+     "uncertain": 41,
+     "true_uncertain": 19
+    },
+    "A-2": {
+     "n": 52,
+     "true_n": 24,
+     "false_n": 28,
+     "correct": 26,
+     "accuracy": 0.5,
+     "true_rejected": 21,
+     "false_accepted": 5,
+     "uncertain": 38,
+     "true_uncertain": 19
+    },
+    "B-1": {
+     "n": 52,
+     "true_n": 24,
+     "false_n": 28,
+     "correct": 28,
+     "accuracy": 0.5384615384615384,
+     "true_rejected": 21,
+     "false_accepted": 3,
+     "uncertain": 26,
+     "true_uncertain": 11
+    },
+    "B-2": {
+     "n": 52,
+     "true_n": 24,
+     "false_n": 28,
+     "correct": 25,
+     "accuracy": 0.4807692307692308,
+     "true_rejected": 22,
+     "false_accepted": 5,
+     "uncertain": 39,
+     "true_uncertain": 18
+    },
+    "C-1": {
+     "n": 52,
+     "true_n": 24,
+     "false_n": 28,
+     "correct": 31,
+     "accuracy": 0.5961538461538461,
+     "true_rejected": 21,
+     "false_accepted": 0,
+     "uncertain": 40,
+     "true_uncertain": 19
+    },
+    "C-2": {
+     "n": 52,
+     "true_n": 24,
+     "false_n": 28,
+     "correct": 31,
+     "accuracy": 0.5961538461538461,
+     "true_rejected": 21,
+     "false_accepted": 0,
+     "uncertain": 40,
+     "true_uncertain": 19
+    },
+    "D-1": {
+     "n": 52,
+     "true_n": 24,
+     "false_n": 28,
+     "correct": 32,
+     "accuracy": 0.6153846153846154,
+     "true_rejected": 20,
+     "false_accepted": 0,
+     "uncertain": 39,
+     "true_uncertain": 17
+    },
+    "D-2": {
+     "n": 52,
+     "true_n": 24,
+     "false_n": 28,
+     "correct": 32,
+     "accuracy": 0.6153846153846154,
+     "true_rejected": 20,
+     "false_accepted": 0,
+     "uncertain": 39,
+     "true_uncertain": 18
+    }
+   },
+   "光伏板": {
+    "A-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "A-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    }
+   },
+   "光斑": {
+    "A-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "A-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    }
+   },
+   "公交车": {
+    "A-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "A-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    }
+   },
+   "卡车": {
+    "A-1": {
+     "n": 3,
+     "true_n": 1,
+     "false_n": 2,
+     "correct": 0,
+     "accuracy": 0.0,
+     "true_rejected": 1,
+     "false_accepted": 2,
+     "uncertain": 1,
+     "true_uncertain": 1
+    },
+    "A-2": {
+     "n": 3,
+     "true_n": 1,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 0.6666666666666666,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 1,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 3,
+     "true_n": 1,
+     "false_n": 2,
+     "correct": 0,
+     "accuracy": 0.0,
+     "true_rejected": 1,
+     "false_accepted": 2,
+     "uncertain": 1,
+     "true_uncertain": 1
+    },
+    "B-2": {
+     "n": 3,
+     "true_n": 1,
+     "false_n": 2,
+     "correct": 1,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 1,
+     "false_accepted": 1,
+     "uncertain": 2,
+     "true_uncertain": 1
+    },
+    "C-1": {
+     "n": 3,
+     "true_n": 1,
+     "false_n": 2,
+     "correct": 2,
+     "accuracy": 0.6666666666666666,
+     "true_rejected": 0,
+     "false_accepted": 1,
+     "uncertain": 1,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 3,
+     "true_n": 1,
+     "false_n": 2,
+     "correct": 3,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 3,
+     "true_n": 1,
+     "false_n": 2,
+     "correct": 3,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 3,
+     "true_n": 1,
+     "false_n": 2,
+     "correct": 3,
+     "accuracy": 1.0,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 2,
+     "true_uncertain": 0
+    }
+   },
+   "没戴头盔": {
+    "A-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "A-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "B-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "C-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-1": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    },
+    "D-2": {
+     "n": 0,
+     "true_n": 0,
+     "false_n": 0,
+     "correct": 0,
+     "accuracy": null,
+     "true_rejected": 0,
+     "false_accepted": 0,
+     "uncertain": 0,
+     "true_uncertain": 0
+    }
+   },
+   "车": {
+    "A-1": {
+     "n": 211,
+     "true_n": 205,
+     "false_n": 6,
+     "correct": 196,
+     "accuracy": 0.9289099526066351,
+     "true_rejected": 10,
+     "false_accepted": 5,
+     "uncertain": 9,
+     "true_uncertain": 9
+    },
+    "A-2": {
+     "n": 211,
+     "true_n": 205,
+     "false_n": 6,
+     "correct": 192,
+     "accuracy": 0.909952606635071,
+     "true_rejected": 15,
+     "false_accepted": 4,
+     "uncertain": 16,
+     "true_uncertain": 15
+    },
+    "B-1": {
+     "n": 211,
+     "true_n": 205,
+     "false_n": 6,
+     "correct": 194,
+     "accuracy": 0.919431279620853,
+     "true_rejected": 13,
+     "false_accepted": 4,
+     "uncertain": 15,
+     "true_uncertain": 13
+    },
+    "B-2": {
+     "n": 211,
+     "true_n": 205,
+     "false_n": 6,
+     "correct": 188,
+     "accuracy": 0.8909952606635071,
+     "true_rejected": 19,
+     "false_accepted": 4,
+     "uncertain": 21,
+     "true_uncertain": 19
+    },
+    "C-1": {
+     "n": 211,
+     "true_n": 205,
+     "false_n": 6,
+     "correct": 187,
+     "accuracy": 0.8862559241706162,
+     "true_rejected": 20,
+     "false_accepted": 4,
+     "uncertain": 20,
+     "true_uncertain": 19
+    },
+    "C-2": {
+     "n": 211,
+     "true_n": 205,
+     "false_n": 6,
+     "correct": 201,
+     "accuracy": 0.95260663507109,
+     "true_rejected": 7,
+     "false_accepted": 3,
+     "uncertain": 8,
+     "true_uncertain": 7
+    },
+    "D-1": {
+     "n": 211,
+     "true_n": 205,
+     "false_n": 6,
+     "correct": 199,
+     "accuracy": 0.943127962085308,
+     "true_rejected": 10,
+     "false_accepted": 2,
+     "uncertain": 12,
+     "true_uncertain": 10
+    },
+    "D-2": {
+     "n": 211,
+     "true_n": 205,
+     "false_n": 6,
+     "correct": 203,
+     "accuracy": 0.9620853080568721,
+     "true_rejected": 5,
+     "false_accepted": 3,
+     "uncertain": 6,
+     "true_uncertain": 5
+    }
+   },
+   "违建": {
+    "A-1": {
+     "n": 33,
+     "true_n": 22,
+     "false_n": 11,
+     "correct": 11,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 22,
+     "false_accepted": 0,
+     "uncertain": 33,
+     "true_uncertain": 22
+    },
+    "A-2": {
+     "n": 33,
+     "true_n": 22,
+     "false_n": 11,
+     "correct": 11,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 22,
+     "false_accepted": 0,
+     "uncertain": 33,
+     "true_uncertain": 22
+    },
+    "B-1": {
+     "n": 33,
+     "true_n": 22,
+     "false_n": 11,
+     "correct": 28,
+     "accuracy": 0.8484848484848485,
+     "true_rejected": 3,
+     "false_accepted": 2,
+     "uncertain": 4,
+     "true_uncertain": 3
+    },
+    "B-2": {
+     "n": 33,
+     "true_n": 22,
+     "false_n": 11,
+     "correct": 28,
+     "accuracy": 0.8484848484848485,
+     "true_rejected": 5,
+     "false_accepted": 0,
+     "uncertain": 5,
+     "true_uncertain": 4
+    },
+    "C-1": {
+     "n": 33,
+     "true_n": 22,
+     "false_n": 11,
+     "correct": 11,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 22,
+     "false_accepted": 0,
+     "uncertain": 33,
+     "true_uncertain": 22
+    },
+    "C-2": {
+     "n": 33,
+     "true_n": 22,
+     "false_n": 11,
+     "correct": 11,
+     "accuracy": 0.3333333333333333,
+     "true_rejected": 22,
+     "false_accepted": 0,
+     "uncertain": 33,
+     "true_uncertain": 22
+    },
+    "D-1": {
+     "n": 33,
+     "true_n": 22,
+     "false_n": 11,
+     "correct": 32,
+     "accuracy": 0.9696969696969697,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 3,
+     "true_uncertain": 1
+    },
+    "D-2": {
+     "n": 33,
+     "true_n": 22,
+     "false_n": 11,
+     "correct": 32,
+     "accuracy": 0.9696969696969697,
+     "true_rejected": 1,
+     "false_accepted": 0,
+     "uncertain": 3,
+     "true_uncertain": 1
+    }
+   }
+  }
+ },
+ "comparisons": {
+  "dev": {
+   "B-A": {
+    "全部": {
+     "accuracy": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": 4.122340425531915,
+      "ci95_pp": [
+       -1.1363636363636365,
+       10.64516129032258
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": -10.638297872340425,
+      "ci95_pp": [
+       -21.223021582733814,
+       -2.448453608247423
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 95,
+      "source_clusters": 33,
+      "delta_pp": 6.842105263157895,
+      "ci95_pp": [
+       -5.670103092783505,
+       19.565217391304348
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 281,
+      "source_clusters": 52,
+      "delta_pp": -7.829181494661921,
+      "ci95_pp": [
+       -17.415730337078653,
+       -1.608910891089109
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": -16.666666666666668,
+      "ci95_pp": [
+       -50.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": -33.333333333333336,
+      "ci95_pp": [
+       -50.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": 2.9761904761904763,
+      "ci95_pp": [
+       -7.8431372549019605,
+       20.786516853932586
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": -6.5476190476190474,
+      "ci95_pp": [
+       -41.791044776119406,
+       6.538461538461538
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 39,
+      "source_clusters": 12,
+      "delta_pp": 7.6923076923076925,
+      "ci95_pp": [
+       1.1904761904761905,
+       28.125
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 45,
+      "source_clusters": 7,
+      "delta_pp": -12.222222222222221,
+      "ci95_pp": [
+       -52.17391304347826,
+       2.127659574468085
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": -16.666666666666668,
+      "ci95_pp": [
+       -50.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 21.428571428571427,
+      "ci95_pp": [
+       0.0,
+       75.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 28.571428571428573,
+      "ci95_pp": [
+       10.0,
+       75.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": -21.428571428571427,
+      "ci95_pp": [
+       -75.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       25.0,
+       25.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       25.0,
+       25.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": -25.0,
+      "ci95_pp": [
+       -25.0,
+       -25.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": 0.8928571428571429,
+      "ci95_pp": [
+       -2.816901408450704,
+       6.024096385542169
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": 0.8928571428571429,
+      "ci95_pp": [
+       -3.3755274261603376,
+       4.878048780487805
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 20,
+      "source_clusters": 11,
+      "delta_pp": -10.0,
+      "ci95_pp": [
+       -27.419354838709676,
+       14.705882352941176
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 204,
+      "source_clusters": 43,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -4.166666666666667,
+       3.1802120141342756
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": 17.708333333333332,
+      "ci95_pp": [
+       -10.833333333333334,
+       44.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": -80.20833333333333,
+      "ci95_pp": [
+       -87.14285714285714,
+       -73.95833333333333
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 21,
+      "source_clusters": 10,
+      "delta_pp": 35.714285714285715,
+      "ci95_pp": [
+       14.285714285714286,
+       52.38095238095238
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 27,
+      "source_clusters": 10,
+      "delta_pp": -59.25925925925926,
+      "ci95_pp": [
+       -76.92307692307692,
+       -34.09090909090909
+      ],
+      "single_cluster": false
+     }
+    }
+   },
+   "D-C": {
+    "全部": {
+     "accuracy": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": 6.117021276595745,
+      "ci95_pp": [
+       1.5151515151515151,
+       10.855263157894736
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": -13.164893617021276,
+      "ci95_pp": [
+       -21.323529411764707,
+       -6.913183279742765
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 95,
+      "source_clusters": 33,
+      "delta_pp": 6.842105263157895,
+      "ci95_pp": [
+       1.9607843137254901,
+       14.285714285714286
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 281,
+      "source_clusters": 52,
+      "delta_pp": -10.498220640569395,
+      "ci95_pp": [
+       -17.46987951807229,
+       -5.02092050209205
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -16.666666666666668,
+       25.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": -8.333333333333334,
+      "ci95_pp": [
+       -25.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       0.0,
+       25.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": -16.666666666666668,
+      "ci95_pp": [
+       -25.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": 0.5952380952380952,
+      "ci95_pp": [
+       -1.2820512820512822,
+       3.488372093023256
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": 0.5952380952380952,
+      "ci95_pp": [
+       -2.6785714285714284,
+       5.357142857142857
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 39,
+      "source_clusters": 12,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 45,
+      "source_clusters": 7,
+      "delta_pp": -1.1111111111111112,
+      "ci95_pp": [
+       -6.896551724137931,
+       1.8867924528301887
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": -7.142857142857143,
+      "ci95_pp": [
+       -37.5,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": 1.7857142857142858,
+      "ci95_pp": [
+       -3.240740740740741,
+       5.714285714285714
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": -2.6785714285714284,
+      "ci95_pp": [
+       -6.069364161849711,
+       1.8957345971563981
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 20,
+      "source_clusters": 11,
+      "delta_pp": 7.5,
+      "ci95_pp": [
+       -3.7037037037037037,
+       25.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 204,
+      "source_clusters": 43,
+      "delta_pp": -2.696078431372549,
+      "ci95_pp": [
+       -6.179775280898877,
+       2.095808383233533
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": 38.541666666666664,
+      "ci95_pp": [
+       14.0625,
+       60.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": -89.58333333333333,
+      "ci95_pp": [
+       -97.43589743589743,
+       -82.6086956521739
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 21,
+      "source_clusters": 10,
+      "delta_pp": 21.428571428571427,
+      "ci95_pp": [
+       4.545454545454546,
+       40.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 27,
+      "source_clusters": 10,
+      "delta_pp": -85.18518518518519,
+      "ci95_pp": [
+       -100.0,
+       -77.65957446808511
+      ],
+      "single_cluster": false
+     }
+    }
+   },
+   "C-A": {
+    "全部": {
+     "accuracy": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": 7.845744680851064,
+      "ci95_pp": [
+       4.464285714285714,
+       12.134502923976608
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": -2.393617021276596,
+      "ci95_pp": [
+       -7.344632768361582,
+       1.4322916666666667
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 95,
+      "source_clusters": 33,
+      "delta_pp": -10.526315789473685,
+      "ci95_pp": [
+       -22.033898305084747,
+       -4.365079365079365
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 281,
+      "source_clusters": 52,
+      "delta_pp": -6.93950177935943,
+      "ci95_pp": [
+       -12.553191489361701,
+       -2.8328611898016995
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": -25.0,
+      "ci95_pp": [
+       -50.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       0.0,
+       33.333333333333336
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": -16.666666666666668,
+      "ci95_pp": [
+       -25.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": 11.904761904761905,
+      "ci95_pp": [
+       4.0,
+       29.41176470588235
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": -2.380952380952381,
+      "ci95_pp": [
+       -23.75,
+       6.435643564356436
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 39,
+      "source_clusters": 12,
+      "delta_pp": -8.974358974358974,
+      "ci95_pp": [
+       -30.0,
+       -2.1739130434782608
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 45,
+      "source_clusters": 7,
+      "delta_pp": -14.444444444444445,
+      "ci95_pp": [
+       -37.03703703703704,
+       -1.1627906976744187
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -50.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": -33.333333333333336,
+      "ci95_pp": [
+       -50.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": -50.0,
+      "ci95_pp": [
+       -50.0,
+       -50.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 28.571428571428573,
+      "ci95_pp": [
+       3.8461538461538463,
+       87.5
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 42.857142857142854,
+      "ci95_pp": [
+       19.23076923076923,
+       100.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": -28.571428571428573,
+      "ci95_pp": [
+       -87.5,
+       -3.8461538461538463
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+       50.0,
+       50.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+       50.0,
+       50.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": -50.0,
+      "ci95_pp": [
+       -50.0,
+       -50.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": 7.142857142857143,
+      "ci95_pp": [
+       2.674897119341564,
+       13.235294117647058
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": -5.133928571428571,
+      "ci95_pp": [
+       -11.08108108108108,
+       -1.0452961672473868
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 20,
+      "source_clusters": 11,
+      "delta_pp": -10.0,
+      "ci95_pp": [
+       -43.75,
+       10.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 204,
+      "source_clusters": 43,
+      "delta_pp": -6.862745098039215,
+      "ci95_pp": [
+       -13.779527559055119,
+       -2.7027027027027026
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 21,
+      "source_clusters": 10,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 27,
+      "source_clusters": 10,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    }
+   },
+   "D-B": {
+    "全部": {
+     "accuracy": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": 9.840425531914894,
+      "ci95_pp": [
+       4.337349397590361,
+       15.284974093264248
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": -4.920212765957447,
+      "ci95_pp": [
+       -11.170212765957446,
+       1.3812154696132597
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 95,
+      "source_clusters": 33,
+      "delta_pp": -10.526315789473685,
+      "ci95_pp": [
+       -25.471698113207548,
+       1.3043478260869565
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 281,
+      "source_clusters": 52,
+      "delta_pp": -9.608540925266905,
+      "ci95_pp": [
+       -15.480427046263346,
+       -2.158273381294964
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": -25.0,
+      "ci95_pp": [
+       -50.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": -16.666666666666668,
+      "ci95_pp": [
+       -25.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       33.333333333333336
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": 33.333333333333336,
+      "ci95_pp": [
+       25.0,
+       50.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": 9.523809523809524,
+      "ci95_pp": [
+       -7.920792079207921,
+       33.333333333333336
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": 4.761904761904762,
+      "ci95_pp": [
+       -7.6923076923076925,
+       30.952380952380953
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 39,
+      "source_clusters": 12,
+      "delta_pp": -16.666666666666668,
+      "ci95_pp": [
+       -55.55555555555556,
+       -5.147058823529412
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 45,
+      "source_clusters": 7,
+      "delta_pp": -3.3333333333333335,
+      "ci95_pp": [
+       -36.36363636363637,
+       37.5
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": -50.0,
+      "ci95_pp": [
+       -100.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": -50.0,
+      "ci95_pp": [
+       -50.0,
+       -50.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 7.142857142857143,
+      "ci95_pp": [
+       -25.0,
+       62.5
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 7.142857142857143,
+      "ci95_pp": [
+       -25.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": -7.142857142857143,
+      "ci95_pp": [
+       -62.5,
+       25.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       25.0,
+       25.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       25.0,
+       25.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": -25.0,
+      "ci95_pp": [
+       -25.0,
+       -25.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": 8.035714285714286,
+      "ci95_pp": [
+       1.2820512820512822,
+       14.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": -8.705357142857142,
+      "ci95_pp": [
+       -15.053763440860216,
+       -1.8957345971563981
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 20,
+      "source_clusters": 11,
+      "delta_pp": 7.5,
+      "ci95_pp": [
+       -34.375,
+       33.333333333333336
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 204,
+      "source_clusters": 43,
+      "delta_pp": -9.558823529411764,
+      "ci95_pp": [
+       -15.976331360946746,
+       -4.022988505747127
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": 20.833333333333332,
+      "ci95_pp": [
+       6.25,
+       39.0625
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": -9.375,
+      "ci95_pp": [
+       -19.23076923076923,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 21,
+      "source_clusters": 10,
+      "delta_pp": -14.285714285714286,
+      "ci95_pp": [
+       -24.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 27,
+      "source_clusters": 10,
+      "delta_pp": -25.925925925925927,
+      "ci95_pp": [
+       -61.76470588235294,
+       -6.451612903225806
+      ],
+      "single_cluster": false
+     }
+    }
+   },
+   "D-A": {
+    "全部": {
+     "accuracy": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": 13.962765957446809,
+      "ci95_pp": [
+       9.403254972875226,
+       19.426751592356688
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 376,
+      "source_clusters": 64,
+      "delta_pp": -15.558510638297872,
+      "ci95_pp": [
+       -24.864864864864863,
+       -7.9908675799086755
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 95,
+      "source_clusters": 33,
+      "delta_pp": -3.6842105263157894,
+      "ci95_pp": [
+       -13.333333333333334,
+       3.409090909090909
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 281,
+      "source_clusters": 52,
+      "delta_pp": -17.437722419928825,
+      "ci95_pp": [
+       -25.56053811659193,
+       -12.033195020746888
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": -25.0,
+      "ci95_pp": [
+       -50.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -16.666666666666668,
+       25.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 6,
+      "source_clusters": 3,
+      "delta_pp": 8.333333333333334,
+      "ci95_pp": [
+       -25.0,
+       33.333333333333336
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 3,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -25.0,
+       50.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": 12.5,
+      "ci95_pp": [
+       5.151515151515151,
+       30.147058823529413
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 84,
+      "source_clusters": 15,
+      "delta_pp": -1.7857142857142858,
+      "ci95_pp": [
+       -21.11111111111111,
+       6.756756756756757
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 39,
+      "source_clusters": 12,
+      "delta_pp": -8.974358974358974,
+      "ci95_pp": [
+       -30.0,
+       -2.1739130434782608
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 45,
+      "source_clusters": 7,
+      "delta_pp": -15.555555555555555,
+      "ci95_pp": [
+       -39.130434782608695,
+       -4.054054054054054
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -50.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": -33.333333333333336,
+      "ci95_pp": [
+       -50.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": -50.0,
+      "ci95_pp": [
+       -50.0,
+       -50.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 28.571428571428573,
+      "ci95_pp": [
+       3.8461538461538463,
+       87.5
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 35.714285714285715,
+      "ci95_pp": [
+       15.384615384615385,
+       87.5
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": -28.571428571428573,
+      "ci95_pp": [
+       -87.5,
+       -3.8461538461538463
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+       50.0,
+       50.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+       50.0,
+       50.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": -50.0,
+      "ci95_pp": [
+       -50.0,
+       -50.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": 8.928571428571429,
+      "ci95_pp": [
+       4.132231404958677,
+       14.344262295081966
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 224,
+      "source_clusters": 46,
+      "delta_pp": -7.8125,
+      "ci95_pp": [
+       -13.492063492063492,
+       -2.643171806167401
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 20,
+      "source_clusters": 11,
+      "delta_pp": -2.5,
+      "ci95_pp": [
+       -26.666666666666668,
+       15.625
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 204,
+      "source_clusters": 43,
+      "delta_pp": -9.558823529411764,
+      "ci95_pp": [
+       -16.3265306122449,
+       -4.819277108433735
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": 38.541666666666664,
+      "ci95_pp": [
+       14.0625,
+       60.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 48,
+      "source_clusters": 16,
+      "delta_pp": -89.58333333333333,
+      "ci95_pp": [
+       -97.43589743589743,
+       -82.6086956521739
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 21,
+      "source_clusters": 10,
+      "delta_pp": 21.428571428571427,
+      "ci95_pp": [
+       4.545454545454546,
+       40.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 27,
+      "source_clusters": 10,
+      "delta_pp": -85.18518518518519,
+      "ci95_pp": [
+       -100.0,
+       -77.65957446808511
+      ],
+      "single_cluster": false
+     }
+    }
+   }
+  },
+  "holdout": {
+   "B-A": {
+    "全部": {
+     "accuracy": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": 4.854368932038835,
+      "ci95_pp": [
+       -1.4657980456026058,
+       14.915966386554622
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": -10.194174757281553,
+      "ci95_pp": [
+       -22.110552763819097,
+       -1.9851116625310175
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 49,
+      "source_clusters": 22,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -5.681818181818182,
+       5.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 260,
+      "source_clusters": 34,
+      "delta_pp": -5.769230769230769,
+      "ci95_pp": [
+       -17.40506329113924,
+       1.5009380863039399
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": 18.75,
+      "ci95_pp": [
+       0.0,
+       31.25
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": -25.0,
+      "ci95_pp": [
+       -40.0,
+       -10.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": -21.428571428571427,
+      "ci95_pp": [
+       -37.5,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -5.555555555555555,
+       9.090909090909092
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": -13.461538461538462,
+      "ci95_pp": [
+       -21.91780821917808,
+       8.333333333333334
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 28,
+      "source_clusters": 10,
+      "delta_pp": -1.7857142857142858,
+      "ci95_pp": [
+       -11.764705882352942,
+       4.166666666666667
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 24,
+      "source_clusters": 4,
+      "delta_pp": 2.0833333333333335,
+      "ci95_pp": [
+       -10.0,
+       25.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": -16.666666666666668,
+      "ci95_pp": [
+       -50.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       -50.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -50.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+       50.0,
+       50.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": -1.4218009478672986,
+      "ci95_pp": [
+       -4.356060606060606,
+       3.75
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": 2.6066350710900474,
+      "ci95_pp": [
+       -1.6666666666666667,
+       5.419580419580419
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 6,
+      "source_clusters": 5,
+      "delta_pp": -8.333333333333334,
+      "ci95_pp": [
+       -18.75,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 205,
+      "source_clusters": 28,
+      "delta_pp": 1.7073170731707317,
+      "ci95_pp": [
+       -3.4161490683229814,
+       4.545454545454546
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": 51.515151515151516,
+      "ci95_pp": [
+       11.363636363636363,
+       77.27272727272727
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": -86.36363636363636,
+      "ci95_pp": [
+       -93.54838709677419,
+       -76.3157894736842
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 11,
+      "source_clusters": 6,
+      "delta_pp": 9.090909090909092,
+      "ci95_pp": [
+       0.0,
+       13.333333333333334
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 22,
+      "source_clusters": 6,
+      "delta_pp": -81.81818181818181,
+      "ci95_pp": [
+       -89.65517241379311,
+       -61.53846153846154
+      ],
+      "single_cluster": false
+     }
+    }
+   },
+   "D-C": {
+    "全部": {
+     "accuracy": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": 9.546925566343042,
+      "ci95_pp": [
+       3.3632286995515694,
+       18.771929824561404
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": -11.488673139158577,
+      "ci95_pp": [
+       -22.606382978723403,
+       -4.585798816568047
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 49,
+      "source_clusters": 22,
+      "delta_pp": -3.061224489795918,
+      "ci95_pp": [
+       -10.273972602739725,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 260,
+      "source_clusters": 34,
+      "delta_pp": -10.76923076923077,
+      "ci95_pp": [
+       -21.97452229299363,
+       -3.8934426229508197
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": 1.9230769230769231,
+      "ci95_pp": [
+       0.0,
+       5.434782608695652
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": -1.9230769230769231,
+      "ci95_pp": [
+       -10.714285714285714,
+       8.75
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 28,
+      "source_clusters": 10,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 24,
+      "source_clusters": 4,
+      "delta_pp": -4.166666666666667,
+      "ci95_pp": [
+       -15.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       0.0,
+       50.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": -25.0,
+      "ci95_pp": [
+       -50.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": 3.3175355450236967,
+      "ci95_pp": [
+       0.19455252918287938,
+       7.216494845360825
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": -2.3696682464454977,
+      "ci95_pp": [
+       -6.531531531531532,
+       1.1450381679389312
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 6,
+      "source_clusters": 5,
+      "delta_pp": -16.666666666666668,
+      "ci95_pp": [
+       -37.5,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 205,
+      "source_clusters": 28,
+      "delta_pp": -2.926829268292683,
+      "ci95_pp": [
+       -7.035175879396985,
+       0.21739130434782608
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": 63.63636363636363,
+      "ci95_pp": [
+       28.571428571428573,
+       86.11111111111111
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": -90.9090909090909,
+      "ci95_pp": [
+       -100.0,
+       -79.16666666666667
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 11,
+      "source_clusters": 6,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 22,
+      "source_clusters": 6,
+      "delta_pp": -95.45454545454545,
+      "ci95_pp": [
+       -100.0,
+       -88.88888888888889
+      ],
+      "single_cluster": false
+     }
+    }
+   },
+   "C-A": {
+    "全部": {
+     "accuracy": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": 2.588996763754045,
+      "ci95_pp": [
+       -3.0150753768844223,
+       10.080645161290322
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": 0.32362459546925565,
+      "ci95_pp": [
+       -5.708661417322834,
+       5.555555555555555
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 49,
+      "source_clusters": 22,
+      "delta_pp": -13.26530612244898,
+      "ci95_pp": [
+       -30.0,
+       -3.5714285714285716
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 260,
+      "source_clusters": 34,
+      "delta_pp": -0.5769230769230769,
+      "ci95_pp": [
+       -8.258928571428571,
+       4.910714285714286
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       42.857142857142854
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": -18.75,
+      "ci95_pp": [
+       -42.857142857142854,
+       30.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": -28.571428571428573,
+      "ci95_pp": [
+       -46.15384615384615,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": 8.653846153846153,
+      "ci95_pp": [
+       1.0,
+       40.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": 0.9615384615384616,
+      "ci95_pp": [
+       -13.636363636363637,
+       17.857142857142858
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 28,
+      "source_clusters": 10,
+      "delta_pp": -16.071428571428573,
+      "ci95_pp": [
+       -50.0,
+       -2.380952380952381
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 24,
+      "source_clusters": 4,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 50.0,
+      "ci95_pp": [
+       0.0,
+       100.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       -50.0,
+       100.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": -50.0,
+      "ci95_pp": [
+       -100.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": -50.0,
+      "ci95_pp": [
+       -50.0,
+       -50.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       -6.698564593301436,
+       9.25925925925926
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": 0.7109004739336493,
+      "ci95_pp": [
+       -8.333333333333334,
+       7.173913043478261
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 6,
+      "source_clusters": 5,
+      "delta_pp": -16.666666666666668,
+      "ci95_pp": [
+       -60.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 205,
+      "source_clusters": 28,
+      "delta_pp": 0.4878048780487805,
+      "ci95_pp": [
+       -9.79020979020979,
+       6.788079470198675
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 11,
+      "source_clusters": 6,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 22,
+      "source_clusters": 6,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    }
+   },
+   "D-B": {
+    "全部": {
+     "accuracy": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": 7.281553398058253,
+      "ci95_pp": [
+       2.8957528957528957,
+       13.043478260869565
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": -0.970873786407767,
+      "ci95_pp": [
+       -7.6305220883534135,
+       5.084745762711864
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 49,
+      "source_clusters": 22,
+      "delta_pp": -16.3265306122449,
+      "ci95_pp": [
+       -31.03448275862069,
+       -6.578947368421052
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 260,
+      "source_clusters": 34,
+      "delta_pp": -5.576923076923077,
+      "ci95_pp": [
+       -11.436170212765957,
+       -1.10803324099723
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": 6.25,
+      "ci95_pp": [
+       -30.0,
+       21.428571428571427
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": 6.25,
+      "ci95_pp": [
+       -18.181818181818183,
+       70.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": -7.142857142857143,
+      "ci95_pp": [
+       -23.076923076923077,
+       37.5
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": 10.576923076923077,
+      "ci95_pp": [
+       2.450980392156863,
+       36.486486486486484
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": 12.5,
+      "ci95_pp": [
+       -15.909090909090908,
+       26.923076923076923
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 28,
+      "source_clusters": 10,
+      "delta_pp": -14.285714285714286,
+      "ci95_pp": [
+       -46.42857142857143,
+       -2.1739130434782608
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 24,
+      "source_clusters": 4,
+      "delta_pp": -6.25,
+      "ci95_pp": [
+       -37.5,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 83.33333333333333,
+      "ci95_pp": [
+       50.0,
+       100.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 16.666666666666668,
+      "ci95_pp": [
+       -100.0,
+       100.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": -75.0,
+      "ci95_pp": [
+       -100.0,
+       -50.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": -100.0,
+      "ci95_pp": [
+       -100.0,
+       -100.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": 4.739336492890995,
+      "ci95_pp": [
+       -0.26455026455026454,
+       10.393258426966293
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": -4.265402843601896,
+      "ci95_pp": [
+       -10.4,
+       0.45045045045045046
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 6,
+      "source_clusters": 5,
+      "delta_pp": -25.0,
+      "ci95_pp": [
+       -60.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 205,
+      "source_clusters": 28,
+      "delta_pp": -4.146341463414634,
+      "ci95_pp": [
+       -10.447761194029852,
+       0.6276150627615062
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": 12.121212121212121,
+      "ci95_pp": [
+       3.5714285714285716,
+       21.153846153846153
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": -4.545454545454546,
+      "ci95_pp": [
+       -17.857142857142858,
+       11.11111111111111
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 11,
+      "source_clusters": 6,
+      "delta_pp": -9.090909090909092,
+      "ci95_pp": [
+       -13.333333333333334,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 22,
+      "source_clusters": 6,
+      "delta_pp": -13.636363636363637,
+      "ci95_pp": [
+       -37.5,
+       -3.7037037037037037
+      ],
+      "single_cluster": false
+     }
+    }
+   },
+   "D-A": {
+    "全部": {
+     "accuracy": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": 12.135922330097088,
+      "ci95_pp": [
+       4.25531914893617,
+       25.182481751824817
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 309,
+      "source_clusters": 44,
+      "delta_pp": -11.16504854368932,
+      "ci95_pp": [
+       -25.235849056603772,
+       -2.4416135881104033
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 49,
+      "source_clusters": 22,
+      "delta_pp": -16.3265306122449,
+      "ci95_pp": [
+       -33.75,
+       -5.454545454545454
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 260,
+      "source_clusters": 34,
+      "delta_pp": -11.346153846153847,
+      "ci95_pp": [
+       -26.862745098039216,
+       -2.8532608695652173
+      ],
+      "single_cluster": false
+     }
+    },
+    "三轮车": {
+     "accuracy": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "uncertain": {
+      "n": 2,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "两轮车": {
+     "accuracy": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": 25.0,
+      "ci95_pp": [
+       0.0,
+       42.857142857142854
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 8,
+      "source_clusters": 5,
+      "delta_pp": -18.75,
+      "ci95_pp": [
+       -42.857142857142854,
+       30.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": true
+     },
+     "true_rejection": {
+      "n": 7,
+      "source_clusters": 4,
+      "delta_pp": -28.571428571428573,
+      "ci95_pp": [
+       -46.15384615384615,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "人员": {
+     "accuracy": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": 10.576923076923077,
+      "ci95_pp": [
+       2.380952380952381,
+       42.30769230769231
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 52,
+      "source_clusters": 11,
+      "delta_pp": -0.9615384615384616,
+      "ci95_pp": [
+       -15.625,
+       16.666666666666668
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 28,
+      "source_clusters": 10,
+      "delta_pp": -16.071428571428573,
+      "ci95_pp": [
+       -50.0,
+       -2.380952380952381
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 24,
+      "source_clusters": 4,
+      "delta_pp": -4.166666666666667,
+      "ci95_pp": [
+       -15.0,
+       0.0
+      ],
+      "single_cluster": false
+     }
+    },
+    "光伏板": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "光斑": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "公交车": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "卡车": {
+     "accuracy": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 66.66666666666667,
+      "ci95_pp": [
+       50.0,
+       100.0
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 3,
+      "source_clusters": 3,
+      "delta_pp": 33.333333333333336,
+      "ci95_pp": [
+       -50.0,
+       100.0
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 2,
+      "source_clusters": 2,
+      "delta_pp": -75.0,
+      "ci95_pp": [
+       -100.0,
+       -50.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 1,
+      "source_clusters": 1,
+      "delta_pp": -50.0,
+      "ci95_pp": [
+       -50.0,
+       -50.0
+      ],
+      "single_cluster": true
+     }
+    },
+    "没戴头盔": {
+     "accuracy": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "uncertain": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "false_acceptance": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     },
+     "true_rejection": {
+      "n": 0,
+      "delta_pp": null,
+      "ci95_pp": null
+     }
+    },
+    "车": {
+     "accuracy": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": 3.3175355450236967,
+      "ci95_pp": [
+       -0.6369426751592356,
+       11.73469387755102
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 211,
+      "source_clusters": 29,
+      "delta_pp": -1.6587677725118484,
+      "ci95_pp": [
+       -9.803921568627452,
+       2.0408163265306123
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 6,
+      "source_clusters": 5,
+      "delta_pp": -33.333333333333336,
+      "ci95_pp": [
+       -66.66666666666667,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 205,
+      "source_clusters": 28,
+      "delta_pp": -2.4390243902439024,
+      "ci95_pp": [
+       -11.881188118811881,
+       1.6363636363636365
+      ],
+      "single_cluster": false
+     }
+    },
+    "违建": {
+     "accuracy": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": 63.63636363636363,
+      "ci95_pp": [
+       28.571428571428573,
+       86.11111111111111
+      ],
+      "single_cluster": false
+     },
+     "uncertain": {
+      "n": 33,
+      "source_clusters": 10,
+      "delta_pp": -90.9090909090909,
+      "ci95_pp": [
+       -100.0,
+       -79.16666666666667
+      ],
+      "single_cluster": false
+     },
+     "false_acceptance": {
+      "n": 11,
+      "source_clusters": 6,
+      "delta_pp": 0.0,
+      "ci95_pp": [
+       0.0,
+       0.0
+      ],
+      "single_cluster": false
+     },
+     "true_rejection": {
+      "n": 22,
+      "source_clusters": 6,
+      "delta_pp": -95.45454545454545,
+      "ci95_pp": [
+       -100.0,
+       -88.88888888888889
+      ],
+      "single_cluster": false
+     }
+    }
+   }
+  }
+ },
+ "cross_split_sources": [
+  "work/raw/video/049758c38e696364b482af21cdbf1ce47ea0326d2b28c10370b2dd29c581ebff.mp4",
+  "work/raw/video/1f85177e47896ba3e0513edaebaeb698185129817d771747031a60910b34e539.mp4",
+  "work/raw/video/20a9c590d8f4eafa517c6de39b9398c4d7003191dd2ba26540cddaee9049531a.mp4",
+  "work/raw/video/2455dbd614a7f19ae699b5ab1b0b7764b307915c497efb98fc1534ee6a8aa8c8.mp4",
+  "work/raw/video/25a282842dd4d3883322df541cae631db3df8c355be648dcedfb634a208abb78.mp4",
+  "work/raw/video/25cca385e7105d6b8294e340842773eeeee6fdfafa45f001878d9f211f8cda29.mp4",
+  "work/raw/video/2971f9bdb34407d0a2e49c0b1594470c8e079b3d0f88ce600f5afb792dc55899.mp4",
+  "work/raw/video/2cc507333a19f701dd05f309ee7ac12de62d53edd1080d6c14776025c37d780f.mp4",
+  "work/raw/video/3a146acb6945dc1c5ba9cc731fdd063ca9ab87d1698d1ef90ec2a9d13639ec80.mp4",
+  "work/raw/video/3b717f4de37c608e1d2740a9ae700fd1955e5ec34e37fb17914a86c0b05e6cfe.mp4",
+  "work/raw/video/3ffe3f57419e322f36213ced685d62cecfb5e34be5d124f814d56c94c8c512b8.mp4",
+  "work/raw/video/4d1e48e369b7627726302cdc6bfab5df45673cfc55d7dd775c70f141d2c21954.mp4",
+  "work/raw/video/507c72e8bd3700711e417d35c5fb3e79ac5dd68081ac3f17bda5430dc260fc46.mp4",
+  "work/raw/video/51c96d88240fabf4e5113be6e094058d5e5e4742dafba6776e2052a7dbde2e07.mp4",
+  "work/raw/video/58f87ff12180db3cc2f76c65d80e4497b9748928174485706c9f23ddd541c3bd.mp4",
+  "work/raw/video/618b184389526b4ec2e5a4fa78782df374b3d0d3bdf0f4d77326a399c52e1b7d.mp4",
+  "work/raw/video/67335281647223785887e92d3ecc874286bdd952f3ffd1d6b9fb4a10bfd564df.mp4",
+  "work/raw/video/711aa43fad0d6dc318247ad2beecbe72a3f59e959629060fa5360bc73f6c6a2a.mp4",
+  "work/raw/video/765d481e534a8ded7a7d3916d4d5081b6c49fd116d8c26ccb15a4bd4569ec350.mp4",
+  "work/raw/video/78a8ef6d720b6baa9b1a07e5456b40f565c8998057dd8325d34a099220484eb7.mp4",
+  "work/raw/video/79cce012cc8372c880d103a4742b1403640de3eced7e866c3cd0fa55c139ce95.mp4",
+  "work/raw/video/855f8624638b4dd1fffee5fe1c2340105a682e41478fc6aee45676510f9138f5.mp4",
+  "work/raw/video/8e31f46d2f0d0e82d2bb7714e4bd5f5889cf0dc3d8ed7504884a65a5e9fadbda.mp4",
+  "work/raw/video/9047c84e36fb0ea61ac3960ec18ffb9289bf84cc10900a7dca95234cc04d356f.mp4",
+  "work/raw/video/a12880d2592f75bc64f27d2bc09e2505cc09b14451da986d9334e8115922f75f.mp4",
+  "work/raw/video/a2ecae9d962f2d207ebd0309d1ddfcf2c49dff8e491afa511a6d8745194592c9.mp4",
+  "work/raw/video/b144f8b95b2fd71bde0c29c133d31515e76a0c75526d4736ba52c22d7f064b89.mp4",
+  "work/raw/video/baeb49a6ad668f394785d1b4e32217b1f19fcd53135635cacaf40b9556f09479.mp4",
+  "work/raw/video/c45aac6d7955b775854e93940c6b38dc180ea898e57a23b07ea89f1d1a8efe25.mp4",
+  "work/raw/video/c58d7059b2c82333e2e088f0293468140ca9b4d907cd00ac8be5b741172f6921.mp4",
+  "work/raw/video/d38ed0ac523dad4d19bac58671430b3e32bf2f5e075a4af75f56e6d5f993163c.mp4",
+  "work/raw/video/dd86c8e4489a72f36beca66502d3b11ae8377a128a8a0199400dce578f8b54ea.mp4",
+  "work/raw/video/df88ca3ee594b35b75bf44904ba47553e07153eb58ad39f6bdd63c61fc4b4ff2.mp4",
+  "work/raw/video/e01bc29592f44e60fba461728eb0ba7f0efad3b2126d47921535a84a412132f5.mp4",
+  "work/raw/video/e143bee911b6c6279ecc4754fe117e8284e23707ea33f927a9a85aa64161169f.mp4",
+  "work/raw/video/ea01a8d7556487c209c9e9da7dff97398209f0fbaa83a7be4d22a7782ed52a80.mp4",
+  "work/raw/video/ebf975f8b3d611f1384434c24279ed692ece72ac6b720658683646638d48d329.mp4"
+ ],
+ "holdout_without_cross_split_sources": {
+  "B-A": {
+   "车": {
+    "accuracy": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "uncertain": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "false_acceptance": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    },
+    "true_rejection": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    }
+   },
+   "人员": {
+    "accuracy": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": 7.142857142857143,
+     "ci95_pp": [
+      0.0,
+      25.0
+     ],
+     "single_cluster": false
+    },
+    "uncertain": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      -21.428571428571427,
+      21.428571428571427
+     ],
+     "single_cluster": false
+    },
+    "false_acceptance": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": -7.142857142857143,
+     "ci95_pp": [
+      -25.0,
+      0.0
+     ],
+     "single_cluster": false
+    },
+    "true_rejection": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    }
+   },
+   "违建": {
+    "accuracy": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": 100.0,
+     "ci95_pp": [
+      100.0,
+      100.0
+     ],
+     "single_cluster": true
+    },
+    "uncertain": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": -100.0,
+     "ci95_pp": [
+      -100.0,
+      -100.0
+     ],
+     "single_cluster": true
+    },
+    "false_acceptance": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    },
+    "true_rejection": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": -100.0,
+     "ci95_pp": [
+      -100.0,
+      -100.0
+     ],
+     "single_cluster": true
+    }
+   }
+  },
+  "D-C": {
+   "车": {
+    "accuracy": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "uncertain": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "false_acceptance": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    },
+    "true_rejection": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    }
+   },
+   "人员": {
+    "accuracy": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": false
+    },
+    "uncertain": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": 14.285714285714286,
+     "ci95_pp": [
+      -16.666666666666668,
+      50.0
+     ],
+     "single_cluster": false
+    },
+    "false_acceptance": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": false
+    },
+    "true_rejection": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    }
+   },
+   "违建": {
+    "accuracy": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": 100.0,
+     "ci95_pp": [
+      100.0,
+      100.0
+     ],
+     "single_cluster": true
+    },
+    "uncertain": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": -100.0,
+     "ci95_pp": [
+      -100.0,
+      -100.0
+     ],
+     "single_cluster": true
+    },
+    "false_acceptance": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    },
+    "true_rejection": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": -100.0,
+     "ci95_pp": [
+      -100.0,
+      -100.0
+     ],
+     "single_cluster": true
+    }
+   }
+  },
+  "C-A": {
+   "车": {
+    "accuracy": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "uncertain": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "false_acceptance": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    },
+    "true_rejection": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    }
+   },
+   "人员": {
+    "accuracy": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": 42.857142857142854,
+     "ci95_pp": [
+      8.333333333333334,
+      77.77777777777777
+     ],
+     "single_cluster": false
+    },
+    "uncertain": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      -50.0,
+      55.55555555555556
+     ],
+     "single_cluster": false
+    },
+    "false_acceptance": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": -42.857142857142854,
+     "ci95_pp": [
+      -77.77777777777777,
+      -8.333333333333334
+     ],
+     "single_cluster": false
+    },
+    "true_rejection": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    }
+   },
+   "违建": {
+    "accuracy": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "uncertain": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "false_acceptance": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    },
+    "true_rejection": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    }
+   }
+  },
+  "D-B": {
+   "车": {
+    "accuracy": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "uncertain": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "false_acceptance": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    },
+    "true_rejection": {
+     "n": 3,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    }
+   },
+   "人员": {
+    "accuracy": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": 35.714285714285715,
+     "ci95_pp": [
+      0.0,
+      72.22222222222223
+     ],
+     "single_cluster": false
+    },
+    "uncertain": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": 14.285714285714286,
+     "ci95_pp": [
+      -58.333333333333336,
+      68.75
+     ],
+     "single_cluster": false
+    },
+    "false_acceptance": {
+     "n": 7,
+     "source_clusters": 6,
+     "delta_pp": -35.714285714285715,
+     "ci95_pp": [
+      -72.22222222222223,
+      0.0
+     ],
+     "single_cluster": false
+    },
+    "true_rejection": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    }
+   },
+   "违建": {
+    "accuracy": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "uncertain": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    },
+    "false_acceptance": {
+     "n": 0,
+     "delta_pp": null,
+     "ci95_pp": null
+    },
+    "true_rejection": {
+     "n": 2,
+     "source_clusters": 1,
+     "delta_pp": 0.0,
+     "ci95_pp": [
+      0.0,
+      0.0
+     ],
+     "single_cluster": true
+    }
+   }
+  }
+ },
+ "all_candidate_uncertain": {
+  "dev": {
+   "三轮车": {
+    "A-1": 2,
+    "A-2": 1,
+    "B-1": 3,
+    "B-2": 2,
+    "C-1": 2,
+    "C-2": 3,
+    "D-1": 2,
+    "D-2": 2
+   },
+   "两轮车": {
+    "A-1": 5,
+    "A-2": 4,
+    "B-1": 5,
+    "B-2": 2,
+    "C-1": 5,
+    "C-2": 6,
+    "D-1": 5,
+    "D-2": 5
+   },
+   "人员": {
+    "A-1": 55,
+    "A-2": 52,
+    "B-1": 48,
+    "B-2": 48,
+    "C-1": 50,
+    "C-2": 53,
+    "D-1": 53,
+    "D-2": 51
+   },
+   "光伏板": {
+    "A-1": 0,
+    "A-2": 0,
+    "B-1": 0,
+    "B-2": 0,
+    "C-1": 0,
+    "C-2": 0,
+    "D-1": 0,
+    "D-2": 0
+   },
+   "光斑": {
+    "A-1": 0,
+    "A-2": 0,
+    "B-1": 0,
+    "B-2": 0,
+    "C-1": 0,
+    "C-2": 0,
+    "D-1": 0,
+    "D-2": 0
+   },
+   "公交车": {
+    "A-1": 1,
+    "A-2": 3,
+    "B-1": 3,
+    "B-2": 2,
+    "C-1": 1,
+    "C-2": 1,
+    "D-1": 1,
+    "D-2": 1
+   },
+   "卡车": {
+    "A-1": 3,
+    "A-2": 2,
+    "B-1": 4,
+    "B-2": 5,
+    "C-1": 6,
+    "C-2": 5,
+    "D-1": 6,
+    "D-2": 4
+   },
+   "没戴头盔": {
+    "A-1": 1,
+    "A-2": 1,
+    "B-1": 2,
+    "B-2": 1,
+    "C-1": 2,
+    "C-2": 2,
+    "D-1": 2,
+    "D-2": 2
+   },
+   "车": {
+    "A-1": 39,
+    "A-2": 42,
+    "B-1": 50,
+    "B-2": 35,
+    "C-1": 28,
+    "C-2": 23,
+    "D-1": 20,
+    "D-2": 20
+   },
+   "违建": {
+    "A-1": 48,
+    "A-2": 48,
+    "B-1": 10,
+    "B-2": 9,
+    "C-1": 48,
+    "C-2": 48,
+    "D-1": 4,
+    "D-2": 6
+   }
+  },
+  "holdout": {
+   "三轮车": {
+    "A-1": 3,
+    "A-2": 3,
+    "B-1": 3,
+    "B-2": 3,
+    "C-1": 3,
+    "C-2": 3,
+    "D-1": 3,
+    "D-2": 3
+   },
+   "两轮车": {
+    "A-1": 6,
+    "A-2": 5,
+    "B-1": 2,
+    "B-2": 5,
+    "C-1": 4,
+    "C-2": 4,
+    "D-1": 4,
+    "D-2": 4
+   },
+   "人员": {
+    "A-1": 41,
+    "A-2": 38,
+    "B-1": 26,
+    "B-2": 39,
+    "C-1": 40,
+    "C-2": 40,
+    "D-1": 39,
+    "D-2": 39
+   },
+   "光伏板": {
+    "A-1": 0,
+    "A-2": 0,
+    "B-1": 0,
+    "B-2": 0,
+    "C-1": 0,
+    "C-2": 0,
+    "D-1": 0,
+    "D-2": 0
+   },
+   "光斑": {
+    "A-1": 0,
+    "A-2": 0,
+    "B-1": 0,
+    "B-2": 0,
+    "C-1": 0,
+    "C-2": 0,
+    "D-1": 0,
+    "D-2": 0
+   },
+   "公交车": {
+    "A-1": 0,
+    "A-2": 0,
+    "B-1": 0,
+    "B-2": 0,
+    "C-1": 0,
+    "C-2": 0,
+    "D-1": 0,
+    "D-2": 0
+   },
+   "卡车": {
+    "A-1": 2,
+    "A-2": 2,
+    "B-1": 2,
+    "B-2": 3,
+    "C-1": 2,
+    "C-2": 3,
+    "D-1": 3,
+    "D-2": 3
+   },
+   "没戴头盔": {
+    "A-1": 0,
+    "A-2": 0,
+    "B-1": 0,
+    "B-2": 0,
+    "C-1": 0,
+    "C-2": 0,
+    "D-1": 0,
+    "D-2": 0
+   },
+   "车": {
+    "A-1": 9,
+    "A-2": 17,
+    "B-1": 16,
+    "B-2": 23,
+    "C-1": 22,
+    "C-2": 9,
+    "D-1": 13,
+    "D-2": 8
+   },
+   "违建": {
+    "A-1": 33,
+    "A-2": 33,
+    "B-1": 4,
+    "B-2": 5,
+    "C-1": 33,
+    "C-2": 33,
+    "D-1": 3,
+    "D-2": 3
+   }
+  }
+ },
+ "repeat_flips": {
+  "dev": {
+   "三轮车": {
+    "A": 1,
+    "B": 1,
+    "C": 0,
+    "D": 0
+   },
+   "两轮车": {
+    "A": 3,
+    "B": 3,
+    "C": 1,
+    "D": 2
+   },
+   "人员": {
+    "A": 15,
+    "B": 10,
+    "C": 10,
+    "D": 8
+   },
+   "光伏板": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+   },
+   "光斑": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+   },
+   "公交车": {
+    "A": 2,
+    "B": 1,
+    "C": 0,
+    "D": 0
+   },
+   "卡车": {
+    "A": 4,
+    "B": 3,
+    "C": 3,
+    "D": 4
+   },
+   "没戴头盔": {
+    "A": 0,
+    "B": 1,
+    "C": 0,
+    "D": 0
+   },
+   "车": {
+    "A": 26,
+    "B": 24,
+    "C": 11,
+    "D": 12
+   },
+   "违建": {
+    "A": 0,
+    "B": 11,
+    "C": 0,
+    "D": 6
+   }
+  },
+  "holdout": {
+   "三轮车": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+   },
+   "两轮车": {
+    "A": 1,
+    "B": 3,
+    "C": 0,
+    "D": 0
+   },
+   "人员": {
+    "A": 7,
+    "B": 17,
+    "C": 4,
+    "D": 5
+   },
+   "光伏板": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+   },
+   "光斑": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+   },
+   "公交车": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+   },
+   "卡车": {
+    "A": 2,
+    "B": 1,
+    "C": 1,
+    "D": 0
+   },
+   "没戴头盔": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+   },
+   "车": {
+    "A": 13,
+    "B": 14,
+    "C": 21,
+    "D": 8
+   },
+   "违建": {
+    "A": 0,
+    "B": 5,
+    "C": 0,
+    "D": 0
+   }
+  }
+ }
+}

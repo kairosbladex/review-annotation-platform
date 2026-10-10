@@ -1,0 +1,107 @@
+{
+ "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像边缘且被框线和文字遮挡，无法确认公交车结构。",
+   "observed_object": "边缘处被标注遮挡的疑似车辆",
+   "reasoning": "不能仅凭局部外观明确判定为公交车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:001",
+   "decision": "uncertain",
+   "image_limitation": "候选区域很小，主要被框线和文字覆盖。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "无法清晰确认车辆目标及其完整结构。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+   "decision": "true",
+   "image_limitation": "目标较小但车辆轮廓可见，部分被框线覆盖。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "可见明确车辆结构，符合“车”类别。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+   "decision": "true",
+   "image_limitation": "目标较小且有框线遮挡部分区域。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "可见明确车辆结构，符合“车”类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+   "decision": "true",
+   "image_limitation": "目标被框线覆盖部分区域，但车体轮廓清晰。",
+   "observed_object": "建筑区域内的卡车",
+   "reasoning": "可见车辆主体及较大的车体轮廓，符合卡车类别。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+   "decision": "true",
+   "image_limitation": "目标尺寸较小并被标注覆盖部分区域。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "可见明确车辆结构，符合“车”类别。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+   "decision": "true",
+   "image_limitation": "目标较小且被框线遮挡部分细节。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "可见明确车辆结构，符合“车”类别。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+   "decision": "true",
+   "image_limitation": "目标细节有限并被框线覆盖。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "可见明确车辆结构，符合“车”类别。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+   "decision": "true",
+   "image_limitation": "目标较小，部分细节受框线影响。",
+   "observed_object": "道路上的车辆",
+   "reasoning": "可见明确车辆结构，符合“车”类别。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像下侧边缘，尺寸很小且被框线、文字遮挡。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "无法清晰、完整地确认车辆目标。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603916.1101353,
+   "seconds": 16.740248441696167,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603916.110133,
+ "finished": 1791603933.13076,
+ "health": {
+  "at": 1791603916.1092472,
+  "available_fraction": 0.44670204181493794,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "1fbebd50144c4d1d85809c496d12e5ff",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7c26139f6bb917ea63533413564a34b471d0b210758bed74c93b180e7e0415b7",
+ "image_sha256": "c6057a5485c3e7c88d259e4f641a37b552857cb38c53ae907c1b522b6b783735"
+}

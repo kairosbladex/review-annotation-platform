@@ -1,0 +1,35 @@
+{
+ "unit": "3c743957ed964e279866fafebf5a8a86",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c743957ed964e279866fafebf5a8a86:000",
+   "decision": "uncertain",
+   "image_limitation": "目标框内主要是建筑墙面和窗户区域，未能清晰确认车辆及其必要结构。",
+   "observed_object": "建筑外墙、窗户及背景纹理",
+   "reasoning": "框线和文字不作为目标证据；框内没有可唯一定位且结构明确的车辆，因此无法判定为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791607553.1546624,
+   "seconds": 14.196122646331787,
+   "status": "ok"
+  }
+ ],
+ "started": 1791607553.1546607,
+ "finished": 1791607567.6250787,
+ "health": {
+  "at": 1791607553.1541402,
+  "available_fraction": 0.45670406159590177,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8359941b52a54ebbbe8804d452d9826e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "5471a0223a1063320d2c3ec39f0162d6387468a9edba555aa3688803e6d55e7f",
+ "image_sha256": "53fdd718bcd9606588b8a420620afa9834ac86a77c29a53e2febb3fef13cf002"
+}

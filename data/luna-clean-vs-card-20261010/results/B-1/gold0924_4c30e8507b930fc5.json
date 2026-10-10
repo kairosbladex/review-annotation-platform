@@ -1,0 +1,43 @@
+{
+ "unit": "gold0924_4c30e8507b930fc5",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-035",
+   "decision": "true",
+   "image_limitation": "目标较小，但可见人体轮廓，位置与编号图中的标注一致。",
+   "observed_object": "人员",
+   "reasoning": "候选框内可见人员的头部和身体结构，符合“人员”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-036",
+   "decision": "true",
+   "image_limitation": "目标较小，但可见人体轮廓，位置与编号图中的标注一致。",
+   "observed_object": "人员",
+   "reasoning": "候选框内可见人员的头部和身体结构，符合“人员”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606416.7101653,
+   "seconds": 6.160970687866211,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606416.7101636,
+ "finished": 1791606423.1434648,
+ "health": {
+  "at": 1791606416.6901124,
+  "available_fraction": 0.4520297765083787,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "2cc83b048b2143469d2cc2df29a4465e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "c14c75f85d2da935a081b8c43a648324baa77395ebfa5d0d77753675b1803305",
+ "image_sha256": "4c30e8507b930fc5ca0a0a6d3934692bb37ed39322d7f96b54c0eeb78ddfea8a"
+}

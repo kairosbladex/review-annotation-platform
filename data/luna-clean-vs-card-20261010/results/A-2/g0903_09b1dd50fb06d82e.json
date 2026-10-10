@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_09b1dd50fb06d82e",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a56e3d6fc2994361a3d774417ed6fdc9",
+   "decision": "uncertain",
+   "image_limitation": "框内主要为建筑边缘和树木，无法确认是否存在违建及审批或区域业务依据。",
+   "observed_object": "建筑边缘、树木",
+   "reasoning": "仅凭外观不能判定违建属性；框线和文字不作为证据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603455.175535,
+   "seconds": 58.413238525390625,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603455.175533,
+ "finished": 1791603513.8684514,
+ "health": {
+  "at": 1791603455.1750135,
+  "available_fraction": 0.43615184788678135,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "8fec05ae5aa14805829d4586f5a0759a",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "a0e7f8689a29c8dfecebb8de58cc168c400a7fb76ffc602baf062deddd7788ed",
+ "image_sha256": "09b1dd50fb06d82e6db4fe5445c27c69e88247188470faaf37c846db82132094"
+}

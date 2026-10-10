@@ -1,0 +1,35 @@
+{
+ "unit": "19180436c82b45a9938e90640c334526",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "19180436c82b45a9938e90640c334526:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见道路上的机动车道及清晰的车辆行驶箭头标线？",
+   "reasoning": "候选框位于道路车道内，框中主要是白色直行箭头标线，并非车辆目标，不能作为“车”的证据，因此不符合类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605366.8066869,
+   "seconds": 16.16920495033264,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605366.8066843,
+ "finished": 1791605383.2515008,
+ "health": {
+  "at": 1791605366.8046482,
+  "available_fraction": 0.44111694008899194,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "89885aaaeae04910a38642dd0cb8989e",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "29b5e490be7fe42602dfd36bd6a6138b3cf815e1217265d627f6ba6f4ae5d8c0",
+ "image_sha256": "a740b1d5c70e8146a48ea3dc64ac1356bfbda0ef449e3b9d6ff2ea3ce95bcceb"
+}

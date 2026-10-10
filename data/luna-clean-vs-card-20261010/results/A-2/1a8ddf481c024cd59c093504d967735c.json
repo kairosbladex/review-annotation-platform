@@ -1,0 +1,43 @@
+{
+ "unit": "1a8ddf481c024cd59c093504d967735c",
+ "arm": "A",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:1a8ddf481c024cd59c093504d967735c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见一辆车的整体外形和车身结构，符合“车”类别。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:1a8ddf481c024cd59c093504d967735c:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内可见一辆车的整体外形和车身结构，符合“车”类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791603482.5142164,
+   "seconds": 49.196616411209106,
+   "status": "ok"
+  }
+ ],
+ "started": 1791603482.5142148,
+ "finished": 1791603531.9955156,
+ "health": {
+  "at": 1791603482.5134127,
+  "available_fraction": 0.4589949808260649,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "95728ee43e74473a96b8dc13e8475770",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "7dc7ff7acad63543c721418a3850a9716e1b13f30c903ada996e875980cf4b04",
+ "image_sha256": "18e36ba04d6a9a20511d3c187072bb3435813efe534cf72d0e62052dcb606662"
+}

@@ -1,0 +1,35 @@
+{
+ "unit": "b4b82f598f4440acbf3e33427b608a7a",
+ "arm": "D",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "b4b82f598f4440acbf3e33427b608a7a:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "墙面上的小型孔洞或管线接口，未见人体结构。",
+   "reasoning": "候选框内不是人员，明显不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606629.5327513,
+   "seconds": 4.314007520675659,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606629.5327497,
+ "finished": 1791606634.1466353,
+ "health": {
+  "at": 1791606629.500087,
+  "available_fraction": 0.4557445440377914,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "19bdcb95c99e4d27bbd10e03f24902f0",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "8986abed629a651798029ed542184cbf2c66c9013743d3d83905c5fb213c1b48",
+ "image_sha256": "b27e48964e1eaf2814f58fa2172c9eb856c264002ea579726ff0e33eb99c9ed4"
+}

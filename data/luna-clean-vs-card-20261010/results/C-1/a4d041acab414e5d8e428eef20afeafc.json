@@ -1,0 +1,35 @@
+{
+ "unit": "a4d041acab414e5d8e428eef20afeafc",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+   "decision": "uncertain",
+   "image_limitation": "目标较小且部分细节不清，无法确认是否具备三轮车所需的三轮结构。",
+   "observed_object": "画面左下方可见一个白色小型物体，疑似车辆或设备。",
+   "reasoning": "仅凭当前图像无法唯一确认三轮结构，因此不能明确判定为三轮车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791609112.6013238,
+   "seconds": 21.332895755767822,
+   "status": "ok"
+  }
+ ],
+ "started": 1791609112.6013217,
+ "finished": 1791609134.204833,
+ "health": {
+  "at": 1791609112.5993645,
+  "available_fraction": 0.4550484735271285,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "b5011ae56bb849059e05019c46a866e9",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "3f316f04307a28c32ec78dbff426bdca7ccd9eab4df1f1fc086e17bdf61f34c6",
+ "image_sha256": "c40779d67bada5994c42f0a76dadc14981a798189dbd947347671be85d42b51b"
+}

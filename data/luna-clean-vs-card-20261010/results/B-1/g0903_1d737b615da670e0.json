@@ -1,0 +1,35 @@
+{
+ "unit": "g0903_1d737b615da670e0",
+ "arm": "B",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f6d48b6995834bdbbc7752b756c23e90",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见蓝绿色顶棚状屋面",
+   "reasoning": "候选框主体为覆盖在建筑上的蓝绿色成片屋面，符合违建类别口径；未将框线或文字作为判断依据。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791608523.7447617,
+   "seconds": 14.375705003738403,
+   "status": "ok"
+  }
+ ],
+ "started": 1791608523.7447593,
+ "finished": 1791608538.422394,
+ "health": {
+  "at": 1791608523.7434592,
+  "available_fraction": 0.4546613893758305,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "5803dbf9be2a4b41b2748ba7cf007494",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "d2ead4f08870109f17cf608978b136af1a1756839711fcf3192ee1983c93975e",
+ "image_sha256": "1d737b615da670e0c415f3e1be7c8e210284361129ab8765980fe7b320929dd2"
+}

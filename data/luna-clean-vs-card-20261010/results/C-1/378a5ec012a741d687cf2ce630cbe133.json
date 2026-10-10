@@ -1,0 +1,35 @@
+{
+ "unit": "378a5ec012a741d687cf2ce630cbe133",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "378a5ec012a741d687cf2ce630cbe133:004",
+   "decision": "true",
+   "image_limitation": "目标较小但可见车辆轮廓，未见明显遮挡。",
+   "observed_object": "车",
+   "reasoning": "候选框内可辨认出一辆汽车，符合“车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791601433.2330756,
+   "seconds": 32.90075445175171,
+   "status": "ok"
+  }
+ ],
+ "started": 1791601433.2330737,
+ "finished": 1791601466.425313,
+ "health": {
+  "at": 1791601433.231082,
+  "available_fraction": 0.45805662171995354,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "36c36a42d4904ab5a21daabdf00e8d5f",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "fedec20da04d87261214b83d1c183b245cdf4d332ff504749b83fe38e6629e7f",
+ "image_sha256": "c684f5a39769d31cc275161468c82b9432936acfc35075c90526268adb5651c7"
+}

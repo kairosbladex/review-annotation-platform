@@ -1,0 +1,35 @@
+{
+ "unit": "74c43336b12e4945a81fc40e424017e4",
+ "arm": "C",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:74c43336b12e4945a81fc40e424017e4:000",
+   "decision": "uncertain",
+   "image_limitation": "候选框内目标过小且部分被边缘遮挡，无法清晰确认车辆所需结构。",
+   "observed_object": "疑似道路上的小型目标",
+   "reasoning": "仅凭当前候选框无法唯一确认其为车，按要求输出uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791606782.8022318,
+   "seconds": 5.947663068771362,
+   "status": "ok"
+  }
+ ],
+ "started": 1791606782.8022294,
+ "finished": 1791606789.0530572,
+ "health": {
+  "at": 1791606782.8001583,
+  "available_fraction": 0.4553529606754362,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "7f57e8409d3147f193fb208b011ee392",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "98b69cea8eee02a35f88e32aac4406a8c55ae407ba4a2ad86d8c1a66091a39ee",
+ "image_sha256": "f0fed03833ce25811e3a8be656682180c6389158017ce52158e53f389f50ef52"
+}

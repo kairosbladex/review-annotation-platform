@@ -1,0 +1,43 @@
+{
+ "unit": "251324d21a8f4471ae6997c9c78de2ee",
+ "arm": "A",
+ "repeat": 1,
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:000",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否存在审批或区域业务依据。",
+   "observed_object": "候选框0内可见一处蓝色屋顶建筑。",
+   "reasoning": "外观可能是临时或附加建筑，但违建属性不能仅凭外观判断。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:001",
+   "decision": "uncertain",
+   "image_limitation": "仅凭图像无法确认是否存在审批或区域业务依据。",
+   "observed_object": "候选框1内可见一处狭长蓝色屋顶建筑。",
+   "reasoning": "外观可能是临时或附加建筑，但违建属性不能仅凭外观判断。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791602789.604648,
+   "seconds": 14.22044563293457,
+   "status": "ok"
+  }
+ ],
+ "started": 1791602789.604646,
+ "finished": 1791602804.0991087,
+ "health": {
+  "at": 1791602789.5922472,
+  "available_fraction": 0.4267654296187198,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "c284e345007345cfbe3f2c1c3576f5ff",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "ec6e31931cfb98d7bb121ce1897d22cbfba92d7ec333dada029b918dc6c6ef2d",
+ "image_sha256": "751dd3699e4f19c6a85fdb5cfd8df77dc8fa7704cca4236f1d96c5ad7393896c"
+}

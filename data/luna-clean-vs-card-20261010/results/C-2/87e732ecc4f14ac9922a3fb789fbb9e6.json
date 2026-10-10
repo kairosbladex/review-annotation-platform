@@ -1,0 +1,35 @@
+{
+ "unit": "87e732ecc4f14ac9922a3fb789fbb9e6",
+ "arm": "C",
+ "repeat": 2,
+ "success": true,
+ "results": [
+  {
+   "key": "87e732ecc4f14ac9922a3fb789fbb9e6:000",
+   "decision": "false",
+   "image_limitation": "候选框内仅见墙面上的小孔状物体，未见可辨认的人体结构。",
+   "observed_object": "墙面小孔或污渍",
+   "reasoning": "不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791605899.0286007,
+   "seconds": 14.478654384613037,
+   "status": "ok"
+  }
+ ],
+ "started": 1791605899.0285978,
+ "finished": 1791605913.7823184,
+ "health": {
+  "at": 1791605899.0269501,
+  "available_fraction": 0.45159508584008295,
+  "shared": "running healthy 0"
+ },
+ "execution_id": "4886b0fcde0b4659a74a9ab34d7b7437",
+ "requested_model": "gpt-5.6-luna",
+ "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+ "prompt_sha256": "502cceff5935ac598b372dd5e629039868e7cc93b79190bd965f474b2f229cc9",
+ "image_sha256": "af4fafd588778e07667a41154e20ed635441125e02bef62e18c638d9cd7f7c31"
+}
