@@ -1,0 +1,134 @@
+{
+  "event_id": "cae44fbbdeb345ee88004001bbd2ba1c",
+  "mode": "screenshot",
+  "card": "p000",
+  "repeat": 1,
+  "keys": [
+    "cae44fbbdeb345ee88004001bbd2ba1c_000",
+    "cae44fbbdeb345ee88004001bbd2ba1c_004",
+    "cae44fbbdeb345ee88004001bbd2ba1c_005",
+    "cae44fbbdeb345ee88004001bbd2ba1c_006",
+    "cae44fbbdeb345ee88004001bbd2ba1c_007",
+    "cae44fbbdeb345ee88004001bbd2ba1c_008"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "红色矩形光斑标记",
+        "reasoning": "候选框内可见明显的红色矩形光斑，与类别一致。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "红色矩形光斑标记",
+        "reasoning": "候选框内可见明显的红色矩形光斑，与类别一致。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "红色矩形光斑标记",
+        "reasoning": "候选框内可见明显的红色矩形光斑，与类别一致。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "红色矩形光斑标记",
+        "reasoning": "候选框内可见明显的红色矩形光斑，与类别一致。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "红色矩形光斑标记",
+        "reasoning": "候选框内可见明显的红色矩形光斑，与类别一致。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "红色矩形光斑标记",
+        "reasoning": "候选框内可见明显的红色矩形光斑，与类别一致。",
+        "target_index": 5
+      }
+    ],
+    "execution_id": "be019cc7dc374c0a946a853e7c6dc184",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 42.470095137134194,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.10546875, 0.7099609375, 0.1109375, 0.7216796875]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.49765625, 0.33984375, 0.50859375, 0.365234375]}, {\"target_index\": 2, \"class_name\": \"光斑\", \"bbox\": [0.57265625, 0.3388671875, 0.58125, 0.3583984375]}, {\"target_index\": 3, \"class_name\": \"光斑\", \"bbox\": [0.5875, 0.8251953125, 0.59375, 0.8427734375]}, {\"target_index\": 4, \"class_name\": \"光斑\", \"bbox\": [0.659375, 0.83203125, 0.66875, 0.84375]}, {\"target_index\": 5, \"class_name\": \"光斑\", \"bbox\": [0.66875, 0.46875, 0.675, 0.48046875]}]",
+  "prompt_sha256": "8ea9a3fc5d0547ed49e53445a01a5d71f99fe1de67df21cdf2fa1fb465f3a5a4",
+  "image_sha256": "6b7a2def7563049458ad75bb4af6c04e55f2cf3402752bc4a5c0b83bd8ede8f2",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.10546875,
+        0.7099609375,
+        0.1109375,
+        0.7216796875
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.49765625,
+        0.33984375,
+        0.50859375,
+        0.365234375
+      ]
+    },
+    {
+      "target_index": 2,
+      "class_name": "光斑",
+      "bbox": [
+        0.57265625,
+        0.3388671875,
+        0.58125,
+        0.3583984375
+      ]
+    },
+    {
+      "target_index": 3,
+      "class_name": "光斑",
+      "bbox": [
+        0.5875,
+        0.8251953125,
+        0.59375,
+        0.8427734375
+      ]
+    },
+    {
+      "target_index": 4,
+      "class_name": "光斑",
+      "bbox": [
+        0.659375,
+        0.83203125,
+        0.66875,
+        0.84375
+      ]
+    },
+    {
+      "target_index": 5,
+      "class_name": "光斑",
+      "bbox": [
+        0.66875,
+        0.46875,
+        0.675,
+        0.48046875
+      ]
+    }
+  ]
+}

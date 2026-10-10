@@ -1,0 +1,116 @@
+{
+  "event_id": "2adb372d2dae409289bbbde261d56a33",
+  "mode": "original",
+  "card": "p000",
+  "repeat": 2,
+  "keys": [
+    "2adb372d2dae409289bbbde261d56a33_000",
+    "2adb372d2dae409289bbbde261d56a33_001",
+    "2adb372d2dae409289bbbde261d56a33_002",
+    "2adb372d2dae409289bbbde261d56a33_003",
+    "2adb372d2dae409289bbbde261d56a33_004"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光斑",
+        "reasoning": "框内可见明显的高温亮斑，符合光斑类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光斑",
+        "reasoning": "框内可见明显的高温亮斑，符合光斑类别。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光斑",
+        "reasoning": "框内可见明显的高温亮斑，符合光斑类别。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光斑",
+        "reasoning": "框内可见明显的高温亮斑，符合光斑类别。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光斑",
+        "reasoning": "框内可见明显的高温亮斑，符合光斑类别。",
+        "target_index": 4
+      }
+    ],
+    "execution_id": "fc91d2d34de44ce4abf28dc31b447bb6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 15.725341723999009,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.38996512014829104, 0.01725688879388701, 0.3962198448040999, 0.03114880271288883]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.4243634126168122, 0.021442117026811657, 0.43165983062567015, 0.056165207203608236]}, {\"target_index\": 2, \"class_name\": \"光斑\", \"bbox\": [0.46188474680786507, 0.03951566216641884, 0.4691800430117967, 0.05896095252687271]}, {\"target_index\": 3, \"class_name\": \"光斑\", \"bbox\": [0.5233683955738883, 0.04926733425817828, 0.5306625375561604, 0.06176793616284769]}, {\"target_index\": 4, \"class_name\": \"光斑\", \"bbox\": [0.5796313756750922, 0.06040309632389804, 0.5848408856121904, 0.07428992118525746]}]",
+  "prompt_sha256": "5bf97d2ea46cdeb24e901b42dfabf85fcbfc301d6cb2bf348f13e794a16a8c86",
+  "image_sha256": "d783e453e30cf8d70a0abd5ec9aae93140e9ea086d25643b2df77615aa1383a3",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.38996512014829104,
+        0.01725688879388701,
+        0.3962198448040999,
+        0.03114880271288883
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.4243634126168122,
+        0.021442117026811657,
+        0.43165983062567015,
+        0.056165207203608236
+      ]
+    },
+    {
+      "target_index": 2,
+      "class_name": "光斑",
+      "bbox": [
+        0.46188474680786507,
+        0.03951566216641884,
+        0.4691800430117967,
+        0.05896095252687271
+      ]
+    },
+    {
+      "target_index": 3,
+      "class_name": "光斑",
+      "bbox": [
+        0.5233683955738883,
+        0.04926733425817828,
+        0.5306625375561604,
+        0.06176793616284769
+      ]
+    },
+    {
+      "target_index": 4,
+      "class_name": "光斑",
+      "bbox": [
+        0.5796313756750922,
+        0.06040309632389804,
+        0.5848408856121904,
+        0.07428992118525746
+      ]
+    }
+  ]
+}

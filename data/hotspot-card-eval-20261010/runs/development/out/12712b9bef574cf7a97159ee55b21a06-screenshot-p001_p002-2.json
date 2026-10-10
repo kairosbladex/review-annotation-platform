@@ -1,0 +1,188 @@
+{
+  "event_id": "12712b9bef574cf7a97159ee55b21a06",
+  "mode": "screenshot",
+  "card": "p001_p002",
+  "repeat": 2,
+  "keys": [
+    "12712b9bef574cf7a97159ee55b21a06_000",
+    "12712b9bef574cf7a97159ee55b21a06_001",
+    "12712b9bef574cf7a97159ee55b21a06_002",
+    "12712b9bef574cf7a97159ee55b21a06_003",
+    "12712b9bef574cf7a97159ee55b21a06_004",
+    "12712b9bef574cf7a97159ee55b21a06_005",
+    "12712b9bef574cf7a97159ee55b21a06_006",
+    "12712b9bef574cf7a97159ee55b21a06_007",
+    "12712b9bef574cf7a97159ee55b21a06_008"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部亮斑",
+        "reasoning": "位于规则排列的光伏板组件表面，且相邻区域相比局部明显更亮。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部亮斑",
+        "reasoning": "位于光伏板组件表面，为局部突出的亮斑。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部亮斑",
+        "reasoning": "位于光伏板组件表面，局部亮度明显高于周边。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部亮斑",
+        "reasoning": "位于规则光伏板阵列内，呈局部异常亮斑。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部亮斑",
+        "reasoning": "位于组件表面的局部亮区，符合光斑特征。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部亮斑",
+        "reasoning": "位于光伏板组件上，亮度相对邻近区域明显突出。",
+        "target_index": 5
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部亮斑",
+        "reasoning": "框内为光伏组件表面的局部亮斑，位置和形态均符合类别。",
+        "target_index": 6
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部亮斑",
+        "reasoning": "位于规则排列的光伏板表面，为局部异常亮区。",
+        "target_index": 7
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部亮斑",
+        "reasoning": "位于组件表面且相邻区域相比局部更亮，符合光斑定义。",
+        "target_index": 8
+      }
+    ],
+    "execution_id": "748a31a1bad940e983821253aaa20122",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 24.506272026104853,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。\n【类别判断要点】\n[光斑] 光斑指光伏板组件表面的局部异常亮斑：红外热成像图中是某块组件上比相邻组件明显更亮（更热）的点或小块；可见光图中是组件表面局部的异常高亮斑块。判断两条：一是亮斑必须位于光伏板组件表面（深色、规则网格排列的电池板阵列）；二是亮斑与相邻组件相比明显突出、只占局部。满足两条→true。不在光伏板上的亮点一律false，例如道路、地面、屋顶、车辆、水面上的亮点、阳光反射、路灯、白色物体。整片组件均匀发亮（整体反光）而无局部突出→false。不推断故障原因。\n不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.01328125, 0.375, 0.0296875, 0.3828125]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.02265625, 0.28515625, 0.03203125, 0.2939453125]}, {\"target_index\": 2, \"class_name\": \"光斑\", \"bbox\": [0.09765625, 0.6181640625, 0.11953125, 0.6357421875]}, {\"target_index\": 3, \"class_name\": \"光斑\", \"bbox\": [0.09921875, 0.5283203125, 0.11171875, 0.541015625]}, {\"target_index\": 4, \"class_name\": \"光斑\", \"bbox\": [0.18125, 0.6240234375, 0.18984375, 0.6337890625]}, {\"target_index\": 5, \"class_name\": \"光斑\", \"bbox\": [0.18828125, 0.529296875, 0.2078125, 0.54296875]}, {\"target_index\": 6, \"class_name\": \"光斑\", \"bbox\": [0.1921875, 0.6162109375, 0.21484375, 0.6376953125]}, {\"target_index\": 7, \"class_name\": \"光斑\", \"bbox\": [0.2484375, 0.251953125, 0.2671875, 0.263671875]}, {\"target_index\": 8, \"class_name\": \"光斑\", \"bbox\": [0.25703125, 0.1650390625, 0.2734375, 0.17578125]}]",
+  "prompt_sha256": "97ee8d8b37f93156e9df30cfd5e6a5af5a160c07dc8e26416ea4026647073eb9",
+  "image_sha256": "e44c89fa9875691a3851b7b3e8b8c7d762ec5197a7b16a20a88c565937e7a06b",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.01328125,
+        0.375,
+        0.0296875,
+        0.3828125
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.02265625,
+        0.28515625,
+        0.03203125,
+        0.2939453125
+      ]
+    },
+    {
+      "target_index": 2,
+      "class_name": "光斑",
+      "bbox": [
+        0.09765625,
+        0.6181640625,
+        0.11953125,
+        0.6357421875
+      ]
+    },
+    {
+      "target_index": 3,
+      "class_name": "光斑",
+      "bbox": [
+        0.09921875,
+        0.5283203125,
+        0.11171875,
+        0.541015625
+      ]
+    },
+    {
+      "target_index": 4,
+      "class_name": "光斑",
+      "bbox": [
+        0.18125,
+        0.6240234375,
+        0.18984375,
+        0.6337890625
+      ]
+    },
+    {
+      "target_index": 5,
+      "class_name": "光斑",
+      "bbox": [
+        0.18828125,
+        0.529296875,
+        0.2078125,
+        0.54296875
+      ]
+    },
+    {
+      "target_index": 6,
+      "class_name": "光斑",
+      "bbox": [
+        0.1921875,
+        0.6162109375,
+        0.21484375,
+        0.6376953125
+      ]
+    },
+    {
+      "target_index": 7,
+      "class_name": "光斑",
+      "bbox": [
+        0.2484375,
+        0.251953125,
+        0.2671875,
+        0.263671875
+      ]
+    },
+    {
+      "target_index": 8,
+      "class_name": "光斑",
+      "bbox": [
+        0.25703125,
+        0.1650390625,
+        0.2734375,
+        0.17578125
+      ]
+    }
+  ]
+}

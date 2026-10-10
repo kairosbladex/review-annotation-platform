@@ -1,0 +1,62 @@
+{
+  "event_id": "95c986edd4234706b9ca0f75de4ddd61",
+  "mode": "original",
+  "card": "p000",
+  "repeat": 2,
+  "keys": [
+    "95c986edd4234706b9ca0f75de4ddd61_000",
+    "95c986edd4234706b9ca0f75de4ddd61_001"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "目标位于图像顶部，局部亮黄色小斑点清晰可见。",
+        "observed_object": "顶部的亮黄色光斑",
+        "reasoning": "候选框内可见独立的亮黄色小光斑，符合“光斑”类别；未将框线或文字作为证据。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "目标位于图像顶部，局部亮黄色小斑点清晰可见。",
+        "observed_object": "顶部的亮黄色光斑",
+        "reasoning": "候选框内可见独立的亮黄色小光斑，符合“光斑”类别；未将框线或文字作为证据。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "20a45f51ecee4f5392d786411a171ea6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 14.675067556090653,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.7025309776513612, 0.0, 0.7108798180702234, 0.007388610796031599]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.7912264504141676, 0.0, 0.797490711193675, 0.008711516716055984]}]",
+  "prompt_sha256": "2b246a4aee73942aedaef4eb7061ab257a5e27c917f30e4f2a50f9f26d2e50cb",
+  "image_sha256": "ed58258667788eb8e09dce6d1981d73d6c19b57477476fa65f5595c29fbecdd2",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.7025309776513612,
+        0.0,
+        0.7108798180702234,
+        0.007388610796031599
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.7912264504141676,
+        0.0,
+        0.797490711193675,
+        0.008711516716055984
+      ]
+    }
+  ]
+}

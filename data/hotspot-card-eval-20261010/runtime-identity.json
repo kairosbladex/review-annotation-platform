@@ -1,0 +1,44 @@
+{
+  "binary_path": "/data/workspace/jzheng/codex-luna-review/bin/codex-0.162.0-alpha.17.2/codex",
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_id": "sha256:eb10b5b55337ae0c4be79d905c0e629b9e47892582303b0313d294dd99c62c73",
+  "container_id": "5d13e25405690e05c804e253b35cc3d725bb6384b0408a272356e9a8b00c3182",
+  "started_at": "2026-10-10T07:16:43.241389091Z",
+  "memory": 4294967296,
+  "memory_swap": 4294967296,
+  "nano_cpus": 3000000000,
+  "device_requests": null,
+  "network": "host",
+  "mounts": [
+    {
+      "source": "/data/workspace/jzheng/hotspot-relabel-20261010",
+      "destination": "/data/workspace/jzheng/hotspot-relabel-20261010",
+      "read_write": false
+    },
+    {
+      "source": "/data/workspace/jzheng/codex-luna-review/bin/codex-0.162.0-alpha.17.2",
+      "destination": "/cli",
+      "read_write": false
+    },
+    {
+      "source": "/home/user/.codex/auth.json",
+      "destination": "/auth.json",
+      "read_write": false
+    },
+    {
+      "source": "/data/workspace/jzheng/hotspot-card-eval-20261010",
+      "destination": "/data/workspace/jzheng/hotspot-card-eval-20261010",
+      "read_write": true
+    },
+    {
+      "source": "/data/workspace/jzheng/luna-prompt-autotune",
+      "destination": "/data/workspace/jzheng/luna-prompt-autotune",
+      "read_write": false
+    },
+    {
+      "source": "/data/workspace/jzheng/codex-ktd-real-monitoring-20260924",
+      "destination": "/data/workspace/jzheng/codex-ktd-real-monitoring-20260924",
+      "read_write": false
+    }
+  ]
+}

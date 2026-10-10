@@ -1,0 +1,44 @@
+{
+  "time": "2026-10-10T15:29:57.074178+08:00",
+  "slots": [
+    "975806bcb0364005854a6414008c1da5-original-revised-1.json",
+    "c35145046ad64bcbbf29f38dedd96623-original-p001_p002-2.json"
+  ],
+  "recovered": [
+    "975806bcb0364005854a6414008c1da5-original-revised-1.json",
+    "c35145046ad64bcbbf29f38dedd96623-original-p001_p002-2.json"
+  ],
+  "before": {
+    "time": "2026-10-10T15:29:27.412063+08:00",
+    "available_fraction": 0.4395319409936982,
+    "swap_free_kb": 600,
+    "pswpout": 749184,
+    "load": [
+      10.93359375,
+      6.4375,
+      5.92919921875
+    ],
+    "memory_current": 368939008,
+    "swap_current": 0
+  },
+  "after": {
+    "time": "2026-10-10T15:29:57.075486+08:00",
+    "available_fraction": 0.44378047303489054,
+    "swap_free_kb": 600,
+    "pswpout": 749184,
+    "load": [
+      7.6005859375,
+      6.01513671875,
+      5.80224609375
+    ],
+    "memory_current": 370511872,
+    "swap_current": 0
+  },
+  "shared": {
+    "model": "gpt-5.6-luna",
+    "max_concurrency": 20,
+    "policy": "only_true_is_true_v1",
+    "prompt_version": "p000-pure-class-cards"
+  },
+  "worker_exit": 0
+}

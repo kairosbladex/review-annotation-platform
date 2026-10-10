@@ -1,0 +1,80 @@
+{
+  "event_id": "66c47045516044c0bbcffa5c0e0ce962",
+  "mode": "screenshot",
+  "card": "p000",
+  "repeat": 1,
+  "keys": [
+    "66c47045516044c0bbcffa5c0e0ce962_000",
+    "66c47045516044c0bbcffa5c0e0ce962_001",
+    "66c47045516044c0bbcffa5c0e0ce962_002"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "红色高温光斑",
+        "reasoning": "候选框内可见明显的红色热斑，符合光斑类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "红色高温光斑",
+        "reasoning": "候选框内可见明显的红色热斑，符合光斑类别。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "红色高温光斑",
+        "reasoning": "候选框内可见明显的红色热斑，符合光斑类别。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "36c392e660ae42299e4ceaa4cadf3a75",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 16.36861458583735,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.65, 0.001388888888888889, 0.65625, 0.029166666666666667]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.7145833333333333, 0.08888888888888889, 0.71875, 0.10277777777777777]}, {\"target_index\": 2, \"class_name\": \"光斑\", \"bbox\": [0.734375, 0.08055555555555556, 0.7416666666666667, 0.10694444444444444]}]",
+  "prompt_sha256": "afce9b1ca2ff6bd622a7e53525fe11f2b681166d05f341fbd0780b4ef1f1ff79",
+  "image_sha256": "ab4498005ba5e4caabba9952b91f233b05ec40dca32609a24416fc391ee8fcc3",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.65,
+        0.001388888888888889,
+        0.65625,
+        0.029166666666666667
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.7145833333333333,
+        0.08888888888888889,
+        0.71875,
+        0.10277777777777777
+      ]
+    },
+    {
+      "target_index": 2,
+      "class_name": "光斑",
+      "bbox": [
+        0.734375,
+        0.08055555555555556,
+        0.7416666666666667,
+        0.10694444444444444
+      ]
+    }
+  ]
+}

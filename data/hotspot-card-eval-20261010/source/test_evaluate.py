@@ -1,4 +1,4 @@
-import importlib.util,json,csv,tempfile,unittest
+import importlib.util,json,csv,tempfile,unittest,contextlib,io
 from pathlib import Path
 S=importlib.util.spec_from_file_location('evaluation',Path(__file__).with_name('evaluate.py'));E=importlib.util.module_from_spec(S);S.loader.exec_module(E)
 class EvaluationTests(unittest.TestCase):
@@ -32,6 +32,8 @@ class EvaluationTests(unittest.TestCase):
        jobs.append(r);E.write(f'runs/holdout/out/{len(jobs)}.json',r)
    E.write('runs/holdout/schedule.json',jobs)
    try:
-    E.score('holdout');r=E.read('holdout-report.json');self.assertTrue(r['gate']['passed']);self.assertEqual(r['paired'][0]['clusters'],1);self.assertEqual(r['paired'][0]['ci95'][0],[1,1]);self.assertEqual(r['metrics'][0]['false_reject'],2)
+
+    with contextlib.redirect_stdout(io.StringIO()):E.score('holdout')
+    r=E.read('holdout-report.json');self.assertTrue(r['gate']['passed']);self.assertEqual(r['paired'][0]['clusters'],1);self.assertEqual(r['paired'][0]['ci95'][0],[1,1]);self.assertEqual(r['metrics'][0]['false_reject'],2)
    finally:E.ROOT=old
 if __name__=='__main__':unittest.main()

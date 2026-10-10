@@ -1,0 +1,184 @@
+{
+  "stage": "holdout",
+  "calls": 240,
+  "metrics": [
+    {
+      "mode": "original",
+      "card": "p000",
+      "repeat": 1,
+      "n": 73,
+      "correct": 72,
+      "uncertain": 0,
+      "false_reject": 0,
+      "explicit_false_reject": 0,
+      "false_accept": 1,
+      "accuracy": 0.9863013698630136
+    },
+    {
+      "mode": "original",
+      "card": "p000",
+      "repeat": 2,
+      "n": 73,
+      "correct": 72,
+      "uncertain": 0,
+      "false_reject": 0,
+      "explicit_false_reject": 0,
+      "false_accept": 1,
+      "accuracy": 0.9863013698630136
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "repeat": 1,
+      "n": 73,
+      "correct": 54,
+      "uncertain": 5,
+      "false_reject": 18,
+      "explicit_false_reject": 13,
+      "false_accept": 1,
+      "accuracy": 0.7397260273972602
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "repeat": 2,
+      "n": 73,
+      "correct": 58,
+      "uncertain": 1,
+      "false_reject": 13,
+      "explicit_false_reject": 13,
+      "false_accept": 1,
+      "accuracy": 0.7945205479452054
+    },
+    {
+      "mode": "screenshot",
+      "card": "p000",
+      "repeat": 1,
+      "n": 73,
+      "correct": 69,
+      "uncertain": 0,
+      "false_reject": 2,
+      "explicit_false_reject": 2,
+      "false_accept": 2,
+      "accuracy": 0.9452054794520548
+    },
+    {
+      "mode": "screenshot",
+      "card": "p000",
+      "repeat": 2,
+      "n": 73,
+      "correct": 66,
+      "uncertain": 0,
+      "false_reject": 5,
+      "explicit_false_reject": 5,
+      "false_accept": 2,
+      "accuracy": 0.9041095890410958
+    },
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "repeat": 1,
+      "n": 73,
+      "correct": 45,
+      "uncertain": 6,
+      "false_reject": 26,
+      "explicit_false_reject": 21,
+      "false_accept": 1,
+      "accuracy": 0.6164383561643836
+    },
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "repeat": 2,
+      "n": 73,
+      "correct": 44,
+      "uncertain": 9,
+      "false_reject": 28,
+      "explicit_false_reject": 19,
+      "false_accept": 1,
+      "accuracy": 0.6027397260273972
+    }
+  ],
+  "paired": [
+    {
+      "mode": "screenshot",
+      "card": "p001_p002",
+      "clusters": 27,
+      "events": 30,
+      "n": 73,
+      "delta": [
+        -0.3150684931506849,
+        -0.0136986301369863,
+        0.3219178082191781,
+        0.10273972602739725
+      ],
+      "ci95": [
+        [
+          -0.5196110681114552,
+          -0.1419753086419753
+        ],
+        [
+          -0.04918032786885246,
+          0.0
+        ],
+        [
+          0.15,
+          0.5258648678907297
+        ],
+        [
+          0.018518518518518517,
+          0.22142857142857142
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    },
+    {
+      "mode": "original",
+      "card": "p001_p002",
+      "clusters": 27,
+      "events": 30,
+      "n": 73,
+      "delta": [
+        -0.2191780821917808,
+        0.0,
+        0.21232876712328766,
+        0.0410958904109589
+      ],
+      "ci95": [
+        [
+          -0.38235294117647056,
+          -0.08974358974358974
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.08333333333333333,
+          0.3732394366197183
+        ],
+        [
+          0.0,
+          0.11643835616438356
+        ]
+      ],
+      "order": [
+        "accuracy",
+        "false_accept_per_box",
+        "false_reject_per_box",
+        "uncertain_per_box"
+      ]
+    }
+  ],
+  "transport_retries": 4,
+  "gate": {
+    "passed": false,
+    "accuracy_lower": -0.5196110681114552,
+    "false_accept_not_increased_each_repeat": true
+  }
+}

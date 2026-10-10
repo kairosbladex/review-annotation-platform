@@ -1,0 +1,116 @@
+{
+  "event_id": "5c61c681855c41ccb9efa4b595082b59",
+  "mode": "screenshot",
+  "card": "p001_p002",
+  "repeat": 1,
+  "keys": [
+    "5c61c681855c41ccb9efa4b595082b59_000",
+    "5c61c681855c41ccb9efa4b595082b59_001",
+    "5c61c681855c41ccb9efa4b595082b59_002",
+    "5c61c681855c41ccb9efa4b595082b59_003",
+    "5c61c681855c41ccb9efa4b595082b59_004"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部异常亮斑",
+        "reasoning": "位于规则排列的光伏板组件表面，且局部亮度明显高于相邻区域。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部异常亮斑",
+        "reasoning": "位于光伏板组件表面，呈局部突出亮斑。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部异常亮斑",
+        "reasoning": "位于规则光伏板阵列中的单块组件表面，局部热亮度突出。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部异常亮斑",
+        "reasoning": "位于光伏板组件表面，局部亮度相对周边组件明显突出。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏板组件表面的局部异常亮斑",
+        "reasoning": "目标位于光伏板组件表面，属于局部异常亮斑。",
+        "target_index": 4
+      }
+    ],
+    "execution_id": "b9f80cf9e9954de9a8598bc836bc888d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 17.797515308018774,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。\n【类别判断要点】\n[光斑] 光斑指光伏板组件表面的局部异常亮斑：红外热成像图中是某块组件上比相邻组件明显更亮（更热）的点或小块；可见光图中是组件表面局部的异常高亮斑块。判断两条：一是亮斑必须位于光伏板组件表面（深色、规则网格排列的电池板阵列）；二是亮斑与相邻组件相比明显突出、只占局部。满足两条→true。不在光伏板上的亮点一律false，例如道路、地面、屋顶、车辆、水面上的亮点、阳光反射、路灯、白色物体。整片组件均匀发亮（整体反光）而无局部突出→false。不推断故障原因。\n不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.040625, 0.9140625, 0.0484375, 0.923828125]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.1875, 0.412109375, 0.1953125, 0.41796875]}, {\"target_index\": 2, \"class_name\": \"光斑\", \"bbox\": [0.41875, 0.2421875, 0.42734375, 0.25390625]}, {\"target_index\": 3, \"class_name\": \"光斑\", \"bbox\": [0.421875, 0.3203125, 0.43125, 0.3291015625]}, {\"target_index\": 4, \"class_name\": \"光斑\", \"bbox\": [0.6515625, 0.359375, 0.6625, 0.3671875]}]",
+  "prompt_sha256": "842b328884c72dd1eda46911a147e939d7f64da5f929b354baf5616b75333806",
+  "image_sha256": "5870ffd1b7e4753ba2e09a927e3e3d2f112197c5ab10b803ef732768a6f9a87f",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.040625,
+        0.9140625,
+        0.0484375,
+        0.923828125
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.1875,
+        0.412109375,
+        0.1953125,
+        0.41796875
+      ]
+    },
+    {
+      "target_index": 2,
+      "class_name": "光斑",
+      "bbox": [
+        0.41875,
+        0.2421875,
+        0.42734375,
+        0.25390625
+      ]
+    },
+    {
+      "target_index": 3,
+      "class_name": "光斑",
+      "bbox": [
+        0.421875,
+        0.3203125,
+        0.43125,
+        0.3291015625
+      ]
+    },
+    {
+      "target_index": 4,
+      "class_name": "光斑",
+      "bbox": [
+        0.6515625,
+        0.359375,
+        0.6625,
+        0.3671875
+      ]
+    }
+  ]
+}

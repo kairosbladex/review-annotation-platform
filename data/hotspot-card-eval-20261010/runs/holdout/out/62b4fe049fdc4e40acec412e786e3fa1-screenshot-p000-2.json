@@ -1,0 +1,98 @@
+{
+  "event_id": "62b4fe049fdc4e40acec412e786e3fa1",
+  "mode": "screenshot",
+  "card": "p000",
+  "repeat": 2,
+  "keys": [
+    "62b4fe049fdc4e40acec412e786e3fa1_000",
+    "62b4fe049fdc4e40acec412e786e3fa1_001",
+    "62b4fe049fdc4e40acec412e786e3fa1_002",
+    "62b4fe049fdc4e40acec412e786e3fa1_003"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光斑",
+        "reasoning": "候选框内可见与标注“光斑”对应的亮色小斑点，目标明确，不以文字作为判断依据。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光斑",
+        "reasoning": "候选框内可见与标注“光斑”对应的亮色小斑点，目标明确，不以文字作为判断依据。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光斑",
+        "reasoning": "候选框内可见与标注“光斑”对应的亮色小斑点，目标明确，不以文字作为判断依据。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光斑",
+        "reasoning": "候选框内可见与标注“光斑”对应的亮色小斑点，目标明确，不以文字作为判断依据。",
+        "target_index": 3
+      }
+    ],
+    "execution_id": "ef7ece0f5e154200a459498928d3a602",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 35.29932178999297,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.09375, 0.529296875, 0.10234375, 0.5390625]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.09375, 0.623046875, 0.10234375, 0.6328125]}, {\"target_index\": 2, \"class_name\": \"光斑\", \"bbox\": [0.1890625, 0.529296875, 0.1984375, 0.5390625]}, {\"target_index\": 3, \"class_name\": \"光斑\", \"bbox\": [0.1890625, 0.623046875, 0.19765625, 0.6328125]}]",
+  "prompt_sha256": "ff2bcd5c661a84cb86a43bca76a70f9cdae8768f6ac64a04efbb79f6a0dbd77a",
+  "image_sha256": "29fbadc4eb3dc5b6d00479913ba78564f745954f6836bed2016a58d9ccfe7488",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.09375,
+        0.529296875,
+        0.10234375,
+        0.5390625
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.09375,
+        0.623046875,
+        0.10234375,
+        0.6328125
+      ]
+    },
+    {
+      "target_index": 2,
+      "class_name": "光斑",
+      "bbox": [
+        0.1890625,
+        0.529296875,
+        0.1984375,
+        0.5390625
+      ]
+    },
+    {
+      "target_index": 3,
+      "class_name": "光斑",
+      "bbox": [
+        0.1890625,
+        0.623046875,
+        0.19765625,
+        0.6328125
+      ]
+    }
+  ]
+}

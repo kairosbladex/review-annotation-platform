@@ -1,0 +1,44 @@
+{
+  "event_id": "03c090e1a25c4ad4bcf9f8cd02c046e1",
+  "mode": "original",
+  "card": "p000",
+  "repeat": 2,
+  "keys": [
+    "03c090e1a25c4ad4bcf9f8cd02c046e1_000"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "候选框内可见一个明显的高温光斑区域",
+        "reasoning": "框内目标呈现为局部亮色斑点，符合“光斑”类别；未将框线或文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "dd1328cc4d5344839f5015b42ba4279b",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 18.087761754868552,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.4808378487821431, 0.17100970450636463, 0.4876235889657566, 0.1823563148974336]}]",
+  "prompt_sha256": "3230171117531d5ffe91e0cd70a5817e5502f4357f7de0c92bfdd08e0a20a3d7",
+  "image_sha256": "e623f0ff05e42f9403658ef9294f1a4915e9296ae6fbcd2969a288b039d6ffcc",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.4808378487821431,
+        0.17100970450636463,
+        0.4876235889657566,
+        0.1823563148974336
+      ]
+    }
+  ]
+}

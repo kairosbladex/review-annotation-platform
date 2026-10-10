@@ -1,0 +1,134 @@
+{
+  "event_id": "cae44fbbdeb345ee88004001bbd2ba1c",
+  "mode": "screenshot",
+  "card": "p001_p002",
+  "repeat": 2,
+  "keys": [
+    "cae44fbbdeb345ee88004001bbd2ba1c_000",
+    "cae44fbbdeb345ee88004001bbd2ba1c_004",
+    "cae44fbbdeb345ee88004001bbd2ba1c_005",
+    "cae44fbbdeb345ee88004001bbd2ba1c_006",
+    "cae44fbbdeb345ee88004001bbd2ba1c_007",
+    "cae44fbbdeb345ee88004001bbd2ba1c_008"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏组件表面的局部异常亮斑",
+        "reasoning": "位于规则排列的光伏板组件表面，且相对周围区域明显更亮。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏组件表面的局部异常亮斑",
+        "reasoning": "位于规则光伏组件表面，局部亮度明显突出。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏组件表面的局部异常亮斑",
+        "reasoning": "位于光伏板组件表面，呈局部明显高亮。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏组件表面的局部异常亮斑",
+        "reasoning": "位于规则组件阵列内，亮斑相对周围区域突出。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏组件表面的局部异常亮斑",
+        "reasoning": "位于光伏组件表面，局部亮度明显高于邻近区域。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "光伏组件表面的局部异常亮斑",
+        "reasoning": "位于规则排列的光伏板表面，局部亮度突出。",
+        "target_index": 5
+      }
+    ],
+    "execution_id": "44021991c4ab4575a127b295e033269e",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 15.841057920828462,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。\n【类别判断要点】\n[光斑] 光斑指光伏板组件表面的局部异常亮斑：红外热成像图中是某块组件上比相邻组件明显更亮（更热）的点或小块；可见光图中是组件表面局部的异常高亮斑块。判断两条：一是亮斑必须位于光伏板组件表面（深色、规则网格排列的电池板阵列）；二是亮斑与相邻组件相比明显突出、只占局部。满足两条→true。不在光伏板上的亮点一律false，例如道路、地面、屋顶、车辆、水面上的亮点、阳光反射、路灯、白色物体。整片组件均匀发亮（整体反光）而无局部突出→false。不推断故障原因。\n不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.10546875, 0.7099609375, 0.1109375, 0.7216796875]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.49765625, 0.33984375, 0.50859375, 0.365234375]}, {\"target_index\": 2, \"class_name\": \"光斑\", \"bbox\": [0.57265625, 0.3388671875, 0.58125, 0.3583984375]}, {\"target_index\": 3, \"class_name\": \"光斑\", \"bbox\": [0.5875, 0.8251953125, 0.59375, 0.8427734375]}, {\"target_index\": 4, \"class_name\": \"光斑\", \"bbox\": [0.659375, 0.83203125, 0.66875, 0.84375]}, {\"target_index\": 5, \"class_name\": \"光斑\", \"bbox\": [0.66875, 0.46875, 0.675, 0.48046875]}]",
+  "prompt_sha256": "5ca6e0c4e28c18e6876f0f6b9ffb2c0e221edecbd6255ac1992b950df4e732d1",
+  "image_sha256": "6b7a2def7563049458ad75bb4af6c04e55f2cf3402752bc4a5c0b83bd8ede8f2",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.10546875,
+        0.7099609375,
+        0.1109375,
+        0.7216796875
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.49765625,
+        0.33984375,
+        0.50859375,
+        0.365234375
+      ]
+    },
+    {
+      "target_index": 2,
+      "class_name": "光斑",
+      "bbox": [
+        0.57265625,
+        0.3388671875,
+        0.58125,
+        0.3583984375
+      ]
+    },
+    {
+      "target_index": 3,
+      "class_name": "光斑",
+      "bbox": [
+        0.5875,
+        0.8251953125,
+        0.59375,
+        0.8427734375
+      ]
+    },
+    {
+      "target_index": 4,
+      "class_name": "光斑",
+      "bbox": [
+        0.659375,
+        0.83203125,
+        0.66875,
+        0.84375
+      ]
+    },
+    {
+      "target_index": 5,
+      "class_name": "光斑",
+      "bbox": [
+        0.66875,
+        0.46875,
+        0.675,
+        0.48046875
+      ]
+    }
+  ]
+}

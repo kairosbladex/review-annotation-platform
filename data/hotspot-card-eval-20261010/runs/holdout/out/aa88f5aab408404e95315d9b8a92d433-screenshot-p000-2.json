@@ -1,0 +1,62 @@
+{
+  "event_id": "aa88f5aab408404e95315d9b8a92d433",
+  "mode": "screenshot",
+  "card": "p000",
+  "repeat": 2,
+  "keys": [
+    "aa88f5aab408404e95315d9b8a92d433_000",
+    "aa88f5aab408404e95315d9b8a92d433_001"
+  ],
+  "success": true,
+  "result": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "目标区域仅见红色文字，不是光斑。",
+        "observed_object": "红色文字",
+        "reasoning": "候选框内的明显内容为文字，不符合光斑类别，且不应将文字作为光斑证据。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标区域仅见红色文字，不是光斑。",
+        "observed_object": "红色文字",
+        "reasoning": "候选框内的明显内容为文字，不符合光斑类别，且不应将文字作为光斑证据。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "eb4c4775bbf84a6198ba70c775002309",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "status": "ok"
+    }
+  ],
+  "elapsed": 14.137561678187922,
+  "prompt": "逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。看不清、遮挡、不能唯一定位则输出uncertain，明确符合类别才输出true，明显不符合输出false。车辆细分类必须看见所需结构，三轮车须有三轮证据；人员须有可见人体结构。光伏板须有规则组件结构，不推断热故障。违建没有审批或区域业务依据，一律uncertain；游商等违法属性不能仅凭外观判断。车牌不读号码。不运行任何工具，只返回schema中的JSON；target_index必须使用下面原编号，解释使用中文。候选：[{\"target_index\": 0, \"class_name\": \"光斑\", \"bbox\": [0.5020833333333333, 0.0, 0.5114583333333333, 0.015277777777777777]}, {\"target_index\": 1, \"class_name\": \"光斑\", \"bbox\": [0.515625, 0.0, 0.5260416666666666, 0.020833333333333332]}]",
+  "prompt_sha256": "ec23a9639dea126dd49a622b6efc110fd9a7293aab83004571390af80f9454f8",
+  "image_sha256": "e30cab480c996313ff73570efe626819227ad3d0e14c6a1c15cfb915f603ca4f",
+  "candidates": [
+    {
+      "target_index": 0,
+      "class_name": "光斑",
+      "bbox": [
+        0.5020833333333333,
+        0.0,
+        0.5114583333333333,
+        0.015277777777777777
+      ]
+    },
+    {
+      "target_index": 1,
+      "class_name": "光斑",
+      "bbox": [
+        0.515625,
+        0.0,
+        0.5260416666666666,
+        0.020833333333333332
+      ]
+    }
+  ]
+}
