@@ -150,7 +150,7 @@ def launch(root, role, memory, cpu, command, extra=()):
                     *extra, '/usr/bin/taskset', '--cpu-list', ','.join(map(str, cpus)), *command], check=True)
 
 
-def start(root):
+def start(root, binary=None):
     assert read(root/'evidence/prepare-complete.json')['images'] == 300
     with socket.socket() as sock: sock.bind(('127.0.0.1', PORT))
     os.umask(0o077)
@@ -158,6 +158,9 @@ def start(root):
     env = dict(x.split('=', 1) for x in source.read_text().splitlines() if '=' in x and not x.startswith('#'))
     token = secrets.token_urlsafe(32); (root/'token').write_text(token)
     private = {k: env[k] for k in ('CODEX_REVIEW_BINARY', 'CODEX_REVIEW_HOME')}
+    if binary is not None: private['CODEX_REVIEW_BINARY'] = str(binary.resolve())
+    if not Path(private['CODEX_REVIEW_BINARY']).is_file():
+        raise FileNotFoundError('review CLI missing; use --binary with an existing pinned executable')
     private.update(CODEX_REVIEW_WORKER_TOKEN=token, CODEX_REVIEW_BIND='127.0.0.1', CODEX_REVIEW_PORT=str(PORT),
                    CODEX_REVIEW_TMP_DIR=str(root/'tmp'), CUDA_VISIBLE_DEVICES='', OPENBLAS_NUM_THREADS='1')
     (root/'tmp').mkdir(exist_ok=True)
@@ -181,6 +184,10 @@ def start(root):
         write(root/'evidence/effective-limits.json', {'at': time.time(), 'limits': limits, 'allowed_cpus': allowed,
                                                      'cpu_max': (cg/'cpu.max').read_text().strip() if (cg/'cpu.max').exists() else None,
                                                      'enforced_before_first_request': True})
+        with (root/'evidence/startup.jsonl').open('a') as log:
+            log.write(json.dumps({'at':time.time(),'binary':private['CODEX_REVIEW_BINARY'],
+                                  'binary_sha256':sha(private['CODEX_REVIEW_BINARY']),
+                                  'script_sha256':sha(__file__)})+'\n')
         script = str(root/'src/luna_clean_only_eval.py')
         launch(root, 'runner', '1G', '100%', ['/usr/bin/python3', script, 'run', '--root', str(root)])
         launch(root, 'watch', '256M', '100%', ['/usr/bin/python3', script, 'watch', '--root', str(root)])
@@ -213,4 +220,7 @@ def watch(root):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(); ap.add_argument('action', choices=['prepare', 'run', 'start', 'watch']); ap.add_argument('--root', type=Path, required=True)
-    args = ap.parse_args(); globals()[args.action](args.root.resolve())
+    ap.add_argument('--binary',type=Path,help='start only: override the private worker CLI path without changing shared configuration')
+    args = ap.parse_args()
+    if args.action=='start': start(args.root.resolve(),args.binary)
+    else: globals()[args.action](args.root.resolve())
