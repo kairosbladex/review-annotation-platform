@@ -1,0 +1,48 @@
+{
+ "unit": "f4bfc5462c9a4314b1be3c0ddefad082",
+ "success": true,
+ "results": [
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:000",
+   "raw": "false",
+   "reasoning": "位于路面上，但线条宽度均匀、边缘平直且走向规整，更像施工缝或伸缩缝。",
+   "observed": "道路上的规则横向线缝",
+   "limitation": "框内可见的是笔直、均匀的横向路面切缝或接缝，不符合不规则裂纹特征。"
+  },
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:001",
+   "raw": "false",
+   "reasoning": "线条笔直规整、宽度均匀，不是沥青或水泥路面本身的自然裂缝。",
+   "observed": "道路上的规则横向线缝",
+   "limitation": "框内线条形态清晰。"
+  },
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:002",
+   "raw": "false",
+   "reasoning": "呈平直、均匀的横向切缝形态，缺少裂纹常见的不规则边缘、分叉或折线。",
+   "observed": "道路上的规则横向线缝",
+   "limitation": "框内线条可辨认。"
+  },
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:003",
+   "raw": "false",
+   "reasoning": "可见线条短直且规整，更符合路面切缝或接缝，不符合道路裂纹。",
+   "observed": "道路上的规则横向线缝",
+   "limitation": "框内目标较小但形态仍清楚。"
+  },
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:004",
+   "raw": "false",
+   "reasoning": "候选位置对应的线条平直、宽度均匀，属于规则路面缝线而非不规则裂缝。",
+   "observed": "道路上的规则横向线缝",
+   "limitation": "框内及邻近区域可见标线与文字叠加，但目标线形态仍可辨认。"
+  }
+ ],
+ "elapsed": 22.44,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 22.4
+  }
+ ]
+}

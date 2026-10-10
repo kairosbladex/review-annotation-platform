@@ -1,0 +1,118 @@
+{
+ "unit": "db22eb74d14c4e3a9bbaeb23187c1c33",
+ "success": true,
+ "results": [
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:000",
+   "raw": "true",
+   "reasoning": "位置在道路铺装面，形态为不规则细线，符合道路裂纹特征。",
+   "observed": "水泥路面裂缝",
+   "limitation": "框内可见路面上的细长深色不规则裂缝。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:001",
+   "raw": "true",
+   "reasoning": "实际线条位于道路表面且呈不规则裂缝形态，类别符合。",
+   "observed": "水泥路面裂缝",
+   "limitation": "框内可见路面裂缝，部分与其他标注线重叠。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:002",
+   "raw": "uncertain",
+   "reasoning": "无法充分排除其为规则铺装接缝，证据不足。",
+   "observed": "疑似路面裂缝",
+   "limitation": "框内裂缝与平台红色框线、邻近缝线交叠，实际形态不完整。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:003",
+   "raw": "true",
+   "reasoning": "位于道路路面，裂缝形态和尺度符合道路裂纹。",
+   "observed": "水泥路面裂缝",
+   "limitation": "框内可见路面上的裂缝及其附近不规则线条。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:004",
+   "raw": "uncertain",
+   "reasoning": "可见路面线条，但无法清楚确认是不规则裂缝还是铺装接缝。",
+   "observed": "疑似路面裂缝",
+   "limitation": "目标很小，红色标注遮挡了大部分细节。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:005",
+   "raw": "false",
+   "reasoning": "边缘平直且宽度均匀，符合切缝或铺装缝，不是道路裂纹。",
+   "observed": "规则路面接缝",
+   "limitation": "框内主要是笔直、均匀的横向铺装接缝。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:006",
+   "raw": "false",
+   "reasoning": "线条笔直、规整、宽度均匀，属于施工或伸缩缝。",
+   "observed": "规则路面接缝",
+   "limitation": "框内为清晰规则的铺装分隔线。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:007",
+   "raw": "false",
+   "reasoning": "形态平直且均匀，没有道路裂纹的不规则特征。",
+   "observed": "规则路面接缝",
+   "limitation": "框内为横向规则铺装缝。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:008",
+   "raw": "false",
+   "reasoning": "线条笔直、边缘整齐，明显不是自然开裂。",
+   "observed": "规则路面接缝",
+   "limitation": "框内可见规则的横向路面接缝。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:009",
+   "raw": "uncertain",
+   "reasoning": "仅凭当前局部无法可靠区分不规则裂缝与规则接缝。",
+   "observed": "疑似路面裂缝或铺装缝",
+   "limitation": "框内线条较细小，并与红色标注及邻近接缝交叠。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:010",
+   "raw": "false",
+   "reasoning": "线条宽度均匀、边缘平直，符合铺装施工缝。",
+   "observed": "规则路面接缝",
+   "limitation": "框内为清晰的平直横向分隔缝。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:011",
+   "raw": "false",
+   "reasoning": "形态整齐笔直，不符合道路裂纹特征。",
+   "observed": "规则路面接缝",
+   "limitation": "框内可见规则铺装分隔线。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:012",
+   "raw": "false",
+   "reasoning": "线条规整且宽度均匀，属于铺装缝而非路面开裂。",
+   "observed": "规则路面接缝",
+   "limitation": "框内为横向规则接缝。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:013",
+   "raw": "false",
+   "reasoning": "目标不在可确认的道路铺装面上，不能判为道路裂纹。",
+   "observed": "墙面/路缘区域及标注框",
+   "limitation": "框内位于墙体或路缘附近，未见明确路面裂纹。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:014",
+   "raw": "true",
+   "reasoning": "位于道路表面，线条不规则并呈裂缝形态，类别符合。",
+   "observed": "水泥路面裂缝",
+   "limitation": "框内可见路面上的斜向细长裂缝。"
+  }
+ ],
+ "elapsed": 21.19,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 21.16
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "unit": "d0125c035ee748dda4719a6c980292c3",
+ "success": true,
+ "results": [
+  {
+   "key": "d0125c035ee748dda4719a6c980292c3:000",
+   "raw": "false",
+   "reasoning": "候选框不位于道路路面，框内没有符合道路裂纹特征的深色细线。",
+   "observed": "天空及远处非道路物体边缘",
+   "limitation": "框内主要是天空区域，右上可见疑似建筑或设施边缘的深色曲线，不在道路路面上；未见沥青或水泥路面裂纹。"
+  }
+ ],
+ "elapsed": 31.93,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 31.9
+  }
+ ]
+}

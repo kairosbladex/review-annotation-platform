@@ -1,0 +1,48 @@
+{
+ "unit": "579aced971b84f1caa29509a4530ff35",
+ "success": true,
+ "results": [
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:000",
+   "raw": "true",
+   "reasoning": "框内位于车道沥青路面，呈细长不规则线状，符合路面裂纹特征。",
+   "observed": "道路路面上的细长不规则暗色裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:001",
+   "raw": "true",
+   "reasoning": "框内目标位于道路路面，形态为非规则暗色线条，符合道路裂纹。",
+   "observed": "道路路面上的裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:002",
+   "raw": "false",
+   "reasoning": "线条笔直规整、宽度均匀，更像路面施工缝或接缝，不符合自然裂纹。",
+   "observed": "规则的道路横向接缝或标线边缘",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:003",
+   "raw": "true",
+   "reasoning": "目标位于车道沥青路面，呈不规则细线状，符合道路裂纹外观。",
+   "observed": "道路路面上的细长暗色裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:004",
+   "raw": "false",
+   "reasoning": "框内线条规整且边缘平直，缺少裂纹的分叉和参差特征，更像道路设施线条。",
+   "observed": "规则的道路标线或接缝",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 19.61,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 19.58
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "unit": "37b96f511ac14fab8b5e073d07ea80df",
+ "success": true,
+ "results": [
+  {
+   "key": "37b96f511ac14fab8b5e073d07ea80df:000",
+   "raw": "false",
+   "reasoning": "目标位于铺装人行道，线条规则且与板块边界一致，符合分格缝特征。",
+   "observed": "人行道板块分格缝",
+   "limitation": "框内可见为人行道铺装及规则板块分格缝，不是沥青路面裂纹。"
+  },
+  {
+   "key": "37b96f511ac14fab8b5e073d07ea80df:001",
+   "raw": "false",
+   "reasoning": "框内为浅灰色铺装板块的规则接缝，未见沥青路面上的深色细裂纹。",
+   "observed": "人行道板块分格缝",
+   "limitation": "框内可见为人行道铺装及规则板块分格缝，不是沥青路面裂纹。"
+  },
+  {
+   "key": "37b96f511ac14fab8b5e073d07ea80df:002",
+   "raw": "false",
+   "reasoning": "框内是规则的浅色铺装板块接缝，位置也在人行道区域，不符合道路裂纹。",
+   "observed": "人行道铺装分格缝",
+   "limitation": "框内目标清晰可见。"
+  },
+  {
+   "key": "37b96f511ac14fab8b5e073d07ea80df:003",
+   "raw": "false",
+   "reasoning": "框内线条与人行道砖板规则边界重合，属于铺装分格缝而非路面裂纹。",
+   "observed": "人行道铺装分格缝",
+   "limitation": "框内目标清晰可见。"
+  }
+ ],
+ "elapsed": 19.8,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 19.78
+  }
+ ]
+}

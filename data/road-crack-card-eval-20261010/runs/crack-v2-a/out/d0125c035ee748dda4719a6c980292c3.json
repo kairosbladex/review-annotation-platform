@@ -1,0 +1,20 @@
+{
+ "unit": "d0125c035ee748dda4719a6c980292c3",
+ "success": true,
+ "results": [
+  {
+   "key": "d0125c035ee748dda4719a6c980292c3:000",
+   "raw": "false",
+   "reasoning": "候选框不在道路路面上，框内没有符合道路裂纹特征的路面细裂缝；红色文字和框线不作为依据。",
+   "observed": "天空背景和上方边缘的深色弧状线条",
+   "limitation": "框内主要是灰白色天空及右上方的线状物，未见沥青或水泥路面上的深色细裂缝。"
+  }
+ ],
+ "elapsed": 13.77,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 13.74
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "f7cc890c1f5f48b7babe4ccad4159a0b",
+ "success": true,
+ "results": [
+  {
+   "key": "f7cc890c1f5f48b7babe4ccad4159a0b:000",
+   "raw": "false",
+   "reasoning": "该线条位于路面上，但宽度和边缘较均匀、走向笔直规则，符合道路标线或切缝特征，不符合细长不规则、边缘参差的路面裂纹。",
+   "observed": "道路上的笔直、边缘规整的浅色线状标记",
+   "limitation": "目标清晰可见，框内是规则平直的道路标线或缝线，不是路面裂缝。"
+  },
+  {
+   "key": "f7cc890c1f5f48b7babe4ccad4159a0b:001",
+   "raw": "false",
+   "reasoning": "线条整体平直且宽度均匀，边缘规整，更像路面切缝或标线，不是沥青或水泥路面本身的不规则裂缝。",
+   "observed": "道路上的规则横向线状标记",
+   "limitation": "目标清晰可见，框内未见不规则开裂形态。"
+  },
+  {
+   "key": "f7cc890c1f5f48b7babe4ccad4159a0b:002",
+   "raw": "false",
+   "reasoning": "该目标形态笔直、规整、宽度较均匀，符合道路标线或切缝特征，不符合道路裂纹的参差、分叉或不规则走向。",
+   "observed": "道路上的短直规则线条",
+   "limitation": "目标清晰可见，框内未见被遮挡的裂纹。"
+  }
+ ],
+ "elapsed": 15.51,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.48
+  }
+ ]
+}

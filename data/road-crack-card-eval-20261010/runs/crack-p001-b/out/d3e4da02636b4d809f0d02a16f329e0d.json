@@ -1,0 +1,62 @@
+{
+ "unit": "d3e4da02636b4d809f0d02a16f329e0d",
+ "success": true,
+ "results": [
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:000",
+   "raw": "true",
+   "reasoning": "框内位于道路路面，呈细长不规则线状，符合道路裂纹特征。",
+   "observed": "路面上的细长不规则深色裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:001",
+   "raw": "false",
+   "reasoning": "线条过于笔直规整且宽度均匀，更像路面切缝或施工缝，不符合裂纹。",
+   "observed": "道路横向规则接缝或标线附近的直线",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:002",
+   "raw": "false",
+   "reasoning": "框内是规则、连续的黄色道路标线，不是路面裂缝。",
+   "observed": "黄色车道线",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:003",
+   "raw": "false",
+   "reasoning": "框内主要为笔直规整的白色车道标线，不是道路裂纹。",
+   "observed": "白色车道线",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:004",
+   "raw": "false",
+   "reasoning": "框内为规则的白色道路标线，边缘平直且宽度均匀，不符合裂纹。",
+   "observed": "白色横向车道标线",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:005",
+   "raw": "false",
+   "reasoning": "框内是笔直规整的黄色标线，不是路面裂缝。",
+   "observed": "黄色道路标线",
+   "limitation": ""
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:006",
+   "raw": "false",
+   "reasoning": "框内线条笔直、边缘规整且宽度均匀，更像路面接缝或道路标线，不是裂纹。",
+   "observed": "横向道路接缝或标线",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 15.62,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.59
+  }
+ ]
+}

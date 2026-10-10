@@ -1,0 +1,20 @@
+{
+ "unit": "e120d9a2ecf14bd5a92d492232cdacf0",
+ "success": true,
+ "results": [
+  {
+   "key": "e120d9a2ecf14bd5a92d492232cdacf0:000",
+   "raw": "false",
+   "reasoning": "候选框不在道路路面上，框内没有符合道路裂纹特征的深色细线。",
+   "observed": "天空及平台叠加的红色文字和框线",
+   "limitation": "框内主要是天空区域，未见沥青或水泥路面，也没有可确认的道路裂纹。"
+  }
+ ],
+ "elapsed": 15.36,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.34
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "unit": "4e6726e0fa5e4004b6077d7f869cdfa1",
+ "success": true,
+ "results": [
+  {
+   "key": "4e6726e0fa5e4004b6077d7f869cdfa1:000",
+   "raw": "true",
+   "reasoning": "目标呈比周围路面更深的细长横向线，符合道路裂纹外观。",
+   "observed": "道路裂纹",
+   "limitation": "框内可见沥青路面上的深色横向细线。"
+  },
+  {
+   "key": "4e6726e0fa5e4004b6077d7f869cdfa1:001",
+   "raw": "true",
+   "reasoning": "框内存在横向深色细线，位置位于沥青车道上，符合道路裂纹。",
+   "observed": "道路裂纹",
+   "limitation": "框内可见路面细节。"
+  },
+  {
+   "key": "4e6726e0fa5e4004b6077d7f869cdfa1:002",
+   "raw": "false",
+   "reasoning": "框内主要是浅色规则线条，未见符合定义的深色路面裂纹。",
+   "observed": "道路标线或路面接缝",
+   "limitation": "框内实际物体清晰可见。"
+  },
+  {
+   "key": "4e6726e0fa5e4004b6077d7f869cdfa1:003",
+   "raw": "true",
+   "reasoning": "可见横向深色细线，明显比周围路面暗，符合道路裂纹。",
+   "observed": "道路裂纹",
+   "limitation": "框内可见沥青路面。"
+  },
+  {
+   "key": "4e6726e0fa5e4004b6077d7f869cdfa1:004",
+   "raw": "true",
+   "reasoning": "框内有位于沥青路面上的深色横向细线，符合道路裂纹。",
+   "observed": "道路裂纹",
+   "limitation": "框内可见路面细节。"
+  },
+  {
+   "key": "4e6726e0fa5e4004b6077d7f869cdfa1:005",
+   "raw": "false",
+   "reasoning": "该框位于建筑屋顶区域，不在道路沥青路面上，未见道路裂纹。",
+   "observed": "建筑屋顶及红色平台文字",
+   "limitation": "框内实际内容清晰可见。"
+  },
+  {
+   "key": "4e6726e0fa5e4004b6077d7f869cdfa1:006",
+   "raw": "false",
+   "reasoning": "该框位于建筑区域而非道路路面，框内没有可确认的道路裂纹。",
+   "observed": "建筑屋顶边缘及平台文字",
+   "limitation": "框内实际内容清晰可见。"
+  }
+ ],
+ "elapsed": 17.04,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 17.01
+  }
+ ]
+}

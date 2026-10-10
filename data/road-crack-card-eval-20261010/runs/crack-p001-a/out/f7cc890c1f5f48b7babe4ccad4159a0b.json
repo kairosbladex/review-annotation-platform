@@ -1,0 +1,34 @@
+{
+ "unit": "f7cc890c1f5f48b7babe4ccad4159a0b",
+ "success": true,
+ "results": [
+  {
+   "key": "f7cc890c1f5f48b7babe4ccad4159a0b:000",
+   "raw": "false",
+   "reasoning": "位置虽在道路路面上，但线条边缘平直、走向规整且宽度均匀，不符合道路裂纹。",
+   "observed": "道路横向规则缝线",
+   "limitation": "框内可见的是路面上笔直、规整且宽度均匀的横向线状结构，形态更像伸缩缝、切缝或施工缝，未见不规则裂缝特征。"
+  },
+  {
+   "key": "f7cc890c1f5f48b7babe4ccad4159a0b:001",
+   "raw": "false",
+   "reasoning": "该形态更符合伸缩缝、切缝或施工缝，而非沥青或水泥路面自然开裂。",
+   "observed": "道路横向规则缝线",
+   "limitation": "框内可见的是路面上的规则横向线条，边缘平直且宽度基本一致。"
+  },
+  {
+   "key": "f7cc890c1f5f48b7babe4ccad4159a0b:002",
+   "raw": "false",
+   "reasoning": "线条规则且均匀，符合路面缝线特征，不符合道路裂纹。",
+   "observed": "道路横向规则缝线",
+   "limitation": "框内目标较小但轮廓仍可辨认，为规整的横向线状结构，未见分叉、折线或参差边缘。"
+  }
+ ],
+ "elapsed": 26.92,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 26.89
+  }
+ ]
+}

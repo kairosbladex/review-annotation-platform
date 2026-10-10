@@ -1,0 +1,62 @@
+{
+ "unit": "489b3b83591048ecadae9d341693a2fd",
+ "success": true,
+ "results": [
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:000",
+   "raw": "false",
+   "reasoning": "位置在道路路面上，但形态规整且宽度均匀，符合车道标线特征。",
+   "observed": "黄色车道线",
+   "limitation": "框内是规则、笔直的黄色车道标线，不是路面裂缝。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:001",
+   "raw": "false",
+   "reasoning": "未见符合道路裂纹特征的细长、不规则深色裂缝；框线本身不能作为证据。",
+   "observed": "道路标线与平台标注",
+   "limitation": "框内主要是红色平台标注及其覆盖的路面区域。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:002",
+   "raw": "false",
+   "reasoning": "目标形态规整、边缘平直且宽度均匀，属于道路标线而非裂纹。",
+   "observed": "黄色车道线",
+   "limitation": "框内可见规则矩形车道标线及红色标注。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:003",
+   "raw": "false",
+   "reasoning": "未观察到不规则、参差或分叉的路面裂缝，规则线条不符合类别要点。",
+   "observed": "道路标线",
+   "limitation": "框内主要覆盖道路标线和红色平台标注。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:004",
+   "raw": "false",
+   "reasoning": "线条笔直规整、宽度均匀，属于车道标线或标注覆盖区域，不是路面开裂。",
+   "observed": "道路标线",
+   "limitation": "框内可见规则横向标线及红色平台标注。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:005",
+   "raw": "false",
+   "reasoning": "该线条笔直、连续且宽度均匀，明显是道路标线。",
+   "observed": "黄色车道线",
+   "limitation": "框内清晰可见黄色道路标线。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:006",
+   "raw": "false",
+   "reasoning": "形态规则平直、宽度基本一致，不具备道路裂纹的不规则开裂特征。",
+   "observed": "黄色车道线",
+   "limitation": "框内是长条形黄色道路标线及红色平台标注。"
+  }
+ ],
+ "elapsed": 16.07,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 16.04
+  }
+ ]
+}

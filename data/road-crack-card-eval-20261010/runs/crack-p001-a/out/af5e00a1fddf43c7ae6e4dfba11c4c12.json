@@ -1,0 +1,48 @@
+{
+ "unit": "af5e00a1fddf43c7ae6e4dfba11c4c12",
+ "success": true,
+ "results": [
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:000",
+   "raw": "false",
+   "reasoning": "目标位于路面上，但呈笔直、规整、均匀的横向带状形态，符合道路标线或接缝特征，不符合不规则深色裂缝。",
+   "observed": "规则的横向路面标线或切缝",
+   "limitation": "框内可见为道路上的规则横向标线/接缝，边缘平直且宽度均匀，不是裂纹。"
+  },
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:001",
+   "raw": "false",
+   "reasoning": "线条整体笔直、边缘整齐、宽度较均匀，属于道路设施或缝线，而非细长不规则、边缘参差的开裂。",
+   "observed": "横向规则线带",
+   "limitation": "框内可见为规则横向路面标线或接缝，不是路面裂纹。"
+  },
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:002",
+   "raw": "false",
+   "reasoning": "该区域的线条呈规则的直线形态，宽度均匀，符合标线或施工缝特征，不符合道路裂纹。",
+   "observed": "横向路面标线或接缝",
+   "limitation": "框内可见为规则路面线带，形态过于平直规整。"
+  },
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:003",
+   "raw": "false",
+   "reasoning": "线条边缘平直、走向规整且宽度基本一致，属于路面标线/接缝类结构，不是路面本身开裂。",
+   "observed": "横向规则线带",
+   "limitation": "框内主要是规则的道路线带，未见不规则裂缝形态。"
+  },
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:004",
+   "raw": "false",
+   "reasoning": "目标形态笔直且规整，和道路裂纹应有的参差、分叉或不规则走向不符。",
+   "observed": "道路上的规则标线或接缝",
+   "limitation": "框内可见规则横向线带，未见可确认的裂缝。"
+  }
+ ],
+ "elapsed": 18.1,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 18.06
+  }
+ ]
+}

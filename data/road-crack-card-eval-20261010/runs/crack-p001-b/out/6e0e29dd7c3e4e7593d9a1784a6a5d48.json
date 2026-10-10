@@ -1,0 +1,48 @@
+{
+ "unit": "6e0e29dd7c3e4e7593d9a1784a6a5d48",
+ "success": true,
+ "results": [
+  {
+   "key": "6e0e29dd7c3e4e7593d9a1784a6a5d48:000",
+   "raw": "uncertain",
+   "reasoning": "位置在车道路面上，但线条看起来较规则且受标注遮挡，无法判定是否为不规则路面裂缝。",
+   "observed": "道路路面上的横向线状区域",
+   "limitation": "框内主要被红色标注框线覆盖，无法清晰确认路面本身的裂纹形态。"
+  },
+  {
+   "key": "6e0e29dd7c3e4e7593d9a1784a6a5d48:001",
+   "raw": "uncertain",
+   "reasoning": "虽位于路面，但无法区分真实裂缝与切缝、施工缝或其他规则线条。",
+   "observed": "道路路面上的横向线状区域",
+   "limitation": "候选区域较小且被红色标注覆盖，裂纹细节不可辨。"
+  },
+  {
+   "key": "6e0e29dd7c3e4e7593d9a1784a6a5d48:002",
+   "raw": "uncertain",
+   "reasoning": "位置符合路面范围，但缺少足够形态信息确认是道路裂纹。",
+   "observed": "道路路面上的短线状区域",
+   "limitation": "框内目标过小并被标注覆盖，无法看清边缘和走向。"
+  },
+  {
+   "key": "6e0e29dd7c3e4e7593d9a1784a6a5d48:003",
+   "raw": "uncertain",
+   "reasoning": "无法确认其是否为不规则、分叉或边缘参差的裂缝，也无法排除规则缝线。",
+   "observed": "道路路面上的线状区域",
+   "limitation": "框内区域狭窄，红色文字和框线遮挡了实际路面细节。"
+  },
+  {
+   "key": "6e0e29dd7c3e4e7593d9a1784a6a5d48:004",
+   "raw": "uncertain",
+   "reasoning": "仅凭位置不能确认道路裂纹，无法排除车道相关标线或其他规则路面线。",
+   "observed": "道路路面上的短线状区域",
+   "limitation": "候选框很小且被红色标注覆盖，实际线条形态无法辨认。"
+  }
+ ],
+ "elapsed": 50.81,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 50.79
+  }
+ ]
+}

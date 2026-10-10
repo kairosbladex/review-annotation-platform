@@ -1,0 +1,27 @@
+{
+ "unit": "e36d684160014d00bd2615cd479aca37",
+ "success": true,
+ "results": [
+  {
+   "key": "e36d684160014d00bd2615cd479aca37:000",
+   "raw": "true",
+   "reasoning": "目标位于车道路面上，形态细长且边缘不规则，与道路裂纹特征相符，并非规则路面标线。",
+   "observed": "道路路面上的细长不规则深色裂缝。",
+   "limitation": "框内路面清晰可见，无明显遮挡。"
+  },
+  {
+   "key": "e36d684160014d00bd2615cd479aca37:001",
+   "raw": "true",
+   "reasoning": "目标位于道路路面，呈不规则细长裂缝状，位置和尺度符合道路裂纹定义。",
+   "observed": "道路路面上的细长深色裂缝。",
+   "limitation": "框内路面清晰可见，无明显遮挡。"
+  }
+ ],
+ "elapsed": 28.81,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 28.78
+  }
+ ]
+}

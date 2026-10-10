@@ -1,0 +1,48 @@
+{
+ "unit": "579aced971b84f1caa29509a4530ff35",
+ "success": true,
+ "results": [
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:000",
+   "raw": "false",
+   "reasoning": "线条位于道路上，但边缘平直、形态规整，符合接缝特征。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内可见规则、笔直且宽度均匀的横向路面接缝，不是自然裂纹。"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:001",
+   "raw": "false",
+   "reasoning": "线条笔直且宽度均匀，不具备道路裂纹的不规则、分叉特征。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内可见规则的横向路面接缝。"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:002",
+   "raw": "false",
+   "reasoning": "目标呈规整直线状，属于路面接缝，不是路面本身开裂。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内可见规则的横向路面接缝。"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:003",
+   "raw": "false",
+   "reasoning": "线条规则平直、宽度均匀，明显不符合自然裂纹形态。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内目标清晰可见。"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:004",
+   "raw": "false",
+   "reasoning": "可见的是规整横向接缝，而非不规则深色裂缝。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内目标清晰可见。"
+  }
+ ],
+ "elapsed": 38.54,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 38.52
+  }
+ ]
+}

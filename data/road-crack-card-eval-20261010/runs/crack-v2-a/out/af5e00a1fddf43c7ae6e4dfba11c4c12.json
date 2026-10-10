@@ -1,0 +1,48 @@
+{
+ "unit": "af5e00a1fddf43c7ae6e4dfba11c4c12",
+ "success": true,
+ "results": [
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:000",
+   "raw": "uncertain",
+   "reasoning": "可见路面区域不足，不能可靠判断深色细裂缝。",
+   "observed": "沥青路面及平台叠加标注",
+   "limitation": "框内主要被红色标注文字和框线遮挡，无法确认是否存在路面裂纹。"
+  },
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:001",
+   "raw": "uncertain",
+   "reasoning": "无法排除或确认框内存在深色路面裂缝。",
+   "observed": "沥青路面及平台叠加标注",
+   "limitation": "候选框狭长且受红色标注覆盖，裂缝细节不可清晰辨认。"
+  },
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:002",
+   "raw": "uncertain",
+   "reasoning": "不能可靠确认裂缝，也不能明确否定。",
+   "observed": "沥青路面及平台叠加标注",
+   "limitation": "框体很小，且被红色文字、框线和树木边缘干扰，路面细节不足。"
+  },
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:003",
+   "raw": "uncertain",
+   "reasoning": "无法判断是否有符合定义的深色细线。",
+   "observed": "沥青路面及平台叠加标注",
+   "limitation": "框内区域狭窄并被叠加文字遮挡，实际路面纹理难以辨认。"
+  },
+  {
+   "key": "af5e00a1fddf43c7ae6e4dfba11c4c12:004",
+   "raw": "uncertain",
+   "reasoning": "依据当前图像无法确认或排除道路裂纹。",
+   "observed": "沥青路面及平台叠加标注",
+   "limitation": "候选框较小且红色标注覆盖显著，裂缝可见性不足。"
+  }
+ ],
+ "elapsed": 17.73,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 17.71
+  }
+ ]
+}

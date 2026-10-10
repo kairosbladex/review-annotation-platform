@@ -1,0 +1,27 @@
+{
+ "unit": "b6971c0fbd514730916debcf5da03da1",
+ "success": true,
+ "results": [
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:000",
+   "raw": "true",
+   "reasoning": "该线位于道路路面内，颜色明显深于周围路面，形态和位置符合道路裂纹特征，不是车道标线或斑马线。",
+   "observed": "框内沥青路面上可见细长、较深色的裂纹。",
+   "limitation": ""
+  },
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:001",
+   "raw": "false",
+   "reasoning": "候选框覆盖的显著线条为白色标线，未见符合定义的深色沥青裂缝，因此类别不成立。",
+   "observed": "框内主要是白色道路标线及其边缘区域。",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 42.54,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 42.5
+  }
+ ]
+}

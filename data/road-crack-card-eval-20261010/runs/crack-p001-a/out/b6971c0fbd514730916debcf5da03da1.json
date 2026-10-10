@@ -1,0 +1,27 @@
+{
+ "unit": "b6971c0fbd514730916debcf5da03da1",
+ "success": true,
+ "results": [
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:000",
+   "raw": "true",
+   "reasoning": "该线条位于沥青路面上，形态不规则且明显不同于周围规则的道路标线，符合道路裂纹特征。",
+   "observed": "框内为道路路面上的细小不规则深色裂缝。",
+   "limitation": ""
+  },
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:001",
+   "raw": "false",
+   "reasoning": "该目标宽度和边缘较为规整，位置处于斑马线与车道标线附近，属于道路标线或标线边缘，不是路面本身的裂缝。",
+   "observed": "框内主要是规则笔直的白色道路标线及其边缘区域。",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 24.0,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 23.98
+  }
+ ]
+}

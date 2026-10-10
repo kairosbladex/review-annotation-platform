@@ -1,0 +1,27 @@
+{
+ "unit": "b6971c0fbd514730916debcf5da03da1",
+ "success": true,
+ "results": [
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:000",
+   "raw": "uncertain",
+   "reasoning": "目标位于道路路面上，但无法清楚判断其是否具有裂缝的参差、分叉或不规则特征，因此不能确认或否定。",
+   "observed": "框内可见一小段细短线状痕迹，具体形态不清。",
+   "limitation": "框内目标很小且画面较模糊，难以确认线条是否为路面本身的裂缝。"
+  },
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:001",
+   "raw": "false",
+   "reasoning": "该线条宽度和边缘较为规整，属于道路标线或规则路面接缝，不符合道路裂纹的外观特征。",
+   "observed": "框内主要是规则、笔直的浅色路面线条及斑马线邻近区域。",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 24.69,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 24.66
+  }
+ ]
+}

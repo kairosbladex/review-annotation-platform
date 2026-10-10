@@ -1,0 +1,62 @@
+{
+ "unit": "489b3b83591048ecadae9d341693a2fd",
+ "success": true,
+ "results": [
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:000",
+   "raw": "false",
+   "reasoning": "线条宽度均匀、边缘平直且颜色规则，符合道路标线特征，不是路面开裂。",
+   "observed": "规则的纵向黄色车道线",
+   "limitation": "无遮挡，框内可见规则笔直的道路标线/边缘，不是裂纹。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:001",
+   "raw": "false",
+   "reasoning": "框内主要是平直、规则的道路标线或标注区域，没有可见的不规则路面裂缝。",
+   "observed": "道路上的规则标线及红色叠加框",
+   "limitation": "无遮挡，框内实际物体清晰可见。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:002",
+   "raw": "false",
+   "reasoning": "目标呈宽度均匀、边缘平直的规则线条，不符合道路裂纹的细长、不规则、参差或分叉特征。",
+   "observed": "规则的道路标线",
+   "limitation": "无遮挡，框内实际物体清晰可见。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:003",
+   "raw": "false",
+   "reasoning": "框内未见路面本身的不规则开裂，所见线条规则且属于标线/平台叠加标注。",
+   "observed": "道路标线及红色叠加文字",
+   "limitation": "无遮挡，框内实际物体清晰可见。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:004",
+   "raw": "false",
+   "reasoning": "目标形态规整、边缘平直，未见沥青路面的裂缝纹理，不符合道路裂纹类别。",
+   "observed": "道路标线与平台叠加框",
+   "limitation": "无遮挡，框内实际物体清晰可见。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:005",
+   "raw": "false",
+   "reasoning": "框内是笔直且宽度均匀的黄色车道线，属于道路标线，按类别要求应判为false。",
+   "observed": "规则的黄色道路标线",
+   "limitation": "无遮挡，框内实际物体清晰可见。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:006",
+   "raw": "false",
+   "reasoning": "线条笔直、连续且宽度均匀，是车道标线而非路面裂纹。",
+   "observed": "规则的纵向黄色车道线",
+   "limitation": "无遮挡，框内实际物体清晰可见。"
+  }
+ ],
+ "elapsed": 22.84,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 22.81
+  }
+ ]
+}

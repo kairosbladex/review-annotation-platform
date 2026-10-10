@@ -1,0 +1,59 @@
+{
+ "unit": "89644436dc414089a0bbe11bd97e2409",
+ "success": true,
+ "results": [
+  {
+   "key": "89644436dc414089a0bbe11bd97e2409:000",
+   "raw": "true",
+   "reasoning": "框内可见路面本身的纵向细裂纹，形态与道路裂纹相符。",
+   "observed": "道路路面上的细长不规则深色裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "89644436dc414089a0bbe11bd97e2409:001",
+   "raw": "true",
+   "reasoning": "框内为沥青路面上的深色裂纹，位置和尺度符合道路裂纹。",
+   "observed": "道路路面上的不规则裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "89644436dc414089a0bbe11bd97e2409:002",
+   "raw": "true",
+   "reasoning": "框内可见路面上的细长深色裂纹，并非规则车道标线。",
+   "observed": "道路路面上的横向细裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "89644436dc414089a0bbe11bd97e2409:003",
+   "raw": "true",
+   "reasoning": "框内为路面本身的细长深色开裂，形态符合道路裂纹。",
+   "observed": "道路路面上的纵向裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "89644436dc414089a0bbe11bd97e2409:004",
+   "raw": "false",
+   "reasoning": "框内主要是笔直规整、宽度均匀的白色道路标线，不是路面开裂。",
+   "observed": "规则的道路标线或标线边缘",
+   "limitation": ""
+  },
+  {
+   "key": "89644436dc414089a0bbe11bd97e2409:005",
+   "raw": "false",
+   "reasoning": "框内可见规整的白色车道标线及其边缘，缺少不规则路面裂缝特征。",
+   "observed": "规则道路标线区域",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 68.1,
+ "attempts": [
+  {
+   "status": "http_503",
+   "elapsed": 31.89
+  },
+  {
+   "status": "ok",
+   "elapsed": 16.16
+  }
+ ]
+}

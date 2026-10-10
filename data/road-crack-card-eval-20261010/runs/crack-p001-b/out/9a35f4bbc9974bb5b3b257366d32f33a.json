@@ -1,0 +1,55 @@
+{
+ "unit": "9a35f4bbc9974bb5b3b257366d32f33a",
+ "success": true,
+ "results": [
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:000",
+   "raw": "false",
+   "reasoning": "线条宽度和边缘较规整，缺少不规则、分叉的裂缝特征。",
+   "observed": "规则横向线条",
+   "limitation": "框内可见为笔直、均匀的横向路面标线或接缝，不像路面裂缝。"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:001",
+   "raw": "false",
+   "reasoning": "不符合细长、边缘参差的路面裂缝外观。",
+   "observed": "横向路面标线或接缝",
+   "limitation": "框内细节有限，但线条整体规整且呈横向标线形态。"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:002",
+   "raw": "false",
+   "reasoning": "形态均匀平直，明显不像自然形成的道路裂纹。",
+   "observed": "横向路面标线或接缝",
+   "limitation": "框内目标较小，但可见其为规则直线。"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:003",
+   "raw": "uncertain",
+   "reasoning": "可见线状目标，但细节不足以判断其是否具有裂缝的不规则特征。",
+   "observed": "路面上的小段线状痕迹",
+   "limitation": "目标极小且受树木及分辨率影响，无法确认线条是否为裂缝。"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:004",
+   "raw": "false",
+   "reasoning": "线条平直、宽度较均匀，不符合道路裂纹特征。",
+   "observed": "横向路面标线或接缝",
+   "limitation": "框内目标较小，但轮廓仍较规则。"
+  },
+  {
+   "key": "9a35f4bbc9974bb5b3b257366d32f33a:005",
+   "raw": "false",
+   "reasoning": "线条笔直且边缘规整，更像路面接缝或标线，不是自然裂缝。",
+   "observed": "纵向规则路面线条或接缝",
+   "limitation": "框内目标清晰可见。"
+  }
+ ],
+ "elapsed": 59.38,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 59.36
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "unit": "1e88efe1cf084da8a49e505a5957f205",
+ "success": true,
+ "results": [
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:000",
+   "raw": "false",
+   "reasoning": "线条边缘平直、形态规整，符合路面缝线特征，不符合道路裂纹的参差、分叉或不规则形态。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内可见为规则、笔直且宽度均匀的横向路面缝线，不是自然裂缝。"
+  },
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:001",
+   "raw": "false",
+   "reasoning": "线条笔直、宽度较均匀且边缘平整，属于规整路面接缝，不是沥青或水泥路面的自然开裂。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内可见为规则的横向路面缝线。"
+  },
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:002",
+   "raw": "false",
+   "reasoning": "可见线条短直、规整且宽度均匀，符合路面缝线，不符合道路裂纹特征。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内目标较小但形态仍可辨认。"
+  },
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:003",
+   "raw": "false",
+   "reasoning": "线条呈规则直线状，边缘平直、宽度均匀，不是自然形成的道路裂纹。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内目标较小，但未被明显遮挡。"
+  },
+  {
+   "key": "1e88efe1cf084da8a49e505a5957f205:004",
+   "raw": "false",
+   "reasoning": "目标为规整的横向路面线缝，形态和尺度均不符合不规则、参差或分叉的道路裂纹。",
+   "observed": "路面伸缩缝或施工缝",
+   "limitation": "框内目标较小但清晰可见。"
+  }
+ ],
+ "elapsed": 16.92,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 16.89
+  }
+ ]
+}
