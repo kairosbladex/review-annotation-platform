@@ -1,0 +1,53 @@
+Java reference commit: 734906f397205b3b94980d7de817e96c8c463abc
+Deployment on 192.168.110.23 was not inspected.
+
+sys-core/src/main/resources/config/application-test.yml
+3:   port: 18081
+43:       addresses: http://192.168.110.23:8080/xxl-job-admin
+95:     ktdHttp: http://192.168.110.23:18081
+593:     reviewAgentUrl: https://192.168.130.238:8189
+
+biz-inspection/src/main/java/com/fan/framework/inspection/recheck/service/impl/TaskEventRecheckServiceImpl.java
+805:         String status = resolveDisplayStatus(taskEvent.getSupportRecheck(), taskEvent.getRecheckStatus());
+806:         if (EventRecheckStatus.RECHECKING.getCode().equals(status)) {
+807:             LogUtils.warn(this.getClass(), null, "慧眼复核失败，事件复核中，eventId：{}，recheckStatus：{}", eventId, status);
+808:             return R.fail("事件复核中，请稍后再试");
+809:         }
+810:         boolean completedRetry = EventRecheckStatus.COMPLETED.getCode().equals(status);
+811:         RecheckRetryContext retryContext = RecheckRetryContext.explicitRetry(
+812:                 completedRetry, taskEvent.getRecheckTime(), taskEvent.getRecheckResult());
+813:         LogUtils.info(this.getClass(), null,
+814:                 "显式重试慧眼复核，eventId：{}，previousStatus：{}，hadCompletedResult：{}",
+815:                 eventId, status, retryContext.hasPreviousCompletedResult());
+816:         try {
+817:             return submitRecheck(eventId, false, retryContext);
+818:         } catch (RuntimeException ex) {
+819:             restorePreviousCompletedResult(eventId, "重跑异常：" + ex.getMessage(), retryContext);
+820:             throw ex;
+821:         }
+822:     }
+823: 
+1032:     private List<RecheckImageSubmitContext> buildRecheckImageSubmitContexts(String eventId, TaskEvent taskEvent) {
+1033:         List<AnnexFile> fileList = annexFileService.findFullByBusiId(eventId);
+1034:         List<AnnexFile> shotImages = fileList.stream()
+1035:                 .filter(e -> AnnexFile.BUSI_TYPE_CODE_SHOTIMG.equals(e.getBusiTypeCode()))
+1036:                 .collect(Collectors.toList());
+1037:         List<AnnexFile> primaryImages = fileList.stream()
+1038:                 .filter(e -> AnnexFile.BUSI_TYPE_CODE_PRIMARYIMG.equals(e.getBusiTypeCode()))
+1039:                 .collect(Collectors.toList());
+1040:         List<AnnexFile> submitImages = shotImages;
+1041:         if (submitImages.isEmpty()) {
+1042:             submitImages = primaryImages;
+1043:         }
+1044:         List<RecheckImageSubmitContext> contexts = new ArrayList<>();
+1045:         if (CollUtil.isEmpty(submitImages)) {
+
+biz-inspection/src/main/java/com/fan/framework/inspection/recheck/controller/TaskEventRecheckController.java
+44:     @PostMapping("/recheck/{eventId}")
+45:     @ApiOperation("单事件重新提交慧眼复核")
+46:     public R<?> retryRecheck(
+47:             @ApiParam("事件Id") @PathVariable String eventId
+48:     ) {
+49:         return taskEventRecheckService.retryRecheck(eventId);
+50:     }
+51: }

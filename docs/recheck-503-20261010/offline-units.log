@@ -1,0 +1,23 @@
+2026-10-10T10:52:45.911680+0800 AI-lingxi systemd[2151]: Started /usr/bin/python3 /data/workspace/jzheng/luna-prompt-autotune/human/crack-card-20261010/run.py.
+2026-10-10T10:52:46.180971+0800 AI-lingxi systemd[2151]: Started /usr/bin/python3 /data/workspace/jzheng/luna-prompt-autotune/src/luna_experiment_worker.py.
+2026-10-10T11:05:36.698036+0800 AI-lingxi systemd[2151]: Stopping /usr/bin/python3 /data/workspace/jzheng/luna-prompt-autotune/src/luna_experiment_worker.py...
+2026-10-10T11:05:36.726660+0800 AI-lingxi systemd[2151]: Stopped /usr/bin/python3 /data/workspace/jzheng/luna-prompt-autotune/src/luna_experiment_worker.py.
+2026-10-10T11:05:36.726772+0800 AI-lingxi systemd[2151]: luna-autotune-worker.service: Consumed 2min 2.948s CPU time.
+2026-10-10T11:05:36.763260+0800 AI-lingxi systemd[2151]: crack-card-eval.service: Consumed 6.980s CPU time.
+
+2026-10-10T10:55:49.409493+0800 AI-lingxi systemd[2151]: Started /usr/bin/taskset --cpu-list 63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/luna_clean_vs_card.py prepare --root /data/workspace/jzheng/luna-clean-vs-card-20261010.
+2026-10-10T11:00:39.890582+0800 AI-lingxi systemd[2151]: luna-clean-vs-card-20261010-prepare.service: Consumed 4min 35.020s CPU time.
+2026-10-10T11:00:45.175046+0800 AI-lingxi systemd[2151]: Started /usr/bin/taskset --cpu-list 61,62,63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/clean_only_worker.py.
+2026-10-10T11:00:46.500674+0800 AI-lingxi systemd[2151]: Started /usr/bin/taskset --cpu-list 63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/luna_clean_vs_card.py run --root /data/workspace/jzheng/luna-clean-vs-card-20261010.
+2026-10-10T11:00:46.513880+0800 AI-lingxi systemd[2151]: Started /usr/bin/taskset --cpu-list 63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/luna_clean_vs_card.py watch --root /data/workspace/jzheng/luna-clean-vs-card-20261010.
+2026-10-10T11:03:36.163737+0800 AI-lingxi systemd[2151]: Stopping /usr/bin/taskset --cpu-list 63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/luna_clean_vs_card.py watch --root /data/workspace/jzheng/luna-clean-vs-card-20261010...
+2026-10-10T11:03:36.164280+0800 AI-lingxi systemd[2151]: Stopping /usr/bin/taskset --cpu-list 63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/luna_clean_vs_card.py run --root /data/workspace/jzheng/luna-clean-vs-card-20261010...
+2026-10-10T11:03:36.166265+0800 AI-lingxi systemd[2151]: Stopping /usr/bin/taskset --cpu-list 61,62,63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/clean_only_worker.py...
+2026-10-10T11:03:36.169930+0800 AI-lingxi systemd[2151]: Stopped /usr/bin/taskset --cpu-list 63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/luna_clean_vs_card.py run --root /data/workspace/jzheng/luna-clean-vs-card-20261010.
+2026-10-10T11:03:36.170215+0800 AI-lingxi systemd[2151]: luna-clean-vs-card-20261010-runner.service: Consumed 15.634s CPU time.
+2026-10-10T11:03:36.179428+0800 AI-lingxi systemd[2151]: Stopped /usr/bin/taskset --cpu-list 63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/luna_clean_vs_card.py watch --root /data/workspace/jzheng/luna-clean-vs-card-20261010.
+2026-10-10T11:03:36.219450+0800 AI-lingxi systemd[2151]: Stopped /usr/bin/taskset --cpu-list 61,62,63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/clean_only_worker.py.
+2026-10-10T11:03:36.219691+0800 AI-lingxi systemd[2151]: luna-clean-vs-card-20261010-worker.service: Consumed 14.018s CPU time.
+2026-10-10T11:03:43.807517+0800 AI-lingxi systemd[2151]: Started /usr/bin/taskset --cpu-list 61,62,63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/worker6.py.
+2026-10-10T11:03:45.169029+0800 AI-lingxi systemd[2151]: Started /usr/bin/taskset --cpu-list 63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/luna_clean_vs_card.py run --root /data/workspace/jzheng/luna-clean-vs-card-20261010.
+2026-10-10T11:03:45.182148+0800 AI-lingxi systemd[2151]: Started /usr/bin/taskset --cpu-list 63 /usr/bin/python3 /data/workspace/jzheng/luna-clean-vs-card-20261010/src/luna_clean_vs_card.py watch --root /data/workspace/jzheng/luna-clean-vs-card-20261010.

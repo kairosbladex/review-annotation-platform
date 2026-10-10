@@ -1,0 +1,294 @@
+[
+  {
+    "branch": "tests/luna-clean-vs-card",
+    "sha": "2f128e102c08fe57aa81aafdd752c6be871636b9",
+    "root": "data/luna-clean-vs-card-20261010/results",
+    "files": 2400,
+    "keys": [
+      "unit",
+      "arm",
+      "repeat",
+      "success",
+      "results",
+      "attempts",
+      "started",
+      "finished",
+      "health",
+      "execution_id",
+      "requested_model",
+      "binary_sha256",
+      "prompt_sha256",
+      "image_sha256"
+    ],
+    "time_min": "2026-10-10T11:00:47.966531+08:00",
+    "time_max": "2026-10-10T13:29:39.170446+08:00",
+    "attempt_status": {
+      "ok": 2400,
+      "http_503": 32
+    },
+    "failures": [
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/A-1/0b95a713df844f208001c01e00df1725.json",
+        "at": "2026-10-10T11:21:44.513894+08:00",
+        "seconds": 31.899022340774536,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/A-1/130ef3869a854a3da8b2020912f3ef84.json",
+        "at": "2026-10-10T11:13:47.727916+08:00",
+        "seconds": 32.89530539512634,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/A-1/214fef1ffdb547388fda426bec40d8da.json",
+        "at": "2026-10-10T11:34:03.761474+08:00",
+        "seconds": 20.76656222343445,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/A-1/g0903_45bb9c009a4ae098.json",
+        "at": "2026-10-10T11:23:49.243918+08:00",
+        "seconds": 26.942091941833496,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/A-2/299652bfe7e648079e0168f99bb417ed.json",
+        "at": "2026-10-10T11:20:44.117448+08:00",
+        "seconds": 31.81322169303894,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/A-2/g0903_45bb9c009a4ae098.json",
+        "at": "2026-10-10T11:23:50.542973+08:00",
+        "seconds": 25.991523265838623,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/B-1/bf64d4b40c7d4bf1b7ff193da2ba90f7.json",
+        "at": "2026-10-10T11:33:48.770937+08:00",
+        "seconds": 32.268561363220215,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/B-1/c4a84c1413d54e93a485810e33382ae0.json",
+        "at": "2026-10-10T11:00:48.004634+08:00",
+        "seconds": 25.538678884506226,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/B-1/d6089efd3c7f41b09231abb7f6d22ee7.json",
+        "at": "2026-10-10T11:30:50.906656+08:00",
+        "seconds": 32.647945165634155,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/B-1/e05ada166ccc4ed2b8a4fe9dd0971362.json",
+        "at": "2026-10-10T11:09:24.213510+08:00",
+        "seconds": 47.06118583679199,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/B-1/f3c08bcb4efc4aa185eca7559e25b27f.json",
+        "at": "2026-10-10T13:20:22.853101+08:00",
+        "seconds": 16.478427410125732,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/B-2/d6089efd3c7f41b09231abb7f6d22ee7.json",
+        "at": "2026-10-10T11:30:55.870018+08:00",
+        "seconds": 22.35048508644104,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/B-2/gold0924_a77b77448409c4c2.json",
+        "at": "2026-10-10T11:09:31.717244+08:00",
+        "seconds": 33.41338109970093,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-1/0b95a713df844f208001c01e00df1725.json",
+        "at": "2026-10-10T11:22:04.839388+08:00",
+        "seconds": 16.43865656852722,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-1/0e9f3cac3c4f498d902f2e28eca7dd2d.json",
+        "at": "2026-10-10T11:07:33.363291+08:00",
+        "seconds": 32.481080770492554,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-1/299652bfe7e648079e0168f99bb417ed.json",
+        "at": "2026-10-10T11:20:50.331226+08:00",
+        "seconds": 32.28710889816284,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-1/78eecc2386124af7a70774ff9cb12bb7.json",
+        "at": "2026-10-10T11:14:34.960276+08:00",
+        "seconds": 32.76751375198364,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-1/b201b01ce6ae4c989c68d17baddcf5d0.json",
+        "at": "2026-10-10T11:24:35.605827+08:00",
+        "seconds": 32.1838436126709,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-1/d6089efd3c7f41b09231abb7f6d22ee7.json",
+        "at": "2026-10-10T11:30:48.550702+08:00",
+        "seconds": 32.14958953857422,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-1/g0903_7e752d9beff9387a.json",
+        "at": "2026-10-10T11:31:46.692147+08:00",
+        "seconds": 31.352184295654297,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-2/a61f31479616441ab0e2686ba478b06f.json",
+        "at": "2026-10-10T11:33:04.156500+08:00",
+        "seconds": 19.61320948600769,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-2/bf64d4b40c7d4bf1b7ff193da2ba90f7.json",
+        "at": "2026-10-10T11:33:49.428795+08:00",
+        "seconds": 29.24436926841736,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/C-2/g0903_d73fb25ba94b6566.json",
+        "at": "2026-10-10T11:38:49.499873+08:00",
+        "seconds": 32.30860877037048,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/D-1/299652bfe7e648079e0168f99bb417ed.json",
+        "at": "2026-10-10T11:21:42.121218+08:00",
+        "seconds": 31.921665906906128,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/D-1/g0903_09b1dd50fb06d82e.json",
+        "at": "2026-10-10T11:36:54.045584+08:00",
+        "seconds": 30.448439359664917,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/D-2/0b95a713df844f208001c01e00df1725.json",
+        "at": "2026-10-10T11:22:01.862461+08:00",
+        "seconds": 20.064699411392212,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/D-2/0b95a713df844f208001c01e00df1725.json",
+        "at": "2026-10-10T11:22:26.944395+08:00",
+        "seconds": 48.717936515808105,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/D-2/7d8d0a7d54fb4731b3215b4a73196c16.json",
+        "at": "2026-10-10T11:55:15.868380+08:00",
+        "seconds": 31.99524450302124,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/D-2/a61f31479616441ab0e2686ba478b06f.json",
+        "at": "2026-10-10T11:32:52.128994+08:00",
+        "seconds": 32.299460887908936,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/D-2/g0903_3c2815c757b85efe.json",
+        "at": "2026-10-10T11:22:59.071143+08:00",
+        "seconds": 19.019941568374634,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/D-2/g0903_ffd6228264016892.json",
+        "at": "2026-10-10T11:30:01.149449+08:00",
+        "seconds": 22.617406368255615,
+        "status": "http_503"
+      },
+      {
+        "path": "data/luna-clean-vs-card-20261010/results/D-2/gold0924_8eed6571e7cb1951.json",
+        "at": "2026-10-10T11:15:22.867817+08:00",
+        "seconds": 32.68961024284363,
+        "status": "http_503"
+      }
+    ]
+  },
+  {
+    "branch": "tests/luna-building-release-validation",
+    "sha": "3afa2628fe4597be546bf76feb1ceed3ea4f619c",
+    "root": "data/luna-building-release-validation-20261010/results",
+    "files": 92,
+    "keys": [
+      "unit",
+      "arm",
+      "repeat",
+      "status",
+      "body",
+      "attempts",
+      "seconds",
+      "binary_sha256",
+      "image_sha256"
+    ],
+    "time_min": null,
+    "time_max": null,
+    "attempt_status": {
+      "200": 92,
+      "503": 4
+    },
+    "failures": [
+      {
+        "path": "data/luna-building-release-validation-20261010/results/A-1/g0903_8772805bce1cd3a5.json",
+        "at": "2026-10-10T14:18:56.721473+08:00",
+        "status": 503
+      },
+      {
+        "path": "data/luna-building-release-validation-20261010/results/A-2/b1b38dbd19aa4559aac077eee9188ff0.json",
+        "at": "2026-10-10T14:13:37.752104+08:00",
+        "status": 503
+      },
+      {
+        "path": "data/luna-building-release-validation-20261010/results/B-1/0252564a06af4ecc92df8cfbd830736a.json",
+        "at": "2026-10-10T14:17:10.232574+08:00",
+        "status": 503
+      },
+      {
+        "path": "data/luna-building-release-validation-20261010/results/B-1/g0903_8772805bce1cd3a5.json",
+        "at": "2026-10-10T14:18:57.226821+08:00",
+        "status": 503
+      }
+    ]
+  },
+  {
+    "branch": "feature/road-crack-labeling",
+    "sha": "9ccad943321a25d0576f250efa26092c2a36fa1f",
+    "root": "data/road-crack-card-eval-20261010/runs",
+    "files": 160,
+    "keys": [
+      "unit",
+      "success",
+      "results",
+      "elapsed",
+      "attempts"
+    ],
+    "time_min": null,
+    "time_max": null,
+    "attempt_status": {
+      "ok": 160,
+      "http_503": 1
+    },
+    "failures": [
+      {
+        "path": "data/road-crack-card-eval-20261010/runs/crack-p001-b/out/89644436dc414089a0bbe11bd97e2409.json",
+        "status": "http_503"
+      }
+    ]
+  }
+]
