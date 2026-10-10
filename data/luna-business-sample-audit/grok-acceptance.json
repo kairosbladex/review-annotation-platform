@@ -1,0 +1,22 @@
+{
+  "executor": "Grok Build",
+  "reviewer": "Codex",
+  "repository": "yoloe-algorithm-service",
+  "branch": "feature/luna-person-review-candidate",
+  "base_commit": "5c46e53",
+  "accepted_commit": "63082cc80c3e5edce2ed09f1b8e4008fbcb0b7bc",
+  "remote_sha_verified": true,
+  "offline_tests_passed": 11,
+  "production_worker_changed": false,
+  "model_calls": 0,
+  "deployment": false,
+  "acceptance": "engineering_only",
+  "quality_acceptance": "pending independent human labels and paired A/B/C/D evaluation",
+  "corrected_findings": [
+    "invalid result schema/index accepted",
+    "insufficient frame origin and mapping evidence",
+    "existing clean_image silently dropped",
+    "same-moment validation must bind reviewed image and original frame identity"
+  ],
+  "compatibility_evidence": "mock actual worker Popen; exact prompt and three/four JPEG bytes; no real CLI executed"
+}
