@@ -1,0 +1,35 @@
+{
+  "annotations_sha256": "d4833a5815ce75b8bfb92a81c2c004155457d5b5431b28673e9d96ee8cfecec9",
+  "autotune_items_sha256": "392e88ff8997dad71eb054973c4403921d36ec032cd3e0be4cea70871dcfbaa6",
+  "source_commit": "b2ca913ee365c0a64ebda4e2ca28604b79d801ed",
+  "label_package_commit": "b5e6c98ead46881bd4428379ff943c5be5b6bbab",
+  "rounds": {
+    "p001": {
+      "status": "done",
+      "parent": "p000",
+      "submitted_at": "2026-10-09T12:00:00+08:00",
+      "started_at": "2026-10-09T15:31:22+08:00",
+      "finished_at": "2026-10-09T16:15:44+08:00",
+      "reported": true
+    },
+    "p002": {
+      "status": "done",
+      "parent": "p001",
+      "submitted_at": "2026-10-09T16:34:08+08:00",
+      "started_at": "2026-10-09T16:35:03+08:00",
+      "finished_at": "2026-10-09T17:19:57+08:00",
+      "reported": true
+    }
+  },
+  "metrics_summary": {
+    "p001": {
+      "units": 411,
+      "failed_units": 2
+    },
+    "p002": {
+      "units": 411,
+      "failed_units": 0
+    }
+  },
+  "exposure_policy": "All images in autotune assets are conservatively exposed, including unlabeled and duplicates; card revision only reads IoU>=0.99 matched boxes. No historical run directory remains."
+}

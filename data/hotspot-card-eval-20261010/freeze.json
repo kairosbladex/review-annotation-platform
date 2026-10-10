@@ -1,0 +1,26 @@
+{
+  "frozen_at": "2026-10-10 before development calls",
+  "files": {
+    "cards.json": "ee8748ec9acf2954078680e43295f7c50f5eafe162d7be8acaafe6b2435faede",
+    "split.json": "a44512cb58ab7e87e7b42ce349f36ec9c2090444240beb5b60e611e8478095f4",
+    "inputs/annotations.csv": "d4833a5815ce75b8bfb92a81c2c004155457d5b5431b28673e9d96ee8cfecec9",
+    "source/production_worker.py": "3884f658862294bce0744ca170c5e1ee4324b24652eb5d1fa4d587171522060b",
+    "source/experiment_worker.py": "7a35e8cc0b9125c32230621eaa8e621d627217590e76f0736878d6d3c9f7d942",
+    "source/evaluate.py": "bec242f42d90244363ecac461d8ce2bd46f039ce1d40f752596f3c11e1845807",
+    "source/luna_prompts/p000.json": "0f265c686c73c751c545d440e3e3e5a1de7cc8206ca86c73e6710412f70e67e9"
+  },
+  "repetitions": 2,
+  "concurrency": 6,
+  "holdout_policy": "Run selected card and p000 only once as a fixed two-repeat batch; never revise using holdout",
+  "selection": "Maximum development screenshot correct sum, then fewer false accepts, then p001_p002",
+  "gate": "Screenshot paired cluster bootstrap 95% accuracy improvement lower > 0; false accepts do not increase in either repeat",
+  "bootstrap": {
+    "seed": 20261010,
+    "draws": 20000,
+    "pair": "same box and repetition",
+    "cluster": "event, merging identical screenshot hashes",
+    "repeat_aggregation": "average two repeats per box"
+  },
+  "original_input": "Replace primary image with clean source and projected bbox; identical production three-image assembler, no fourth image",
+  "failure": "Never score failed calls as false; no pass if incomplete"
+}
