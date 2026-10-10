@@ -1,0 +1,854 @@
+{
+  "threshold": 0.5,
+  "overlapping_pairs": 50,
+  "geometric_groups": 84,
+  "multi_box_groups": 27,
+  "pairs": [
+    {
+      "event_id": "5c35195cc03b4857a79e69827884c237",
+      "a": "5c35195cc03b4857a79e69827884c237_001",
+      "b": "5c35195cc03b4857a79e69827884c237_003",
+      "iou": 0.5691518844210959
+    },
+    {
+      "event_id": "5c29c607deb24e60a0345785677e2054",
+      "a": "5c29c607deb24e60a0345785677e2054_000",
+      "b": "5c29c607deb24e60a0345785677e2054_001",
+      "iou": 0.7377017921001181
+    },
+    {
+      "event_id": "5c29c607deb24e60a0345785677e2054",
+      "a": "5c29c607deb24e60a0345785677e2054_000",
+      "b": "5c29c607deb24e60a0345785677e2054_002",
+      "iou": 0.7566843779060748
+    },
+    {
+      "event_id": "5c29c607deb24e60a0345785677e2054",
+      "a": "5c29c607deb24e60a0345785677e2054_001",
+      "b": "5c29c607deb24e60a0345785677e2054_002",
+      "iou": 0.6782465397450271
+    },
+    {
+      "event_id": "a32570c7f951433d825f59b5f16d72e9",
+      "a": "a32570c7f951433d825f59b5f16d72e9_000",
+      "b": "a32570c7f951433d825f59b5f16d72e9_004",
+      "iou": 0.6175596400150654
+    },
+    {
+      "event_id": "83ddd16de8244fff8b85075d4fb148b1",
+      "a": "83ddd16de8244fff8b85075d4fb148b1_002",
+      "b": "83ddd16de8244fff8b85075d4fb148b1_003",
+      "iou": 0.7494204365405516
+    },
+    {
+      "event_id": "67dce2fe9f8541168fdc51c94f62f45d",
+      "a": "67dce2fe9f8541168fdc51c94f62f45d_001",
+      "b": "67dce2fe9f8541168fdc51c94f62f45d_002",
+      "iou": 0.6112774355007297
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "a": "15766f0530e843c481a112144f59e358_000",
+      "b": "15766f0530e843c481a112144f59e358_001",
+      "iou": 0.6184835957131711
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "a": "15766f0530e843c481a112144f59e358_000",
+      "b": "15766f0530e843c481a112144f59e358_004",
+      "iou": 0.6822144434836521
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "a": "15766f0530e843c481a112144f59e358_000",
+      "b": "15766f0530e843c481a112144f59e358_005",
+      "iou": 0.8097382307227632
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "a": "15766f0530e843c481a112144f59e358_001",
+      "b": "15766f0530e843c481a112144f59e358_004",
+      "iou": 0.6543456698134454
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "a": "15766f0530e843c481a112144f59e358_001",
+      "b": "15766f0530e843c481a112144f59e358_005",
+      "iou": 0.5928924959167056
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "a": "15766f0530e843c481a112144f59e358_004",
+      "b": "15766f0530e843c481a112144f59e358_005",
+      "iou": 0.6130366974139542
+    },
+    {
+      "event_id": "d732ce1ea58849589ea9d60b3c3cd0c1",
+      "a": "d732ce1ea58849589ea9d60b3c3cd0c1_001",
+      "b": "d732ce1ea58849589ea9d60b3c3cd0c1_002",
+      "iou": 0.8957138787513811
+    },
+    {
+      "event_id": "d732ce1ea58849589ea9d60b3c3cd0c1",
+      "a": "d732ce1ea58849589ea9d60b3c3cd0c1_001",
+      "b": "d732ce1ea58849589ea9d60b3c3cd0c1_003",
+      "iou": 0.5876799801281608
+    },
+    {
+      "event_id": "d732ce1ea58849589ea9d60b3c3cd0c1",
+      "a": "d732ce1ea58849589ea9d60b3c3cd0c1_002",
+      "b": "d732ce1ea58849589ea9d60b3c3cd0c1_003",
+      "iou": 0.6110793939819181
+    },
+    {
+      "event_id": "0ad21fb0595d4b2db481d175cf2b9834",
+      "a": "0ad21fb0595d4b2db481d175cf2b9834_001",
+      "b": "0ad21fb0595d4b2db481d175cf2b9834_002",
+      "iou": 0.7595403806224099
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "a": "0f4d73fa7126425c9e51fd9d8e131a8c_001",
+      "b": "0f4d73fa7126425c9e51fd9d8e131a8c_002",
+      "iou": 0.6685567766312734
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "a": "0f4d73fa7126425c9e51fd9d8e131a8c_002",
+      "b": "0f4d73fa7126425c9e51fd9d8e131a8c_003",
+      "iou": 0.6234165392485143
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "a": "0f4d73fa7126425c9e51fd9d8e131a8c_005",
+      "b": "0f4d73fa7126425c9e51fd9d8e131a8c_006",
+      "iou": 0.5515195518330381
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "a": "0f4d73fa7126425c9e51fd9d8e131a8c_005",
+      "b": "0f4d73fa7126425c9e51fd9d8e131a8c_007",
+      "iou": 0.6511432248901463
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "a": "0f4d73fa7126425c9e51fd9d8e131a8c_005",
+      "b": "0f4d73fa7126425c9e51fd9d8e131a8c_008",
+      "iou": 0.6987224643608759
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "a": "0f4d73fa7126425c9e51fd9d8e131a8c_006",
+      "b": "0f4d73fa7126425c9e51fd9d8e131a8c_007",
+      "iou": 0.6721309398952496
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "a": "0f4d73fa7126425c9e51fd9d8e131a8c_006",
+      "b": "0f4d73fa7126425c9e51fd9d8e131a8c_008",
+      "iou": 0.6417674786709026
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "a": "0f4d73fa7126425c9e51fd9d8e131a8c_007",
+      "b": "0f4d73fa7126425c9e51fd9d8e131a8c_008",
+      "iou": 0.6560847746841525
+    },
+    {
+      "event_id": "dd7c028c8baa42ad8e4151bd2bd7d1ec",
+      "a": "dd7c028c8baa42ad8e4151bd2bd7d1ec_000",
+      "b": "dd7c028c8baa42ad8e4151bd2bd7d1ec_001",
+      "iou": 0.7076725909874495
+    },
+    {
+      "event_id": "83fec4e068aa43eaba34c61df34bb361",
+      "a": "83fec4e068aa43eaba34c61df34bb361_000",
+      "b": "83fec4e068aa43eaba34c61df34bb361_001",
+      "iou": 0.7954191395293276
+    },
+    {
+      "event_id": "5b30f6450b9e497483a2cba931a2c15b",
+      "a": "5b30f6450b9e497483a2cba931a2c15b_000",
+      "b": "5b30f6450b9e497483a2cba931a2c15b_002",
+      "iou": 0.5541265246415784
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "a": "76773c782ea04bd3a6df7db38b47c0d5_000",
+      "b": "76773c782ea04bd3a6df7db38b47c0d5_001",
+      "iou": 0.6111281594593924
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "a": "76773c782ea04bd3a6df7db38b47c0d5_002",
+      "b": "76773c782ea04bd3a6df7db38b47c0d5_005",
+      "iou": 0.6446664972687552
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "a": "76773c782ea04bd3a6df7db38b47c0d5_003",
+      "b": "76773c782ea04bd3a6df7db38b47c0d5_004",
+      "iou": 0.7165810630687457
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "a": "76773c782ea04bd3a6df7db38b47c0d5_003",
+      "b": "76773c782ea04bd3a6df7db38b47c0d5_006",
+      "iou": 0.6677152984079752
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "a": "76773c782ea04bd3a6df7db38b47c0d5_004",
+      "b": "76773c782ea04bd3a6df7db38b47c0d5_006",
+      "iou": 0.5859995934323801
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "a": "76773c782ea04bd3a6df7db38b47c0d5_007",
+      "b": "76773c782ea04bd3a6df7db38b47c0d5_008",
+      "iou": 0.5846609929507938
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "a": "76773c782ea04bd3a6df7db38b47c0d5_009",
+      "b": "76773c782ea04bd3a6df7db38b47c0d5_011",
+      "iou": 0.6784834977070837
+    },
+    {
+      "event_id": "03bfba566f3c4433a8d59a493a4e5ab0",
+      "a": "03bfba566f3c4433a8d59a493a4e5ab0_001",
+      "b": "03bfba566f3c4433a8d59a493a4e5ab0_002",
+      "iou": 0.819524833357413
+    },
+    {
+      "event_id": "03bfba566f3c4433a8d59a493a4e5ab0",
+      "a": "03bfba566f3c4433a8d59a493a4e5ab0_003",
+      "b": "03bfba566f3c4433a8d59a493a4e5ab0_004",
+      "iou": 0.5573389121594216
+    },
+    {
+      "event_id": "03bfba566f3c4433a8d59a493a4e5ab0",
+      "a": "03bfba566f3c4433a8d59a493a4e5ab0_003",
+      "b": "03bfba566f3c4433a8d59a493a4e5ab0_005",
+      "iou": 0.5604108765753368
+    },
+    {
+      "event_id": "03bfba566f3c4433a8d59a493a4e5ab0",
+      "a": "03bfba566f3c4433a8d59a493a4e5ab0_004",
+      "b": "03bfba566f3c4433a8d59a493a4e5ab0_005",
+      "iou": 0.7796372795913994
+    },
+    {
+      "event_id": "b6f6941275db40279c3876f034b013ea",
+      "a": "b6f6941275db40279c3876f034b013ea_000",
+      "b": "b6f6941275db40279c3876f034b013ea_001",
+      "iou": 0.65968457825333
+    },
+    {
+      "event_id": "82bf3585158b40f09b2665040d2c0a9a",
+      "a": "82bf3585158b40f09b2665040d2c0a9a_001",
+      "b": "82bf3585158b40f09b2665040d2c0a9a_003",
+      "iou": 0.6507424367825434
+    },
+    {
+      "event_id": "82bf3585158b40f09b2665040d2c0a9a",
+      "a": "82bf3585158b40f09b2665040d2c0a9a_001",
+      "b": "82bf3585158b40f09b2665040d2c0a9a_005",
+      "iou": 0.627749354877656
+    },
+    {
+      "event_id": "82bf3585158b40f09b2665040d2c0a9a",
+      "a": "82bf3585158b40f09b2665040d2c0a9a_002",
+      "b": "82bf3585158b40f09b2665040d2c0a9a_004",
+      "iou": 0.6658811213222521
+    },
+    {
+      "event_id": "82bf3585158b40f09b2665040d2c0a9a",
+      "a": "82bf3585158b40f09b2665040d2c0a9a_003",
+      "b": "82bf3585158b40f09b2665040d2c0a9a_005",
+      "iou": 0.5548206370063025
+    },
+    {
+      "event_id": "1532091a56ac4bdda298443851f637da",
+      "a": "1532091a56ac4bdda298443851f637da_002",
+      "b": "1532091a56ac4bdda298443851f637da_003",
+      "iou": 0.6119771464829474
+    },
+    {
+      "event_id": "1532091a56ac4bdda298443851f637da",
+      "a": "1532091a56ac4bdda298443851f637da_003",
+      "b": "1532091a56ac4bdda298443851f637da_004",
+      "iou": 0.584538554376089
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "a": "3afac9366dc1473fa9cd533ac62cc455_002",
+      "b": "3afac9366dc1473fa9cd533ac62cc455_003",
+      "iou": 0.6315452059227994
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "a": "3afac9366dc1473fa9cd533ac62cc455_004",
+      "b": "3afac9366dc1473fa9cd533ac62cc455_005",
+      "iou": 0.6053302552066921
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "a": "3afac9366dc1473fa9cd533ac62cc455_007",
+      "b": "3afac9366dc1473fa9cd533ac62cc455_010",
+      "iou": 0.8455017591836766
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "a": "3afac9366dc1473fa9cd533ac62cc455_008",
+      "b": "3afac9366dc1473fa9cd533ac62cc455_010",
+      "iou": 0.5264176414312284
+    }
+  ],
+  "groups": [
+    {
+      "event_id": "54fbcaf9960f4a088c5b9ec3aa92288c",
+      "keys": [
+        "54fbcaf9960f4a088c5b9ec3aa92288c_000"
+      ]
+    },
+    {
+      "event_id": "54fbcaf9960f4a088c5b9ec3aa92288c",
+      "keys": [
+        "54fbcaf9960f4a088c5b9ec3aa92288c_001"
+      ]
+    },
+    {
+      "event_id": "5c35195cc03b4857a79e69827884c237",
+      "keys": [
+        "5c35195cc03b4857a79e69827884c237_000"
+      ]
+    },
+    {
+      "event_id": "5c35195cc03b4857a79e69827884c237",
+      "keys": [
+        "5c35195cc03b4857a79e69827884c237_001",
+        "5c35195cc03b4857a79e69827884c237_003"
+      ]
+    },
+    {
+      "event_id": "5c35195cc03b4857a79e69827884c237",
+      "keys": [
+        "5c35195cc03b4857a79e69827884c237_002"
+      ]
+    },
+    {
+      "event_id": "5c29c607deb24e60a0345785677e2054",
+      "keys": [
+        "5c29c607deb24e60a0345785677e2054_000",
+        "5c29c607deb24e60a0345785677e2054_001",
+        "5c29c607deb24e60a0345785677e2054_002"
+      ]
+    },
+    {
+      "event_id": "a32570c7f951433d825f59b5f16d72e9",
+      "keys": [
+        "a32570c7f951433d825f59b5f16d72e9_000",
+        "a32570c7f951433d825f59b5f16d72e9_004"
+      ]
+    },
+    {
+      "event_id": "a32570c7f951433d825f59b5f16d72e9",
+      "keys": [
+        "a32570c7f951433d825f59b5f16d72e9_001"
+      ]
+    },
+    {
+      "event_id": "a32570c7f951433d825f59b5f16d72e9",
+      "keys": [
+        "a32570c7f951433d825f59b5f16d72e9_002"
+      ]
+    },
+    {
+      "event_id": "a32570c7f951433d825f59b5f16d72e9",
+      "keys": [
+        "a32570c7f951433d825f59b5f16d72e9_003"
+      ]
+    },
+    {
+      "event_id": "a32570c7f951433d825f59b5f16d72e9",
+      "keys": [
+        "a32570c7f951433d825f59b5f16d72e9_005"
+      ]
+    },
+    {
+      "event_id": "a32570c7f951433d825f59b5f16d72e9",
+      "keys": [
+        "a32570c7f951433d825f59b5f16d72e9_006"
+      ]
+    },
+    {
+      "event_id": "a32570c7f951433d825f59b5f16d72e9",
+      "keys": [
+        "a32570c7f951433d825f59b5f16d72e9_007"
+      ]
+    },
+    {
+      "event_id": "83ddd16de8244fff8b85075d4fb148b1",
+      "keys": [
+        "83ddd16de8244fff8b85075d4fb148b1_000"
+      ]
+    },
+    {
+      "event_id": "83ddd16de8244fff8b85075d4fb148b1",
+      "keys": [
+        "83ddd16de8244fff8b85075d4fb148b1_001"
+      ]
+    },
+    {
+      "event_id": "83ddd16de8244fff8b85075d4fb148b1",
+      "keys": [
+        "83ddd16de8244fff8b85075d4fb148b1_002",
+        "83ddd16de8244fff8b85075d4fb148b1_003"
+      ]
+    },
+    {
+      "event_id": "51a4f485a938452fb6d95263ec862127",
+      "keys": [
+        "51a4f485a938452fb6d95263ec862127_000"
+      ]
+    },
+    {
+      "event_id": "581f1f7d91874c82bc6c3f55fda3aa25",
+      "keys": [
+        "581f1f7d91874c82bc6c3f55fda3aa25_000"
+      ]
+    },
+    {
+      "event_id": "67dce2fe9f8541168fdc51c94f62f45d",
+      "keys": [
+        "67dce2fe9f8541168fdc51c94f62f45d_000"
+      ]
+    },
+    {
+      "event_id": "67dce2fe9f8541168fdc51c94f62f45d",
+      "keys": [
+        "67dce2fe9f8541168fdc51c94f62f45d_001",
+        "67dce2fe9f8541168fdc51c94f62f45d_002"
+      ]
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "keys": [
+        "15766f0530e843c481a112144f59e358_000",
+        "15766f0530e843c481a112144f59e358_001",
+        "15766f0530e843c481a112144f59e358_004",
+        "15766f0530e843c481a112144f59e358_005"
+      ]
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "keys": [
+        "15766f0530e843c481a112144f59e358_002"
+      ]
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "keys": [
+        "15766f0530e843c481a112144f59e358_003"
+      ]
+    },
+    {
+      "event_id": "15766f0530e843c481a112144f59e358",
+      "keys": [
+        "15766f0530e843c481a112144f59e358_006"
+      ]
+    },
+    {
+      "event_id": "1e5e5f8ee33541b8b127947aa9112c21",
+      "keys": [
+        "1e5e5f8ee33541b8b127947aa9112c21_000"
+      ]
+    },
+    {
+      "event_id": "1e5e5f8ee33541b8b127947aa9112c21",
+      "keys": [
+        "1e5e5f8ee33541b8b127947aa9112c21_001"
+      ]
+    },
+    {
+      "event_id": "1e5e5f8ee33541b8b127947aa9112c21",
+      "keys": [
+        "1e5e5f8ee33541b8b127947aa9112c21_002"
+      ]
+    },
+    {
+      "event_id": "1e5e5f8ee33541b8b127947aa9112c21",
+      "keys": [
+        "1e5e5f8ee33541b8b127947aa9112c21_003"
+      ]
+    },
+    {
+      "event_id": "d732ce1ea58849589ea9d60b3c3cd0c1",
+      "keys": [
+        "d732ce1ea58849589ea9d60b3c3cd0c1_000"
+      ]
+    },
+    {
+      "event_id": "d732ce1ea58849589ea9d60b3c3cd0c1",
+      "keys": [
+        "d732ce1ea58849589ea9d60b3c3cd0c1_001",
+        "d732ce1ea58849589ea9d60b3c3cd0c1_002",
+        "d732ce1ea58849589ea9d60b3c3cd0c1_003"
+      ]
+    },
+    {
+      "event_id": "0ad21fb0595d4b2db481d175cf2b9834",
+      "keys": [
+        "0ad21fb0595d4b2db481d175cf2b9834_000"
+      ]
+    },
+    {
+      "event_id": "0ad21fb0595d4b2db481d175cf2b9834",
+      "keys": [
+        "0ad21fb0595d4b2db481d175cf2b9834_001",
+        "0ad21fb0595d4b2db481d175cf2b9834_002"
+      ]
+    },
+    {
+      "event_id": "0ad21fb0595d4b2db481d175cf2b9834",
+      "keys": [
+        "0ad21fb0595d4b2db481d175cf2b9834_003"
+      ]
+    },
+    {
+      "event_id": "0ad21fb0595d4b2db481d175cf2b9834",
+      "keys": [
+        "0ad21fb0595d4b2db481d175cf2b9834_004"
+      ]
+    },
+    {
+      "event_id": "0ad21fb0595d4b2db481d175cf2b9834",
+      "keys": [
+        "0ad21fb0595d4b2db481d175cf2b9834_005"
+      ]
+    },
+    {
+      "event_id": "9bf0d1cfb68f4fc9ae8a027bc2f905e0",
+      "keys": [
+        "9bf0d1cfb68f4fc9ae8a027bc2f905e0_000"
+      ]
+    },
+    {
+      "event_id": "9bf0d1cfb68f4fc9ae8a027bc2f905e0",
+      "keys": [
+        "9bf0d1cfb68f4fc9ae8a027bc2f905e0_001"
+      ]
+    },
+    {
+      "event_id": "609efd3f9efc462797c9209df251835e",
+      "keys": [
+        "609efd3f9efc462797c9209df251835e_000"
+      ]
+    },
+    {
+      "event_id": "609efd3f9efc462797c9209df251835e",
+      "keys": [
+        "609efd3f9efc462797c9209df251835e_001"
+      ]
+    },
+    {
+      "event_id": "078ebba113524709bdcbb765226f408c",
+      "keys": [
+        "078ebba113524709bdcbb765226f408c_000"
+      ]
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "keys": [
+        "0f4d73fa7126425c9e51fd9d8e131a8c_000"
+      ]
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "keys": [
+        "0f4d73fa7126425c9e51fd9d8e131a8c_001",
+        "0f4d73fa7126425c9e51fd9d8e131a8c_002",
+        "0f4d73fa7126425c9e51fd9d8e131a8c_003"
+      ]
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "keys": [
+        "0f4d73fa7126425c9e51fd9d8e131a8c_004"
+      ]
+    },
+    {
+      "event_id": "0f4d73fa7126425c9e51fd9d8e131a8c",
+      "keys": [
+        "0f4d73fa7126425c9e51fd9d8e131a8c_005",
+        "0f4d73fa7126425c9e51fd9d8e131a8c_006",
+        "0f4d73fa7126425c9e51fd9d8e131a8c_007",
+        "0f4d73fa7126425c9e51fd9d8e131a8c_008"
+      ]
+    },
+    {
+      "event_id": "dd7c028c8baa42ad8e4151bd2bd7d1ec",
+      "keys": [
+        "dd7c028c8baa42ad8e4151bd2bd7d1ec_000",
+        "dd7c028c8baa42ad8e4151bd2bd7d1ec_001"
+      ]
+    },
+    {
+      "event_id": "dd7c028c8baa42ad8e4151bd2bd7d1ec",
+      "keys": [
+        "dd7c028c8baa42ad8e4151bd2bd7d1ec_002"
+      ]
+    },
+    {
+      "event_id": "ae24918f47be46e98f4b484de87ee2bf",
+      "keys": [
+        "ae24918f47be46e98f4b484de87ee2bf_000"
+      ]
+    },
+    {
+      "event_id": "ae24918f47be46e98f4b484de87ee2bf",
+      "keys": [
+        "ae24918f47be46e98f4b484de87ee2bf_001"
+      ]
+    },
+    {
+      "event_id": "83fec4e068aa43eaba34c61df34bb361",
+      "keys": [
+        "83fec4e068aa43eaba34c61df34bb361_000",
+        "83fec4e068aa43eaba34c61df34bb361_001"
+      ]
+    },
+    {
+      "event_id": "83fec4e068aa43eaba34c61df34bb361",
+      "keys": [
+        "83fec4e068aa43eaba34c61df34bb361_002"
+      ]
+    },
+    {
+      "event_id": "30f0c82af7284f65b64055f5c6c88b7b",
+      "keys": [
+        "30f0c82af7284f65b64055f5c6c88b7b_000"
+      ]
+    },
+    {
+      "event_id": "5b30f6450b9e497483a2cba931a2c15b",
+      "keys": [
+        "5b30f6450b9e497483a2cba931a2c15b_000",
+        "5b30f6450b9e497483a2cba931a2c15b_002"
+      ]
+    },
+    {
+      "event_id": "5b30f6450b9e497483a2cba931a2c15b",
+      "keys": [
+        "5b30f6450b9e497483a2cba931a2c15b_001"
+      ]
+    },
+    {
+      "event_id": "5b30f6450b9e497483a2cba931a2c15b",
+      "keys": [
+        "5b30f6450b9e497483a2cba931a2c15b_003"
+      ]
+    },
+    {
+      "event_id": "dc5af2f329b9411c8eeedbb623bebae9",
+      "keys": [
+        "dc5af2f329b9411c8eeedbb623bebae9_000"
+      ]
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "keys": [
+        "76773c782ea04bd3a6df7db38b47c0d5_000",
+        "76773c782ea04bd3a6df7db38b47c0d5_001"
+      ]
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "keys": [
+        "76773c782ea04bd3a6df7db38b47c0d5_002",
+        "76773c782ea04bd3a6df7db38b47c0d5_005"
+      ]
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "keys": [
+        "76773c782ea04bd3a6df7db38b47c0d5_003",
+        "76773c782ea04bd3a6df7db38b47c0d5_004",
+        "76773c782ea04bd3a6df7db38b47c0d5_006"
+      ]
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "keys": [
+        "76773c782ea04bd3a6df7db38b47c0d5_007",
+        "76773c782ea04bd3a6df7db38b47c0d5_008"
+      ]
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "keys": [
+        "76773c782ea04bd3a6df7db38b47c0d5_009",
+        "76773c782ea04bd3a6df7db38b47c0d5_011"
+      ]
+    },
+    {
+      "event_id": "76773c782ea04bd3a6df7db38b47c0d5",
+      "keys": [
+        "76773c782ea04bd3a6df7db38b47c0d5_010"
+      ]
+    },
+    {
+      "event_id": "03bfba566f3c4433a8d59a493a4e5ab0",
+      "keys": [
+        "03bfba566f3c4433a8d59a493a4e5ab0_000"
+      ]
+    },
+    {
+      "event_id": "03bfba566f3c4433a8d59a493a4e5ab0",
+      "keys": [
+        "03bfba566f3c4433a8d59a493a4e5ab0_001",
+        "03bfba566f3c4433a8d59a493a4e5ab0_002"
+      ]
+    },
+    {
+      "event_id": "03bfba566f3c4433a8d59a493a4e5ab0",
+      "keys": [
+        "03bfba566f3c4433a8d59a493a4e5ab0_003",
+        "03bfba566f3c4433a8d59a493a4e5ab0_004",
+        "03bfba566f3c4433a8d59a493a4e5ab0_005"
+      ]
+    },
+    {
+      "event_id": "4febfdaf68164055be4f43292ae8bf75",
+      "keys": [
+        "4febfdaf68164055be4f43292ae8bf75_000"
+      ]
+    },
+    {
+      "event_id": "4febfdaf68164055be4f43292ae8bf75",
+      "keys": [
+        "4febfdaf68164055be4f43292ae8bf75_001"
+      ]
+    },
+    {
+      "event_id": "b6f6941275db40279c3876f034b013ea",
+      "keys": [
+        "b6f6941275db40279c3876f034b013ea_000",
+        "b6f6941275db40279c3876f034b013ea_001"
+      ]
+    },
+    {
+      "event_id": "b6f6941275db40279c3876f034b013ea",
+      "keys": [
+        "b6f6941275db40279c3876f034b013ea_002"
+      ]
+    },
+    {
+      "event_id": "b6f6941275db40279c3876f034b013ea",
+      "keys": [
+        "b6f6941275db40279c3876f034b013ea_003"
+      ]
+    },
+    {
+      "event_id": "b6f6941275db40279c3876f034b013ea",
+      "keys": [
+        "b6f6941275db40279c3876f034b013ea_004"
+      ]
+    },
+    {
+      "event_id": "82bf3585158b40f09b2665040d2c0a9a",
+      "keys": [
+        "82bf3585158b40f09b2665040d2c0a9a_000"
+      ]
+    },
+    {
+      "event_id": "82bf3585158b40f09b2665040d2c0a9a",
+      "keys": [
+        "82bf3585158b40f09b2665040d2c0a9a_001",
+        "82bf3585158b40f09b2665040d2c0a9a_003",
+        "82bf3585158b40f09b2665040d2c0a9a_005"
+      ]
+    },
+    {
+      "event_id": "82bf3585158b40f09b2665040d2c0a9a",
+      "keys": [
+        "82bf3585158b40f09b2665040d2c0a9a_002",
+        "82bf3585158b40f09b2665040d2c0a9a_004"
+      ]
+    },
+    {
+      "event_id": "82bf3585158b40f09b2665040d2c0a9a",
+      "keys": [
+        "82bf3585158b40f09b2665040d2c0a9a_006"
+      ]
+    },
+    {
+      "event_id": "1532091a56ac4bdda298443851f637da",
+      "keys": [
+        "1532091a56ac4bdda298443851f637da_000"
+      ]
+    },
+    {
+      "event_id": "1532091a56ac4bdda298443851f637da",
+      "keys": [
+        "1532091a56ac4bdda298443851f637da_001"
+      ]
+    },
+    {
+      "event_id": "1532091a56ac4bdda298443851f637da",
+      "keys": [
+        "1532091a56ac4bdda298443851f637da_002",
+        "1532091a56ac4bdda298443851f637da_003",
+        "1532091a56ac4bdda298443851f637da_004"
+      ]
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "keys": [
+        "3afac9366dc1473fa9cd533ac62cc455_000"
+      ]
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "keys": [
+        "3afac9366dc1473fa9cd533ac62cc455_001"
+      ]
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "keys": [
+        "3afac9366dc1473fa9cd533ac62cc455_002",
+        "3afac9366dc1473fa9cd533ac62cc455_003"
+      ]
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "keys": [
+        "3afac9366dc1473fa9cd533ac62cc455_004",
+        "3afac9366dc1473fa9cd533ac62cc455_005"
+      ]
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "keys": [
+        "3afac9366dc1473fa9cd533ac62cc455_006"
+      ]
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "keys": [
+        "3afac9366dc1473fa9cd533ac62cc455_007",
+        "3afac9366dc1473fa9cd533ac62cc455_008",
+        "3afac9366dc1473fa9cd533ac62cc455_010"
+      ]
+    },
+    {
+      "event_id": "3afac9366dc1473fa9cd533ac62cc455",
+      "keys": [
+        "3afac9366dc1473fa9cd533ac62cc455_009"
+      ]
+    }
+  ],
+  "interpretation": "Overlap flags only, not proof of identical semantic targets. Primary evaluation retains every user box; event clustering handles within-image dependence."
+}

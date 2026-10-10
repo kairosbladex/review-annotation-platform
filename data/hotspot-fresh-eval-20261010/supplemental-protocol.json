@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-10-10T17:30:48.376607+08:00",
+  "purpose": "原标注框存在明显几何重叠，补充区域等权敏感性统计；不改变主评测、输入、标签或候选卡",
+  "predictions_reviewed": false,
+  "primary_protocol_unchanged": true,
+  "threshold": 0.5,
+  "region_rule": "同图IoU>=0.5的连通组，每组平均框和两轮结果后占一份权重；这不是人工确认的目标去重",
+  "files": {
+    "overlap-audit.json": "1624c5d093d57ec04a8b80811baa40958ec1df91684da1a5585b5c40206ade44",
+    "box-geometry-audit.json": "eb68d77c29e92b9f83bad072e7661f1db3b636cd92a1af0e9329feaa1a75c312",
+    "source/overlap_sensitivity.py": "8df7c6dd44d4e40544948a3b99366e9ebbca07fe542946eb73bccc450ddbfa80"
+  }
+}
