@@ -1,0 +1,108 @@
+{
+  "dataset_id": "af5a-469633660711346432-wide-20261009-manual-v1",
+  "source": "ktdTest/AF5AFA566B175B72867FD565F9E5436B/20261009/469633660711346432/DJI_20261009094620_0001_W_P2A1.MP4",
+  "source_sha256": "30d67f6ee2feebf6db6917230e08a334897b31753c57f903cd8156289b196acd",
+  "flight_id": "469633660711346432",
+  "selection": "fixed 3-second interval from 0 to 33 seconds; no model selection",
+  "decode": "ffmpeg accurate input seek -ss <seconds>, map 0:v:0, frames:v 1, PNG; requested time is seek target, not independently verified wall clock",
+  "frames": [
+    {
+      "id": "wide-00s",
+      "requested_seconds": 0,
+      "path": "frames/wide-00s.png",
+      "sha256": "36c10bac15d462f414330760a6f1d931bed1654a368bfb2967dca3dcc31a5ebb",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-03s",
+      "requested_seconds": 3,
+      "path": "frames/wide-03s.png",
+      "sha256": "f955712b38bf3bda6125608dfdffa0d2fda44a1449a7c95e751ed389b3f6825c",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-06s",
+      "requested_seconds": 6,
+      "path": "frames/wide-06s.png",
+      "sha256": "54e1bf262e4a8b972fa86531ee02cea6f954580f0fc60170a55bb08bedcee858",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-09s",
+      "requested_seconds": 9,
+      "path": "frames/wide-09s.png",
+      "sha256": "a023b175141d9984131a63efb951e80eeebe2180d1feb413d1e726b5b0310ebe",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-12s",
+      "requested_seconds": 12,
+      "path": "frames/wide-12s.png",
+      "sha256": "e9334d102f28e802cf6f1246a5c08292503b2e1dfe0b89f0738b8ecca643cd6b",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-15s",
+      "requested_seconds": 15,
+      "path": "frames/wide-15s.png",
+      "sha256": "70075af01b8edea399b0dcc27c577e1ee6617985963c2e13f7bae29f3bc41d1d",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-18s",
+      "requested_seconds": 18,
+      "path": "frames/wide-18s.png",
+      "sha256": "28efcb3dfbf739f4e26bc6aab24034f6391e0f424ab294e56b4dc83328230d0d",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-21s",
+      "requested_seconds": 21,
+      "path": "frames/wide-21s.png",
+      "sha256": "80c2b7609855493505f785c1e445cc86fec475b32c9ae6a9f9ea0b18266ba802",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-24s",
+      "requested_seconds": 24,
+      "path": "frames/wide-24s.png",
+      "sha256": "90efd053224bce39706a04062a10c57986ec67ee8e138010f853e81e2da1835a",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-27s",
+      "requested_seconds": 27,
+      "path": "frames/wide-27s.png",
+      "sha256": "df5247749653774c999ede0ff868623c6f9d1a98cf18a4cb87ac0b527f478fe8",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-30s",
+      "requested_seconds": 30,
+      "path": "frames/wide-30s.png",
+      "sha256": "b9ad250406c1c6a5ed30915a139abbc98e18a4738f0603f21a15651b0175a2b4",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "wide-33s",
+      "requested_seconds": 33,
+      "path": "frames/wide-33s.png",
+      "sha256": "e25065f91619d36022f9367cbb4f509b248e58545cbb6c99341b700126d4ed8a",
+      "width": 3840,
+      "height": 2160
+    }
+  ],
+  "gold_status": "not_labeled",
+  "independence": "single new flight; adjacent frames correlated; no September data"
+}
