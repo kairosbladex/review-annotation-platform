@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_0d7bd41ababaee43",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标可见但缺乏审批或区域业务依据，无法确认是否为违建。",
+        "observed_object": "一处小型蓝顶建筑或棚状结构",
+        "reasoning": "仅凭外观无法判断其是否属于未经审批的违建。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标较小且细节有限，缺乏审批或区域业务依据。",
+        "observed_object": "一处低矮长条形建筑或棚状结构",
+        "reasoning": "仅凭外观无法确认是否为违建。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "69e90394d2f04865937e373192fcd244",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612958.8712263,
+      "status": 200
+    }
+  ],
+  "seconds": 37.05035734176636,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "0d7bd41ababaee43e8da4c47c05970a0d8b47ecf4a671a2cc12174a367817cb4"
+}

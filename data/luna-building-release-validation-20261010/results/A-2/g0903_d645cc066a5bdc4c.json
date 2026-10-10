@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到建筑外立面、临时围挡或棚状结构，缺少审批或区域业务依据。",
+        "observed_object": "建筑窗户及疑似临时结构",
+        "reasoning": "候选框内未提供足以确认违建属性的审批或业务证据，不能仅凭外观判定。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到蓝色围挡或棚状结构，缺少审批或区域业务依据。",
+        "observed_object": "蓝色围挡/棚状结构",
+        "reasoning": "外观无法唯一证明属于违建，按规则应判定为不确定。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标位于图像底部且部分出框，缺少审批或区域业务依据。",
+        "observed_object": "蓝色围挡或棚状结构",
+        "reasoning": "目标部分不可见，且没有审批或区域业务证据，无法确认违建属性。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "57e987b02b18417080b662369007c45c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612890.4949203,
+      "status": 200
+    }
+  ],
+  "seconds": 80.49346470832825,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ef6113db5be7d59d",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域可见类似建筑边缘或顶棚结构，但图中没有审批信息或区域业务依据，无法确认是否为违建。",
+        "observed_object": "建筑边缘的长条形结构",
+        "reasoning": "不能仅凭外观判定违建属性。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e3a35032cb8e47fba16155726beb0a2c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612892.2642791,
+      "status": 200
+    }
+  ],
+  "seconds": 14.702379941940308,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ef6113db5be7d59d3297cca956c944b57751c26ac6ccaa67956fcb682272e182"
+}

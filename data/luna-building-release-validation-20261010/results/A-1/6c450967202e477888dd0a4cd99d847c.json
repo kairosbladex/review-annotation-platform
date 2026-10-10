@@ -1,0 +1,28 @@
+{
+  "unit": "6c450967202e477888dd0a4cd99d847c",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域较小，且仅凭图像无法判断建筑是否具备审批依据或属于违建。",
+        "observed_object": "框内可见一处建筑屋顶或房屋结构。",
+        "reasoning": "未提供审批、规划或区域业务依据，不能仅凭外观认定为违建；框线和文字不作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "6191ceeb640e42b9baa95914b43b6651",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612908.7679543,
+      "status": 200
+    }
+  ],
+  "seconds": 17.936599016189575,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "689ad4c8083f275376b50664a29d14135bfffab25dd8e414afaabd20cd092780"
+}

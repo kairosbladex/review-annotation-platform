@@ -1,0 +1,42 @@
+{
+  "unit": "ae4a3839cb244157beab9e62f5e03d13",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是建筑立面和窗户，未能唯一确认蓝色或绿色顶棚。",
+        "observed_object": "建筑立面、窗户",
+        "reasoning": "不将框线和文字作为证据，框内未见明确的蓝绿色顶棚结构。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见建筑窗户及墙面，顶棚结构被遮挡或无法确认。",
+        "observed_object": "建筑立面、窗户",
+        "reasoning": "未能确认主体是蓝色或绿色屋面，不能据此判定为违建。",
+        "target_index": 1
+      },
+      {
+        "decision": "false",
+        "image_limitation": "框内目标结构和用途清晰可见。",
+        "observed_object": "蓝色施工围挡",
+        "reasoning": "该物体是立在地面的长条状蓝色围挡，不是覆盖在建筑或空地上方的顶棚。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "a65967e4943d48fbb9c55ef053ccfcf4",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613421.7166283,
+      "status": 200
+    }
+  ],
+  "seconds": 49.439208984375,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8b416b0baa15d2111029a9d292f083c726d58419a24760ea7cb3c68820b065c7"
+}

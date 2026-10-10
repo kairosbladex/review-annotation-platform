@@ -1,0 +1,42 @@
+{
+  "unit": "ae4a3839cb244157beab9e62f5e03d13",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是建筑立面和窗户，无法确认存在蓝色或绿色顶棚。",
+        "observed_object": "建筑立面及窗户",
+        "reasoning": "未见可明确判定为蓝色或绿色屋面的结构，不能仅凭框线和文字作出判断。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是建筑立面和窗户，未能唯一确认屋面结构。",
+        "observed_object": "建筑立面及窗户",
+        "reasoning": "可见蓝灰色区域更像建筑立面或窗户，不足以确认是蓝色顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标结构可见。",
+        "observed_object": "蓝色施工围挡",
+        "reasoning": "框内是立在地面的长条状蓝色围挡，不是覆盖在建筑或空间上方的蓝绿色顶棚。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "137e04fa43ad4889846f2baa1cd0a03e",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613377.6007588,
+      "status": 200
+    }
+  ],
+  "seconds": 17.483863592147827,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8b416b0baa15d2111029a9d292f083c726d58419a24760ea7cb3c68820b065c7"
+}

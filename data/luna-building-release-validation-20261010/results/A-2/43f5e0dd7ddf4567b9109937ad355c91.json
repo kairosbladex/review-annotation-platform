@@ -1,0 +1,28 @@
+{
+  "unit": "43f5e0dd7ddf4567b9109937ad355c91",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅见建筑/门状区域及框内文字，缺乏审批或区域业务依据，无法确认违建属性。",
+        "observed_object": "框内为一处建筑或门状结构，带有文字标记。",
+        "reasoning": "不能仅凭外观和文字判断是否违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "207a84d4636d425ebe4cdc4c19b28c5d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613305.7619963,
+      "status": 200
+    }
+  ],
+  "seconds": 43.80062747001648,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d196f664ef6f0181b897af8957161ea6e4f6af3e4e88b7bb8a3411b7f5ddd14c"
+}

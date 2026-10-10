@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8772805bce1cd3a5",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内主要为建筑及标识区域，缺乏审批或区域业务依据，无法确认是否为违建。",
+        "observed_object": "建筑边缘和文字标识",
+        "reasoning": "仅凭外观不能判断违建属性，不能将框线或文字作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "be48a3174028494b989cf52bbad609b1",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613164.0019903,
+      "status": 200
+    }
+  ],
+  "seconds": 59.91158366203308,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

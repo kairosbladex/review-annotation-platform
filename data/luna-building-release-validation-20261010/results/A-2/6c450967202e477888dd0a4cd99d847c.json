@@ -1,0 +1,28 @@
+{
+  "unit": "6c450967202e477888dd0a4cd99d847c",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内可见建筑，但仅凭图像无法确认其是否缺乏审批或属于区域业务认定的违建。",
+        "observed_object": "低矮建筑屋顶",
+        "reasoning": "未提供审批信息或区域业务依据，不能仅凭外观判定为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "0faac5bc5772478592ff49f9389d2f72",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612921.410884,
+      "status": 200
+    }
+  ],
+  "seconds": 28.761734008789062,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "689ad4c8083f275376b50664a29d14135bfffab25dd8e414afaabd20cd092780"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8772805bce1cd3a5",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是带文字标识的浅色箱体或车辆顶部，不是建筑、棚架、院落或空地上的蓝色/绿色顶棚。",
+        "reasoning": "候选框内未见符合类别定义的蓝色或绿色屋面，不能将框线或文字作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a7b095c902a74d2ab1d88de1353827c0",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613118.2253573,
+      "status": 200
+    }
+  ],
+  "seconds": 68.50039315223694,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

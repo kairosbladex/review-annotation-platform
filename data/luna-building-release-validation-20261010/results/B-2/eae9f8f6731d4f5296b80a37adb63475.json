@@ -1,0 +1,84 @@
+{
+  "unit": "eae9f8f6731d4f5296b80a37adb63475",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为成片浅蓝色矩形屋面，符合蓝色顶棚特征。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "灰白色屋面",
+        "reasoning": "框内主要是灰白色屋面，不属于蓝色或绿色顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内为成片浅蓝色矩形屋面，符合类别。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内可见成片浅蓝色屋面，符合类别。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色顶棚",
+        "reasoning": "框内主体为蓝绿色小型屋面，符合类别。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内为蓝色矩形顶棚。",
+        "target_index": 5
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内可见成片浅蓝色屋面，符合类别。",
+        "target_index": 6
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内主体为浅蓝色屋面，符合类别。",
+        "target_index": 7
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内为成片蓝色矩形顶棚，符合类别。",
+        "target_index": 8
+      }
+    ],
+    "execution_id": "adce8cc4019b495186aaf9f983d0c103",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613242.6476042,
+      "status": 200
+    }
+  ],
+  "seconds": 37.48704814910889,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "777a463b1fad4eedb9a7864d32dd96b34d89998b5a862fe2d8c6a1a440a95a70"
+}

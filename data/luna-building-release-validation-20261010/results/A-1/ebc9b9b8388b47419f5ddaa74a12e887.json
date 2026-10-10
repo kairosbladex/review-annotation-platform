@@ -1,0 +1,28 @@
+{
+  "unit": "ebc9b9b8388b47419f5ddaa74a12e887",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标为建筑物外立面，图中没有审批信息或区域业务依据，无法据此确认违建属性。",
+        "observed_object": "高层建筑",
+        "reasoning": "候选框内可见规则排列的建筑窗格，但仅凭外观不能判定为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "835fa6b40f6b4845971f6f5ff579e810",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613407.637461,
+      "status": 200
+    }
+  ],
+  "seconds": 35.35269594192505,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "25ae8b635e8187bfdfebb96751dc0050e05b66746e59a486b1b2c93d253e8cbe"
+}

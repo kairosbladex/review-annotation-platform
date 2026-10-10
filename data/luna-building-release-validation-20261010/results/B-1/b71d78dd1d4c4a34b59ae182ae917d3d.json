@@ -1,0 +1,28 @@
+{
+  "unit": "b71d78dd1d4c4a34b59ae182ae917d3d",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为浅灰白色屋面，不是蓝色或绿色顶棚",
+        "reasoning": "依据类别标准，灰白色屋面不符合违建目标；框线和文字不作为判断证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "4bb627009ecc48c19e4ccb9c5314fbee",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613383.9213946,
+      "status": 200
+    }
+  ],
+  "seconds": 38.011470556259155,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "9b09e7bb9f0725f8e5e6e91f1cefb871a209198f955c5b1036edada894274656"
+}

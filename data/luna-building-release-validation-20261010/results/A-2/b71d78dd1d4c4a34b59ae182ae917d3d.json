@@ -1,0 +1,28 @@
+{
+  "unit": "b71d78dd1d4c4a34b59ae182ae917d3d",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅凭航拍图和框内外观无法确认是否具有审批或区域业务依据。",
+        "observed_object": "框内为一处浅色屋顶建筑。",
+        "reasoning": "建筑外观本身不足以证明其属于违建，不能据此明确判定符合类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "740f8ed31adb4630b0fc4c30631903c5",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613361.88778,
+      "status": 200
+    }
+  ],
+  "seconds": 14.334798574447632,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "9b09e7bb9f0725f8e5e6e91f1cefb871a209198f955c5b1036edada894274656"
+}

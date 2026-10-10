@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.10/http/client.py", line 1312, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1358, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1307, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1106, in _send_output
+    self.send(chunk)
+  File "/usr/lib/python3.10/http/client.py", line 1028, in send
+    self.sock.sendall(data)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/workspace/jzheng/luna-building-release-validation-20261010/src/run_luna_building_release_validation.py", line 110, in <module>
+    if __name__=='__main__':main()
+  File "/data/workspace/jzheng/luna-building-release-validation-20261010/src/run_luna_building_release_validation.py", line 85, in main
+    z=request(units[0],'B',payload_override=over,auth=auth);assert z['status']==expected and 'results' not in z['body'];smoke.append(dict(name=name,**z))
+  File "/data/workspace/jzheng/luna-building-release-validation-20261010/src/run_luna_building_release_validation.py", line 63, in request
+    with OPENER.open(req,timeout=240) as f:body=json.load(f);status=200
+  File "/usr/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.10/urllib/request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/usr/lib/python3.10/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 32] Broken pipe>

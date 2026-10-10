@@ -1,0 +1,28 @@
+{
+  "unit": "7fed014adf2a4a36b7cbd32832f6de04",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是热成像中的建筑边缘或墙体区域，无法仅凭图像确认是否存在未经审批或违反区域业务依据的建筑。",
+        "observed_object": "疑似建筑结构或墙体边缘",
+        "reasoning": "违建属性需要审批或区域业务依据，图像中没有相关证据；框线和文字不作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "1edb5b6b93174872aca08a6845f81146",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612982.573239,
+      "status": 200
+    }
+  ],
+  "seconds": 34.02704739570618,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1f72a776d00c9d4a3e99d10121ed8d830fe71be753b1189c6a74ddd1b3334b57"
+}

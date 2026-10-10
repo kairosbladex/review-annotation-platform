@@ -1,0 +1,28 @@
+{
+  "unit": "7fed014adf2a4a36b7cbd32832f6de04",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要为热成像中的暗色区域，无法确认是否存在建筑物或违建事实；图中文字和框线不作为证据。",
+        "observed_object": "无法唯一确认目标类别。",
+        "reasoning": "违建需要审批或区域业务依据，当前图像仅显示热成像区域，缺乏相关依据，因此不能判定为true或false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "89e0adf040dc47bda0214d4ebfbe6bc5",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613020.1613169,
+      "status": 200
+    }
+  ],
+  "seconds": 37.48242211341858,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1f72a776d00c9d4a3e99d10121ed8d830fe71be753b1189c6a74ddd1b3334b57"
+}

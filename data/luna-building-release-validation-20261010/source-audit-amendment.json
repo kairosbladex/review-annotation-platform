@@ -1,0 +1,22 @@
+{
+  "at": 1791613359.5754611,
+  "initial_claim": {
+    "images": 15,
+    "candidates": 48
+  },
+  "corrected": {
+    "images": 9,
+    "candidates": 24
+  },
+  "downgraded_units": [
+    "0252564a06af4ecc92df8cfbd830736a",
+    "1ead70d1abcc4c56819cb17f74b10fe6",
+    "453726d7c0304890876803268e377e13",
+    "4a034e8a944c4239990c4844f3734fc4",
+    "43f5e0dd7ddf4567b9109937ad355c91",
+    "7fed014adf2a4a36b7cbd32832f6de04"
+  ],
+  "reason": "gold0924 source_event_id stores task IDs; resolve by image_object_key against snapshot, normalize URL/object paths. Corrected before final scoring; no outcome-based removal; all 92 scheduled calls retained.",
+  "original_manifest": "execution-units.json",
+  "labels_unchanged": true
+}

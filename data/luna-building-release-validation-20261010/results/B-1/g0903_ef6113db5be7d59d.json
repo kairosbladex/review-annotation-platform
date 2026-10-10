@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ef6113db5be7d59d",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为覆盖在建筑上的成片蓝色屋面，呈规整长条状并可见屋面纹理。",
+        "reasoning": "主体符合蓝色顶棚/屋面的类别定义，不将框线和文字作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "313f7bf20c35446b911bcd7fe218b91f",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612875.8566298,
+      "status": 200
+    }
+  ],
+  "seconds": 14.211798667907715,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ef6113db5be7d59d3297cca956c944b57751c26ac6ccaa67956fcb682272e182"
+}

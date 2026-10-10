@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ef6113db5be7d59d",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅凭图像无法确认是否具备审批或区域业务依据。",
+        "observed_object": "框内疑似建筑顶部的长条状结构。",
+        "reasoning": "不能仅根据外观判定为违建，且框线和文字不作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "8b5eca64363e4258ab61f72feb0a1319",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612904.3350077,
+      "status": 200
+    }
+  ],
+  "seconds": 40.628323554992676,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ef6113db5be7d59d3297cca956c944b57751c26ac6ccaa67956fcb682272e182"
+}

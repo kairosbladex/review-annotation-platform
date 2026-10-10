@@ -1,0 +1,28 @@
+{
+  "unit": "ebc9b9b8388b47419f5ddaa74a12e887",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内目标清晰可见。",
+        "observed_object": "黄色楼体及其窗格立面",
+        "reasoning": "框内是建筑物立面，不是蓝色或绿色顶棚，因此不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "70e661f14b054ab9888fc527f641a252",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613426.0614176,
+      "status": 200
+    }
+  ],
+  "seconds": 41.72110056877136,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "25ae8b635e8187bfdfebb96751dc0050e05b66746e59a486b1b2c93d253e8cbe"
+}

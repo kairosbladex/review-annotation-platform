@@ -1,0 +1,42 @@
+{
+  "unit": "453726d7c0304890876803268e377e13",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到建筑外观，缺乏审批或区域业务依据，无法确认是否为违建。",
+        "observed_object": "候选框0内为一处狭长建筑或屋顶结构。",
+        "reasoning": "外观不足以证明违法建设属性，不能仅凭图像判定。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到建筑外观，缺乏审批或区域业务依据，无法确认是否为违建。",
+        "observed_object": "候选框1内为一处狭窄的高层建筑或结构。",
+        "reasoning": "外观不足以证明违法建设属性，不能仅凭图像判定。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到建筑外观，缺乏审批或区域业务依据，无法确认是否为违建。",
+        "observed_object": "候选框2内为一处横向建筑或屋顶结构。",
+        "reasoning": "外观不足以证明违法建设属性，不能仅凭图像判定。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "b1111f6965c3480e8b7532743b139145",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612863.3381028,
+      "status": 200
+    }
+  ],
+  "seconds": 54.67252278327942,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "a9ae28ddb2664bae6c99beec6844564a6f53dfe2d761880a491277933924e42d"
+}

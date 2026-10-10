@@ -1,0 +1,42 @@
+{
+  "unit": "ae4a3839cb244157beab9e62f5e03d13",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅凭图像无法确认是否存在审批或区域业务依据。",
+        "observed_object": "建筑外立面及窗户区域",
+        "reasoning": "框内可见建筑结构，但“违建”属性需要审批或业务依据，不能仅凭外观判断。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅凭图像无法确认是否存在审批或区域业务依据。",
+        "observed_object": "建筑外立面及窗户区域",
+        "reasoning": "框内可见窗户和墙体结构，但无法据此确认属于违建。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅凭图像无法确认是否存在审批或区域业务依据。",
+        "observed_object": "蓝色围挡及其后方区域",
+        "reasoning": "可见围挡和施工区域，但缺乏审批或区域业务依据，不能确认属于违建。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "1b98cdde2b8c4c0f81ca9045dc1d42e2",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613370.4083657,
+      "status": 200
+    }
+  ],
+  "seconds": 19.205833196640015,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8b416b0baa15d2111029a9d292f083c726d58419a24760ea7cb3c68820b065c7"
+}

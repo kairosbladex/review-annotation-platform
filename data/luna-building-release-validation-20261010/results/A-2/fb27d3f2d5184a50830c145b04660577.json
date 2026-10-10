@@ -1,0 +1,28 @@
+{
+  "unit": "fb27d3f2d5184a50830c145b04660577",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内仅见热成像区域及框线，缺乏审批或区域业务依据，无法确认是否为违建。",
+        "observed_object": "候选框覆盖建筑边缘或墙面区域，未见可用于判定违建的明确证据。",
+        "reasoning": "违建类别不能仅凭外观或热成像区域判断，且题设要求无审批或区域业务依据时输出uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "69a053a7250f49abb6b54e98a63815f6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612948.2676013,
+      "status": 200
+    }
+  ],
+  "seconds": 43.51876354217529,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ec3a7c02c11f4fa895bf2942d72711d4392f47b87c7c29fb3969f6b0d626ec20"
+}

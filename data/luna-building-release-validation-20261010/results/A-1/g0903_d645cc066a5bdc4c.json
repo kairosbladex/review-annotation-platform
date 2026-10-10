@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到建筑、围挡及临时构筑物外观，缺少审批或区域业务依据。",
+        "observed_object": "候选框0内为建筑立面窗户区域；候选框1和2内为蓝色围挡或临时构筑物。",
+        "reasoning": "“违建”属性不能仅凭外观确认，框线和文字不作为证据。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到蓝色围挡或临时构筑物外观，缺少审批或区域业务依据。",
+        "observed_object": "蓝色围挡及其附近临时设施。",
+        "reasoning": "无法据此唯一判断为违建。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标部分位于图像底部且被裁切，缺少审批或区域业务依据。",
+        "observed_object": "蓝色围挡或临时构筑物的局部。",
+        "reasoning": "目标不完整且无法凭外观确认违建属性。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "036412a9d96c48ccb413c53236be4117",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612877.1890376,
+      "status": 200
+    }
+  ],
+  "seconds": 15.508012533187866,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

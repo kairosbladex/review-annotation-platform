@@ -1,0 +1,21 @@
+{
+  "seed": 20261010,
+  "repeats": 2,
+  "arms": [
+    "p000",
+    "p000-building-only"
+  ],
+  "candidate_commit": "42397238abe9e6fe544af826478f61757fb748ee",
+  "ports": [
+    18401,
+    18402
+  ],
+  "total_cgroup_memory": "4G",
+  "swap": 0,
+  "cpu_quota": "300%",
+  "cpu_affinity": 3,
+  "total_concurrency": 6,
+  "gate": "No full automatic release recommendation without independent human labels and business false-acceptance tolerance. AI visual labels are exploratory only. Any reproducible confident acceptance of facade/sign/fence is a quality failure to report, not relabel away.",
+  "labels_frozen_before_new_model_outputs": true,
+  "shared_services": "read-only baseline and final health only"
+}

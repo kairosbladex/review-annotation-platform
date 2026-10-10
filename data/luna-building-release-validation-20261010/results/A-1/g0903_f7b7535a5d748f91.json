@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_f7b7535a5d748f91",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框仅覆盖场地边缘及框线附近区域，无法依据图像判断是否缺乏审批或属于违建。",
+        "observed_object": "框内主要为球场边缘、道路及标注框线，未见可确认的违建证据。",
+        "reasoning": "违建需要审批或区域业务依据，单凭外观无法明确符合类别，因此判定为uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "421e6f4319ad452ca8566bdeb32d8ce2",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613046.1624253,
+      "status": 200
+    }
+  ],
+  "seconds": 32.8746178150177,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f7b7535a5d748f9136c64b91276b6ad3461feae8c67103a44ae93ebfa729b3c0"
+}

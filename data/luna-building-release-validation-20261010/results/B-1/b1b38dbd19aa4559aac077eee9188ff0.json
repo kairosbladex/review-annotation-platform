@@ -1,0 +1,28 @@
+{
+  "unit": "b1b38dbd19aa4559aac077eee9188ff0",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "高层建筑外立面及窗户",
+        "reasoning": "框内主体是建筑立面，未见蓝色或绿色顶棚；不能将建筑外立面、窗户或文字作为违建证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "c5be988f4a1c4c969a27471f5078d4e1",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612800.6036758,
+      "status": 200
+    }
+  ],
+  "seconds": 15.516507148742676,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f167f0e34a9a924f6b7ac30982292af6c35ad7ef06828db1f5f9e962793764e5"
+}

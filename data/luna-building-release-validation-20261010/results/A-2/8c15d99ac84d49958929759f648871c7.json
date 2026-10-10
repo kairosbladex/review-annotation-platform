@@ -1,0 +1,35 @@
+{
+  "unit": "8c15d99ac84d49958929759f648871c7",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅凭航拍外观无法确认是否未经审批或违反区域建设规定。",
+        "observed_object": "候选框内可见建筑屋顶及红色标注文字。",
+        "reasoning": "不能将建筑外观或图中文字作为违建证据，缺少审批和区域业务依据。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框较小，且仅凭航拍外观无法确认审批或区域建设属性。",
+        "observed_object": "候选框内可见建筑屋顶及红色标注文字。",
+        "reasoning": "没有足够证据证明该目标属于违建。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "ae83235356944ef3a300fade64bec674",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613334.6282935,
+      "status": 200
+    }
+  ],
+  "seconds": 32.68944025039673,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "fe7d5deab9be80a5da477451e13dfe28a404c5910a3611719c96fbd93f1c910d"
+}

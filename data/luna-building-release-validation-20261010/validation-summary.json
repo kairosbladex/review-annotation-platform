@@ -1,0 +1,24 @@
+{
+  "paired_calls": 92,
+  "paired_attempt_status": {
+    "200": 92,
+    "503": 4
+  },
+  "peak_bytes": 1805979648,
+  "min_available_fraction": 0.40726882810387194,
+  "swap_bytes": 0,
+  "oom": 0,
+  "started": "2026-10-10T14:12:59+08:00",
+  "ended": "2026-10-10T14:26:22+08:00",
+  "tests": {
+    "prompt": 13,
+    "api_contract": 3,
+    "failure_injection": 6,
+    "scorer": 3,
+    "source_lineage": 3
+  },
+  "candidate_script_sha256": "970621564bf3f078171f0aa38b9022f5c03fd0a5a1fa1ebbece3df07e64fb383",
+  "successful_real_cli_requests": 96,
+  "total_http_inference_attempts": 100,
+  "failed_http_attempts": 4
+}

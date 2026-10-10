@@ -1,0 +1,42 @@
+{
+  "unit": "ae4a3839cb244157beab9e62f5e03d13",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到建筑外立面和施工围挡，缺少审批或区域业务依据。",
+        "observed_object": "建筑外立面区域",
+        "reasoning": "框内可见窗户、墙面等建筑结构，但无法仅凭图像确认其属于违建。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到建筑外立面和窗户，缺少审批或区域业务依据。",
+        "observed_object": "建筑外立面区域",
+        "reasoning": "框内是建筑墙面及窗户，不能据此判断是否违建。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到施工围挡及其后的空地，缺少审批或区域业务依据。",
+        "observed_object": "施工围挡区域",
+        "reasoning": "施工围挡本身不能证明存在违建，无法确认类别。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "92d74f4dfaf9446db17f8a5e4ab25224",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613404.3363235,
+      "status": 200
+    }
+  ],
+  "seconds": 42.077993869781494,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8b416b0baa15d2111029a9d292f083c726d58419a24760ea7cb3c68820b065c7"
+}

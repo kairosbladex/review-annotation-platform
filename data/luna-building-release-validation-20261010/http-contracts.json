@@ -1,0 +1,78 @@
+[
+  {
+    "name": "auth",
+    "unit": "0252564a06af4ecc92df8cfbd830736a",
+    "arm": "B",
+    "repeat": 0,
+    "status": 401,
+    "body": {
+      "error": "unauthorized"
+    },
+    "attempts": [
+      {
+        "at": 1791612781.7321088,
+        "status": 401
+      }
+    ],
+    "seconds": 0.3793201446533203,
+    "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+    "image_sha256": "30819ccec5d66a4825d0597d10cf7efeb5bf1915711bf8a8cd798039b9cc09f7"
+  },
+  {
+    "name": "empty",
+    "unit": "0252564a06af4ecc92df8cfbd830736a",
+    "arm": "B",
+    "repeat": 0,
+    "status": 400,
+    "body": {
+      "error": "invalid review input"
+    },
+    "attempts": [
+      {
+        "at": 1791612782.5851712,
+        "status": 400
+      }
+    ],
+    "seconds": 0.44382739067077637,
+    "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+    "image_sha256": "30819ccec5d66a4825d0597d10cf7efeb5bf1915711bf8a8cd798039b9cc09f7"
+  },
+  {
+    "name": "bad_image",
+    "unit": "0252564a06af4ecc92df8cfbd830736a",
+    "arm": "B",
+    "repeat": 0,
+    "status": 400,
+    "body": {
+      "error": "invalid review input"
+    },
+    "attempts": [
+      {
+        "at": 1791612783.3719842,
+        "status": 400
+      }
+    ],
+    "seconds": 0.3764028549194336,
+    "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+    "image_sha256": "30819ccec5d66a4825d0597d10cf7efeb5bf1915711bf8a8cd798039b9cc09f7"
+  },
+  {
+    "name": "bad_index",
+    "unit": "0252564a06af4ecc92df8cfbd830736a",
+    "arm": "B",
+    "repeat": 0,
+    "status": 400,
+    "body": {
+      "error": "invalid review input"
+    },
+    "attempts": [
+      {
+        "at": 1791612784.2523088,
+        "status": 400
+      }
+    ],
+    "seconds": 0.4827301502227783,
+    "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+    "image_sha256": "30819ccec5d66a4825d0597d10cf7efeb5bf1915711bf8a8cd798039b9cc09f7"
+  }
+]

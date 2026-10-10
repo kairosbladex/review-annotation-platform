@@ -1,0 +1,35 @@
+{
+  "unit": "8c15d99ac84d49958929759f648871c7",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "图中虽可定位到候选区域，但仅凭航拍外观无法确认是否具有违建属性，缺少审批或区域业务依据。",
+        "observed_object": "候选框内可见建筑及屋顶结构。",
+        "reasoning": "不能将建筑外观或标注文字作为违建证据，因此无法明确符合类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "图中虽可定位到候选区域，但仅凭航拍外观无法确认是否具有违建属性，缺少审批或区域业务依据。",
+        "observed_object": "候选框内可见建筑屋顶局部。",
+        "reasoning": "不能将建筑外观或标注文字作为违建证据，因此无法明确符合类别。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "f2a3d535ede048149a37bd1260090c6d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613323.3356478,
+      "status": 200
+    }
+  ],
+  "seconds": 39.23198175430298,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "fe7d5deab9be80a5da477451e13dfe28a404c5910a3611719c96fbd93f1c910d"
+}

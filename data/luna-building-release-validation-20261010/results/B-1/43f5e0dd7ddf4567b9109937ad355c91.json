@@ -1,0 +1,28 @@
+{
+  "unit": "43f5e0dd7ddf4567b9109937ad355c91",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内主体可见为深色立面/竖向区域，不是蓝色或绿色顶棚；框线和文字不作为判断依据。",
+        "observed_object": "建筑立面或竖向结构",
+        "reasoning": "候选框内未见符合定义的蓝色或绿色成片屋面、篷布或彩钢顶棚，明显不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "2a302789faae4206b486dc8051c8b982",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613290.4538972,
+      "status": 200
+    }
+  ],
+  "seconds": 16.71349787712097,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d196f664ef6f0181b897af8957161ea6e4f6af3e4e88b7bb8a3411b7f5ddd14c"
+}

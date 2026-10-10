@@ -1,0 +1,28 @@
+{
+  "unit": "43f5e0dd7ddf4567b9109937ad355c91",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域可见，但仅凭图像无法确认是否存在审批或区域业务依据。",
+        "observed_object": "框内为建筑/墙面区域及文字，不足以证明违建属性。",
+        "reasoning": "违建需要审批或区域业务依据，当前图像没有提供，不能仅凭外观判定。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "6d9f0335f2a64d39afa6acc6abd1c7c9",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613301.5372753,
+      "status": 200
+    }
+  ],
+  "seconds": 29.316033363342285,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d196f664ef6f0181b897af8957161ea6e4f6af3e4e88b7bb8a3411b7f5ddd14c"
+}

@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_0d7bd41ababaee43",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标较小，且仅凭图像无法确认是否有审批或区域业务依据。",
+        "observed_object": "疑似临时建筑或棚状结构",
+        "reasoning": "候选框内可见棚状物体，但“违建”属性不能仅凭外观判断，因此无法明确符合类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标较小，细节和建筑属性不清晰，且缺乏审批或区域业务依据。",
+        "observed_object": "疑似棚状或附属结构",
+        "reasoning": "候选框内可见一处狭长结构，但无法仅凭图像确认其是否为违建。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "ac986831ffa440988d6dadb834a300f3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612995.564055,
+      "status": 200
+    }
+  ],
+  "seconds": 57.250160694122314,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "0d7bd41ababaee43e8da4c47c05970a0d8b47ecf4a671a2cc12174a367817cb4"
+}

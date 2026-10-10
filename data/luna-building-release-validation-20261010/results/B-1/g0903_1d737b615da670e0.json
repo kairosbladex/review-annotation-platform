@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_1d737b615da670e0",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内目标面积很小且受标注框和图像分辨率影响，无法清晰确认其是否为蓝色或绿色顶棚。",
+        "observed_object": "建筑边缘处疑似蓝绿色区域",
+        "reasoning": "仅凭当前可见信息无法唯一判断为符合类别定义的蓝色或绿色顶棚，不能将框线或文字作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "932b1a7f8e4c4aabb206542a07601bf8",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613186.2522058,
+      "status": 200
+    }
+  ],
+  "seconds": 18.075050354003906,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1d737b615da670e0c415f3e1be7c8e210284361129ab8765980fe7b320929dd2"
+}

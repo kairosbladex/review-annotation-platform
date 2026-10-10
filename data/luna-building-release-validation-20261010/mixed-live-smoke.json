@@ -1,0 +1,53 @@
+{
+  "health": {
+    "model": "gpt-5.6-luna",
+    "max_concurrency": 3,
+    "policy": "only_true_is_true_v1",
+    "prompt_version": "p000-building-only"
+  },
+  "response": {
+    "unit": "g0903_0d7bd41ababaee43",
+    "arm": "B",
+    "repeat": 0,
+    "status": 200,
+    "body": {
+      "results": [
+        {
+          "decision": "uncertain",
+          "image_limitation": "目标为远处被框出的蓝色棚状建筑，缺乏审批或区域业务依据，无法判定为违建。",
+          "observed_object": "蓝色棚状建筑",
+          "reasoning": "仅凭外观不能确认其违法建设属性。",
+          "target_index": 0
+        },
+        {
+          "decision": "false",
+          "image_limitation": "框内仅为天空区域，未见人体结构。",
+          "observed_object": "天空",
+          "reasoning": "未发现可见人员。",
+          "target_index": 1
+        }
+      ],
+      "execution_id": "de6cb03fab52415f891a1bb8645750da",
+      "requested_model": "gpt-5.6-luna"
+    },
+    "attempts": [
+      {
+        "at": 1791613581.7823997,
+        "status": 200
+      }
+    ],
+    "seconds": 32.11099815368652,
+    "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+    "image_sha256": "0d7bd41ababaee43e8da4c47c05970a0d8b47ecf4a671a2cc12174a367817cb4"
+  },
+  "prompt_equals_p000": true,
+  "prompt_sha256": "698c698cfbf19456fea8a4cd76f1152cfdc9b2c1d0e541a8c0aca732349ee5d2",
+  "request_version_override_ignored": "covered by execute capture unit tests; live health unchanged",
+  "health_after": {
+    "model": "gpt-5.6-luna",
+    "max_concurrency": 3,
+    "policy": "only_true_is_true_v1",
+    "prompt_version": "p000-building-only"
+  },
+  "shared_unchanged": true
+}

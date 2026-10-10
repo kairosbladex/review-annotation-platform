@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_1d737b615da670e0",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内可见建筑顶部及标注区域，但仅凭图像无法确认是否存在审批缺失或违反区域业务依据的违建属性。",
+        "observed_object": "建筑顶部/屋面局部",
+        "reasoning": "未见足以证明违建的审批或区域依据，不将框线、文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "b90bd557ca0449f09f55fcc63d4b6600",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613182.9856718,
+      "status": 200
+    }
+  ],
+  "seconds": 14.573304176330566,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1d737b615da670e0c415f3e1be7c8e210284361129ab8765980fe7b320929dd2"
+}

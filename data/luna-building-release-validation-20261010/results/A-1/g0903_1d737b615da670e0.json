@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_1d737b615da670e0",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到候选框内疑似建筑顶部标识或装饰，缺乏审批或区域业务依据，无法确认是否为违建。",
+        "observed_object": "建筑顶部疑似标识/装饰物",
+        "reasoning": "不能仅凭图像外观判定违建属性，且候选框内未显示足够结构证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "f926e904b0d942fc972149c21cff6bd3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613200.90492,
+      "status": 200
+    }
+  ],
+  "seconds": 17.440215826034546,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1d737b615da670e0c415f3e1be7c8e210284361129ab8765980fe7b320929dd2"
+}

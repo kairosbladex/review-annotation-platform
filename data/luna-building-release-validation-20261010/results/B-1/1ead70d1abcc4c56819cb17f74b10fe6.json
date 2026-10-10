@@ -1,0 +1,84 @@
+{
+  "unit": "1ead70d1abcc4c56819cb17f74b10fe6",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为成片蓝色彩钢瓦顶棚，符合类别定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "可见蓝色屋面顶棚，虽面积较小但符合类别定义。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见蓝色顶棚结构。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚及浅灰色屋面",
+        "reasoning": "框内包含成片蓝色顶棚，蓝色部分符合类别定义。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为蓝色彩钢瓦顶棚。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "可见蓝色顶棚，结构和颜色均符合。",
+        "target_index": 5
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见蓝色屋面顶棚。",
+        "target_index": 6
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内主体为浅蓝色成片屋面，属于蓝色顶棚范畴。",
+        "target_index": 7
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内同时包含红色屋面、蓝色物体和树木，蓝色部分与其他物体边界及性质不够明确。",
+        "observed_object": "疑似蓝色顶棚",
+        "reasoning": "存在疑似蓝色屋面，但无法仅凭当前框内内容唯一确认其为顶棚。",
+        "target_index": 8
+      }
+    ],
+    "execution_id": "60e0f9f0f79843dab43b33a2bd6eb145",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613208.374772,
+      "status": 200
+    }
+  ],
+  "seconds": 43.95956873893738,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ae41a77c21c536107dd295921eebc92766d5d447396d2db0e5cd621ee28dde51"
+}

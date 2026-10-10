@@ -1,0 +1,42 @@
+{
+  "unit": "0252564a06af4ecc92df8cfbd830736a",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅凭航拍外观无法确认是否具备审批或区域业务依据。",
+        "observed_object": "框内为屋顶建筑及蓝色、浅色顶棚。",
+        "reasoning": "目标可定位，但缺乏违建认定所需的审批或区域依据，不能仅凭外观判定。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅凭航拍外观无法确认是否具备审批或区域业务依据。",
+        "observed_object": "框内为一处红色金属顶棚建筑。",
+        "reasoning": "目标可定位，但无法依据图像确认其是否违建。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅凭航拍外观无法确认是否具备审批或区域业务依据。",
+        "observed_object": "框内为一处蓝色顶棚建筑及周边附属区域。",
+        "reasoning": "目标可定位，但缺乏审批或区域业务依据，不能仅凭建筑外观认定为违建。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "eb231f55a98143eb88ae1cb6826758be",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613016.671274,
+      "status": 200
+    }
+  ],
+  "seconds": 20.65320134162903,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "30819ccec5d66a4825d0597d10cf7efeb5bf1915711bf8a8cd798039b9cc09f7"
+}

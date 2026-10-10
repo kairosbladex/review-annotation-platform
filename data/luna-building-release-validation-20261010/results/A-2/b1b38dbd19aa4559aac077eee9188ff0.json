@@ -1,0 +1,32 @@
+{
+  "unit": "b1b38dbd19aa4559aac077eee9188ff0",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "图中仅能看到建筑外观，缺乏审批或区域业务依据，无法确认是否为违建。",
+        "observed_object": "候选框内为一栋高层建筑及其顶部文字。",
+        "reasoning": "仅凭建筑外观和文字不能判定违建属性。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "0aedf0cc421646abacb9a0ceac7b4cf7",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612817.7521036,
+      "status": 503
+    },
+    {
+      "at": 1791612861.2054672,
+      "status": 200
+    }
+  ],
+  "seconds": 76.26148653030396,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f167f0e34a9a924f6b7ac30982292af6c35ad7ef06828db1f5f9e962793764e5"
+}

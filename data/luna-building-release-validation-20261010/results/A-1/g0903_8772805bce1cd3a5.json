@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_8772805bce1cd3a5",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内可见棚状/箱状物体及文字标记，但缺少审批或区域业务依据，无法据此确认违建属性。",
+        "observed_object": "道路旁的棚状结构/箱体",
+        "reasoning": "仅凭外观不能判断是否为违建；框线和文字不作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "4f56efe0619f4cdb8f4b147f7c7a438a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613136.721473,
+      "status": 503
+    },
+    {
+      "at": 1791613167.5808444,
+      "status": 200
+    }
+  ],
+  "seconds": 63.228574991226196,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

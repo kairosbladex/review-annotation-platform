@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_cb972ded8e2484ae",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内可见建筑外立面，但仅凭图像无法确认其是否未经审批或属于违建。",
+        "observed_object": "建筑物外立面",
+        "reasoning": "目标类别为违建，需要审批或区域业务依据；图像中没有相关证据，因此不能明确判定。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "90e35d736a8949ebbea99507462754c9",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613283.6774256,
+      "status": 200
+    }
+  ],
+  "seconds": 34.649473905563354,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "cb972ded8e2484aee44914c7fb157c88897ac5c1bbc10953ef2040096be1ca23"
+}

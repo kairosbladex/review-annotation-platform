@@ -1,0 +1,42 @@
+{
+  "unit": "0252564a06af4ecc92df8cfbd830736a",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到建筑和屋顶外观，缺少审批或区域业务依据，无法确认是否违建。",
+        "observed_object": "框内为带蓝色屋顶的建筑及周边屋面。",
+        "reasoning": "违建属性不能仅凭外观判断。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到一处建筑屋顶，缺少审批或区域业务依据。",
+        "observed_object": "框内为带锈色金属屋顶的小型建筑。",
+        "reasoning": "无法据此确认其为违建。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "仅能看到蓝色屋顶建筑及周边环境，缺少审批或区域业务依据。",
+        "observed_object": "框内为较大的蓝色金属屋顶建筑。",
+        "reasoning": "违建属性不能仅凭建筑外观确认。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "d7642d9f824840ad9432593df5dc4e2e",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613012.9588897,
+      "status": 200
+    }
+  ],
+  "seconds": 29.65487313270569,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "30819ccec5d66a4825d0597d10cf7efeb5bf1915711bf8a8cd798039b9cc09f7"
+}

@@ -1,0 +1,42 @@
+{
+  "unit": "0252564a06af4ecc92df8cfbd830736a",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为建筑上方成片浅蓝色和蓝色屋面，符合蓝色顶棚定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "红褐色顶棚",
+        "reasoning": "框内主体为红褐色金属屋面，不属于蓝色或绿色顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为成片亮蓝色矩形屋面，符合蓝色顶棚定义。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "1edbf54a2ba746a38bcee7ffe464ddab",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613017.4804466,
+      "status": 200
+    }
+  ],
+  "seconds": 33.81183433532715,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "30819ccec5d66a4825d0597d10cf7efeb5bf1915711bf8a8cd798039b9cc09f7"
+}

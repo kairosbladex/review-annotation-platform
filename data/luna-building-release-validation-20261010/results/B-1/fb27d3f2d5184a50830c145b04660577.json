@@ -1,0 +1,28 @@
+{
+  "unit": "fb27d3f2d5184a50830c145b04660577",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内主体为紫红色/橙色热成像区域，无法确认蓝色或绿色顶棚。",
+        "observed_object": "疑似建筑边缘或屋面结构",
+        "reasoning": "候选框内未见符合类别要求的蓝色或绿色顶棚，不能仅凭框线和热成像颜色判定为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "504f26cbc0d4431b8cc83fe467753d60",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612942.3456397,
+      "status": 200
+    }
+  ],
+  "seconds": 36.289294958114624,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ec3a7c02c11f4fa895bf2942d72711d4392f47b87c7c29fb3969f6b0d626ec20"
+}

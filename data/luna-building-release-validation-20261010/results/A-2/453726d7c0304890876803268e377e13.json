@@ -1,0 +1,42 @@
+{
+  "unit": "453726d7c0304890876803268e377e13",
+  "arm": "A",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标可定位，但仅凭图像无法确认是否缺少审批或违反区域业务规定。",
+        "observed_object": "建筑或构筑物",
+        "reasoning": "候选框内确有建筑物，但“违建”属性不能仅依据外观判断。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标可定位，但仅凭图像无法确认是否缺少审批或违反区域业务规定。",
+        "observed_object": "建筑或构筑物",
+        "reasoning": "候选框内确有建筑物，但“违建”属性不能仅依据外观判断。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标可定位，但仅凭图像无法确认是否缺少审批或违反区域业务规定。",
+        "observed_object": "建筑或构筑物",
+        "reasoning": "候选框内确有建筑物，但“违建”属性不能仅依据外观判断。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "9db480986ad244d29388b9f035fd92a2",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612808.2750983,
+      "status": 200
+    }
+  ],
+  "seconds": 23.27799129486084,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "a9ae28ddb2664bae6c99beec6844564a6f53dfe2d761880a491277933924e42d"
+}

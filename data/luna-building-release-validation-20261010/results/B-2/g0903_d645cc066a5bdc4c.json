@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内主要可见蓝色围挡或墙面，无法确认是覆盖在上方的蓝绿色顶棚。",
+        "observed_object": "建筑立面上的蓝色矩形区域",
+        "reasoning": "不将蓝色墙面或围挡作为违建顶棚证据，无法唯一确认符合类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色、带平行纹理的矩形棚面",
+        "reasoning": "框内主体明显是覆盖在地面区域上方的蓝绿色彩钢板顶棚，符合类别。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色、带平行纹理的矩形棚面",
+        "reasoning": "框内可见蓝绿色彩钢板状棚面，具有顶棚结构特征，符合类别。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "2fc41e02198b4348a58ad001550a40f3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612823.7631168,
+      "status": 200
+    }
+  ],
+  "seconds": 15.300466775894165,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

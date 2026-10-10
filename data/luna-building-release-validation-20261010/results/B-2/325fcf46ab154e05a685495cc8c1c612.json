@@ -1,0 +1,56 @@
+{
+  "unit": "325fcf46ab154e05a685495cc8c1c612",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标较小且受标注线与低清晰度影响，无法可靠确认屋面颜色。",
+        "observed_object": "疑似建筑或棚顶区域",
+        "reasoning": "不能明确判断主体是否为蓝色或绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标尺寸较小，标注文字和框线干扰明显，颜色无法可靠辨识。",
+        "observed_object": "疑似建筑或棚顶区域",
+        "reasoning": "无法明确确认蓝色或绿色屋面。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内包含多处建筑、标注线及阴影，屋面颜色和主体边界不清。",
+        "observed_object": "建筑群或棚架区域",
+        "reasoning": "无法唯一确认框内主体为蓝色或绿色顶棚。",
+        "target_index": 2
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标被标注线、文字和阴影遮挡，图像细节不足。",
+        "observed_object": "疑似建筑或棚顶区域",
+        "reasoning": "无法明确判断是否存在符合类别的蓝色或绿色顶棚。",
+        "target_index": 3
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选区域过小且清晰度不足，屋面颜色难以分辨。",
+        "observed_object": "疑似建筑或棚顶区域",
+        "reasoning": "不能明确确认主体为蓝色或绿色顶棚。",
+        "target_index": 4
+      }
+    ],
+    "execution_id": "a2623a337ac84567bb94bc273894d8ba",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613107.7982397,
+      "status": 200
+    }
+  ],
+  "seconds": 52.77711367607117,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "6e0c71b0dcdc1307da0d50f038a90f455b26f31a83ab37924897f2aca64fed1d"
+}

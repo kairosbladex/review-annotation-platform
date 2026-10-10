@@ -1,0 +1,42 @@
+{
+  "unit": "453726d7c0304890876803268e377e13",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内建筑屋面面积小且受边缘、阴影及标注框影响，无法可靠分辨是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似建筑屋面/棚顶",
+        "reasoning": "无法明确确认主体为蓝色或绿色顶棚，按规则输出uncertain。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标狭窄且部分被框线遮挡，屋面颜色和结构不可清晰辨认。",
+        "observed_object": "疑似狭长屋面结构",
+        "reasoning": "不能唯一确认是蓝色或绿色顶棚，按规则输出uncertain。",
+        "target_index": 1
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标虽可见，但图像细节有限。",
+        "observed_object": "灰白色长条建筑屋面",
+        "reasoning": "框内主体呈灰白色屋面，不符合蓝色或绿色顶棚类别。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "46380c9d15d0402f9104cf55ce02170a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791612862.4724274,
+      "status": 200
+    }
+  ],
+  "seconds": 61.40845489501953,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "a9ae28ddb2664bae6c99beec6844564a6f53dfe2d761880a491277933924e42d"
+}

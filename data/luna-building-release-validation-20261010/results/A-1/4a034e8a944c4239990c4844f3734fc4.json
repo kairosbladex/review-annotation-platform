@@ -1,0 +1,70 @@
+{
+  "unit": "4a034e8a944c4239990c4844f3734fc4",
+  "arm": "A",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "可见屋顶或建筑结构，但仅凭图像无法判断是否具有违建审批或区域业务依据。",
+        "observed_object": "建筑屋顶",
+        "reasoning": "目标可定位，但违建属性不能仅凭外观确认。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "可见建筑屋顶，但缺少审批或区域依据。",
+        "observed_object": "建筑屋顶",
+        "reasoning": "无法仅凭图像确认违建。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "可见蓝色屋顶建筑，但缺少审批或区域依据。",
+        "observed_object": "建筑屋顶",
+        "reasoning": "无法仅凭图像确认违建。",
+        "target_index": 2
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域包含屋顶建筑，部分受框线和邻近结构影响，且缺少审批依据。",
+        "observed_object": "建筑屋顶",
+        "reasoning": "无法仅凭图像确认违建。",
+        "target_index": 3
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "可见建筑屋顶，但缺少审批或区域依据。",
+        "observed_object": "建筑屋顶",
+        "reasoning": "无法仅凭图像确认违建。",
+        "target_index": 4
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "可见蓝色屋顶建筑，但缺少审批或区域依据。",
+        "observed_object": "建筑屋顶",
+        "reasoning": "无法仅凭图像确认违建。",
+        "target_index": 5
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标位于图像底部，部分截断，且缺少审批或区域依据。",
+        "observed_object": "部分建筑屋顶",
+        "reasoning": "无法唯一充分判断其是否为违建。",
+        "target_index": 6
+      }
+    ],
+    "execution_id": "d10e2ac01a4641d8a469192de0f12e89",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791613357.3493433,
+      "status": 200
+    }
+  ],
+  "seconds": 33.60462999343872,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "48800d3136c1c525469761dc50079c3ad4b3908a3330d24809d45398f01d8899"
+}
