@@ -1,0 +1,42 @@
+{
+ "unit": "0817018399294bc094e222207daf4f4b",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:0817018399294bc094e222207daf4f4b:000",
+   "decision": "uncertain",
+   "image_limitation": "目标0位于画面左下边缘，仅露出很小一角，无法确认完整车形。",
+   "observed_object": "画面边缘的局部物体",
+   "reasoning": "目标出画且露出部分过少，无法依据外观确认是机动车，也无法排除其他物体。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:0817018399294bc094e222207daf4f4b:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车区域内的一辆小汽车",
+   "reasoning": "框内可见圆角长方形车身、深色车窗带，位于地面停车区域，尺度和朝向与车辆相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595379.2608058,
+   "seconds": 25.32,
+   "status": "ok",
+   "health": {
+    "at": 1791595353.9454484,
+    "available_fraction": 0.4774957670935972,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "80238f1e03af4242a8709576ee770dfc",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b859acd05657142e488e6b148f3e309e377d2c63aeee683da71e9446cea32a48",
+ "prompt_sha256": "7200365da7e62c2ee4068da6724da44fa1db88ac81a3b53b7c7688bad28ce3fa",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_deb3b561f0a020d5",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:22f50e485cd4400f9828b3b8b218857a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片蓝色矩形顶棚，位于建筑屋面区域上方，边缘规整并带有平行纹理。",
+   "reasoning": "目标主体符合蓝色顶棚的外观特征，位置和尺度也与建筑上的成片蓝色屋面相符，因此判断为true。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595575.1188064,
+   "seconds": 27.25,
+   "status": "ok",
+   "health": {
+    "at": 1791595547.8648162,
+    "available_fraction": 0.4772149920035644,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a88ca29dddf04e2b9e9c8c81d5899931",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "ca9e61382f8a6c9e779e6483150dc03b9fcccdc5f534e8c37a38060e7c179b29",
+ "prompt_sha256": "64ad156451c682c5936043276d9e7c02010916ec5d7ef514730e3f0dd437ae41",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

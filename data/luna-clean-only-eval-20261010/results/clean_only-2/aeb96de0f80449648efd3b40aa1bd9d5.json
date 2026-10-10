@@ -1,0 +1,34 @@
+{
+ "unit": "aeb96de0f80449648efd3b40aa1bd9d5",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "aeb96de0f80449648efd3b40aa1bd9d5:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "一个小型白色物体，带有深色局部，外观不像人员的头部、肩部或躯干。",
+   "reasoning": "框内目标位于铺装区域，形状偏扁小且不具备人员俯视时应有的头部与肩部结构，位置和尺度也更像散落物或其他小物体，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597592.735577,
+   "seconds": 31.72,
+   "status": "ok",
+   "health": {
+    "at": 1791597561.014442,
+    "available_fraction": 0.44621284381268495,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d89f1d3d72d04d2c805020e81193943b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "13e1b6c91bc9357f97ac80c2a69dac5976bc4ca8eb708a0fc9732d3709a55e6a",
+ "prompt_sha256": "2e32f9c061c327fe93955921bae30ba885926aa8f716ab99a6cf0a1995dd77d1",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

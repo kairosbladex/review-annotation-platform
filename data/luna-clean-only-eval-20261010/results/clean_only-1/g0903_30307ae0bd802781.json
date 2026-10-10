@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_30307ae0bd802781",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:18172673ac38432aa6a1d99482f45439",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝绿色长条状棚顶或通道顶棚",
+   "reasoning": "框内可见的是位于道路旁的蓝绿色成片顶棚，颜色和外观符合蓝绿色屋面，位置与尺度也相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b52575f40fd548eab466771d11f3cc48",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝绿色长条状棚顶或通道顶棚",
+   "reasoning": "框内主体是覆盖在通道上方的蓝绿色矩形顶棚，边缘规整，符合类别要求。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595996.2209208,
+   "seconds": 25.12,
+   "status": "ok",
+   "health": {
+    "at": 1791595971.1026404,
+    "available_fraction": 0.4784899711369531,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "eee8845d5a394f49ab15fea581f1394d",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "9510c2f291bf282872a940274686a753d493c8b2f870f64549729249b0772c05",
+ "prompt_sha256": "1423ad0d13eaf91c4612b7492a87ab1da16289b86db4cb3dcc024ab5f50155de",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

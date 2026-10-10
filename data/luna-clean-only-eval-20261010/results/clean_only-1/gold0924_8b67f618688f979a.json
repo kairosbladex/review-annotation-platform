@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_8b67f618688f979a",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-025",
+   "decision": "true",
+   "image_limitation": "目标清晰可见，无遮挡且未出画。",
+   "observed_object": "岸边台阶附近可见一名穿白衣、黑发的人员，呈竖长人体轮廓。",
+   "reasoning": "框内实际物体符合人员的外观特征，位于可站立的岸边铺装区域，位置和尺度均合理。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597156.0044293,
+   "seconds": 27.63,
+   "status": "ok",
+   "health": {
+    "at": 1791597128.3785305,
+    "available_fraction": 0.4545909524027246,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a27b37448a484022a8e903b78aefc4e2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f29a53de805ac2f9a3907803f1b702beddc2587209e8c61aec869d938e0e6aaa",
+ "prompt_sha256": "71c922fc167b4a419faf1331627211accdfa8cc8c9a3d8b96b906d688c42aab7",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

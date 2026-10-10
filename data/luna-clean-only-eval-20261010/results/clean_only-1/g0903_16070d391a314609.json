@@ -1,0 +1,58 @@
+{
+ "unit": "g0903_16070d391a314609",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ff202383d6674e13ade5162d89c90529",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "框内可见完整的长方形车身和深色车窗，位于院落道路旁，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:3039d76145f84aa1a60f92ed3c02519e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "深色小汽车",
+   "reasoning": "框内是停在铺装地面上的机动车，车顶和车身轮廓清晰，符合小汽车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:ed5987ba00054ababb624eb1f47b6e9b",
+   "decision": "uncertain",
+   "image_limitation": "目标非常小且局部模糊，无法可靠确认是两轮车还是其他小型物体。",
+   "observed_object": "道路边的微小浅色物体",
+   "reasoning": "框内仅能看到一个很小的亮色目标，缺乏足够清晰的细长车身或车轮形态。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:9989d35690a8475c8ed7b617e195428a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "深色小汽车",
+   "reasoning": "框内可见明显的机动车车身、车顶和深色玻璃区域，位于建筑前铺装区域，尺度匹配。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596150.551166,
+   "seconds": 16.68,
+   "status": "ok",
+   "health": {
+    "at": 1791596133.8689957,
+    "available_fraction": 0.4729653351596077,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "953a48efe4bd4f27a5a83fbf84495e0d",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "98fdfe44927dbfff37cc205b68f917cdb3ce9e65df3ef80d808878be4f3904b9",
+ "prompt_sha256": "63bd2020feeff25d51bb9cacde6df29d0abe12b1635ef4f3466fcbe2d530ea32",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

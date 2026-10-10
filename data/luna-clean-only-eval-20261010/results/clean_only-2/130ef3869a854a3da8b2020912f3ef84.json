@@ -1,0 +1,34 @@
+{
+ "unit": "130ef3869a854a3da8b2020912f3ef84",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "130ef3869a854a3da8b2020912f3ef84:000",
+   "decision": "false",
+   "image_limitation": "无明显限制，目标清晰可辨。",
+   "observed_object": "一个小型白色摄像头或管状装置，而不是人员。",
+   "reasoning": "框内目标呈白色小型设备状，带黑色圆部，位于地面铺装区域，缺少人员应有的头部、肩部或躯干腿部结构，因此不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594955.8502645,
+   "seconds": 19.23,
+   "status": "ok",
+   "health": {
+    "at": 1791594936.6182337,
+    "available_fraction": 0.4633108186326679,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2fcc2a35cb1c4385a4c3d142e3f3f3e3",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "4a594d927e20a6012f915a9b813b1f16d67157c82168e7ca6be7ca5fff505816",
+ "prompt_sha256": "71d9c3fe0442d7860c2edbf114d982d787fa400f88763baa30c5cd3d130d34ab",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

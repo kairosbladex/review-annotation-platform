@@ -1,0 +1,50 @@
+{
+ "unit": "g0903_d645cc066a5bdc4c",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3384f2739ad745b3b67ed154e7f5ac9f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑立面的蓝色玻璃窗",
+   "reasoning": "框内是建筑外墙上的窗户，不是覆盖在建筑或空地上方的蓝色、绿色顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:9f3b0ba9ab134358b8f1b202bdc5454a",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡",
+   "reasoning": "框内主体是地面上的长条状蓝色围挡，符合排除项，不是顶棚。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:445ef456f78e4547b4064cd552e1cfb9",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡",
+   "reasoning": "框内主体是地面上的蓝色围挡，且部分出画，不是蓝色或绿色顶棚。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597280.8313289,
+   "seconds": 38.53,
+   "status": "ok",
+   "health": {
+    "at": 1791597242.305624,
+    "available_fraction": 0.4539787860982647,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2878989c12374826b45e36be218f6874",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "69f72ba9cbad42b33c5b5070f9e6b70fed9cbf0f25a2de3fd0a3928d18474770",
+ "prompt_sha256": "63ac4406ba7953ec2b6c69e0525fea30ce4fa7eb25eb82a9b1606f6306f4e745",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

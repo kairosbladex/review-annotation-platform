@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_7e752d9beff9387a",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:d0c64659575a47c0ab997593532f0db2",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是远处建筑旁的灰白色长条屋顶/棚顶，未见蓝色或绿色顶棚特征。",
+   "reasoning": "该候选框主体颜色偏灰白，且呈狭长屋顶形态，不符合“蓝色或绿色成片顶棚”的违建类别外观要求，因此判断为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595190.9518604,
+   "seconds": 15.35,
+   "status": "ok",
+   "health": {
+    "at": 1791595175.6042364,
+    "available_fraction": 0.47098799270009084,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "729dd8341de241178bd7d539ea3acd95",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "57fec1b04572a9b133a37cc51dcb95e5b8a33cd1b79828cc146e7ba30eb7a44e",
+ "prompt_sha256": "8d76f8a7c2ec17c8efd83185b84934973d645347f6edf17b807c2b89ed17becc",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

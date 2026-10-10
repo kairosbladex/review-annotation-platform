@@ -1,0 +1,12 @@
+{
+ "at": "2026-10-10T09:49:44.038386+08:00",
+ "command": "PYTHONPATH=scripts python3 -m unittest scripts/test_luna_clean_only.py -q",
+ "result": "5 tests passed",
+ "model_calls_in_tests": 0,
+ "source_sha256": {
+  "luna_clean_only_eval.py": "e0cc1fa49db5cda1b8056dd9183c61e0af2212922b9513956144fdc7f1769ae3",
+  "score_luna_clean_only.py": "2af5ac33bf3efaa534bd7c334b8010c016d55b09afe2166ce7edc27a3e9b7b55",
+  "test_luna_clean_only.py": "011d5ebc444e0d473fbf6a5ba7dcdc2ffd8400ff24a91f238a63223f11d53928"
+ },
+ "cli_override_validation": "syntax check and 10 resumed real evaluations succeeded; no change to request construction"
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "596dbc4ade5e4742ad955faf49d340d7",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "596dbc4ade5e4742ad955faf49d340d7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "绳索上的人员，呈小型横向椭圆状，可见头部与身体轮廓",
+   "reasoning": "框内实际目标位于水面绳索上，外观符合俯拍人员的头部和肩躯干形态，尺度较小但与周围环境相符，不像车辆或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596338.375909,
+   "seconds": 15.7,
+   "status": "ok",
+   "health": {
+    "at": 1791596322.6748435,
+    "available_fraction": 0.48067762131332215,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ad23e12504cd4a12afaebe49b484d349",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "31411703f774b75415e3a078b61896e6c9afbc6a61505ef990e989a2fb65e0c5",
+ "prompt_sha256": "ab38aa00745c21ee5c5aca87e8040e21afb105d97e5c180b1cf321ede15a89de",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

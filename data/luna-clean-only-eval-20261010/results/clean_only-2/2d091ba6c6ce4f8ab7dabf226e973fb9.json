@@ -1,0 +1,34 @@
+{
+ "unit": "2d091ba6c6ce4f8ab7dabf226e973fb9",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2d091ba6c6ce4f8ab7dabf226e973fb9:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡到无法判断。",
+   "observed_object": "道路旁的工程设备或箱体，不是机动车。",
+   "reasoning": "框内物体呈方形箱体状，位于施工围挡和道路边缘，缺少车辆应有的圆角长方形车身、车顶及深色前后挡风玻璃横带，位置和形状也不符合车辆特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595540.1791654,
+   "seconds": 23.52,
+   "status": "ok",
+   "health": {
+    "at": 1791595516.6571145,
+    "available_fraction": 0.4783610748201775,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "908a510e477a474bbf63f4befd161e8f",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8fb06c85d1e089e5b7a1d6031bd53d2582b4c4549617b5fe91ce4550f441f658",
+ "prompt_sha256": "249f42055551030af02246039f2f978585c6245dbce28428602ff8f6ef9a56ba",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

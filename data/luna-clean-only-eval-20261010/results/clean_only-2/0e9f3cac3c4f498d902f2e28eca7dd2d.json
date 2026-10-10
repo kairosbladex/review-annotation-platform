@@ -1,0 +1,114 @@
+{
+ "unit": "0e9f3cac3c4f498d902f2e28eca7dd2d",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "地面上的白色汽车",
+   "reasoning": "框内可见完整的车身轮廓和深色车窗，位于地面停车区域，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色汽车",
+   "reasoning": "可见车顶、车窗和长方形车身，停放在地面区域，符合机动车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "深色汽车",
+   "reasoning": "框内可见明确的汽车车身和车窗，位于地面停车位置。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色汽车",
+   "reasoning": "车身、车顶及深色玻璃区域清晰可辨，位置和尺度均符合车辆。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色汽车",
+   "reasoning": "框内是停放在地面上的完整汽车，具有车顶和挡风玻璃的典型形状。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色汽车",
+   "reasoning": "可见长方形车身与深色车窗，处于地面道路或停车区域。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "深色汽车",
+   "reasoning": "框内目标呈现明确的车身轮廓和车窗，符合小汽车外观。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:007",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "白色通信杆或天线设施",
+   "reasoning": "框内主要是道路旁的白色设施结构，形状为杆件和环状部件，不具备汽车车顶及车窗轮廓。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色汽车",
+   "reasoning": "可辨认车顶、车窗和车身轮廓，停放于地面位置，符合车辆尺度。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:009",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "白色通信杆或天线设施",
+   "reasoning": "框内是道路旁的白色环状通信设施，不是具有车身和车窗的机动车。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "灰色汽车",
+   "reasoning": "框内可见清晰的车顶和深色玻璃区域，位于地面停车处，符合汽车特征。",
+   "target_index": 10
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594829.7316308,
+   "seconds": 18.04,
+   "status": "ok",
+   "health": {
+    "at": 1791594811.6945224,
+    "available_fraction": 0.46387899602902066,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d3fa099c941140c8ad63627f970afd0a",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254",
+ "prompt_sha256": "4fd7af43de39cb5dba9e0bcd53e26c4c0d0e06a8312780971848851d24e78468",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

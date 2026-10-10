@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_a212b4033b766a2f",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:6b2ea968f3ee48bb95a6d709084b1995",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝色施工围挡或广告牌墙面",
+   "reasoning": "框内主体是沿道路边缘竖立的长条形蓝色围挡，表面有宣传文字和标识，属于地面上的围挡/广告牌，不是覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597272.8725686,
+   "seconds": 15.7,
+   "status": "ok",
+   "health": {
+    "at": 1791597257.168252,
+    "available_fraction": 0.4491865487208621,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ed80304596e0494b9edec2235182d833",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8726da9dadf87a6801571d2806b1057d0e69bdfe69c9a668fa13264dfa32ebee",
+ "prompt_sha256": "c27a09cd71ec95878f4a001cb58c599654edddda2cbf73f388826e8e1b47bf71",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

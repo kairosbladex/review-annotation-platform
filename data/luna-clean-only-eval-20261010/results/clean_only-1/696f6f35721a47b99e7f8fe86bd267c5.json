@@ -1,0 +1,34 @@
+{
+ "unit": "696f6f35721a47b99e7f8fe86bd267c5",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "696f6f35721a47b99e7f8fe86bd267c5:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是一辆停在道路车道上的小汽车，可见完整车顶、挡风玻璃和车身轮廓。",
+   "reasoning": "目标外观符合机动车特征，形状、尺度及所在道路位置均与“车”类别相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597958.5897813,
+   "seconds": 17.28,
+   "status": "ok",
+   "health": {
+    "at": 1791597941.3129096,
+    "available_fraction": 0.42234641395854694,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "38d4330b785c4bae916ad0d154ccd5e8",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d1a01d4921fa70399d431a41fc394243e57c8128a6e4f5169dd32a1cc6e05a87",
+ "prompt_sha256": "76892405c284b81d500d1d1fff4bfe82538f6ae1c63d7f7c0a79d0e4e79c4aa5",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

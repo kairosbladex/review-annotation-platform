@@ -1,0 +1,58 @@
+{
+ "unit": "a61f31479616441ab0e2686ba478b06f",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "框内可见完整的细长车身、深色车窗，停在院落停车区域，形状和尺度符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "框内可见车顶、深色车窗和车身轮廓，位于地面停车区域，符合车辆特征。",
+   "target_index": 1
+  },
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内是停放在道路旁的机动车，可见车身和车窗轮廓，位置及尺度合理。",
+   "target_index": 2
+  },
+  {
+   "key": "a61f31479616441ab0e2686ba478b06f:016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色小汽车",
+   "reasoning": "框内为停车位中的白色小汽车，可见车顶和深色车窗，符合车辆外观。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595199.0882819,
+   "seconds": 15.77,
+   "status": "ok",
+   "health": {
+    "at": 1791595183.3154116,
+    "available_fraction": 0.478767584619216,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d5c385ccf6c94e639a48c72bc2cfd7f1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8a626ffbddba10a203a23c41b2e50a864ad1d225cccc1acee8f197c9266c7074",
+ "prompt_sha256": "7d8f4480d9cff5acd6b83c0967f048fe916f2dcd63a9a4435bc76cb8a1ac38b2",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

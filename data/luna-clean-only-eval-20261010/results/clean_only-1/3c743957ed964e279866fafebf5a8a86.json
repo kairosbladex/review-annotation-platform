@@ -1,0 +1,34 @@
+{
+ "unit": "3c743957ed964e279866fafebf5a8a86",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c743957ed964e279866fafebf5a8a86:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无遮挡到无法判断。",
+   "observed_object": "建筑外墙及屋顶边缘的墙面、窗户和水平装饰结构，没有机动车。",
+   "reasoning": "框内实际是建筑立面和屋顶边缘，未见符合车的圆角长方形车身、车窗带及道路或停车位位置关系，因此不属于车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597132.0005474,
+   "seconds": 19.28,
+   "status": "ok",
+   "health": {
+    "at": 1791597112.7179687,
+    "available_fraction": 0.44867339545973667,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d090633135a6465ea4bbb47fd1e7c608",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60",
+ "prompt_sha256": "e6c849f39e3aa86909a8f533b21621b3577e78bae4708e67d015612278f37f0f",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

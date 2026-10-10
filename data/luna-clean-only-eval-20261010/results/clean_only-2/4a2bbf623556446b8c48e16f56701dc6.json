@@ -1,0 +1,34 @@
+{
+ "unit": "4a2bbf623556446b8c48e16f56701dc6",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:4a2bbf623556446b8c48e16f56701dc6:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面顶边，仅露出一小部分，主体大半出画，无法完整确认车形。",
+   "observed_object": "画面顶部边缘可见一个小型灰白色物体，局部疑似带深色区域。",
+   "reasoning": "该目标被画面边界截断，露出部分不足以判断是否为具有车顶和挡风玻璃横带的机动车；依据规则应判为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598010.5185866,
+   "seconds": 32.68,
+   "status": "ok",
+   "health": {
+    "at": 1791597977.8336213,
+    "available_fraction": 0.41797804482284295,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d200bfea41d8423eba1a362455f7594e",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "50971c2a2aae59f9f96abf438311de01835da685acdb6abe525ba83e77fce13a",
+ "prompt_sha256": "deb4e6e657b2688bf750dbd6cdf2951bf0cab212e4cbd4a5fe40781f99a7c63b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

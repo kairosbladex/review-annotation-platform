@@ -1,0 +1,50 @@
+{
+ "unit": "a8f2626d28c6499e9ef6f1c1bfa1e2f9",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:003",
+   "decision": "true",
+   "image_limitation": "无遮挡，车辆轮廓和车顶清晰可见。",
+   "observed_object": "一辆停放的小汽车。",
+   "reasoning": "目标呈圆角长方形车身，具有车顶和深色玻璃区域，位于地面停车区域，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:005",
+   "decision": "true",
+   "image_limitation": "部分被植被邻近遮挡，但车身主体清晰。",
+   "observed_object": "一辆停放的小汽车。",
+   "reasoning": "可见完整的车顶、车身轮廓及深色车窗，位置在地面停车区域，符合机动车外观和尺度。",
+   "target_index": 1
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:011",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "屋顶上的设备箱或空调外机。",
+   "reasoning": "该物体位于建筑平台屋顶，形状和尺度不符合汽车，未见车身、车顶玻璃等车辆特征。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595686.2273772,
+   "seconds": 16.78,
+   "status": "ok",
+   "health": {
+    "at": 1791595669.4510345,
+    "available_fraction": 0.4780122339628662,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1851a2b1e05940ccba3a6e4ef590afda",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "03d9f3fc174c1d5a08ab06736a4c946d849ec759a79b54e4fe1b4bae6d44cffd",
+ "prompt_sha256": "7b9530ac097692116ea5741f4e005737110e36665e4a5f0d79266180516b769e",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

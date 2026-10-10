@@ -1,0 +1,34 @@
+{
+ "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或出画。",
+   "observed_object": "框内是路边的小型彩色物件/摊位状物体，不是卡车。",
+   "reasoning": "未见卡车所需的驾驶室与后部货厢分段结构，且整体尺度明显小于卡车，更符合路边杂物或小型设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595223.296364,
+   "seconds": 14.92,
+   "status": "ok",
+   "health": {
+    "at": 1791595208.3790119,
+    "available_fraction": 0.47583166700390483,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8a586d1606e44526be7205dd361cfbd3",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1c146c79d354d787191fac0cbd6de323217a9dbbb37924a760a3c70c608cb249",
+ "prompt_sha256": "2c29ed1e0a5c97eb948cd181859074bdec22acb07842f6f1629af2b5b8d766c6",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

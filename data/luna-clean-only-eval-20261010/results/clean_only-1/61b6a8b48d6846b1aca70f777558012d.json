@@ -1,0 +1,50 @@
+{
+ "unit": "61b6a8b48d6846b1aca70f777558012d",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:61b6a8b48d6846b1aca70f777558012d:003",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面边缘并被树冠大幅遮挡，只露出局部，无法确认完整车形。",
+   "observed_object": "树冠下的局部浅色物体",
+   "reasoning": "可见区域不足以判断是否为机动车，且无法排除其他设施或物体。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:61b6a8b48d6846b1aca70f777558012d:004",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "道路上的斑马线/路面标线",
+   "reasoning": "框内主要是白色横向道路标线及路面，不具备车辆的车顶、挡风玻璃和圆角长方形车身特征。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:61b6a8b48d6846b1aca70f777558012d:005",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "道路中央隔离设施及路面",
+   "reasoning": "框内可见的是道路标线、隔离带边缘和路面，不是机动车。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595731.2636716,
+   "seconds": 28.37,
+   "status": "ok",
+   "health": {
+    "at": 1791595702.8920817,
+    "available_fraction": 0.4784334269979902,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1c71bfc0866044c49d1ce5879484f74b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "276ee3e24ecca6efc6c736170520c2d19544cac53865f580b4345ff9864e641f",
+ "prompt_sha256": "fdb2478fcb5a6f57d502553b5a9e9f05b6e600cb06595b1ed618b4582eb22ddd",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

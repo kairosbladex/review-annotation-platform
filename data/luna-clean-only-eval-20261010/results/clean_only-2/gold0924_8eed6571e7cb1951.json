@@ -1,0 +1,82 @@
+{
+ "unit": "gold0924_8eed6571e7cb1951",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-018",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法确认具体形态",
+   "observed_object": "广场上的微小深色斑点",
+   "reasoning": "框内目标尺寸极小，缺乏足够细节确认是否为人员。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-019",
+   "decision": "uncertain",
+   "image_limitation": "目标过小，无法确认具体形态",
+   "observed_object": "广场上的微小目标",
+   "reasoning": "目标过小且细节不足，无法可靠区分人员与其他物体。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0924:B03-020",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "广场步道上的人形目标",
+   "reasoning": "可见细长躯干和腿部轮廓，位于可站立的步道区域，尺度符合人员。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0924:B03-021",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "广场步道上的人员",
+   "reasoning": "框内可见明显的人体轮廓和衣物颜色，位置与尺度均符合人员。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0924:B03-022",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "广场上的人员",
+   "reasoning": "可见小型竖长人形目标，位于广场步行区域，符合人员外观。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0924:B03-023",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "广场上的人员",
+   "reasoning": "目标呈细长人体形态，位于可通行的广场区域，符合人员类别。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0924:B03-024",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "步道上的人员",
+   "reasoning": "可见竖长人形目标，位于树木旁的步道区域，尺度和形态符合人员。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594979.1847482,
+   "seconds": 17.24,
+   "status": "ok",
+   "health": {
+    "at": 1791594961.9411438,
+    "available_fraction": 0.46236716991355675,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d26de1af09dc4d7ab5369f62f75edfa9",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d3726e9b0293ecb2c12370dff2c41f6809e61f98b08f914e3098fadba32647a2",
+ "prompt_sha256": "1b1fa0823f3526886d36bcb23d017f3f140dfe88f15b3c7834b763ec1f5f4af5",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

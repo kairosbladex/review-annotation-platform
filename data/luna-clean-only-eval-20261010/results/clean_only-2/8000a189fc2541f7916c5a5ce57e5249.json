@@ -1,0 +1,34 @@
+{
+ "unit": "8000a189fc2541f7916c5a5ce57e5249",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "8000a189fc2541f7916c5a5ce57e5249:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员，位于岸边施工区域。",
+   "reasoning": "目标呈现为细小的人形，处于可站立的岸边地面，位置和尺度与俯拍人员特征相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597027.4800596,
+   "seconds": 14.86,
+   "status": "ok",
+   "health": {
+    "at": 1791597012.617449,
+    "available_fraction": 0.45462144367766,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "93dd2775f128423c8d1b81e09b72ed39",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "24f589ba73ce40995a68b222adba2f9bf6f640a6cc7b8073c61b0e1ef7a43a3a",
+ "prompt_sha256": "b6a4a2f279fbc1b7b5069219dcb108d24700a999a9bc427ed401c04b8d286137",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

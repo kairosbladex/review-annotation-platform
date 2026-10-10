@@ -1,0 +1,42 @@
+{
+ "unit": "6bacd6e8c685468a94a85a6f999d7b66",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "6bacd6e8c685468a94a85a6f999d7b66:008",
+   "decision": "false",
+   "image_limitation": "目标区域被树木和阴影遮挡，未见明确机动车车身，框内主要是植被或地面边缘。",
+   "observed_object": "树木、地面及疑似非车辆物体",
+   "reasoning": "框内没有呈现出机动车典型的圆角长方形车身、车顶和挡风玻璃深色横带，位置和外观也不符合车辆。",
+   "target_index": 0
+  },
+  {
+   "key": "6bacd6e8c685468a94a85a6f999d7b66:015",
+   "decision": "true",
+   "image_limitation": "车辆较小且部分受树冠遮挡，但车身轮廓仍清晰可辨。",
+   "observed_object": "一辆停放在停车区域内的小汽车",
+   "reasoning": "可见白色车顶和细长圆角车身，带有深色玻璃区域，朝向与停车位一致，尺度和位置符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595503.049426,
+   "seconds": 26.28,
+   "status": "ok",
+   "health": {
+    "at": 1791595476.773423,
+    "available_fraction": 0.47711050694678186,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4926784005f14726b634015ef11ec6e9",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "876fd80adf1a62d538c0c62541c3042c452f6d8ab56dc61c7ab783e646f81a94",
+ "prompt_sha256": "f0aced1d66846514426ac432aa3ba07d7babbe8d2f4443b0e6940102c4229eac",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_e68b48456adf2cb8",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:36640c2c3d8e475889e1069408609012",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面右下边缘，尺寸很小且被裁切，无法确认完整车身形状。",
+   "observed_object": "右下方边缘处的微小浅色矩形物体",
+   "reasoning": "该区域目标出画且过于模糊，无法确认是否具备机动车的圆角长方形车身、车顶和挡风玻璃特征，因此不能判定为车，也不足以否定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594971.3483548,
+   "seconds": 14.51,
+   "status": "ok",
+   "health": {
+    "at": 1791594956.836758,
+    "available_fraction": 0.46238604835995245,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5f7ac7649e454d18a714ec3ccb2b9ca8",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1a8ebc42551a2738e6b67a388448612127cd8d3110b7ac91519b7d44cc443a4a",
+ "prompt_sha256": "10e47bf019d61fa2a7283ba6eba0283a81c700b79a7a3138c94da1b4b135ae53",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

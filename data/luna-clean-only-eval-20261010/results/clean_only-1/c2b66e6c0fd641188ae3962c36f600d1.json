@@ -1,0 +1,34 @@
+{
+ "unit": "c2b66e6c0fd641188ae3962c36f600d1",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "c2b66e6c0fd641188ae3962c36f600d1:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯视人员的头顶和肩部，位于岸边步道上。",
+   "reasoning": "目标呈小椭圆形，具有明显的头部与肩部结构，尺度符合人员特征，位置也适合人员站立，因此判断为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597808.5976534,
+   "seconds": 28.7,
+   "status": "ok",
+   "health": {
+    "at": 1791597779.900071,
+    "available_fraction": 0.4290088031320346,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "880af3d3ef41496faef52f64900a4689",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "63ce655e5f52f7aa40054dcc7ecd921bb7f5746df91c2ff71d2442ecbe686e39",
+ "prompt_sha256": "62a1666e5f5018b62ec28c6f3c60c5486996351419c22e20501ffe0cfc49204a",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆较大型车辆，车身呈前后分段形态，后部为货厢，符合卡车外观。",
+   "reasoning": "框内目标位于道路上，整体长度明显大于周围小汽车，可见驾驶室与后部车厢的分段结构，符合卡车的俯拍特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594936.5958471,
+   "seconds": 22.18,
+   "status": "ok",
+   "health": {
+    "at": 1791594914.416525,
+    "available_fraction": 0.4623757731347001,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1b388c9063564396804e7b9adb26fe26",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "10737dccfe055845463b0509f70b2c9e018f65760e323fcce4cac4d43d2dd6ec",
+ "prompt_sha256": "4bd5e52586ec56399500916975154e1d7984219ed23446d535c1e29fe22edbc0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

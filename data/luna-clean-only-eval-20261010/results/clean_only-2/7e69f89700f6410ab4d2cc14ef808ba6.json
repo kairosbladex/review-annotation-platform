@@ -1,0 +1,34 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或出画。",
+   "observed_object": "框内是一个矩形货箱或货摊状物体，整体呈方正箱体轮廓，未见三轮车前窄后宽及车把、前轮结构。",
+   "reasoning": "该物体外观更符合箱体或货摊，不符合三轮车的前窄后宽结构，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595891.0060563,
+   "seconds": 16.86,
+   "status": "ok",
+   "health": {
+    "at": 1791595874.150647,
+    "available_fraction": 0.4733511121076931,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "646331bf9af0440c94cde281b6102075",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "dfe8b9ce6f1008032dc9be5bb2221da756d6bff0730deea43c67d3a309d1c226",
+ "prompt_sha256": "cf258e6f854235c8d813da5824bc3bc5b552ce0165fe09d7f77ba8008470f44d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

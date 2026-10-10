@@ -1,0 +1,50 @@
+{
+ "unit": "2d3a279501444052a534c76b4484575d",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "2d3a279501444052a534c76b4484575d:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见停放在地面上的机动车，车身轮廓和尺度与周围停车区域相符。",
+   "target_index": 0
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车区域中的一辆小汽车，可见车顶和车身轮廓，位置及尺度符合车辆特征。",
+   "target_index": 1
+  },
+  {
+   "key": "2d3a279501444052a534c76b4484575d:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见道路旁停放的机动车，具有明确车身形状，位置和尺度均符合车辆。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598269.1727445,
+   "seconds": 59.75,
+   "status": "ok",
+   "health": {
+    "at": 1791598209.4230654,
+    "available_fraction": 0.453966018066886,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "97b00542e4a8403f9cc0994e08fbba48",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "fb1e75b19351661f60a2a4390ebb4eb44ef6b791e04fb10755fa8426f35e6777",
+ "prompt_sha256": "7200ab6270118d85dfe0872e1bbb67eaf89071f351f6965873002b72aef0cb47",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

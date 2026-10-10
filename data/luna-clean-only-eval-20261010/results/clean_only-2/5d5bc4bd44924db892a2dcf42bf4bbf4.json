@@ -1,0 +1,34 @@
+{
+ "unit": "5d5bc4bd44924db892a2dcf42bf4bbf4",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:5d5bc4bd44924db892a2dcf42bf4bbf4:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小型机动车",
+   "reasoning": "框内可见道路上的小型车辆，呈狭长的车身轮廓，位置与道路及车道方向一致，尺度也符合车辆特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595800.6016245,
+   "seconds": 13.75,
+   "status": "ok",
+   "health": {
+    "at": 1791595786.8510787,
+    "available_fraction": 0.4747857220333905,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2ad8cb8f88c64870bf7fe9bb52820fe2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d54e0deb75634a7a65dcbe19daf1fb849feadb9d27ac1ff2533efac227cc77e5",
+ "prompt_sha256": "c70a6b11ece638e47eeeb215f70552e4787e22e78cd84fa429ff86fd930cd2e2",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "3801fc8a976b4610a9e402a7701d5245",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3801fc8a976b4610a9e402a7701d5245:000",
+   "decision": "false",
+   "image_limitation": "目标区域较小但可辨认。",
+   "observed_object": "建筑旁施工区域中的小型设备或箱体，不是机动车。",
+   "reasoning": "框内物体呈小型矩形设施状，位于建筑和施工区域边缘，未见车辆典型的圆角车身、车顶及深色前后挡风玻璃横带，位置和尺度也不符合车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597780.4117777,
+   "seconds": 45.29,
+   "status": "ok",
+   "health": {
+    "at": 1791597735.1177912,
+    "available_fraction": 0.428251537270978,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f1895896afed4e579cdc61898fcb7a13",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "ff7b0ece4b9e5aa30798ca887ea7c9e97c3326152a40860cafb0811eccc4661e",
+ "prompt_sha256": "a84498fedf54dcfe50b55b5f8059fd3cf6778527ea3dcee5ef7ef93dbaa11118",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

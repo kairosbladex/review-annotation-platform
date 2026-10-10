@@ -1,0 +1,34 @@
+{
+ "unit": "67963890aa6a4b54b2de49c274b015bc",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:67963890aa6a4b54b2de49c274b015bc:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无法确认存在遮挡或出画导致的判断障碍。",
+   "observed_object": "浅色方形设施或设备箱，位于建筑外围步道旁，并非机动车。",
+   "reasoning": "框内物体呈近方形，缺少车身约长宽比、车顶和前后挡风玻璃深色横带等特征；其位置和尺度也更符合步道旁的设施设备，不符合车辆外观。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597539.6837227,
+   "seconds": 40.8,
+   "status": "ok",
+   "health": {
+    "at": 1791597498.8834164,
+    "available_fraction": 0.4512660962315581,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a28770882c2a49a4a5599f86f6712b7c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "93873b28845f7f50df63b55bb5763d53d273b9ae17caefb2bb44db88357b061f",
+ "prompt_sha256": "b4596cc5c466a5c79fbbfd80223f0ef2132d9630b3551a509dfce23e38902ad5",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

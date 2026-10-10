@@ -1,0 +1,34 @@
+{
+ "unit": "f8d2353931e046fbbb15d68d8c8a82f9",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f8d2353931e046fbbb15d68d8c8a82f9:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无法确认存在卡车特征。",
+   "observed_object": "框内为路旁的小型彩色物体，外观更像堆放物或遮棚，不是带有驾驶室与货厢分段的货车。",
+   "reasoning": "该目标尺寸较小，未见明显驾驶室和后部长方形货厢的分段结构，与卡车外观及尺度不符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595226.090645,
+   "seconds": 14.76,
+   "status": "ok",
+   "health": {
+    "at": 1791595211.331226,
+    "available_fraction": 0.4759948850050294,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "30cae9f2490e4f44963c6eaf6b5239cb",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1c146c79d354d787191fac0cbd6de323217a9dbbb37924a760a3c70c608cb249",
+ "prompt_sha256": "2c29ed1e0a5c97eb948cd181859074bdec22acb07842f6f1629af2b5b8d766c6",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "9004cbad92554824930663ab17e0400c",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "9004cbad92554824930663ab17e0400c:000",
+   "decision": "false",
+   "image_limitation": "目标区域位于画面右下方，框内主要是水面与岸边结构，未见符合人员特征的头顶、肩部或躯干。",
+   "observed_object": "水面及岸边平台边缘",
+   "reasoning": "框内可见的是岸边铺装结构和绿色水面，没有人员的形状、尺度及站立位置特征，因此不属于人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595653.6718454,
+   "seconds": 26.05,
+   "status": "ok",
+   "health": {
+    "at": 1791595627.625963,
+    "available_fraction": 0.4802023769453616,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9d82771a03ef4907b2021d0ce2603a8a",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "c0fa82fcecfa8af6ace93095cf86f1b40919a79542851db5268684fa238b327f",
+ "prompt_sha256": "3d5ccfd2f723600f04f02a94e6cd6a602a8dd3697b4de82319e2f99139e1b1a0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

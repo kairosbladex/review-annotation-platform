@@ -1,0 +1,34 @@
+{
+ "unit": "26f5758c999d4c03a0bfd39e1920ed60",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:26f5758c999d4c03a0bfd39e1920ed60:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一片规整的绿色顶棚屋面，位于建筑顶部区域。",
+   "reasoning": "目标主体呈蓝绿色、成片且边缘规整，符合蓝色或绿色顶棚的外观特征，因此判断为违建。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598247.2013063,
+   "seconds": 32.06,
+   "status": "ok",
+   "health": {
+    "at": 1791598215.142118,
+    "available_fraction": 0.46005342022728557,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8ed612aa393b4435b80d29fed92dd058",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "9a76316649eb9da4d6da7064308ba9ead96e1166f4d4a2e99645d209772a0220",
+ "prompt_sha256": "61e3ce8bcde61c471804089debf0580b4e4ec8ee79d189078bc6b2381b92a611",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

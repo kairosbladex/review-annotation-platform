@@ -1,0 +1,34 @@
+{
+ "unit": "c843702c7f2d4e32af1c124a42b01a08",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c843702c7f2d4e32af1c124a42b01a08:001",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无明显遮挡或出画。",
+   "observed_object": "人行道旁的一辆小汽车，车身较宽且长度、尺度符合汽车而非两轮车。",
+   "reasoning": "框内实际是小汽车，不是细长窄条状的自行车、电动自行车或摩托车，因此不符合“两轮车”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595054.5834196,
+   "seconds": 17.44,
+   "status": "ok",
+   "health": {
+    "at": 1791595037.1455104,
+    "available_fraction": 0.47597181134832356,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b717e27e61894563ac11444369011d04",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "056dbed4c4667b11ca876b79b255bb42bd8155741a5ad8f7cea21202442dd987",
+ "prompt_sha256": "212fbc4b57e3a44655f77f850bc5ea873c13897dcf454930770ef383bbb62648",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

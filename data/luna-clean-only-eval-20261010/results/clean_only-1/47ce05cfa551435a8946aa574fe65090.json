@@ -1,0 +1,34 @@
+{
+ "unit": "47ce05cfa551435a8946aa574fe65090",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "47ce05cfa551435a8946aa574fe65090:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内一辆小汽车",
+   "reasoning": "框内可见车辆的车顶、深色车窗带和长方形车身，位于地面停车区域，尺度与周围停车位相符，符合“车”的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595708.467734,
+   "seconds": 19.14,
+   "status": "ok",
+   "health": {
+    "at": 1791595689.3285754,
+    "available_fraction": 0.47817438796137585,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "55df559ba486406da5c04401689c5460",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8148bd28519a35939ec261cf15db3b29657e77f2d1fb40ade9cc13f2534922b7",
+ "prompt_sha256": "2c6fc65212719454723ce26437834dbad7b382a538fe35dfd342d4e70a0de349",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

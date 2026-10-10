@@ -1,0 +1,34 @@
+{
+ "unit": "9f3745b4d6bb4bb192a479ead431c528",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无法确认存在三轮车遮挡或出画问题。",
+   "observed_object": "框内是楼顶上的方形设备箱或空调设备，呈规则四边形箱体外观。",
+   "reasoning": "该物体没有三轮车前窄后宽、后部较宽的轮廓，位置也在建筑屋顶设备区，不符合三轮车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596312.1439805,
+   "seconds": 14.98,
+   "status": "ok",
+   "health": {
+    "at": 1791596297.1633735,
+    "available_fraction": 0.48016115444405316,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "31d411c945c44c6fb4b82549b618b066",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "3ef753e1773f8491240bde1c34809822a914288eb165d31fd8208a98cc51946d",
+ "prompt_sha256": "9bb7ae1ff452d2f0a0c37790a1945f31de05433ad78165acd93528854afa1ef0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

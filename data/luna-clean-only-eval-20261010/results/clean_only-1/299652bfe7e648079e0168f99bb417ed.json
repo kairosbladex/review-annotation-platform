@@ -1,0 +1,34 @@
+{
+ "unit": "299652bfe7e648079e0168f99bb417ed",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "299652bfe7e648079e0168f99bb417ed:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是铺装地面上的网格纹理及污渍，邻近有一个小孔状物体，不是人员。",
+   "reasoning": "框内未见人员所需的头部、肩部或躯干腿部轮廓，目标形状和位置也不符合人员特征，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595067.7997744,
+   "seconds": 16.88,
+   "status": "ok",
+   "health": {
+    "at": 1791595050.9221678,
+    "available_fraction": 0.4757573996213853,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0fa920b214294b49bd77fb15c4558d81",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8d197848d387c8a193993864ed08c3c4d6b97e29b08b3565bf6cbd743d30c699",
+ "prompt_sha256": "08bd2ea34c02ee47c0b9a4ecae0dd9cee7bc1f363883c1e8befad865eeb7abac",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

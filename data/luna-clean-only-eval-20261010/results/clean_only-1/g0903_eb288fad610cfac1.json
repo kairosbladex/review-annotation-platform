@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_eb288fad610cfac1",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:48f3ec3897b84c36a45312fed8798ed3",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "框内是建筑立面的深浅相间方格窗墙，不是蓝色或绿色顶棚。",
+   "reasoning": "该区域主体为立在地面的建筑外墙，颜色和形态均不符合蓝色或绿色成片屋面顶棚，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597200.9879625,
+   "seconds": 15.44,
+   "status": "ok",
+   "health": {
+    "at": 1791597185.5486903,
+    "available_fraction": 0.4489481817350514,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "839812d8b2f44b4a8dba1f5f950bf4e1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "c17617cbaf7fe03e48d76c49d7c85aa618e6614e59016585237b6bc5fed9a2e9",
+ "prompt_sha256": "ec8b2bc9f4636e7a9a57cf82954a8c4e40ac7b7d8b0ccb69de1c88571f53a513",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

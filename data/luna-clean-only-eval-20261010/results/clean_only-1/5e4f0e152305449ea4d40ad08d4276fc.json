@@ -1,0 +1,42 @@
+{
+ "unit": "5e4f0e152305449ea4d40ad08d4276fc",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为一辆停在地面上的汽车，可见车顶和深色车窗带。",
+   "reasoning": "目标呈圆角长方形车身，尺度和位置与地面车辆相符，符合“车”的外观特征。",
+   "target_index": 0
+  },
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为一辆停在地面上的汽车，可见车顶和深色车窗。",
+   "reasoning": "目标形状、颜色和尺度符合俯拍汽车特征，位于地面停车区域，类别判断正确。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594994.1024873,
+   "seconds": 22.72,
+   "status": "ok",
+   "health": {
+    "at": 1791594971.3782074,
+    "available_fraction": 0.468027937425459,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6fadb6c46941474987614f51967573a6",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b96b01eaf5b7904ad88fbf94bbd02b263e0d159bd8bebf8eda8c9713f472db9b",
+ "prompt_sha256": "51634d582a62f8be9c17a9cc8b19a44eeac34852d25a5b5b22e9db5dd5aca4c5",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

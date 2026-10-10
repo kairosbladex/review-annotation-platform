@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_f7d6c84a09502d54",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车道上的小型人员目标，呈现出头部和身体的细长轮廓。",
+   "reasoning": "目标位于道路可站立区域，形态和尺度符合俯视人员特征，不像车辆、树木或路面设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595761.819087,
+   "seconds": 15.46,
+   "status": "ok",
+   "health": {
+    "at": 1791595746.3637648,
+    "available_fraction": 0.4769718826060987,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "82042af6fd534a3d9ea697a6a639183f",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "2cd68478678d164887930b3e922472ab59c7cf70c39b65a8d7e40649a4713cea",
+ "prompt_sha256": "3f553532ac3ff4a0382df8584ea148103ba8fd411b97d3ec6f1e53f38515f5c4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

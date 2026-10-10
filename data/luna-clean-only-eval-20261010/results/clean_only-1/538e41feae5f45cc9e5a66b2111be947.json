@@ -1,0 +1,54 @@
+{
+ "unit": "538e41feae5f45cc9e5a66b2111be947",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "538e41feae5f45cc9e5a66b2111be947:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在步道旁的机动车，呈细长圆角车身，车顶和深色车窗清晰可见。",
+   "reasoning": "目标外观、尺度及所在位置均符合小汽车特征，判断为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596677.0829666,
+   "seconds": 0.04,
+   "status": "http_503",
+   "health": {
+    "at": 1791596677.0412538,
+    "available_fraction": 0.4554519433186959,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596697.1558905,
+   "seconds": 0.05,
+   "status": "http_503",
+   "health": {
+    "at": 1791596697.107338,
+    "available_fraction": 0.4531989633817724,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596955.014517,
+   "seconds": 16.39,
+   "status": "ok",
+   "health": {
+    "at": 1791596938.6244116,
+    "available_fraction": 0.4744627212395837,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0c1e08898f124d5b9338e71905d43d70",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "816d0167608c3db0de5b36c6b54d039c1bdfd5c2470d35e5d83eb2297492f2be",
+ "prompt_sha256": "2f5da8100629665e298c627ab749fc3719ed647c1b99f414ea1f885446a07f34",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

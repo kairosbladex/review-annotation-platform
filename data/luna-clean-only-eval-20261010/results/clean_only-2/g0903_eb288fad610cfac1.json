@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_eb288fad610cfac1",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:48f3ec3897b84c36a45312fed8798ed3",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑立面的深色棋盘格窗墙，不是蓝色或绿色顶棚",
+   "reasoning": "框内主体是建筑外墙的深浅交错窗格，属于立面结构，未见覆盖建筑或空地的蓝绿色成片屋面，因此不符合违建类别外观要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597224.5152643,
+   "seconds": 37.87,
+   "status": "ok",
+   "health": {
+    "at": 1791597186.6466315,
+    "available_fraction": 0.448924013675656,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c1f99488525c4b12ab48ccbaa95f6cf6",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "c17617cbaf7fe03e48d76c49d7c85aa618e6614e59016585237b6bc5fed9a2e9",
+ "prompt_sha256": "ec8b2bc9f4636e7a9a57cf82954a8c4e40ac7b7d8b0ccb69de1c88571f53a513",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,42 @@
+{
+ "unit": "c34f4e7e7a484fb896634bb06d991d16",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内是覆盖在建筑上的成片蓝色屋面，颜色和形状符合蓝色顶棚特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内主体为规整的蓝色长方形屋面，具有顶棚外观，符合该类别判断要点。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595888.4088426,
+   "seconds": 23.4,
+   "status": "ok",
+   "health": {
+    "at": 1791595865.0097601,
+    "available_fraction": 0.4770211003270562,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "26db81b08444476e960e048fea62ba43",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "72ee2b5422ae9f6a7a56121d74bd27d53fe3ad208a168b9f6d74ad7a609f7604",
+ "prompt_sha256": "533934b9f08cfa94128f8b6c787ef8f178b95745c9de22e1ec3cf6ac675edc8d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

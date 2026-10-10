@@ -1,0 +1,34 @@
+{
+ "unit": "8c6403a541ae4a218a1300f45baa79c9",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "8c6403a541ae4a218a1300f45baa79c9:001",
+   "decision": "true",
+   "image_limitation": "目标较小但清晰可辨，未见明显遮挡或出画。",
+   "observed_object": "停车位中的一辆小汽车，呈细长圆角车身，可见车顶和深色玻璃区域。",
+   "reasoning": "框内物体位于停车场车位内，形状、颜色分布及尺度均符合机动车特征，不是设备或地面标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597195.7088366,
+   "seconds": 15.55,
+   "status": "ok",
+   "health": {
+    "at": 1791597180.1616948,
+    "available_fraction": 0.4472143134738968,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1785b7d8e9c6416ebf11d647621b69ee",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "001cd630b4b7a91d829c6f735887831d9f5bc4bd233a73145ffd2ce8bd9b919f",
+ "prompt_sha256": "fc74a2aa207fda136cfd6453788441eaaefb28ff4de557442d04064ce6a0828b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

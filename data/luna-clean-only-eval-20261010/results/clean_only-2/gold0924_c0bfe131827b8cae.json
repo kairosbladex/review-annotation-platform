@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_c0bfe131827b8cae",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名骑乘两轮车的人员，头部、躯干及黄色衣物清晰可辨。",
+   "reasoning": "目标位于道路上，整体尺度明显小于汽车宽度，符合俯拍人员特征；骑两轮车的人员按规则判定为人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597233.0247343,
+   "seconds": 15.99,
+   "status": "ok",
+   "health": {
+    "at": 1791597217.0331976,
+    "available_fraction": 0.4512625698228916,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "aa1d9d2e23284e8891961bce38b4a2cb",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "4196e0264a6ebf326fc0787b9d9ef83c403ad84cb363e6b2cb5ec91091cd3556",
+ "prompt_sha256": "9ca4adf17fe8e5cf9ac4041268669ea4a1abfac258c0c305506630cf33be7c5a",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

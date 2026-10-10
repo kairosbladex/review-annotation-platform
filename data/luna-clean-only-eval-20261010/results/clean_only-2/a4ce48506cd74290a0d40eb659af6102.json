@@ -1,0 +1,74 @@
+{
+ "unit": "a4ce48506cd74290a0d40eb659af6102",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:003",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "路灯杆或其他道路设施",
+   "reasoning": "框内位于道路边缘，呈细长设施形态，不符合人员的头肩或躯干特征。",
+   "target_index": 0
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见位于道路旁的细小人形目标，位置和尺度符合俯拍人员特征。",
+   "target_index": 1
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见道路边缘的细小竖长目标，形态与人员相符。",
+   "target_index": 2
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "车辆或车辆局部",
+   "reasoning": "框内目标位于车行道上，形状和尺度更符合车辆局部，不符合人员外观。",
+   "target_index": 3
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:005",
+   "decision": "uncertain",
+   "image_limitation": "目标位于图像底部边缘且大部分出画，无法确认其是否为人员。",
+   "observed_object": "边缘处的部分物体",
+   "reasoning": "目标被画面边界严重截断，现有可见区域不足以判断人员特征。",
+   "target_index": 4
+  },
+  {
+   "key": "a4ce48506cd74290a0d40eb659af6102:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见人行道附近的细小目标，外观和尺度符合俯拍人员。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597147.0139208,
+   "seconds": 16.22,
+   "status": "ok",
+   "health": {
+    "at": 1791597130.7919068,
+    "available_fraction": 0.45440879515505495,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dfe45d782f764cad89ec78df2200f7d2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "5aeb1b7f3702a60db720fe014eed72c72fe555e5cb9ac15428a636a838d49c4b",
+ "prompt_sha256": "849d21d131c42dcbf8e76646e5785fa8ebab3513146ea0f7f81e40657801ec06",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

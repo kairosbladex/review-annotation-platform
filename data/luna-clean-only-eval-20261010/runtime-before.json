@@ -1,0 +1,46 @@
+{
+ "at": 1791594319.8258734,
+ "free": {
+  "returncode": 0,
+  "stdout": "               total        used        free      shared  buff/cache   available\n内存：        125          64           4           0          57          59\n交换：          1           1           0\n",
+  "stderr": ""
+ },
+ "cpus": {
+  "returncode": 0,
+  "stdout": "64\n",
+  "stderr": ""
+ },
+ "disk": {
+  "returncode": 0,
+  "stdout": "文件系统        大小  已用  可用 已用% 挂载点\n/dev/sdb         15T  3.0T   11T   22% /data\n",
+  "stderr": ""
+ },
+ "gpu": {
+  "returncode": 18,
+  "stdout": "Failed to initialize NVML: Driver/library version mismatch\nNVML library version: 595.99\n",
+  "stderr": ""
+ },
+ "listeners": {
+  "returncode": 0,
+  "stdout": "State  Recv-Q Send-Q   Local Address:Port  Peer Address:PortProcess                              \nLISTEN 0      64     192.168.130.238:18396      0.0.0.0:*    users:((\"python3\",pid=2734982,fd=3))\nLISTEN 0      64           127.0.0.1:18397      0.0.0.0:*    users:((\"python3\",pid=34533,fd=3))  \n",
+  "stderr": ""
+ },
+ "shared": {
+  "returncode": 0,
+  "stdout": "2026-10-08T08:28:13.245765359Z 0 running healthy\n",
+  "stderr": ""
+ },
+ "load": {
+  "returncode": 0,
+  "stdout": " 09:05:19 up 23 days, 17:55,  5 users,  load average: 4.41, 3.84, 3.38\n",
+  "stderr": ""
+ },
+ "source_sha256": {
+  "src/test_luna_clean_only.py": "f89de44140375f4b38355f4cc4b8f75eb88885a79d8995b1189de383494c0099",
+  "src/luna_clean_frame_eval.py": "6394cd934669e6026a076078592e06249a088ca2263d74fa121f67ab89df9817",
+  "src/luna_clean_only_eval.py": "b28d4325706925a4d93f62b23bdccd1b1540e18f416681d6360d6c410df72931",
+  "src/luna_prompt_autotune/promptlib.py": "af3746261a360d73d687347a0c5f1e1bf6074a437988de89c88ef3ce59698aa3",
+  "src/luna_prompt_autotune/luna_experiment_worker.py": "dcf5198a2b31ef1b4b1628924ca8fca68d926ef9d370817e0319ce66ee47be9c"
+ },
+ "baseline_hashes_verified": true
+}

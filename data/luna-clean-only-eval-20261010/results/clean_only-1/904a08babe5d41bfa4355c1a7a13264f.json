@@ -1,0 +1,58 @@
+{
+ "unit": "904a08babe5d41bfa4355c1a7a13264f",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:004",
+   "decision": "uncertain",
+   "image_limitation": "目标大部分被树叶遮挡，仅露出局部，无法确认完整车形。",
+   "observed_object": "树下停车区域中的部分浅色物体",
+   "reasoning": "框内可见局部浅色区域，但被植被和画面裁剪严重遮挡，无法依据车身轮廓确认或排除为车。",
+   "target_index": 0
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位中的白色小汽车",
+   "reasoning": "可见清晰的圆角长方形车身、车顶和深色玻璃区域，位置与停车位及尺度相符。",
+   "target_index": 1
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域中的白色小汽车",
+   "reasoning": "目标呈细长圆角车身，位于停车区域，整体轮廓和尺度符合机动车特征。",
+   "target_index": 2
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树旁停车位中的白色小汽车",
+   "reasoning": "可见明确的白色车身和深色车窗区域，位于地面停车位置，尺度与周围环境相符。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597009.791866,
+   "seconds": 15.77,
+   "status": "ok",
+   "health": {
+    "at": 1791596994.0217264,
+    "available_fraction": 0.4556458653952788,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ee1f182df46b4aea98660210a8cbb3fa",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "80ef00a13870ca515a81fd14813655ea25fe79a2337e2bdc8a02040a4669470f",
+ "prompt_sha256": "73d08f24c4f7c1836cdc9a8aa2fcfc9cf69701a3359a888e92f6624756262dda",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

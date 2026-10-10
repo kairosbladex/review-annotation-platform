@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_8e13ea8a27e0dec9",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4076feeb3c914a9ca6ddfc656e3ebc4b",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是灰白色道路或车道区域，旁侧可见建筑屋面但并非蓝色或绿色顶棚。",
+   "reasoning": "目标框内没有符合类别定义的蓝色或绿色成片顶棚，灰白色道路及其他建筑结构不属于违建目标。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596048.1446228,
+   "seconds": 15.84,
+   "status": "ok",
+   "health": {
+    "at": 1791596032.3039227,
+    "available_fraction": 0.4779041616972678,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b16fb1a48f93409fa7b44b3ff956304b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "acc17ccc78259c8cb87e6687c917c8e95e9e06e9215f7054934e36fe5285f1e4",
+ "prompt_sha256": "f59a1bb2119ad500db94ac4cbf59071ddeac76f315aaf5336538c0343fc34312",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

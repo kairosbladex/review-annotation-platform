@@ -1,0 +1,34 @@
+{
+ "unit": "9fd6d20c9b8343ed959cef72d8c06689",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "9fd6d20c9b8343ed959cef72d8c06689:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯拍人员的头部、肩部及白色衣物，位于岸边步道上。",
+   "reasoning": "目标呈小型椭圆状，能看到深色头部和两侧肩部，位置与人员尺度及可站立区域相符，符合人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595590.4953823,
+   "seconds": 15.35,
+   "status": "ok",
+   "health": {
+    "at": 1791595575.1477814,
+    "available_fraction": 0.477171975897848,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1194600e4ff649bf8e9b8ee341082b45",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "6fa2c04b3b389ed884262f2d2a0ca20e69f32944b84f44e620c1e6038e3c3bb7",
+ "prompt_sha256": "6e07de80bc4054052aa1f14253bcda42c2c9612012a517205ba8933112a115c4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

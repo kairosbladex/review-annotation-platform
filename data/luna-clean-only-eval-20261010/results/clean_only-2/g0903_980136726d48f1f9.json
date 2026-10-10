@@ -1,0 +1,58 @@
+{
+ "unit": "g0903_980136726d48f1f9",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c5edc11779b34c3ba5aa442d08ebd779",
+   "decision": "true",
+   "image_limitation": "目标部分被树叶遮挡，但车身轮廓清楚可辨。",
+   "observed_object": "道路旁树下的一辆白色小汽车。",
+   "reasoning": "框内可见圆角长方形车身、车顶及深色车窗，位置在地面道路边缘，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:e4fc0e7a76a1498a957aaadcddda9dd0",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的一辆白色小汽车。",
+   "reasoning": "可见完整车顶和深色车窗带，车身比例、朝向及所在停车区域均符合机动车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:bf342116bb84430aab20a5de45ef83a8",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的一辆深色小汽车。",
+   "reasoning": "框内可见车顶、车窗和明确的长方形车身轮廓，位置及尺度符合汽车。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:0b88b03239f445aea5ccc68e32cd5e72",
+   "decision": "true",
+   "image_limitation": "车辆颜色较暗且有少量树叶遮挡，但主体轮廓仍清楚。",
+   "observed_object": "停车区域内的一辆深色小汽车。",
+   "reasoning": "可见车顶及深色车窗带，车身比例和停车位置符合机动车特征。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596079.4150636,
+   "seconds": 19.31,
+   "status": "ok",
+   "health": {
+    "at": 1791596060.1098025,
+    "available_fraction": 0.47757578009023716,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bbf5094120cf4e88a2afcc83b49c9494",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "271df510a5bf0d300f0db10d79c15fe5e4a4746e2c690c33e7e55ec1bb23ae77",
+ "prompt_sha256": "7c2db599df48538f5db0b4ef2bf46cd074c06a8c58bdadbfd406e7a0676ce6fb",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,42 @@
+{
+ "unit": "1c611d4040d043ad9b7693b71e39372d",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "1c611d4040d043ad9b7693b71e39372d:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，车身轮廓和尺度符合车辆特征。",
+   "reasoning": "目标位于地面停车区域，呈细长圆角车体，可见深色车窗，符合“车”的外观与位置要求。",
+   "target_index": 0
+  },
+  {
+   "key": "1c611d4040d043ad9b7693b71e39372d:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，停放在树旁的地面区域。",
+   "reasoning": "车辆轮廓清晰，长宽比例、车顶和深色车窗带均符合机动车特征，位置和尺度也与停车区域相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595318.9368541,
+   "seconds": 15.59,
+   "status": "ok",
+   "health": {
+    "at": 1791595303.3490748,
+    "available_fraction": 0.4752857424622407,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f11fc01baf5947e6b7b2d581b90d694b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1d1933bbf267ebd2f45ada90c67e81a58f6a9dcbcce130a8f4f1ebaf5fdec981",
+ "prompt_sha256": "3d1097752e284ca9af4efba9140260b9eda8da528a6194bc2463daeeee61ae6f",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

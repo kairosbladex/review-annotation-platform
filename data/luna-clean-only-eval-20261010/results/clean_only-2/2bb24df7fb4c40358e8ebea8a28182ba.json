@@ -1,0 +1,34 @@
+{
+ "unit": "2bb24df7fb4c40358e8ebea8a28182ba",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "2bb24df7fb4c40358e8ebea8a28182ba:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是停靠在路旁的白色小汽车，可见车顶、深色车窗带，整体为圆角长方形，尺度与路旁停车位相符。",
+   "reasoning": "目标外观符合机动车特征，位于道路旁停车区域，位置和尺度合理。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597841.682371,
+   "seconds": 36.4,
+   "status": "ok",
+   "health": {
+    "at": 1791597805.2864125,
+    "available_fraction": 0.4292599077491493,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "907f844d325047268afc88d209f9d533",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "45e8a66831fe25696b6c283ae6b5f98f6a700f6b6e3574bdebc55d7858ab9ebf",
+ "prompt_sha256": "ef15aa83647624ff14ece87bc367ba5de7a19dd34e8e195855065bfcbdbfc030",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

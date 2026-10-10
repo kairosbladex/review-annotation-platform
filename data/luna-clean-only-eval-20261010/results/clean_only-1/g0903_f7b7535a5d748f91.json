@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "篮球场边缘的绿色围挡或栏杆",
+   "reasoning": "框内主体是沿篮球场边缘延伸的狭长绿色结构，属于地面设施，不是覆盖在建筑、棚架或空地上方的成片蓝色或绿色顶棚。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595251.273769,
+   "seconds": 16.28,
+   "status": "ok",
+   "health": {
+    "at": 1791595234.990648,
+    "available_fraction": 0.4631790951089441,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "57721add34df41fc9b5b3e910b6acfb2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "72cffed57ec37ad6ebb2301e1c17274e0ea6ba06433382126323d58308ea67bc",
+ "prompt_sha256": "cf0fe7c1ea7b5868bb2fc6f6acd4b6d0cb18ca8ac91bb102a5ca19e27ef7feae",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_783a28ac76814d6e",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5778bd2c683e4d079a34ef2f08718b88",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "建筑边缘一处浅蓝色矩形顶棚",
+   "reasoning": "框内可见覆盖在建筑外侧的成片浅蓝色矩形屋面，颜色和形态符合蓝色顶棚的判定要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596096.9698346,
+   "seconds": 15.55,
+   "status": "ok",
+   "health": {
+    "at": 1791596081.424295,
+    "available_fraction": 0.4787062372684487,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9856930983534a2586506617cc17d3a8",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "22dc7995c8c3b9431cf3fb39528e5cde2dd9ea997c9d1d25bb5f90d6b2aec658",
+ "prompt_sha256": "ef13ee7c9b607b02006a2f953c168d20c9f7e55728c7dd3ccce6a29397268612",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

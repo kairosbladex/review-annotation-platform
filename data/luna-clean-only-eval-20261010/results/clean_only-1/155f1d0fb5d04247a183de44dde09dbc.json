@@ -1,0 +1,42 @@
+{
+ "unit": "155f1d0fb5d04247a183de44dde09dbc",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:155f1d0fb5d04247a183de44dde09dbc:000",
+   "decision": "false",
+   "image_limitation": "目标区域可见，判断依据充分。",
+   "observed_object": "道路上的蓝色路牌或交通标志",
+   "reasoning": "该框位于道路边缘，框内是小型蓝色标志牌，形状和尺度不符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:155f1d0fb5d04247a183de44dde09dbc:001",
+   "decision": "true",
+   "image_limitation": "目标较小但车身轮廓和道路位置清晰可辨。",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见位于车道上的小型机动车，形状、朝向及尺度与道路相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596279.7864678,
+   "seconds": 16.63,
+   "status": "ok",
+   "health": {
+    "at": 1791596263.159412,
+    "available_fraction": 0.477872454419344,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "249d04fb66484d569dba2c65ab305954",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "abb7abbeb2933fc72585eaab04ffe72e8e486aebd06d3f5e367a83afc10e534d",
+ "prompt_sha256": "0cf91ea6d090eedb87cb407fe20dd47021b525b5b2854677480cb4aadb3a2497",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "3638f913674646e6a5b8902dcfa2facb",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "3638f913674646e6a5b8902dcfa2facb:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的白色小汽车",
+   "reasoning": "框内可见完整的白色车身，呈俯视下的长方形车辆轮廓，位于车道上，尺度和朝向均与机动车相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597623.649422,
+   "seconds": 42.76,
+   "status": "ok",
+   "health": {
+    "at": 1791597580.8917232,
+    "available_fraction": 0.4460724258675938,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b470bf6c19c24b35aabfd24ea81c13a1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d58c4e8b7d85a68a25f40ec8f009af014ac541170e6998d564719834cd3f1496",
+ "prompt_sha256": "2345e0fc34f1ae90b7914c4230b90673fabb9cd85dd9322860e048b4b40a5f09",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

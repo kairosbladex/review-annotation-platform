@@ -1,0 +1,106 @@
+{
+ "unit": "dc82bfbae0984d7b9759862a3887538e",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见完整的轿车车身，形状和尺度与车道相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的白色小汽车",
+   "reasoning": "可见车顶、挡风玻璃和车身轮廓，位于路口车道附近。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的车辆",
+   "reasoning": "框内是机动车车身，颜色和轮廓清晰，位置在道路上。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:003",
+   "decision": "uncertain",
+   "image_limitation": "目标仅在画面底部边缘露出很小部分，车形无法确认。",
+   "observed_object": "画面边缘的疑似车辆",
+   "reasoning": "可见部分过少，无法确认是否为机动车。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路口中的深色小汽车",
+   "reasoning": "车身、车顶和挡风玻璃轮廓清楚，位于道路及斑马线区域。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:005",
+   "decision": "uncertain",
+   "image_limitation": "框内目标较小且部分细节不清，车形确认度有限。",
+   "observed_object": "道路边缘的疑似车辆",
+   "reasoning": "可见轮廓接近车辆，但目标过小且遮挡较多，难以完全确认。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:006",
+   "decision": "uncertain",
+   "image_limitation": "目标尺寸很小，细节不足以稳定确认车身结构。",
+   "observed_object": "道路边缘的疑似车辆",
+   "reasoning": "框内有细长物体，但车辆外观特征不够明确。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路口内的白色小汽车",
+   "reasoning": "可见明显的白色车身、深色车窗和车辆轮廓，尺度与道路相符。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车道上的白色小汽车",
+   "reasoning": "框内是清晰的轿车俯视轮廓，位于机动车道内。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:dc82bfbae0984d7b9759862a3887538e:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路旁停车区域的白色小汽车",
+   "reasoning": "可见完整车顶和车身，停放位置及尺度符合机动车。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596498.2841477,
+   "seconds": 7.65,
+   "status": "ok",
+   "health": {
+    "at": 1791596490.6364076,
+    "available_fraction": 0.476361479505972,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ac49ef34b5ce4316bf2dbc86fb667448",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "11cc781c9c21214501f4a564f9092dec10ae93ecae53a262527bf2746eb9ab6f",
+ "prompt_sha256": "44f673cc1a9b61c32cb409cbaf8de1e3021f8f28cb6f3d5c91266e26661b0028",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

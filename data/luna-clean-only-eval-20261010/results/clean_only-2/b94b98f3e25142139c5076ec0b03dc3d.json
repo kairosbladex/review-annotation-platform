@@ -1,0 +1,50 @@
+{
+ "unit": "b94b98f3e25142139c5076ec0b03dc3d",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:b94b98f3e25142139c5076ec0b03dc3d:001",
+   "decision": "true",
+   "image_limitation": "无",
+   "observed_object": "道路上的白色小汽车",
+   "reasoning": "目标位于车道内，呈明显的车身长方形轮廓，尺度和朝向与道路相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:b94b98f3e25142139c5076ec0b03dc3d:002",
+   "decision": "true",
+   "image_limitation": "无",
+   "observed_object": "道路上的白色小汽车",
+   "reasoning": "目标位于道路车道内，可见白色车身及深色车窗区域，形状和尺度符合机动车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:b94b98f3e25142139c5076ec0b03dc3d:003",
+   "decision": "true",
+   "image_limitation": "车身靠近画面上边缘，但轮廓仍基本可辨",
+   "observed_object": "道路上的白色小汽车",
+   "reasoning": "目标位于道路车道内，露出的车顶和车身轮廓符合小汽车，尺度与车道相符。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597533.9602838,
+   "seconds": 34.85,
+   "status": "ok",
+   "health": {
+    "at": 1791597499.1142592,
+    "available_fraction": 0.45160672906869737,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f4b1b318b7b04a8a8c8dfe498be4cfeb",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "807f7ddc7993ee23980f84ffc6d8d5fd6a6475a5df33c840dc2e8b6198c347bb",
+ "prompt_sha256": "67799659e5f5c4cd0fe5c0e1599eb8d817541cbfe0e03edaaf2adf8fc2b06dc6",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_dfd728e2940f968a",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:1b1215b7886343c0b545b6639a919f33",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "玻璃顶棚或透明玻璃结构",
+   "reasoning": "框内主体为透明玻璃材质的立体结构，呈灰白色透光外观，不是蓝色或绿色屋面顶棚，因此不符合违建类别要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597872.0849621,
+   "seconds": 15.77,
+   "status": "ok",
+   "health": {
+    "at": 1791597856.3196921,
+    "available_fraction": 0.4216357818120974,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4bc94b69ab0544c8ad8fa3ca7e019ccd",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "3645cc1383907af4a3e1d2d81a1f3e02dbc7cfb84e48da5b7203079aa1b159a7",
+ "prompt_sha256": "503d6f5ec2cb7634750285624869a0cd4caae4458b28b386e0031b5d68cb8d4d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

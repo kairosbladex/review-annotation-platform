@@ -1,0 +1,34 @@
+{
+ "unit": "e5c944f774634d849cada056b9539541",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "e5c944f774634d849cada056b9539541:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡。",
+   "observed_object": "一个小型白色设施或管件，不是人员。",
+   "reasoning": "框内物体呈白色不规则小块，位于铺装区域，缺少人员应有的头部、肩部或躯干腿部结构，外观和尺度均不符合人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595459.7377956,
+   "seconds": 16.08,
+   "status": "ok",
+   "health": {
+    "at": 1791595443.6560006,
+    "available_fraction": 0.47710287652802935,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9e0f0cac9b0b4bd9a8d62f8b9deecfa9",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "0e722953a988f6ee9f3b4d173bf16dbf43eae17c3b75f1ea72a91a36529d25a8",
+ "prompt_sha256": "273ba50dc55f8e073eb54c975cb2b28c26dc3052891d7bb908d80601cd5de59e",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

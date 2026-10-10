@@ -1,0 +1,34 @@
+{
+ "unit": "fdb392405f404886813e23aa33a2ec1a",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:fdb392405f404886813e23aa33a2ec1a:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑物外墙及墙面上的涂鸦/污渍区域",
+   "reasoning": "框内主要是建筑外墙、窗户下方的深色装饰带和墙面涂鸦，没有看到机动车的车顶、挡风玻璃深色横带或与道路/车位相符的车辆形状。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595361.0261297,
+   "seconds": 21.24,
+   "status": "ok",
+   "health": {
+    "at": 1791595339.7866716,
+    "available_fraction": 0.4746972578159808,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f19aa773b87d4c2db4bfef6758267ad3",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60",
+ "prompt_sha256": "4c8d4398a084565e82f239845356f217f48e229e831130578c66c7e9c05890a0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

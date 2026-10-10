@@ -1,0 +1,58 @@
+{
+ "unit": "1c711a033d014f7fa7883d7488c75b9f",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面底部道路边缘，局部被裁切且被树木遮挡，无法确认完整车身形状。",
+   "observed_object": "道路边缘一个细小、部分遮挡的目标",
+   "reasoning": "可见区域不足以判断是否为两轮车，不能确认也不能排除。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的白色小汽车",
+   "reasoning": "呈清晰的圆角长方形车顶轮廓，长度和宽度比例符合小汽车，位置与车道一致。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的白色小汽车",
+   "reasoning": "可见明确的车身轮廓和深色车窗区域，尺度与道路及车道关系相符。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:003",
+   "decision": "uncertain",
+   "image_limitation": "目标仅在画面最右边缘露出一小部分，车身大半出画，无法确认完整形状。",
+   "observed_object": "画面边缘的部分车辆目标",
+   "reasoning": "露出区域过少，无法可靠判断是否为车。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595483.0934937,
+   "seconds": 30.16,
+   "status": "ok",
+   "health": {
+    "at": 1791595452.9342394,
+    "available_fraction": 0.47195866708562023,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "58178428be9041fda1bc3ea402e5e9bb",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "301936440fa768fd189d2685083b1d37ad5619b71ead42bc77f3fa3580e5db14",
+ "prompt_sha256": "8e1ccb4bf047393c3eb2632f004a4161ea2f20306b9e693aedbd06572d1c6c88",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_1f0e5cb339af5236",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2cd11d7b5819449ab172365276f3f0ac",
+   "decision": "false",
+   "image_limitation": "无遮挡，目标清晰可辨。",
+   "observed_object": "蓝色施工围挡及其后方植被、地面。",
+   "reasoning": "框内主体是竖立的蓝色围挡，属于地面围挡而非覆盖在建筑或空地上方的蓝绿色顶棚，因此不符合违建类别。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:6cc82b9318784e23b4f21a284383a83a",
+   "decision": "false",
+   "image_limitation": "无遮挡，目标清晰可辨。",
+   "observed_object": "蓝色施工围挡、道路和植被。",
+   "reasoning": "框内是长条状的蓝色围挡及地面区域，不是蓝色或绿色屋面、棚顶或篷布覆盖物，因此不符合违建类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596384.627671,
+   "seconds": 15.07,
+   "status": "ok",
+   "health": {
+    "at": 1791596369.5615194,
+    "available_fraction": 0.4807801607653231,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e40e5ec89e6b4fe6bd8cb29b2dbf8dcf",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "619356d20b8c718420e0ee2aab744c1874d86a826ba2a588d8efb849de3a090c",
+ "prompt_sha256": "451b793a73cda0ac353469b8e0a04925ed1209003bf3a62fec6088f2d4c52620",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

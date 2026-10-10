@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_955fabb694e9283a",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:5bebebc5919b437da90eb125d0dc2324",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是建筑顶部的蓝绿色成片屋面，呈规整的矩形顶棚结构。",
+   "reasoning": "该目标符合违建类别要求的蓝色或绿色顶棚外观，位置和尺度也与建筑屋面相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595935.770539,
+   "seconds": 14.56,
+   "status": "ok",
+   "health": {
+    "at": 1791595921.2107556,
+    "available_fraction": 0.4739732496366583,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c04985a1efe64ac3a7975470dd2da3ba",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "84210632072c0c3a02bddcec7d5d6d4d771824ae6d736b5d86521cf0aba5130c",
+ "prompt_sha256": "4bd22c3a7a3e511c0d9299cc71ecb832e01b7f6bd95feba9bdfeeb701145c671",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

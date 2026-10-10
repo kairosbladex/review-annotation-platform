@@ -1,0 +1,162 @@
+{
+ "unit": "a321d049c2074544afa6b8bbcee4a009",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车位中的机动车，车身轮廓清晰。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车位中的机动车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见停车位中的机动车车身。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车位中的机动车，虽部分邻近树木但车形明确。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车位中的机动车。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是画面上方停车位中的机动车，车形可辨。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车位中的机动车。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车位中的机动车，车身轮廓清楚。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停车区域中的机动车。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路上的白色机动车。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是车道上的白色机动车。",
+   "target_index": 10
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路上的白色机动车。",
+   "target_index": 11
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路上的车辆，车身和挡风玻璃区域可见。",
+   "target_index": 12
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是车道上的白色机动车。",
+   "target_index": 13
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是车道上的深色机动车。",
+   "target_index": 14
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路上的深色机动车，车形明确。",
+   "target_index": 15
+  },
+  {
+   "key": "released_fp:a321d049c2074544afa6b8bbcee4a009:016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是道路上的深色机动车。",
+   "target_index": 16
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597425.824236,
+   "seconds": 26.52,
+   "status": "ok",
+   "health": {
+    "at": 1791597399.3088713,
+    "available_fraction": 0.470828909109127,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9f914cf3fefe4d8291f3788e272d02b6",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "0eb2dac065fcc615282de6769dcf3f3f60961e64a5aac271d6b751ac3e4dff49",
+ "prompt_sha256": "5fc705feaf7f66fd62d5f859f684e91213295e33d13744fa1d5cc55d78500429",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

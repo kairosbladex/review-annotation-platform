@@ -1,0 +1,50 @@
+{
+ "unit": "c6bb2edf936341da870d03d12bb09769",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "c6bb2edf936341da870d03d12bb09769:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内可见车身、车顶及深色车窗，位于地面停车区域，形状和尺度符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "c6bb2edf936341da870d03d12bb09769:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内是停放在地面上的小汽车，可见车顶和车窗，朝向与停车区域一致。",
+   "target_index": 1
+  },
+  {
+   "key": "c6bb2edf936341da870d03d12bb09769:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "小汽车",
+   "reasoning": "框内为道路上的机动车，车身呈长方形且可见深色车窗，位置和尺度均符合车辆。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595138.5693095,
+   "seconds": 21.76,
+   "status": "ok",
+   "health": {
+    "at": 1791595116.8111796,
+    "available_fraction": 0.47804889645296794,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c4ec737c38214a8996be0418f4391a1d",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8779db599c28059613fce493a0ef99de5dabc438d7db4565232a6cd257c2e8c2",
+ "prompt_sha256": "963ae7c9494ee09c91b34c1cb43d3e3dbd8c26249aad525dace3d7ac8528b21a",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

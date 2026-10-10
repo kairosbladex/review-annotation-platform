@@ -1,0 +1,34 @@
+{
+ "unit": "91a11ec7cf91453995e19d7732c088ec",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "91a11ec7cf91453995e19d7732c088ec:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名俯视人员，能看到深色头部、浅色上衣及身体轮廓，位于铺装人行区域。",
+   "reasoning": "目标外观符合俯拍人员特征，尺度较小且与周围铺装区域的位置关系相符，不是车辆或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597128.3520274,
+   "seconds": 25.35,
+   "status": "ok",
+   "health": {
+    "at": 1791597103.0028813,
+    "available_fraction": 0.4504122797332187,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e19b52496f754b0bb3e649f7a1f545d0",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "0c178dded905a57a0444a8e0128cf39073f04ca9a5d58697f06c2112fc6fc9c0",
+ "prompt_sha256": "ffdc1e8327dc4a197a5483f947724d67bbb0e7eae1fec4c9c9ca70a2fcb07101",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

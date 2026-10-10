@@ -1,0 +1,34 @@
+{
+ "unit": "921ef7c18d9846589264f1195197448a",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "921ef7c18d9846589264f1195197448a:004",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "建筑屋顶上的矩形设施或设备，不是机动车。",
+   "reasoning": "框内目标位于建筑屋顶平台上，呈扁平矩形设备状，缺少车辆车身、车窗等特征；位置和外观均不符合车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597318.18082,
+   "seconds": 31.46,
+   "status": "ok",
+   "health": {
+    "at": 1791597286.7184966,
+    "available_fraction": 0.45350430173217193,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b014615fbb304629bb0cb10b6b7fdb40",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "0746c89d97fadd40df9f54e5797a86e7a25b7f055f6a35ba53780c837305a7a2",
+ "prompt_sha256": "502d08b2242baf785c756f3069d0f59b1fbee251b611a53408bcb66c8f6af0fa",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

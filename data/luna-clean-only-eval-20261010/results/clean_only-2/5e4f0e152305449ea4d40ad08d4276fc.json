@@ -1,0 +1,42 @@
+{
+ "unit": "5e4f0e152305449ea4d40ad08d4276fc",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆小汽车",
+   "reasoning": "框内可见完整的圆角长方形车身、深色车窗，位于地面绿化旁，尺度和形状均符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "5e4f0e152305449ea4d40ad08d4276fc:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆小汽车",
+   "reasoning": "框内可见明显的汽车车顶、车窗和车身轮廓，停在地面区域，符合车的外观和位置特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594989.6524374,
+   "seconds": 15.32,
+   "status": "ok",
+   "health": {
+    "at": 1791594974.3350356,
+    "available_fraction": 0.46879070570003833,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "90e110ef679d412b841db4a07fb65cde",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b96b01eaf5b7904ad88fbf94bbd02b263e0d159bd8bebf8eda8c9713f472db9b",
+ "prompt_sha256": "51634d582a62f8be9c17a9cc8b19a44eeac34852d25a5b5b22e9db5dd5aca4c5",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

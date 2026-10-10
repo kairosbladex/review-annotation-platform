@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_5991fee6c4141b5c",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b74e2ff5b5f4ce6957fed4fb3f41b98",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是建筑旁的玻璃顶棚或透明棚架，呈灰白透明色并带规则框架。",
+   "reasoning": "目标主体不是蓝色或绿色顶棚，而是灰白透明的玻璃结构，因此不符合“违建”类别的外观要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596369.5319984,
+   "seconds": 15.4,
+   "status": "ok",
+   "health": {
+    "at": 1791596354.13415,
+    "available_fraction": 0.4808440921224408,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "20ed850766d94dd5a2770b9ee8615f00",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "9ea25bda25e9b13697a9ae7087e062be1e3cf653108cc9df565433c611894fff",
+ "prompt_sha256": "d821f6cbe6b2be948db3ea4db8f5ce4c92f8766feee0bb006f5c2f392e879d09",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

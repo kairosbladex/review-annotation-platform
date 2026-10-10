@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_5f8ae6af38734aaf",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:0d716cff82d14e248530e2e8af69b96b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是建筑屋顶上一块成片、边缘规整的蓝绿色矩形顶棚/屋面。",
+   "reasoning": "目标呈明显蓝绿色，覆盖在建筑屋顶上方，形状和位置符合蓝色顶棚的外观口径。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594745.1317608,
+   "seconds": 18.91,
+   "status": "ok",
+   "health": {
+    "at": 1791594726.2176218,
+    "available_fraction": 0.4685948380186739,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e5a194f6537e42348e35634ef48f95fa",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "dbd36725149266327b185a2edb476511a52da9ee3ecfcce0742845a4721962bb",
+ "prompt_sha256": "6fed9e6ca3c2d8fc64c77d131d080dee22911e9a2bb7f6d04e3b1716d9aa05fe",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

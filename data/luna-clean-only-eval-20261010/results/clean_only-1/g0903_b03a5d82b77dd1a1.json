@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_b03a5d82b77dd1a1",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:4e95387d7e8c4667ba5c4c3e0544651b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为一处成片的蓝色矩形顶棚，边缘规整，覆盖在地面建筑或棚架上方。",
+   "reasoning": "目标主体符合蓝色顶棚的外观特征，位置和尺度也与俯拍场景中的棚屋相符，因此判定为true。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595167.1632192,
+   "seconds": 14.29,
+   "status": "ok",
+   "health": {
+    "at": 1791595152.8720248,
+    "available_fraction": 0.4775735000846338,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "af6509aa8c694261be1d4af5a3b70005",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "ceff7c7f52e07012586c8a273b8e550fa7da7f92b69f4e7387c8104be98cc8c4",
+ "prompt_sha256": "ba8c80eb40f2b82268167136fa329ef02f7105aedc2a0f91855ed4bb0131b5cd",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

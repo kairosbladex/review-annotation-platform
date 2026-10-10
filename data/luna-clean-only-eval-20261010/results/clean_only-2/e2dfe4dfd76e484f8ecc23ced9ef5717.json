@@ -1,0 +1,34 @@
+{
+ "unit": "e2dfe4dfd76e484f8ecc23ced9ef5717",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "e2dfe4dfd76e484f8ecc23ced9ef5717:001",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无明显遮挡或出画。",
+   "observed_object": "道路旁浅色铺装区域上的小型矩形设备箱或设施物体。",
+   "reasoning": "框内物体为规则矩形设备状物，位于人行铺装区域而非车道或停车位，未见汽车应有的车顶、挡风玻璃深色横带及约2:1车身比例，因此不符合“车”的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595864.2412956,
+   "seconds": 23.35,
+   "status": "ok",
+   "health": {
+    "at": 1791595840.8944743,
+    "available_fraction": 0.469955150161777,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f523cbb459504987a408a81d137b5f27",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "19476bcb67d09c4e54b388dfc85393ce79282f88049116afaacdcea611d2e131",
+ "prompt_sha256": "d97c567d647c6dc6a3911b6cdcc380158b288557dad5b7c3c9e225d2bdbe4d84",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,54 @@
+{
+ "unit": "g0903_c5ca89db96782ad0",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是道路上的两轮车骑行者，头顶部可见深色头发，未见光滑高亮的头盔。",
+   "reasoning": "目标符合骑两轮车人员未戴头盔的外观特征，位置和尺度也与道路骑行者相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596654.4652772,
+   "seconds": 0.05,
+   "status": "http_503",
+   "health": {
+    "at": 1791596654.4169428,
+    "available_fraction": 0.4528073192192677,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596674.5505857,
+   "seconds": 0.05,
+   "status": "http_503",
+   "health": {
+    "at": 1791596674.503547,
+    "available_fraction": 0.4536992878113697,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596938.5767019,
+   "seconds": 17.99,
+   "status": "ok",
+   "health": {
+    "at": 1791596920.5857835,
+    "available_fraction": 0.4752917312769588,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3586c52e280a41968185d188ede546db",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "cebbbf0965e030d78bb1fc6c96a9324f60ca09d0e11df9af3a2672a8e1695d41",
+ "prompt_sha256": "691ea3367b432b83fab88ecc24b5eac760ca078fc333bc4212e56e9af9b77e54",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

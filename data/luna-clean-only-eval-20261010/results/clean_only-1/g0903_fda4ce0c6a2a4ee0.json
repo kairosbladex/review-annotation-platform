@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_fda4ce0c6a2a4ee0",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:79627723ab3842b3b626d4b9397aec45",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在地面上的小汽车，车顶、挡风玻璃和车身轮廓清晰。",
+   "reasoning": "目标呈机动车典型的圆角长方形车身，尺度和位置与停车区域相符，符合“车”的类别特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594993.3975708,
+   "seconds": 18.52,
+   "status": "ok",
+   "health": {
+    "at": 1791594974.8769882,
+    "available_fraction": 0.4685628875401524,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3996e377738341d2bc376af388722646",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "77c9fd27bc1b328bea677e3308aa13a3736283baab1877728f736f4201a174e2",
+ "prompt_sha256": "859e0de34fac8a4b5cc03a98ca42521669667bf5176a5417f321962c6dfcaf03",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

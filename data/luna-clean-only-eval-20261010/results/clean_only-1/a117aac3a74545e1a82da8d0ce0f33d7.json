@@ -1,0 +1,34 @@
+{
+ "unit": "a117aac3a74545e1a82da8d0ce0f33d7",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a117aac3a74545e1a82da8d0ce0f33d7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的一辆白色小汽车，可见车顶和车身轮廓",
+   "reasoning": "框内目标呈圆角长方形机动车外观，位于地面停车区域，尺寸和位置与车辆相符，符合“车”的判断要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596328.4777398,
+   "seconds": 16.3,
+   "status": "ok",
+   "health": {
+    "at": 1791596312.1772132,
+    "available_fraction": 0.4814339447720627,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "89633d1ac3e24b0b82ec3a9d059d3468",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d85ef3672df692f0f055525f82bbc6cb6fabd861e25af3d18a6d433952eedde8",
+ "prompt_sha256": "877a0edc8c71a4facdab0a5ce5814164ff3c558781eff4c0fbc36790a1142909",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

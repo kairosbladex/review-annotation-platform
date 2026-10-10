@@ -1,0 +1,58 @@
+{
+ "unit": "1c711a033d014f7fa7883d7488c75b9f",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面下方道路边缘且被树木/画面裁切遮挡，无法确认是否为两轮车。",
+   "observed_object": "道路边缘可见一小段细长物体，主体不完整。",
+   "reasoning": "虽然形状可能符合两轮车，但露出部分过少，无法确认或排除其他路面物体。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的白色小汽车，车顶和深色玻璃带清晰可见。",
+   "reasoning": "呈圆角长方形，长宽比例及所在车道位置均符合机动车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道/道路边的白色小汽车。",
+   "reasoning": "可见明确的车身轮廓和车顶，尺度与道路位置相符，符合机动车特征。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:1c711a033d014f7fa7883d7488c75b9f:003",
+   "decision": "uncertain",
+   "image_limitation": "目标仅在画面最右边缘露出一小部分，大部分出画。",
+   "observed_object": "边缘处可见局部深色/白色物体。",
+   "reasoning": "露出部分不足以确认完整车形，无法排除其他物体。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595483.6158798,
+   "seconds": 31.72,
+   "status": "ok",
+   "health": {
+    "at": 1791595451.8946908,
+    "available_fraction": 0.47452045098146034,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9e3b45d4a7264f3eae9b5702027d4693",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "301936440fa768fd189d2685083b1d37ad5619b71ead42bc77f3fa3580e5db14",
+ "prompt_sha256": "8e1ccb4bf047393c3eb2632f004a4161ea2f20306b9e693aedbd06572d1c6c88",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

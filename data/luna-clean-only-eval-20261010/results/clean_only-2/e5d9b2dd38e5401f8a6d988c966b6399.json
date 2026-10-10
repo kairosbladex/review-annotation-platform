@@ -1,0 +1,34 @@
+{
+ "unit": "e5d9b2dd38e5401f8a6d988c966b6399",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e5d9b2dd38e5401f8a6d988c966b6399:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在屋顶或平台通道上的小型机动车，呈明显的车身轮廓和深色车窗带。",
+   "reasoning": "目标具有车的长方形车身、车顶及深色玻璃区域，尺度和形状符合机动车外观；虽然位于建筑平台附近，但实际物体不是空调外机或设备箱。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596501.7486176,
+   "seconds": 23.2,
+   "status": "ok",
+   "health": {
+    "at": 1791596478.5467002,
+    "available_fraction": 0.4775704600771627,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "84e958d8c634464bb0b59bb0df9bcb05",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8e0167b8b3914ee9acf3e8312fc5595c38e70e95e0189ce1b262e8c289c0c3a2",
+ "prompt_sha256": "a5fae20a3d2df8c91add5736391fea7ba5d74ac0445b37c9d28e2b79ff635162",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

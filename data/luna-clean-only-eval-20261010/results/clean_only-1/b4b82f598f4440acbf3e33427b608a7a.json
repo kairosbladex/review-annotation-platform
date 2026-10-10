@@ -1,0 +1,34 @@
+{
+ "unit": "b4b82f598f4440acbf3e33427b608a7a",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "b4b82f598f4440acbf3e33427b608a7a:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无法确认存在人员。",
+   "observed_object": "框内是墙面上的一个小型圆形开口或固定物，带白色边缘和黑色中心，并非人员头肩轮廓。",
+   "reasoning": "该物体形状和尺度更符合墙面设施或孔洞，不具备俯视人员应有的头部与肩部特征，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596370.0637703,
+   "seconds": 26.33,
+   "status": "ok",
+   "health": {
+    "at": 1791596343.73811,
+    "available_fraction": 0.48176378558267946,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "15b471c70dd44f6da491e0e6dde2d82c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b27e48964e1eaf2814f58fa2172c9eb856c264002ea579726ff0e33eb99c9ed4",
+ "prompt_sha256": "b82b041ac2e1c1b4d422a01926f1552418a53a03384cb6597cb8f539a5b2feb4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

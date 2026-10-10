@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_8c3c158b0d415781",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:73f7eb6a9ce4489893ed3f7fd8c019dc",
+   "decision": "true",
+   "image_limitation": "车身大部分被树冠遮挡，但可见车顶、挡风玻璃和车身轮廓，位于道路旁，符合机动车特征。",
+   "observed_object": "被树遮挡的小汽车",
+   "reasoning": "框内可见明确的白色车身及深色玻璃区域，形状和位置均符合车。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1bebc9c971fc4869973013db786e6c74",
+   "decision": "true",
+   "image_limitation": "车辆下部接近画面底边，但车身主体和车顶结构清晰可见。",
+   "observed_object": "白色小汽车",
+   "reasoning": "可见完整的长方形车顶、前后挡风玻璃深色横带及均匀白色车身，位于道路边，符合车的外观和尺度。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595955.6518881,
+   "seconds": 19.85,
+   "status": "ok",
+   "health": {
+    "at": 1791595935.7985678,
+    "available_fraction": 0.47525725759223625,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f7138a464b16467a9a807673c07a6809",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "056563e219d253278217b57d7771e137a936bafccdd585e685d2a7d2ccbc2c3c",
+ "prompt_sha256": "91eb173536dad6afa1e3eb118de10e8435612f94a3e7433017ff977508f89fd4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

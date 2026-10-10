@@ -1,0 +1,42 @@
+{
+ "unit": "f7041ee1c1aa4feb952d95667e47b235",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆细长窄小的两轮车，位于道路边缘区域。",
+   "reasoning": "目标宽度明显小于小汽车，长度和细长形态符合自行车或电动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f7041ee1c1aa4feb952d95667e47b235:001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内主要是道路上的小型路面设施或标线附近结构，并非两轮车。",
+   "reasoning": "其形状和位置不呈现两轮车的细长车身特征，不能归为两轮车。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597906.4949543,
+   "seconds": 33.4,
+   "status": "ok",
+   "health": {
+    "at": 1791597873.0927045,
+    "available_fraction": 0.41873448988188233,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "87c2e3643e824a3899eef3bab3cc8d2f",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "c4caaadf979307f0b26284343c89983d3635b4d0e841368dd2513de7882e6dca",
+ "prompt_sha256": "ddae21418e9e5d8683e9eaa683607ddf8898cfdd5c30ea36138dbccb669ecd1f",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

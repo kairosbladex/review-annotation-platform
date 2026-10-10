@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_5c42156a21e911fb",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-034",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "框内主要是建筑屋顶及其表面结构，不是人员。",
+   "reasoning": "框的位置和尺度覆盖一片屋顶结构，未见符合人员特征的头部、肩部或躯干，类别不匹配。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598031.2022476,
+   "seconds": 14.18,
+   "status": "ok",
+   "health": {
+    "at": 1791598017.0267692,
+    "available_fraction": 0.4200288338628621,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b47e85127ae844e4bcc72f1bd7659c9c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1ba0a3f38cc4bc758de18014a552dfffad4de01351e38a46f5d4c9c2cc9b0f67",
+ "prompt_sha256": "8ea4b0191fc452cef549ef28eb02677f23c8e3019227d68ff1cbc6e35a1b07ee",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

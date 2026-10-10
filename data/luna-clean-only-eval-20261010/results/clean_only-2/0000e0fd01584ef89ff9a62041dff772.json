@@ -1,0 +1,54 @@
+{
+ "unit": "0000e0fd01584ef89ff9a62041dff772",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "0000e0fd01584ef89ff9a62041dff772:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车场内的一辆小汽车",
+   "reasoning": "框内可见车顶和深色车窗带，整体呈圆角长方形，位于停车场车辆区域，尺度与周围车辆一致，符合机动车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596715.618855,
+   "seconds": 0.04,
+   "status": "http_503",
+   "health": {
+    "at": 1791596715.575158,
+    "available_fraction": 0.45602875433626666,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596735.7020648,
+   "seconds": 0.05,
+   "status": "http_503",
+   "health": {
+    "at": 1791596735.654917,
+    "available_fraction": 0.45481603455588654,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596985.1650553,
+   "seconds": 31.8,
+   "status": "ok",
+   "health": {
+    "at": 1791596953.369781,
+    "available_fraction": 0.4585995062541466,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "66e011b1c10b452ba3f4f3e23e4af9ff",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1bc8fb0101ecac8b09da645a71d53f8f1dd74c782ae9e9097e17a45428ac5d8b",
+ "prompt_sha256": "059c6ff42d6922a6847fff14d9d62a3db0b807ea10cdc13bbaa95bc5e67c5fd4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

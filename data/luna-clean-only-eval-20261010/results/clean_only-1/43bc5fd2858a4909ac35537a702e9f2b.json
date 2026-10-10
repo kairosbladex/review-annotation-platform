@@ -1,0 +1,34 @@
+{
+ "unit": "43bc5fd2858a4909ac35537a702e9f2b",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:43bc5fd2858a4909ac35537a702e9f2b:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "建筑屋顶边缘的矩形设施或结构物，而非机动车。",
+   "reasoning": "框内目标位于楼顶平台边缘，形状和位置不符合道路或停车区域内的车辆特征，更像屋顶设备或建筑结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594814.4084513,
+   "seconds": 18.8,
+   "status": "ok",
+   "health": {
+    "at": 1791594795.6113224,
+    "available_fraction": 0.4634181612964732,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9e69693abe1241de85964a7866a156a1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "4e3974b20955ec3fe3303722ef38b8ec33b7c0d046969c2a7ce241dcbcaabd9c",
+ "prompt_sha256": "d3f04347fa34995b3e8f7b754210553bb909b0d7f2f0428f2c7b87b13f8c6a69",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

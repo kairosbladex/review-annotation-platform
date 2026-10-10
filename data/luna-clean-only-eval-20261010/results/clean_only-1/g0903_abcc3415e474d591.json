@@ -1,0 +1,162 @@
+{
+ "unit": "g0903_abcc3415e474d591",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:b6847dd3211a405f88211a2072fc38fb",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停在建筑旁地面上的机动车，车身轮廓和尺度符合。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:9133f7ed4ce24b25a48a67b8244c39dd",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车区内可见机动车车身。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e32eb7a81bd44fb49761b0850a719af0",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "树旁停车位中的机动车，轮廓明确。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:78a29d00f2bd4163b4858572155dc4c5",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "绿化旁停车区内的机动车。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:a54d28c484594d72a03f77d174331648",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车位中的机动车，形状和位置相符。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:ae54fdb403ce400f82a22dfe628be948",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "树下停车区内可见机动车。",
+   "target_index": 5
+  },
+  {
+   "key": "gold0903:a0b457f731e940539d4f57dd68055deb",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "道路旁停车区内的机动车，车形明确。",
+   "target_index": 6
+  },
+  {
+   "key": "gold0903:30f259f02ab54491899665d412524fc8",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "道路车道中的机动车，尺度与车道相符。",
+   "target_index": 7
+  },
+  {
+   "key": "gold0903:5d12bfdfda72490594f11dc9f514dcd8",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "绿化旁停车位中的机动车。",
+   "target_index": 8
+  },
+  {
+   "key": "gold0903:82ec19ae4355441d83007a80affbfe01",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车列中的机动车，车身轮廓可辨。",
+   "target_index": 9
+  },
+  {
+   "key": "gold0903:fcb43f6c22d841a384e979e447c31d9f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车列中的机动车。",
+   "target_index": 10
+  },
+  {
+   "key": "gold0903:b1cc26d9084141e8ae2531ef86c1edc0",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "树旁停车位中的机动车。",
+   "target_index": 11
+  },
+  {
+   "key": "gold0903:c37626e44a1d444e86989f37ff7d20be",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车列中的机动车，位置和尺度相符。",
+   "target_index": 12
+  },
+  {
+   "key": "gold0903:2f18ccf40e4b43b89f6d84ba58b162d1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车列中可见机动车车身。",
+   "target_index": 13
+  },
+  {
+   "key": "gold0903:7addc0dbfbff476bb10bfea020cd4dde",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车位内的机动车，轮廓明确。",
+   "target_index": 14
+  },
+  {
+   "key": "gold0903:fb792c3f3c3648268b5d51e6be6c491e",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "绿化带旁停车列中的机动车。",
+   "target_index": 15
+  },
+  {
+   "key": "gold0903:5e6087e16c4b4d188e6b6f584dbfe51b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车列中的机动车，车身形状符合。",
+   "target_index": 16
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595702.844966,
+   "seconds": 17.13,
+   "status": "ok",
+   "health": {
+    "at": 1791595685.7150824,
+    "available_fraction": 0.4783465131843908,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "10645f3173404055b18a3e618f754e99",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "514ef8866bb62e142d147360dfbc289442e9ce89c2d4118b6b216ecbafe27912",
+ "prompt_sha256": "79136e1a69cd8c282687db5b8944544fd52e6c18f2181f79af49a0a45ef5713e",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

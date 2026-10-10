@@ -1,0 +1,154 @@
+{
+ "unit": "214fef1ffdb547388fda426bec40d8da",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "路面/设施",
+   "reasoning": "框内未见符合人员外观的目标。",
+   "target_index": 0
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "行人",
+   "reasoning": "可见小型人员目标，位于道路旁人行区域。",
+   "target_index": 1
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见细小人员形状，位置和尺度符合。",
+   "target_index": 2
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "可见站立人员，位于广场边缘。",
+   "target_index": 3
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内为小型人员目标，位于人行区域。",
+   "target_index": 4
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "可见小型人员目标。",
+   "target_index": 5
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:011",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "树木/盆栽",
+   "reasoning": "框位于广场绿化附近，未见人员外观。",
+   "target_index": 6
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见细小人员目标。",
+   "target_index": 7
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见道路上的小型人员目标。",
+   "target_index": 8
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "可见细小人员形状，位置符合。",
+   "target_index": 9
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见小型人员目标。",
+   "target_index": 10
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "框内可见位于人行道的人员。",
+   "target_index": 11
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人员",
+   "reasoning": "可见道路旁小型人员目标。",
+   "target_index": 12
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:016",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内明显是道路上的车辆，不是人员。",
+   "target_index": 13
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:002",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内为车辆局部/车身，不符合人员形状。",
+   "target_index": 14
+  },
+  {
+   "key": "214fef1ffdb547388fda426bec40d8da:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "车辆",
+   "reasoning": "框内为道路车辆，不是人员。",
+   "target_index": 15
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595225.0846174,
+   "seconds": 25.97,
+   "status": "ok",
+   "health": {
+    "at": 1791595199.1101778,
+    "available_fraction": 0.4764237388589806,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "188d82dd088a4bf992f829fd970a6448",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b2df74194dc20e3c56921320e2c3103d2e5e2b3e47d417c9f6ad066b23b7700c",
+ "prompt_sha256": "f53506fec19f7190e4689251bb7154e0e9ab22fb95c3598d76200935f5550a7d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

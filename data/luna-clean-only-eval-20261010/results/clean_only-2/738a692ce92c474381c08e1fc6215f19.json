@@ -1,0 +1,34 @@
+{
+ "unit": "738a692ce92c474381c08e1fc6215f19",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "738a692ce92c474381c08e1fc6215f19:001",
+   "decision": "false",
+   "image_limitation": "框内区域清晰可见，未见明显遮挡或出画导致的判断障碍。",
+   "observed_object": "建筑外墙边缘、灰色水平结构及玻璃雨棚等建筑设施。",
+   "reasoning": "框内没有机动车的车顶、挡风玻璃深色横带或与道路/车位相符的车辆形状，主要是建筑结构和雨棚，因此不符合“车”的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596125.3262103,
+   "seconds": 15.8,
+   "status": "ok",
+   "health": {
+    "at": 1791596109.531159,
+    "available_fraction": 0.4714394034094778,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4aad025aa1be4df18a67c6468b20b846",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60",
+ "prompt_sha256": "7ecbce4f5a53c176291dbd5e771af286bf1cc21e8af1c1956127bf5dfb164949",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

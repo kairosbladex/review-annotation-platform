@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_12dcae5800b529d9",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b6399b684eb4b6a9eb6beac9f41f820",
+   "decision": "false",
+   "image_limitation": "无遮挡且清晰可见。",
+   "observed_object": "蓝色施工围挡、道路及绿化区域。",
+   "reasoning": "框内主体是竖立在地面的长条蓝色围挡，不是覆盖在建筑或空地上方的蓝绿色顶棚，按类别要点应判为false。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f3cdb8b816ba422dafa1d3cf6c987901",
+   "decision": "false",
+   "image_limitation": "无遮挡且清晰可见。",
+   "observed_object": "蓝色围挡墙体。",
+   "reasoning": "框内是地面上的蓝色围挡立面，属于长条状围挡，不是蓝色或绿色顶棚，按类别要点应判为false。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595451.8689733,
+   "seconds": 24.93,
+   "status": "ok",
+   "health": {
+    "at": 1791595426.9378874,
+    "available_fraction": 0.475827015792474,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ce6b998548584c01b5d3feb04ba58d64",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1cea3deec2eef028290253c1ea04a44483aeed9d79238d14dd47a251a8136457",
+ "prompt_sha256": "f9af6994dda3f904fe3b15c68b95635be1ef7f63caa2af005af68960bfcb190b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

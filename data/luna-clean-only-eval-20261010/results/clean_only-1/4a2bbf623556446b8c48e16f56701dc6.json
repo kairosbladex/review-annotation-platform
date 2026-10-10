@@ -1,0 +1,34 @@
+{
+ "unit": "4a2bbf623556446b8c48e16f56701dc6",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:4a2bbf623556446b8c48e16f56701dc6:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面顶部边缘，仅露出车辆样物体的一小部分，主体被出画遮挡，无法确认完整车形。",
+   "observed_object": "画面顶部边缘可见疑似白色车辆的一角或局部。",
+   "reasoning": "位置在建筑旁的地面区域，外观局部与车辆可能相符，但目标大部分出画，无法依据车身整体形状、车顶和挡风玻璃等特征确认或否定。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598005.1729782,
+   "seconds": 17.13,
+   "status": "ok",
+   "health": {
+    "at": 1791597988.0425684,
+    "available_fraction": 0.4244810160045449,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "18787f20b228402a932710ab97f253ae",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "50971c2a2aae59f9f96abf438311de01835da685acdb6abe525ba83e77fce13a",
+ "prompt_sha256": "deb4e6e657b2688bf750dbd6cdf2951bf0cab212e4cbd4a5fe40781f99a7c63b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "0ff1eadfd37d4144870b0f452a8e22b7",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "0ff1eadfd37d4144870b0f452a8e22b7:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位中的一辆小汽车",
+   "reasoning": "框内可见清晰的圆角长方形车身、车顶及深色车窗，位于地面停车位内，尺度和朝向均符合机动车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597451.0702438,
+   "seconds": 22.82,
+   "status": "ok",
+   "health": {
+    "at": 1791597428.2480657,
+    "available_fraction": 0.46034665934795,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d2facb380ec0445bb9ac6366eb67d43f",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "e80de625bfd671fda963c5f4da5d37d2abb29c62dc01b91e336273792acc29cd",
+ "prompt_sha256": "5aa694ddc7413e4c5569a997b62cf87fe5332b7bdb7dd96f1384c8ee59d1dd52",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

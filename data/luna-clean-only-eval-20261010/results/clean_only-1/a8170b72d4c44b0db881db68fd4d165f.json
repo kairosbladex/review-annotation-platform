@@ -1,0 +1,34 @@
+{
+ "unit": "a8170b72d4c44b0db881db68fd4d165f",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "a8170b72d4c44b0db881db68fd4d165f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈浅色头部及肩部的紧凑椭圆形外观。",
+   "reasoning": "目标位于建筑或硬质表面边缘，尺度较小且形状符合俯视人员的头部和肩部特征，不像树木、车辆或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597208.932939,
+   "seconds": 16.49,
+   "status": "ok",
+   "health": {
+    "at": 1791597192.443175,
+    "available_fraction": 0.4494115396737999,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e1da50b6ffdf47afbfd3a0f12e4f7672",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "c6de6566c293d1e6f907cb826e806c51f212e853efacf34b4f9354ad3eacc0a0",
+ "prompt_sha256": "eaf0bae821e6ddc93347bf3f0d18f1a860cc7b63884c993540e678a36a0652a5",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

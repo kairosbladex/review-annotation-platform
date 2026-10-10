@@ -1,0 +1,34 @@
+{
+ "unit": "4b734d2aa42e494086e2e15d833b4603",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "4b734d2aa42e494086e2e15d833b4603:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆白色小汽车，位于道路旁停车区域，车顶和深色车窗带清晰可见。",
+   "reasoning": "目标呈机动车常见的圆角长方形车身，尺度与停车位相符，虽然部分被树木遮挡，但露出的车形明确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595643.30309,
+   "seconds": 20.15,
+   "status": "ok",
+   "health": {
+    "at": 1791595623.157136,
+    "available_fraction": 0.47955345695057583,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7a8cb3b449454647bdfe8e86e82491c3",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "401f84b1c609b243eced994ac42a824cbb1e4d7d45440c0e6970863d5ff919bc",
+ "prompt_sha256": "2adb6b21ffccda79d5e33bed29f8189f14554b19e0ce4f7c04c0c9b126bbb2d3",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

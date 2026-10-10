@@ -1,0 +1,50 @@
+{
+ "unit": "1cd73a7802f74de4a4d361c45c52fcb9",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆停在地面绿化带旁的白色汽车",
+   "reasoning": "目标呈清晰的车身长方形轮廓，可见车顶和深色玻璃区域，尺度与地面停车位置相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆停在地面区域的白色汽车",
+   "reasoning": "目标具有明显车身、车顶及车窗结构，位于地面停车区域，符合机动车外观。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:1cd73a7802f74de4a4d361c45c52fcb9:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆停在道路旁地面的白色汽车",
+   "reasoning": "可辨认出完整车辆轮廓及深色车窗，位置和尺度与地面车辆相符。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596254.7600272,
+   "seconds": 30.35,
+   "status": "ok",
+   "health": {
+    "at": 1791596224.4070032,
+    "available_fraction": 0.4818728306506686,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d700c92b4ac9407cb64e852634553646",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8142286ac767518d83b3c910629c7eb64c06a717eba25577f1e3a2c5af0e20bc",
+ "prompt_sha256": "441c115ff5bbf307000a2fb3c602ade60cbd9d7b11dfa206020ad0c4975e0c31",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

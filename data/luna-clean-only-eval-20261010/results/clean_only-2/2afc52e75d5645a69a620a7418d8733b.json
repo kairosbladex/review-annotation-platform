@@ -1,0 +1,34 @@
+{
+ "unit": "2afc52e75d5645a69a620a7418d8733b",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "2afc52e75d5645a69a620a7418d8733b:000",
+   "decision": "uncertain",
+   "image_limitation": "目标极小且局部被道路设施或车辆遮挡，细节不足以确认人员特征。",
+   "observed_object": "道路边缘一个很小的深色物体，无法清晰辨认。",
+   "reasoning": "框内目标尺寸远小于常规人员可辨识尺度，且被周围物体影响，无法确认是人员，也不足以明确排除。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597185.5109694,
+   "seconds": 29.47,
+   "status": "ok",
+   "health": {
+    "at": 1791597156.0447474,
+    "available_fraction": 0.44988465603653066,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3b93bd674d3145319ade696a6a940023",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "4d5c98de187ae7946827cfa8ab5311c0317a6ede2728f6e97c8be09981272595",
+ "prompt_sha256": "1870e21752b70c9ab864341ecb46c8dc51055a8fdd765d9dbeb147243175f397",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

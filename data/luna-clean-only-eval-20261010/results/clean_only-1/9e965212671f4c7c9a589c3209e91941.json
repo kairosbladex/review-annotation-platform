@@ -1,0 +1,34 @@
+{
+ "unit": "9e965212671f4c7c9a589c3209e91941",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9e965212671f4c7c9a589c3209e91941:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左边缘，仅露出部分车体，主体大半出画，无法完整确认车辆形状。",
+   "observed_object": "左侧边缘可见一小部分疑似车辆的深色车体。",
+   "reasoning": "位置在地面停车区域且外观疑似车辆，但目标被画面边缘严重截断，无法确认车顶、车窗及完整尺度关系，因此应判为uncertain。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595769.1876602,
+   "seconds": 23.02,
+   "status": "ok",
+   "health": {
+    "at": 1791595746.1648586,
+    "available_fraction": 0.47628888412756165,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "70b0dff860d9471db46fe6d6f649f6fb",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "20a601b29955bc63eaf84f263039cecf8dbc92aca0acd45df5c02e9b7b8ffd04",
+ "prompt_sha256": "fb159b469392d8a97e91765cc41b3d309351f28ebca362b312af5e83861cc93c",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

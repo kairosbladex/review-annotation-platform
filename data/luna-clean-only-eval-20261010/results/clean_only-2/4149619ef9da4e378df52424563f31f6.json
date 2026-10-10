@@ -1,0 +1,34 @@
+{
+ "unit": "4149619ef9da4e378df52424563f31f6",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "4149619ef9da4e378df52424563f31f6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员头部及肩部轮廓，位于可站立的铺装区域。",
+   "reasoning": "目标呈现人员俯视下常见的头顶和肩部形态，尺度较小且位置符合人员特征，未见明显车辆或其他设施结构。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596612.6829095,
+   "seconds": 36.14,
+   "status": "ok",
+   "health": {
+    "at": 1791596576.5396457,
+    "available_fraction": 0.4659534363271651,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "547cc02dcb9b40078cce588a5978c757",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "5e93a35d0a3f743a7418eff003876df9e410199c6696aca5b247f8c4d4949e7b",
+ "prompt_sha256": "28d541d020c768ddcb3d83c0e8b8f6577f697a259153e918d3f4da0b1ca2311b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

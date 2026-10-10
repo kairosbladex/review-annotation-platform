@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_d2bfba7f5eb88113",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:7e7a4c2981244e299e8019aef1eb953f",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是一个棕红色的矩形金属箱或棚体，不是蓝色或绿色顶棚。",
+   "reasoning": "目标主体颜色为棕红色，属于类别明确排除的其他颜色屋面/物体，外观不符合蓝色或绿色顶棚要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596517.8998575,
+   "seconds": 6.92,
+   "status": "ok",
+   "health": {
+    "at": 1791596510.9775517,
+    "available_fraction": 0.4783953053043023,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c8d7f5a12018421cb67d7ec03b680d56",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "68592f6bd0e74a1e32600f17398c6ffd2ac840b135489b19dc1cf5b02f73a3f9",
+ "prompt_sha256": "6d153b024718ba0fc3f913ce1d7e589b36342b84614450e6d7d52bc54003b37d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_0d7bd41ababaee43",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cdd543ffaaad481885165446c2939f34",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色成片顶棚",
+   "reasoning": "框内可见规整的蓝色屋面，覆盖在棚架建筑上方，符合蓝色顶棚的违建外观特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:82325faa9a82418181856bacfc284810",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "白色建筑及红蓝色屋面边缘",
+   "reasoning": "框内主体是远处建筑屋面，主要呈白色并带红蓝装饰边，不是符合类别要求的蓝色或绿色成片顶棚。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595750.1712604,
+   "seconds": 23.87,
+   "status": "ok",
+   "health": {
+    "at": 1791595726.3042448,
+    "available_fraction": 0.4719170189832659,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "678769801a284a848ef722ff2520da91",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "80fab5194e6d11f120eeece93063953cc902f81c6f3f92fcc99c3827988a64bf",
+ "prompt_sha256": "5fb31b427855ba20b0bb1111e67ce6cd10678a24e2390e706b13a545b35d1a69",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

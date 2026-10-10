@@ -1,0 +1,50 @@
+{
+ "unit": "a8f2626d28c6499e9ef6f1c1bfa1e2f9",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的一辆白色机动车",
+   "reasoning": "框内可见车身和深色车窗，形状与道路边停放的小汽车一致。",
+   "target_index": 0
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的一辆灰色机动车",
+   "reasoning": "框内可见完整车顶及车窗带，尺度和位置符合停放车辆。",
+   "target_index": 1
+  },
+  {
+   "key": "a8f2626d28c6499e9ef6f1c1bfa1e2f9:011",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑平台上的设备箱或空调外机",
+   "reasoning": "目标位于建筑平台而非道路或停车位，外形更像矩形设备箱，不具备机动车车身和车窗特征。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595685.6825185,
+   "seconds": 15.05,
+   "status": "ok",
+   "health": {
+    "at": 1791595670.6321766,
+    "available_fraction": 0.4779707682609601,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4fec593ead5e446b874be8fd9ba3b0df",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "03d9f3fc174c1d5a08ab06736a4c946d849ec759a79b54e4fe1b4bae6d44cffd",
+ "prompt_sha256": "7b9530ac097692116ea5741f4e005737110e36665e4a5f0d79266180516b769e",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

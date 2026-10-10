@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_c43c8cc90e522fc7",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-028",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无明显遮挡或出画。",
+   "observed_object": "道路上的小型车辆或工程车辆部件，而非人员。",
+   "reasoning": "框位于道路中央附近，框内可见的是细长的车辆状物体，尺度和形状不符合俯拍人员的头肩或躯干腿部特征，因此判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595241.3058002,
+   "seconds": 17.81,
+   "status": "ok",
+   "health": {
+    "at": 1791595223.4934833,
+    "available_fraction": 0.47105712246998416,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "19df59c6a6484723a996685d3ab881e0",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "c6638c1a951abcb841108c949caa708fa276f54eb6915c636f4001b34d3fd774",
+ "prompt_sha256": "aa31407f565142cc4aba5f0b0fdd5a3108143477841cfe009e4944efcb1e9bfa",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

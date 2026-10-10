@@ -1,0 +1,50 @@
+{
+ "unit": "3bec910f1cbc4c4ea3ba275779cd5c51",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "3bec910f1cbc4c4ea3ba275779cd5c51:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车",
+   "reasoning": "框内可见车顶、挡风玻璃和车身轮廓，位于道路车道内，形状和尺度符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "3bec910f1cbc4c4ea3ba275779cd5c51:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "院落道路旁的一辆小汽车",
+   "reasoning": "框内可见完整车辆外形，位于地面道路或停车区域，符合车的外观特征。",
+   "target_index": 1
+  },
+  {
+   "key": "3bec910f1cbc4c4ea3ba275779cd5c51:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "院落道路旁的一辆小汽车",
+   "reasoning": "框内可见车顶和车身轮廓，位置及尺度与地面停放车辆相符。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596399.0049777,
+   "seconds": 15.54,
+   "status": "ok",
+   "health": {
+    "at": 1791596383.4685314,
+    "available_fraction": 0.48034610849859627,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a62bbe3d46a64ee3839cfba80d95e3c0",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d1d286e58672b7fa5cf4347775935c75bcfb0771a7282e5012c112b42a64517f",
+ "prompt_sha256": "9731b63cbe619b4073c6db3b42bc61e91439cb9fd6bda803c02ab3472deb5fc3",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

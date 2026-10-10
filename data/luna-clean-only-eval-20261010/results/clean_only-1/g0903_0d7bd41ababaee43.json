@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_0d7bd41ababaee43",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cdd543ffaaad481885165446c2939f34",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色顶棚",
+   "reasoning": "框内是覆盖在地面建筑或棚架上的成片蓝色矩形屋面，颜色和形态符合蓝色顶棚的类别要点。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:82325faa9a82418181856bacfc284810",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "红白相间的建筑屋面或棚顶",
+   "reasoning": "框内主体为红白色屋面，不是蓝色或绿色顶棚，因此不符合该类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595746.132236,
+   "seconds": 14.84,
+   "status": "ok",
+   "health": {
+    "at": 1791595731.2965431,
+    "available_fraction": 0.47465068490152323,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "42190a7433ff4c39b0535f00a3442d6a",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "80fab5194e6d11f120eeece93063953cc902f81c6f3f92fcc99c3827988a64bf",
+ "prompt_sha256": "5fb31b427855ba20b0bb1111e67ce6cd10678a24e2390e706b13a545b35d1a69",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

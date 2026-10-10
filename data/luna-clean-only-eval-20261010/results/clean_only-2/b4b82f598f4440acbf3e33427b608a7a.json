@@ -1,0 +1,34 @@
+{
+ "unit": "b4b82f598f4440acbf3e33427b608a7a",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "b4b82f598f4440acbf3e33427b608a7a:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "一个小型白色圆形物体，中央有黑色圆孔，位于地面网格区域。",
+   "reasoning": "其外观不像俯拍人员的头部与肩部组合，更接近地面上的井盖、孔洞或其他设施，形状和尺度也不符合人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596358.2699203,
+   "seconds": 14.24,
+   "status": "ok",
+   "health": {
+    "at": 1791596344.0310144,
+    "available_fraction": 0.4817798976222764,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9ac859af992d45c387448decc0789364",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b27e48964e1eaf2814f58fa2172c9eb856c264002ea579726ff0e33eb99c9ed4",
+ "prompt_sha256": "b82b041ac2e1c1b4d422a01926f1552418a53a03384cb6597cb8f539a5b2feb4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

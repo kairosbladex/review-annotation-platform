@@ -1,0 +1,34 @@
+{
+ "unit": "037fce51334440f38171cbc57cd44237",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "037fce51334440f38171cbc57cd44237:001",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或出画。",
+   "observed_object": "框内是楼顶上的成排设备，外观类似空调外机或其他建筑机电设备，不是车辆。",
+   "reasoning": "框内目标固定在建筑屋顶设备区，呈多个小型设备排列，没有卡车所需的驾驶室与后部长方形货厢分段结构，位置和尺度也不符合卡车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597576.8304677,
+   "seconds": 17.62,
+   "status": "ok",
+   "health": {
+    "at": 1791597559.2145808,
+    "available_fraction": 0.44573428583658087,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4169e0e3930245e9b03226c40c2d4fd3",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "5dc02bd7aabb32fe95331e53412581a2304bcfc2e9a70982368c2069151b4104",
+ "prompt_sha256": "63edf63467cb02121a560732bcaece284931283ed8e49621ef2abdad86a40f30",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

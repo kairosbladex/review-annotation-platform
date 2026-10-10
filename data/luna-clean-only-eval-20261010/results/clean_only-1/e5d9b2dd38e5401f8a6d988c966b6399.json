@@ -1,0 +1,34 @@
+{
+ "unit": "e5d9b2dd38e5401f8a6d988c966b6399",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e5d9b2dd38e5401f8a6d988c966b6399:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放在屋顶平台上的小汽车，呈长方形车身并带深色车窗区域。",
+   "reasoning": "目标外观符合机动车特征，虽位于建筑平台附近，但可辨认出车身、车窗和车辆尺度，不是空调外机或设备箱。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596485.7792292,
+   "seconds": 15.95,
+   "status": "ok",
+   "health": {
+    "at": 1791596469.83281,
+    "available_fraction": 0.47736322276785625,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1a87d21b212c4bf48a13c00e104445d6",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8e0167b8b3914ee9acf3e8312fc5595c38e70e95e0189ce1b262e8c289c0c3a2",
+ "prompt_sha256": "a5fae20a3d2df8c91add5736391fea7ba5d74ac0445b37c9d28e2b79ff635162",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

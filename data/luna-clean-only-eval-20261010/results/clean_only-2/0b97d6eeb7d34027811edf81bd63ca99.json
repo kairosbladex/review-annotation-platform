@@ -1,0 +1,90 @@
+{
+ "unit": "0b97d6eeb7d34027811edf81bd63ca99",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见完整车身和深色车窗带，位于车道上，形状与尺度符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内是道路上的车辆，车顶和车窗轮廓清晰，位置及尺度符合机动车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位中的小汽车",
+   "reasoning": "可见停车区域内的车辆轮廓，形状和位置符合机动车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见一辆小汽车，车身、车窗及道路位置均符合类别特征。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区内的小汽车",
+   "reasoning": "框内可见停放车辆的车身，虽部分受树木遮挡但车辆形状明确。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区内的小汽车",
+   "reasoning": "框内可见停放车辆的车身轮廓，位置和尺度符合机动车。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区内的小汽车",
+   "reasoning": "框内可见一辆停放的小汽车，车顶和车身轮廓清楚。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:0b97d6eeb7d34027811edf81bd63ca99:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区内的小汽车",
+   "reasoning": "框内可见停放车辆，车身轮廓与停车位置相符。",
+   "target_index": 7
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594834.543787,
+   "seconds": 16.81,
+   "status": "ok",
+   "health": {
+    "at": 1791594817.7364607,
+    "available_fraction": 0.4637670933540086,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b7d13b59d47a4b6e90744ec55a54f9bb",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "57605af91bc8993569651d9fc552499a25b2870633d55f4fe724b1e7541fb0f5",
+ "prompt_sha256": "0da8f6ba9f8ddd2e8075a10cabcdf60d90d6aa35f1625c2c06b15231b581a4da",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

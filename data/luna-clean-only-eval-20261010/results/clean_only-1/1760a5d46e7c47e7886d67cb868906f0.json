@@ -1,0 +1,62 @@
+{
+ "unit": "1760a5d46e7c47e7886d67cb868906f0",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "1760a5d46e7c47e7886d67cb868906f0:002",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "道路旁的一辆白色小汽车",
+   "reasoning": "目标呈现出清晰的圆角长方形车身和车顶轮廓，位于道路边缘，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "1760a5d46e7c47e7886d67cb868906f0:005",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "道路旁的一辆青绿色小汽车",
+   "reasoning": "框内可见完整的车身、车顶及挡风玻璃区域，位于道路地面，形状和尺度符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596734.7695253,
+   "seconds": 0.19,
+   "status": "http_503",
+   "health": {
+    "at": 1791596734.581664,
+    "available_fraction": 0.4550923408349368,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596754.8565688,
+   "seconds": 0.05,
+   "status": "http_503",
+   "health": {
+    "at": 1791596754.8050096,
+    "available_fraction": 0.4584811891633705,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596985.9089978,
+   "seconds": 15.27,
+   "status": "ok",
+   "health": {
+    "at": 1791596970.6430295,
+    "available_fraction": 0.45723405649841725,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cbaecc8ccbeb4cb8aeb9fb7b65430547",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "3fd37e15886d8e5a555fd08f4e44afba2d725f5945d315c618373ab4ccb1c528",
+ "prompt_sha256": "ab10d15e34cc429b7245b8acc0c0caf0bd6fb736990de3967ceffc59b5366eb1",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

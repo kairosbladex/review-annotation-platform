@@ -1,0 +1,34 @@
+{
+ "unit": "3c743957ed964e279866fafebf5a8a86",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c743957ed964e279866fafebf5a8a86:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，未见明显遮挡或出画限制。",
+   "observed_object": "建筑外墙及墙面上的水平木质/砖质饰面区域。",
+   "reasoning": "框内是建筑立面和墙面装饰，不是位于道路、停车场或地面的机动车；未呈现车顶、挡风玻璃横带等车辆特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597125.3193913,
+   "seconds": 14.79,
+   "status": "ok",
+   "health": {
+    "at": 1791597110.531516,
+    "available_fraction": 0.4495155079293123,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9904d6b1ed414d0db7788b95a847c7c3",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60",
+ "prompt_sha256": "e6c849f39e3aa86909a8f533b21621b3577e78bae4708e67d015612278f37f0f",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,54 @@
+{
+ "unit": "08af2f00853547d680679f99839a0f99",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:08af2f00853547d680679f99839a0f99:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小型机动车",
+   "reasoning": "框内可见道路上的小车，呈细长圆角车身，尺度和朝向与车道相符，符合车辆外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596614.295788,
+   "seconds": 0.04,
+   "status": "http_503",
+   "health": {
+    "at": 1791596614.252345,
+    "available_fraction": 0.4562254428196483,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596634.3809762,
+   "seconds": 0.04,
+   "status": "http_503",
+   "health": {
+    "at": 1791596634.3366554,
+    "available_fraction": 0.4553890759641931,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596918.1933298,
+   "seconds": 23.67,
+   "status": "ok",
+   "health": {
+    "at": 1791596894.5282168,
+    "available_fraction": 0.47566236898783804,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "166e196e0f564c2ab006aca51c2e46db",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f104468d7c5584f111ca16a48c672f40f453ea0798bbc39202eb98d2f1c2286f",
+ "prompt_sha256": "a03429c4c0127df590d1adfac77b8c826f276c1668751121d5edd0d529e79a9e",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

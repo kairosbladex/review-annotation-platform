@@ -1,0 +1,34 @@
+{
+ "unit": "ebf8114691984fcfbde7f28d6c796398",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "ebf8114691984fcfbde7f28d6c796398:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或出画。",
+   "observed_object": "一个小型白色圆形/环状设施，位于池边地面上，类似排水口或管道部件。",
+   "reasoning": "框内不是人员的头顶、肩部或躯干，而是固定在池边的设施；其形状和位置也不符合人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597635.0331175,
+   "seconds": 24.67,
+   "status": "ok",
+   "health": {
+    "at": 1791597610.3651142,
+    "available_fraction": 0.4488929143992264,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "afef51465685446aa8df7afdfcec03ed",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "fdd58ed51f5a8b5896a4ab99e6a9be3466ae1480816a636083949a68ce3bc0b8",
+ "prompt_sha256": "073ddbc3737c75d8ac80185cd4fcd286a250660eb2739d2316de50368d461251",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "c02e9615267b4e968c884ad6c3414ef3",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "c02e9615267b4e968c884ad6c3414ef3:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈黑白相间的头部及肩部轮廓，位于铺装区域。",
+   "reasoning": "目标外观与正俯视人员的头顶和肩部特征相符，尺度较小且位置适合人员站立；未见明显车辆、井盖或其他设施特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596105.2027473,
+   "seconds": 13.62,
+   "status": "ok",
+   "health": {
+    "at": 1791596091.5843327,
+    "available_fraction": 0.4720928226153209,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "226b0efae0d44307973443ee286a8a15",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "5c30a8d04a37d628f78858e3c3d44eabb3872f622ebd309c5a6fde971d1b1c12",
+ "prompt_sha256": "cffbb7684eb36491395005adf2266fec44dd0d8976b648a3763ae95ca1987ae8",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

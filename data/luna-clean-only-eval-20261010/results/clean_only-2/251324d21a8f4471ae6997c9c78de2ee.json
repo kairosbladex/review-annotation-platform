@@ -1,0 +1,42 @@
+{
+ "unit": "251324d21a8f4471ae6997c9c78de2ee",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色彩钢瓦顶棚",
+   "reasoning": "框内主体是覆盖建筑或棚架的成片蓝色矩形屋面，具有顶棚和彩钢瓦的外观特征，符合违建类别。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:251324d21a8f4471ae6997c9c78de2ee:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色彩钢瓦顶棚",
+   "reasoning": "框内可见一处成片蓝色矩形屋面，覆盖在建筑或棚架上方，颜色和形态均符合蓝绿色顶棚定义。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595122.49066,
+   "seconds": 18.03,
+   "status": "ok",
+   "health": {
+    "at": 1791595104.4599888,
+    "available_fraction": 0.47741426449329644,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "023cc7527bb646d58f8b27e5afbf5895",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "9836a9eba3c9c25bec2e6e43bc7a35a686ac62fc485537e7bf656a291efe9c03",
+ "prompt_sha256": "332dd57a3a93113b59dbd1b32898e2fc873adc20f8d3002c96554d04567775b3",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

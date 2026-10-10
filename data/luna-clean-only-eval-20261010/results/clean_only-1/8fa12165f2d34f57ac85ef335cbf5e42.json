@@ -1,0 +1,34 @@
+{
+ "unit": "8fa12165f2d34f57ac85ef335cbf5e42",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:8fa12165f2d34f57ac85ef335cbf5e42:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑屋顶上的设备箱或设施",
+   "reasoning": "框内目标位于建筑屋顶平台上，呈小型矩形设备状，不具备机动车车身、车窗横带及道路停车位置等特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596197.5712824,
+   "seconds": 16.88,
+   "status": "ok",
+   "health": {
+    "at": 1791596180.6950665,
+    "available_fraction": 0.47870556846680506,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9d1b4b5879974c1fb43badf9c4e0bfa8",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8b48b9f9d9ff395cd35e377c7d93cb143616feaf939f89aa0c40dec74ecdf85d",
+ "prompt_sha256": "0362ebf68fb7a36ca62205ebaff72420d788263b165779f2f70c0e79bfcddc36",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

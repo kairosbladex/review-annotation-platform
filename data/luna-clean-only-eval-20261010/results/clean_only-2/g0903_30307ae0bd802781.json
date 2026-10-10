@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_30307ae0bd802781",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:18172673ac38432aa6a1d99482f45439",
+   "decision": "false",
+   "image_limitation": "无明显图像限制",
+   "observed_object": "框内主要是道路边缘及树木、局部蓝绿色条状结构",
+   "reasoning": "该结构呈长条状，符合雨棚或通道顶棚的外观，但框内主体在边缘处被截断，无法确认其是否为独立的蓝绿色顶棚。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b52575f40fd548eab466771d11f3cc48",
+   "decision": "true",
+   "image_limitation": "无明显图像限制",
+   "observed_object": "蓝绿色矩形长条顶棚，覆盖在通道或棚架上方",
+   "reasoning": "框内可见成片、边缘规整的蓝绿色屋面，形状和位置符合类别所述顶棚特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595997.7007873,
+   "seconds": 41.88,
+   "status": "ok",
+   "health": {
+    "at": 1791595955.8182144,
+    "available_fraction": 0.47846929908614944,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ffdea6ec4035468bbc9964c72a432dcb",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "9510c2f291bf282872a940274686a753d493c8b2f870f64549729249b0772c05",
+ "prompt_sha256": "1423ad0d13eaf91c4612b7492a87ab1da16289b86db4cb3dcc024ab5f50155de",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

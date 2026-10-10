@@ -1,0 +1,42 @@
+{
+ "unit": "446487e65f544a46a77d3712ec11745f",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "446487e65f544a46a77d3712ec11745f:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左边缘，仅露出一小部分，车身大半出画，无法确认完整车形。",
+   "observed_object": "画面左边缘露出一小段疑似车辆的物体。",
+   "reasoning": "位置在地面停车区域，但目标仅露出一角，无法依据车身完整形状和尺度确认。",
+   "target_index": 0
+  },
+  {
+   "key": "446487e65f544a46a77d3712ec11745f:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车区域内的一辆白色机动车。",
+   "reasoning": "可见车顶、深色车窗横带和圆角长方形车身，位于地面停车区域，尺度与车辆相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597889.5026972,
+   "seconds": 17.38,
+   "status": "ok",
+   "health": {
+    "at": 1791597872.1201272,
+    "available_fraction": 0.4210485435689007,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1f0ae3423278428dbd3f334a791ac993",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f455f9df99918b6c5288ca7e67e1a3deccc3580ce62975317408dda357b0f61d",
+ "prompt_sha256": "442f1598892b4b18d99807b928b1eb80c0489041a36ad8313ea929061dc02636",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

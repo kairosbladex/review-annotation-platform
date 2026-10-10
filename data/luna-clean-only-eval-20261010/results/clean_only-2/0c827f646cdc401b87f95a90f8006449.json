@@ -1,0 +1,34 @@
+{
+ "unit": "0c827f646cdc401b87f95a90f8006449",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "0c827f646cdc401b87f95a90f8006449:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位中的一辆小汽车",
+   "reasoning": "框内可见车辆的车顶和车身，呈机动车常见的圆角长方形形状，位于停车位内，位置和尺度均与车辆相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595852.1771092,
+   "seconds": 21.1,
+   "status": "ok",
+   "health": {
+    "at": 1791595831.0804021,
+    "available_fraction": 0.4684396760373478,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7e1407f775d34dc2a252da9f8b528dad",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "956fae52f9098befa06d5c32a436bf77eada6c6ac42acb28f5f1facf1f84b1c2",
+ "prompt_sha256": "4413bfa122e38101ef048164b316dbaafbf72ec4239d29838f0da04440934cc4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

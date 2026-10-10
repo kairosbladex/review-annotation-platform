@@ -1,0 +1,54 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "false",
+   "image_limitation": "目标区域位于图像顶部边缘，部分出画，但仍可见其主要形态；不存在可确认的人员外观特征。",
+   "observed_object": "框内主要是屋顶或建筑边缘及深色地面区域，未见头部、肩部或躯干腿部等人员特征。",
+   "reasoning": "该框位于建筑密集区的顶部边缘，框内可见的是建筑/屋面结构，不符合俯拍人员的小椭圆头肩或竖长躯干形态，因此初审类别人员不正确。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596694.6159408,
+   "seconds": 0.02,
+   "status": "http_503",
+   "health": {
+    "at": 1791596694.599838,
+    "available_fraction": 0.45264589482255113,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596714.667091,
+   "seconds": 0.02,
+   "status": "http_503",
+   "health": {
+    "at": 1791596714.6503608,
+    "available_fraction": 0.4543863902999928,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596993.9737976,
+   "seconds": 41.32,
+   "status": "ok",
+   "health": {
+    "at": 1791596952.654738,
+    "available_fraction": 0.4587234473587442,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "01b7ccfa4a8141a9b639d6657dadf66b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1d91aba737e51b58fcbe61a05827a7e198e622d4178e63ffe64b33e7e4b0466a",
+ "prompt_sha256": "29afbc3fa83cc61c94a0123205a4a067e414966024f5c7852558e2a1cfb44378",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,54 @@
+{
+ "unit": "538e41feae5f45cc9e5a66b2111be947",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "538e41feae5f45cc9e5a66b2111be947:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆小汽车，呈俯视下的圆角长方形车身，带深色车窗区域，停在道路旁的人行道/停车区域，形状和尺度符合机动车特征。",
+   "reasoning": "目标外观明确为汽车，未见明显遮挡或出画情况，符合“车”的类别判断要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596675.4420934,
+   "seconds": 0.04,
+   "status": "http_503",
+   "health": {
+    "at": 1791596675.3975708,
+    "available_fraction": 0.45373160309078775,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596695.5085022,
+   "seconds": 0.04,
+   "status": "http_503",
+   "health": {
+    "at": 1791596695.4657307,
+    "available_fraction": 0.4533456133421794,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596975.1369665,
+   "seconds": 42.14,
+   "status": "ok",
+   "health": {
+    "at": 1791596932.9984572,
+    "available_fraction": 0.47521056307747983,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "484ff070cccb4772943c59030777c38b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "816d0167608c3db0de5b36c6b54d039c1bdfd5c2470d35e5d83eb2297492f2be",
+ "prompt_sha256": "2f5da8100629665e298c627ab749fc3719ed647c1b99f414ea1f885446a07f34",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

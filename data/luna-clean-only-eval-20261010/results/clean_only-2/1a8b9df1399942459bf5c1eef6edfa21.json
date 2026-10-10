@@ -1,0 +1,34 @@
+{
+ "unit": "1a8b9df1399942459bf5c1eef6edfa21",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "1a8b9df1399942459bf5c1eef6edfa21:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡，能够判断外观。",
+   "observed_object": "屋顶上的设备箱或通风设施",
+   "reasoning": "框内物体位于建筑屋顶平台边缘，呈小型设备状，缺少机动车应有的车身长宽比例、车顶及前后挡风玻璃深色横带，也不在道路或停车位上，因此不符合“车”的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597110.482453,
+   "seconds": 30.86,
+   "status": "ok",
+   "health": {
+    "at": 1791597079.6254416,
+    "available_fraction": 0.4509131209640861,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "622e7efde565457db3eeaac885ed94cc",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "392bf611c3dddb0df400b947a273f1d16f97bd4ae209dbd71164f2b3f445b853",
+ "prompt_sha256": "490e7a61ed8180a000cadaecafcbd43dbe33513dcf1cca1671231a03437691ea",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

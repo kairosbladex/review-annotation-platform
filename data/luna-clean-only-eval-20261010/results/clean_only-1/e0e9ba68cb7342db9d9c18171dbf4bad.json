@@ -1,0 +1,34 @@
+{
+ "unit": "e0e9ba68cb7342db9d9c18171dbf4bad",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:e0e9ba68cb7342db9d9c18171dbf4bad:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，呈车顶俯视的长方形轮廓，位于停车区域。",
+   "reasoning": "目标外观、尺度和所在位置均符合机动车特征，属于“车”。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597002.27977,
+   "seconds": 17.06,
+   "status": "ok",
+   "health": {
+    "at": 1791596985.2148721,
+    "available_fraction": 0.4538978306993087,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2a71a1eeeb6e4d5dabe101cd33031e2f",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d8a01bc98530f59fe789778941a0b1f7f34cd024ca57dbdaddc3338f9c5af239",
+ "prompt_sha256": "aaf092e1422182ab1e041c992e97d1ee5d8a7dc47b40b96f2f44aea7e516d80c",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

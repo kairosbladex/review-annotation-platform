@@ -1,0 +1,34 @@
+{
+ "unit": "77355afff7c0430faf66716abec2c94f",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "77355afff7c0430faf66716abec2c94f:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "框内是岸边平台或栈道的结构表面，没有人员。",
+   "reasoning": "候选框位于画面下方岸边平台上，实际可见的是浅色平台边缘及其纹理，不具备俯拍人员应有的头部、肩部或躯干腿部轮廓，因此不符合人员类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595548.3112123,
+   "seconds": 14.55,
+   "status": "ok",
+   "health": {
+    "at": 1791595533.7640088,
+    "available_fraction": 0.47838727968457856,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5da146bc251b42919e153792b4bb62ad",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f7df440ddc036f3249ab143d256f413dd48fb76511788a62623f2fafebfce787",
+ "prompt_sha256": "3ea104bc2e5b9ccb83ac82b8b2284f63d026ef088605d977b2e923d057a2c8d2",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

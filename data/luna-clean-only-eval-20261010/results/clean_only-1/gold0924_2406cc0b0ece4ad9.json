@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_2406cc0b0ece4ad9",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-016",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或出画影响判断。",
+   "observed_object": "一个摆放在道路边、带有绿色球状植物的花盆（盆栽）。",
+   "reasoning": "框内物体呈圆形绿色树冠并位于花盆中，且与周围其他盆栽规律成排摆放，符合盆栽特征，不是人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597498.8565145,
+   "seconds": 23.79,
+   "status": "ok",
+   "health": {
+    "at": 1791597475.0698166,
+    "available_fraction": 0.45344888239597336,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6fb3f73615e64a95be4eda3ecec63583",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8518b374d66d819500839c85db7b42a493abd1722fac232cb4f13b3f8ab013e7",
+ "prompt_sha256": "ab1f582ac3626babc0a23e8db300a81e89055f55dff68e12b8e7af9a7f544f79",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

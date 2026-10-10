@@ -1,0 +1,34 @@
+{
+ "unit": "8000a189fc2541f7916c5a5ce57e5249",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "8000a189fc2541f7916c5a5ce57e5249:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个位于岸边施工区域的小型人员目标。",
+   "reasoning": "目标处于可站立的工地岸边，外观呈小而细长的人体形状，尺度明显小于汽车宽度，符合俯拍人员特征，未见足以判定为其他设施或杂物的特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597039.946434,
+   "seconds": 14.82,
+   "status": "ok",
+   "health": {
+    "at": 1791597025.1220355,
+    "available_fraction": 0.4557436624356248,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b7b294ab22dd4cae83e072b79f1041e4",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "24f589ba73ce40995a68b222adba2f9bf6f640a6cc7b8073c61b0e1ef7a43a3a",
+ "prompt_sha256": "b6a4a2f279fbc1b7b5069219dcb108d24700a999a9bc427ed401c04b8d286137",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

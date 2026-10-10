@@ -1,0 +1,50 @@
+{
+ "unit": "bb9729d3747d41e6bb17b486462d815f",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:002",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见竖直的人体轮廓，位于可站立的人行道区域，尺度与人员相符。",
+   "target_index": 0
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:000",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见一名站立行人，具有头部、躯干和腿部轮廓，位置及尺度符合人员特征。",
+   "target_index": 1
+  },
+  {
+   "key": "bb9729d3747d41e6bb17b486462d815f:001",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见一名站立行人，人体轮廓清晰，位于人行道上，符合人员类别。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598052.974882,
+   "seconds": 42.43,
+   "status": "ok",
+   "health": {
+    "at": 1791598010.5485675,
+    "available_fraction": 0.41946813488488827,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6747119a9edd49f68b426e91e09c504c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "0f85b35535e823fac943f1c87c447f239d0abdc62667ec7118c4783d019ea802",
+ "prompt_sha256": "6e6712251f0b8cd315e249715ef9d71df656df64e4c6f00e72e2ac0ac5a93222",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

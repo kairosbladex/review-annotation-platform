@@ -1,0 +1,54 @@
+{
+ "unit": "da7a896cc98348f993aaf5c874bfea97",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:da7a896cc98348f993aaf5c874bfea97:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左侧边缘，仅露出部分车体，主体被出画或遮挡，无法完整确认车形。",
+   "observed_object": "画面左下边缘可见一小段疑似车辆的白色物体。",
+   "reasoning": "位置似乎在地面道路或停车区域，但目标只露出一角，无法确认是否具备机动车的完整车顶、挡风玻璃和长方形车身特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596596.6374996,
+   "seconds": 0.06,
+   "status": "http_503",
+   "health": {
+    "at": 1791596596.5818298,
+    "available_fraction": 0.4616255600909765,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596616.8054044,
+   "seconds": 0.13,
+   "status": "http_503",
+   "health": {
+    "at": 1791596616.6729352,
+    "available_fraction": 0.4557030175357359,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596910.1973057,
+   "seconds": 15.68,
+   "status": "ok",
+   "health": {
+    "at": 1791596894.5217721,
+    "available_fraction": 0.47571982512904226,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2323791e12c241a9a35150f96516626b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "480761c9d9f72e7b372ab26ba958054efd0c65fb30df8dbf30eced3265e0a74e",
+ "prompt_sha256": "b8328e7896c8557f89adb2b1c858b9b4bac8d63c5b6959b41aabdd25af7a14dd",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

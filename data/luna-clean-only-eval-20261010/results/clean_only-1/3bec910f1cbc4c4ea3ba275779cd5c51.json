@@ -1,0 +1,50 @@
+{
+ "unit": "3bec910f1cbc4c4ea3ba275779cd5c51",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "3bec910f1cbc4c4ea3ba275779cd5c51:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见完整的圆角长方形车身、车顶和深色玻璃区域，位于道路停车区域，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "3bec910f1cbc4c4ea3ba275779cd5c51:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "院落中的小汽车",
+   "reasoning": "框内可见白色小汽车的车身和车顶，停放在地面院落区域，形状与尺度符合车辆特征。",
+   "target_index": 1
+  },
+  {
+   "key": "3bec910f1cbc4c4ea3ba275779cd5c51:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "院落中的小汽车",
+   "reasoning": "框内可见白色小汽车，车身呈长方形且位于地面停车位置，符合机动车外观。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596405.8238525,
+   "seconds": 28.64,
+   "status": "ok",
+   "health": {
+    "at": 1791596377.1836078,
+    "available_fraction": 0.48107203188262554,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3d5863628b0940f6aa1b3054a1c8dddd",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d1d286e58672b7fa5cf4347775935c75bcfb0771a7282e5012c112b42a64517f",
+ "prompt_sha256": "9731b63cbe619b4073c6db3b42bc61e91439cb9fd6bda803c02ab3472deb5fc3",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

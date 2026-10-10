@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_e2d382ae797765fb",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-031",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是建筑屋顶或屋面结构的一部分，不是人员。",
+   "reasoning": "该区域呈规则的长条状屋面形态，尺度明显大于人员，且不具备俯拍人员应有的头部、肩部或躯干特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596576.502972,
+   "seconds": 16.74,
+   "status": "ok",
+   "health": {
+    "at": 1791596559.7639687,
+    "available_fraction": 0.47044726657120234,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2e468bb9dcb749de9330e44316d715a2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "3618d8b7ee87f5815d727598ca89916346827edc79ad44a8fa30459267a8bb75",
+ "prompt_sha256": "3b8dd88fc6124e43a873dd5d02f57272b35d23392b4fa30252555af88175d559",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

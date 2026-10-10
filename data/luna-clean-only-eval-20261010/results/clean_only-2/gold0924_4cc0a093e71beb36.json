@@ -1,0 +1,54 @@
+{
+ "unit": "gold0924_4cc0a093e71beb36",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-030",
+   "decision": "false",
+   "image_limitation": "目标位于图像顶部边缘，框内仅见一小块建筑或地面区域，未见符合人员特征的头部、肩部或躯干。",
+   "observed_object": "建筑物/地面局部",
+   "reasoning": "框的位置和形状与人员的尺度及外观不符，无法从框内辨认出人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596693.9030302,
+   "seconds": 0.02,
+   "status": "http_503",
+   "health": {
+    "at": 1791596693.8850265,
+    "available_fraction": 0.4525123472943447,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596713.9564238,
+   "seconds": 0.02,
+   "status": "http_503",
+   "health": {
+    "at": 1791596713.939421,
+    "available_fraction": 0.45358613873329456,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596952.62639,
+   "seconds": 14.0,
+   "status": "ok",
+   "health": {
+    "at": 1791596938.6312704,
+    "available_fraction": 0.4744610188353999,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d02f8aebef5246b0b03016f5a6fea3e1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1d91aba737e51b58fcbe61a05827a7e198e622d4178e63ffe64b33e7e4b0466a",
+ "prompt_sha256": "29afbc3fa83cc61c94a0123205a4a067e414966024f5c7852558e2a1cfb44378",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,42 @@
+{
+ "unit": "2282de9eacc845f79eac6abde1b69b21",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2282de9eacc845f79eac6abde1b69b21:000",
+   "decision": "true",
+   "image_limitation": "目标位于停车区域边缘，车辆大部分可见，车身与车顶轮廓清晰。",
+   "observed_object": "一辆停放的小汽车",
+   "reasoning": "框内可见圆角长方形车身、深色车窗，位置和尺度均与停车场内机动车相符。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:2282de9eacc845f79eac6abde1b69b21:001",
+   "decision": "true",
+   "image_limitation": "目标靠近画面边缘但车身主体仍清晰可辨。",
+   "observed_object": "一辆停放的小汽车",
+   "reasoning": "框内可见完整的汽车外形和车窗，位于停车区域，符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597917.7450535,
+   "seconds": 17.01,
+   "status": "ok",
+   "health": {
+    "at": 1791597900.7310953,
+    "available_fraction": 0.4227498229499649,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "17aecde0911e483883ff25790c744e59",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "e512cfa8f66fa7f017b54c45b95114570ed16a41d7e7f314ff75f8ac21e546f5",
+ "prompt_sha256": "a8f7478cd6901a83ac1cfde549ed3f338e30ca5f271bb8ff214f6a8f5532b766",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

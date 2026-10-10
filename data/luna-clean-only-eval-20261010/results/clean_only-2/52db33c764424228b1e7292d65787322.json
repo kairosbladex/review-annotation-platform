@@ -1,0 +1,34 @@
+{
+ "unit": "52db33c764424228b1e7292d65787322",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:52db33c764424228b1e7292d65787322:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁车道上的一辆白色小型机动车",
+   "reasoning": "框内可见规则的浅色车身和深色车窗带，呈车辆的圆角长方形外观，位于地面道路/通行区域，尺度与周围车辆一致，符合“车”的特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596309.2976172,
+   "seconds": 14.93,
+   "status": "ok",
+   "health": {
+    "at": 1791596294.36982,
+    "available_fraction": 0.48011157192219917,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1b1cb85504da4d3192094eda4a52208d",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "af5b2ee29dfeccdd12d23d7cf0962550105ef520ed73f9b99d7b6508158daef0",
+ "prompt_sha256": "e6bb996b0697e982213ab9cbdd8c07e12cf8c9e9eb65ddfdf0b1a07e1c2369e6",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

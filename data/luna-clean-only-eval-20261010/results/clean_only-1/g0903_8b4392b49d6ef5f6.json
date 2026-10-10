@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_8b4392b49d6ef5f6",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:e5e966d90dc942ecaba436a0d5783307",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "蓝色施工围挡或广告墙面，不是覆盖在建筑、棚架或空地上方的顶棚。",
+   "reasoning": "框内主体为竖直的长条状蓝色围挡，位置和形态均不符合蓝色或绿色顶棚的判定要点，因此为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594896.269412,
+   "seconds": 18.36,
+   "status": "ok",
+   "health": {
+    "at": 1791594877.9111495,
+    "available_fraction": 0.46340147165545675,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d5fbf347b2b94561adf1a49420ad9e5f",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "65aa13015c1f3ed27e17cb8d0428537f483548b8cbd4f42fb37f41761fca326a",
+ "prompt_sha256": "8380b9ca4e73af25031e17a4a9371d2bd0f74ae63ca18999b5f668ac3449613b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

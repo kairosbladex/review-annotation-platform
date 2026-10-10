@@ -1,0 +1,34 @@
+{
+ "unit": "9f3745b4d6bb4bb192a479ead431c528",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡。",
+   "observed_object": "建筑屋顶上的方形设备箱体。",
+   "reasoning": "框内物体呈四四方方的箱体轮廓，没有三轮车所需的前窄后宽结构，因此不符合三轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596316.7731285,
+   "seconds": 14.97,
+   "status": "ok",
+   "health": {
+    "at": 1791596301.8040745,
+    "available_fraction": 0.48148294969249716,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2d9a23c13d714dc4baa12474b9190e7f",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "3ef753e1773f8491240bde1c34809822a914288eb165d31fd8208a98cc51946d",
+ "prompt_sha256": "9bb7ae1ff452d2f0a0c37790a1945f31de05433ad78165acd93528854afa1ef0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

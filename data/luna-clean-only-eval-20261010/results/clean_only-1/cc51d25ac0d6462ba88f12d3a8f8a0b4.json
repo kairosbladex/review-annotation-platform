@@ -1,0 +1,34 @@
+{
+ "unit": "cc51d25ac0d6462ba88f12d3a8f8a0b4",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:cc51d25ac0d6462ba88f12d3a8f8a0b4:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，未被明显遮挡或出画。",
+   "observed_object": "建筑屋顶边缘的设备或箱体，不是机动车。",
+   "reasoning": "框内物体位于屋顶平台上，呈小型设备状，缺少车辆应有的车身比例、车顶和挡风玻璃特征；位置和尺度也不符合车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594797.904991,
+   "seconds": 20.67,
+   "status": "ok",
+   "health": {
+    "at": 1791594777.2351592,
+    "available_fraction": 0.4628266062426675,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6b294b9656604697bde11ecb02a71abd",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f82032065fbf8df987fb48b7dd5dbbf6b1b83c3be7680af2a97437cf88610623",
+ "prompt_sha256": "b45ab444ec3747105323940e4e4e2a2e81caf220389e32b4d97219012cbb4512",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

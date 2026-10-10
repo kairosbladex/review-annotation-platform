@@ -1,0 +1,34 @@
+{
+ "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是道路上的小型轿车，未见驾驶室与分段式货厢结构。",
+   "reasoning": "目标位于道路车道内，整体尺寸和外形更符合小汽车，明显不具备卡车所需的驾驶室与后部长方形货厢分段特征，因此不属于卡车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594923.2707474,
+   "seconds": 21.4,
+   "status": "ok",
+   "health": {
+    "at": 1791594901.8701003,
+    "available_fraction": 0.461904267975929,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6c6d2f8b5ce6440bad0b63fcc30fa432",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "10737dccfe055845463b0509f70b2c9e018f65760e323fcce4cac4d43d2dd6ec",
+ "prompt_sha256": "4bd5e52586ec56399500916975154e1d7984219ed23446d535c1e29fe22edbc0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

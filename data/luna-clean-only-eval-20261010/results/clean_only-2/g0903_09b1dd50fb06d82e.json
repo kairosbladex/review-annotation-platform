@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_09b1dd50fb06d82e",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a56e3d6fc2994361a3d774417ed6fdc9",
+   "decision": "false",
+   "image_limitation": "框内主要是灰白色建筑/地面区域及树冠，未见蓝色或绿色顶棚。",
+   "observed_object": "灰白色建筑边缘、地面和绿色树木",
+   "reasoning": "候选框内没有符合“蓝色或绿色成片屋面、棚顶”的目标，颜色和物体类型均不符合违建类别要点。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595262.039002,
+   "seconds": 18.67,
+   "status": "ok",
+   "health": {
+    "at": 1791595243.3715737,
+    "available_fraction": 0.4685564427243136,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7d4da0429b0540689696045920e448bb",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "396a9add9dd600d5cca592ba722fa0e818ed5fe4d2469ddd58b350b56f8eb746",
+ "prompt_sha256": "b0ec735db77b38cd0787a434d993a9581fbdd20f972bcabae12aa1375fc3c1d4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

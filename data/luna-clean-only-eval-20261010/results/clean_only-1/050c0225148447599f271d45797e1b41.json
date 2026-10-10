@@ -1,0 +1,42 @@
+{
+ "unit": "050c0225148447599f271d45797e1b41",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆蓝色长方形车辆，形态和尺度符合公交车或大客车特征。",
+   "reasoning": "目标位于道路上，车体明显长于普通小汽车，呈一体式长方形，符合公交车类别。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:001",
+   "decision": "uncertain",
+   "image_limitation": "目标仅在画面左下边缘露出很小一部分，车形和尺度无法确认。",
+   "observed_object": "画面边缘可见一小段蓝色物体。",
+   "reasoning": "目标出画严重，无法判断是否为车或其他道路/环境物体。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596075.721695,
+   "seconds": 27.55,
+   "status": "ok",
+   "health": {
+    "at": 1791596048.1743443,
+    "available_fraction": 0.47773501568157456,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e815875fcfe3433e82eb598eda3e030c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7f88d47a78f420cc66393ea4a15b994d1b0bca78c255b5e0acd2b6c4e3c8eae7",
+ "prompt_sha256": "554f6cdf25b8c5dab49d2cac7ae0118626247cddd96d68b2c25c63f44d977fe0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

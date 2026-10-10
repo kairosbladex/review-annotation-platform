@@ -1,0 +1,34 @@
+{
+ "unit": "19180436c82b45a9938e90640c334526",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "19180436c82b45a9938e90640c334526:001",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "车道中的一辆机动车，呈细长的车身轮廓，可见车顶及深色玻璃区域。",
+   "reasoning": "框内目标位于道路车道上，形状、颜色和尺度均符合俯拍小汽车特征，不是道路标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595840.8555415,
+   "seconds": 23.21,
+   "status": "ok",
+   "health": {
+    "at": 1791595817.6424837,
+    "available_fraction": 0.470188014734065,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "94183270e96347d1ad47d26d7a0b2057",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "a740b1d5c70e8146a48ea3dc64ac1356bfbda0ef449e3b9d6ff2ea3ce95bcceb",
+ "prompt_sha256": "4fe2269d70ae0bcc42a789cd03aef5b2131bd25fe923c76db7b50d919dcfb406",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,42 @@
+{
+ "unit": "01895ed878a44dd5a78fed5781c45611",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "建筑墙面及墙体上的涂鸦，没有机动车车身。",
+   "reasoning": "框内主要是建筑立面和涂鸦，缺少车辆应有的圆角长方形车身、车顶及挡风玻璃深色横带，位置也不在道路或停车区域。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:01895ed878a44dd5a78fed5781c45611:001",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "建筑外立面的雨棚、屋檐及树木。",
+   "reasoning": "框内可见的是建筑结构和棚顶，不是机动车；没有车身轮廓、车顶或挡风玻璃，位置和尺度也与车辆不符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597977.780914,
+   "seconds": 15.42,
+   "status": "ok",
+   "health": {
+    "at": 1791597962.364917,
+    "available_fraction": 0.4203500714523356,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "91e5971784a1431d9759482880926e3b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60",
+ "prompt_sha256": "c96fcfc407a8faab84f89dcad4fea20f86b796a1afad01c449537142b92a96d6",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

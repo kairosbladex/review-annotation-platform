@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_97626f3757876c09",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fb0ded7fd77a459bb409a0c0349eb546",
+   "decision": "true",
+   "image_limitation": "目标部分位于画面上边缘，但车顶、挡风玻璃及车身轮廓清晰可见。",
+   "observed_object": "一辆停放的机动车",
+   "reasoning": "框内可见符合车辆特征的圆角车身、车顶和深色挡风玻璃，位置在地面停车区域，尺度与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:d977e362249946369eb5258eca0cbeb1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆白色机动车",
+   "reasoning": "框内车辆车顶、前后挡风玻璃深色横带和长方形车身清晰可见，停放在道路旁，符合机动车外观及尺度。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595784.026459,
+   "seconds": 26.27,
+   "status": "ok",
+   "health": {
+    "at": 1791595757.7548964,
+    "available_fraction": 0.4778576799830343,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c2d1cb8aaac549aba9543c8f6477f09a",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f7b199273b6d82e7a6a8bfe3d5da620692a860a060751d7001458996f64687c7",
+ "prompt_sha256": "b75dc682562f651bd77c124642dd03b4ea33adc9b190a33d2dba0832f5aa01df",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

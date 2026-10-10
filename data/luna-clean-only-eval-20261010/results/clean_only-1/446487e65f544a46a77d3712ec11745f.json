@@ -1,0 +1,42 @@
+{
+ "unit": "446487e65f544a46a77d3712ec11745f",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "446487e65f544a46a77d3712ec11745f:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左边缘，仅露出局部，无法完整确认车形。",
+   "observed_object": "左侧边缘可见一小段疑似车辆的物体。",
+   "reasoning": "目标出画严重，露出部分不足以确认是否为机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "446487e65f544a46a77d3712ec11745f:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车区域内一辆白色小汽车。",
+   "reasoning": "可见车身呈圆角长方形，位于地面停车区域，尺度和朝向均与车辆相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597900.6547787,
+   "seconds": 42.09,
+   "status": "ok",
+   "health": {
+    "at": 1791597858.562519,
+    "available_fraction": 0.4215817000791861,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6a583e7e164a4bc0aa132a5b5f3e05d3",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f455f9df99918b6c5288ca7e67e1a3deccc3580ce62975317408dda357b0f61d",
+ "prompt_sha256": "442f1598892b4b18d99807b928b1eb80c0489041a36ad8313ea929061dc02636",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

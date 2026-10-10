@@ -1,0 +1,42 @@
+{
+ "unit": "759ebbf1ebce4a43a1642c64a1e2b848",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见道路车道中的小型机动车，呈车身与深色车窗带的长方形轮廓，位置和尺度均与车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:759ebbf1ebce4a43a1642c64a1e2b848:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内目标位于道路车道上，可见小型车的整体轮廓，朝向与车道一致，符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596418.4027193,
+   "seconds": 33.75,
+   "status": "ok",
+   "health": {
+    "at": 1791596384.6571796,
+    "available_fraction": 0.4800499205706848,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8031ea4e51b64378886e8027c02aef0c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "cc82b87e2060d6de24f3aaac9646052a04a8df1549d6716a5fe59a370b27fb24",
+ "prompt_sha256": "85be6dd55be1a95ee068c6fbfa4b98d1b467e2ed97483c4c20828429f9715668",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

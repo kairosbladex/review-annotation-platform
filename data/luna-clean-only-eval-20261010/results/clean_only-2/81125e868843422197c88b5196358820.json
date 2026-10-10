@@ -1,0 +1,34 @@
+{
+ "unit": "81125e868843422197c88b5196358820",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "81125e868843422197c88b5196358820:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边缘可见一辆小汽车，露出的车身呈细长圆角矩形，颜色和尺度符合机动车特征。",
+   "reasoning": "框内及紧邻区域显示的是停在道路旁的机动车，位置与车道及周边车辆一致，虽部分靠近画面下边缘但车形仍可辨认。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595297.6085954,
+   "seconds": 21.02,
+   "status": "ok",
+   "health": {
+    "at": 1791595276.5895824,
+    "available_fraction": 0.4763359130431399,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "56c627cf38c545f6b81e1b7f667bb5c9",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8de54d8783fa5ef76a41bb43688aa59ce544700ea565f181d006ebe4c470ec29",
+ "prompt_sha256": "55643732022c912af83ac91afe0156a93acdc6b033633abda7aa2695e642083c",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

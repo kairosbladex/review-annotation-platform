@@ -1,0 +1,42 @@
+{
+ "unit": "2282de9eacc845f79eac6abde1b69b21",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:2282de9eacc845f79eac6abde1b69b21:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的白色小汽车",
+   "reasoning": "框内可见车辆的车顶、深色玻璃区域和圆角车身，位置与停车区域及周围车辆尺度相符。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:2282de9eacc845f79eac6abde1b69b21:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的白色小汽车",
+   "reasoning": "框内可见另一辆机动车，车身呈圆角长方形并与停车位中的车辆尺度、位置相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597920.333904,
+   "seconds": 14.75,
+   "status": "ok",
+   "health": {
+    "at": 1791597905.5852249,
+    "available_fraction": 0.42137598277361527,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "04e6eb197643472fb4a6aebdd6f3e9b5",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "e512cfa8f66fa7f017b54c45b95114570ed16a41d7e7f314ff75f8ac21e546f5",
+ "prompt_sha256": "a8f7478cd6901a83ac1cfde549ed3f338e30ca5f271bb8ff214f6a8f5532b766",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

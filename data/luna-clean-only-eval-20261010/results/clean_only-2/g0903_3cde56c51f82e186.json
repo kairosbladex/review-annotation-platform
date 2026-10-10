@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_3cde56c51f82e186",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:10e5a3da510748b2ac88cb5257ce142c",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是路边的绿色、蓝色物体，不是骑电动车或摩托车的人。",
+   "reasoning": "该框未包含骑两轮车人员，因此不符合“没戴头盔”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595809.5943158,
+   "seconds": 17.36,
+   "status": "ok",
+   "health": {
+    "at": 1791595792.238861,
+    "available_fraction": 0.4747834116277124,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "05b74ed13feb4286927cd4733fa77926",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "098d597a4bf3b4463ad24a5c155320549256283b479d20da8bf42e9be6c0f807",
+ "prompt_sha256": "a1c77f0dca1ce062453943014bc3ecb5fa30b9e8e8f0df716d940dd71d8b2add",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

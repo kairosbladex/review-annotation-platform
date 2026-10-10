@@ -1,0 +1,146 @@
+{
+ "unit": "847075b4b5094d20b1c48261eadfccb7",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见机动车车身，位于道路边缘，形状和尺度符合汽车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "可见白色小汽车，停在道路旁，车顶和车身轮廓清楚。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "道路上的白色车辆，车身轮廓明确。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "道路上的机动车，车顶和长方形车身清晰可见。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "车道中的白色汽车，位置、尺度和外观均符合。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "道路上的白色车辆，车身轮廓明确。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "可见停靠在路旁的白色汽车，外形符合机动车。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "道路上的白色轿车，车顶和车身轮廓清楚。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车区域内可见白色车辆，尺度和形状符合汽车。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车区域内的白色汽车，车身轮廓完整。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:015",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "停车区域内可见机动车，形状和位置符合。",
+   "target_index": 10
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:016",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "道路上的深色汽车，车身轮廓可辨。",
+   "target_index": 11
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:017",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "道路上的白色汽车，车顶与车身轮廓清楚。",
+   "target_index": 12
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "道路上的白色机动车，形状和尺度符合汽车。",
+   "target_index": 13
+  },
+  {
+   "key": "released_fp:847075b4b5094d20b1c48261eadfccb7:020",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "画面右上边缘可见白色汽车，虽接近边缘但车身形状仍清晰。",
+   "target_index": 14
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596588.3854938,
+   "seconds": 39.38,
+   "status": "ok",
+   "health": {
+    "at": 1791596549.0045922,
+    "available_fraction": 0.46627479551693746,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "52cc6e927fa849c99d1f0e2f02eecf30",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b6f64e19a36b1912eb86ef5faa3b212d07734c5a7fda78517fc2c574ed39378e",
+ "prompt_sha256": "04792f240108c780d9ea47a7d51e1be10b73c5215bc4c72e94a55785094b5609",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

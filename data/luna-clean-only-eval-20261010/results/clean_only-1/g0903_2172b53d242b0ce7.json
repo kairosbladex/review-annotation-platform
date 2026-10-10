@@ -1,0 +1,50 @@
+{
+ "unit": "g0903_2172b53d242b0ce7",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:70e9f9bea8964e4a85870d4b808e3773",
+   "decision": "uncertain",
+   "image_limitation": "目标大部分位于画面外，仅能看到极少区域，无法确认是否为蓝色或绿色顶棚。",
+   "observed_object": "画面左边缘的局部物体",
+   "reasoning": "框内目标严重出画，无法依据可见部分判断其是否为符合类别的成片蓝绿色屋面。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:78e3d11373c94753a258e7c81c313bdd",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形屋顶",
+   "reasoning": "框内可见成片规整的亮蓝色屋面，呈建筑顶棚形态，符合蓝色顶棚的外观要点。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:f3af4269e30c43e09f0e2ba123b00f30",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色长条形彩钢瓦屋顶",
+   "reasoning": "框内主体是覆盖建筑的规整蓝色屋面，可见平行条纹和顶棚形态，符合蓝色顶棚特征。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595333.3169088,
+   "seconds": 20.99,
+   "status": "ok",
+   "health": {
+    "at": 1791595312.3225532,
+    "available_fraction": 0.47655980959338806,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "33d42c3e12664dc7a18c6761c69b6946",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "ceeda3bafd80c86dda52d6d3d5df7dfe1af94301dbb710b4acd21a90850e6e37",
+ "prompt_sha256": "d1647ceff2ed15711fa5b5b21a05e20bf86f6b40a2dd52e4ca55f76b61663947",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

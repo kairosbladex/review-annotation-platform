@@ -1,0 +1,74 @@
+{
+ "unit": "b995f84e52fd4bdab8bc1919844c3ff9",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:004",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "人行道上的小型人员目标",
+   "reasoning": "框内可见小型人体轮廓，位于可通行的人行道上，尺度符合俯拍人员特征。",
+   "target_index": 0
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:001",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "蓝色步道上的人员",
+   "reasoning": "可见小型人员轮廓，位于步道上，位置和尺度均符合人员特征。",
+   "target_index": 1
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:002",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "草地边步道上的人员",
+   "reasoning": "框内为可见的小型人体目标，位于步道附近，符合俯拍人员外观。",
+   "target_index": 2
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:005",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "白色步道上的人员",
+   "reasoning": "可见小型人员目标，位于步道上，尺度明显小于车辆，符合人员类别。",
+   "target_index": 3
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:000",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "广场上的人员",
+   "reasoning": "框内可见孤立的小型人体轮廓，位于可站立的铺装区域，符合人员特征。",
+   "target_index": 4
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:003",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "蓝色步道上的人员",
+   "reasoning": "框内可见小型人体目标，位于步道上，形态和尺度符合俯拍人员。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595036.325563,
+   "seconds": 28.04,
+   "status": "ok",
+   "health": {
+    "at": 1791595008.2883155,
+    "available_fraction": 0.4642392065142739,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "333faccbc9184aa7ad2d26f3ffe9285c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "24f06951bd0742cf1da9590e0a71b87ec8506b50c42172af300d6ae532ec43ad",
+ "prompt_sha256": "57f901243c86caaee99388086d8e5c039f38fad742a59839f7753de7b350a846",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

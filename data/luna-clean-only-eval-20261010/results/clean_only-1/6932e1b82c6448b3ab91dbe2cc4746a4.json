@@ -1,0 +1,34 @@
+{
+ "unit": "6932e1b82c6448b3ab91dbe2cc4746a4",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "6932e1b82c6448b3ab91dbe2cc4746a4:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树冠下可见一辆停放的小汽车，露出车顶和车身轮廓。",
+   "reasoning": "框内实际物体具有机动车的圆角长方形车身和深色车窗特征，位于道路旁停车区域，尺度与车辆相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595976.6764584,
+   "seconds": 20.99,
+   "status": "ok",
+   "health": {
+    "at": 1791595955.681721,
+    "available_fraction": 0.4783483371888735,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bfc7febad1514fc39a860466a1a652a5",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "ca4314bdc01ff522bcda88046ddf6c76e56591ec2fef4134504e8a23f5e8fae9",
+ "prompt_sha256": "ba7674c9dae1f447bf3367348f46a16aebd4517ac3babbee1272a3da98bd7f78",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

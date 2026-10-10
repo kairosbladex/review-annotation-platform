@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_05cf93bb163a24d4",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f5598deadd5a4b18b58390ed06723930",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "道路上的白色斑马线及路面",
+   "reasoning": "框内实际是横向白色斑马线，位于道路交叉口，并非覆盖在建筑、棚架或空地上方的蓝色或绿色顶棚。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595724.9943545,
+   "seconds": 16.29,
+   "status": "ok",
+   "health": {
+    "at": 1791595708.7066963,
+    "available_fraction": 0.47573779157319657,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8dcd71af622248d88c95443e78879aae",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "a65d514e8b498e091cdd6af7ac5b0279a06e97f5d0af2755677e0a7f1e29a221",
+ "prompt_sha256": "5bca87afadc3b4cc52369bd83feeb0e615ad29208321850133d281b34e8fa5ae",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

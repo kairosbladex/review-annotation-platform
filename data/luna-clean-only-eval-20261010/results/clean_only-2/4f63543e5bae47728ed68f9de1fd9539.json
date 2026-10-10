@@ -1,0 +1,42 @@
+{
+ "unit": "4f63543e5bae47728ed68f9de1fd9539",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "框内是路边的彩色伞状或摊位物体，不是卡车。",
+   "reasoning": "缺少卡车应有的驾驶室与长货厢分段结构，位置和尺度也明显不符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:4f63543e5bae47728ed68f9de1fd9539:002",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "框内是一辆小型绿色车辆，外形更接近小汽车或小型车辆。",
+   "reasoning": "未见三轮车典型的前窄后宽轮廓，不能按三轮车判断。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595824.146669,
+   "seconds": 14.52,
+   "status": "ok",
+   "health": {
+    "at": 1791595809.6223843,
+    "available_fraction": 0.4693788863455511,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "62b292e485424646bf7f915b9b21e89e",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d821f9a3966b9feed3c7ad442f4c230043e0600277799d23dd6239fbcda17f66",
+ "prompt_sha256": "1edacd3392d73fb2039a2ffa20188cf56ac906d50afa5dad8f00c6cafb865db1",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

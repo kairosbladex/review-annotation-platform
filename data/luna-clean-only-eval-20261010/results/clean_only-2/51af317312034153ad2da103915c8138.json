@@ -1,0 +1,34 @@
+{
+ "unit": "51af317312034153ad2da103915c8138",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "51af317312034153ad2da103915c8138:003",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无法确认是机动车。",
+   "observed_object": "建筑屋顶平台上的设备箱或小型设施。",
+   "reasoning": "框内物体位于建筑屋顶边缘的平台上，呈小型矩形设备状，不具备车辆常见的车身、挡风玻璃横带及与道路或车位相符的尺度和位置，因此不符合“车”的类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596510.9369447,
+   "seconds": 5.2,
+   "status": "ok",
+   "health": {
+    "at": 1791596505.7397683,
+    "available_fraction": 0.482521477044782,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2f3b0c34a7824194976f84bcae479b2b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b79f393966a55879c67cd92ed14f4c8b6cd6bd9f8e77c8e40ec0f1b5fc072b72",
+ "prompt_sha256": "569df161f81cb6e749302f3447919758655fa36d6dd49bd2f36bc614b5301240",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

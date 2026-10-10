@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_8b67f618688f979a",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-025",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一名坐在岸边台阶上的人员，能看到黑色头发、肩部和白色衣物。",
+   "reasoning": "目标外观符合俯拍人员特征，位于可站立的岸边台阶区域，尺度也与人员相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597148.4090722,
+   "seconds": 23.06,
+   "status": "ok",
+   "health": {
+    "at": 1791597125.3516538,
+    "available_fraction": 0.451965328349991,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c290bb1ebc3f4e1d9f262fcc865d6d4b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f29a53de805ac2f9a3907803f1b702beddc2587209e8c61aec869d938e0e6aaa",
+ "prompt_sha256": "71c922fc167b4a419faf1331627211accdfa8cc8c9a3d8b96b906d688c42aab7",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

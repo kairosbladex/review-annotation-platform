@@ -1,0 +1,34 @@
+{
+ "unit": "ca442d67817040f7a1db0349f315ac7a",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ca442d67817040f7a1db0349f315ac7a:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡且不在画面边缘。",
+   "observed_object": "屋顶平台上的设备箱或空调外机。",
+   "reasoning": "框内物体位于建筑屋顶平台上，呈小型方形设备状，不具备机动车常见的圆角长方形车身、车顶和前后挡风玻璃深色横带等特征，位置和尺度也不符合车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597840.2990773,
+   "seconds": 16.75,
+   "status": "ok",
+   "health": {
+    "at": 1791597823.5463243,
+    "available_fraction": 0.42418795928432873,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bfbfdea44b7c4dcf9efa5f03f0256c83",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "ad1b20ac73e39946971a17575b5cf1c157366826a6077a25ff1b7d8ad7a2edbc",
+ "prompt_sha256": "8c72a81bd02a6ae9893e88162fdd0fbc848c4a569a0c34cff49c337fad5c2a32",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

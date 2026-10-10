@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_f2b1833fcb38f7ab",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:53499b1d092345a6ad46fa1577b24b27",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停在地面区域的小型机动车，呈浅色车身、深色车窗的长方形轮廓。",
+   "reasoning": "目标位于建筑和绿化附近的地面停车区域，外形和尺度符合俯拍车辆特征，非屋顶设备或标线。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596533.1705618,
+   "seconds": 4.59,
+   "status": "ok",
+   "health": {
+    "at": 1791596528.5790808,
+    "available_fraction": 0.47216967400419085,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ed5611fb7b1e43f28baaafa2f2ad56a1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "db83909f08bf248cf8d27331f7bc66baa0f4bfd5014b785b4219fe4a34f3b869",
+ "prompt_sha256": "c2b6fb86133240b67c6d50866bfd648dd0f2d31ce0c0d2f5b7bdb839dd69c60a",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

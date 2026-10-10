@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_f7b7535a5d748f91",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fe528a0df8ae465d951d326edba41363",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "蓝绿色长条状球场边缘/围挡结构",
+   "reasoning": "框内主要是篮球场的蓝绿色场地及其边缘结构，不是覆盖在建筑、棚架、院落或空地上方的蓝色或绿色顶棚，属于球场设施，按类别要点应判为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595247.259305,
+   "seconds": 21.14,
+   "status": "ok",
+   "health": {
+    "at": 1791595226.1159112,
+    "available_fraction": 0.4639030120880425,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ca991042b9e6483785721e08cc965dac",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "72cffed57ec37ad6ebb2301e1c17274e0ea6ba06433382126323d58308ea67bc",
+ "prompt_sha256": "cf0fe7c1ea7b5868bb2fc6f6acd4b6d0cb18ca8ac91bb102a5ca19e27ef7feae",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

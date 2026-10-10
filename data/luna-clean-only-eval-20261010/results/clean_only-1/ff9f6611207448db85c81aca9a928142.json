@@ -1,0 +1,34 @@
+{
+ "unit": "ff9f6611207448db85c81aca9a928142",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:ff9f6611207448db85c81aca9a928142:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小型机动车",
+   "reasoning": "框内可见目标位于道路车道附近，呈横向的长方形车身，尺度和位置与车辆相符，符合车的外观特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596208.8640249,
+   "seconds": 13.62,
+   "status": "ok",
+   "health": {
+    "at": 1791596195.2428544,
+    "available_fraction": 0.4822433771613237,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "af560e5e499644b9ae6c04e22d81b615",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "c64aa0649ddf9a00350e9909e02f10a007f3cf1ed5ff05e182bb32747eb16cdf",
+ "prompt_sha256": "52efd91d0476d355c020fd98796ffc68801ecf4e135cb9cca701e7d41d546eef",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

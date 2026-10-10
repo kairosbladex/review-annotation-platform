@@ -1,0 +1,34 @@
+{
+ "unit": "bf64d4b40c7d4bf1b7ff193da2ba90f7",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "bf64d4b40c7d4bf1b7ff193da2ba90f7:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "绳索上的小型物体，外形细长，非人员。",
+   "reasoning": "框内物体位于水面上方的绳索上，呈细长块状，缺少人员应有的头部、肩部或躯干腿部结构，位置也不是可站立区域，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595211.2975833,
+   "seconds": 14.84,
+   "status": "ok",
+   "health": {
+    "at": 1791595196.4569976,
+    "available_fraction": 0.476716673978898,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ba57daed8496439da8636ad3518f2bd2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d12aa2da94791d1d4aac2153f091e2e19a5ae2131e5d111f27f9ee9f37ed0f5a",
+ "prompt_sha256": "598c322d3bf7d9b730e4d6d4718ffdbf447e6a775d26e581419218844ab120ac",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

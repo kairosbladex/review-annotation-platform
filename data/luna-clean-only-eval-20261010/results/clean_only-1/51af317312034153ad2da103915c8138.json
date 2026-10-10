@@ -1,0 +1,34 @@
+{
+ "unit": "51af317312034153ad2da103915c8138",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "51af317312034153ad2da103915c8138:003",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "建筑屋顶上的设备箱或空调外机",
+   "reasoning": "框内物体位于建筑屋顶平台，呈小型设备箱状，不具备机动车车身、车窗或与道路车位相符的尺度和位置特征，因此不属于车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596521.6439316,
+   "seconds": 19.75,
+   "status": "ok",
+   "health": {
+    "at": 1791596501.8933046,
+    "available_fraction": 0.48403537036532623,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2208ddcebc5f46d6879b78089c514efe",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b79f393966a55879c67cd92ed14f4c8b6cd6bd9f8e77c8e40ec0f1b5fc072b72",
+ "prompt_sha256": "569df161f81cb6e749302f3447919758655fa36d6dd49bd2f36bc614b5301240",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

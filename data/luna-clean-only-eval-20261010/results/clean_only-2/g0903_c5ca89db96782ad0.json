@@ -1,0 +1,54 @@
+{
+ "unit": "g0903_c5ca89db96782ad0",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:384d96ab4eb14b5d976f7c288ffc8469",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内是一名正在骑电动车的两轮车骑行者，头顶区域呈深色头发，未见光滑、有高光的半球状头盔。",
+   "reasoning": "目标符合骑两轮车且未佩戴头盔的外观特征，位置和尺度也与骑行者相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596653.732099,
+   "seconds": 0.05,
+   "status": "http_503",
+   "health": {
+    "at": 1791596653.6789842,
+    "available_fraction": 0.4524489631385718,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596673.8102787,
+   "seconds": 0.04,
+   "status": "http_503",
+   "health": {
+    "at": 1791596673.7662492,
+    "available_fraction": 0.4528552297370126,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596932.96303,
+   "seconds": 14.73,
+   "status": "ok",
+   "health": {
+    "at": 1791596918.2291317,
+    "available_fraction": 0.4752246079119964,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "cee649564eb74c83ab766917e59b1428",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "cebbbf0965e030d78bb1fc6c96a9324f60ca09d0e11df9af3a2672a8e1695d41",
+ "prompt_sha256": "691ea3367b432b83fab88ecc24b5eac760ca078fc333bc4212e56e9af9b77e54",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

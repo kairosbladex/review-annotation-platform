@@ -1,0 +1,34 @@
+{
+ "unit": "67963890aa6a4b54b2de49c274b015bc",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:67963890aa6a4b54b2de49c274b015bc:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "道路旁的人行道上的小型白色设施或箱体。",
+   "reasoning": "框内物体呈近方形，位于人行道边缘，缺乏机动车应有的长方形车身、车顶及挡风玻璃特征，尺度也明显不像车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597537.9961126,
+   "seconds": 39.66,
+   "status": "ok",
+   "health": {
+    "at": 1791597498.3328285,
+    "available_fraction": 0.4516425403567072,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "48303aa0696049e180f942f56edf9f40",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "93873b28845f7f50df63b55bb5763d53d273b9ae17caefb2bb44db88357b061f",
+ "prompt_sha256": "b4596cc5c466a5c79fbbfd80223f0ef2132d9630b3551a509dfce23e38902ad5",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

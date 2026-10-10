@@ -1,0 +1,34 @@
+{
+ "unit": "46e38da516a54f38ae3e713cf6322382",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "46e38da516a54f38ae3e713cf6322382:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左侧建筑玻璃反射区域，且仅露出局部，无法确认完整车身形状。",
+   "observed_object": "玻璃幕墙内疑似车辆反射或局部物体",
+   "reasoning": "框内可见深色局部形状，但处于玻璃反射区域，未能观察到符合机动车特征的完整圆角长方形车身及车顶、挡风玻璃结构，因此无法确认或排除为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597962.340995,
+   "seconds": 25.21,
+   "status": "ok",
+   "health": {
+    "at": 1791597937.126986,
+    "available_fraction": 0.4227167780687538,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "534c9c6d36f7469cbd04b6e1d72727c9",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "11a8976c1bdcc812f22e6abac474c919071443c170f82627a6cfd9911daa973e",
+ "prompt_sha256": "7b70d8e246c9cbcb356a003f3c16555f375abe35a7ff51018c638016880d6cb6",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

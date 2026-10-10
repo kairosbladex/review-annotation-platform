@@ -1,0 +1,74 @@
+{
+ "unit": "g0903_d01d6acf8b20aa40",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:89174fccc9f5400a995eb9f56c25b247",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的小汽车",
+   "reasoning": "框内可见完整的圆角车身、深色车窗带和车辆阴影，位置及尺度与道路车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:daf1f353cc3c4e5cb3b90ce964b7b140",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "人行道上的细长物体，疑似长椅或路边设施",
+   "reasoning": "目标不具备两轮车清晰的车身与轮组结构，更像人行道设施。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:3755a239c86d407e82568924dc1a7fad",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的白色小汽车",
+   "reasoning": "可见车顶、深色车窗和规则车身轮廓，尺度与车道相符。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:49b04eff501f4064adcfcd04ceb488f1",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停放在道路旁的汽车",
+   "reasoning": "树旁露出的物体具有明显的汽车车身和车窗轮廓，位置与停车区域相符。",
+   "target_index": 3
+  },
+  {
+   "key": "gold0903:46a5dbd1b5874ff888c6a3d0a997476b",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停放在道路旁的白色汽车",
+   "reasoning": "框内可见完整的白色车身、车顶和深色玻璃区域，形状尺度符合小汽车。",
+   "target_index": 4
+  },
+  {
+   "key": "gold0903:149d6e1a1222493794a19839c1eff499",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "两辆并排停放的小汽车",
+   "reasoning": "框内是小汽车，未见卡车所需的驾驶室与明显分段货厢，整体尺寸也不符合卡车。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595384.5735383,
+   "seconds": 34.85,
+   "status": "ok",
+   "health": {
+    "at": 1791595349.7249744,
+    "available_fraction": 0.47520633746709495,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5b5c2b28c11a4a92b5acf8f88d854ba4",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "9e12fe1616ecef6fb301454e4fcb9fe89d01efee01174e2effe460d4f784c1f5",
+ "prompt_sha256": "b8339e90e59dfc285a924585cf03e7d5a909cc7c351c59661bac7c57cc1a6dd2",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

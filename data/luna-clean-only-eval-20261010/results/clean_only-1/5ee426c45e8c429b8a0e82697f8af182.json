@@ -1,0 +1,34 @@
+{
+ "unit": "5ee426c45e8c429b8a0e82697f8af182",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "5ee426c45e8c429b8a0e82697f8af182:001",
+   "decision": "true",
+   "image_limitation": "目标位于画面底部并被树冠部分遮挡，但可见车顶、挡风玻璃和车身轮廓，仍能确认是机动车。",
+   "observed_object": "一辆停在道路旁、被树木遮挡的小汽车",
+   "reasoning": "框内可见具有圆角车身、深色车窗/挡风玻璃和与道路尺度相符的机动车外观，符合“车”的类别特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597937.0989506,
+   "seconds": 16.44,
+   "status": "ok",
+   "health": {
+    "at": 1791597920.6604424,
+    "available_fraction": 0.4224716926664319,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "38c67894b929463197061a863f83f340",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "108e3d0e8a76805a0092a50f7ab52162c1777383aeea3fb16f889c3ea0717feb",
+ "prompt_sha256": "2fbb6f75654c7de18fe9e5d66cd5bfa358910d27ce55126e1150d1351f3a992f",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

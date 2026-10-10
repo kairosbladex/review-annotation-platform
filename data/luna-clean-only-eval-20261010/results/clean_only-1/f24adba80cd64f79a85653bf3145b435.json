@@ -1,0 +1,34 @@
+{
+ "unit": "f24adba80cd64f79a85653bf3145b435",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "f24adba80cd64f79a85653bf3145b435:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的小汽车，呈细长圆角车身，位于停车区域并与其他车辆排列一致。",
+   "reasoning": "目标外观、位置和尺度均符合机动车特征，属于车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597399.2649808,
+   "seconds": 15.28,
+   "status": "ok",
+   "health": {
+    "at": 1791597383.9826205,
+    "available_fraction": 0.4701307713933838,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "06ea04011c214ee49f5dc8794505d1a2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "dfc3f5d63e3982d2d84937681751a52930ba4dd592dcb04ce6bc77425e9ec7cb",
+ "prompt_sha256": "b31a802fea73d995e328a1ef4676762abbb163c0ddf5fc1fcd542c5bb9775f31",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

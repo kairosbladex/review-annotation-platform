@@ -1,0 +1,106 @@
+{
+ "unit": "f2416eaf0ac747f2b268fc41eccb4a55",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:000",
+   "decision": "false",
+   "image_limitation": "目标位于道路边缘，框内可见的是小型车辆，长度与公交车不符。",
+   "observed_object": "小型车辆",
+   "reasoning": "不符合公交车或大客车的一体式长车身特征。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停在绿化边缘的小汽车",
+   "reasoning": "可见圆角车身轮廓，位于地面停车区域，尺度与小汽车相符。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区内的小汽车",
+   "reasoning": "框内可见车辆顶部和车身轮廓，位置及尺度符合车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区内的小汽车",
+   "reasoning": "框内是停放在地面停车区的小型机动车，外形符合车。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:006",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "屋顶上的成排设备或物料",
+   "reasoning": "目标位于建筑屋顶，呈成排的设备/物体，不具备卡车驾驶室与货厢分段结构。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的小汽车",
+   "reasoning": "框内可见停放在地面道路区域的小型车辆，尺度和形状符合车。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的小汽车",
+   "reasoning": "可见独立的车辆轮廓，位于车道/停车区域，符合车的外观。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的小汽车",
+   "reasoning": "框内物体呈小汽车的长方形车身，位置和尺度相符。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的小汽车",
+   "reasoning": "目标为地面区域内停放的小型机动车，符合车的判定要点。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:f2416eaf0ac747f2b268fc41eccb4a55:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的小汽车",
+   "reasoning": "框内可见小汽车车身，位于地面道路/停车区域，类别匹配。",
+   "target_index": 9
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595402.2536697,
+   "seconds": 18.29,
+   "status": "ok",
+   "health": {
+    "at": 1791595383.9631953,
+    "available_fraction": 0.4781973096177081,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "751a670c85ae468caa62385a099f7364",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "a1a86478363e2539cf48b8c9e19e6e6922dff658171fe9762ad03d447edf4a70",
+ "prompt_sha256": "cf56909ae2a9202af270bfbccb101ce4757a0fa4dd6405c96fa874e734d72a12",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

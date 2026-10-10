@@ -1,0 +1,54 @@
+{
+ "unit": "da7a896cc98348f993aaf5c874bfea97",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:da7a896cc98348f993aaf5c874bfea97:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面最左侧边缘，仅露出一小部分，且被画面边界截断，无法完整确认车身形状。",
+   "observed_object": "左侧边缘可见部分疑似车辆，但目标大部分出画。",
+   "reasoning": "虽然露出区域可能包含车体，但缺少完整轮廓、车顶和挡风玻璃等关键特征，无法确认或排除为车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596594.9116492,
+   "seconds": 0.06,
+   "status": "http_503",
+   "health": {
+    "at": 1791596594.8563683,
+    "available_fraction": 0.4594263274861424,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596615.1283925,
+   "seconds": 0.19,
+   "status": "http_503",
+   "health": {
+    "at": 1791596614.9402366,
+    "available_fraction": 0.45606258961942026,
+    "shared": "running healthy 0"
+   }
+  },
+  {
+   "at": 1791596910.1736302,
+   "seconds": 15.65,
+   "status": "ok",
+   "health": {
+    "at": 1791596894.51882,
+    "available_fraction": 0.47569109705844015,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "549d53bd14ee47aaa7d5590b4c303abd",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "480761c9d9f72e7b372ab26ba958054efd0c65fb30df8dbf30eced3265e0a74e",
+ "prompt_sha256": "b8328e7896c8557f89adb2b1c858b9b4bac8d63c5b6959b41aabdd25af7a14dd",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

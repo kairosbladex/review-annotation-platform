@@ -1,0 +1,42 @@
+{
+ "unit": "050c0225148447599f271d45797e1b41",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:000",
+   "decision": "false",
+   "image_limitation": "目标位于画面左侧道路交叉口附近，框内可见的是一辆短小的蓝色普通车辆，长度与公交车明显不符。",
+   "observed_object": "蓝色小型车辆",
+   "reasoning": "不具备公交车或大客车的一体式长车身特征，尺度明显偏小，因此不符合公交车类别。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:050c0225148447599f271d45797e1b41:001",
+   "decision": "uncertain",
+   "image_limitation": "目标仅在画面左下边缘露出很小一部分，大部分出画，无法确认完整车身形状。",
+   "observed_object": "画面边缘的局部蓝色物体",
+   "reasoning": "可见区域不足以判断是否为机动车，符合出画导致无法确认的情形。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596064.9103732,
+   "seconds": 15.83,
+   "status": "ok",
+   "health": {
+    "at": 1791596049.0768256,
+    "available_fraction": 0.4776512026755957,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0e27201bd2d94b08b530e59a97c4a03d",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7f88d47a78f420cc66393ea4a15b994d1b0bca78c255b5e0acd2b6c4e3c8eae7",
+ "prompt_sha256": "554f6cdf25b8c5dab49d2cac7ae0118626247cddd96d68b2c25c63f44d977fe0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

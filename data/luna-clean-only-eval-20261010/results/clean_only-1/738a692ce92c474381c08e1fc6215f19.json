@@ -1,0 +1,34 @@
+{
+ "unit": "738a692ce92c474381c08e1fc6215f19",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "738a692ce92c474381c08e1fc6215f19:001",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无遮挡到无法判断。",
+   "observed_object": "建筑外墙上的灰色横向结构、雨棚或檐口，并非机动车。",
+   "reasoning": "框内没有符合车的圆角长方形车身、车顶及深色挡风玻璃横带；目标位于建筑立面/檐口位置，尺度和形态也不符合车辆。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596135.035334,
+   "seconds": 23.9,
+   "status": "ok",
+   "health": {
+    "at": 1791596111.1331103,
+    "available_fraction": 0.4708144690736392,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "56a751fcacb1463a97028a651a9b7e1b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60",
+ "prompt_sha256": "7ecbce4f5a53c176291dbd5e771af286bf1cc21e8af1c1956127bf5dfb164949",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

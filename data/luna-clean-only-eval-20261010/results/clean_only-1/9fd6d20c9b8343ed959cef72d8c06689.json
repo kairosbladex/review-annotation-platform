@@ -1,0 +1,34 @@
+{
+ "unit": "9fd6d20c9b8343ed959cef72d8c06689",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "9fd6d20c9b8343ed959cef72d8c06689:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯视人员，能辨认出头部和肩部轮廓，位于岸边步道上。",
+   "reasoning": "目标外观、尺度和位置符合人员的俯拍特征，不是车辆或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595611.211522,
+   "seconds": 24.72,
+   "status": "ok",
+   "health": {
+    "at": 1791595586.4953,
+    "available_fraction": 0.4782576233659352,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "1417da867c804c44b57fbd9a75783429",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "6fa2c04b3b389ed884262f2d2a0ca20e69f32944b84f44e620c1e6038e3c3bb7",
+ "prompt_sha256": "6e07de80bc4054052aa1f14253bcda42c2c9612012a517205ba8933112a115c4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

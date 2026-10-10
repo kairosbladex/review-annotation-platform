@@ -1,0 +1,42 @@
+{
+ "unit": "c34f4e7e7a484fb896634bb06d991d16",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内主体为覆盖在空地建筑上的成片蓝色屋面，形状规整并具有顶棚特征，符合违建类别的外观口径。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c34f4e7e7a484fb896634bb06d991d16:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内主体为成片蓝色长方形屋顶，边缘规整、覆盖在建筑上方，符合蓝色顶棚特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595888.5657449,
+   "seconds": 23.54,
+   "status": "ok",
+   "health": {
+    "at": 1791595865.0281615,
+    "available_fraction": 0.47694792734722624,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5277ab1f000345d783c842253fcb00f2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "72ee2b5422ae9f6a7a56121d74bd27d53fe3ad208a168b9f6d74ad7a609f7604",
+ "prompt_sha256": "533934b9f08cfa94128f8b6c787ef8f178b95745c9de22e1ec3cf6ac675edc8d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

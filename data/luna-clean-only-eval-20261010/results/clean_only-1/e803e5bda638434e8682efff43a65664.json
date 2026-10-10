@@ -1,0 +1,34 @@
+{
+ "unit": "e803e5bda638434e8682efff43a65664",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "e803e5bda638434e8682efff43a65664:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯视人员的头部及肩部，呈小型椭圆状，位于岸边平台上。",
+   "reasoning": "目标外观符合正俯视人员的头顶和肩部特征，尺度较小且位置适合人员站立，不像路灯杆、井盖或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596524.3831563,
+   "seconds": 4.69,
+   "status": "ok",
+   "health": {
+    "at": 1791596519.692635,
+    "available_fraction": 0.4718466124102347,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "496b37d90b7e4eabae75fa5191ed511a",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f5fcbb17c70246474a662fa48969195bb2afbf87834954146e2898f9672dc920",
+ "prompt_sha256": "c1dc697e24236f5b3b2a0ac89e61d94ad63c8472ae7e6e178deaffe42f886226",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "6f4e3c7fd789409e8a0b74ccaefb1746",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:6f4e3c7fd789409e8a0b74ccaefb1746:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的一辆小汽车",
+   "reasoning": "框内可见机动车的车顶和深色玻璃区域，呈圆角长方形，位于建筑旁的道路地面，尺度和位置符合汽车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596178.74643,
+   "seconds": 15.46,
+   "status": "ok",
+   "health": {
+    "at": 1791596163.2893662,
+    "available_fraction": 0.4807762087556106,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8895170d25bc45a083495b5a863855c2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "ea85f84ba48de6690310e3ca6896852637402722451be1953c86d86b50e44174",
+ "prompt_sha256": "615b78a827fc31170ec8455489040a5b65c3b0d8383fcc65ec7d5b926426d25b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

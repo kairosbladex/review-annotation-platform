@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_a77b77448409c4c2",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B04-004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁步道上的一辆白色小汽车",
+   "reasoning": "框内可见圆角长方形车身、车顶及深色车窗带，尺寸和位置与地面车辆相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594863.3363957,
+   "seconds": 17.59,
+   "status": "ok",
+   "health": {
+    "at": 1791594845.7423933,
+    "available_fraction": 0.4624715637701151,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "883f869f130646f28d595a359a09ea59",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "11917b1907c069fd5f544ef33d8eda81696381d1ac5602566db03830eccca1c6",
+ "prompt_sha256": "07884af1cfd0d9e677cf4d4fabdb93575c824d5fef19bfe406dcc2bd69983ff2",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

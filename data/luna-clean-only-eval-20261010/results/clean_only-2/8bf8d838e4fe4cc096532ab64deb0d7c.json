@@ -1,0 +1,74 @@
+{
+ "unit": "8bf8d838e4fe4cc096532ab64deb0d7c",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见地面上的小汽车，车顶和车身轮廓清晰，位置与道路停车区域相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是地面上的小汽车，可见车身和深色车窗区域，尺度与周围道路环境相符。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆白色车辆，具有明确的车身轮廓，位于地面道路附近。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停放在地面上的深色小汽车，车顶及车身形状明确。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见白色车辆，车身轮廓和车窗区域清楚，位置与停车区域相符。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆地面上的小汽车，车顶、车窗及车身轮廓明确。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595116.3495073,
+   "seconds": 15.81,
+   "status": "ok",
+   "health": {
+    "at": 1791595100.536774,
+    "available_fraction": 0.4770239275340043,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "019bc49bc2f44266a40dc1b3d3a630df",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1574b8271aaaf6e1993740490e41ca049f6aed6dedaf58fae52f3158cc667f77",
+ "prompt_sha256": "e508d9567a55f81069a8676409cac7e006a5c4437fd918e942b8d1922d6c19f0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,42 @@
+{
+ "unit": "0131614611134eb6b8633658f24c5c44",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "0131614611134eb6b8633658f24c5c44:000",
+   "decision": "true",
+   "image_limitation": "目标较小，但轮廓和颜色可辨认。",
+   "observed_object": "框内可见一辆前窄后宽的小型三轮车，后部带较宽车斗。",
+   "reasoning": "其外观符合三轮车的前窄后宽结构，尺度也明显小于小汽车，符合三轮车类别。",
+   "target_index": 0
+  },
+  {
+   "key": "0131614611134eb6b8633658f24c5c44:001",
+   "decision": "false",
+   "image_limitation": "目标较小，但主体轮廓仍可判断。",
+   "observed_object": "框内是小型三轮车或带车斗的轻型车辆，并非较长大的货车。",
+   "reasoning": "未见卡车所需的明显驾驶室与长货厢分段，整体尺寸也远小于卡车，因此不符合卡车类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598085.29094,
+   "seconds": 27.45,
+   "status": "ok",
+   "health": {
+    "at": 1791598057.8444247,
+    "available_fraction": 0.44334821437257166,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b16e6dc1b6374184a6f3f7cdb1429e77",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f83b5798d1664c2699e31e75b2d78482f43f1a7a8b081efb0f818f216c58c4df",
+ "prompt_sha256": "3f1306e101b4aa827f4ce3cb4f38817ea56bb4e55ef2a696dcd264ae149715e7",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

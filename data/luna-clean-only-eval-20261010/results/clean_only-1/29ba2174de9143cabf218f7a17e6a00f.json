@@ -1,0 +1,66 @@
+{
+ "unit": "29ba2174de9143cabf218f7a17e6a00f",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的一辆小汽车",
+   "reasoning": "框内可见完整的圆角车身、车顶和深色玻璃区域，位置及尺度与道路旁停放车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位内的白色汽车",
+   "reasoning": "可见车顶和长方形车身，位于停车区域，尺度与车辆相符。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位内的深色汽车",
+   "reasoning": "框内是具有车顶和深色玻璃带的机动车，位置与停车位相符。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位内的白色汽车",
+   "reasoning": "框内可见车辆主体及车顶，位于停车区域，符合机动车外观。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:29ba2174de9143cabf218f7a17e6a00f:004",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "道路边缘的地面或设施局部",
+   "reasoning": "框内仅见狭窄的浅色区域和边缘结构，无法看出车身、车顶或挡风玻璃等车辆特征。",
+   "target_index": 4
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596446.434171,
+   "seconds": 17.28,
+   "status": "ok",
+   "health": {
+    "at": 1791596429.1528466,
+    "available_fraction": 0.47384465732062986,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5bc13fe348704b78bba4ebf5cd675e8f",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "cb35faff5eac5ab990134e3ccc862661b032b85cd8a3ebb542c1bab9b0925251",
+ "prompt_sha256": "b0bac522999125cc74bb341f668ee92aa2262341e5ac5491069262b577c6fe0a",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

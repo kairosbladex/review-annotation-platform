@@ -1,0 +1,34 @@
+{
+ "unit": "4149619ef9da4e378df52424563f31f6",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "4149619ef9da4e378df52424563f31f6:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "一个墙面上的小型孔洞或管线接口，不是人员。",
+   "reasoning": "框内目标呈现为小型不规则黑白斑块，附着在墙面上，缺少人员应有的头部、肩部或躯干腿部结构，位置和尺度也不符合人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596594.7987719,
+   "seconds": 15.55,
+   "status": "ok",
+   "health": {
+    "at": 1791596579.252293,
+    "available_fraction": 0.46543377745005143,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "68a5a76744cf4884a92d4dccd6a9ecd1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "5e93a35d0a3f743a7418eff003876df9e410199c6696aca5b247f8c4d4949e7b",
+ "prompt_sha256": "28d541d020c768ddcb3d83c0e8b8f6577f697a259153e918d3f4da0b1ca2311b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

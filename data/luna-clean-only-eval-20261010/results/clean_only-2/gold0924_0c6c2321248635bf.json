@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_0c6c2321248635bf",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-015",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "盆栽植物和花盆",
+   "reasoning": "框内可见的是人行道边规律摆放的圆形绿植盆栽，形状和位置均不符合人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596111.109319,
+   "seconds": 14.11,
+   "status": "ok",
+   "health": {
+    "at": 1791596096.995849,
+    "available_fraction": 0.4712755470067843,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "085df54eb9d6489bb7a58185cdf2493c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8a56999c843f0158233cb83d2d47502a03dacde044988de0041f72402e7b1426",
+ "prompt_sha256": "8bd440ca95e0eb39441d3b528d2ee19175e4b2e1e93e38546a3f92f0bd743bc8",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

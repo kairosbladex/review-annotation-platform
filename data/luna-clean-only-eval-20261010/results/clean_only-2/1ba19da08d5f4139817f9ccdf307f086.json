@@ -1,0 +1,34 @@
+{
+ "unit": "1ba19da08d5f4139817f9ccdf307f086",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "1ba19da08d5f4139817f9ccdf307f086:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内一辆小汽车，车身轮廓和车顶清晰可见。",
+   "reasoning": "框内目标呈圆角长方形机动车外观，位于停车区域并与周围车辆尺度、朝向一致，符合车的特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595670.6015341,
+   "seconds": 14.31,
+   "status": "ok",
+   "health": {
+    "at": 1791595656.288053,
+    "available_fraction": 0.47846172946754634,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fed8c6ee799e4f4ba7dbb5661fb6f733",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "e57346b44e05ee9c67bf248d5da132a2a7caa1cf3830c52ef251c3df3d5880c3",
+ "prompt_sha256": "ad1ea57decf8ee7866b168197c3fa0125193c3ede92f2fa1670641f7b9168e28",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

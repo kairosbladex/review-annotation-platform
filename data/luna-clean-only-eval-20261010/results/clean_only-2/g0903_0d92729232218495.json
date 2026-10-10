@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_0d92729232218495",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cc74adcb35e5423f95ab997d36672ae2",
+   "decision": "false",
+   "image_limitation": "目标被树冠遮挡，但可见物体是屋顶/平台上的矩形设备或通风设施，不符合机动车外观及所在位置特征。",
+   "observed_object": "树冠中的矩形屋顶设备",
+   "reasoning": "框内可见白色矩形设施，位于树木覆盖的建筑或平台区域，形状和位置均不像道路上的汽车。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f733538108d240f590ff61e466ea9a4d",
+   "decision": "true",
+   "image_limitation": "车辆大部分被树冠遮挡，但车顶、挡风玻璃和车身轮廓仍可辨认。",
+   "observed_object": "道路上的白色汽车",
+   "reasoning": "框内可见白色圆角车身及深色玻璃区域，位于道路车道旁，尺度和朝向符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596322.6448538,
+   "seconds": 15.71,
+   "status": "ok",
+   "health": {
+    "at": 1791596306.9372005,
+    "available_fraction": 0.48091677870107535,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "f3fac5ecfe304efa922a52d4e7239f8c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "426fcf5d93f827d99c08a340e73777104832602daf11d829f7c2479556157f25",
+ "prompt_sha256": "82d6054ff59e818f175beeebd6ed13b23286e4756de92fa6720fd6bb4e459d6d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

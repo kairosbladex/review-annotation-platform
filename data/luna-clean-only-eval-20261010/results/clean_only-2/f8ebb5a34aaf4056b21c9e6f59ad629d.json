@@ -1,0 +1,34 @@
+{
+ "unit": "f8ebb5a34aaf4056b21c9e6f59ad629d",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "f8ebb5a34aaf4056b21c9e6f59ad629d:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "框内是路旁堆放的杂物或摊位状物体，不是三轮车。",
+   "reasoning": "未见三轮车典型的前窄后宽轮廓，位置和形状更像静态箱体/杂物，因此不符合三轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597791.1787224,
+   "seconds": 16.52,
+   "status": "ok",
+   "health": {
+    "at": 1791597774.6633902,
+    "available_fraction": 0.43131124399051324,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "916b767450d441879a621781c4c22403",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "73255cf1cf8233fd07f1529dcc9e8bdc488ede6fe35de06e36fd833a8fbe2963",
+ "prompt_sha256": "de338f4d6a94026a3d4cfa242d49e4421934c4d5d45b409bb8af96a0f8e6ec18",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

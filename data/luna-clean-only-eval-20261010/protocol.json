@@ -1,0 +1,48 @@
+{
+ "date": "2026-10-10",
+ "baseline_commit": "f38e15f714a6a75c0b7ade891fbf5d7c23716619",
+ "baseline_directory": "data/luna-clean-frame-eval-20261009",
+ "prompt_version": "p001",
+ "frozen_files": {
+  "included.json": "d23edc7e45a6d9246cbd5c2d103a4598e194248ab37298dcf3ca2285e2b1cf72",
+  "excluded.json": "74f39b1d1643f70b75461dcad1b721e87afbd063c76151cd58e80e150086e27d",
+  "all-items.json": "b81c87a48ec7e41de0eea670c2dfa151811569850b5323cc654d36d010226aa5",
+  "labels.json": "96fdca0bc4cc8e407760996082c3ddd0535fe6e6c2f9415ac5ee573daff3acde",
+  "prompt.json": "f27714ce963942210b869313e4fdec58e49113dc0bd1ac139caeae436bc51f0a",
+  "freeze.json": "587654fd4e86632737f214d309ad3415e209e0f26108b562bdc454485fd8cbdf"
+ },
+ "cohort_images": 300,
+ "scored_candidates": 685,
+ "all_candidates": 707,
+ "new_conditions": [
+  "clean_only-1",
+  "clean_only-2"
+ ],
+ "planned_requests": 600,
+ "seed": 20261010,
+ "input_contract": "第一张为无平台标注的原帧，第二张为同一原帧加投影框及候选编号，第三张从无标注原帧按投影框裁剪；不发送平台截图或第四张图。保持现有 worker 的裁剪边距与 JPEG 转换。",
+ "selection": "逐字节恢复上一轮干净图，不重新搜索或挑选；恢复失败即停止准备，不悄悄缩小样本。",
+ "prompt_contract": "p001 common/cards 保持不变；仅更新坐标说明，使 bbox/clean_bbox 均指第一张干净原图上的投影框。",
+ "primary_metrics": [
+  "车辆看不清和真车看不清",
+  "人员非目标放过数及比例"
+ ],
+ "secondary_metrics": [
+  "各类别准确率",
+  "真目标驳回",
+  "重复翻转",
+  "按原片聚类的配对区间"
+ ],
+ "comparison": "复用上一轮截图及截图加第四张干净帧的各两次结果；不重跑带平台标注的输入，因此与历史对照存在调用时段差异。",
+ "resources": {
+  "port": 18399,
+  "memory_max": "4G",
+  "memory_swap_max": 0,
+  "cpu_quota": "300%",
+  "affinity_max_logical_cpus": 3,
+  "concurrency": 4,
+  "while_autotune_busy": 2,
+  "limits_verified_before_inference": true
+ },
+ "boundaries": "只读既有离线业务数据，不发布、不修改共享服务、Java、测试配置或标签，不操作真实任务或设备。"
+}

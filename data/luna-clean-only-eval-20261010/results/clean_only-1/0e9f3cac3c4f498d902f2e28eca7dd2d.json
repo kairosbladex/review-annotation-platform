@@ -1,0 +1,114 @@
+{
+ "unit": "0e9f3cac3c4f498d902f2e28eca7dd2d",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见完整的长方形车身，位于地面停车区域。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "可见白色车辆车顶及深色玻璃区域，位置和尺度符合汽车。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停放在地面的深色小汽车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "可见白色汽车的车身和车窗，形状明确。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内为地面停车位中的小汽车。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "可见白色车辆，车顶和深色玻璃带清晰。",
+   "target_index": 5
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内为树下停放的深色汽车，车形明确。",
+   "target_index": 6
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:007",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "非车物体",
+   "reasoning": "框内主要是白色环状/支架状设施，不具备汽车车身和车窗结构。",
+   "target_index": 7
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:008",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见停放在地面上的白色汽车。",
+   "target_index": 8
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:009",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "非车物体",
+   "reasoning": "框内是白色环状设施或其结构，不符合汽车外观。",
+   "target_index": 9
+  },
+  {
+   "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见树旁地面上的车辆，车顶和车身轮廓明确。",
+   "target_index": 10
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594847.140332,
+   "seconds": 32.7,
+   "status": "ok",
+   "health": {
+    "at": 1791594814.4406896,
+    "available_fraction": 0.4646920460271723,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "41c4138f1cbf46739b2193d252ebda7c",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "2d721b0dc6d09fa27be8c7706608c806ef8b0b96aa5a5559c261c0896565f254",
+ "prompt_sha256": "4fd7af43de39cb5dba9e0bcd53e26c4c0d0e06a8312780971848851d24e78468",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

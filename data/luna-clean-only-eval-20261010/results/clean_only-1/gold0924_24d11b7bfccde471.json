@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_24d11b7bfccde471",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B05-017",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无法确认有人体特征。",
+   "observed_object": "排列在人行道旁的盆栽植物和花盆。",
+   "reasoning": "框内是圆形绿色树冠配花盆，且与周围盆栽规律成排摆放，符合盆栽特征，不是人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596539.8054755,
+   "seconds": 6.6,
+   "status": "ok",
+   "health": {
+    "at": 1791596533.2005327,
+    "available_fraction": 0.4716798680004436,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0a2de781f8a244469f8da1ff30cd1ee8",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "2cfecd292f5d915d88d0ccf67dbbecf32e7e65fd7971599ae18bc193046c5f32",
+ "prompt_sha256": "d61cfc55570dd1c208dbf684938386d505e6cddc018362a2ea31a704c0ff9198",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

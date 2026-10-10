@@ -1,0 +1,34 @@
+{
+ "unit": "a4d041acab414e5d8e428eef20afeafc",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡或出画到无法判断。",
+   "observed_object": "框内是一个白色箱状设备，带有黑色顶部部件和线缆，不具备三轮车前窄后宽的轮廓。",
+   "reasoning": "该物体更像箱体或设备，不符合三轮车的结构和尺度特征，因此判定为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597877.6090827,
+   "seconds": 35.87,
+   "status": "ok",
+   "health": {
+    "at": 1791597841.735306,
+    "available_fraction": 0.4266686965809887,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dd4e0f36a48f400290d5badffb758daf",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "c40779d67bada5994c42f0a76dadc14981a798189dbd947347671be85d42b51b",
+ "prompt_sha256": "0c43ca66c7a1ed844da92d67d3a608875f21695481cbbbb9ce3115d27570d3f2",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

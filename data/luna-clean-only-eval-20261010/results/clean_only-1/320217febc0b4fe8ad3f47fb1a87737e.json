@@ -1,0 +1,34 @@
+{
+ "unit": "320217febc0b4fe8ad3f47fb1a87737e",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "320217febc0b4fe8ad3f47fb1a87737e:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一名行人",
+   "reasoning": "框内可见斜俯视下的人体，包含头部、竖长躯干和腿部，位于人行道边缘，外观与人员类别相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595547.8296957,
+   "seconds": 13.87,
+   "status": "ok",
+   "health": {
+    "at": 1791595533.9605603,
+    "available_fraction": 0.47843987181382897,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2dc8e78a5a2d4521a3dc9cf0cfda22ac",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "a72caae20353cfb3e42c518ef5c3c0b28ce086f8200dddf39444e191ec5cbfe4",
+ "prompt_sha256": "faa208f1f6e3ef25b2299804d0ed8d3a4e4c7e893219ea09989f85f282275412",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,74 @@
+{
+ "unit": "8bf8d838e4fe4cc096532ab64deb0d7c",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆具有明显车身轮廓和深色车窗的机动车，位于地面道路旁。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内是停放在地面上的小汽车，车顶、车身和车窗形状清晰。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆被部分树木遮挡但车身轮廓明确的机动车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内为停放在地面区域的小汽车，车身和深色车窗可辨。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内可见一辆白色机动车，位于道路或停车区域，尺度和形状符合车辆特征。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:8bf8d838e4fe4cc096532ab64deb0d7c:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车",
+   "reasoning": "框内为地面上的小汽车，车身轮廓及车窗区域清晰可见。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595116.7815344,
+   "seconds": 17.48,
+   "status": "ok",
+   "health": {
+    "at": 1791595099.3054612,
+    "available_fraction": 0.47711965736927,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9f9f2f5c6efa47cdb48de2d29f234690",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1574b8271aaaf6e1993740490e41ca049f6aed6dedaf58fae52f3158cc667f77",
+ "prompt_sha256": "e508d9567a55f81069a8676409cac7e006a5c4437fd918e942b8d1922d6c19f0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

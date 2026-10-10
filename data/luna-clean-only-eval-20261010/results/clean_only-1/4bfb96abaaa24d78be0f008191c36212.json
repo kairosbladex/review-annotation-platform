@@ -1,0 +1,34 @@
+{
+ "unit": "4bfb96abaaa24d78be0f008191c36212",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "4bfb96abaaa24d78be0f008191c36212:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯拍人员的头部、肩部及衣物轮廓。",
+   "reasoning": "目标呈小型椭圆状，中央有深色头发或头顶，两侧可见肩部和浅色衣物，位于可站立的铺装区域，外观符合人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597779.6793609,
+   "seconds": 39.24,
+   "status": "ok",
+   "health": {
+    "at": 1791597740.436883,
+    "available_fraction": 0.42762629893439225,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "25b0aa8f8ee64bfbbbbaec69a025418f",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "53ec2c756fb16ea128942d6a5261d2ba1c4f47b487dd9c8039c7a9959f28eac6",
+ "prompt_sha256": "449bcff45145fcb2f95dab18d09ca88e75192d93a306f881ba3b41a6065b4ec9",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

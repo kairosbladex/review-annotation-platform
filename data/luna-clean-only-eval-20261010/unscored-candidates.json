@@ -1,0 +1,794 @@
+[
+ {
+  "unit": "b995f84e52fd4bdab8bc1919844c3ff9",
+  "key": "b995f84e52fd4bdab8bc1919844c3ff9:004",
+  "event_id": "b995f84e52fd4bdab8bc1919844c3ff9",
+  "split": "dev",
+  "class_name": "人员",
+  "source_local_path": "work/raw/video/618b184389526b4ec2e5a4fa78782df374b3d0d3bdf0f4d77326a399c52e1b7d.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "false",
+   "plus_clean-2": "uncertain",
+   "clean_only-1": "true",
+   "clean_only-2": "true"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "b995f84e52fd4bdab8bc1919844c3ff9:004",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "人行道上的小型人员目标",
+    "reasoning": "框内可见小型人体轮廓，位于可通行的人行区域，尺度符合俯拍人员特征。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "b995f84e52fd4bdab8bc1919844c3ff9:004",
+    "decision": "true",
+    "image_limitation": "无明显限制",
+    "observed_object": "人行道上的小型人员目标",
+    "reasoning": "框内可见小型人体轮廓，位于可通行的人行道上，尺度符合俯拍人员特征。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "0e9f3cac3c4f498d902f2e28eca7dd2d",
+  "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:009",
+  "event_id": "0e9f3cac3c4f498d902f2e28eca7dd2d",
+  "split": "holdout",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/2cc507333a19f701dd05f309ee7ac12de62d53edd1080d6c14776025c37d780f.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:009",
+    "decision": "false",
+    "image_limitation": "",
+    "observed_object": "非车物体",
+    "reasoning": "框内是白色环状设施或其结构，不符合汽车外观。",
+    "target_index": 9
+   },
+   "clean_only-2": {
+    "key": "released_fp:0e9f3cac3c4f498d902f2e28eca7dd2d:009",
+    "decision": "false",
+    "image_limitation": "",
+    "observed_object": "白色通信杆或天线设施",
+    "reasoning": "框内是道路旁的白色环状通信设施，不是具有车身和车窗的机动车。",
+    "target_index": 9
+   }
+  }
+ },
+ {
+  "unit": "8404d5c426b9407699e178f68e040a22",
+  "key": "released_fp:8404d5c426b9407699e178f68e040a22:000",
+  "event_id": "8404d5c426b9407699e178f68e040a22",
+  "split": "holdout",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/25cca385e7105d6b8294e340842773eeeee6fdfafa45f001878d9f211f8cda29.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "uncertain",
+   "plus_clean-1": "uncertain",
+   "plus_clean-2": "true",
+   "clean_only-1": "true",
+   "clean_only-2": "uncertain"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "released_fp:8404d5c426b9407699e178f68e040a22:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "车",
+    "reasoning": "框内可见停放车辆的车身轮廓。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "released_fp:8404d5c426b9407699e178f68e040a22:000",
+    "decision": "uncertain",
+    "image_limitation": "目标位于画面顶部边缘且被树冠遮挡，仅露出局部，车形无法确认。",
+    "observed_object": "顶部边缘的局部物体",
+    "reasoning": "可见部分不足以确认是否为机动车。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "01895ed878a44dd5a78fed5781c45611",
+  "key": "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+  "event_id": "01895ed878a44dd5a78fed5781c45611",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/e01bc29592f44e60fba461728eb0ba7f0efad3b2126d47921535a84a412132f5.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "false",
+   "screenshot-2": "false",
+   "plus_clean-1": "false",
+   "plus_clean-2": "false",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+    "decision": "false",
+    "image_limitation": "目标区域清晰可见。",
+    "observed_object": "建筑墙面及墙体上的涂鸦，没有机动车车身。",
+    "reasoning": "框内主要是建筑立面和涂鸦，缺少车辆应有的圆角长方形车身、车顶及挡风玻璃深色横带，位置也不在道路或停车区域。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:01895ed878a44dd5a78fed5781c45611:000",
+    "decision": "false",
+    "image_limitation": "无遮挡，目标区域清晰可辨。",
+    "observed_object": "建筑外墙和屋顶边缘的墙面结构。",
+    "reasoning": "框内是建筑立面及墙体，不是位于道路、停车场或地面的机动车，形状和位置均不符合车辆特征。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "01895ed878a44dd5a78fed5781c45611",
+  "key": "rooftop:01895ed878a44dd5a78fed5781c45611:001",
+  "event_id": "01895ed878a44dd5a78fed5781c45611",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/e01bc29592f44e60fba461728eb0ba7f0efad3b2126d47921535a84a412132f5.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "false",
+   "screenshot-2": "false",
+   "plus_clean-1": "false",
+   "plus_clean-2": "false",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:01895ed878a44dd5a78fed5781c45611:001",
+    "decision": "false",
+    "image_limitation": "目标区域清晰可见。",
+    "observed_object": "建筑外立面的雨棚、屋檐及树木。",
+    "reasoning": "框内可见的是建筑结构和棚顶，不是机动车；没有车身轮廓、车顶或挡风玻璃，位置和尺度也与车辆不符。",
+    "target_index": 1
+   },
+   "clean_only-2": {
+    "key": "rooftop:01895ed878a44dd5a78fed5781c45611:001",
+    "decision": "false",
+    "image_limitation": "无遮挡，目标区域清晰可辨。",
+    "observed_object": "建筑外侧的雨棚、屋檐及墙面结构。",
+    "reasoning": "框内主要是建筑雨棚和立面，不存在具有车身、挡风玻璃横带的机动车，位置尺度也不符合车辆。",
+    "target_index": 1
+   }
+  }
+ },
+ {
+  "unit": "1a8ddf481c024cd59c093504d967735c",
+  "key": "rooftop:1a8ddf481c024cd59c093504d967735c:001",
+  "event_id": "1a8ddf481c024cd59c093504d967735c",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/049758c38e696364b482af21cdbf1ce47ea0326d2b28c10370b2dd29c581ebff.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:1a8ddf481c024cd59c093504d967735c:001",
+    "decision": "false",
+    "image_limitation": "",
+    "observed_object": "屋顶上的白色设备箱或空调外机",
+    "reasoning": "目标位于建筑屋顶平台，呈方形设备外观，不具备汽车车顶、挡风玻璃带和车身比例特征。",
+    "target_index": 1
+   },
+   "clean_only-2": {
+    "key": "rooftop:1a8ddf481c024cd59c093504d967735c:001",
+    "decision": "false",
+    "image_limitation": "",
+    "observed_object": "屋顶上的白色设备箱或空调外机",
+    "reasoning": "目标位于建筑屋顶平台，呈小型方形设备外观，不具备车辆的车身和车窗特征。",
+    "target_index": 1
+   }
+  }
+ },
+ {
+  "unit": "2d091ba6c6ce4f8ab7dabf226e973fb9",
+  "key": "rooftop:2d091ba6c6ce4f8ab7dabf226e973fb9:000",
+  "event_id": "2d091ba6c6ce4f8ab7dabf226e973fb9",
+  "split": "holdout",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/4d1e48e369b7627726302cdc6bfab5df45673cfc55d7dd775c70f141d2c21954.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "uncertain",
+   "plus_clean-2": "uncertain",
+   "clean_only-1": "true",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:2d091ba6c6ce4f8ab7dabf226e973fb9:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "道路旁可见一辆小型机动车，呈车身与深色车窗组成的长方形外观。",
+    "reasoning": "框内目标位于地面道路边缘，形状和尺度符合小汽车特征，未见其为设备箱或其他非机动车物体。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:2d091ba6c6ce4f8ab7dabf226e973fb9:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见，无遮挡到无法判断。",
+    "observed_object": "道路旁的工程设备或箱体，不是机动车。",
+    "reasoning": "框内物体呈方形箱体状，位于施工围挡和道路边缘，缺少车辆应有的圆角长方形车身、车顶及深色前后挡风玻璃横带，位置和形状也不符合车辆特征。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "320039425f7f4e4e98932451eb79ad66",
+  "key": "rooftop:320039425f7f4e4e98932451eb79ad66:000",
+  "event_id": "320039425f7f4e4e98932451eb79ad66",
+  "split": "holdout",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/507c72e8bd3700711e417d35c5fb3e79ac5dd68081ac3f17bda5430dc260fc46.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "uncertain",
+   "screenshot-2": "uncertain",
+   "plus_clean-1": "uncertain",
+   "plus_clean-2": "uncertain",
+   "clean_only-1": "uncertain",
+   "clean_only-2": "uncertain"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:320039425f7f4e4e98932451eb79ad66:000",
+    "decision": "uncertain",
+    "image_limitation": "目标位于画面最左边缘，仅露出一小部分，主体大半出画，无法确认完整车形。",
+    "observed_object": "左侧边缘可见一小段疑似车辆的浅色物体。",
+    "reasoning": "虽然局部外观可能像车辆，但目标出画严重，无法依据车身完整形状、车顶和挡风玻璃等特征确认。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:320039425f7f4e4e98932451eb79ad66:000",
+    "decision": "uncertain",
+    "image_limitation": "目标位于画面最左边缘，仅露出一小部分，车身大部分出画，无法确认完整车形。",
+    "observed_object": "左侧边缘可见一小段浅色物体，形状不完整。",
+    "reasoning": "目标严重出画，只能看到局部，既不能确认是机动车，也无法排除其他物体，因此判定为uncertain。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "3c743957ed964e279866fafebf5a8a86",
+  "key": "rooftop:3c743957ed964e279866fafebf5a8a86:000",
+  "event_id": "3c743957ed964e279866fafebf5a8a86",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/e01bc29592f44e60fba461728eb0ba7f0efad3b2126d47921535a84a412132f5.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "false",
+   "screenshot-2": "false",
+   "plus_clean-1": "false",
+   "plus_clean-2": "false",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:3c743957ed964e279866fafebf5a8a86:000",
+    "decision": "false",
+    "image_limitation": "目标区域清晰可见，无遮挡到无法判断。",
+    "observed_object": "建筑外墙及屋顶边缘的墙面、窗户和水平装饰结构，没有机动车。",
+    "reasoning": "框内实际是建筑立面和屋顶边缘，未见符合车的圆角长方形车身、车窗带及道路或停车位位置关系，因此不属于车。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:3c743957ed964e279866fafebf5a8a86:000",
+    "decision": "false",
+    "image_limitation": "目标区域清晰可见，未见明显遮挡或出画限制。",
+    "observed_object": "建筑外墙及墙面上的水平木质/砖质饰面区域。",
+    "reasoning": "框内是建筑立面和墙面装饰，不是位于道路、停车场或地面的机动车；未呈现车顶、挡风玻璃横带等车辆特征。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "52db33c764424228b1e7292d65787322",
+  "key": "rooftop:52db33c764424228b1e7292d65787322:000",
+  "event_id": "52db33c764424228b1e7292d65787322",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/765d481e534a8ded7a7d3916d4d5081b6c49fd116d8c26ccb15a4bd4569ec350.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "false",
+   "clean_only-2": "true"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:52db33c764424228b1e7292d65787322:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见，未见遮挡或出画影响判断。",
+    "observed_object": "建筑平台道路旁的白色矩形设备箱或设施，不是机动车。",
+    "reasoning": "框内物体位于建筑设备区域的地面边缘，外形短小且缺少车辆应有的车顶、挡风玻璃深色横带及与车道相符的尺度，因此不符合“车”的外观特征。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:52db33c764424228b1e7292d65787322:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "道路旁车道上的一辆白色小型机动车",
+    "reasoning": "框内可见规则的浅色车身和深色车窗带，呈车辆的圆角长方形外观，位于地面道路/通行区域，尺度与周围车辆一致，符合“车”的特征。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "53b63577ac834f5794e6cdafa60c9ed6",
+  "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+  "event_id": "53b63577ac834f5794e6cdafa60c9ed6",
+  "split": "holdout",
+  "class_name": "卡车",
+  "source_local_path": "work/raw/video/2cc507333a19f701dd05f309ee7ac12de62d53edd1080d6c14776025c37d780f.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "uncertain",
+   "screenshot-2": "false",
+   "plus_clean-1": "false",
+   "plus_clean-2": "uncertain",
+   "clean_only-1": "false",
+   "clean_only-2": "true"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+    "decision": "false",
+    "image_limitation": "",
+    "observed_object": "框内是道路上的小型轿车，未见驾驶室与分段式货厢结构。",
+    "reasoning": "目标位于道路车道内，整体尺寸和外形更符合小汽车，明显不具备卡车所需的驾驶室与后部长方形货厢分段特征，因此不属于卡车。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:53b63577ac834f5794e6cdafa60c9ed6:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "道路上的一辆较大型车辆，车身呈前后分段形态，后部为货厢，符合卡车外观。",
+    "reasoning": "框内目标位于道路上，整体长度明显大于周围小汽车，可见驾驶室与后部车厢的分段结构，符合卡车的俯拍特征。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "67963890aa6a4b54b2de49c274b015bc",
+  "key": "rooftop:67963890aa6a4b54b2de49c274b015bc:000",
+  "event_id": "67963890aa6a4b54b2de49c274b015bc",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/b4a4a654a5335f012cf61c4aa199dd684ca55de2ac87e5830f35126c5505143e.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:67963890aa6a4b54b2de49c274b015bc:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见。",
+    "observed_object": "道路旁的人行道上的小型白色设施或箱体。",
+    "reasoning": "框内物体呈近方形，位于人行道边缘，缺乏机动车应有的长方形车身、车顶及挡风玻璃特征，尺度也明显不像车。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:67963890aa6a4b54b2de49c274b015bc:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见，无法确认存在遮挡或出画导致的判断障碍。",
+    "observed_object": "浅色方形设施或设备箱，位于建筑外围步道旁，并非机动车。",
+    "reasoning": "框内物体呈近方形，缺少车身约长宽比、车顶和前后挡风玻璃深色横带等特征；其位置和尺度也更符合步道旁的设施设备，不符合车辆外观。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "9f3745b4d6bb4bb192a479ead431c528",
+  "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+  "event_id": "9f3745b4d6bb4bb192a479ead431c528",
+  "split": "dev",
+  "class_name": "三轮车",
+  "source_local_path": "work/raw/video/2455dbd614a7f19ae699b5ab1b0b7764b307915c497efb98fc1534ee6a8aa8c8.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "false",
+   "screenshot-2": "false",
+   "plus_clean-1": "false",
+   "plus_clean-2": "false",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见，无遮挡。",
+    "observed_object": "建筑屋顶上的方形设备箱体。",
+    "reasoning": "框内物体呈四四方方的箱体轮廓，没有三轮车所需的前窄后宽结构，因此不符合三轮车类别。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:9f3745b4d6bb4bb192a479ead431c528:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见，无法确认存在三轮车遮挡或出画问题。",
+    "observed_object": "框内是楼顶上的方形设备箱或空调设备，呈规则四边形箱体外观。",
+    "reasoning": "该物体没有三轮车前窄后宽、后部较宽的轮廓，位置也在建筑屋顶设备区，不符合三轮车特征。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "a4d041acab414e5d8e428eef20afeafc",
+  "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+  "event_id": "a4d041acab414e5d8e428eef20afeafc",
+  "split": "holdout",
+  "class_name": "三轮车",
+  "source_local_path": "work/raw/video/3a210ae2d15aa8da26b7ed9f4f79af545624528eeb93fe655a6dd34b4bd0aae6.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见，无遮挡或明显出画。",
+    "observed_object": "框内是一个小型白色箱体状设备，旁有线缆，不具备三轮车前窄后宽的轮廓。",
+    "reasoning": "该物体外形更像固定设备或箱体，不是人力、电动或机动三轮车，因此不符合“三轮车”类别。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:a4d041acab414e5d8e428eef20afeafc:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见，无遮挡或出画到无法判断。",
+    "observed_object": "框内是一个白色箱状设备，带有黑色顶部部件和线缆，不具备三轮车前窄后宽的轮廓。",
+    "reasoning": "该物体更像箱体或设备，不符合三轮车的结构和尺度特征，因此判定为false。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "ca442d67817040f7a1db0349f315ac7a",
+  "key": "rooftop:ca442d67817040f7a1db0349f315ac7a:000",
+  "event_id": "ca442d67817040f7a1db0349f315ac7a",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/c25315c24b4e0c90d207258ee38a5397a25b1edc83e1e1a40910e96971a3fe2f.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:ca442d67817040f7a1db0349f315ac7a:000",
+    "decision": "false",
+    "image_limitation": "",
+    "observed_object": "建筑平台上的小型设备箱或空调外机",
+    "reasoning": "框内目标位于建筑顶部平台，呈小型方形设备状，不具备机动车的长约宽两倍、车顶及挡风玻璃深色横带等特征，位置和尺度也不符合车辆。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:ca442d67817040f7a1db0349f315ac7a:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见，无遮挡且不在画面边缘。",
+    "observed_object": "屋顶平台上的设备箱或空调外机。",
+    "reasoning": "框内物体位于建筑屋顶平台上，呈小型方形设备状，不具备机动车常见的圆角长方形车身、车顶和前后挡风玻璃深色横带等特征，位置和尺度也不符合车辆。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "cc51d25ac0d6462ba88f12d3a8f8a0b4",
+  "key": "rooftop:cc51d25ac0d6462ba88f12d3a8f8a0b4:000",
+  "event_id": "cc51d25ac0d6462ba88f12d3a8f8a0b4",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/2971f9bdb34407d0a2e49c0b1594470c8e079b3d0f88ce600f5afb792dc55899.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:cc51d25ac0d6462ba88f12d3a8f8a0b4:000",
+    "decision": "false",
+    "image_limitation": "目标清晰可见，未被明显遮挡或出画。",
+    "observed_object": "建筑屋顶边缘的设备或箱体，不是机动车。",
+    "reasoning": "框内物体位于屋顶平台上，呈小型设备状，缺少车辆应有的车身比例、车顶和挡风玻璃特征；位置和尺度也不符合车辆。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:cc51d25ac0d6462ba88f12d3a8f8a0b4:000",
+    "decision": "false",
+    "image_limitation": "目标区域清晰可见，无遮挡且未出画。",
+    "observed_object": "建筑屋顶平台上的设备或箱体，不是机动车。",
+    "reasoning": "框内物体位于建筑屋顶平台，呈小型设备状，缺少车辆应有的车身轮廓、挡风玻璃横带及与车道或车位相符的尺度和位置，因此不符合“车”的类别。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "d53092c6cb8e46ae988bd7f0bbb048ff",
+  "key": "rooftop:d53092c6cb8e46ae988bd7f0bbb048ff:000",
+  "event_id": "d53092c6cb8e46ae988bd7f0bbb048ff",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/2cc507333a19f701dd05f309ee7ac12de62d53edd1080d6c14776025c37d780f.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "uncertain",
+   "screenshot-2": "uncertain",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "true",
+   "clean_only-2": "true"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:d53092c6cb8e46ae988bd7f0bbb048ff:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "道路旁车道上的一辆小型机动车",
+    "reasoning": "框内可见车辆的车身与深色玻璃区域，位于道路通行区域，形状和尺度符合机动车特征。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:d53092c6cb8e46ae988bd7f0bbb048ff:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "道路旁可见一辆小型机动车，车身呈狭长圆角矩形，颜色偏红，位置和尺度符合车辆特征。",
+    "reasoning": "框内及紧邻区域显示目标位于地面道路旁，外形与车辆一致，不是建筑设备或其他物体。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "d940a58135154cd79d88657b3720a469",
+  "key": "rooftop:d940a58135154cd79d88657b3720a469:000",
+  "event_id": "d940a58135154cd79d88657b3720a469",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/still/3ebf43425eff1254685b13c3ba0afde8b77f15130086e13009dcb86cc0e0af3d.jpeg",
+  "source_kind": "still",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "true",
+   "clean_only-2": "true"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:d940a58135154cd79d88657b3720a469:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "道路上的一辆白色小汽车",
+    "reasoning": "框内可见白色车身，呈圆角长方形，位于道路车道上，尺度和朝向均符合机动车特征。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:d940a58135154cd79d88657b3720a469:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "道路上的一辆小汽车",
+    "reasoning": "框内可见一辆位于道路上的白色小汽车，呈圆角长方形车身，尺度和朝向与车道相符，符合机动车外观特征。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "e05ada166ccc4ed2b8a4fe9dd0971362",
+  "key": "rooftop:e05ada166ccc4ed2b8a4fe9dd0971362:000",
+  "event_id": "e05ada166ccc4ed2b8a4fe9dd0971362",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/31a105c6b00221fcf4af32d96d01b300c186962455c2dcc7586ab787692c0821.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "uncertain",
+   "screenshot-2": "uncertain",
+   "plus_clean-1": "true",
+   "plus_clean-2": "uncertain",
+   "clean_only-1": "uncertain",
+   "clean_only-2": "uncertain"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:e05ada166ccc4ed2b8a4fe9dd0971362:000",
+    "decision": "uncertain",
+    "image_limitation": "目标位于画面底部边缘且仅露出很小一部分，无法确认完整车身形状。",
+    "observed_object": "画面底部建筑边缘附近的局部浅色矩形物体",
+    "reasoning": "框内目标大部分出画，只能看到局部，无法判断是否具备机动车的圆角长方形车身、车窗横带及与道路相符的尺度和位置。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:e05ada166ccc4ed2b8a4fe9dd0971362:000",
+    "decision": "uncertain",
+    "image_limitation": "目标位于画面底部边缘且仅露出极小部分，被建筑遮挡或出画，无法确认完整车体形状。",
+    "observed_object": "画面底部建筑边缘附近的一小段浅色物体，无法辨认是否为机动车。",
+    "reasoning": "框的位置和尺度过小，且目标大部分不可见，缺少车辆应有的圆角长方形车身及车窗横带等可见特征，因此不能确认或否定为车。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "e2e9f1ba9d1341bf8131b3e15d61f299",
+  "key": "rooftop:e2e9f1ba9d1341bf8131b3e15d61f299:000",
+  "event_id": "e2e9f1ba9d1341bf8131b3e15d61f299",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/ea01a8d7556487c209c9e9da7dff97398209f0fbaa83a7be4d22a7782ed52a80.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "false",
+   "screenshot-2": "false",
+   "plus_clean-1": "false",
+   "plus_clean-2": "false",
+   "clean_only-1": "uncertain",
+   "clean_only-2": "uncertain"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:e2e9f1ba9d1341bf8131b3e15d61f299:000",
+    "decision": "uncertain",
+    "image_limitation": "目标位于画面顶部边缘，框内仅露出一小部分，无法确认完整车身形状及其与道路、车位的尺度关系。",
+    "observed_object": "画面顶部边缘的局部浅色物体",
+    "reasoning": "目标大部分出画，现有可见区域不足以判断是否为机动车。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:e2e9f1ba9d1341bf8131b3e15d61f299:000",
+    "decision": "uncertain",
+    "image_limitation": "目标位于画面顶边，绝大部分出画，仅露出一小段浅色区域，无法确认完整车形。",
+    "observed_object": "画面顶边的局部浅色物体",
+    "reasoning": "目标严重出画，露出部分不足以判断是否为机动车。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "e5d9b2dd38e5401f8a6d988c966b6399",
+  "key": "rooftop:e5d9b2dd38e5401f8a6d988c966b6399:000",
+  "event_id": "e5d9b2dd38e5401f8a6d988c966b6399",
+  "split": "holdout",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/343f302d9e39c4c30663d0e556b158838ceea1dc1d065ac0808beb51300076b0.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "true",
+   "screenshot-2": "true",
+   "plus_clean-1": "true",
+   "plus_clean-2": "true",
+   "clean_only-1": "true",
+   "clean_only-2": "true"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:e5d9b2dd38e5401f8a6d988c966b6399:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "框内可见一辆停放在屋顶平台上的小汽车，呈长方形车身并带深色车窗区域。",
+    "reasoning": "目标外观符合机动车特征，虽位于建筑平台附近，但可辨认出车身、车窗和车辆尺度，不是空调外机或设备箱。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:e5d9b2dd38e5401f8a6d988c966b6399:000",
+    "decision": "true",
+    "image_limitation": "",
+    "observed_object": "框内可见一辆停在屋顶或平台通道上的小型机动车，呈明显的车身轮廓和深色车窗带。",
+    "reasoning": "目标具有车的长方形车身、车顶及深色玻璃区域，尺度和形状符合机动车外观；虽然位于建筑平台附近，但实际物体不是空调外机或设备箱。",
+    "target_index": 0
+   }
+  }
+ },
+ {
+  "unit": "fdb392405f404886813e23aa33a2ec1a",
+  "key": "rooftop:fdb392405f404886813e23aa33a2ec1a:000",
+  "event_id": "fdb392405f404886813e23aa33a2ec1a",
+  "split": "dev",
+  "class_name": "车",
+  "source_local_path": "work/raw/video/e01bc29592f44e60fba461728eb0ba7f0efad3b2126d47921535a84a412132f5.mp4",
+  "source_kind": "video",
+  "label": null,
+  "decisions": {
+   "screenshot-1": "false",
+   "screenshot-2": "false",
+   "plus_clean-1": "false",
+   "plus_clean-2": "false",
+   "clean_only-1": "false",
+   "clean_only-2": "false"
+  },
+  "new_details": {
+   "clean_only-1": {
+    "key": "rooftop:fdb392405f404886813e23aa33a2ec1a:000",
+    "decision": "false",
+    "image_limitation": "目标区域清晰可见，未见明显遮挡或出画。",
+    "observed_object": "建筑立面上的墙体、窗户及水平装饰条，没有机动车车身。",
+    "reasoning": "候选框位于建筑外墙立面，框内实际是墙体和窗户，不符合机动车的车身形状、位置和尺度特征，因此判断为false。",
+    "target_index": 0
+   },
+   "clean_only-2": {
+    "key": "rooftop:fdb392405f404886813e23aa33a2ec1a:000",
+    "decision": "false",
+    "image_limitation": "",
+    "observed_object": "建筑物外墙及墙面上的涂鸦/污渍区域",
+    "reasoning": "框内主要是建筑外墙、窗户下方的深色装饰带和墙面涂鸦，没有看到机动车的车顶、挡风玻璃深色横带或与道路/车位相符的车辆形状。",
+    "target_index": 0
+   }
+  }
+ }
+]

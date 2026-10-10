@@ -1,0 +1,58 @@
+{
+ "at": 1791598306.7133243,
+ "own_units": {
+  "luna-clean-only-20261010-prepare": {
+   "MainPID": "0",
+   "LoadState": "not-found",
+   "ActiveState": "inactive"
+  },
+  "luna-clean-only-20261010-preview": {
+   "MainPID": "0",
+   "LoadState": "not-found",
+   "ActiveState": "inactive"
+  },
+  "luna-clean-only-20261010-launch": {
+   "MainPID": "0",
+   "LoadState": "not-found",
+   "ActiveState": "inactive"
+  },
+  "luna-clean-only-20261010-worker": {
+   "MainPID": "0",
+   "LoadState": "not-found",
+   "ActiveState": "inactive"
+  },
+  "luna-clean-only-20261010-runner": {
+   "MainPID": "0",
+   "LoadState": "not-found",
+   "ActiveState": "inactive"
+  },
+  "luna-clean-only-20261010-watch": {
+   "MainPID": "0",
+   "LoadState": "not-found",
+   "ActiveState": "inactive"
+  }
+ },
+ "listeners": {
+  "returncode": 0,
+  "stdout": "State  Recv-Q Send-Q   Local Address:Port  Peer Address:PortProcess\nLISTEN 0      64     192.168.130.238:18396      0.0.0.0:*    users:((\"python3\",pid=2734982,fd=3))\n",
+  "stderr": ""
+ },
+ "shared": {
+  "returncode": 0,
+  "stdout": "2026-10-08T08:28:13.245765359Z 0 running healthy\n",
+  "stderr": ""
+ },
+ "shared_container_same_as_before": true,
+ "shared_18396_pid_unchanged": true,
+ "sources": {
+  "src/clean_only_worker.py": "c9b565d643150328ea3c814b07aa1f3968b8074c7745e8c79c75c6069c414ee1",
+  "src/preview.py": "f4234fdf083b155f444ce787ae152e2eb507d6d4cbd4fd241d6083624387b0cb",
+  "src/test_luna_clean_only.py": "f89de44140375f4b38355f4cc4b8f75eb88885a79d8995b1189de383494c0099",
+  "src/luna_clean_frame_eval.py": "6394cd934669e6026a076078592e06249a088ca2263d74fa121f67ab89df9817",
+  "src/luna_clean_only_eval.py": "e0cc1fa49db5cda1b8056dd9183c61e0af2212922b9513956144fdc7f1769ae3",
+  "src/luna_prompt_autotune/promptlib.py": "af3746261a360d73d687347a0c5f1e1bf6074a437988de89c88ef3ce59698aa3",
+  "src/luna_prompt_autotune/luna_experiment_worker.py": "dcf5198a2b31ef1b4b1628924ca8fca68d926ef9d370817e0319ce66ee47be9c"
+ },
+ "temp_disk_kb": 259700,
+ "gpu_allocated_by_experiment": false
+}

@@ -1,0 +1,42 @@
+{
+ "unit": "8feb998e8e194fb2bccb31ae06b79452",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "8feb998e8e194fb2bccb31ae06b79452:006",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "停车位中的小汽车",
+   "reasoning": "框内是位于停车区域的长方形车身，形状、颜色和尺度均与汽车相符。",
+   "target_index": 0
+  },
+  {
+   "key": "8feb998e8e194fb2bccb31ae06b79452:014",
+   "decision": "true",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "停车位中的小汽车",
+   "reasoning": "框内可见与其他车辆排列一致的汽车车身，位置和尺度符合停车场车辆特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595517.6669567,
+   "seconds": 14.58,
+   "status": "ok",
+   "health": {
+    "at": 1791595503.0858703,
+    "available_fraction": 0.47854900808204226,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "edc683339cd44dbfbdaed6f74a7405d5",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "77160b66d41a7fbb986524e92becb9392045e820c5718bf3e5ed8a57f231cc61",
+ "prompt_sha256": "ea696b76cebca6200e83cec3fd9d823d4722f1f47a89885323a3f2cdea115f3c",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "bf64d4b40c7d4bf1b7ff193da2ba90f7",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "bf64d4b40c7d4bf1b7ff193da2ba90f7:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，位于水面绳索附近。",
+   "reasoning": "目标呈细长的人体轮廓，尺度较小，符合俯拍人员外观；不是车辆、杆件或其他大型物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595206.3407805,
+   "seconds": 15.36,
+   "status": "ok",
+   "health": {
+    "at": 1791595190.9759767,
+    "available_fraction": 0.47722861123703497,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "37bee9bc4c3e4305a48aaf9a38116d41",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "d12aa2da94791d1d4aac2153f091e2e19a5ae2131e5d111f27f9ee9f37ed0f5a",
+ "prompt_sha256": "598c322d3bf7d9b730e4d6d4718ffdbf447e6a775d26e581419218844ab120ac",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

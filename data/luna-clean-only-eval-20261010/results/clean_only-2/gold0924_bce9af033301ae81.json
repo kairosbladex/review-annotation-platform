@@ -1,0 +1,42 @@
+{
+ "unit": "gold0924_bce9af033301ae81",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-002",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "盆栽绿植",
+   "reasoning": "框内是道路边规律摆放的盆栽，呈绿色团块和花盆形态，不是人员。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-003",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "盆栽绿植",
+   "reasoning": "框内是人行道旁的盆栽绿植，形状和位置符合盆栽特征，不是人员。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598098.612537,
+   "seconds": 29.18,
+   "status": "ok",
+   "health": {
+    "at": 1791598069.4326434,
+    "available_fraction": 0.46649173045007675,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b608d2df373b458cb3be6b2ad70ea825",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "2be71130f50820460df14e551d1e565e313cfe630955e5a86200b84ab05eaf48",
+ "prompt_sha256": "f19d93937ce9a5ca4df09059a774314b9d873e9dfc1b07b9a7323fc32a18003d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

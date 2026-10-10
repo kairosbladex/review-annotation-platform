@@ -1,0 +1,34 @@
+{
+ "unit": "fdb392405f404886813e23aa33a2ec1a",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:fdb392405f404886813e23aa33a2ec1a:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，未见明显遮挡或出画。",
+   "observed_object": "建筑立面上的墙体、窗户及水平装饰条，没有机动车车身。",
+   "reasoning": "候选框位于建筑外墙立面，框内实际是墙体和窗户，不符合机动车的车身形状、位置和尺度特征，因此判断为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595353.921214,
+   "seconds": 20.55,
+   "status": "ok",
+   "health": {
+    "at": 1791595333.3726382,
+    "available_fraction": 0.47679428536963575,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5f6307cd0db84b8090b0e6b945a01942",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7544665d56c6066455728ab6b55b5bbf533eb122e15e67c078126d8df676fd60",
+ "prompt_sha256": "4c8d4398a084565e82f239845356f217f48e229e831130578c66c7e9c05890a0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

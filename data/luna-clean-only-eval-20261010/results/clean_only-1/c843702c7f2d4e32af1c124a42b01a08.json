@@ -1,0 +1,34 @@
+{
+ "unit": "c843702c7f2d4e32af1c124a42b01a08",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c843702c7f2d4e32af1c124a42b01a08:001",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "人行道上的长方形物体，外观更像长椅或其他设施，不是两轮车。",
+   "reasoning": "框内物体较短且宽，缺少两轮车典型的细长窄条形车身特征，位置也位于人行道边缘。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595050.892521,
+   "seconds": 14.5,
+   "status": "ok",
+   "health": {
+    "at": 1791595036.390821,
+    "available_fraction": 0.47599041619404686,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "740073dc4565486fb59729c193489842",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "056dbed4c4667b11ca876b79b255bb42bd8155741a5ad8f7cea21202442dd987",
+ "prompt_sha256": "212fbc4b57e3a44655f77f850bc5ea873c13897dcf454930770ef383bbb62648",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

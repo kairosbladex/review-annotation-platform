@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_138062f8a60fd0f4",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:dc48f0371bc44bc48d4510962182ca1f",
+   "decision": "false",
+   "image_limitation": "目标区域主体为蓝色施工围挡/广告牌立面，属于竖直长条状围挡，不是覆盖在建筑或地面上方的蓝绿色顶棚。",
+   "observed_object": "蓝色施工围挡及其广告画面",
+   "reasoning": "框内可见的是沿道路延伸的蓝色围挡墙面，具有明显的竖直立面和广告文字，位置与尺度均不符合蓝色或绿色屋面顶棚的特征，因此不属于该类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597349.8774235,
+   "seconds": 15.11,
+   "status": "ok",
+   "health": {
+    "at": 1791597334.7673218,
+    "available_fraction": 0.45202029168506885,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "73957460f2064218a060a814241676ca",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7767600c312b5babc1c816b771ceb95ff4d56b6dee13fca623a9c74cb429f42e",
+ "prompt_sha256": "be25fff9baacd561ba8f2a39784c30f2a877278c05e833fab458f1a8b2fa2e21",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

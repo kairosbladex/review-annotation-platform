@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_994f5377b489ff9d",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:ac9ab31dd5e44af48f0e894236e66cd3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内为一处蓝色顶棚，覆盖在低矮建筑或棚架上方，呈规整矩形屋面。",
+   "reasoning": "目标主体是蓝色屋顶棚，符合违建类别中蓝色顶棚的外观要求；其位置和尺度也与建筑顶部相符。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597257.8087304,
+   "seconds": 33.26,
+   "status": "ok",
+   "health": {
+    "at": 1791597224.5518732,
+    "available_fraction": 0.4484321100667537,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "bdb2473fae9f48e3983f3795b1592e1a",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "06f4eb809abe1cb8965192dd73ac4e58295ec74ce9e97a4013b59a19592e1c58",
+ "prompt_sha256": "686b5b726090031bfbae8c074a031d2a1d8e84d282ed96e38f14a44ad457ee11",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

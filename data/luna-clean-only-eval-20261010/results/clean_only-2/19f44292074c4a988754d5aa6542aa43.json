@@ -1,0 +1,34 @@
+{
+ "unit": "19f44292074c4a988754d5aa6542aa43",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "19f44292074c4a988754d5aa6542aa43:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "浅色铺装地面上的小方形污渍或地砖纹理区域。",
+   "reasoning": "框内没有人员头顶、肩部或竖长躯干等人员特征，形状和位置也更符合地面纹理/污渍。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596118.4680183,
+   "seconds": 14.24,
+   "status": "ok",
+   "health": {
+    "at": 1791596104.2328362,
+    "available_fraction": 0.4716734839847542,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "911c1f14ad5d44df9fc1b02056a01ae7",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "92e7908c5a7de3ec491bd13f14d21213f192334314f652a1deb89cb4f2e567a3",
+ "prompt_sha256": "98175a61a15a9d861cb816357acef5d066d00c661cd6fc51cf553daa1009ea44",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

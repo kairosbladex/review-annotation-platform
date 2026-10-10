@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_0d92729232218495",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:cc74adcb35e5423f95ab997d36672ae2",
+   "decision": "false",
+   "image_limitation": "目标被树冠遮挡，但可见部分不足以构成车辆，且位置更像树下的设施或其他物体。",
+   "observed_object": "树冠下的长条状设施/物体",
+   "reasoning": "框内主要是树叶，顶部露出白色长条结构，未见车顶、挡风玻璃横带或符合车辆尺度的完整圆角车身，因此不符合“车”的外观特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f733538108d240f590ff61e466ea9a4d",
+   "decision": "true",
+   "image_limitation": "车辆大部分被树冠遮挡，但车顶和深色车窗区域仍清晰可见。",
+   "observed_object": "一辆被树遮挡的小汽车",
+   "reasoning": "可见银白色圆角车身、深色车窗/挡风玻璃区域，位于道路边缘，形状和尺度与小汽车相符。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596343.7048917,
+   "seconds": 34.38,
+   "status": "ok",
+   "health": {
+    "at": 1791596309.3231068,
+    "available_fraction": 0.48063138279968637,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d03489573e824d71a3f91fc2a6424034",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "426fcf5d93f827d99c08a340e73777104832602daf11d829f7c2479556157f25",
+ "prompt_sha256": "82d6054ff59e818f175beeebd6ed13b23286e4756de92fa6720fd6bb4e459d6d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

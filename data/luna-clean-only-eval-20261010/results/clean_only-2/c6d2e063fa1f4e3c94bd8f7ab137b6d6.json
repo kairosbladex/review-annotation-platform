@@ -1,0 +1,34 @@
+{
+ "unit": "c6d2e063fa1f4e3c94bd8f7ab137b6d6",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "c6d2e063fa1f4e3c94bd8f7ab137b6d6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "码头边缘处可见一个俯视人员的头顶和肩部轮廓。",
+   "reasoning": "目标呈小型椭圆状，具有明显的头部与肩部结构，位于可站立的码头平台上，尺度符合人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596012.1813822,
+   "seconds": 14.45,
+   "status": "ok",
+   "health": {
+    "at": 1791595997.7298777,
+    "available_fraction": 0.47604510592845234,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2bb72631fdf44b619cd997b5a75447f5",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f0b96461635d951bf23ee821e571cb07d5bdc4da3e5a91d4b349c52ab04e5c29",
+ "prompt_sha256": "237e5a7e2490990c89dbb7fe63bb2c412bdb904d00865d37e3b22554d8395ec7",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

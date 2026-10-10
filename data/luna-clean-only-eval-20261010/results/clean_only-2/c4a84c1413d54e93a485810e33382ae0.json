@@ -1,0 +1,34 @@
+{
+ "unit": "c4a84c1413d54e93a485810e33382ae0",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "c4a84c1413d54e93a485810e33382ae0:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的白色小汽车",
+   "reasoning": "框内可见白色车身及深色车窗，呈机动车俯视下的圆角长方形外观，位于道路车道旁，位置和尺度均符合车辆特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594742.7101505,
+   "seconds": 16.5,
+   "status": "ok",
+   "health": {
+    "at": 1791594726.2144911,
+    "available_fraction": 0.46866570059282575,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "536e96ff38164bc982006ecae371ad73",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "eaf9e44a324e6904631ac7ce25117523598dda6606b5122f4da9fbac7301be09",
+ "prompt_sha256": "51fdd993ed296f763625929823dd76e3a00448823a9155c3cd1017d917710a4b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

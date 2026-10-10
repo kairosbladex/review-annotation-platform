@@ -1,0 +1,34 @@
+{
+ "unit": "f4e3055e95fd47c68356f029e6da1ab0",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "f4e3055e95fd47c68356f029e6da1ab0:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无明显遮挡或出画。",
+   "observed_object": "一个小型摄像头或墙面固定装置，不是人员。",
+   "reasoning": "框内物体呈白黑相间的固定设备形状，附着在墙面上，缺少人员头部、肩部或躯干腿部特征，位置和尺度也不符合人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597724.2971866,
+   "seconds": 43.99,
+   "status": "ok",
+   "health": {
+    "at": 1791597680.3058796,
+    "available_fraction": 0.43499941145455356,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6cad2f5a87f848f7a666f917900391a1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "62c8203edfc71013d95add44381ca15aa6320ceaa8578ac9e647b99e67ebffd5",
+ "prompt_sha256": "f49acfdc1ec1efd0761afea0e1ade991c9648c6fd20a3f3d43be58232fc61f53",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

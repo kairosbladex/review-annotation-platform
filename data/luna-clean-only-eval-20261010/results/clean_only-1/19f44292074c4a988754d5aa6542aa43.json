@@ -1,0 +1,34 @@
+{
+ "unit": "19f44292074c4a988754d5aa6542aa43",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "19f44292074c4a988754d5aa6542aa43:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无明显遮挡或出画。",
+   "observed_object": "浅色铺装地面上的小方形/斑驳纹理，没有人员的头部、肩部或躯干腿部特征。",
+   "reasoning": "框内实际是地面纹理或污渍，形状和尺度均不符合俯拍人员外观，因此判断为false。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596133.8450525,
+   "seconds": 28.61,
+   "status": "ok",
+   "health": {
+    "at": 1791596105.236949,
+    "available_fraction": 0.47148521632206764,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b607f8a2eb5e4cf096cca780f7018521",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "92e7908c5a7de3ec491bd13f14d21213f192334314f652a1deb89cb4f2e567a3",
+ "prompt_sha256": "98175a61a15a9d861cb816357acef5d066d00c661cd6fc51cf553daa1009ea44",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

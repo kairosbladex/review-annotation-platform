@@ -1,0 +1,34 @@
+{
+ "unit": "cef85dabf2784e3d88326c430cc424b6",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "cef85dabf2784e3d88326c430cc424b6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个俯拍人员，呈小型椭圆状，能辨认头部与肩部轮廓，位于可站立的铺装区域。",
+   "reasoning": "目标外观符合俯视人员特征，尺度较小且位置合理，不像车辆、路灯杆或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596232.3797364,
+   "seconds": 14.0,
+   "status": "ok",
+   "health": {
+    "at": 1791596218.3834589,
+    "available_fraction": 0.4812365874870374,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ba4eee004f1e4ce8b950c27e14505e7a",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "5c3bef6764591bf63cf2d7f2441fce53aafbd228be265ae36a46e85be011fcf9",
+ "prompt_sha256": "512a1902fffc02429bd12f38b5e438ba2043e5612298d20737622ad7157efd55",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

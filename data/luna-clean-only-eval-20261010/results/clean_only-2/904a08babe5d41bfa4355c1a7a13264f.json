@@ -1,0 +1,58 @@
+{
+ "unit": "904a08babe5d41bfa4355c1a7a13264f",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:004",
+   "decision": "false",
+   "image_limitation": "目标区域显示的是停车位及树木/地面，未见完整机动车车体。",
+   "observed_object": "停车位、树木和地面",
+   "reasoning": "框内没有符合车辆形状和尺度的机动车，类别不匹配。",
+   "target_index": 0
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:009",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆停放的白色小汽车",
+   "reasoning": "可见清晰的车顶、深色玻璃带和长方形车身，位于停车区域且尺度相符。",
+   "target_index": 1
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆白色小汽车",
+   "reasoning": "框内可见明确的车身轮廓、车顶和深色车窗，停放方向与停车区域一致。",
+   "target_index": 2
+  },
+  {
+   "key": "904a08babe5d41bfa4355c1a7a13264f:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "一辆停放的白色小汽车",
+   "reasoning": "可见机动车的车顶、车窗和车身轮廓，位于地面停车区域，尺度相符。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597043.1709244,
+   "seconds": 40.87,
+   "status": "ok",
+   "health": {
+    "at": 1791597002.3034806,
+    "available_fraction": 0.4545208194303658,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4d8b0535f89d4645a3229bdeadd4ad44",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "80ef00a13870ca515a81fd14813655ea25fe79a2337e2bdc8a02040a4669470f",
+ "prompt_sha256": "73d08f24c4f7c1836cdc9a8aa2fcfc9cf69701a3359a888e92f6624756262dda",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

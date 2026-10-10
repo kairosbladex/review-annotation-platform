@@ -1,0 +1,34 @@
+{
+ "unit": "710af93e1e3b4c7798d29ee656391101",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "710af93e1e3b4c7798d29ee656391101:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆停放的汽车，车身呈长方形，具有明显车顶和挡风玻璃特征，位于停车区域内。",
+   "reasoning": "目标外观、位置和尺度均符合机动车特征，不是建筑设备或其他物体。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596152.303312,
+   "seconds": 15.86,
+   "status": "ok",
+   "health": {
+    "at": 1791596136.4389942,
+    "available_fraction": 0.47413205962694976,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "ab43a918a4db4ef897ac1a17c37dbe25",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "4e9e7d636660155f345ba8024b7dfb55f726a667234272cd5be9295634671aa2",
+ "prompt_sha256": "e1e9540765c88dd160be18c6e2d83948ad9eb866a1c46fed0d33e8529dbb6379",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

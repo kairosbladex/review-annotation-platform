@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_3c2815c757b85efe",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c191d4e9bc9d4a1bbbaf366f239a6b9a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，位于道路旁停车区域。",
+   "reasoning": "目标呈机动车典型的俯视长方形车身和深色车窗，尺度与位置均符合车辆特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:fd7b8bfdf4ac4a7ea4d68df269d7ace6",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆白色小汽车，位于道路车道上。",
+   "reasoning": "目标具有清晰的车顶、深色车窗带和规则车身轮廓，朝向与道路一致，符合机动车特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595084.4855115,
+   "seconds": 14.89,
+   "status": "ok",
+   "health": {
+    "at": 1791595069.5994835,
+    "available_fraction": 0.47677841653063646,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "dff634a59d134b2083194c23da712919",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7924a279ea3332de4e629de66c506b29dd3183960dd5884f7d72200c78fc215e",
+ "prompt_sha256": "3c8464de2a9153bb67b0c8b4e9860f40baadcca558cb2a655d7c7d5ea15420b7",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

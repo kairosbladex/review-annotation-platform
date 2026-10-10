@@ -1,0 +1,42 @@
+{
+ "unit": "gold0924_4c30e8507b930fc5",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-035",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "黑色设备或管线接口，不是人员。",
+   "reasoning": "框内物体呈小型不规则黑色设备状，位于建筑屋面设施旁，缺少人员头部、肩部或躯干腿部特征，尺度和位置也不符合人员。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-036",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "白色屋顶设备，不是人员。",
+   "reasoning": "框内是固定在屋面上的白色小型设备，具有明确的设备外形，非人员的头肩或躯干轮廓。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596263.122773,
+   "seconds": 16.43,
+   "status": "ok",
+   "health": {
+    "at": 1791596246.691885,
+    "available_fraction": 0.47887401528077994,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4d11f47501e5465aa1fb2ea8dadd5838",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "4f16fdc44663054b27fc8739e16f49b2a905c2cf969b3bda63f9573681c35187",
+ "prompt_sha256": "967d7c0c2fb1e0da5f2261d0b0008a71c5a3f067f19aa5d2c06f15ae4a2d7ff4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

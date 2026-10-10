@@ -1,0 +1,34 @@
+{
+ "unit": "cef85dabf2784e3d88326c430cc424b6",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "cef85dabf2784e3d88326c430cc424b6:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员，能看到头部和衣物/肩部轮廓，位于可站立的硬质地面上。",
+   "reasoning": "目标外观与正俯视人员的头顶及肩部特征相符，尺度较小且位置合理，不像车辆、自行车或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596238.2623076,
+   "seconds": 14.13,
+   "status": "ok",
+   "health": {
+    "at": 1791596224.1306596,
+    "available_fraction": 0.481694777413085,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6600c8ef04454101ad6c39c8aefa245d",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "5c3bef6764591bf63cf2d7f2441fce53aafbd228be265ae36a46e85be011fcf9",
+ "prompt_sha256": "512a1902fffc02429bd12f38b5e438ba2043e5612298d20737622ad7157efd55",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

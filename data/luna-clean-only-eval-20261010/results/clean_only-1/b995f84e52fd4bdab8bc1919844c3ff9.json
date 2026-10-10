@@ -1,0 +1,74 @@
+{
+ "unit": "b995f84e52fd4bdab8bc1919844c3ff9",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的小型人员目标",
+   "reasoning": "框内可见小型人体轮廓，位于可通行的人行区域，尺度符合俯拍人员特征。",
+   "target_index": 0
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色步道上的人员",
+   "reasoning": "可见细小的人体形状，位于步道上，位置和尺度符合人员。",
+   "target_index": 1
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "步道上的人员",
+   "reasoning": "框内目标呈小型人体轮廓，位于步道区域，符合俯拍人员特征。",
+   "target_index": 2
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色步道上的人员",
+   "reasoning": "可见小型人员目标，位于可站立的步道上，尺度相符。",
+   "target_index": 3
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "广场上的人员",
+   "reasoning": "框内为细小站立目标，位于铺装广场，外观与尺度符合人员。",
+   "target_index": 4
+  },
+  {
+   "key": "b995f84e52fd4bdab8bc1919844c3ff9:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色步道上的人员",
+   "reasoning": "框内目标呈小型人体形态，位于步道上，符合人员类别。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595037.1153355,
+   "seconds": 26.78,
+   "status": "ok",
+   "health": {
+    "at": 1791595010.3319666,
+    "available_fraction": 0.465158960774662,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7f409ddd103d446c829cf99332c05cfd",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "24f06951bd0742cf1da9590e0a71b87ec8506b50c42172af300d6ae532ec43ad",
+ "prompt_sha256": "57f901243c86caaee99388086d8e5c039f38fad742a59839f7753de7b350a846",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,82 @@
+{
+ "unit": "a86295070bc84b7cb5f14b9ec47e0f21",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见小型行人，位于可站立的人行道区域，形态和尺度符合人员。",
+   "target_index": 0
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见小型行人，位置和尺度符合人员。",
+   "target_index": 1
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见小型行人，位于人行道上，符合人员外观。",
+   "target_index": 2
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的行人",
+   "reasoning": "框内可见细长的人体目标，位于道路旁可通行区域，符合人员。",
+   "target_index": 3
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的行人",
+   "reasoning": "框内目标呈小型人体形态，位置和尺度符合人员。",
+   "target_index": 4
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁的行人",
+   "reasoning": "框内可见小型人体目标，位于道路区域，符合人员。",
+   "target_index": 5
+  },
+  {
+   "key": "a86295070bc84b7cb5f14b9ec47e0f21:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色场地旁的行人",
+   "reasoning": "框内可见小型行人，位于场地边缘可站立区域，形态符合人员。",
+   "target_index": 6
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595512.392371,
+   "seconds": 29.26,
+   "status": "ok",
+   "health": {
+    "at": 1791595483.129161,
+    "available_fraction": 0.47809942137713796,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "49c489f9d6a846ffbb2a1b9214faea17",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "14ed74718f2e699ab53ef4857669868d82cd410ccbdc2ebb48d4ca4d569a4864",
+ "prompt_sha256": "dd5147e7491012c00f11a06477b30e87cc605507d2a486784c54a7c596f78b99",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

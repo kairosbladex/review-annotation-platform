@@ -1,0 +1,34 @@
+{
+ "unit": "7e69f89700f6410ab4d2cc14ef808ba6",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "7e69f89700f6410ab4d2cc14ef808ba6:005",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是一个四四方方的蓝绿色箱体/货物，旁边有黄色箱状物体。",
+   "reasoning": "未见三轮车典型的前窄后宽轮廓、单前轮和车把结构，更像箱体或货摊物品，因此不符合三轮车类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595892.714388,
+   "seconds": 20.63,
+   "status": "ok",
+   "health": {
+    "at": 1791595872.0812337,
+    "available_fraction": 0.47440113068821876,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "658760348a144f2394d4c14c4c40ee09",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "dfe8b9ce6f1008032dc9be5bb2221da756d6bff0730deea43c67d3a309d1c226",
+ "prompt_sha256": "cf258e6f854235c8d813da5824bc3bc5b552ce0165fe09d7f77ba8008470f44d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

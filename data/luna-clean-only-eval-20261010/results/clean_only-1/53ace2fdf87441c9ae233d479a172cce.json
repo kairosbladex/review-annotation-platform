@@ -1,0 +1,34 @@
+{
+ "unit": "53ace2fdf87441c9ae233d479a172cce",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "53ace2fdf87441c9ae233d479a172cce:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "绳索上的小型人员样目标",
+   "reasoning": "框内可见一个细小的浅色椭圆形物体，位于水面上方的绳索处，外形与人员相符，未见明显车辆或其他大型设施特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597044.0055375,
+   "seconds": 16.48,
+   "status": "ok",
+   "health": {
+    "at": 1791597027.5231829,
+    "available_fraction": 0.45473462315580987,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "00bb18920a754ba3b5422917d15b628d",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "514c9733ce6112298f58a3c57bd7c9bb9f6269c4c33744ab952f34df3f94f334",
+ "prompt_sha256": "039063e586f0137862c83399c833e3d4b8472eaa13e61af209290b0c196d8529",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

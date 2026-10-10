@@ -1,0 +1,34 @@
+{
+ "unit": "e2dfe4dfd76e484f8ecc23ced9ef5717",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "e2dfe4dfd76e484f8ecc23ced9ef5717:001",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无遮挡，无法确认局部为机动车。",
+   "observed_object": "道路或人行区域上的小型矩形设施/设备箱，呈固定放置状态。",
+   "reasoning": "框内物体位于浅色铺装区域，外形较小且更像固定设施或设备箱；未见机动车应有的车顶、深色前后挡风玻璃带及与车道相符的车辆尺度，因此不符合“车”的类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595864.2451465,
+   "seconds": 24.46,
+   "status": "ok",
+   "health": {
+    "at": 1791595839.7841215,
+    "available_fraction": 0.47022677482932185,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6d4a5bba78cc4aa3b2e83e4278ee2ffe",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "19476bcb67d09c4e54b388dfc85393ce79282f88049116afaacdcea611d2e131",
+ "prompt_sha256": "d97c567d647c6dc6a3911b6cdcc380158b288557dad5b7c3c9e225d2bdbe4d84",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

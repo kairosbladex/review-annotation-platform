@@ -1,0 +1,34 @@
+{
+ "unit": "77355afff7c0430faf66716abec2c94f",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "77355afff7c0430faf66716abec2c94f:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "框内是人行道边缘的路面/铺装结构，没有看到人员。",
+   "reasoning": "候选框位于画面下方的人行道边缘，框内可见的是铺装板和边缘设施，缺少人员应有的头部、肩部或躯干形态，因此不符合“人员”类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595538.4647212,
+   "seconds": 14.41,
+   "status": "ok",
+   "health": {
+    "at": 1791595524.0558534,
+    "available_fraction": 0.4777386332904652,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "e5ca91a5dcea401baefbd0fa120f5030",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f7df440ddc036f3249ab143d256f413dd48fb76511788a62623f2fafebfce787",
+ "prompt_sha256": "3ea104bc2e5b9ccb83ac82b8b2284f63d026ef088605d977b2e923d057a2c8d2",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

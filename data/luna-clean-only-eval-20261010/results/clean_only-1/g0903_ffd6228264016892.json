@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_ffd6228264016892",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:88d964f96f454fe0ad2b06349c2a6068",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "建筑立面的窗户和墙面",
+   "reasoning": "框内是高层建筑侧面的窗户区域，属于立面结构，不是覆盖在建筑或空地上方的蓝色或绿色顶棚，因此不符合违建类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595175.5796366,
+   "seconds": 17.46,
+   "status": "ok",
+   "health": {
+    "at": 1791595158.1220677,
+    "available_fraction": 0.47703733396695197,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "2c07bb0b18ca44fbae8cb45dff460b28",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "19d61a911de2737aa0c1059ac72a89e568fa1cd4c451abcdcda4dd86eecd42e3",
+ "prompt_sha256": "3848e5725fa1aafe7d554374d3f15bf5a509ff2917e7a9e4c127a7ef52d6d13f",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

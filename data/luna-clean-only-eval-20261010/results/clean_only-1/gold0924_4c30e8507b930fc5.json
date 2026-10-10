@@ -1,0 +1,42 @@
+{
+ "unit": "gold0924_4c30e8507b930fc5",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-035",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "黑色设备或管线接口",
+   "reasoning": "框内可见的是屋顶上的黑色矩形设备，形状和尺度不符合人员。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0924:B03-036",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "白色墙面设备",
+   "reasoning": "框内是附着在墙面上的白色设备，未见人员头部、肩部或躯干腿部特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596261.31841,
+   "seconds": 18.82,
+   "status": "ok",
+   "health": {
+    "at": 1791596242.497088,
+    "available_fraction": 0.48174049912545064,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8bcf11157cb245149e5c7653f2d8d85a",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "4f16fdc44663054b27fc8739e16f49b2a905c2cf969b3bda63f9573681c35187",
+ "prompt_sha256": "967d7c0c2fb1e0da5f2261d0b0008a71c5a3f067f19aa5d2c06f15ae4a2d7ff4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

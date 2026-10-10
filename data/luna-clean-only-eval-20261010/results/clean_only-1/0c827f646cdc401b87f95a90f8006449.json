@@ -1,0 +1,34 @@
+{
+ "unit": "0c827f646cdc401b87f95a90f8006449",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "0c827f646cdc401b87f95a90f8006449:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位内的一辆小汽车",
+   "reasoning": "框内可见车辆顶部和车身，呈长方形且与停车位方向、尺度相符，属于机动车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595839.755074,
+   "seconds": 15.57,
+   "status": "ok",
+   "health": {
+    "at": 1791595824.1811566,
+    "available_fraction": 0.4701747603014909,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "04a55793dcaf4b66b9a738450d0ed946",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "956fae52f9098befa06d5c32a436bf77eada6c6ac42acb28f5f1facf1f84b1c2",
+ "prompt_sha256": "4413bfa122e38101ef048164b316dbaafbf72ec4239d29838f0da04440934cc4",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

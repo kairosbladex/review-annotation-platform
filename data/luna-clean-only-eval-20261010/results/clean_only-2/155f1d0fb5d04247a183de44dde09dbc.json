@@ -1,0 +1,42 @@
+{
+ "unit": "155f1d0fb5d04247a183de44dde09dbc",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:155f1d0fb5d04247a183de44dde09dbc:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见。",
+   "observed_object": "建筑屋顶边缘的蓝色路牌或标识牌",
+   "reasoning": "框内物体位于建筑屋顶附近，呈扁平标牌状，不具备机动车的车身轮廓、挡风玻璃横带及道路停放尺度。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:155f1d0fb5d04247a183de44dde09dbc:001",
+   "decision": "true",
+   "image_limitation": "目标较小但轮廓和位置可辨。",
+   "observed_object": "道路上的小型机动车",
+   "reasoning": "框内目标位于道路车道内，呈小型车辆的长方形轮廓，方向与道路一致，尺度符合俯拍车辆特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596278.6023276,
+   "seconds": 17.25,
+   "status": "ok",
+   "health": {
+    "at": 1791596261.352667,
+    "available_fraction": 0.47688962000393015,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "7448675ebab74e7497b39c1117e959e3",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "abb7abbeb2933fc72585eaab04ffe72e8e486aebd06d3f5e367a83afc10e534d",
+ "prompt_sha256": "0cf91ea6d090eedb87cb407fe20dd47021b525b5b2854677480cb4aadb3a2497",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

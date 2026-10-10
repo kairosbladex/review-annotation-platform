@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_a77b77448409c4c2",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B04-004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁步道上的白色小汽车，可见清晰的车顶和长方形车身轮廓。",
+   "reasoning": "目标位于地面步道区域，呈圆角长方形，长度约为宽度两倍，尺度和外观符合机动车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594854.3233347,
+   "seconds": 14.85,
+   "status": "ok",
+   "health": {
+    "at": 1791594839.4757917,
+    "available_fraction": 0.46158901920117357,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b3f05936f07543f686e2a5889026b545",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "11917b1907c069fd5f544ef33d8eda81696381d1ac5602566db03830eccca1c6",
+ "prompt_sha256": "07884af1cfd0d9e677cf4d4fabdb93575c824d5fef19bfe406dcc2bd69983ff2",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

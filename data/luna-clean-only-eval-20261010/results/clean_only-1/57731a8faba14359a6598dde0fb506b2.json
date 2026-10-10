@@ -1,0 +1,34 @@
+{
+ "unit": "57731a8faba14359a6598dde0fb506b2",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:57731a8faba14359a6598dde0fb506b2:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路地面上的一辆小汽车，可见车顶和深色车窗带，呈圆角长方形。",
+   "reasoning": "目标位于道路旁的地面区域，形状、颜色分布和尺度均符合俯拍小汽车特征，不是屋顶设备或其他设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594777.2085063,
+   "seconds": 14.93,
+   "status": "ok",
+   "health": {
+    "at": 1791594762.2758691,
+    "available_fraction": 0.4636473778597958,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "13b3f80cab7f420c8697a113af973f8d",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "25a662b2dffc35d35a1ba39338a7ccc79474d8b451fd6d13c9321d8edcac48b1",
+ "prompt_sha256": "906f372f38aaedfe909132a2ed7cbfa36c0529bd8891892cb7cd6394c226c1f6",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

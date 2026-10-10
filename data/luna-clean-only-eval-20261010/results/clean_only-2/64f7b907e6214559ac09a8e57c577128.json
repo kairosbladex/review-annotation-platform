@@ -1,0 +1,34 @@
+{
+ "unit": "64f7b907e6214559ac09a8e57c577128",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "64f7b907e6214559ac09a8e57c577128:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一个小型人员目标，呈黑白相间的头肩/身体轮廓，位于可通行的铺装区域。",
+   "reasoning": "目标外观和尺度符合俯拍人员特征，未见明显车辆、树木或其他设施特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595333.096886,
+   "seconds": 14.13,
+   "status": "ok",
+   "health": {
+    "at": 1791595318.96671,
+    "available_fraction": 0.4757684348485055,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "85e744073bd1445c90df901d410cc5f6",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "6a1561213d764638ca3f46fedabf1a8f3d12ac5a592b28d2c6fa84aaef9c8c82",
+ "prompt_sha256": "caa61fc3a6e4ae0ba4e0a8383925ea7273bd35e8938efec7b97f95a20bde1426",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

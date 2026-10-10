@@ -1,0 +1,34 @@
+{
+ "unit": "2afc52e75d5645a69a620a7418d8733b",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "2afc52e75d5645a69a620a7418d8733b:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路上的行人",
+   "reasoning": "框内可见一个位于道路边缘、体型细长的人形目标，位置和尺度符合俯拍人员特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597180.1319795,
+   "seconds": 15.64,
+   "status": "ok",
+   "health": {
+    "at": 1791597164.4946337,
+    "available_fraction": 0.45423265712217814,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "68bf37c05347473d9fcbc869f9b7d16d",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "4d5c98de187ae7946827cfa8ab5311c0317a6ede2728f6e97c8be09981272595",
+ "prompt_sha256": "1870e21752b70c9ab864341ecb46c8dc51055a8fdd765d9dbeb147243175f397",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

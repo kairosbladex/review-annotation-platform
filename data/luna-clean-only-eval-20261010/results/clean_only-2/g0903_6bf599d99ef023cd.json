@@ -1,0 +1,58 @@
+{
+ "unit": "g0903_6bf599d99ef023cd",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:a82100ed118e4944a48241d6d142d144",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "左上边缘的蓝色矩形顶棚",
+   "reasoning": "框内主体是覆盖建筑的成片蓝色屋面，形状和颜色符合违建类别要点。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:54a11852953f4933ad89285392db9391",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "左下方的蓝色矩形顶棚",
+   "reasoning": "框内可见规整的蓝色大面积屋顶，属于蓝色顶棚。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:70eb8b3f439748889cc09947b4b076b4",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "左上区域建筑的蓝色长方形屋顶",
+   "reasoning": "框内主体为覆盖建筑的蓝色彩钢类屋面，符合类别外观。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:db0ef5dcea73476580ff4679401a739f",
+   "decision": "true",
+   "image_limitation": "无明显限制",
+   "observed_object": "道路左侧建筑的蓝色屋顶",
+   "reasoning": "框内是规整的蓝色矩形顶棚，位置和尺度均与建筑屋面相符。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598070.902266,
+   "seconds": 17.88,
+   "status": "ok",
+   "health": {
+    "at": 1791598053.026005,
+    "available_fraction": 0.4173719889334,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a6e80b0774694d65aefebfde85f6ce45",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1f0391417564c1437c386966b00167b99b6f089db199c9d3b82eb2e2535b09cc",
+ "prompt_sha256": "914a5e4174f60672d61f214e22eb87075ba117d5d1e7f91c074e94d3f1cfd179",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

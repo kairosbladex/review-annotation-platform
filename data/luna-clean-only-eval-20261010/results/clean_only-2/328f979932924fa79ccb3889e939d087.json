@@ -1,0 +1,34 @@
+{
+ "unit": "328f979932924fa79ccb3889e939d087",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:328f979932924fa79ccb3889e939d087:000",
+   "decision": "false",
+   "image_limitation": "目标清晰可见。",
+   "observed_object": "框内是路边堆放的杂物或垃圾袋，不是车辆。",
+   "reasoning": "未见卡车所需的驾驶室与后部货厢分段结构，且位置和形状不符合卡车。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595152.8439267,
+   "seconds": 14.35,
+   "status": "ok",
+   "health": {
+    "at": 1791595138.4964747,
+    "available_fraction": 0.47680228058928475,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9552a173a1f14b80b6181417c0a38079",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "c13b410518cb6ba80719bc5398fa05a3522a2c12f298faf9b47b1e1f11120082",
+ "prompt_sha256": "a4da27a9241e0da02374ae7f4918f6253094f385c7c605fa0eadec7e729d328c",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

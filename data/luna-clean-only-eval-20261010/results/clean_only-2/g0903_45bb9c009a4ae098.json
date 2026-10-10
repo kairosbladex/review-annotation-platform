@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_45bb9c009a4ae098",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:f8d35e43c925407a8be6483399e48216",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内可见成片浅蓝色屋面，覆盖在建筑上方，边缘规整且呈矩形，符合蓝色顶棚特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:dc0808002a5f424baf5d1d3c4abc71c3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内主体为成片浅蓝色屋面，覆盖建筑并具有规整矩形轮廓，符合蓝色顶棚特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595100.5097766,
+   "seconds": 16.0,
+   "status": "ok",
+   "health": {
+    "at": 1791595084.5121286,
+    "available_fraction": 0.4768074790020604,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "41983f6fc7f74c40813c9823240f0b37",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b7a6cf9c3f2f42931e17bfea5c2e4db29aa512d2a5433d41f35915ced20e2769",
+ "prompt_sha256": "e453bad707b53a4ebf284f1be2dc9ab60e5873f7fd6aefea3fd35151b1e4b5c0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

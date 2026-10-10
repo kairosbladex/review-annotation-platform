@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_23ed7170a18100cb",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:838cb70eaa904657a3920b516a740ad2",
+   "decision": "false",
+   "image_limitation": "目标位于画面最右下边缘，部分出画，但可见主体为灰白色建筑/屋面，不是蓝色或绿色顶棚。",
+   "observed_object": "灰白色建筑及屋面",
+   "reasoning": "框内可见物体颜色为灰白色，且形态属于建筑屋面，不符合蓝色或绿色成片顶棚的类别特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594901.8398635,
+   "seconds": 18.37,
+   "status": "ok",
+   "health": {
+    "at": 1791594883.4745371,
+    "available_fraction": 0.4629414273248518,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "39211779ef4242c1af861d86c64d4ce1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "440792b0920308dbca2bcf75771c33abfccd085fc7bfa0753dbcd0375325bdc0",
+ "prompt_sha256": "588e1e34529516ea8255dcd9319ae81f421753f0c94c6ea9887a1c3478a0a8d5",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

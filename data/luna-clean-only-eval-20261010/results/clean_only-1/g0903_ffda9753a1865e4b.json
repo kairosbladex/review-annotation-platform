@@ -1,0 +1,58 @@
+{
+ "unit": "g0903_ffda9753a1865e4b",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:b72bceabedff4f33bd7e206db93cf80a",
+   "decision": "true",
+   "image_limitation": "目标部分出画，但可见区域足以确认是蓝色顶棚。",
+   "observed_object": "左下角蓝色成片屋面",
+   "reasoning": "框内主体为覆盖建筑的规整蓝色屋顶，符合蓝色顶棚特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:b5353da4de4b4d3a98177fdaf39d2a1f",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "左下方大面积蓝色屋顶",
+   "reasoning": "框内是规整矩形的蓝色屋面，具有顶棚的覆盖形态，符合类别要点。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:d9194ee969e24131920de23a185f3fed",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路左侧细长蓝色建筑屋顶",
+   "reasoning": "框内主体为带平行条纹的蓝色成片屋面，覆盖在棚状建筑上方，符合蓝色顶棚特征。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:a33bbf274cdc410cba575f56f21e2fb7",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "右上方建筑边缘的蓝色围挡或长条结构",
+   "reasoning": "框内主要是沿边缘延伸的细长蓝色结构，并非覆盖建筑或空地的成片屋顶，位置和形态更符合围挡/长条设施。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595047.9809432,
+   "seconds": 18.65,
+   "status": "ok",
+   "health": {
+    "at": 1791595029.329365,
+    "available_fraction": 0.4698590251255402,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "357d2655de104f299f7c6c7e1e358cb9",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "41a98e93ee5aca2c58b2a5d1a38b691677433d5879585d34ba981a042abf305f",
+ "prompt_sha256": "d0795727b2044ee526d23e59e1f52ca58e0be472cb1068849e362266fc50609d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

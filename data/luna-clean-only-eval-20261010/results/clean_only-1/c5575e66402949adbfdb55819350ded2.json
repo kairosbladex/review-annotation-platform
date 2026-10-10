@@ -1,0 +1,58 @@
+{
+ "unit": "c5575e66402949adbfdb55819350ded2",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:000",
+   "decision": "true",
+   "image_limitation": "目标清晰可见",
+   "observed_object": "停车区域内的小汽车",
+   "reasoning": "框内是具有车顶和深色玻璃区域的机动车，形状与尺度符合小汽车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:001",
+   "decision": "false",
+   "image_limitation": "目标清晰可见",
+   "observed_object": "屋顶上的白色设备箱或设施",
+   "reasoning": "位于建筑屋顶平台上，呈设备状，没有卡车驾驶室与货厢分段结构。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:002",
+   "decision": "false",
+   "image_limitation": "目标清晰可见",
+   "observed_object": "道路边的绿化或小型设施",
+   "reasoning": "框内未见符合细长窄条和车辆尺度关系的两轮车，更像道路边的小型物体。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:c5575e66402949adbfdb55819350ded2:003",
+   "decision": "false",
+   "image_limitation": "目标清晰可见",
+   "observed_object": "道路上的方形设施或井盖",
+   "reasoning": "目标位于道路区域，呈小型方形浅色物体，不具备小汽车的长方形车身和车窗特征。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597286.687659,
+   "seconds": 19.81,
+   "status": "ok",
+   "health": {
+    "at": 1791597266.874427,
+    "available_fraction": 0.44903169074028315,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b2e75e32759f4e9089ea9a154c57aea9",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "962bd55bb3263a3f915a6f42ab590208e1fa1d52d0162af24aab0a2991bc0c64",
+ "prompt_sha256": "eec2665c07259c72c752a9b2ea434be9e5c1ab7325bfb07eb76c20b51e2de9d7",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

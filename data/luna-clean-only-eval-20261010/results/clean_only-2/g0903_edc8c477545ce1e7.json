@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_edc8c477545ce1e7",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:553aaf3027ee45b19cbeabe77e948a69",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "框内可见一辆细长窄条状的两轮车，停放在建筑屋顶边缘附近。",
+   "reasoning": "目标形状窄长，宽度和尺度符合俯拍两轮车特征，不像汽车、三轮车或道路设施。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596224.094783,
+   "seconds": 25.8,
+   "status": "ok",
+   "health": {
+    "at": 1791596198.2916179,
+    "available_fraction": 0.4822344091392839,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d71364a357424cc99b3e0d33867f4dd2",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "8d34379422466d2b6f02730a88aa436c095c6a8d6325d340f2272070f65cb475",
+ "prompt_sha256": "e76241d209161a9d623100a64f1e133228cbfddd4a13de63cd7d67a4a2749a7d",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

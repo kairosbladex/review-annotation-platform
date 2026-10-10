@@ -1,0 +1,42 @@
+{
+ "unit": "03f9bd205b724690a2ed93ff2003ef1d",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:03f9bd205b724690a2ed93ff2003ef1d:000",
+   "decision": "true",
+   "image_limitation": "目标较小但清晰可辨，未见明显遮挡。",
+   "observed_object": "道路上的小型机动车，呈车身与深色玻璃带的长方形轮廓。",
+   "reasoning": "目标位于道路车道内，尺度和朝向与道路上的车辆相符，符合车的外观特征。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:03f9bd205b724690a2ed93ff2003ef1d:001",
+   "decision": "true",
+   "image_limitation": "目标较小但清晰可辨，未见明显遮挡。",
+   "observed_object": "道路上的小型机动车，呈车身与深色玻璃带的长方形轮廓。",
+   "reasoning": "目标位于道路车道内，形状、尺度及朝向均与机动车相符，不是地面标线或其他设施。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596306.9089463,
+   "seconds": 27.09,
+   "status": "ok",
+   "health": {
+    "at": 1791596279.8140547,
+    "available_fraction": 0.4802169385811483,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "0c428f2b7f2b4ba6ac6396db43b29da1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "7f59093eaaa403df01e3c6173d96ab992fe7caa2e869c1e0eb15154045fd727e",
+ "prompt_sha256": "711286ede9abd568e1474a5958a3c3bc7a51da40c49522852c3d6c3f7fc94600",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

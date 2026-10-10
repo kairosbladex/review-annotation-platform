@@ -1,0 +1,58 @@
+{
+ "unit": "5d8d7ca962814912a7365cfa344ab9d4",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:5d8d7ca962814912a7365cfa344ab9d4:000",
+   "decision": "uncertain",
+   "image_limitation": "目标仅在画面最右边缘露出，车辆主体大半出画，无法确认完整车形。",
+   "observed_object": "画面边缘可见部分物体",
+   "reasoning": "露出区域不足以判断是否为机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:5d8d7ca962814912a7365cfa344ab9d4:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色车辆",
+   "reasoning": "可见车顶、深色车窗带和长方形车身，位于道路旁，符合机动车外观及尺度。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:5d8d7ca962814912a7365cfa344ab9d4:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "深色小汽车/SUV",
+   "reasoning": "可见完整车身轮廓、车顶及深色玻璃，停在地面停车区域，符合机动车特征。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:5d8d7ca962814912a7365cfa344ab9d4:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "白色面包车",
+   "reasoning": "车辆呈长方形车身，可见车顶和深色前后玻璃，位于道路上且尺度匹配。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597332.8657928,
+   "seconds": 23.41,
+   "status": "ok",
+   "health": {
+    "at": 1791597309.4553175,
+    "available_fraction": 0.44727055361211254,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fc4b0833891843899199a39a7d746730",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "e2a20f65792a89cdf7c13283ba011050b66f881c5dba57071fa21e2d57485fb1",
+ "prompt_sha256": "80cdb113cf8ca35b77bc9291ddc42721ec02f8ad539369f28fed1125ed39672a",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_8d4b46fdbaa783e8",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "盆栽植物和花盆",
+   "reasoning": "框内可见圆形修剪的绿色植物及其下方花盆，且位于步道边并与其他盆栽规律排列，不符合人员的头肩或躯干腿部外观。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596505.7072172,
+   "seconds": 6.84,
+   "status": "ok",
+   "health": {
+    "at": 1791596498.8688986,
+    "available_fraction": 0.4846220310071034,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9a1584c02f3541cabd3969cefcaae688",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "47720bc4d9ffca5b2523d4b31eb5305453a480614d9711b3d091b98ad2db1849",
+ "prompt_sha256": "5f8bcead4c3efd11de4e0f5b62025d4eb331bef9b62c4158c6b599dc5c112b09",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,42 @@
+{
+ "unit": "3c38bc7636de4af3a023879c4afa7739",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:000",
+   "decision": "uncertain",
+   "image_limitation": "目标位于画面左侧边缘，仅露出部分车体，车形无法完整确认。",
+   "observed_object": "疑似车辆局部",
+   "reasoning": "框内可见疑似车身，但目标大半出画，无法确认是否为机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:3c38bc7636de4af3a023879c4afa7739:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色卡车",
+   "reasoning": "框内可见一辆位于道路上的蓝色货车，整体尺寸和车身形态符合卡车外观。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597701.0667117,
+   "seconds": 25.47,
+   "status": "ok",
+   "health": {
+    "at": 1791597675.5991328,
+    "available_fraction": 0.43899200526675214,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "c391142c410749dda2789231b00973d4",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "ccad33b7e4922cfff9d4c2f37b2ad1162c55740ab7055c4971402f606ef4f460",
+ "prompt_sha256": "7d846da21eaee748c6254de0deddc014279b82ccedaed1362521b097aedab3b0",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

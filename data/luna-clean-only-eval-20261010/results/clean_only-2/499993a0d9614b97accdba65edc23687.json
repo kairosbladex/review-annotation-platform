@@ -1,0 +1,138 @@
+{
+ "unit": "499993a0d9614b97accdba65edc23687",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "499993a0d9614b97accdba65edc23687:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "斑马线附近的行人",
+   "reasoning": "框内可见小型行人形态，位置在人行横道区域，尺度符合人员。",
+   "target_index": 0
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:014",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内为站立或行走的小型人员，位于人行道边缘。",
+   "target_index": 1
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:011",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见细小人员形态，位置和尺度均符合。",
+   "target_index": 2
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "车道上的行人",
+   "reasoning": "框内为路面上的小型人员，形态与尺度符合人员。",
+   "target_index": 3
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路面上的行人",
+   "reasoning": "框内可见细小行人，位于道路区域。",
+   "target_index": 4
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路面上的行人",
+   "reasoning": "框内目标呈小型行人形态，位置在车道上。",
+   "target_index": 5
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:005",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道边的行人",
+   "reasoning": "框内可见小型人员，位于建筑边缘通行区域。",
+   "target_index": 6
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:009",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "浅色路面设施或标记",
+   "reasoning": "框内目标为规则的小型浅色物体，缺少人员的头肩或躯干特征。",
+   "target_index": 7
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:010",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内可见小型人员形态，位于道路边缘。",
+   "target_index": 8
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:012",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "人行道上的行人",
+   "reasoning": "框内目标呈人员形态，位置在人行道附近。",
+   "target_index": 9
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "斑马线附近的行人",
+   "reasoning": "框内可见行人及其小型躯体轮廓，位置与尺度符合。",
+   "target_index": 10
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路面上的行人",
+   "reasoning": "框内为小型行人，位于道路区域。",
+   "target_index": 11
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:008",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "人行道上的自行车或设施",
+   "reasoning": "框内目标呈细长的非人员物体形态，缺少头部和肩部轮廓。",
+   "target_index": 12
+  },
+  {
+   "key": "499993a0d9614b97accdba65edc23687:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "路面上的行人",
+   "reasoning": "框内可见小型行人形态，位置在道路上。",
+   "target_index": 13
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596559.6799521,
+   "seconds": 45.39,
+   "status": "ok",
+   "health": {
+    "at": 1791596514.2874775,
+    "available_fraction": 0.47226698464334144,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "3d96654abbe243bc8fc839c56c0e46b9",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "66edddb8c542c8b42eb93d88d4b866c18483831d73a16066b6202a2950b6b213",
+ "prompt_sha256": "4410c992cb92bd188217b18d5a18ee3061d800f0278c4afc3ee5b8d4a3f61b2c",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

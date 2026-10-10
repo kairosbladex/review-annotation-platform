@@ -1,0 +1,74 @@
+{
+ "unit": "f32dd42fe9e1430ba99778c2bf4bd194",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "框内可见车顶和深色车窗带，车身呈机动车的长方形轮廓，位置和尺度均与停车车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "可见明显的车身、车顶及深色车窗区域，朝向与道路一致，符合小汽车外观。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "框内是停靠在路边的机动车，车顶轮廓和车窗带清晰可辨，尺度符合车辆。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "可见完整的长方形车身和深色玻璃区域，位于路边停车位，符合车的特征。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "框内白色车身及车窗轮廓明确，停在道路边缘，位置和尺度与小汽车相符。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "可见路边停放的小汽车，车身和车窗结构清楚，符合机动车外观。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595299.7529504,
+   "seconds": 33.52,
+   "status": "ok",
+   "health": {
+    "at": 1791595266.2317393,
+    "available_fraction": 0.4773647123715171,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "d3ae2a76ffa5414e9836716d53bcef89",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "a42d8248be74f5e6315cbf4919a1598e4637b7eecf63fc42c8d51f49faf8ad1c",
+ "prompt_sha256": "7c2f4a7b0bb5100ccd9e8a7b3bf682f953674022a1da00d95e4d249a361d3b83",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

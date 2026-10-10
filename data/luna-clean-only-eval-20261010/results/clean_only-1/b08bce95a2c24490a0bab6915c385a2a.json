@@ -1,0 +1,42 @@
+{
+ "unit": "b08bce95a2c24490a0bab6915c385a2a",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "b08bce95a2c24490a0bab6915c385a2a:013",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车区域内的一辆汽车",
+   "reasoning": "框内可见完整的圆角长方形车身、深色车窗和车影，位于地面停车区域，形状及尺度符合机动车特征。",
+   "target_index": 0
+  },
+  {
+   "key": "b08bce95a2c24490a0bab6915c385a2a:018",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树旁停车位内的一辆汽车",
+   "reasoning": "框内可见车顶、深色车窗和明确的车身轮廓，位于地面停车区域，符合汽车外观及位置尺度。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596033.5831144,
+   "seconds": 14.7,
+   "status": "ok",
+   "health": {
+    "at": 1791596018.8795793,
+    "available_fraction": 0.4778478911589773,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8c07b9b7f66c4bd196983ae15408c490",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1836fdbd32425580493eedab7d51f5e0caf8c5e1c31a5a03d8e9e9bc35ecb7a5",
+ "prompt_sha256": "02cb1fca58f9b8600c83cd47b6a9a5447e15c3563ddad52f05ad230fffa49eb9",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

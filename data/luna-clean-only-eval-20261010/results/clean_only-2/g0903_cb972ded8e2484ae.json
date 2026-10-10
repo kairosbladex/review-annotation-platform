@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_cb972ded8e2484ae",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:3c3067022cb84c019a6255f288b98309",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是建筑立面的黑白棋盘格外墙/窗面，不是蓝色或绿色顶棚。",
+   "reasoning": "目标主体为垂直建筑外立面，颜色为黑、白、灰，位置和形态均不符合蓝色或绿色成片屋面顶棚的特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595424.2914207,
+   "seconds": 13.97,
+   "status": "ok",
+   "health": {
+    "at": 1791595410.3211007,
+    "available_fraction": 0.47684721189970797,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "fc99e04eb9124bd48c86fb0710763cc3",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "acd83a7c39af38456247b6c758ec4958fa154b29a2dd8ebe91964b4e10ab8b39",
+ "prompt_sha256": "5fb2c3ab81361a1b0a9767793d68603e0fd505ccb43434d9678f7ab4b4676191",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

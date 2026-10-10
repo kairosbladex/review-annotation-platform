@@ -1,0 +1,34 @@
+{
+ "unit": "gold0924_9897e142dd114042",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0924:B03-029",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，无法确认人员特征。",
+   "observed_object": "建筑物立面及其窗格/结构区域",
+   "reasoning": "框内实际是建筑物墙面与垂直结构，不是具有头部、肩部或躯干腿部特征的人员，位置和尺度也不符合人员。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791597658.5679693,
+   "seconds": 34.89,
+   "status": "ok",
+   "health": {
+    "at": 1791597623.680659,
+    "available_fraction": 0.44388970050332793,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "84c55912d5744600ba8fc033e24618d1",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "301e3a422a6792584292047052c19dc76b7b812b778474182510654f4d0dd87c",
+ "prompt_sha256": "a8c3907933dbf7c1fb4c202c61c5cf9829eb297fd7235a57e16b7d9022430012",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

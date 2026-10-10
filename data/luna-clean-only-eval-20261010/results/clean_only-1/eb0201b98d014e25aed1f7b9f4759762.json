@@ -1,0 +1,50 @@
+{
+ "unit": "eb0201b98d014e25aed1f7b9f4759762",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "eb0201b98d014e25aed1f7b9f4759762:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "框内可见一辆具有车顶、挡风玻璃和车身轮廓的机动车，位置与尺度均符合车辆特征。",
+   "target_index": 0
+  },
+  {
+   "key": "eb0201b98d014e25aed1f7b9f4759762:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树下停车位中的车辆",
+   "reasoning": "框内可见被树冠部分遮挡的车辆，露出车身和车顶轮廓，停车位置及尺度相符。",
+   "target_index": 1
+  },
+  {
+   "key": "eb0201b98d014e25aed1f7b9f4759762:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树下停车位中的白色小汽车",
+   "reasoning": "框内可见白色车辆的车身与车顶轮廓，虽受树冠遮挡但车辆形状明确，位置尺度符合。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596421.0278873,
+   "seconds": 16.31,
+   "status": "ok",
+   "health": {
+    "at": 1791596404.7151017,
+    "available_fraction": 0.48162157403318034,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "8a3f3e1d24c14360ae1291a95b2db282",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "622634a31a947f00ddeb185c905c7e69383001c212d94a452efa87c585a1c49b",
+ "prompt_sha256": "3193618c3064633d4c06b230a504511a694320c5547117c50171858f9a1041f1",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,58 @@
+{
+ "unit": "g0903_980136726d48f1f9",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:c5edc11779b34c3ba5aa442d08ebd779",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁树下的一辆白色汽车",
+   "reasoning": "框内可见完整的车顶、深色车窗带和规则车身轮廓，位置及尺度与道路车辆相符。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:e4fc0e7a76a1498a957aaadcddda9dd0",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边的一辆白色汽车",
+   "reasoning": "框内呈现圆角长方形车身、车顶及深色玻璃区域，停放在地面道路旁，符合汽车特征。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:bf342116bb84430aab20a5de45ef83a8",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边的一辆深色汽车",
+   "reasoning": "可见车辆车顶、深色玻璃和车身轮廓，位于道路停车区域，尺度合理。",
+   "target_index": 2
+  },
+  {
+   "key": "gold0903:0b88b03239f445aea5ccc68e32cd5e72",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边的一辆深色汽车",
+   "reasoning": "框内可辨认出车顶、挡风玻璃和车身，位置与道路边停放车辆一致。",
+   "target_index": 3
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596088.387239,
+   "seconds": 30.35,
+   "status": "ok",
+   "health": {
+    "at": 1791596058.037549,
+    "available_fraction": 0.4765064574622699,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "08a6a1618f0f4cdbac81ad9afef5ff40",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "271df510a5bf0d300f0db10d79c15fe5e4a4746e2c690c33e7e55ec1bb23ae77",
+ "prompt_sha256": "7c2db599df48538f5db0b4ef2bf46cd074c06a8c58bdadbfd406e7a0676ce6fb",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

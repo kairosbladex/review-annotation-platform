@@ -1,0 +1,34 @@
+{
+ "unit": "g0903_f0f53344a03e90a8",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:fd58701a40a44a4187c2167ba59721f0",
+   "decision": "false",
+   "image_limitation": "目标清晰可见，未见明显遮挡或出画影响判断。",
+   "observed_object": "框内是浅灰/白色的建筑屋面或棚顶，不是蓝色或绿色顶棚。",
+   "reasoning": "该框主体颜色偏灰白，类别要求主体为蓝色或绿色顶棚，因此不符合“违建”外观口径。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791598041.6478777,
+   "seconds": 17.75,
+   "status": "ok",
+   "health": {
+    "at": 1791598023.902692,
+    "available_fraction": 0.41799424806266405,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "5286955604b64624b8f84b1212abfc52",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "3183008c07381f4615806cf9c4311958777f418e1cd94659af92a7b7e62e71ad",
+ "prompt_sha256": "07d5e87b5ab89a36e0c28135e6fd150e483a646e0cd43f39880a6ba859bc16d7",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

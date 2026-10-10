@@ -1,0 +1,74 @@
+{
+ "unit": "f32dd42fe9e1430ba99778c2bf4bd194",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:001",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "可见车顶、深色玻璃区域及规则车身轮廓，位置和尺度符合机动车。",
+   "target_index": 0
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:002",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树下停车位中的小汽车",
+   "reasoning": "露出的车身和车顶轮廓清晰，停放方向与道路一致，符合车辆特征。",
+   "target_index": 1
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:003",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树下停车位中的小汽车",
+   "reasoning": "可见完整的圆角车身及深色车窗区域，位置和尺度均符合机动车。",
+   "target_index": 2
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:004",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "框内为停放车辆，车顶和车身轮廓明确，符合车的类别。",
+   "target_index": 3
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:006",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "树下停车位中的小汽车",
+   "reasoning": "可见车顶、车窗和车身边界，且位于道路停车区域，符合机动车特征。",
+   "target_index": 4
+  },
+  {
+   "key": "released_fp:f32dd42fe9e1430ba99778c2bf4bd194:007",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路旁停车位中的小汽车",
+   "reasoning": "框内目标呈现清晰的车身与车顶轮廓，停放位置和尺度合理。",
+   "target_index": 5
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595279.6190112,
+   "seconds": 16.73,
+   "status": "ok",
+   "health": {
+    "at": 1791595262.888948,
+    "available_fraction": 0.4758621582788402,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "6d61d6d509944b9cab7f5d6a76b45828",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "a42d8248be74f5e6315cbf4919a1598e4637b7eecf63fc42c8d51f49faf8ad1c",
+ "prompt_sha256": "7c2f4a7b0bb5100ccd9e8a7b3bf682f953674022a1da00d95e4d249a361d3b83",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

@@ -1,0 +1,50 @@
+{
+ "unit": "g0903_5a505085982c37ef",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:2e13253711214be2aac3aa30ec667a1c",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内可见建筑顶部的蓝色成片屋面，颜色和形状符合蓝色顶棚特征。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:1954c824a672421284d83088f982971a",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内主体为建筑顶部的蓝色矩形屋面，符合蓝色顶棚的外观要求。",
+   "target_index": 1
+  },
+  {
+   "key": "gold0903:e4c6fe25108148f0908e724fa4f99ff3",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "蓝色矩形顶棚",
+   "reasoning": "框内可见蓝色成片屋面，位于建筑顶部且呈规整矩形，符合类别定义。",
+   "target_index": 2
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594929.7868807,
+   "seconds": 14.98,
+   "status": "ok",
+   "health": {
+    "at": 1791594914.8079607,
+    "available_fraction": 0.46159102560610454,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a67226e6e47e4388a2447554a73ba72e",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "a7d12fe816fef958c6082503e99cf20a9a4b6d51ad7d08f0e792cdd2613789eb",
+ "prompt_sha256": "abf0f0c56af9950f1609e21a2efe666e93d56bff1fc3002b0fbbaa7c169163fb",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

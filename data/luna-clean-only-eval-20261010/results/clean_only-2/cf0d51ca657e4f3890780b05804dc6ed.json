@@ -1,0 +1,34 @@
+{
+ "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "建筑屋顶上的蓝色矩形顶棚",
+   "reasoning": "框内可见主体为覆盖在建筑屋顶上的成片蓝色矩形屋面，颜色和位置符合蓝色顶棚的外观要求。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596429.1200507,
+   "seconds": 14.9,
+   "status": "ok",
+   "health": {
+    "at": 1791596414.2161677,
+    "available_fraction": 0.4729190358458225,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "9e0494a5505b462fab985c69d58abcf4",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b683e6ac34cc1ebc9340c5ab0dd4df804d2f0bd50f8d0400986c7e576fba8765",
+ "prompt_sha256": "2dde2f89ac0d2f060e7855e15908dec1c424af2ca0d4a12557b0fbddf4c9759f",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

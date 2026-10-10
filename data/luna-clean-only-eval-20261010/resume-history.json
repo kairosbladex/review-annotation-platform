@@ -1,0 +1,35 @@
+{
+ "at": 1791596891.3334186,
+ "successful_records_preserved": 388,
+ "prior_stop": {
+  "at": 1791596801.6193855,
+  "reason": "runner_finished",
+  "worker": {
+   "MainPID": "0",
+   "ControlGroup": "",
+   "ActiveState": "inactive"
+  },
+  "runner": {
+   "MainPID": "0",
+   "ControlGroup": "",
+   "ActiveState": "inactive"
+  }
+ },
+ "prior_effective_limits": {
+  "at": 1791594725.9800973,
+  "limits": {
+   "memory.max": "4294967296",
+   "memory.swap.max": "0"
+  },
+  "allowed_cpus": [
+   61,
+   62,
+   63
+  ],
+  "cpu_max": null,
+  "enforced_before_first_request": true
+ },
+ "reason": "configured_extension_CLI_path_disappeared",
+ "replacement": "existing pinned codex-cli 0.155.1",
+ "shared_configuration_changed": false
+}

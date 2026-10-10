@@ -1,0 +1,34 @@
+{
+ "unit": "422566fb91ab4ad494cf1894def8d975",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:422566fb91ab4ad494cf1894def8d975:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "停车位中的白色小汽车",
+   "reasoning": "框内可见车顶和车身，呈圆角长方形，位于绿化旁的停车区域，位置与尺度符合机动车特征。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791596596.553592,
+   "seconds": 8.13,
+   "status": "ok",
+   "health": {
+    "at": 1791596588.4277852,
+    "available_fraction": 0.464572178532586,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a808a69e108d46b09a986abba6a59474",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "4603b9dac5ec7645a963958b6c2368a8692e5662a405d1a19f984d31519d3576",
+ "prompt_sha256": "74ea3c213dec97dd8b630e773743c7d07e7ce0a12789437259a7ea630d47e46b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

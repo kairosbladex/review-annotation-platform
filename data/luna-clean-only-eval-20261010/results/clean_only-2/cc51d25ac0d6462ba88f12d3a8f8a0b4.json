@@ -1,0 +1,34 @@
+{
+ "unit": "cc51d25ac0d6462ba88f12d3a8f8a0b4",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:cc51d25ac0d6462ba88f12d3a8f8a0b4:000",
+   "decision": "false",
+   "image_limitation": "目标区域清晰可见，无遮挡且未出画。",
+   "observed_object": "建筑屋顶平台上的设备或箱体，不是机动车。",
+   "reasoning": "框内物体位于建筑屋顶平台，呈小型设备状，缺少车辆应有的车身轮廓、挡风玻璃横带及与车道或车位相符的尺度和位置，因此不符合“车”的类别。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791594795.5852194,
+   "seconds": 18.24,
+   "status": "ok",
+   "health": {
+    "at": 1791594777.3447027,
+    "available_fraction": 0.46302484512985936,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "a4b3ac15c62d4649aa8a321ce195ec7a",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "f82032065fbf8df987fb48b7dd5dbbf6b1b83c3be7680af2a97437cf88610623",
+ "prompt_sha256": "b45ab444ec3747105323940e4e4e2a2e81caf220389e32b4d97219012cbb4512",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

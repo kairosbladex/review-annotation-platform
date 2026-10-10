@@ -1,0 +1,42 @@
+{
+ "unit": "g0903_12dcae5800b529d9",
+ "repeat": 1,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "gold0903:8b6399b684eb4b6a9eb6beac9f41f820",
+   "decision": "false",
+   "image_limitation": "无",
+   "observed_object": "蓝色围挡、道路及杂草空地",
+   "reasoning": "框内主体是立在地面的长条状蓝色围挡，不是覆盖在上方的蓝色或绿色顶棚，符合明确排除项。",
+   "target_index": 0
+  },
+  {
+   "key": "gold0903:f3cdb8b816ba422dafa1d3cf6c987901",
+   "decision": "false",
+   "image_limitation": "无",
+   "observed_object": "蓝色围挡及其后方杂草",
+   "reasoning": "框内可见的是竖立的蓝色围挡，不是建筑、棚架或院落上方的成片屋面，因此不符合违建类别。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595443.6259933,
+   "seconds": 19.31,
+   "status": "ok",
+   "health": {
+    "at": 1791595424.3133523,
+    "available_fraction": 0.4759088527935966,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4be8e8a9ce004d57b3dabb59490988cd",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "1cea3deec2eef028290253c1ea04a44483aeed9d79238d14dd47a251a8136457",
+ "prompt_sha256": "f9af6994dda3f904fe3b15c68b95635be1ef7f63caa2af005af68960bfcb190b",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

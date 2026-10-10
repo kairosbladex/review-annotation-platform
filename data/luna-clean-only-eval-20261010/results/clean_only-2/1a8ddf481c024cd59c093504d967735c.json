@@ -1,0 +1,42 @@
+{
+ "unit": "1a8ddf481c024cd59c093504d967735c",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "rooftop:1a8ddf481c024cd59c093504d967735c:000",
+   "decision": "true",
+   "image_limitation": "",
+   "observed_object": "道路边的一辆小汽车",
+   "reasoning": "框内可见车辆的车顶和深色车窗带，呈机动车的细长圆角外形，位置与道路相符。",
+   "target_index": 0
+  },
+  {
+   "key": "rooftop:1a8ddf481c024cd59c093504d967735c:001",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "屋顶上的白色设备箱或空调外机",
+   "reasoning": "目标位于建筑屋顶平台，呈小型方形设备外观，不具备车辆的车身和车窗特征。",
+   "target_index": 1
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595262.8606987,
+   "seconds": 15.58,
+   "status": "ok",
+   "health": {
+    "at": 1791595247.2822924,
+    "available_fraction": 0.4753416785997093,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "4675fd17726043cd89dbb3b09e985b9b",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "b82cf80f16ebbd757f27c5dd76803906ab37994babcdea66b63137983cdedb30",
+ "prompt_sha256": "d2c09c7daadd7f0007a279c25590d7a25ffcc20e3b279b0543d71e99992507bd",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}

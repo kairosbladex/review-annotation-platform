@@ -1,0 +1,34 @@
+{
+ "unit": "2e39908ff0504e7e89ec16172780ed1d",
+ "repeat": 2,
+ "arm": "clean_only",
+ "success": true,
+ "results": [
+  {
+   "key": "2e39908ff0504e7e89ec16172780ed1d:000",
+   "decision": "false",
+   "image_limitation": "",
+   "observed_object": "框内是岸边铺装区域上的规则孔洞/地面纹理，没有人员的头部、肩部或躯干特征。",
+   "reasoning": "目标位置和外观与人员不符，更像铺装地面的排布孔洞。",
+   "target_index": 0
+  }
+ ],
+ "attempts": [
+  {
+   "at": 1791595136.9501758,
+   "seconds": 14.43,
+   "status": "ok",
+   "health": {
+    "at": 1791595122.5153465,
+    "available_fraction": 0.4769588105739729,
+    "shared": "running healthy 0"
+   }
+  }
+ ],
+ "execution_id": "b93e322ad45c4a749a2a136077812f93",
+ "requested_model": "gpt-5.6-luna",
+ "image_sha256": "e4c8ddfafef265ed921921a2cd06b97c8a418c9a879f9b6a8083ac41a687a714",
+ "prompt_sha256": "12e7bd200ae373d5e5ec0bade491fc2aaf0be82ec11b07001f0150544e6fdd96",
+ "image_count": 3,
+ "all_views_from_clean_frame": true
+}
