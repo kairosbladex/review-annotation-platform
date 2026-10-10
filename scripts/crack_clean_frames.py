@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""道路裂纹 40 张图：从 09-24 快照原视频取同一时刻 1920×1080 干净原帧，投影候选框（服务器运行，不读金标）。
+"""道路裂纹（默认自动迭代无标签池 40 张图，或 --events 指定的快照事件）：从 09-24 快照原视频取同一时刻 1920×1080 干净原帧，投影候选框（服务器运行，不读金标）。
 
 每张图在快照记录的匹配时刻 ±1.5 秒内逐帧解码（逐帧读管道，内存只保留当前帧和最佳帧），
 用快照单应矩阵把原帧反投影到截图坐标，与快照已核验的无标注对齐参考图做相关，取最相似一帧。
 输出 <out>/clean/<unit>.jpg、<out>/allowlist.json（框为原帧归一化坐标）、<out>/frames-audit.json，
-以及 <out>/compare/<key>.jpg（截图局部 | 原帧局部，供人工对照）。
+以及 <out>/compare/<key>.jpg（截图局部 | 原帧局部）、<out>/context/<key>.jpg（原帧大范围），供人工对照。
 """
 from __future__ import annotations
 import argparse
@@ -66,22 +66,49 @@ def crop(img, box, scale_min=96):
     return cv2.resize(c, (360, 360), interpolation=cv2.INTER_CUBIC)
 
 
+def context(img, box):
+    """原帧大范围（框外扩 5 倍、至少 480 像素），用于判断是否在路面上。"""
+    h, w = img.shape[:2]
+    x1, y1, x2, y2 = box[0] * w, box[1] * h, box[2] * w, box[3] * h
+    s = max(480, (x2 - x1) * 5, (y2 - y1) * 5); cx, cy = (x1 + x2) / 2, (y1 + y2) / 2
+    b = [int(max(0, cx - s / 2)), int(max(0, cy - s / 2)), int(min(w, cx + s / 2)), int(min(h, cy + s / 2))]
+    c = img[b[1]:b[3], b[0]:b[2]].copy()
+    cv2.rectangle(c, (int(x1 - b[0]), int(y1 - b[1])), (int(x2 - b[0]), int(y2 - b[1])), (0, 255, 255), 2)
+    return cv2.resize(c, (480, 480), interpolation=cv2.INTER_AREA)
+
+
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--out', type=Path, required=True); a = ap.parse_args()
-    (a.out / 'clean').mkdir(parents=True, exist_ok=True); (a.out / 'compare').mkdir(exist_ok=True)
+    ap = argparse.ArgumentParser(); ap.add_argument('--out', type=Path, required=True)
+    ap.add_argument('--events', type=Path, help='快照事件编号 JSON 列表；不给时沿用自动迭代无标签池的 40 张图')
+    a = ap.parse_args()
+    for d in ('clean', 'compare', 'context'): (a.out / d).mkdir(parents=True, exist_ok=True)
     rec = {}
     for name in ('still', 'video'):
         for line in (SNAP / 'output' / f'{name}_matches.jsonl').read_text().splitlines():
             r = json.loads(line); rec[r['event_id']] = r
-    items = json.loads((AUTO / 'assets/items.json').read_text())
-    units = [u for u in items if u['split'] == 'unlabeled' and any(c['class_name'] == '道路裂纹' for c in u['candidates'])]
+    if a.events:
+        # 直接按快照事件取：截图来自快照 annotated，候选来自快照 inference_manifest（像素框归一化）
+        wanted = json.loads(a.events.read_text()); rows = {}
+        for line in (SNAP / 'input/inference_manifest.jsonl').read_text().splitlines():
+            r = json.loads(line)
+            if r['event_id'] in wanted: rows.setdefault(r['event_id'], []).append(r)
+        units = []
+        for e in wanted:
+            cands = []
+            for r in rows[e]:
+                w, h = r['frame_size']; x1, y1, x2, y2 = r['bbox_px']
+                cands.append({'key': r['candidate_id'], 'class_name': r['class_name'], 'bbox': [x1 / w, y1 / h, x2 / w, y2 / h]})
+            units.append({'unit': e, 'candidates': cands, 'image_path': str(SNAP / 'work/annotated' / f'{e}.jpg')})
+    else:
+        items = json.loads((AUTO / 'assets/items.json').read_text())
+        units = [u for u in items if u['split'] == 'unlabeled' and any(c['class_name'] == '道路裂纹' for c in u['candidates'])]
     allow, audit = [], []
     for u in units:
         r = rec.get(u['unit'])
         if not r or not r.get('clean_usable_for_inference') or r['source_kind'] != 'video':
             audit.append({'unit': u['unit'], 'skipped': 'no_usable_video_match'}); print(u['unit'], 'skip', flush=True); continue
         ref = cv2.imread(str(SNAP / r['clean_frame']), cv2.IMREAD_GRAYSCALE).astype(np.float32)
-        shot = cv2.imread(str(AUTO / 'assets/images' / (u['unit'] + '.jpg')))
+        shot = cv2.imread(u.get('image_path') or str(AUTO / 'assets/images' / (u['unit'] + '.jpg')))
         (frame, score, idx), n = best_frame(SNAP / r['source_local_path'], r['matched_raw_time'], r['homography_annotated_to_source'], ref)
         sh, sw = shot.shape[:2]
         cands, outside = [], []
@@ -93,6 +120,7 @@ def main():
             if c['class_name'] != '道路裂纹': continue
             pair = np.concatenate([crop(shot, c['screenshot_bbox']), np.full((360, 8, 3), 255, np.uint8), crop(frame, c['bbox'])], axis=1)
             cv2.imwrite(str(a.out / 'compare' / (c['key'].replace(':', '_') + '.jpg')), pair, [cv2.IMWRITE_JPEG_QUALITY, 90])
+            cv2.imwrite(str(a.out / 'context' / (c['key'].replace(':', '_') + '.jpg')), context(frame, c['bbox']), [cv2.IMWRITE_JPEG_QUALITY, 88])
         allow.append({'unit': u['unit'], 'candidates': [{'key': c['key'], 'class_name': c['class_name'], 'bbox': c['bbox']} for c in cands]})
         audit.append({'unit': u['unit'], 'frames_decoded': n, 'best_index': idx, 'ncc': round(score, 4), 'outside': outside})
         print(u['unit'], n, idx, round(score, 4), outside, flush=True)
