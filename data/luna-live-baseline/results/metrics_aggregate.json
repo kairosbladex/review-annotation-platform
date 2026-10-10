@@ -1,0 +1,1097 @@
+{
+ "labels_total": 1128,
+ "rounds": {
+  "1": {
+   "decisions_total": 452,
+   "splits": {
+    "holdout": {
+     "n": 443,
+     "gold_true": 368,
+     "gold_false": 75,
+     "right": 363,
+     "accuracy": 0.8194,
+     "true_recall": 0.8424,
+     "true_rejected": 58,
+     "false_release_rate": 0.2933,
+     "false_released": 22,
+     "uncertain": 71,
+     "uncertain_rate": 0.1603,
+     "cross": {
+      "gold_true:true": 310,
+      "gold_true:false": 14,
+      "gold_true:uncertain": 44,
+      "gold_false:true": 22,
+      "gold_false:false": 26,
+      "gold_false:uncertain": 27
+     },
+     "coverage": 1.0,
+     "failed": 0,
+     "by_class": {
+      "车": {
+       "n": 306,
+       "gold_true": 292,
+       "gold_false": 14,
+       "right": 273,
+       "accuracy": 0.8922,
+       "true_recall": 0.9247,
+       "true_rejected": 22,
+       "false_release_rate": 0.7857,
+       "false_released": 11,
+       "uncertain": 23,
+       "uncertain_rate": 0.0752,
+       "cross": {
+        "gold_true:true": 270,
+        "gold_true:false": 1,
+        "gold_true:uncertain": 21,
+        "gold_false:true": 11,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 2
+       }
+      },
+      "人员": {
+       "n": 60,
+       "gold_true": 24,
+       "gold_false": 36,
+       "right": 30,
+       "accuracy": 0.5,
+       "true_recall": 0.0417,
+       "true_rejected": 23,
+       "false_release_rate": 0.1944,
+       "false_released": 7,
+       "uncertain": 30,
+       "uncertain_rate": 0.5,
+       "cross": {
+        "gold_true:true": 1,
+        "gold_true:false": 11,
+        "gold_true:uncertain": 12,
+        "gold_false:true": 7,
+        "gold_false:false": 11,
+        "gold_false:uncertain": 18
+       }
+      },
+      "违建": {
+       "n": 50,
+       "gold_true": 33,
+       "gold_false": 17,
+       "right": 42,
+       "accuracy": 0.84,
+       "true_recall": 0.7879,
+       "true_rejected": 7,
+       "false_release_rate": 0.0588,
+       "false_released": 1,
+       "uncertain": 8,
+       "uncertain_rate": 0.16,
+       "cross": {
+        "gold_true:true": 26,
+        "gold_true:false": 2,
+        "gold_true:uncertain": 5,
+        "gold_false:true": 1,
+        "gold_false:false": 13,
+        "gold_false:uncertain": 3
+       }
+      },
+      "两轮车": {
+       "n": 9,
+       "gold_true": 8,
+       "gold_false": 1,
+       "right": 5,
+       "accuracy": 0.5556,
+       "true_recall": 0.5,
+       "true_rejected": 4,
+       "false_release_rate": 0.0,
+       "false_released": 0,
+       "uncertain": 5,
+       "uncertain_rate": 0.5556,
+       "cross": {
+        "gold_true:true": 4,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 4,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 1
+       }
+      },
+      "光斑": {
+       "n": 5,
+       "gold_true": 3,
+       "gold_false": 2,
+       "right": 4,
+       "accuracy": 0.8,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": 0.5,
+       "false_released": 1,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 3,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 1,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 0
+       }
+      },
+      "光伏板": {
+       "n": 5,
+       "gold_true": 5,
+       "gold_false": 0,
+       "right": 5,
+       "accuracy": 1.0,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": null,
+       "false_released": 0,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 5,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      },
+      "卡车": {
+       "n": 4,
+       "gold_true": 1,
+       "gold_false": 3,
+       "right": 1,
+       "accuracy": 0.25,
+       "true_recall": 0.0,
+       "true_rejected": 1,
+       "false_release_rate": 0.6667,
+       "false_released": 2,
+       "uncertain": 2,
+       "uncertain_rate": 0.5,
+       "cross": {
+        "gold_true:true": 0,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 1,
+        "gold_false:true": 2,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 1
+       }
+      },
+      "三轮车": {
+       "n": 3,
+       "gold_true": 1,
+       "gold_false": 2,
+       "right": 2,
+       "accuracy": 0.6667,
+       "true_recall": 0.0,
+       "true_rejected": 1,
+       "false_release_rate": 0.0,
+       "false_released": 0,
+       "uncertain": 3,
+       "uncertain_rate": 1.0,
+       "cross": {
+        "gold_true:true": 0,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 1,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 2
+       }
+      },
+      "没戴头盔": {
+       "n": 1,
+       "gold_true": 1,
+       "gold_false": 0,
+       "right": 1,
+       "accuracy": 1.0,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": null,
+       "false_released": 0,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 1,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      }
+     },
+     "bootstrap": {
+      "iters": 1000,
+      "n_clusters": 131,
+      "n_boxes": 443,
+      "accuracy_ci95": [
+       0.7475,
+       0.875
+      ],
+      "accuracy_median": 0.8187,
+      "level": "image(unit)"
+     },
+     "bootstrap_group_known": {
+      "iters": 1000,
+      "n_clusters": 34,
+      "n_boxes": 275,
+      "accuracy_ci95": [
+       0.6927,
+       0.9163
+      ],
+      "accuracy_median": 0.837,
+      "level": "group_known_subset",
+      "coverage": {
+       "units_covered": 71,
+       "units_total": 131,
+       "boxes_covered": 275,
+       "boxes_total": 443,
+       "groups": 34
+      }
+     },
+     "official": {
+      "n": 443,
+      "gold_true": 368,
+      "gold_false": 75,
+      "right": 363,
+      "accuracy": 0.8194,
+      "true_rejected": 58,
+      "false_released": 22,
+      "uncertain": 71,
+      "uncertain_rate": 0.1603,
+      "failed": 0
+     }
+    },
+    "all": {
+     "n": 443,
+     "gold_true": 368,
+     "gold_false": 75,
+     "right": 363,
+     "accuracy": 0.8194,
+     "true_recall": 0.8424,
+     "true_rejected": 58,
+     "false_release_rate": 0.2933,
+     "false_released": 22,
+     "uncertain": 71,
+     "uncertain_rate": 0.1603,
+     "cross": {
+      "gold_true:true": 310,
+      "gold_true:false": 14,
+      "gold_true:uncertain": 44,
+      "gold_false:true": 22,
+      "gold_false:false": 26,
+      "gold_false:uncertain": 27
+     },
+     "coverage": 1.0,
+     "failed": 0,
+     "by_class": {
+      "车": {
+       "n": 306,
+       "gold_true": 292,
+       "gold_false": 14,
+       "right": 273,
+       "accuracy": 0.8922,
+       "true_recall": 0.9247,
+       "true_rejected": 22,
+       "false_release_rate": 0.7857,
+       "false_released": 11,
+       "uncertain": 23,
+       "uncertain_rate": 0.0752,
+       "cross": {
+        "gold_true:true": 270,
+        "gold_true:false": 1,
+        "gold_true:uncertain": 21,
+        "gold_false:true": 11,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 2
+       }
+      },
+      "人员": {
+       "n": 60,
+       "gold_true": 24,
+       "gold_false": 36,
+       "right": 30,
+       "accuracy": 0.5,
+       "true_recall": 0.0417,
+       "true_rejected": 23,
+       "false_release_rate": 0.1944,
+       "false_released": 7,
+       "uncertain": 30,
+       "uncertain_rate": 0.5,
+       "cross": {
+        "gold_true:true": 1,
+        "gold_true:false": 11,
+        "gold_true:uncertain": 12,
+        "gold_false:true": 7,
+        "gold_false:false": 11,
+        "gold_false:uncertain": 18
+       }
+      },
+      "违建": {
+       "n": 50,
+       "gold_true": 33,
+       "gold_false": 17,
+       "right": 42,
+       "accuracy": 0.84,
+       "true_recall": 0.7879,
+       "true_rejected": 7,
+       "false_release_rate": 0.0588,
+       "false_released": 1,
+       "uncertain": 8,
+       "uncertain_rate": 0.16,
+       "cross": {
+        "gold_true:true": 26,
+        "gold_true:false": 2,
+        "gold_true:uncertain": 5,
+        "gold_false:true": 1,
+        "gold_false:false": 13,
+        "gold_false:uncertain": 3
+       }
+      },
+      "两轮车": {
+       "n": 9,
+       "gold_true": 8,
+       "gold_false": 1,
+       "right": 5,
+       "accuracy": 0.5556,
+       "true_recall": 0.5,
+       "true_rejected": 4,
+       "false_release_rate": 0.0,
+       "false_released": 0,
+       "uncertain": 5,
+       "uncertain_rate": 0.5556,
+       "cross": {
+        "gold_true:true": 4,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 4,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 1
+       }
+      },
+      "光斑": {
+       "n": 5,
+       "gold_true": 3,
+       "gold_false": 2,
+       "right": 4,
+       "accuracy": 0.8,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": 0.5,
+       "false_released": 1,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 3,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 1,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 0
+       }
+      },
+      "光伏板": {
+       "n": 5,
+       "gold_true": 5,
+       "gold_false": 0,
+       "right": 5,
+       "accuracy": 1.0,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": null,
+       "false_released": 0,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 5,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      },
+      "卡车": {
+       "n": 4,
+       "gold_true": 1,
+       "gold_false": 3,
+       "right": 1,
+       "accuracy": 0.25,
+       "true_recall": 0.0,
+       "true_rejected": 1,
+       "false_release_rate": 0.6667,
+       "false_released": 2,
+       "uncertain": 2,
+       "uncertain_rate": 0.5,
+       "cross": {
+        "gold_true:true": 0,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 1,
+        "gold_false:true": 2,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 1
+       }
+      },
+      "三轮车": {
+       "n": 3,
+       "gold_true": 1,
+       "gold_false": 2,
+       "right": 2,
+       "accuracy": 0.6667,
+       "true_recall": 0.0,
+       "true_rejected": 1,
+       "false_release_rate": 0.0,
+       "false_released": 0,
+       "uncertain": 3,
+       "uncertain_rate": 1.0,
+       "cross": {
+        "gold_true:true": 0,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 1,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 2
+       }
+      },
+      "没戴头盔": {
+       "n": 1,
+       "gold_true": 1,
+       "gold_false": 0,
+       "right": 1,
+       "accuracy": 1.0,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": null,
+       "false_released": 0,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 1,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      }
+     },
+     "bootstrap": {
+      "iters": 1000,
+      "n_clusters": 131,
+      "n_boxes": 443,
+      "accuracy_ci95": [
+       0.7475,
+       0.875
+      ],
+      "accuracy_median": 0.8187,
+      "level": "image(unit)"
+     },
+     "bootstrap_group_known": {
+      "iters": 1000,
+      "n_clusters": 34,
+      "n_boxes": 275,
+      "accuracy_ci95": [
+       0.6927,
+       0.9163
+      ],
+      "accuracy_median": 0.837,
+      "level": "group_known_subset",
+      "coverage": {
+       "units_covered": 71,
+       "units_total": 131,
+       "boxes_covered": 275,
+       "boxes_total": 443,
+       "groups": 34
+      }
+     }
+    }
+   },
+   "failed_units": [],
+   "units": 137,
+   "units_failed": 0,
+   "attempts": 137
+  },
+  "2": {
+   "decisions_total": 452,
+   "splits": {
+    "holdout": {
+     "n": 443,
+     "gold_true": 368,
+     "gold_false": 75,
+     "right": 360,
+     "accuracy": 0.8126,
+     "true_recall": 0.8424,
+     "true_rejected": 58,
+     "false_release_rate": 0.3333,
+     "false_released": 25,
+     "uncertain": 70,
+     "uncertain_rate": 0.158,
+     "cross": {
+      "gold_true:true": 310,
+      "gold_true:false": 11,
+      "gold_true:uncertain": 47,
+      "gold_false:true": 25,
+      "gold_false:false": 27,
+      "gold_false:uncertain": 23
+     },
+     "coverage": 1.0,
+     "failed": 0,
+     "by_class": {
+      "车": {
+       "n": 306,
+       "gold_true": 292,
+       "gold_false": 14,
+       "right": 272,
+       "accuracy": 0.8889,
+       "true_recall": 0.9281,
+       "true_rejected": 21,
+       "false_release_rate": 0.9286,
+       "false_released": 13,
+       "uncertain": 21,
+       "uncertain_rate": 0.0686,
+       "cross": {
+        "gold_true:true": 271,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 21,
+        "gold_false:true": 13,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 0
+       }
+      },
+      "人员": {
+       "n": 60,
+       "gold_true": 24,
+       "gold_false": 36,
+       "right": 31,
+       "accuracy": 0.5167,
+       "true_recall": 0.0417,
+       "true_rejected": 23,
+       "false_release_rate": 0.1667,
+       "false_released": 6,
+       "uncertain": 33,
+       "uncertain_rate": 0.55,
+       "cross": {
+        "gold_true:true": 1,
+        "gold_true:false": 9,
+        "gold_true:uncertain": 14,
+        "gold_false:true": 6,
+        "gold_false:false": 11,
+        "gold_false:uncertain": 19
+       }
+      },
+      "违建": {
+       "n": 50,
+       "gold_true": 33,
+       "gold_false": 17,
+       "right": 41,
+       "accuracy": 0.82,
+       "true_recall": 0.7879,
+       "true_rejected": 7,
+       "false_release_rate": 0.1176,
+       "false_released": 2,
+       "uncertain": 7,
+       "uncertain_rate": 0.14,
+       "cross": {
+        "gold_true:true": 26,
+        "gold_true:false": 2,
+        "gold_true:uncertain": 5,
+        "gold_false:true": 2,
+        "gold_false:false": 13,
+        "gold_false:uncertain": 2
+       }
+      },
+      "两轮车": {
+       "n": 9,
+       "gold_true": 8,
+       "gold_false": 1,
+       "right": 4,
+       "accuracy": 0.4444,
+       "true_recall": 0.375,
+       "true_rejected": 5,
+       "false_release_rate": 0.0,
+       "false_released": 0,
+       "uncertain": 6,
+       "uncertain_rate": 0.6667,
+       "cross": {
+        "gold_true:true": 3,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 5,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 1
+       }
+      },
+      "光斑": {
+       "n": 5,
+       "gold_true": 3,
+       "gold_false": 2,
+       "right": 4,
+       "accuracy": 0.8,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": 0.5,
+       "false_released": 1,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 3,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 1,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 0
+       }
+      },
+      "光伏板": {
+       "n": 5,
+       "gold_true": 5,
+       "gold_false": 0,
+       "right": 5,
+       "accuracy": 1.0,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": null,
+       "false_released": 0,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 5,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      },
+      "卡车": {
+       "n": 4,
+       "gold_true": 1,
+       "gold_false": 3,
+       "right": 0,
+       "accuracy": 0.0,
+       "true_recall": 0.0,
+       "true_rejected": 1,
+       "false_release_rate": 1.0,
+       "false_released": 3,
+       "uncertain": 1,
+       "uncertain_rate": 0.25,
+       "cross": {
+        "gold_true:true": 0,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 1,
+        "gold_false:true": 3,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      },
+      "三轮车": {
+       "n": 3,
+       "gold_true": 1,
+       "gold_false": 2,
+       "right": 2,
+       "accuracy": 0.6667,
+       "true_recall": 0.0,
+       "true_rejected": 1,
+       "false_release_rate": 0.0,
+       "false_released": 0,
+       "uncertain": 2,
+       "uncertain_rate": 0.6667,
+       "cross": {
+        "gold_true:true": 0,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 1,
+        "gold_false:true": 0,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 1
+       }
+      },
+      "没戴头盔": {
+       "n": 1,
+       "gold_true": 1,
+       "gold_false": 0,
+       "right": 1,
+       "accuracy": 1.0,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": null,
+       "false_released": 0,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 1,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      }
+     },
+     "bootstrap": {
+      "iters": 1000,
+      "n_clusters": 131,
+      "n_boxes": 443,
+      "accuracy_ci95": [
+       0.734,
+       0.8724
+      ],
+      "accuracy_median": 0.8122,
+      "level": "image(unit)"
+     },
+     "bootstrap_group_known": {
+      "iters": 1000,
+      "n_clusters": 34,
+      "n_boxes": 275,
+      "accuracy_ci95": [
+       0.6872,
+       0.9098
+      ],
+      "accuracy_median": 0.8306,
+      "level": "group_known_subset",
+      "coverage": {
+       "units_covered": 71,
+       "units_total": 131,
+       "boxes_covered": 275,
+       "boxes_total": 443,
+       "groups": 34
+      }
+     },
+     "official": {
+      "n": 443,
+      "gold_true": 368,
+      "gold_false": 75,
+      "right": 360,
+      "accuracy": 0.8126,
+      "true_rejected": 58,
+      "false_released": 25,
+      "uncertain": 70,
+      "uncertain_rate": 0.158,
+      "failed": 0
+     }
+    },
+    "all": {
+     "n": 443,
+     "gold_true": 368,
+     "gold_false": 75,
+     "right": 360,
+     "accuracy": 0.8126,
+     "true_recall": 0.8424,
+     "true_rejected": 58,
+     "false_release_rate": 0.3333,
+     "false_released": 25,
+     "uncertain": 70,
+     "uncertain_rate": 0.158,
+     "cross": {
+      "gold_true:true": 310,
+      "gold_true:false": 11,
+      "gold_true:uncertain": 47,
+      "gold_false:true": 25,
+      "gold_false:false": 27,
+      "gold_false:uncertain": 23
+     },
+     "coverage": 1.0,
+     "failed": 0,
+     "by_class": {
+      "车": {
+       "n": 306,
+       "gold_true": 292,
+       "gold_false": 14,
+       "right": 272,
+       "accuracy": 0.8889,
+       "true_recall": 0.9281,
+       "true_rejected": 21,
+       "false_release_rate": 0.9286,
+       "false_released": 13,
+       "uncertain": 21,
+       "uncertain_rate": 0.0686,
+       "cross": {
+        "gold_true:true": 271,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 21,
+        "gold_false:true": 13,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 0
+       }
+      },
+      "人员": {
+       "n": 60,
+       "gold_true": 24,
+       "gold_false": 36,
+       "right": 31,
+       "accuracy": 0.5167,
+       "true_recall": 0.0417,
+       "true_rejected": 23,
+       "false_release_rate": 0.1667,
+       "false_released": 6,
+       "uncertain": 33,
+       "uncertain_rate": 0.55,
+       "cross": {
+        "gold_true:true": 1,
+        "gold_true:false": 9,
+        "gold_true:uncertain": 14,
+        "gold_false:true": 6,
+        "gold_false:false": 11,
+        "gold_false:uncertain": 19
+       }
+      },
+      "违建": {
+       "n": 50,
+       "gold_true": 33,
+       "gold_false": 17,
+       "right": 41,
+       "accuracy": 0.82,
+       "true_recall": 0.7879,
+       "true_rejected": 7,
+       "false_release_rate": 0.1176,
+       "false_released": 2,
+       "uncertain": 7,
+       "uncertain_rate": 0.14,
+       "cross": {
+        "gold_true:true": 26,
+        "gold_true:false": 2,
+        "gold_true:uncertain": 5,
+        "gold_false:true": 2,
+        "gold_false:false": 13,
+        "gold_false:uncertain": 2
+       }
+      },
+      "两轮车": {
+       "n": 9,
+       "gold_true": 8,
+       "gold_false": 1,
+       "right": 4,
+       "accuracy": 0.4444,
+       "true_recall": 0.375,
+       "true_rejected": 5,
+       "false_release_rate": 0.0,
+       "false_released": 0,
+       "uncertain": 6,
+       "uncertain_rate": 0.6667,
+       "cross": {
+        "gold_true:true": 3,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 5,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 1
+       }
+      },
+      "光斑": {
+       "n": 5,
+       "gold_true": 3,
+       "gold_false": 2,
+       "right": 4,
+       "accuracy": 0.8,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": 0.5,
+       "false_released": 1,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 3,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 1,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 0
+       }
+      },
+      "光伏板": {
+       "n": 5,
+       "gold_true": 5,
+       "gold_false": 0,
+       "right": 5,
+       "accuracy": 1.0,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": null,
+       "false_released": 0,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 5,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      },
+      "卡车": {
+       "n": 4,
+       "gold_true": 1,
+       "gold_false": 3,
+       "right": 0,
+       "accuracy": 0.0,
+       "true_recall": 0.0,
+       "true_rejected": 1,
+       "false_release_rate": 1.0,
+       "false_released": 3,
+       "uncertain": 1,
+       "uncertain_rate": 0.25,
+       "cross": {
+        "gold_true:true": 0,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 1,
+        "gold_false:true": 3,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      },
+      "三轮车": {
+       "n": 3,
+       "gold_true": 1,
+       "gold_false": 2,
+       "right": 2,
+       "accuracy": 0.6667,
+       "true_recall": 0.0,
+       "true_rejected": 1,
+       "false_release_rate": 0.0,
+       "false_released": 0,
+       "uncertain": 2,
+       "uncertain_rate": 0.6667,
+       "cross": {
+        "gold_true:true": 0,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 1,
+        "gold_false:true": 0,
+        "gold_false:false": 1,
+        "gold_false:uncertain": 1
+       }
+      },
+      "没戴头盔": {
+       "n": 1,
+       "gold_true": 1,
+       "gold_false": 0,
+       "right": 1,
+       "accuracy": 1.0,
+       "true_recall": 1.0,
+       "true_rejected": 0,
+       "false_release_rate": null,
+       "false_released": 0,
+       "uncertain": 0,
+       "uncertain_rate": 0.0,
+       "cross": {
+        "gold_true:true": 1,
+        "gold_true:false": 0,
+        "gold_true:uncertain": 0,
+        "gold_false:true": 0,
+        "gold_false:false": 0,
+        "gold_false:uncertain": 0
+       }
+      }
+     },
+     "bootstrap": {
+      "iters": 1000,
+      "n_clusters": 131,
+      "n_boxes": 443,
+      "accuracy_ci95": [
+       0.734,
+       0.8724
+      ],
+      "accuracy_median": 0.8122,
+      "level": "image(unit)"
+     },
+     "bootstrap_group_known": {
+      "iters": 1000,
+      "n_clusters": 34,
+      "n_boxes": 275,
+      "accuracy_ci95": [
+       0.6872,
+       0.9098
+      ],
+      "accuracy_median": 0.8306,
+      "level": "group_known_subset",
+      "coverage": {
+       "units_covered": 71,
+       "units_total": 131,
+       "boxes_covered": 275,
+       "boxes_total": 443,
+       "groups": 34
+      }
+     }
+    }
+   },
+   "failed_units": [],
+   "units": 137,
+   "units_failed": 0,
+   "attempts": 137
+  }
+ },
+ "splits": {
+  "holdout": {
+   "n_labeled": 443
+  }
+ },
+ "official_crosscheck": [
+  {
+   "round": 1,
+   "split": "holdout",
+   "official_accuracy": 0.8194,
+   "recomputed_accuracy": 0.8194,
+   "match": true
+  },
+  {
+   "round": 2,
+   "split": "holdout",
+   "official_accuracy": 0.8126,
+   "recomputed_accuracy": 0.8126,
+   "match": true
+  }
+ ],
+ "cluster_meta": {
+  "image_level": "按图（unit）聚类；未解决同航次相关，不能用它证明泛化提升。",
+  "group_known_subset": "按已核实 task/航次哈希对可映射子集聚类；未知分组的图被排除，覆盖率见各轮 bootstrap_group_known.coverage。",
+  "grouping_provided": true
+ },
+ "round_comparison": {
+  "all": {
+   "compared": 443,
+   "raw_flips": 65,
+   "raw_flip_rate": 0.1467,
+   "decision_flips": 29,
+   "decision_flip_rate": 0.0655,
+   "r1_accuracy": 0.8194,
+   "r2_accuracy": 0.8126,
+   "common_coverage": {
+    "n_common": 443,
+    "n_r1": 443,
+    "n_r2": 443,
+    "n_denominator": 443,
+    "common_is_full": true,
+    "r1_accuracy_common": 0.8194,
+    "r2_accuracy_common": 0.8126
+   }
+  },
+  "holdout": {
+   "compared": 443,
+   "raw_flips": 65,
+   "raw_flip_rate": 0.1467,
+   "decision_flips": 29,
+   "decision_flip_rate": 0.0655,
+   "r1_accuracy": 0.8194,
+   "r2_accuracy": 0.8126,
+   "common_coverage": {
+    "n_common": 443,
+    "n_r1": 443,
+    "n_r2": 443,
+    "n_denominator": 443,
+    "common_is_full": true,
+    "r1_accuracy_common": 0.8194,
+    "r2_accuracy_common": 0.8126
+   }
+  }
+ },
+ "coverage": {
+  "all": {
+   "1": 1.0,
+   "2": 1.0
+  },
+  "holdout": {
+   "1": 1.0,
+   "2": 1.0
+  }
+ },
+ "all_failures": {
+  "1": [],
+  "2": []
+ }
+}

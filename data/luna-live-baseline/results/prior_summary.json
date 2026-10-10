@@ -1,0 +1,150 @@
+{
+ "attempts": 12,
+ "attempt_results": 12,
+ "orphan_results": 0,
+ "extra_attempts": 0,
+ "by_phase": {
+  "smoke-lost-keyerror": 2,
+  "smoke": 2,
+  "partial-full-scope": 8
+ },
+ "by_status": {
+  "client_keyerror_lost": 2,
+  "ok": 8,
+  "client_killed_lost": 2
+ },
+ "in_flight": [],
+ "failed": [
+  {
+   "phase": "smoke-lost-keyerror",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "client_keyerror_lost",
+   "unit_hash": "b9bad46736f0bdae"
+  },
+  {
+   "phase": "smoke-lost-keyerror",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "client_keyerror_lost",
+   "unit_hash": "ff6b506cd3995bdc"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "client_killed_lost",
+   "unit_hash": "9f9535b9b2f87f82"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "client_killed_lost",
+   "unit_hash": "43a9516ce6a4f0b9"
+  }
+ ],
+ "units_over_cap": [],
+ "calls": [
+  {
+   "phase": "smoke-lost-keyerror",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "client_keyerror_lost",
+   "unit_hash": "b9bad46736f0bdae"
+  },
+  {
+   "phase": "smoke-lost-keyerror",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "client_keyerror_lost",
+   "unit_hash": "ff6b506cd3995bdc"
+  },
+  {
+   "phase": "smoke",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "ok",
+   "unit_hash": "b9bad46736f0bdae"
+  },
+  {
+   "phase": "smoke",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "ok",
+   "unit_hash": "ff6b506cd3995bdc"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "ok",
+   "unit_hash": "b9bad46736f0bdae"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "ok",
+   "unit_hash": "ff6b506cd3995bdc"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "ok",
+   "unit_hash": "b349b51e9ea62c82"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "ok",
+   "unit_hash": "0be4cbfd4e4621fa"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "ok",
+   "unit_hash": "91f1e4857b93e485"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "ok",
+   "unit_hash": "84a7d7c62f176469"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "client_killed_lost",
+   "unit_hash": "9f9535b9b2f87f82"
+  },
+  {
+   "phase": "partial-full-scope",
+   "round": 0,
+   "attempt": 0,
+   "attempt_uid": null,
+   "status": "client_killed_lost",
+   "unit_hash": "43a9516ce6a4f0b9"
+  }
+ ]
+}

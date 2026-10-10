@@ -1,0 +1,94 @@
+{
+ "generated_by": "scripts/luna_live_baseline/extract_frozen.py",
+ "final_dataset": {
+  "repo": "yoloe-algorithm-service",
+  "branch": "feature/luna-class-prompt-release",
+  "commit": "85d10aea9963042cb62c766c616ff4d0d8760931",
+  "root": "data/luna-prompt-autotune-final-20261009"
+ },
+ "worker": {
+  "repo": "yoloe-algorithm-service",
+  "branch": "feature/luna-worker-failure-log",
+  "commit": "25a612f28403bed971db96430ab638508589b5f6",
+  "root": "scripts"
+ },
+ "official_metrics": {
+  "source": "data/luna-prompt-autotune-final-20261009/src/metrics.py",
+  "committed_copy": "scripts/luna_live_baseline/metrics_official.py",
+  "note": "评分口径与线上一致；复制为纯代码，便于计分复现。"
+ },
+ "files": {
+  "final/assets/labels.json": {
+   "source": "data/luna-prompt-autotune-final-20261009/assets/labels.json",
+   "sha256": "c990580379d13f4a6c84715ee80cf8620e74aa80ca1df8634923ddcf1b6e252d",
+   "expected": "c990580379d13f4a6c84715ee80cf8620e74aa80ca1df8634923ddcf1b6e252d",
+   "ok": true
+  },
+  "final/assets/items.json": {
+   "source": "data/luna-prompt-autotune-final-20261009/assets/items.json",
+   "sha256": "392e88ff8997dad71eb054973c4403921d36ec032cd3e0be4cea70871dcfbaa6",
+   "expected": "392e88ff8997dad71eb054973c4403921d36ec032cd3e0be4cea70871dcfbaa6",
+   "ok": true
+  },
+  "final/assets/build.json": {
+   "source": "data/luna-prompt-autotune-final-20261009/assets/build.json",
+   "sha256": "340b702740422c3902571aafc4900128cb756702bc5a5f74c553f1d8704c5fcc",
+   "expected": "340b702740422c3902571aafc4900128cb756702bc5a5f74c553f1d8704c5fcc",
+   "ok": true
+  },
+  "final/images-manifest.json": {
+   "source": "data/luna-prompt-autotune-final-20261009/images-manifest.json",
+   "sha256": "06b5e8ab6edd4967616853576f208f3c8d730c3e8e96234290d34db98226613b",
+   "expected": "06b5e8ab6edd4967616853576f208f3c8d730c3e8e96234290d34db98226613b",
+   "ok": true
+  },
+  "final/MANIFEST.sha256.json": {
+   "source": "data/luna-prompt-autotune-final-20261009/MANIFEST.sha256.json",
+   "sha256": "91efb439aa83fbe567f668884cdd2095e21b22dddc7d9a9ee816d0fdc11ff4fb",
+   "expected": "91efb439aa83fbe567f668884cdd2095e21b22dddc7d9a9ee816d0fdc11ff4fb",
+   "ok": true
+  },
+  "final/data/luna-prompt-autotune-final-20261009/state/prompts/p000.json": {
+   "source": "data/luna-prompt-autotune-final-20261009/state/prompts/p000.json",
+   "sha256": "0f265c686c73c751c545d440e3e3e5a1de7cc8206ca86c73e6710412f70e67e9"
+  },
+  "final/data/luna-prompt-autotune-final-20261009/state/prompts/p002.json": {
+   "source": "data/luna-prompt-autotune-final-20261009/state/prompts/p002.json",
+   "sha256": "8da46d8cf25ce51c92291e586561e0cedfa7c268dd3d03bb824f22e7366ffa45"
+  },
+  "worker/scripts/run_codex_luna_worker.py": {
+   "source": "scripts/run_codex_luna_worker.py",
+   "sha256": "b909136b16f0f357e58f9d3e221482e122195b34e7cec124bf0760aca59495e1",
+   "expected": "b909136b16f0f357e58f9d3e221482e122195b34e7cec124bf0760aca59495e1",
+   "ok": true
+  },
+  "worker/scripts/luna_prompts/p000.json": {
+   "source": "scripts/luna_prompts/p000.json",
+   "sha256": "0f265c686c73c751c545d440e3e3e5a1de7cc8206ca86c73e6710412f70e67e9",
+   "expected": "0f265c686c73c751c545d440e3e3e5a1de7cc8206ca86c73e6710412f70e67e9",
+   "ok": true
+  },
+  "worker/scripts/luna_prompts/p002.json": {
+   "source": "scripts/luna_prompts/p002.json",
+   "sha256": "8da46d8cf25ce51c92291e586561e0cedfa7c268dd3d03bb824f22e7366ffa45",
+   "expected": "8da46d8cf25ce51c92291e586561e0cedfa7c268dd3d03bb824f22e7366ffa45",
+   "ok": true
+  },
+  "worker/scripts/luna_prompts/card-road-crack-20261010.json": {
+   "source": "scripts/luna_prompts/card-road-crack-20261010.json",
+   "sha256": "4ca5e02a16b99071eaa87b8846bd2d3039518ea6c71587e241b1a0dcbf31539a",
+   "expected": "4ca5e02a16b99071eaa87b8846bd2d3039518ea6c71587e241b1a0dcbf31539a",
+   "ok": true
+  },
+  "final/data/luna-prompt-autotune-final-20261009/src/metrics.py": {
+   "source": "data/luna-prompt-autotune-final-20261009/src/metrics.py",
+   "sha256": "7ee33f847713ba11221db1f09d4b84327185c5d78c3678436f03fa952fdd9dd3",
+   "committed_copy": "scripts/luna_live_baseline/metrics_official.py",
+   "committed_copy_sha256": "7ee33f847713ba11221db1f09d4b84327185c5d78c3678436f03fa952fdd9dd3",
+   "committed_copy_matches": true
+  }
+ },
+ "all_expected_ok": true,
+ "private_dest": "data/luna-live-baseline/private/frozen",
+ "note": "items.json/labels.json/提示词等原始资料位于 self-gitignore 的 private/ 下，不入库。"
+}
