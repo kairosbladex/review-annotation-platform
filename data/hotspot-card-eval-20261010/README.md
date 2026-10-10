@@ -101,3 +101,7 @@ CLI 为用户指定 `/data/workspace/jzheng/codex-luna-review/bin/codex-0.162.0-
 - 360 次运行采样覆盖 15:18:20–15:49:12（UTC+8）。容器内存峰值约 1033MiB，自身 swap 始终为 0，主机可用内存最低 40.29%，主机换出计数未增加。细节见 `resource-summary.json` 和逐阶段资源日志。
 - 清理后共享 worker 仍返回 `p000-pure-class-cards`；共享算法容器为 healthy，启动时间仍为 `2026-10-08T08:28:13.245765359Z`，重启次数为 0。
 - 本次新建工作树 `/Users/wangxiaolin/PycharmProjects/review-annotation-platform-hotspot-card-eval`：最终提交推送并核验后移除，交付消息确认最终状态。原光斑标注工作树及其用户改动保留。仅另保留一份小型报告阅读副本，完整证据在 Git 分支中。
+
+## 后续第一步：口径核对
+
+用户授权先按修复建议操作后，已完成[业务定义与开发样本核对](definition-audit.md)，并保存[20 个开发框的已有判断](definition-audit.json)。未改卡、未改标签、未部署。既有定义仍限于组件表面局部亮斑，不扩大为阵列附近任意热源；仅将 false 改为 uncertain 不会改变当前“只有 true 放行”的业务结果。后续修订须使用新的独立最终复验集；原始失败评测、冻结文件及历史指标保持不变。
