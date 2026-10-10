@@ -1,0 +1,27 @@
+{
+ "unit": "da817960c3684f5890c08080da6ce3aa",
+ "success": true,
+ "results": [
+  {
+   "key": "da817960c3684f5890c08080da6ce3aa:000",
+   "raw": "false",
+   "reasoning": "候选框内主要为白色车道线和路面，未见符合道路裂纹类别的线性破损。",
+   "observed": "道路标线",
+   "limitation": "框内可见的是道路标线及其边缘，没有明确裂纹证据。"
+  },
+  {
+   "key": "da817960c3684f5890c08080da6ce3aa:001",
+   "raw": "false",
+   "reasoning": "未见清晰、连续的路面裂缝，不能将标线或接缝作为道路裂纹目标。",
+   "observed": "道路标线及路面",
+   "limitation": "框内可见道路标线、路面接缝或阴影，裂纹特征不明确。"
+  }
+ ],
+ "elapsed": 18.19,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 18.16
+  }
+ ]
+}

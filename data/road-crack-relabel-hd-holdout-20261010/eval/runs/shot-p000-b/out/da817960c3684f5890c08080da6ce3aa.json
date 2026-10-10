@@ -1,0 +1,27 @@
+{
+ "unit": "da817960c3684f5890c08080da6ce3aa",
+ "success": true,
+ "results": [
+  {
+   "key": "da817960c3684f5890c08080da6ce3aa:000",
+   "raw": "true",
+   "reasoning": "框内目标位于车行道路面，能直接看到明显的裂纹/破损形态，框线和文字不作为判断依据。",
+   "observed": "候选框内可见道路表面裂纹状线性破损，符合道路裂纹类别。",
+   "limitation": ""
+  },
+  {
+   "key": "da817960c3684f5890c08080da6ce3aa:001",
+   "raw": "true",
+   "reasoning": "框内目标位于车行道路面，存在清晰的裂纹/破损痕迹，符合道路裂纹类别。",
+   "observed": "候选框内可见道路表面横向裂纹状破损。",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 14.85,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 14.84
+  }
+ ]
+}

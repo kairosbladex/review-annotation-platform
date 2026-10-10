@@ -1,0 +1,27 @@
+{
+ "unit": "da817960c3684f5890c08080da6ce3aa",
+ "success": true,
+ "results": [
+  {
+   "key": "da817960c3684f5890c08080da6ce3aa:000",
+   "raw": "uncertain",
+   "reasoning": "不能仅凭框线或文字判断道路裂纹，当前图像中裂纹特征不明确。",
+   "observed": "道路区域",
+   "limitation": "候选框内仅见道路及框线，裂纹细节无法清晰确认。"
+  },
+  {
+   "key": "da817960c3684f5890c08080da6ce3aa:001",
+   "raw": "uncertain",
+   "reasoning": "未能清晰看到连续、明确的道路裂纹结构，因此不能判定符合道路裂纹类别。",
+   "observed": "道路区域",
+   "limitation": "候选框内道路细节分辨率不足，无法唯一确认裂纹。"
+  }
+ ],
+ "elapsed": 15.51,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.48
+  }
+ ]
+}

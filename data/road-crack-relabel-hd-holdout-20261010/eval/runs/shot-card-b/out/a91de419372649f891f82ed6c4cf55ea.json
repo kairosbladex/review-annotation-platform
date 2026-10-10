@@ -1,0 +1,27 @@
+{
+ "unit": "a91de419372649f891f82ed6c4cf55ea",
+ "success": true,
+ "results": [
+  {
+   "key": "a91de419372649f891f82ed6c4cf55ea:000",
+   "raw": "uncertain",
+   "reasoning": "未能清晰看到符合道路裂纹特征的细深色线，不能将标注或路面纹理作为目标证据。",
+   "observed": "道路沥青路面及标注框",
+   "limitation": "框内路面细节分辨率有限，且有红色标注文字和框线干扰，无法唯一确认深色裂缝。"
+  },
+  {
+   "key": "a91de419372649f891f82ed6c4cf55ea:001",
+   "raw": "uncertain",
+   "reasoning": "无法确认框内是否存在比路面更深的细线，因此不能明确判定为道路裂纹。",
+   "observed": "道路沥青路面及标注框",
+   "limitation": "框内存在车辆、标注文字和框线干扰，路面裂缝细节无法清晰辨认。"
+  }
+ ],
+ "elapsed": 69.63,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 69.61
+  }
+ ]
+}

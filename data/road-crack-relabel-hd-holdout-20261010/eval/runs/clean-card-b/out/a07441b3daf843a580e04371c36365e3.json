@@ -1,0 +1,27 @@
+{
+ "unit": "a07441b3daf843a580e04371c36365e3",
+ "success": true,
+ "results": [
+  {
+   "key": "a07441b3daf843a580e04371c36365e3:000",
+   "raw": "uncertain",
+   "reasoning": "候选框位于道路表面，但目标区域分辨率不足，不能排除阴影、接缝或其他非裂纹线条。",
+   "observed": "疑似路面暗色线状痕迹",
+   "limitation": "框内路面细节模糊，且存在树影或阴影干扰，无法唯一确认道路裂纹。"
+  },
+  {
+   "key": "a07441b3daf843a580e04371c36365e3:001",
+   "raw": "uncertain",
+   "reasoning": "仅凭当前图像不能明确确认是沥青路面本身的开裂。",
+   "observed": "疑似路面线状痕迹",
+   "limitation": "框内区域较小且受模糊和阴影影响，无法清晰辨认细深色裂缝。"
+  }
+ ],
+ "elapsed": 14.68,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 14.65
+  }
+ ]
+}

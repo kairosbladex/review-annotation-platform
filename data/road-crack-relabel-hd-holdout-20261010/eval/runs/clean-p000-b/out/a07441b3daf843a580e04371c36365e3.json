@@ -1,0 +1,27 @@
+{
+ "unit": "a07441b3daf843a580e04371c36365e3",
+ "success": true,
+ "results": [
+  {
+   "key": "a07441b3daf843a580e04371c36365e3:000",
+   "raw": "uncertain",
+   "reasoning": "候选框内缺乏清晰、连续的裂纹结构证据，按要求无法确认。",
+   "observed": "道路表面疑似有暗色纹理，但无法唯一判断为裂纹。",
+   "limitation": "框内区域较暗且模糊，未能清晰确认是否存在道路裂纹。"
+  },
+  {
+   "key": "a07441b3daf843a580e04371c36365e3:001",
+   "raw": "uncertain",
+   "reasoning": "未能清楚观察到符合道路裂纹定义的结构，因此不能判定为true或false。",
+   "observed": "道路表面疑似存在线状痕迹，但无法确认其性质。",
+   "limitation": "框内区域被树影和低清晰度影响，细节不可辨。"
+  }
+ ],
+ "elapsed": 14.92,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 14.89
+  }
+ ]
+}

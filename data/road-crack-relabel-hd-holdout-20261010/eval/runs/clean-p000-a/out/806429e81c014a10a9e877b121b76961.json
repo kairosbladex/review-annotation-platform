@@ -1,0 +1,55 @@
+{
+ "unit": "806429e81c014a10a9e877b121b76961",
+ "success": true,
+ "results": [
+  {
+   "key": "806429e81c014a10a9e877b121b76961:000",
+   "raw": "true",
+   "reasoning": "框内可见道路沥青上的线状破裂，符合道路裂纹类别。",
+   "observed": "道路表面存在细长不规则裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:001",
+   "raw": "uncertain",
+   "reasoning": "不能排除标线或纹理造成的误判，证据不足。",
+   "observed": "道路区域及标线",
+   "limitation": "框内主要被道路标线和树影影响，未能唯一确认裂纹"
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:002",
+   "raw": "uncertain",
+   "reasoning": "无法清晰确认是否为道路裂纹。",
+   "observed": "道路表面局部纹理",
+   "limitation": "框内细节较小且受树冠遮挡"
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:003",
+   "raw": "uncertain",
+   "reasoning": "未能唯一定位并确认裂纹。",
+   "observed": "道路表面局部区域",
+   "limitation": "框内区域细节不足并接近树木遮挡处"
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:004",
+   "raw": "uncertain",
+   "reasoning": "无法判断是裂纹还是道路接缝/标线。",
+   "observed": "道路中线附近表面",
+   "limitation": "框内包含道路中线及疑似接缝，细节不清"
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:005",
+   "raw": "uncertain",
+   "reasoning": "看不清是否存在符合定义的道路裂纹。",
+   "observed": "道路表面局部区域",
+   "limitation": "框内受树木遮挡且目标过小"
+  }
+ ],
+ "elapsed": 17.28,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 17.24
+  }
+ ]
+}

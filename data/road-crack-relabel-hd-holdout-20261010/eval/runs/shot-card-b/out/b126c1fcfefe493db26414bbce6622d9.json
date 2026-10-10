@@ -1,0 +1,48 @@
+{
+ "unit": "b126c1fcfefe493db26414bbce6622d9",
+ "success": true,
+ "results": [
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:000",
+   "raw": "true",
+   "reasoning": "框内可见道路表面存在比周围路面更深的细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:001",
+   "raw": "true",
+   "reasoning": "框内可见路面上的深色细线，不是车道标线，符合道路裂纹。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:002",
+   "raw": "true",
+   "reasoning": "框内可见横向深色细线，位于沥青路面上，符合道路裂纹。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:003",
+   "raw": "uncertain",
+   "reasoning": "不能排除标注遮挡了真实裂纹，证据不足。",
+   "observed": "道路路面及红色标注",
+   "limitation": "框内区域较小且被红色文字和框线遮挡，无法确认是否存在路面深色裂纹。"
+  },
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:004",
+   "raw": "uncertain",
+   "reasoning": "无法确认框内是否有符合定义的深色细线。",
+   "observed": "道路路面及红色标注",
+   "limitation": "框内主要被红色文字覆盖，路面细节不足以唯一判断。"
+  }
+ ],
+ "elapsed": 59.91,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 59.88
+  }
+ ]
+}

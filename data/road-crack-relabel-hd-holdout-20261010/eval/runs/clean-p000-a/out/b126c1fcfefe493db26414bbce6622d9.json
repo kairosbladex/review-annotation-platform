@@ -1,0 +1,48 @@
+{
+ "unit": "b126c1fcfefe493db26414bbce6622d9",
+ "success": true,
+ "results": [
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:000",
+   "raw": "false",
+   "reasoning": "候选框未显示道路裂纹，不能以框线或标线作为目标证据。",
+   "observed": "道路标线及完整路面",
+   "limitation": "框内主要是车道标线和路面，未见明显裂纹。"
+  },
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:001",
+   "raw": "false",
+   "reasoning": "未见符合道路裂纹定义的线状破损。",
+   "observed": "车道标线及路面",
+   "limitation": "框内路面清晰可见。"
+  },
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:002",
+   "raw": "false",
+   "reasoning": "未见明显道路裂纹，只有正常路面纹理和标线。",
+   "observed": "车道标线及路面",
+   "limitation": "框内路面清晰可见。"
+  },
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:003",
+   "raw": "false",
+   "reasoning": "未发现道路裂纹证据。",
+   "observed": "车道标线及路面",
+   "limitation": "框内路面部分清晰可见。"
+  },
+  {
+   "key": "b126c1fcfefe493db26414bbce6622d9:004",
+   "raw": "false",
+   "reasoning": "未见道路裂纹，候选框主要覆盖标线和正常路面。",
+   "observed": "车道标线及路面",
+   "limitation": "框内路面清晰可见。"
+  }
+ ],
+ "elapsed": 17.95,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 17.91
+  }
+ ]
+}

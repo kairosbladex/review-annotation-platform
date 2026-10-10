@@ -1,0 +1,34 @@
+{
+ "unit": "3aa906ae07dd4e5fa61528496fba01c5",
+ "success": true,
+ "results": [
+  {
+   "key": "3aa906ae07dd4e5fa61528496fba01c5:000",
+   "raw": "uncertain",
+   "reasoning": "不能将框线或文字作为道路裂纹证据，剩余区域不足以唯一判断。",
+   "observed": "道路路面及红色标注框",
+   "limitation": "框内主要被红色标注文字和框线遮挡，无法清楚确认路面是否存在深色裂缝。"
+  },
+  {
+   "key": "3aa906ae07dd4e5fa61528496fba01c5:001",
+   "raw": "uncertain",
+   "reasoning": "无法排除标注遮挡下存在或不存在道路裂纹，因此不能明确判定。",
+   "observed": "道路路面及红色标注文字",
+   "limitation": "框内有红色文字覆盖，路面细节分辨不清。"
+  },
+  {
+   "key": "3aa906ae07dd4e5fa61528496fba01c5:002",
+   "raw": "uncertain",
+   "reasoning": "框线和文字不构成目标证据，剩余可见路面不足以确认道路裂纹。",
+   "observed": "道路路面及红色标注框",
+   "limitation": "候选框很小且被红色文字和框线覆盖，无法辨认路面细线。"
+  }
+ ],
+ "elapsed": 23.1,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 23.07
+  }
+ ]
+}

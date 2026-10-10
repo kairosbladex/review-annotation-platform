@@ -1,0 +1,27 @@
+{
+ "unit": "a91de419372649f891f82ed6c4cf55ea",
+ "success": true,
+ "results": [
+  {
+   "key": "a91de419372649f891f82ed6c4cf55ea:000",
+   "raw": "uncertain",
+   "reasoning": "框内主要可见道路标线和均匀路面，未能清晰辨认符合道路裂纹定义的深色细线。",
+   "observed": "沥青道路及道路标线",
+   "limitation": "框内路面细节分辨率有限，无法唯一确认是否存在深色细裂纹。"
+  },
+  {
+   "key": "a91de419372649f891f82ed6c4cf55ea:001",
+   "raw": "uncertain",
+   "reasoning": "未清晰看到区别于车道标线的深色细裂纹，不能据此判定为道路裂纹。",
+   "observed": "沥青道路及道路标线",
+   "limitation": "框内路面细节分辨率有限，且有道路标线干扰，无法确认是否存在裂纹。"
+  }
+ ],
+ "elapsed": 15.16,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.13
+  }
+ ]
+}

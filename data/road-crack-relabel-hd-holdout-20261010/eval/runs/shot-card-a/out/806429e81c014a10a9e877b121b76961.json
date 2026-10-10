@@ -1,0 +1,55 @@
+{
+ "unit": "806429e81c014a10a9e877b121b76961",
+ "success": true,
+ "results": [
+  {
+   "key": "806429e81c014a10a9e877b121b76961:000",
+   "raw": "true",
+   "reasoning": "框内可见比周围路面更深的横向细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:001",
+   "raw": "true",
+   "reasoning": "框内可见路面上的深色横向细线，符合道路裂纹。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:002",
+   "raw": "uncertain",
+   "reasoning": "无法排除标注遮挡或其他路面线条，不能唯一确认道路裂纹。",
+   "observed": "疑似路面横向线状痕迹",
+   "limitation": "框内区域较小且被红色标注文字和框线影响，裂纹细节无法可靠辨认。"
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:003",
+   "raw": "uncertain",
+   "reasoning": "看不清是否为比路面更深的裂纹，无法确认。",
+   "observed": "疑似路面线状痕迹",
+   "limitation": "目标框过小，路面细节分辨不足。"
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:004",
+   "raw": "uncertain",
+   "reasoning": "无法可靠判断是否为道路本身的深色裂缝。",
+   "observed": "疑似路面线状痕迹",
+   "limitation": "目标框很小且受红色文字、框线及树木遮挡影响。"
+  },
+  {
+   "key": "806429e81c014a10a9e877b121b76961:005",
+   "raw": "uncertain",
+   "reasoning": "细节不足以排除标线、接缝或标注干扰，不能确认。",
+   "observed": "疑似路面横向线状痕迹",
+   "limitation": "框内目标较小，标注文字覆盖邻近区域。"
+  }
+ ],
+ "elapsed": 20.87,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 20.85
+  }
+ ]
+}

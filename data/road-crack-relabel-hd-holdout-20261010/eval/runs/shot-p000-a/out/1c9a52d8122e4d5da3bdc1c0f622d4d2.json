@@ -1,0 +1,41 @@
+{
+ "unit": "1c9a52d8122e4d5da3bdc1c0f622d4d2",
+ "success": true,
+ "results": [
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:000",
+   "raw": "true",
+   "reasoning": "候选框内可见道路表面横向裂缝，符合道路裂纹类别。",
+   "observed": "道路裂纹",
+   "limitation": "清晰可见框内横向道路裂纹。"
+  },
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:001",
+   "raw": "true",
+   "reasoning": "候选框内可见道路表面横向裂缝，符合道路裂纹类别。",
+   "observed": "道路裂纹",
+   "limitation": "清晰可见框内横向道路裂纹。"
+  },
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:002",
+   "raw": "uncertain",
+   "reasoning": "无法排除道路标线、阴影或其他路面细节，不能唯一确认。",
+   "observed": "疑似道路裂纹",
+   "limitation": "框内区域较小且被树木遮挡，裂纹无法清晰确认。"
+  },
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:003",
+   "raw": "true",
+   "reasoning": "候选框内可见横向路面裂纹，符合道路裂纹类别。",
+   "observed": "道路裂纹",
+   "limitation": "可见框内道路表面的横向裂纹。"
+  }
+ ],
+ "elapsed": 25.21,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 25.19
+  }
+ ]
+}

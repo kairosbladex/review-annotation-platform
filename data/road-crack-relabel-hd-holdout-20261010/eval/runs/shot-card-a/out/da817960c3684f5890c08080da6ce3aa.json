@@ -1,0 +1,27 @@
+{
+ "unit": "da817960c3684f5890c08080da6ce3aa",
+ "success": true,
+ "results": [
+  {
+   "key": "da817960c3684f5890c08080da6ce3aa:000",
+   "raw": "uncertain",
+   "reasoning": "不能仅凭框线或文字判断道路裂纹，当前图像细节不足以唯一确认。",
+   "observed": "道路路面及标注框",
+   "limitation": "框内区域较小且被红色标注文字、框线及道路细节干扰，无法可靠确认路面本身是否存在深色裂缝。"
+  },
+  {
+   "key": "da817960c3684f5890c08080da6ce3aa:001",
+   "raw": "uncertain",
+   "reasoning": "缺少清晰可见的路面裂缝证据，因此不能明确判定为道路裂纹。",
+   "observed": "道路路面及标注框",
+   "limitation": "框内路面细节较模糊，红色标注框和文字造成遮挡，无法排除或确认细小深色裂缝。"
+  }
+ ],
+ "elapsed": 18.28,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 18.26
+  }
+ ]
+}

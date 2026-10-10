@@ -1,0 +1,41 @@
+{
+ "unit": "1c9a52d8122e4d5da3bdc1c0f622d4d2",
+ "success": true,
+ "results": [
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:000",
+   "raw": "true",
+   "reasoning": "框内可见比周围路面更深的横向细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的横向深色细线",
+   "limitation": ""
+  },
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:001",
+   "raw": "true",
+   "reasoning": "框内可见路面本身的深色横向细线，符合道路裂纹。",
+   "observed": "沥青路面上的横向深色细线",
+   "limitation": ""
+  },
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:002",
+   "raw": "uncertain",
+   "reasoning": "无法清晰辨认目标是否为比路面更深的细裂纹。",
+   "observed": "路面局部标注区域",
+   "limitation": "框内目标过小且被树影、文字及标注遮挡，无法确认是否为路面裂纹。"
+  },
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:003",
+   "raw": "uncertain",
+   "reasoning": "不能唯一确认框内线条是道路裂纹而非阴影或其他线条。",
+   "observed": "沥青路面局部",
+   "limitation": "框内细节较小并受树影和文字遮挡，裂纹形态无法确认。"
+  }
+ ],
+ "elapsed": 45.09,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 45.07
+  }
+ ]
+}

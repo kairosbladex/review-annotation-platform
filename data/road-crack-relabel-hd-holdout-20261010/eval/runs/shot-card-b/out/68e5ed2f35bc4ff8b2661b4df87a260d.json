@@ -1,0 +1,48 @@
+{
+ "unit": "68e5ed2f35bc4ff8b2661b4df87a260d",
+ "success": true,
+ "results": [
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:000",
+   "raw": "true",
+   "reasoning": "框内可见路面本身存在比周围更深的横向细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的横向深色细线",
+   "limitation": ""
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:001",
+   "raw": "true",
+   "reasoning": "框内可见路面本身存在明显的横向深色细线，符合道路裂纹。",
+   "observed": "沥青路面上的横向深色细线",
+   "limitation": ""
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:002",
+   "raw": "uncertain",
+   "reasoning": "无法排除标线、阴影或其他线状结构，证据不足。",
+   "observed": "疑似路面横向线状目标",
+   "limitation": "框内目标较小且受树木、标注文字及分辨率影响，无法清楚确认是否为路面裂纹。"
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:003",
+   "raw": "true",
+   "reasoning": "框内可见路面本身有较深的横向细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的横向深色细线",
+   "limitation": ""
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:004",
+   "raw": "uncertain",
+   "reasoning": "不能唯一确认是道路路面开裂，按要求判定为uncertain。",
+   "observed": "疑似路面横向线状目标",
+   "limitation": "框内目标很小，且被红色文字和植被边缘干扰，裂纹细节不可清晰辨认。"
+  }
+ ],
+ "elapsed": 47.16,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 47.14
+  }
+ ]
+}

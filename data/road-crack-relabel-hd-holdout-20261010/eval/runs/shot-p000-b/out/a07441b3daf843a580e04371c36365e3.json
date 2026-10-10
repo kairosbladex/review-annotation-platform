@@ -1,0 +1,27 @@
+{
+ "unit": "a07441b3daf843a580e04371c36365e3",
+ "success": true,
+ "results": [
+  {
+   "key": "a07441b3daf843a580e04371c36365e3:000",
+   "raw": "true",
+   "reasoning": "候选框位于道路表面，框内可见与道路裂纹相符的线性破损，不依赖框线或文字判断。",
+   "observed": "道路表面可见细长不规则裂缝区域",
+   "limitation": ""
+  },
+  {
+   "key": "a07441b3daf843a580e04371c36365e3:001",
+   "raw": "true",
+   "reasoning": "候选框位于道路表面，框内可见与道路裂纹相符的线性破损，目标类别明确符合。",
+   "observed": "道路表面可见细长裂缝区域",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 29.37,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 29.35
+  }
+ ]
+}

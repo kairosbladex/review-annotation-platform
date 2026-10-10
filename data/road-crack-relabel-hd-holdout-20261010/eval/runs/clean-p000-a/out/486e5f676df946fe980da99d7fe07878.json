@@ -1,0 +1,20 @@
+{
+ "unit": "486e5f676df946fe980da99d7fe07878",
+ "success": true,
+ "results": [
+  {
+   "key": "486e5f676df946fe980da99d7fe07878:000",
+   "raw": "false",
+   "reasoning": "候选框内没有清晰、连续且符合道路裂纹特征的破损线条，因此不符合道路裂纹类别。",
+   "observed": "道路车道线及路面接缝",
+   "limitation": "框内道路表面可见车道线和阴影/接缝，未见明确裂纹形态。"
+  }
+ ],
+ "elapsed": 42.96,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 42.92
+  }
+ ]
+}

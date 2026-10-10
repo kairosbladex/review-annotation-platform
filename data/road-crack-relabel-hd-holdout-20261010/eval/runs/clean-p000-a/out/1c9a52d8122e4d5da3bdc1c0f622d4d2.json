@@ -1,0 +1,41 @@
+{
+ "unit": "1c9a52d8122e4d5da3bdc1c0f622d4d2",
+ "success": true,
+ "results": [
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:000",
+   "raw": "false",
+   "reasoning": "候选框内主要为横向白色道路标线，未发现明确的路面裂纹。",
+   "observed": "道路标线",
+   "limitation": "清晰可见，框内是道路标线或其附近区域，未见裂纹。"
+  },
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:001",
+   "raw": "uncertain",
+   "reasoning": "无法唯一确认框内是否存在道路裂纹，依据不足。",
+   "observed": "道路及树木遮挡区域",
+   "limitation": "框内区域部分被树木和道路纹理干扰，裂纹特征不清晰。"
+  },
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:002",
+   "raw": "false",
+   "reasoning": "候选框内呈现明显的白色道路标线，不符合道路裂纹类别。",
+   "observed": "道路标线",
+   "limitation": "清晰可见，框内是道路标线或其附近区域，未见裂纹。"
+  },
+  {
+   "key": "1c9a52d8122e4d5da3bdc1c0f622d4d2:003",
+   "raw": "uncertain",
+   "reasoning": "未能清楚辨认连续、明确的道路裂纹，无法确定。",
+   "observed": "道路及树木遮挡区域",
+   "limitation": "框内包含道路边缘及树木遮挡，路面细节不足。"
+  }
+ ],
+ "elapsed": 21.65,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 21.59
+  }
+ ]
+}

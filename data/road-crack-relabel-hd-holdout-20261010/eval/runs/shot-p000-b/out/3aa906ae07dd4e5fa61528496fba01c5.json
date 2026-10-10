@@ -1,0 +1,34 @@
+{
+ "unit": "3aa906ae07dd4e5fa61528496fba01c5",
+ "success": true,
+ "results": [
+  {
+   "key": "3aa906ae07dd4e5fa61528496fba01c5:000",
+   "raw": "true",
+   "reasoning": "候选框位于道路区域，框内可见与道路裂纹类别相符的横向异常，不依赖框线或文字判断。",
+   "observed": "道路表面存在横向裂纹或修补痕迹",
+   "limitation": ""
+  },
+  {
+   "key": "3aa906ae07dd4e5fa61528496fba01c5:001",
+   "raw": "uncertain",
+   "reasoning": "无法排除框线、文字或道路标线造成的视觉干扰，不能明确确认道路裂纹。",
+   "observed": "道路区域",
+   "limitation": "候选框较小，且受文字和框线遮挡，裂纹结构无法清晰确认。"
+  },
+  {
+   "key": "3aa906ae07dd4e5fa61528496fba01c5:002",
+   "raw": "uncertain",
+   "reasoning": "无法清晰辨认真实道路裂纹，不能仅凭现有图像确认类别。",
+   "observed": "道路区域",
+   "limitation": "候选框很小，目标细节不足，并受到标注文字和框线影响。"
+  }
+ ],
+ "elapsed": 35.41,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 35.39
+  }
+ ]
+}

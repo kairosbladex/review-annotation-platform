@@ -1,0 +1,55 @@
+{
+ "unit": "c6ba866e9d7f4b3794f3910113b03f1b",
+ "success": true,
+ "results": [
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:000",
+   "raw": "uncertain",
+   "reasoning": "不能把框线或文字当作目标证据，框内未见可唯一确认的裂纹。",
+   "observed": "道路区域及标注框",
+   "limitation": "框内主要是红色标注框，未能清晰确认道路裂纹本体。"
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:001",
+   "raw": "uncertain",
+   "reasoning": "缺乏明确的道路裂纹视觉证据。",
+   "observed": "道路区域及标注框",
+   "limitation": "框内主要是红色标注框，裂纹细节不可清晰辨认。"
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:002",
+   "raw": "uncertain",
+   "reasoning": "不能仅依据标注框判断类别。",
+   "observed": "道路区域及标注框",
+   "limitation": "候选框较小且被标注覆盖，无法确认裂纹。"
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:003",
+   "raw": "uncertain",
+   "reasoning": "未能清楚观察到道路裂纹本体。",
+   "observed": "道路区域及标注框",
+   "limitation": "框内目标细节不足，红色文字和框线造成遮挡。"
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:004",
+   "raw": "uncertain",
+   "reasoning": "证据不足，不能唯一确认道路裂纹。",
+   "observed": "道路区域及标注框",
+   "limitation": "候选框很小，无法辨认是否存在裂纹。"
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:005",
+   "raw": "uncertain",
+   "reasoning": "未见足以明确判定为道路裂纹的结构。",
+   "observed": "道路区域及标注框",
+   "limitation": "框内细节不清晰且有标注遮挡。"
+  }
+ ],
+ "elapsed": 39.03,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 39.0
+  }
+ ]
+}

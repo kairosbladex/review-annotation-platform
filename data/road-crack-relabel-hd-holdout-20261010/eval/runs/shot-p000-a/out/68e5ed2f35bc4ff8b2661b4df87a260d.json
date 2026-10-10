@@ -1,0 +1,48 @@
+{
+ "unit": "68e5ed2f35bc4ff8b2661b4df87a260d",
+ "success": true,
+ "results": [
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:000",
+   "raw": "true",
+   "reasoning": "框内道路上能看到与标注位置对应的明显横向裂纹，符合道路裂纹类别。",
+   "observed": "道路表面可见横向裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:001",
+   "raw": "true",
+   "reasoning": "框内道路上可见细长横向裂纹，符合道路裂纹类别。",
+   "observed": "道路表面可见横向裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:002",
+   "raw": "uncertain",
+   "reasoning": "可见区域有限，不能唯一确认裂纹结构。",
+   "observed": "疑似道路表面异常",
+   "limitation": "框内目标过小且被树木和标注文字部分遮挡，无法清晰确认是否为道路裂纹。"
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:003",
+   "raw": "true",
+   "reasoning": "框内可见道路上的横向裂纹，位置与候选框一致。",
+   "observed": "道路表面可见横向裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:004",
+   "raw": "uncertain",
+   "reasoning": "无法仅凭框内清晰证据确认是道路裂纹。",
+   "observed": "疑似道路表面异常",
+   "limitation": "目标尺寸很小，且受树木和红色文字干扰，裂纹细节不清楚。"
+  }
+ ],
+ "elapsed": 20.45,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 20.42
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "unit": "68e5ed2f35bc4ff8b2661b4df87a260d",
+ "success": true,
+ "results": [
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:000",
+   "raw": "true",
+   "reasoning": "框内可见明显的细长不规则裂缝，符合道路裂纹类别。",
+   "observed": "道路裂纹",
+   "limitation": "可清楚看到框内道路表面存在线状裂纹。"
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:001",
+   "raw": "true",
+   "reasoning": "可见横向及斜向细线状裂缝，属于道路表面裂纹。",
+   "observed": "道路裂纹",
+   "limitation": "框内道路纹理清晰可辨。"
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:002",
+   "raw": "uncertain",
+   "reasoning": "无法唯一确认框内线条是裂纹还是道路标线/纹理。",
+   "observed": "疑似道路表面线条",
+   "limitation": "候选框较小且受道路标线和分辨率影响，裂纹特征不清晰。"
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:003",
+   "raw": "true",
+   "reasoning": "可见明显不规则线状裂缝，符合道路裂纹。",
+   "observed": "道路裂纹",
+   "limitation": "框内路面细节可辨。"
+  },
+  {
+   "key": "68e5ed2f35bc4ff8b2661b4df87a260d:004",
+   "raw": "uncertain",
+   "reasoning": "无法清晰区分裂纹与路面标线或其他纹理。",
+   "observed": "疑似道路表面线条",
+   "limitation": "框内区域较小，细节不足。"
+  }
+ ],
+ "elapsed": 16.13,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 16.08
+  }
+ ]
+}

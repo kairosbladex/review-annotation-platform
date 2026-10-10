@@ -1,0 +1,55 @@
+{
+ "unit": "28b582444b8c48a18a59237aeefaa569",
+ "success": true,
+ "results": [
+  {
+   "key": "28b582444b8c48a18a59237aeefaa569:000",
+   "raw": "true",
+   "reasoning": "框内可见路面本身有明显深色细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的深色细裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "28b582444b8c48a18a59237aeefaa569:001",
+   "raw": "false",
+   "reasoning": "框内主要是均匀路面及浅色路面线条，未见明确深色裂纹。",
+   "observed": "沥青路面",
+   "limitation": ""
+  },
+  {
+   "key": "28b582444b8c48a18a59237aeefaa569:002",
+   "raw": "true",
+   "reasoning": "框内可见不与车道线重合的深色细裂纹。",
+   "observed": "沥青路面上的深色裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "28b582444b8c48a18a59237aeefaa569:003",
+   "raw": "true",
+   "reasoning": "框内可见路面本身的深色横向细裂纹。",
+   "observed": "沥青路面上的深色细裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "28b582444b8c48a18a59237aeefaa569:004",
+   "raw": "uncertain",
+   "reasoning": "无法清晰辨认出符合定义的道路裂纹。",
+   "observed": "建筑边缘附近的浅色区域",
+   "limitation": "框内区域较小且部分细节不清，无法唯一确认是否为路面裂纹。"
+  },
+  {
+   "key": "28b582444b8c48a18a59237aeefaa569:005",
+   "raw": "false",
+   "reasoning": "框内不是道路沥青路面，未发现道路裂纹目标。",
+   "observed": "水泥屋面",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 16.12,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 16.08
+  }
+ ]
+}

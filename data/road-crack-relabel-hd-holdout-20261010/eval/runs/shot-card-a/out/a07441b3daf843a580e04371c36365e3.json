@@ -1,0 +1,27 @@
+{
+ "unit": "a07441b3daf843a580e04371c36365e3",
+ "success": true,
+ "results": [
+  {
+   "key": "a07441b3daf843a580e04371c36365e3:000",
+   "raw": "true",
+   "reasoning": "排除框线和文字后，候选框内仍能看到路面本身的深色裂缝。",
+   "observed": "框内沥青路面可见一条较深色的横向细线，符合道路裂纹特征。",
+   "limitation": ""
+  },
+  {
+   "key": "a07441b3daf843a580e04371c36365e3:001",
+   "raw": "true",
+   "reasoning": "排除框线和文字后，候选框内可见路面本身的深色细线，符合道路裂纹定义。",
+   "observed": "框内沥青路面可见一条较深色的横向细线，符合道路裂纹特征。",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 15.65,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.63
+  }
+ ]
+}

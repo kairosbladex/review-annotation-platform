@@ -1,0 +1,34 @@
+{
+ "unit": "3aa906ae07dd4e5fa61528496fba01c5",
+ "success": true,
+ "results": [
+  {
+   "key": "3aa906ae07dd4e5fa61528496fba01c5:000",
+   "raw": "false",
+   "reasoning": "框内目标呈规则、连续的白色矩形线条，边缘清晰，明显属于车道标线而非道路裂纹。",
+   "observed": "道路标线",
+   "limitation": "候选框内可见的是道路上的横向白色标线，不是裂纹。"
+  },
+  {
+   "key": "3aa906ae07dd4e5fa61528496fba01c5:001",
+   "raw": "false",
+   "reasoning": "框内为规则的白色横向标线，形状和颜色均符合交通标线特征，不符合道路裂纹。",
+   "observed": "道路标线",
+   "limitation": "候选框内可见的是道路上的横向白色标线，不是裂纹。"
+  },
+  {
+   "key": "3aa906ae07dd4e5fa61528496fba01c5:002",
+   "raw": "false",
+   "reasoning": "框内显示短而规则的白色道路标线，不是自然形成的不规则裂纹。",
+   "observed": "道路标线",
+   "limitation": "候选框内可见的是道路上的横向白色标线，不是裂纹。"
+  }
+ ],
+ "elapsed": 18.19,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 18.14
+  }
+ ]
+}

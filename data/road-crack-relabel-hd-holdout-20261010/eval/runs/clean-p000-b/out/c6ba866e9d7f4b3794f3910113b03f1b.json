@@ -1,0 +1,55 @@
+{
+ "unit": "c6ba866e9d7f4b3794f3910113b03f1b",
+ "success": true,
+ "results": [
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:000",
+   "raw": "true",
+   "reasoning": "候选框内能看到道路上的线状裂纹，符合道路裂纹类别。",
+   "observed": "道路表面可见细长裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:001",
+   "raw": "uncertain",
+   "reasoning": "痕迹不够清晰，不能唯一确认是道路裂纹。",
+   "observed": "道路表面线状痕迹",
+   "limitation": "候选框较小且图像分辨率有限，无法确认框内线状痕迹是否为裂纹。"
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:002",
+   "raw": "uncertain",
+   "reasoning": "无法明确判断是否为裂纹。",
+   "observed": "道路表面疑似线状痕迹",
+   "limitation": "候选框内目标过小，细节不可辨。"
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:003",
+   "raw": "uncertain",
+   "reasoning": "不能确认存在符合类别的道路裂纹。",
+   "observed": "道路表面疑似痕迹",
+   "limitation": "候选框较小，且受树木遮挡和图像清晰度限制。"
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:004",
+   "raw": "uncertain",
+   "reasoning": "无法唯一定位并确认道路裂纹。",
+   "observed": "道路表面疑似线状痕迹",
+   "limitation": "候选框内细节不足，目标难以辨认。"
+  },
+  {
+   "key": "c6ba866e9d7f4b3794f3910113b03f1b:005",
+   "raw": "uncertain",
+   "reasoning": "证据不足，不能明确判定为道路裂纹。",
+   "observed": "道路表面疑似线状痕迹",
+   "limitation": "候选框较小且部分区域受植被遮挡，无法清晰核查。"
+  }
+ ],
+ "elapsed": 20.31,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 20.29
+  }
+ ]
+}
