@@ -1,0 +1,27 @@
+{
+ "unit": "3697f1ff29284c8dbb91bfc275f5f84c",
+ "success": true,
+ "results": [
+  {
+   "key": "3697f1ff29284c8dbb91bfc275f5f84c:000",
+   "raw": "false",
+   "reasoning": "候选框内主要是白色车道标线和正常路面纹理，不符合道路裂纹特征。",
+   "observed": "框内为均匀沥青路面及道路标线，未见明显深色细裂纹。",
+   "limitation": ""
+  },
+  {
+   "key": "3697f1ff29284c8dbb91bfc275f5f84c:001",
+   "raw": "false",
+   "reasoning": "可见线条属于道路标线或其附近结构，不是沥青路面本身的开裂。",
+   "observed": "框内为道路标线附近的均匀沥青路面，未见明显深色细裂纹。",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 17.7,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 17.68
+  }
+ ]
+}

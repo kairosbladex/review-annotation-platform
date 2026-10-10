@@ -1,0 +1,27 @@
+{
+ "unit": "e36d684160014d00bd2615cd479aca37",
+ "success": true,
+ "results": [
+  {
+   "key": "e36d684160014d00bd2615cd479aca37:000",
+   "raw": "true",
+   "reasoning": "候选框位于道路沥青路面上，框内能看到比周围路面更深的细长裂纹，符合道路裂纹类别；红色文字和框线不作为判断依据。",
+   "observed": "框内沥青路面可见深色细裂线",
+   "limitation": ""
+  },
+  {
+   "key": "e36d684160014d00bd2615cd479aca37:001",
+   "raw": "true",
+   "reasoning": "候选框位于道路沥青路面上，框内可见明显深色细裂纹，符合道路裂纹类别；红色文字和框线不作为判断依据。",
+   "observed": "框内沥青路面可见深色细裂线",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 14.12,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 14.1
+  }
+ ]
+}

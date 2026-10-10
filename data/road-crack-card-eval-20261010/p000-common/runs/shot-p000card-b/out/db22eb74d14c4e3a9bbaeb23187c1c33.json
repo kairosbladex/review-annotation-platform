@@ -1,0 +1,118 @@
+{
+ "unit": "db22eb74d14c4e3a9bbaeb23187c1c33",
+ "success": true,
+ "results": [
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:000",
+   "raw": "true",
+   "reasoning": "框内为道路路面，可见明显深色细线，符合道路裂纹特征。",
+   "observed": "路面上可见深色细裂线",
+   "limitation": ""
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:001",
+   "raw": "true",
+   "reasoning": "框内可见不规则深色细线，虽有板块缝隙，但存在明显裂纹状线条。",
+   "observed": "水泥路面上的深色裂线",
+   "limitation": ""
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:002",
+   "raw": "true",
+   "reasoning": "框内可见深色细线延伸，符合道路裂纹。",
+   "observed": "路面裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:003",
+   "raw": "true",
+   "reasoning": "框内可见细长深色裂线，符合类别。",
+   "observed": "路面上的深色裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:004",
+   "raw": "uncertain",
+   "reasoning": "可见疑似线状痕迹，但细节不足。",
+   "observed": "小范围路面区域",
+   "limitation": "框内目标较小且被标注文字部分遮挡，无法唯一确认是否为路面裂纹。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:005",
+   "raw": "uncertain",
+   "reasoning": "无法确认是裂纹还是规则分格缝。",
+   "observed": "路面横向线状痕迹",
+   "limitation": "候选框极窄，且标注文字和板块缝隙影响判断。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:006",
+   "raw": "uncertain",
+   "reasoning": "可能是板块缝或裂纹，无法唯一判断。",
+   "observed": "路面横向线状痕迹",
+   "limitation": "框内目标细小，线条性质不清。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:007",
+   "raw": "uncertain",
+   "reasoning": "不能排除水泥板分格缝。",
+   "observed": "路面横向线状痕迹",
+   "limitation": "框内细节分辨率不足，且存在规则板块边界。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:008",
+   "raw": "uncertain",
+   "reasoning": "无法明确区分裂纹与分格缝。",
+   "observed": "路面横向线状痕迹",
+   "limitation": "候选框过窄，目标被文字和路面缝隙干扰。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:009",
+   "raw": "uncertain",
+   "reasoning": "缺少足够证据确认是道路裂纹。",
+   "observed": "路面线状痕迹",
+   "limitation": "目标区域狭窄且标注文字遮挡明显。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:010",
+   "raw": "uncertain",
+   "reasoning": "无法排除规则板块缝。",
+   "observed": "路面横向线状痕迹",
+   "limitation": "框内线条很细，分辨率不足。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:011",
+   "raw": "uncertain",
+   "reasoning": "不能唯一确认线条为裂纹。",
+   "observed": "路面区域",
+   "limitation": "框内包含标注文字，且目标线条不清晰。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:012",
+   "raw": "uncertain",
+   "reasoning": "可能是板块缝或裂纹，证据不足。",
+   "observed": "路面横向线状痕迹",
+   "limitation": "候选框狭窄且目标细节不足。"
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:013",
+   "raw": "false",
+   "reasoning": "目标不在可确认的道路路面上，不能作为道路裂纹。",
+   "observed": "墙面或路缘附近的标注区域",
+   "limitation": ""
+  },
+  {
+   "key": "db22eb74d14c4e3a9bbaeb23187c1c33:014",
+   "raw": "true",
+   "reasoning": "框内可见明显深色斜向细线，符合道路裂纹。",
+   "observed": "路面上的深色斜向裂线",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 65.55,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 65.52
+  }
+ ]
+}

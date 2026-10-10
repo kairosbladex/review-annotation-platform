@@ -1,0 +1,27 @@
+{
+ "unit": "b6971c0fbd514730916debcf5da03da1",
+ "success": true,
+ "results": [
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:000",
+   "raw": "uncertain",
+   "reasoning": "看不清该纹理是否为道路本身的深色裂缝，不能据此明确判定为道路裂纹。",
+   "observed": "灰色道路路面及模糊线状纹理",
+   "limitation": "框内区域分辨率较低且仅见模糊浅色路面纹理，无法唯一确认是否存在深色细裂缝。"
+  },
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:001",
+   "raw": "false",
+   "reasoning": "未见符合定义的沥青路面深色细裂缝，框内线条主要是白色标线或边界线。",
+   "observed": "道路标线和路面边界",
+   "limitation": "框内主要可见白色道路标线、斑马线及路缘/边界区域。"
+  }
+ ],
+ "elapsed": 18.69,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 18.66
+  }
+ ]
+}

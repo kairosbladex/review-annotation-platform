@@ -1,0 +1,62 @@
+{
+ "unit": "d3e4da02636b4d809f0d02a16f329e0d",
+ "success": true,
+ "results": [
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:000",
+   "raw": "uncertain",
+   "reasoning": "不能仅凭框线或文字判断道路裂纹。",
+   "observed": "道路边缘及人行道附近区域",
+   "limitation": "框内主要被红色文字和框线遮挡，无法确认是否存在路面深色细裂纹。"
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:001",
+   "raw": "uncertain",
+   "reasoning": "可见线条主要可能是道路标线或框线，缺乏明确深色裂纹证据。",
+   "observed": "沥青道路及车道标线",
+   "limitation": "框内有车道线、车辆及红色文字遮挡，路面细裂纹无法唯一确认。"
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:002",
+   "raw": "false",
+   "reasoning": "框内主要是黄色道路标线，未见符合定义的深色细裂纹。",
+   "observed": "沥青路面上的黄色车道线区域",
+   "limitation": "图像可见度足够。"
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:003",
+   "raw": "false",
+   "reasoning": "框内未见明确比路面更深的细线，主要可见道路标线。",
+   "observed": "沥青路面及纵向白色车道线附近",
+   "limitation": "图像可见度足够。"
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:004",
+   "raw": "false",
+   "reasoning": "框内主要是白色道路标线，不能作为道路裂纹证据。",
+   "observed": "沥青路面上的白色车道线区域",
+   "limitation": "图像可见度足够。"
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:005",
+   "raw": "false",
+   "reasoning": "框内主要是黄色道路标线，未见明确深色细裂纹。",
+   "observed": "沥青路面上的黄色车道线区域",
+   "limitation": "图像可见度足够。"
+  },
+  {
+   "key": "d3e4da02636b4d809f0d02a16f329e0d:006",
+   "raw": "uncertain",
+   "reasoning": "缺少可唯一确认的路面深色细裂纹证据。",
+   "observed": "道路边缘的沥青路面及黄色标线",
+   "limitation": "框内面积狭窄且被红色文字、框线和道路标线遮挡，无法确认裂纹。"
+  }
+ ],
+ "elapsed": 17.67,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 17.65
+  }
+ ]
+}

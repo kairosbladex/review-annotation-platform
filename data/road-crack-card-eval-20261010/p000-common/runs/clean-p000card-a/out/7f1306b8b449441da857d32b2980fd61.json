@@ -1,0 +1,62 @@
+{
+ "unit": "7f1306b8b449441da857d32b2980fd61",
+ "success": true,
+ "results": [
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:000",
+   "raw": "true",
+   "reasoning": "目标位于道路表面，存在明显深色细线，符合道路裂纹特征。",
+   "observed": "道路裂纹",
+   "limitation": "框内可见沥青路面上的深色横向细裂纹。"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:001",
+   "raw": "true",
+   "reasoning": "可见不规则深色细线横穿路面，不是车道标线。",
+   "observed": "道路裂纹",
+   "limitation": "框内可见沥青路面上的深色横向细裂纹。"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:002",
+   "raw": "true",
+   "reasoning": "线条位于沥青路面上，颜色较周围路面深，符合裂纹特征。",
+   "observed": "道路裂纹",
+   "limitation": "框内可见道路中心附近的深色细裂纹。"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:003",
+   "raw": "true",
+   "reasoning": "可见沥青路面上的深色横向细线，形态符合道路裂纹。",
+   "observed": "道路裂纹",
+   "limitation": "框内路面细节可辨。"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:004",
+   "raw": "true",
+   "reasoning": "目标为路面上的不规则深色线，不属于白色或黄色道路标线。",
+   "observed": "道路裂纹",
+   "limitation": "框内可见沥青路面上的深色细裂纹。"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:005",
+   "raw": "uncertain",
+   "reasoning": "无法清晰区分深色裂纹与其他路面边缘或阴影。",
+   "observed": "疑似道路细线",
+   "limitation": "框内目标较小且部分受树木边缘影响，裂纹细节不足以唯一确认。"
+  },
+  {
+   "key": "7f1306b8b449441da857d32b2980fd61:006",
+   "raw": "true",
+   "reasoning": "细线位于路面内部并与道路边缘及标线不重合，符合纵向道路裂纹。",
+   "observed": "道路裂纹",
+   "limitation": "框内可见沥青路面上的纵向深色细线。"
+  }
+ ],
+ "elapsed": 17.9,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 17.88
+  }
+ ]
+}

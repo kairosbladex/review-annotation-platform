@@ -1,0 +1,48 @@
+{
+ "unit": "579aced971b84f1caa29509a4530ff35",
+ "success": true,
+ "results": [
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:000",
+   "raw": "true",
+   "reasoning": "框内可见路面本身存在比周围路面更深的横向细线，符合道路裂纹特征，红色文字和框线不作为依据。",
+   "observed": "沥青路面上的横向深色细线",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:001",
+   "raw": "true",
+   "reasoning": "框内可见一条横向深色细线，位于沥青路面本身，符合道路裂纹。",
+   "observed": "沥青路面上的横向深色细线",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:002",
+   "raw": "true",
+   "reasoning": "框内能看到路面上的深色横向细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的横向深色细线",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:003",
+   "raw": "uncertain",
+   "reasoning": "无法排除框线、文字或阴影造成的视觉线条，不能唯一确认道路裂纹。",
+   "observed": "沥青路面区域",
+   "limitation": "候选框较小且被红色文字、框线和树影部分干扰，无法确认是否存在路面裂纹。"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:004",
+   "raw": "false",
+   "reasoning": "框内未见明确的路面深色细裂缝，主要可见的是红色文字和标注框，不属于目标证据。",
+   "observed": "沥青路面及红色标注文字",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 50.81,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 50.78
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "unit": "37b96f511ac14fab8b5e073d07ea80df",
+ "success": true,
+ "results": [
+  {
+   "key": "37b96f511ac14fab8b5e073d07ea80df:000",
+   "raw": "false",
+   "reasoning": "属于水泥或铺装板块的规则分格缝，不是道路路面裂纹。",
+   "observed": "规则排列的浅灰色铺装板及分格缝",
+   "limitation": "无遮挡，框内为人行道/广场铺装面。"
+  },
+  {
+   "key": "37b96f511ac14fab8b5e073d07ea80df:001",
+   "raw": "false",
+   "reasoning": "框内只有规则板块接缝，没有道路裂纹证据。",
+   "observed": "铺装板分格缝",
+   "limitation": "无遮挡，框内为人行道铺装面。"
+  },
+  {
+   "key": "37b96f511ac14fab8b5e073d07ea80df:002",
+   "raw": "false",
+   "reasoning": "线条组成规则铺装分格，符合排除项，不属于道路裂纹。",
+   "observed": "铺装板之间的规则接缝",
+   "limitation": "无遮挡，框内为铺装广场地面。"
+  },
+  {
+   "key": "37b96f511ac14fab8b5e073d07ea80df:003",
+   "raw": "false",
+   "reasoning": "可见线条为规则铺装接缝，不是沥青或水泥道路本身的开裂。",
+   "observed": "铺装板分格缝及边界线",
+   "limitation": "无遮挡，框内为人行道铺装面。"
+  }
+ ],
+ "elapsed": 21.47,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 21.45
+  }
+ ]
+}

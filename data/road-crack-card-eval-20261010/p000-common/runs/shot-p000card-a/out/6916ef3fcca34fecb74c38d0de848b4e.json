@@ -1,0 +1,48 @@
+{
+ "unit": "6916ef3fcca34fecb74c38d0de848b4e",
+ "success": true,
+ "results": [
+  {
+   "key": "6916ef3fcca34fecb74c38d0de848b4e:000",
+   "raw": "uncertain",
+   "reasoning": "仅凭框线和文字不能作为道路裂纹证据，框内细节不足以唯一判断。",
+   "observed": "道路路面及标注框",
+   "limitation": "候选框内主要被红色文字和框线遮挡，无法确认路面是否存在深色细裂纹。"
+  },
+  {
+   "key": "6916ef3fcca34fecb74c38d0de848b4e:001",
+   "raw": "uncertain",
+   "reasoning": "未能排除标线、阴影或其他路面线条，证据不足。",
+   "observed": "道路路面及标注框",
+   "limitation": "候选框区域较小且被标注覆盖，无法清晰辨认路面裂纹。"
+  },
+  {
+   "key": "6916ef3fcca34fecb74c38d0de848b4e:002",
+   "raw": "uncertain",
+   "reasoning": "不能仅依据红色框线判断道路裂纹，缺乏可见的深色细裂纹证据。",
+   "observed": "道路路面及标注框",
+   "limitation": "候选框很小，路面细节不可清晰分辨。"
+  },
+  {
+   "key": "6916ef3fcca34fecb74c38d0de848b4e:003",
+   "raw": "uncertain",
+   "reasoning": "无法确认框内是否存在符合定义的路面开裂。",
+   "observed": "道路路面及标注框",
+   "limitation": "候选框内目标尺寸过小且标注遮挡明显。"
+  },
+  {
+   "key": "6916ef3fcca34fecb74c38d0de848b4e:004",
+   "raw": "uncertain",
+   "reasoning": "没有足够证据区分道路裂纹与标线、阴影或其他线条。",
+   "observed": "道路路面及标注框",
+   "limitation": "候选框内路面细节被文字和框线影响，无法可靠辨识。"
+  }
+ ],
+ "elapsed": 15.12,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.1
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "unit": "489b3b83591048ecadae9d341693a2fd",
+ "success": true,
+ "results": [
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:000",
+   "raw": "uncertain",
+   "reasoning": "不能将框线或文字作为目标证据，剩余区域不足以可靠判断道路裂纹。",
+   "observed": "道路沥青路面及标注框",
+   "limitation": "框内主要被红色标注框和文字遮挡，无法确认是否存在路面深色细裂缝。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:001",
+   "raw": "uncertain",
+   "reasoning": "无法确认框内是否有符合定义的深色细线。",
+   "observed": "道路路面及标注内容",
+   "limitation": "候选框被红色文字和框线大幅遮挡，裂缝细节不可辨认。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:002",
+   "raw": "uncertain",
+   "reasoning": "不把红色标注线作为证据，剩余图像信息不足。",
+   "observed": "道路沥青路面",
+   "limitation": "框内可见区域有限且被标注覆盖，无法排除或确认道路裂纹。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:003",
+   "raw": "uncertain",
+   "reasoning": "无法可靠识别独立于标注的深色路面裂缝。",
+   "observed": "道路路面及标注文字",
+   "limitation": "候选区域几乎被红色文字和框线覆盖，路面细节不清。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:004",
+   "raw": "uncertain",
+   "reasoning": "仅凭标注线不能判定道路裂纹。",
+   "observed": "道路沥青路面",
+   "limitation": "框内路面被红色标注文字和框线遮挡，细裂缝不可确认。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:005",
+   "raw": "false",
+   "reasoning": "未发现独立于红色标注的明显路面开裂线。",
+   "observed": "道路沥青路面",
+   "limitation": "框内可见为较均匀的路面，未见符合定义的深色细裂缝。"
+  },
+  {
+   "key": "489b3b83591048ecadae9d341693a2fd:006",
+   "raw": "uncertain",
+   "reasoning": "无法确认框内是否存在独立的深色纵向裂缝。",
+   "observed": "道路沥青路面及标注框",
+   "limitation": "候选框狭长且被红色标注覆盖，路面细节不足以辨认。"
+  }
+ ],
+ "elapsed": 16.07,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 16.04
+  }
+ ]
+}

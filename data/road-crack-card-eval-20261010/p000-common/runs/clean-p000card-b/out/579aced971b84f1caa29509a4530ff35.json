@@ -1,0 +1,48 @@
+{
+ "unit": "579aced971b84f1caa29509a4530ff35",
+ "success": true,
+ "results": [
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:000",
+   "raw": "true",
+   "reasoning": "框内可见比周围路面更深的细线，横向穿过车道，符合道路裂纹特征。",
+   "observed": "道路沥青路面上的深色横向裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:001",
+   "raw": "true",
+   "reasoning": "框内可见路面上的深色细裂线，不是车道标线。",
+   "observed": "道路沥青路面上的深色横向裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:002",
+   "raw": "uncertain",
+   "reasoning": "可见线状痕迹，但分辨率不足以排除标线、阴影或其他路面纹理。",
+   "observed": "道路路面局部线状区域",
+   "limitation": "候选框过窄且图中细节不足，无法唯一确认是否为路面裂纹。"
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:003",
+   "raw": "true",
+   "reasoning": "框内可见比路面更深的细线，符合沥青路面裂纹。",
+   "observed": "道路沥青路面上的深色横向裂纹",
+   "limitation": ""
+  },
+  {
+   "key": "579aced971b84f1caa29509a4530ff35:004",
+   "raw": "true",
+   "reasoning": "框内可见路面上的深色细裂线，且不与白色车道线重合。",
+   "observed": "道路沥青路面上的深色横向裂纹",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 16.01,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.99
+  }
+ ]
+}

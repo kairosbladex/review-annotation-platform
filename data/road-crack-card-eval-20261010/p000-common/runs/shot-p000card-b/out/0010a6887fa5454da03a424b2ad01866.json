@@ -1,0 +1,41 @@
+{
+ "unit": "0010a6887fa5454da03a424b2ad01866",
+ "success": true,
+ "results": [
+  {
+   "key": "0010a6887fa5454da03a424b2ad01866:000",
+   "raw": "true",
+   "reasoning": "框内可见比周围路面更深的细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "0010a6887fa5454da03a424b2ad01866:001",
+   "raw": "true",
+   "reasoning": "框内可见明显深色细线，位于道路路面本身，符合道路裂纹。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "0010a6887fa5454da03a424b2ad01866:002",
+   "raw": "uncertain",
+   "reasoning": "无法清晰判断框内是否存在道路裂纹。",
+   "observed": "道路边缘附近的标注区域",
+   "limitation": "框内区域较小且被树木、红色文字和标注框干扰，无法唯一确认路面上的深色裂纹。"
+  },
+  {
+   "key": "0010a6887fa5454da03a424b2ad01866:003",
+   "raw": "true",
+   "reasoning": "框内可见路面上的深色细线，明显区别于车道标线，符合道路裂纹。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 16.05,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 16.02
+  }
+ ]
+}

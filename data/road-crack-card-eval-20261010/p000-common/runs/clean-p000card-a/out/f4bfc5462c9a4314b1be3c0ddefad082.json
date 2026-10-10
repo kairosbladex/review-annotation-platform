@@ -1,0 +1,48 @@
+{
+ "unit": "f4bfc5462c9a4314b1be3c0ddefad082",
+ "success": true,
+ "results": [
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:000",
+   "raw": "false",
+   "reasoning": "候选框内未能确认比周围路面更深的细线，现有线条更像道路标线或路面纹理。",
+   "observed": "道路路面与标线",
+   "limitation": "框内主要是均匀沥青路面及道路标线，未见明显深色裂纹。"
+  },
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:001",
+   "raw": "false",
+   "reasoning": "没有发现符合道路裂纹定义的深色细线。",
+   "observed": "道路路面",
+   "limitation": "框内可见路面与标线，未见清晰裂纹。"
+  },
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:002",
+   "raw": "false",
+   "reasoning": "框内主要为均匀路面和道路标线，不符合道路裂纹特征。",
+   "observed": "道路路面",
+   "limitation": "框内区域较清楚，未见路面裂纹。"
+  },
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:003",
+   "raw": "false",
+   "reasoning": "未观察到独立于道路标线之外的细深色开裂线。",
+   "observed": "道路路面",
+   "limitation": "框内区域较小但可见，未见明确深色裂纹。"
+  },
+  {
+   "key": "f4bfc5462c9a4314b1be3c0ddefad082:004",
+   "raw": "false",
+   "reasoning": "候选位置中的线条属于道路标线或路面纹理，不能判定为裂纹。",
+   "observed": "道路路面",
+   "limitation": "框内可见沥青路面及道路标线，未见明显裂纹。"
+  }
+ ],
+ "elapsed": 20.85,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 20.81
+  }
+ ]
+}

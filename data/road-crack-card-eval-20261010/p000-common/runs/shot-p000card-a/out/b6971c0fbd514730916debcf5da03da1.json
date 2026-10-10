@@ -1,0 +1,31 @@
+{
+ "unit": "b6971c0fbd514730916debcf5da03da1",
+ "success": true,
+ "results": [
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:000",
+   "raw": "true",
+   "reasoning": "候选框内能看到比周围路面更深的细线，符合道路裂纹特征。",
+   "observed": "框内沥青路面可见细长深色裂缝",
+   "limitation": ""
+  },
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:001",
+   "raw": "true",
+   "reasoning": "候选框内可见沿道路方向延伸的深色细线，区别于白色标线和路缘，符合道路裂纹特征。",
+   "observed": "框内沥青路面可见纵向深色裂缝",
+   "limitation": ""
+  }
+ ],
+ "elapsed": 102.5,
+ "attempts": [
+  {
+   "status": "http_503",
+   "elapsed": 32.93
+  },
+  {
+   "status": "ok",
+   "elapsed": 49.51
+  }
+ ]
+}

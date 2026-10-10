@@ -1,0 +1,27 @@
+{
+ "unit": "b6971c0fbd514730916debcf5da03da1",
+ "success": true,
+ "results": [
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:000",
+   "raw": "uncertain",
+   "reasoning": "候选框0内可见疑似浅色或模糊线状痕迹，但无法排除路面纹理或接缝，不能明确判定为道路裂纹。",
+   "observed": "灰色沥青路面及模糊线状痕迹",
+   "limitation": "框内区域分辨率较低，无法清楚确认是否存在比路面更深的细裂纹。"
+  },
+  {
+   "key": "b6971c0fbd514730916debcf5da03da1:001",
+   "raw": "false",
+   "reasoning": "框内主要是路缘、白色道路标线和斑马线，未见明确的比路面更深的细裂纹。",
+   "observed": "道路边缘、白色标线及斑马线区域",
+   "limitation": "框内目标清晰可见。"
+  }
+ ],
+ "elapsed": 15.09,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.06
+  }
+ ]
+}

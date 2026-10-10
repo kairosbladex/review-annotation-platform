@@ -1,0 +1,48 @@
+{
+ "unit": "62bf316fae3e47c3923875e74252802e",
+ "success": true,
+ "results": [
+  {
+   "key": "62bf316fae3e47c3923875e74252802e:000",
+   "raw": "true",
+   "reasoning": "框内可见比周围路面更深的横向细裂纹，符合道路裂纹特征。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "62bf316fae3e47c3923875e74252802e:001",
+   "raw": "true",
+   "reasoning": "框内可见路面上的深色横向细裂纹，不是车道标线。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "62bf316fae3e47c3923875e74252802e:002",
+   "raw": "uncertain",
+   "reasoning": "可见信息不足，不能唯一判断为道路裂纹。",
+   "observed": "疑似道路路面区域",
+   "limitation": "框内区域较小且被红色文字和框线遮挡，无法清楚确认路面是否存在深色裂纹。"
+  },
+  {
+   "key": "62bf316fae3e47c3923875e74252802e:003",
+   "raw": "true",
+   "reasoning": "框内可见一条较深的横向细线，符合道路裂纹特征。",
+   "observed": "沥青路面上的深色横向细线",
+   "limitation": ""
+  },
+  {
+   "key": "62bf316fae3e47c3923875e74252802e:004",
+   "raw": "uncertain",
+   "reasoning": "无法确认框内是否存在符合条件的深色细线。",
+   "observed": "疑似道路路面区域",
+   "limitation": "候选框很小且受红色文字、框线及树木边缘影响，裂纹细节无法清晰辨认。"
+  }
+ ],
+ "elapsed": 15.73,
+ "attempts": [
+  {
+   "status": "ok",
+   "elapsed": 15.71
+  }
+ ]
+}
