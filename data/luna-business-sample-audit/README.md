@@ -44,6 +44,7 @@
 
 ## 复现与证据
 
+- `source-manifest.json`：来源提交、路径与哈希；`extract_sources.py` 只提取小型元数据到私有目录，不复制原始图片/视频。
 - `scripts/luna_business_sample_audit/snapshot.py`：限定事件时间窗口和近期元数据范围，只读一致性事务，20 秒查询上限，finally rollback。凭据仅从已有 env 文件在内存读取。
 - `enrich_samples.py`：近期覆盖不足后只读补充元数据，并恢复历史任务分组。
 - `audit.py`：逐框与请求时间核验。预期事件清单位于私有 `expected-event-nos.json`，不在代码内提交业务标识。
