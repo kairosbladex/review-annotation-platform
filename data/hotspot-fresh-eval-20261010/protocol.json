@@ -1,0 +1,46 @@
+{
+  "frozen_at": "2026-10-10T17:24:45.695478+08:00",
+  "purpose": "新独立人工框复验；只评测已冻结卡，不依据本批结果修改卡或选卡",
+  "primary": "repair versus p000",
+  "secondary": "p001_p002 versus p000; p001 and p002 cards byte-identical",
+  "cards": [
+    "p001_p002",
+    "repair"
+  ],
+  "input_modes": [
+    "screenshot",
+    "original"
+  ],
+  "repeats": 2,
+  "events": 29,
+  "targets": 123,
+  "calls": 348,
+  "interleaving": "每图循环移位，第二轮反序；所有组交错；并发6",
+  "gold": {
+    "是光斑": 123
+  },
+  "annotation_sha256": "e6aa7906c4af1b3a5b8cb2b4613008845cee092c86c631f1d839682f487ddab3",
+  "production_commit": "b2ca913ee365c0a64ebda4e2ca28604b79d801ed",
+  "production_file_sha256": "3884f658862294bce0744ca170c5e1ee4324b24652eb5d1fa4d587171522060b",
+  "image_assembly": "Production execute image assembly copied verbatim: source, locator, legacy crop sheet; no context layout",
+  "ci": "20000 paired event-cluster bootstrap samples, seed20261010; average two repeats per box; task-cluster sensitivity secondary",
+  "gate": "截图准确率提升95%区间下限>0且非光斑误放每轮不增加；无负样本时门槛不可判定，不通过",
+  "restrictions": [
+    "不改卡",
+    "不部署",
+    "不改18396",
+    "不因结果不满意重跑成功请求"
+  ],
+  "limits": {
+    "memory_bytes": 4294967296,
+    "swap_bytes": 0,
+    "cpus": 3,
+    "concurrency": 6,
+    "bind": "127.0.0.1:18406"
+  },
+  "known_limitations": [
+    "全部123个标签为真光斑；不能验证非光斑误放",
+    "框为用户依据历史点标记重新手绘，不是线上检测器原框",
+    "仅3个历史飞行批次，不代表线上类别分布"
+  ]
+}
