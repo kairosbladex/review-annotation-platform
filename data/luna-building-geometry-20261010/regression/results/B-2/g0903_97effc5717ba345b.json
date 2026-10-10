@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_97effc5717ba345b",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "候选框内主要是高层建筑立面，未见蓝色或绿色顶棚；框线和文字不作为判断依据。",
+        "observed_object": "高层建筑立面",
+        "reasoning": "目标类别要求框内主体为蓝色或绿色屋面，当前候选区域不符合。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "43ed3771e0074d2883cc9bbde5ad19b6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615505.0454035,
+      "status": 200
+    }
+  ],
+  "seconds": 37.31623983383179,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "97effc5717ba345b6517078ef6a77ec1804105b984c612495acddd3573e7f9cc"
+}

@@ -1,0 +1,63 @@
+{
+  "unit": "g0903_39b3d28c1a79ddde",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标位于图像边缘且面积很小，无法确认是连续覆盖的屋面。",
+        "observed_object": "左上角局部蓝色区域",
+        "reasoning": "仅凭可见颜色和局部形状，不能排除围挡或其他非屋面物体。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标被截断且为狭长条带，空间结构不清。",
+        "observed_object": "左侧狭长蓝绿色物体",
+        "reasoning": "无法确认其为覆盖建筑或棚架的屋面，可能是围挡。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "左下方大面积浅蓝色矩形屋面",
+        "reasoning": "可见连续、规整的蓝色覆盖面，位于建筑或棚架上方，符合蓝色顶棚类别。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "左上部浅蓝色矩形屋面",
+        "reasoning": "可见连续规整的浅蓝色覆盖面，具有屋面形态，符合蓝色顶棚类别。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "顶部浅蓝色矩形屋面",
+        "reasoning": "框内主体为连续的浅蓝色矩形覆盖面，符合蓝色顶棚类别。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "道路旁浅蓝色矩形屋面",
+        "reasoning": "框内可见规整连续的浅蓝色屋面，覆盖在建筑或棚架上方，符合类别。",
+        "target_index": 5
+      }
+    ],
+    "execution_id": "1fb9cef5c6c342d9bf07a5deead27d6f",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616579.2600942,
+      "status": 200
+    }
+  ],
+  "seconds": 37.78281927108765,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "39b3d28c1a79dddee4b1ec3a3f05fe7475f237a0cca5b2610415679e38567cdd"
+}

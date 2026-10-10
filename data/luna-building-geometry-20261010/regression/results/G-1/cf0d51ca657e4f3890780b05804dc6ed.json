@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内区域较小且被红色框线与文字干扰，无法清晰确认是否为蓝色或绿色屋面。",
+        "observed_object": "疑似小型矩形物体或屋面区域",
+        "reasoning": "仅凭当前图像无法唯一判断框内是否为符合类别定义的蓝色或绿色顶棚，不能将框线、文字作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "008f73a1800344c081dc042e755cddd1",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614889.0083308,
+      "status": 200
+    }
+  ],
+  "seconds": 32.21819448471069,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_7597294956ab6674",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见疑似蓝绿色覆盖物，但图像中难以确认其为空间上方连续屋面，可能是竖直围挡或其他结构。",
+        "observed_object": "候选框内为浅蓝绿色矩形区域及周边竖向结构。",
+        "reasoning": "无法唯一确认框内主体是覆盖在建筑、棚架或空地上方的蓝绿色顶棚；仅凭颜色和条纹不能判定为违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "6596dc4bd3264a8fa810fcdec43dd698",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615494.0753045,
+      "status": 200
+    }
+  ],
+  "seconds": 60.41913938522339,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "7597294956ab66748d5f2a2219c8c99bcd7ef12e31f8a75cdebcfc2ab68f4c6f"
+}

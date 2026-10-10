@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_28c70d40b253b234",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标被树木遮挡且区域过小，无法清晰确认是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似建筑或棚架局部",
+        "reasoning": "可见区域不足以明确判断主体是否符合蓝色或绿色顶棚类别，不能仅凭框线和文字作证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "3e0bf6c327284b68a768f9c270839684",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616069.8583791,
+      "status": 200
+    }
+  ],
+  "seconds": 18.751344680786133,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "28c70d40b253b23497b8ae871f7434eb99a06438c870ba4a398fcebb7ea3b06f"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8772805bce1cd3a5",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为道路旁车辆/货箱顶部及文字标记，未见可明确判定为蓝色或绿色顶棚的连续覆盖屋面。",
+        "observed_object": "道路旁的车辆或货箱顶部",
+        "reasoning": "目标主要呈白色、灰色及少量黄色，且空间结构更像车辆/货箱而非建筑或棚架屋面；不符合蓝绿色顶棚类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "7e7c73a07bcc4db3ae7a6600cca328be",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616699.8742168,
+      "status": 200
+    }
+  ],
+  "seconds": 41.555150747299194,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

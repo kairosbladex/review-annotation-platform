@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_ffda9753a1865e4b",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标位于图像最左边缘，仅能看到狭窄局部，无法唯一判断是蓝绿色屋面还是其他结构。",
+        "observed_object": "边缘处的局部蓝色结构",
+        "reasoning": "可见范围过小，无法确认其空间结构和是否为顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "成片浅蓝色矩形顶棚",
+        "reasoning": "框内主体为覆盖在地块上的连续浅蓝色屋面，并具有明显平行瓦楞纹理，符合蓝色违建顶棚特征。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "狭长浅蓝绿色瓦楞顶棚",
+        "reasoning": "框内主体呈连续覆盖面，颜色为浅蓝绿色并有规则平行瓦楞纹理，符合蓝绿色顶棚特征。",
+        "target_index": 2
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标较窄且部分被其他结构遮挡，无法充分确认其为连续覆盖屋面。",
+        "observed_object": "屋顶边缘附近的长条状蓝色结构",
+        "reasoning": "虽呈蓝色，但仅凭当前可见部分无法排除围挡、边板或其他非屋面结构。",
+        "target_index": 3
+      }
+    ],
+    "execution_id": "cd310dbe39664ea1bbe2bb0e360c0443",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615075.1054978,
+      "status": 200
+    }
+  ],
+  "seconds": 62.983829736709595,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ffda9753a1865e4b5cb4499463eb6255d8a7632e23da8c912ec78d59816b5940"
+}

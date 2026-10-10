@@ -1,0 +1,36 @@
+{
+  "unit": "g0903_9d25c20709a7eaec",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是道路旁的竖向彩色边框/文字标记，未见蓝色或绿色顶棚。",
+        "reasoning": "候选框内没有符合定义的蓝色或绿色屋面，且框线、文字不作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "513f5e6bb91f4c308ed500d64e021943",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616731.9908447,
+      "status": 503
+    },
+    {
+      "at": 1791616751.5359528,
+      "status": 503
+    },
+    {
+      "at": 1791616833.644536,
+      "status": 200
+    }
+  ],
+  "seconds": 133.8800778388977,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "9d25c20709a7eaec63c178c4e5e16ce30052c5b09081d41a9ba06b12af72b5a5"
+}

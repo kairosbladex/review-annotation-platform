@@ -1,0 +1,35 @@
+{
+  "unit": "c34f4e7e7a484fb896634bb06d991d16",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为成片蓝色、具有连续覆盖面的屋面，呈彩钢瓦条纹结构。",
+        "reasoning": "目标明确是蓝色顶棚，符合该类别判定口径。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为成片蓝色、具有连续覆盖面的长方形屋面，呈彩钢瓦条纹结构。",
+        "reasoning": "目标明确是蓝色顶棚，符合该类别判定口径。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "8280797e7e2f43e2b7f708a4f6db30f6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616002.1329627,
+      "status": 200
+    }
+  ],
+  "seconds": 28.08506965637207,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "255c7e2c0c1d3d85c4cfd596bc7b420b59302af61e57042d589deedecb795d26"
+}

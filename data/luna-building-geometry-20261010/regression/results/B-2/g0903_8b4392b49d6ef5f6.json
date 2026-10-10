@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8b4392b49d6ef5f6",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "候选框内主体清晰可见。",
+        "observed_object": "蓝色施工围挡/广告牌的立面下部，不是覆盖在上方的蓝绿色顶棚。",
+        "reasoning": "该目标为长条状立在地面的蓝色围挡，符合类别明确排除项，因此不属于违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "0eccd3a493634b5d8d565e326b6401a3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616033.9304671,
+      "status": 200
+    }
+  ],
+  "seconds": 44.3699746131897,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8b4392b49d6ef5f6e4ca79fb0bee70640141f67e3d7fe8813a967f1e93ca3977"
+}

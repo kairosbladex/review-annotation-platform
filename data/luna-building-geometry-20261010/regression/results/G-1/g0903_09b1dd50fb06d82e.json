@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_09b1dd50fb06d82e",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是灰白色建筑屋面或墙面，旁侧有树木遮挡。",
+        "reasoning": "框内未见符合类别要求的蓝色或绿色顶棚，不能将框外或框旁树木、文字及框线作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "0daffc54266740eebf13248dd5dcc879",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615749.6215017,
+      "status": 200
+    }
+  ],
+  "seconds": 17.312602996826172,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "09b1dd50fb06d82e6db4fe5445c27c69e88247188470faaf37c846db82132094"
+}

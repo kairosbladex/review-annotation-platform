@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_8e91702d522f05f0",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是蓝色施工围挡和广告牌，不是覆盖在建筑、棚架、院落或空地上方的蓝绿色顶棚。",
+        "reasoning": "依据类别要求，蓝绿色围挡或广告牌不属于违建目标；框线和文字不作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e3366448a9474e31b51e7ab0d80972ba",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615350.1058483,
+      "status": 503
+    },
+    {
+      "at": 1791615375.7084966,
+      "status": 200
+    }
+  ],
+  "seconds": 60.414759159088135,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8e91702d522f05f01a66ee9cb5e8b519ceef77f21c1654ef07cc4b4814d3e10c"
+}

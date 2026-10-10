@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_28c70d40b253b234",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是树木、红色文字及疑似灰白色结构，不构成蓝色或绿色顶棚。",
+        "reasoning": "候选框内未见符合类别定义的蓝色或绿色屋面，不能将框外或框旁结构归入框内。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "8dd227b3992d45e88e3ae795e764c78a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616097.8482106,
+      "status": 200
+    }
+  ],
+  "seconds": 46.366339683532715,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "28c70d40b253b23497b8ae871f7434eb99a06438c870ba4a398fcebb7ea3b06f"
+}

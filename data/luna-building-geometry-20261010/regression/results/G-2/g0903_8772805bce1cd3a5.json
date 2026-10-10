@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8772805bce1cd3a5",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为道路旁棚架上方的小块蓝绿色顶棚，呈连续覆盖面。",
+        "reasoning": "整图中目标位于棚架顶部，主体是蓝绿色屋面；符合类别中蓝色或绿色顶棚的判定条件。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "852968b6d2a9452ea9cbc99562b1511e",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616716.0472376,
+      "status": 200
+    }
+  ],
+  "seconds": 30.566882371902466,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

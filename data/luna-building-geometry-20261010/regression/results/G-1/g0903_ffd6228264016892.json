@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ffd6228264016892",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "建筑立面上的竖向窗户或玻璃区域",
+        "reasoning": "框内是建筑立面上的窄竖向窗体，不是覆盖在建筑、棚架或空地上方的蓝色或绿色屋面，因此不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "91981ba911574b8ba48d923844f5acc6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615805.113751,
+      "status": 200
+    }
+  ],
+  "seconds": 52.49883198738098,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ffd6228264016892b07fa71cf15c7219831b1607593cbdde94d66987027f013d"
+}

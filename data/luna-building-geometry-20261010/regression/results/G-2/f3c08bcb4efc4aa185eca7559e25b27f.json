@@ -1,0 +1,43 @@
+{
+  "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为狭长的浅蓝色竖向板状物，位于地面边缘，未见连续覆盖面的屋面结构。",
+        "reasoning": "整图中该物体呈立起的窄板形态，两侧仍可见地面，不符合蓝绿色顶棚定义，属于围挡或类似立板。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为狭长的浅蓝色竖向板状物，位于道路绿化带旁，未见连续覆盖面的屋面结构。",
+        "reasoning": "目标呈竖向窄板，不能确认是覆盖建筑或棚架的屋面，符合围挡或立板特征，因此不属于违建顶棚。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "54bf875773ed49a2bac15a0c29d93d73",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616868.1559038,
+      "status": 503
+    },
+    {
+      "at": 1791616919.3728087,
+      "status": 503
+    },
+    {
+      "at": 1791616950.851734,
+      "status": 200
+    }
+  ],
+  "seconds": 113.75063061714172,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "19ab37f6be657766c886027de842779416026e0e865dbd9728434c0d56322953"
+}

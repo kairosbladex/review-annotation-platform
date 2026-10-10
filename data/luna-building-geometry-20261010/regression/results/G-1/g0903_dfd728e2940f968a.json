@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_dfd728e2940f968a",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑顶部的浅灰色矩形屋面/采光结构，未见蓝色或绿色顶棚特征。",
+        "reasoning": "候选框内主体呈灰白色，属于建筑屋面或采光结构，不符合“蓝色或绿色顶棚”的类别要求，因此判定为false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "0a444c82a1ba46b1b88391f76aae37fb",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616456.0529478,
+      "status": 200
+    }
+  ],
+  "seconds": 56.4648962020874,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "dfd728e2940f968a8744a46c8727eb3e388fcf67fd8bd5e3f85b280d82d80f97"
+}

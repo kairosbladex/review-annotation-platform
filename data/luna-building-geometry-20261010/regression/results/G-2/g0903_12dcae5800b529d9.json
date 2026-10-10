@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_12dcae5800b529d9",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见的是沿地块边界竖立的蓝色围挡及其旁的绿地，并非覆盖在建筑或棚架上方的屋面。",
+        "observed_object": "蓝色围挡、绿地和道路区域",
+        "reasoning": "目标主体是地面上的长条状蓝色围挡，不能作为蓝绿色顶棚判断。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "框内主要是蓝色围挡及少量文字标注，没有可确认的屋面结构。",
+        "observed_object": "蓝色围挡",
+        "reasoning": "仅见竖直围挡，未见连续覆盖面、屋脊或檐边等屋面特征。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "6945fd1b6b194faaa840d7aadb45348a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616172.583057,
+      "status": 200
+    }
+  ],
+  "seconds": 59.94724988937378,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "12dcae5800b529d9b92a85a2f5832cc20405bdecce2cba8c4293db5e28bc03ac"
+}

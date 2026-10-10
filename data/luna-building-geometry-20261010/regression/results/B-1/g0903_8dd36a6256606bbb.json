@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8dd36a6256606bbb",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内主体为立在地面的蓝色围挡侧面，不是覆盖在上方的蓝绿色顶棚。",
+        "observed_object": "蓝色围挡",
+        "reasoning": "依据类别要求，蓝绿色围挡不属于违建目标；框线和文字不作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "144e2cacc2344fb7b87776106ee63ee0",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616989.3877585,
+      "status": 200
+    }
+  ],
+  "seconds": 49.17823338508606,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8dd36a6256606bbbb1f3694ed4ffe999c0347b1dfbabce94dd9190c44a5524c9"
+}

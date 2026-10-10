@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8dd36a6256606bbb",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为沿地块边界设置的蓝色长条围挡竖板，未见覆盖建筑或棚架的连续屋面结构。",
+        "observed_object": "蓝色施工围挡",
+        "reasoning": "目标是地面竖立的围挡，不是蓝色或绿色顶棚，因此不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "08a0840a6f2546b0b48f1ef0332d7733",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616990.3151531,
+      "status": 200
+    }
+  ],
+  "seconds": 46.44530010223389,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8dd36a6256606bbbb1f3694ed4ffe999c0347b1dfbabce94dd9190c44a5524c9"
+}

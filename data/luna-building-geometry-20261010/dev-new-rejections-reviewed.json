@@ -1,0 +1,134 @@
+[
+  {
+    "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+    "index": 0,
+    "key": "released_fp:cf0d51ca657e4f3890780b05804dc6ed:000",
+    "bbox": [
+      0.036458333333333336,
+      0.8833333333333333,
+      0.06458333333333334,
+      0.9180555555555555
+    ],
+    "results": {
+      "B-1": {
+        "decision": "uncertain",
+        "image_limitation": "候选框内主要为地面上的小型浅蓝色物体，无法确认其为覆盖在建筑、棚架或空地上方的蓝色顶棚。",
+        "observed_object": "疑似浅蓝色小型物体",
+        "reasoning": "仅凭当前图像无法唯一判断其是否属于蓝色屋面，不能据此确认违建类别。",
+        "target_index": 0
+      },
+      "B-2": {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见小面积浅蓝色矩形屋面/顶棚",
+        "reasoning": "目标主体为蓝色屋面，符合违建类别判定要求；框线和文字未作为判断依据。",
+        "target_index": 0
+      },
+      "G-1": {
+        "decision": "uncertain",
+        "image_limitation": "框内区域较小且被红色框线与文字干扰，无法清晰确认是否为蓝色或绿色屋面。",
+        "observed_object": "疑似小型矩形物体或屋面区域",
+        "reasoning": "仅凭当前图像无法唯一判断框内是否为符合类别定义的蓝色或绿色顶棚，不能将框线、文字作为目标证据。",
+        "target_index": 0
+      },
+      "G-2": {
+        "decision": "uncertain",
+        "image_limitation": "框内仅见小面积浅色矩形区域，受分辨率和标注遮挡影响，无法确认其为空间覆盖的蓝色或绿色顶棚。",
+        "observed_object": "疑似地面上的小型浅色矩形物体或区域，无法唯一判断结构。",
+        "reasoning": "违建类别需确认框内主体是蓝色或绿色屋面；当前证据不足，不能仅凭颜色或标注框作出判断。",
+        "target_index": 0
+      }
+    },
+    "visual_review": "楼顶很小的浅蓝色方块，原人工真标签；截图无法支持更细的结构结论，不能据模型uncertain重标。",
+    "reviewer": "AI visual review, not a new human label",
+    "label_unchanged": "true"
+  },
+  {
+    "unit": "g0903_116b8c88f7c80f7b",
+    "index": 2,
+    "key": "gold0903:b2983d65d2bb46ffb63fa30cb3ef3485",
+    "bbox": [
+      0.27395833333333336,
+      0.7166666666666667,
+      0.303125,
+      0.7375
+    ],
+    "results": {
+      "B-1": {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色小面积顶棚",
+        "reasoning": "框内可见小面积浅蓝色屋面，符合蓝色顶棚判定。",
+        "target_index": 2
+      },
+      "B-2": {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色小型顶棚",
+        "reasoning": "框内可见小面积蓝色屋面，符合类别要求。",
+        "target_index": 2
+      },
+      "G-1": {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积较小且部分被框线和文字遮挡，无法唯一确认是否为蓝绿色屋面。",
+        "observed_object": "疑似小型屋面或其他物体",
+        "reasoning": "可见蓝色区域，但结构和归属不清，不能仅凭颜色判定。",
+        "target_index": 2
+      },
+      "G-2": {
+        "decision": "uncertain",
+        "image_limitation": "目标面积较小且部分被框线、文字遮挡，无法确认是否为蓝绿色连续屋面。",
+        "observed_object": "小型蓝绿色区域",
+        "reasoning": "仅凭当前可见区域不能唯一确认其空间结构是屋面还是其他物体。",
+        "target_index": 2
+      }
+    },
+    "visual_review": "框只覆盖较大蓝色屋面下缘的小块，模型两次都要求更明确的结构归属。小框/局部屋面是新增驳回风险，维持人工true。",
+    "reviewer": "AI visual review, not a new human label",
+    "label_unchanged": "true"
+  },
+  {
+    "unit": "g0903_840bb6081b504a4e",
+    "index": 1,
+    "key": "gold0903:460476105a944c1983776d57323dd549",
+    "bbox": [
+      0.9583333333333334,
+      0.6805555555555556,
+      0.9989583333333333,
+      0.6958333333333333
+    ],
+    "results": {
+      "B-1": {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内可见一段浅蓝色矩形屋面，属于蓝色顶棚。",
+        "target_index": 1
+      },
+      "B-2": {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见蓝色矩形屋面，符合违建类别定义。",
+        "target_index": 1
+      },
+      "G-1": {
+        "decision": "uncertain",
+        "image_limitation": "目标区域较小且部分贴近图像边缘，屋面结构与颜色难以充分确认",
+        "observed_object": "疑似蓝色长条状覆盖物或屋面",
+        "reasoning": "虽然可见蓝色区域，但目标狭长且被截断，无法唯一确认其为符合条件的连续顶棚屋面。",
+        "target_index": 1
+      },
+      "G-2": {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见浅蓝色长条状连续覆盖面，疑似屋面。",
+        "reasoning": "框内主体呈浅蓝色连续覆盖面，位于建筑结构上方，属于蓝色顶棚范畴；不将框线和文字作为证据。",
+        "target_index": 1
+      }
+    },
+    "visual_review": "画面右侧边缘的细小浅蓝色区域被截断；G一次uncertain一次true，而B两次true。保持原人工true并计入新增驳回。",
+    "reviewer": "AI visual review, not a new human label",
+    "label_unchanged": "true"
+  }
+]

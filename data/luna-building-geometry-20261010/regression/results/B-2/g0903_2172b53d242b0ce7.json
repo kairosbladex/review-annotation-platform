@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_2172b53d242b0ce7",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标大部分位于图像左边缘，主体被裁切，无法完整确认是否为蓝绿色顶棚。",
+        "observed_object": "左侧边缘的局部目标及紫色框线、文字",
+        "reasoning": "框内可见区域过少，不能唯一判断主体是否符合蓝色或绿色顶棚类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "成片浅蓝色矩形屋面，表面有规则平行条纹，边缘规整。",
+        "reasoning": "框内主体明确是蓝色顶棚，符合类别定义。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "成片浅蓝色长方形屋面，表面有彩钢瓦样平行条纹，边缘规整。",
+        "reasoning": "框内主体明确是蓝色顶棚，符合类别定义。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "d0e720dad9f940c0b5dee68bbd6fb25b",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615953.2341475,
+      "status": 200
+    }
+  ],
+  "seconds": 38.04775929450989,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "2172b53d242b0ce7d6d54e822870d31408117a4c6622913e35d0535ea680c11a"
+}

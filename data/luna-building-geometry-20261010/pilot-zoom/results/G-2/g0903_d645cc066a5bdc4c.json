@@ -1,0 +1,46 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "建筑外墙上的窗户",
+        "reasoning": "框内是建筑外墙窗户，不是覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "沿道路边界的蓝色围挡",
+        "reasoning": "框内主体为竖立的蓝色板状围挡，未见连续覆盖面的屋面结构。",
+        "target_index": 1
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "沿道路边界的蓝色围挡",
+        "reasoning": "框内为竖立的蓝色板状围挡，不是蓝绿色顶棚。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "744645139dcf46b4b87eef5c1e5cd8f3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617289.0115318,
+      "status": 503
+    },
+    {
+      "at": 1791617298.3876066,
+      "status": 200
+    }
+  ],
+  "seconds": 41.81856155395508,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

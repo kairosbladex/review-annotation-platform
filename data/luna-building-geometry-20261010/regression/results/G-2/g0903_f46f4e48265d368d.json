@@ -1,0 +1,91 @@
+{
+  "unit": "g0903_f46f4e48265d368d",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色屋面",
+        "reasoning": "框内可见连续覆盖建筑的浅蓝色矩形屋面，符合蓝绿色顶棚特征。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色屋面",
+        "reasoning": "框内主体为覆盖建筑的浅蓝色屋面，边缘连续且呈屋面结构。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色屋面",
+        "reasoning": "框内为建筑上方连续的浅蓝色矩形屋面，符合类别要求。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色屋面",
+        "reasoning": "框内左侧为蓝绿色屋面，具有连续覆盖面，符合类别要求。",
+        "target_index": 3
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "灰白色屋面",
+        "reasoning": "框内主体为灰白色屋面，不属于蓝色或绿色顶棚。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色屋面",
+        "reasoning": "框内可见连续蓝色覆盖面，位于建筑上方，符合蓝色顶棚特征。",
+        "target_index": 5
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像底部，目标仅部分可见，无法可靠确认其是否为蓝绿色屋面。",
+        "observed_object": "局部小型目标",
+        "reasoning": "可见区域过少，不能唯一判断目标空间结构及颜色类别。",
+        "target_index": 6
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标被遮挡且结构细节不足，无法确认是否为屋面。",
+        "observed_object": "蓝绿色局部覆盖面",
+        "reasoning": "虽呈蓝绿色，但仅凭局部颜色不能排除其他物体，无法明确符合类别。",
+        "target_index": 7
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色屋面",
+        "reasoning": "框内为覆盖建筑的连续浅蓝色矩形屋面，边缘规整，符合类别要求。",
+        "target_index": 8
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "窄条状蓝色物体",
+        "reasoning": "框内为沿边界竖起的窄条状物体，未见连续覆盖屋面，属于围挡或类似立面。",
+        "target_index": 9
+      }
+    ],
+    "execution_id": "82359fdafade49f087b9fee5c52ca7d6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616639.361799,
+      "status": 200
+    }
+  ],
+  "seconds": 59.66636085510254,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f46f4e48265d368d3f2f9db11b6ce90d78418715ffb292099012602beec3d8da"
+}

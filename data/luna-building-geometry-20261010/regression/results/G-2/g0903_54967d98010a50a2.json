@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_54967d98010a50a2",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见狭长条状物体，但无法确认其是否为连续覆盖在建筑或棚架上方的屋面。",
+        "observed_object": "灰黑色条状物体",
+        "reasoning": "仅凭俯视外观不能排除围挡、堆放物或其他地面物体，缺乏明确屋面结构证据。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色成片覆盖面",
+        "reasoning": "框内主体为规则矩形的蓝绿色成片覆盖面，符合蓝绿色顶棚特征；未将框线和文字作为判断依据。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "59282010432244f8a127a3c402af6dea",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615333.4710028,
+      "status": 200
+    }
+  ],
+  "seconds": 16.958839893341064,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "54967d98010a50a2a3b024bf941ee89169a14a65082150bf4be54c49b946ad02"
+}

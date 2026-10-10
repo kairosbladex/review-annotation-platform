@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_cb972ded8e2484ae",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是建筑立面和窗格，未能确认是否为屋面结构。",
+        "observed_object": "疑似建筑立面上的蓝绿色窗格或板面",
+        "reasoning": "候选框内可见规则的竖向立面构件，不是明确覆盖在建筑或棚架上方的蓝绿色顶棚；依据违建类别要求，无法唯一确认目标为蓝绿色屋面，因此输出uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "652b41b73b35463e9eb5463d7a05b75e",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615973.6511612,
+      "status": 200
+    }
+  ],
+  "seconds": 56.06818246841431,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "cb972ded8e2484aee44914c7fb157c88897ac5c1bbc10953ef2040096be1ca23"
+}

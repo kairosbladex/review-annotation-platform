@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_68daf1b01a605bfe",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "绿化带、铺装地面及建筑立面旁的狭长区域",
+        "reasoning": "框内主要是树木、草地和灰色铺装，不是覆盖在建筑或棚架上方的蓝色或绿色屋面，因此不符合违建类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "狭长灰蓝色玻璃或墙面结构",
+        "reasoning": "框内是建筑侧面的竖向结构，未见连续覆盖面的蓝色或绿色顶棚，不能作为违建屋面。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "96a28179940740129c5df5bebbf4c8d7",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615405.917155,
+      "status": 200
+    }
+  ],
+  "seconds": 29.78567910194397,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "68daf1b01a605bfe5152055d3a6e0257405b5555c45dc5e148c6f3be2872d010"
+}

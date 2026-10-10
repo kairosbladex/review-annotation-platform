@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_12dcae5800b529d9",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色施工围挡及草地",
+        "reasoning": "框内主体是立在地面的长条状蓝色围挡，不是覆盖在建筑、棚架、院落或空地上方的蓝绿色顶棚，按类别规则判定为false。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色施工围挡和文字标注",
+        "reasoning": "框内可见的是地面上的蓝色围挡，红色文字为标注，不是蓝绿色顶棚，按类别规则判定为false。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "75d0ab69fb1341cbb77a682844007171",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616184.2749708,
+      "status": 200
+    }
+  ],
+  "seconds": 55.77907133102417,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "12dcae5800b529d9b92a85a2f5832cc20405bdecce2cba8c4293db5e28bc03ac"
+}

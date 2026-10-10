@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_791e6578fa41f3c6",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为沿建筑边缘的灰色竖直板状结构，像围挡或墙面，不是蓝色或绿色顶棚。",
+        "reasoning": "候选框内主体呈灰色且为竖向立面，未见连续覆盖性的蓝绿色屋面结构；框线和文字不作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "f5ba335e57204490a22ce1bb7d039947",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615055.256404,
+      "status": 200
+    }
+  ],
+  "seconds": 15.563647508621216,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "791e6578fa41f3c61e7341d436fe0521d6e3bb85652d4eed22621d9609158d9d"
+}

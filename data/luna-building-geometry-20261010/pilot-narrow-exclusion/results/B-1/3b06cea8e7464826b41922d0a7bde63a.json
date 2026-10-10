@@ -1,0 +1,28 @@
+{
+  "unit": "3b06cea8e7464826b41922d0a7bde63a",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为覆盖在建筑上的规则矩形浅蓝色彩钢瓦顶棚。",
+        "reasoning": "主体明确是蓝色顶棚，符合该类别判定标准；未将框线或文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "b2dba3d58e3e4320962233426fc8ef59",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614470.1011028,
+      "status": 200
+    }
+  ],
+  "seconds": 30.63019871711731,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f8692d72f874c14a689abc1e47e4df57a3ba00ab04c01a64dc28667c10d04231"
+}

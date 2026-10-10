@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_4435733c135c7bf8",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色连续覆盖屋面",
+        "reasoning": "框内主体为规则的蓝色顶棚屋面，符合类别判断要点。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "屋面颜色和结构受反光、透明覆盖及标注遮挡影响，无法明确判定为蓝绿色顶棚。",
+        "observed_object": "浅灰蓝色半透明覆盖结构",
+        "reasoning": "可见连续覆盖面，但颜色更接近灰白或浅蓝，无法明确符合蓝绿色顶棚口径。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色连续覆盖屋面",
+        "reasoning": "框内可见规则的蓝绿色弧形连续覆盖面，符合蓝绿色顶棚特征。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "784726d2b36846cc9787eded062634dd",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614947.5133016,
+      "status": 200
+    }
+  ],
+  "seconds": 41.12058424949646,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "4435733c135c7bf8ee2e998f7de23c00aba2befb081161f52024543ff5475809"
+}

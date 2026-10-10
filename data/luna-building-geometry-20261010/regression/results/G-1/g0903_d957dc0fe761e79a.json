@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_d957dc0fe761e79a",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积很小且被框线覆盖，无法清晰确认其是否为蓝绿色连续屋面。",
+        "observed_object": "疑似建筑顶部边缘或棚面",
+        "reasoning": "仅凭当前候选框无法排除围挡、屋面边缘或其他结构，不能明确判定为违建类别要求的蓝色或绿色顶棚。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "d8ca796849904c6ba1c568fb8274d8f8",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614994.7742622,
+      "status": 503
+    },
+    {
+      "at": 1791615011.7209532,
+      "status": 200
+    }
+  ],
+  "seconds": 49.9561402797699,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d957dc0fe761e79aad752f48751027bea7bd471d8b79562f76df0800e46ac0a6"
+}

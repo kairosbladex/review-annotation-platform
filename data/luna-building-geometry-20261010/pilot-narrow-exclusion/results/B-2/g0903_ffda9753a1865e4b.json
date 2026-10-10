@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_ffda9753a1865e4b",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内主要为红色框线及边缘区域，未见可确认的蓝色或绿色顶棚主体。",
+        "observed_object": "框线和建筑边缘",
+        "reasoning": "不符合蓝色或绿色顶棚的违建类别定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色矩形顶棚",
+        "reasoning": "框内主体是成片浅蓝色屋面，边缘规整，符合蓝色顶棚定义。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色条纹屋面",
+        "reasoning": "框内可见成片浅蓝色彩钢瓦样顶棚及规则平行条纹，符合类别。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色长条形顶棚",
+        "reasoning": "框内可见覆盖在棚架上的蓝色屋面，虽面积较小但主体颜色和形态符合类别。",
+        "target_index": 3
+      }
+    ],
+    "execution_id": "db94e0a0fcfb4d9fb14ae42b3213cc8f",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614604.7297032,
+      "status": 200
+    }
+  ],
+  "seconds": 26.99499773979187,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ffda9753a1865e4b5cb4499463eb6255d8a7632e23da8c912ec78d59816b5940"
+}

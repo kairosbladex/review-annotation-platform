@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_791e6578fa41f3c6",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为灰色地面或通道状区域，不是蓝色或绿色顶棚。",
+        "reasoning": "候选框内未见覆盖在建筑、棚架或空地上方的蓝绿色屋面，明显不符合违建类别判定要求。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "cb41a0fddafd4771bc44d85b3fdefd08",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615076.0896173,
+      "status": 200
+    }
+  ],
+  "seconds": 31.614554405212402,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "791e6578fa41f3c61e7341d436fe0521d6e3bb85652d4eed22621d9609158d9d"
+}

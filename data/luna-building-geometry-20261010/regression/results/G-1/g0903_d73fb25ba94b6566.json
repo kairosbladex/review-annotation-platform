@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_d73fb25ba94b6566",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色围挡板",
+        "reasoning": "框内是沿地块边界竖立的连续蓝色围挡，属于立在地面的长条状物体，不是覆盖在建筑或棚架上方的屋面；按类别要点应判为false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "088b9e30786a4407b22e58d4a1cae037",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616217.4701664,
+      "status": 200
+    }
+  ],
+  "seconds": 32.80998420715332,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d73fb25ba94b6566b8df3a916c40fa79f658638b86ad598f01e3dc51f34c0c20"
+}

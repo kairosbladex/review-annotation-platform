@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_30307ae0bd802781",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像边缘，目标大部分被截断，无法确认是否为连续覆盖的蓝绿色屋面。",
+        "observed_object": "边缘处局部蓝绿色物体",
+        "reasoning": "仅凭局部颜色和形状不能排除围挡、棚体边缘或其他设施，无法唯一判断为违建屋面。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色长方形连续覆盖面，具有棚顶或屋面的外观",
+        "reasoning": "框内主体呈规则的蓝绿色覆盖面，位于地面设施上方，符合蓝绿色顶棚的判定特征。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "14030b170c4a4429bec849d69811048b",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616563.666978,
+      "status": 200
+    }
+  ],
+  "seconds": 41.535762786865234,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "30307ae0bd802781b8a599d530e1b24f024facd24ede66d40aa8f53e4e8cb2a2"
+}

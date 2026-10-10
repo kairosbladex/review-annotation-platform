@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8e13ea8a27e0dec9",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见为长条形浅灰蓝色屋面，受阴影和反光影响，无法可靠确认其是否属于规则的蓝色或绿色顶棚。",
+        "observed_object": "建筑旁的长条形屋面/棚顶",
+        "reasoning": "目标主体不是明显可确认的蓝色或绿色屋面，不能仅凭当前图像判定为违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "d7b07e42e3a941a196e505a9d097cbb1",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616699.3541703,
+      "status": 200
+    }
+  ],
+  "seconds": 45.45132064819336,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8e13ea8a27e0dec95ffa439f8370a43c9090679dd95ccc8afef785fafaf91b03"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_5991fee6c4141b5c",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为带规则网格的透明/灰色棚架或顶棚，不是蓝色或绿色屋面；未见符合类别的蓝绿色顶棚。",
+        "reasoning": "整图中候选框位于建筑旁的矩形棚架区域，主体呈灰白透明结构，规则网格明显，颜色不符合蓝色或绿色顶棚口径，因此判定为false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a3e5cce7f2c94659bb8bc8ee992bc6d7",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616938.851013,
+      "status": 200
+    }
+  ],
+  "seconds": 59.25551128387451,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5991fee6c4141b5cdbc042932102b4c255ec09fd45326a70be22c3cdfc46af92"
+}

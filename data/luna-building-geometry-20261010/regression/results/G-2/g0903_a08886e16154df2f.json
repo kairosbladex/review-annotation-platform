@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_a08886e16154df2f",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要为局部红色文字和深色背景，未能唯一确认是否存在屋面结构。",
+        "observed_object": "疑似文字标注或背景局部，目标结构不可辨。",
+        "reasoning": "无法确认框内是否为覆盖建筑或棚架的屋面，也无法据颜色判断为蓝色或绿色顶棚，因此不能判定为符合类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "框内可见大面积浅灰白色平面，结构较清楚。",
+        "observed_object": "浅灰白色屋面或棚顶。",
+        "reasoning": "确认主要物体为屋面，但颜色为灰白色，不属于规定的蓝色或绿色顶棚。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "99ed736edcb64c90b53f99368fc57690",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615129.7196171,
+      "status": 200
+    }
+  ],
+  "seconds": 54.37794375419617,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "a08886e16154df2f2604cc7a02d11bd4a1e04203f0b3ea3c8eab71fc42b2ef9c"
+}

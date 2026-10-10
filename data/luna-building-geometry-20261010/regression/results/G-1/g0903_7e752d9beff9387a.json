@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_7e752d9beff9387a",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积很小，无法清晰确认其是否为蓝绿色屋面，且可能包含线框标注干扰。",
+        "observed_object": "道路或建筑附近的狭长浅色区域",
+        "reasoning": "无法唯一判断框内主体是否为覆盖在建筑或棚架上的蓝绿色顶棚；依据要求，对看不清或不能唯一定位的目标输出uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e6e5134233cf41faad76857e148051b3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616232.5008671,
+      "status": 200
+    }
+  ],
+  "seconds": 15.292020797729492,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "7e752d9beff9387ae4834ec0d865fe6da6da039bdd7a772e998d21c697be47d9"
+}

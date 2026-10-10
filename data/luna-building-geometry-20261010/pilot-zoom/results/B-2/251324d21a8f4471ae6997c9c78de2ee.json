@@ -1,0 +1,35 @@
+{
+  "unit": "251324d21a8f4471ae6997c9c78de2ee",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色矩形顶棚",
+        "reasoning": "框内主体是覆盖在地面建筑或棚架上的成片浅蓝色屋面，具有明显平行条纹，符合蓝色顶棚判定标准。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色长方形顶棚",
+        "reasoning": "框内主体是成片浅蓝色屋面，边缘规整并可见彩钢瓦平行条纹，符合蓝色顶棚判定标准。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "09a0830697c942de8aeda6b664479b73",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617184.7788715,
+      "status": 200
+    }
+  ],
+  "seconds": 12.501066207885742,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "751dd3699e4f19c6a85fdb5cfd8df77dc8fa7704cca4236f1d96c5ad7393896c"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_1d35e28d6924f963",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内区域主要被树木和画面边缘遮挡，无法清晰确认是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似建筑或棚架边缘，颜色与结构不可明确辨识。",
+        "reasoning": "候选框内没有足够清晰的蓝色或绿色成片屋面证据，不能判定符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "ae72ed678f064db69efefa394217326e",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614738.7361822,
+      "status": 200
+    }
+  ],
+  "seconds": 27.492348670959473,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1d35e28d6924f963cd24545948d967c90f80ec3c5a6393997bbbac74ba4f966a"
+}

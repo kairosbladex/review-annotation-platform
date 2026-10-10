@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_c77510204bad30e6",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见狭长区域，疑似道路边缘或围挡，无法确认存在蓝色或绿色连续覆盖屋面。",
+        "observed_object": "疑似道路旁的狭长结构，被树木遮挡。",
+        "reasoning": "无法唯一判断框内主体是否为蓝色或绿色顶棚；按要求不作推断。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "491f2038e0144a45a23e5dd1c850d89b",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615146.4177828,
+      "status": 200
+    }
+  ],
+  "seconds": 58.62350845336914,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "c77510204bad30e6d8b365a211ac6937c12173e483f04ae5399c3485e975d88a"
+}

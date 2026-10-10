@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_23ed7170a18100cb",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内区域极窄且位于图像边缘，目标大部分被截断，无法确认是否为蓝色或绿色屋面。",
+        "observed_object": "仅能看到边缘处一小段带紫色框线的建筑/物体区域。",
+        "reasoning": "无法排除框线、文字或其他竖直物体，缺乏连续覆盖面的屋面结构证据，因此不能明确判定为违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "92d823f8dcba462380570048d6f8354f",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616352.337665,
+      "status": 200
+    }
+  ],
+  "seconds": 14.456845045089722,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "23ed7170a18100cb415d37dc174e2ff0034246c76fcf336d0fd79180cfa0438d"
+}

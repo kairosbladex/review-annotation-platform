@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_5855e63b7f22d882",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见的是一栋高层建筑立面，未能确认存在蓝色或绿色顶棚；候选框较窄且目标结构无法唯一判断。",
+        "observed_object": "高层建筑及其立面窗户",
+        "reasoning": "框内主体不是明确覆盖在建筑或棚架上方的蓝绿色屋面，不能据此判定为违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "0ad41e17b9784624bdf8736fb44ee24a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616285.224235,
+      "status": 200
+    }
+  ],
+  "seconds": 46.251962661743164,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5855e63b7f22d882980c76f67fb51c27a6286fafa5b30b6be3eca96c4befa45f"
+}

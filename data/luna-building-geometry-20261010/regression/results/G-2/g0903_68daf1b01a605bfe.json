@@ -1,0 +1,39 @@
+{
+  "unit": "g0903_68daf1b01a605bfe",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "道路旁的绿化带、铺装地面及窄长竖向边界区域，并非连续覆盖建筑或棚架的屋面。",
+        "reasoning": "框内主体是地面绿化和铺装区域，未见蓝色或绿色顶棚结构；不能仅凭旁侧建筑条纹归为框内目标。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "靠近建筑的窄长竖向边界或墙面区域。",
+        "reasoning": "框内为立面/边界结构，未见覆盖在建筑或棚架上方的连续蓝色或绿色屋面，因此不符合违建类别。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "00c06f4484cd4441928ec48385013bd9",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615408.9779377,
+      "status": 503
+    },
+    {
+      "at": 1791615438.7941496,
+      "status": 200
+    }
+  ],
+  "seconds": 62.16668486595154,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "68daf1b01a605bfe5152055d3a6e0257405b5555c45dc5e148c6f3be2872d010"
+}

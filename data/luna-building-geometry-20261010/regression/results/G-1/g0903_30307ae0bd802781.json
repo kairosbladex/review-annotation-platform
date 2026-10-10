@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_30307ae0bd802781",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标位于图像边缘且部分被裁切，无法唯一确认框内结构是否为屋面。",
+        "observed_object": "边缘处一小段疑似蓝绿色物体。",
+        "reasoning": "仅凭可见局部无法排除围挡或其他立面物体，不能明确判定为蓝绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为连续、规则的蓝绿色覆盖面，呈棚顶/屋面结构。",
+        "reasoning": "主体是蓝绿色成片顶棚，符合违建类别的颜色与屋面结构要求。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "d89a50373bc8459da927546f7390b563",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616541.0774963,
+      "status": 200
+    }
+  ],
+  "seconds": 24.166245937347412,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "30307ae0bd802781b8a599d530e1b24f024facd24ede66d40aa8f53e4e8cb2a2"
+}

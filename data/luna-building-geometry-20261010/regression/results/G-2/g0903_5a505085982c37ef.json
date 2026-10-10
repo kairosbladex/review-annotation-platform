@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_5a505085982c37ef",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像底部边缘，目标大部分被裁切且分辨率有限。",
+        "observed_object": "可见带紫色框标记的局部矩形区域，疑似建筑或棚面的一部分。",
+        "reasoning": "无法确认框内是否为蓝色或绿色顶棚，也无法唯一判断其空间结构；按规则输出uncertain。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像底部边缘，目标大部分被裁切且分辨率有限。",
+        "observed_object": "可见带紫色框标记的局部矩形区域，疑似建筑或棚面的一部分。",
+        "reasoning": "无法确认框内是否为蓝色或绿色顶棚，也无法唯一判断其空间结构；按规则输出uncertain。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像底部边缘，目标大部分被裁切且分辨率有限。",
+        "observed_object": "可见带紫色框标记的局部矩形区域，疑似建筑或棚面的一部分。",
+        "reasoning": "无法确认框内是否为蓝色或绿色顶棚，也无法唯一判断其空间结构；按规则输出uncertain。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "256f39f49bb0427997f55efbab7fdeb3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614695.5550675,
+      "status": 200
+    }
+  ],
+  "seconds": 38.22415494918823,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5a505085982c37efb127b782fb3436e399fa1bdb1c9aadd42921fb9a06312ad9"
+}

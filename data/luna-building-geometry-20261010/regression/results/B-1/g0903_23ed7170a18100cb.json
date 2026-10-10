@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_23ed7170a18100cb",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像右下角，目标面积很小且被边框标记遮挡，无法清晰辨认是否为蓝色或绿色顶棚。",
+        "observed_object": "局部建筑边缘及标记框",
+        "reasoning": "无法确认框内主体是否属于蓝色或绿色屋面，不能据此判定为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "f1a37bd925b145c29f4df5bff38149d7",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616347.61062,
+      "status": 200
+    }
+  ],
+  "seconds": 26.36382746696472,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "23ed7170a18100cb415d37dc174e2ff0034246c76fcf336d0fd79180cfa0438d"
+}

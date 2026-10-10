@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是建筑窗户，未能确认蓝色或绿色顶棚结构。",
+        "observed_object": "建筑外墙窗户",
+        "reasoning": "不符合可明确识别的蓝绿色顶棚证据，且不能仅凭蓝色玻璃判断为违建顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色矩形棚顶/彩钢板屋面",
+        "reasoning": "框内可见成片蓝色、边缘规整的覆盖面，符合蓝色顶棚判定标准。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚/屋面",
+        "reasoning": "框内可见蓝色覆盖面，呈棚顶结构，符合蓝色顶棚判定标准。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "1bfad990793b42be857e1df21d0a828d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617291.2237942,
+      "status": 200
+    }
+  ],
+  "seconds": 58.45183563232422,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

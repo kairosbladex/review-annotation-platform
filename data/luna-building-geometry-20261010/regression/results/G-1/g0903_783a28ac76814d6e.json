@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_783a28ac76814d6e",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标较小，且被标注框和文字部分遮挡，无法可靠确认其是否为蓝色或绿色屋面。",
+        "observed_object": "建筑边缘疑似一处浅色矩形结构，可能是屋面或其他设施。",
+        "reasoning": "无法仅凭现有图像唯一确认框内主体是符合类别定义的蓝绿色顶棚，因此不能判定为true；也没有足够证据判定为明显不符合。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "f83d91ba951d48a0a0e726873cb28487",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616399.1602979,
+      "status": 200
+    }
+  ],
+  "seconds": 34.9747040271759,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "783a28ac76814d6e599620a8f2c22520be41cdb845f6e20547b90a3e50182074"
+}

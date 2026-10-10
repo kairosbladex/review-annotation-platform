@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_05cf93bb163a24d4",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是立面建筑，未能确认蓝色或绿色顶棚结构；且违建属性缺乏审批或区域业务依据。",
+        "observed_object": "高层建筑立面",
+        "reasoning": "候选框内可见连续的竖向窗格和建筑外墙，没有明确可辨识的蓝绿色屋面或棚顶覆盖面。根据规则，无法确认类别时输出uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "b4dee0dbb9914a748f1da7e40b0c3485",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614980.9385552,
+      "status": 503
+    },
+    {
+      "at": 1791615012.599877,
+      "status": 200
+    }
+  ],
+  "seconds": 64.80052256584167,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "05cf93bb163a24d4931cfb764310d24eef5a0a1ffa02b30900b11aa001db9c51"
+}

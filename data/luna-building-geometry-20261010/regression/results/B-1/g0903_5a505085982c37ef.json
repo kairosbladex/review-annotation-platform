@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_5a505085982c37ef",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框仅覆盖建筑底部的局部区域，目标被裁切且颜色和结构无法唯一判断为蓝色或绿色顶棚。",
+        "observed_object": "局部建筑/屋面边缘及框线",
+        "reasoning": "无法确认框内主体是符合定义的蓝色或绿色成片顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内目标面积很小且被裁切，无法清晰辨认其是否为蓝色或绿色顶棚。",
+        "observed_object": "局部建筑区域",
+        "reasoning": "缺少足够的顶棚颜色和结构证据，不能据此判定违建。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像边缘，主体被截断，无法唯一确认目标类型及顶棚颜色。",
+        "observed_object": "局部建筑/屋面区域",
+        "reasoning": "没有明确证据表明框内是蓝色或绿色顶棚。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "960e6947d8c240a3878de918ae5b3381",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614687.503815,
+      "status": 200
+    }
+  ],
+  "seconds": 30.328224897384644,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5a505085982c37efb127b782fb3436e399fa1bdb1c9aadd42921fb9a06312ad9"
+}

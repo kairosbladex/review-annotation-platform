@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_12dcae5800b529d9",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色施工围挡及其后方草地",
+        "reasoning": "框内主体是沿地块边界竖立的连续蓝色围挡，属于立面围挡而非覆盖在建筑或棚架上方的屋面，不能作为蓝绿色顶棚判断。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色施工围挡及少量地面区域",
+        "reasoning": "框内可见的是竖立的蓝色围挡，旁侧虽有地面和杂物，但未见覆盖建筑、棚架或空地上方的蓝绿色屋面。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "13ffe343db6940759005ae23b77833ef",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616163.0487235,
+      "status": 200
+    }
+  ],
+  "seconds": 34.557862997055054,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "12dcae5800b529d9b92a85a2f5832cc20405bdecce2cba8c4293db5e28bc03ac"
+}

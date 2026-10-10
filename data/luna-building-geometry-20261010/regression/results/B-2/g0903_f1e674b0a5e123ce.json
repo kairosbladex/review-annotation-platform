@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_f1e674b0a5e123ce",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要为狭长竖向区域，颜色受标注文字和阴影干扰，无法明确确认是蓝色或绿色顶棚。",
+        "observed_object": "疑似建筑顶部的狭长区域",
+        "reasoning": "无法排除其为其他建筑构件或非顶棚物体，依据不足以判定为符合类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e850db6f25de4f12a98d2da27d7fc671",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614886.1970153,
+      "status": 200
+    }
+  ],
+  "seconds": 49.10322117805481,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f1e674b0a5e123ce2893758a47bccf6acfe94c4717fceeb39bb50f9781752074"
+}

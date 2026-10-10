@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_a212b4033b766a2f",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色施工围挡/广告牌",
+        "reasoning": "框内主体是沿道路边界竖立的连续围挡，属于竖板结构而非覆盖建筑或棚架的屋面；蓝色不能单独证明是顶棚。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e9b85abfba924751b0bc93f5849395ff",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615295.312258,
+      "status": 503
+    },
+    {
+      "at": 1791615316.1162512,
+      "status": 200
+    }
+  ],
+  "seconds": 53.36243987083435,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "a212b4033b766a2fc2240beadeabdc742c213c239160bcc8919d9944c7d611e9"
+}

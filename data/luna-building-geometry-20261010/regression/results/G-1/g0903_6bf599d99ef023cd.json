@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_6bf599d99ef023cd",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要为狭长蓝绿色结构，无法唯一确认是连续覆盖的屋面，可能是围挡或建筑侧面。",
+        "observed_object": "左侧狭长蓝绿色结构",
+        "reasoning": "仅凭蓝绿色外观不能证明是顶棚，空间结构不清晰。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "大面积蓝绿色屋面",
+        "reasoning": "框内可见连续覆盖建筑或棚架的成片蓝绿色屋面，边缘规整，符合类别定义。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色矩形屋面",
+        "reasoning": "框内主体为连续覆盖的浅蓝绿色矩形屋面，具有明显屋面边缘和覆盖关系。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色矩形屋面",
+        "reasoning": "框内主体为连续覆盖的蓝绿色屋面，边缘规整，符合蓝绿色顶棚判定。",
+        "target_index": 3
+      }
+    ],
+    "execution_id": "cc4d34bbbbfa44988d9750c317ff9987",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615690.593032,
+      "status": 200
+    }
+  ],
+  "seconds": 16.975127458572388,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "6bf599d99ef023cd300473f2c82dbdfaf0088b2b4fad0ec55fce187595f1958a"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_d957dc0fe761e79a",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑侧面或墙体边缘，未见蓝色或绿色连续覆盖屋面。",
+        "reasoning": "候选框内主体不是可确认的蓝绿色顶棚，不能以框旁其他屋面作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "9fb3faa10dae44649f3069bd80052aeb",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615009.2533684,
+      "status": 200
+    }
+  ],
+  "seconds": 60.1682391166687,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d957dc0fe761e79aad752f48751027bea7bd471d8b79562f76df0800e46ac0a6"
+}

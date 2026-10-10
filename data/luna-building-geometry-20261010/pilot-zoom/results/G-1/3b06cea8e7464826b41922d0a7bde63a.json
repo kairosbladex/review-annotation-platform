@@ -1,0 +1,28 @@
+{
+  "unit": "3b06cea8e7464826b41922d0a7bde63a",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为覆盖在建筑上的浅蓝色彩钢瓦顶棚，具有连续屋面和平行条纹结构。",
+        "reasoning": "从整图看，候选框对应的是建筑上方的成片浅蓝色屋面，属于蓝色顶棚，符合该类别判断标准；未将框线或文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "90814986a1394f89bff74d6c6b831edc",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617171.7050078,
+      "status": 200
+    }
+  ],
+  "seconds": 46.660741329193115,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f8692d72f874c14a689abc1e47e4df57a3ba00ab04c01a64dc28667c10d04231"
+}

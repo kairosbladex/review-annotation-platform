@@ -1,0 +1,35 @@
+{
+  "unit": "251324d21a8f4471ae6997c9c78de2ee",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "候选框内为成片浅蓝色、带平行条纹的屋面顶棚。",
+        "reasoning": "主体明确是蓝色覆盖屋面，符合违建类别口径；不将框线或文字作为证据。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "候选框内为狭长成片浅蓝色、带平行条纹的屋面顶棚。",
+        "reasoning": "主体明确是蓝色彩钢瓦类覆盖屋面，符合违建类别口径。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "bee9c9d6686646199b391ca48cda56bc",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614474.9196122,
+      "status": 200
+    }
+  ],
+  "seconds": 35.539464712142944,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "751dd3699e4f19c6a85fdb5cfd8df77dc8fa7704cca4236f1d96c5ad7393896c"
+}

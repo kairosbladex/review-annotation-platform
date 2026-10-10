@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_5855e63b7f22d882",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内主要是灰色建筑立面及窗户，不是蓝色或绿色顶棚。",
+        "observed_object": "高层建筑立面",
+        "reasoning": "候选框主体为建筑外墙，未见符合类别定义的蓝色或绿色屋面顶棚。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "4e776366b94d4875851288fc3e0e686c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616275.6095552,
+      "status": 200
+    }
+  ],
+  "seconds": 36.659220933914185,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5855e63b7f22d882980c76f67fb51c27a6286fafa5b30b6be3eca96c4befa45f"
+}

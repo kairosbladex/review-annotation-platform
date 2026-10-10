@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积较小，颜色与结构细节不足，无法确认是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似位于建筑旁地面的浅色小块物体。",
+        "reasoning": "仅凭现有图像不能唯一判断框内主体是否属于蓝色或绿色覆盖屋面，按要求输出uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "1635aa3023184af8b1f14766eea1d592",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614516.7932577,
+      "status": 200
+    }
+  ],
+  "seconds": 36.354732275009155,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

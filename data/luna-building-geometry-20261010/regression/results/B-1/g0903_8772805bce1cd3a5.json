@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8772805bce1cd3a5",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为蓝绿色顶棚屋面",
+        "reasoning": "候选框主体是覆盖在棚架上的蓝绿色成片屋面，符合违建类别定义；不以框线或文字作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "2dc725906e4a43db86f4cab9f8b2e005",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616709.0139885,
+      "status": 200
+    }
+  ],
+  "seconds": 50.6856164932251,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

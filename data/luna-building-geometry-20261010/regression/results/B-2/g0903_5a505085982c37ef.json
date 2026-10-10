@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_5a505085982c37ef",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框仅覆盖图像底部边缘的小区域，目标被裁切且细节不足，无法确认是否为蓝色或绿色顶棚。",
+        "observed_object": "底部建筑边缘处的局部矩形区域",
+        "reasoning": "看不清且无法唯一判断主体是否为符合类别的蓝色或绿色顶棚，因此不能判定为true或false。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框仅覆盖图像底部边缘的小区域，目标被裁切且细节不足，无法确认是否为蓝色或绿色顶棚。",
+        "observed_object": "底部建筑边缘处的局部矩形区域",
+        "reasoning": "框内可见矩形轮廓，但缺乏足够颜色和结构证据确认其为蓝色或绿色屋面。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框仅覆盖图像底部边缘的小区域，目标被裁切且细节不足，无法确认是否为蓝色或绿色顶棚。",
+        "observed_object": "底部建筑边缘处的局部矩形区域",
+        "reasoning": "目标主体被边界和文字标注遮挡，无法唯一判断是否属于蓝色或绿色顶棚。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "0eab537c697f49788c4e1d4d7342dc3a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614698.7869418,
+      "status": 200
+    }
+  ],
+  "seconds": 41.633400201797485,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5a505085982c37efb127b782fb3436e399fa1bdb1c9aadd42921fb9a06312ad9"
+}

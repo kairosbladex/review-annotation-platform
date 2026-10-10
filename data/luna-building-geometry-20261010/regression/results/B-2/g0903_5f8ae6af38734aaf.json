@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_5f8ae6af38734aaf",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑屋顶上的灰色设备/结构，未见蓝色或绿色顶棚。",
+        "reasoning": "依据类别要求，违建仅指蓝色或绿色顶棚；该候选框主体不是蓝绿色屋面，因此明显不符合。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "0d3e419be1a04915b47d5552a16f3652",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614811.4753678,
+      "status": 503
+    },
+    {
+      "at": 1791614836.6986487,
+      "status": 200
+    }
+  ],
+  "seconds": 58.735490560531616,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5f8ae6af38734aaf672539f4520d895307a2157cb462ded27a9ebb50d4d9b4fd"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_eb288fad610cfac1",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见疑似蓝绿色立面或板材，但无法确认其为覆盖建筑或棚架上方的连续屋面。",
+        "observed_object": "建筑边缘的蓝绿色网格状区域",
+        "reasoning": "候选框内主体疑似竖直立面或窗格，不足以证明是蓝绿色顶棚；按规则无法唯一判断屋面结构，因此输出uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "3bcb028c5f63469e8f39abf60c2bf666",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616128.0597146,
+      "status": 200
+    }
+  ],
+  "seconds": 16.191495895385742,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "eb288fad610cfac10c0bee57546f8e0740db78ef064453db0476771171adb2bf"
+}

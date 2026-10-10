@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_9d25c20709a7eaec",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像最右侧边缘，目标大部分被裁切且仅见狭窄局部，无法唯一确认是否为蓝色或绿色顶棚。",
+        "observed_object": "右侧边缘的狭长局部物体，旁有框线及文字标记。",
+        "reasoning": "排除框线和文字后，候选区域内可见内容不足，不能明确判断为蓝色或绿色屋面。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "75f9d4515e9f4f84beb4c900f3fda9d3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616758.4565458,
+      "status": 200
+    }
+  ],
+  "seconds": 49.05136704444885,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "9d25c20709a7eaec63c178c4e5e16ce30052c5b09081d41a9ba06b12af72b5a5"
+}

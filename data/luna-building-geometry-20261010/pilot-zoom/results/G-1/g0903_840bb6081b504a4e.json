@@ -1,0 +1,39 @@
+{
+  "unit": "g0903_840bb6081b504a4e",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色连续覆盖的屋面/顶棚",
+        "reasoning": "框内可见成片浅蓝色屋面，具有覆盖关系和规整边缘，符合蓝绿色顶棚类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域较小且被截断，屋面结构与颜色不够清晰",
+        "observed_object": "疑似蓝绿色长条状覆盖物",
+        "reasoning": "虽然框内可见蓝绿色区域，但无法唯一确认其为屋面而非其他长条状设施，不能明确判定。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "b2e0998ff9204f37a993233d2c1e71e9",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617305.5468028,
+      "status": 503
+    },
+    {
+      "at": 1791617319.448623,
+      "status": 200
+    }
+  ],
+  "seconds": 20.696606874465942,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "840bb6081b504a4ebbcd6202d14a42b57223bc3817c84a6f8dab9b0754fddc35"
+}

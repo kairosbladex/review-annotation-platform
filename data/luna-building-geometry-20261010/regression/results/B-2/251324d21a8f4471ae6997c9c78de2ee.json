@@ -1,0 +1,35 @@
+{
+  "unit": "251324d21a8f4471ae6997c9c78de2ee",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色成片矩形屋面，具有顶棚的平行条纹结构",
+        "reasoning": "框内主体明确是蓝色彩钢瓦顶棚，符合违建类别判定要求；未将框线或文字作为依据。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色成片矩形屋面，具有平行条纹结构",
+        "reasoning": "框内主体明确是蓝色彩钢瓦顶棚，符合违建类别判定要求；未将框线或文字作为依据。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "2e1f33bfdf48462a9451927adc32f48a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616456.5883486,
+      "status": 200
+    }
+  ],
+  "seconds": 35.305447578430176,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "751dd3699e4f19c6a85fdb5cfd8df77dc8fa7704cca4236f1d96c5ad7393896c"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ffd6228264016892",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见的是建筑立面上的窗户/墙面区域，未见蓝色或绿色顶棚结构。",
+        "observed_object": "建筑立面窗户及墙面",
+        "reasoning": "候选框主体不是蓝色或绿色屋面，而是立在建筑上的立面区域，不符合违建类别判定标准。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "dd5535d76818486f87f02aa5215b9ed6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615793.8167043,
+      "status": 200
+    }
+  ],
+  "seconds": 43.80177879333496,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ffd6228264016892b07fa71cf15c7219831b1607593cbdde94d66987027f013d"
+}

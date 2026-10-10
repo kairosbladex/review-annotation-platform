@@ -1,0 +1,28 @@
+{
+  "unit": "26f5758c999d4c03a0bfd39e1920ed60",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标位于图像顶部边缘，面积很小且部分被截断，无法唯一确认其是否为蓝绿色连续屋面。",
+        "observed_object": "顶部边缘处疑似蓝绿色矩形区域，结构不清。",
+        "reasoning": "仅凭可见颜色和局部形状不能排除围挡、其他设施或截断物体，无法明确符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "bc7e2f0469484515978353e9b31167b5",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615039.3070245,
+      "status": 200
+    }
+  ],
+  "seconds": 16.511307954788208,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "369a12acd305d101fe805d2ab52b4729157c0822fa8b210f96d027d9c2a8a4c9"
+}

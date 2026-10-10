@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_ffda9753a1865e4b",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内仅见狭窄边缘，无法确认蓝绿色顶棚，主体更像红框边界或其他结构。",
+        "observed_object": "局部边缘结构",
+        "reasoning": "不符合可确认的蓝色或绿色顶棚特征。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "大面积浅蓝色矩形屋面/顶棚",
+        "reasoning": "框内主体为规则的浅蓝色屋面，属于类别规定的蓝色顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝绿色长方形顶棚",
+        "reasoning": "框内可见成片浅蓝绿色屋面，并具有顶棚覆盖形态，符合类别定义。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色长条形屋面/顶棚",
+        "reasoning": "框内主体呈蓝色并覆盖在棚架上方，符合蓝色顶棚特征。",
+        "target_index": 3
+      }
+    ],
+    "execution_id": "36cd65e8615c40cdb0ac6ac29e4d6a7d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615027.1610456,
+      "status": 200
+    }
+  ],
+  "seconds": 15.937925338745117,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ffda9753a1865e4b5cb4499463eb6255d8a7632e23da8c912ec78d59816b5940"
+}

@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_7597294956ab6674",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见浅蓝绿色区域，但被截断且空间结构不清，无法唯一确认是覆盖在建筑或棚架上方的屋面。",
+        "observed_object": "疑似浅蓝绿色板状或覆盖物",
+        "reasoning": "仅凭颜色不足以判定为违建屋面，当前无法确认其是否为连续覆盖面。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "35ede0ae0a8a4a40a73a350c50a176af",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615416.1461613,
+      "status": 503
+    },
+    {
+      "at": 1791615463.3924484,
+      "status": 200
+    }
+  ],
+  "seconds": 79.35717606544495,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "7597294956ab66748d5f2a2219c8c99bcd7ef12e31f8a75cdebcfc2ab68f4c6f"
+}

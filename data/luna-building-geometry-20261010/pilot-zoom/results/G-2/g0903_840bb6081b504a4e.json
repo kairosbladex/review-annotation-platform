@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_840bb6081b504a4e",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为成片浅蓝色屋面/顶棚，覆盖在建筑或棚架上方。",
+        "reasoning": "目标主体是蓝色连续覆盖面，具有屋面结构，不是文字、框线或地面物体，符合该类别判定。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域较小且部分位于图像边缘，屋面结构与颜色难以清晰确认。",
+        "observed_object": "疑似道路或建筑边缘处的细长浅色/蓝色覆盖物。",
+        "reasoning": "无法唯一确认框内是否为蓝绿色屋面，可能是其他结构或边缘物体，因此不能明确判为true或false。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "8eefc5cdb41949129efe9373c0e1d8bd",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617304.361476,
+      "status": 200
+    }
+  ],
+  "seconds": 8.023062705993652,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "840bb6081b504a4ebbcd6202d14a42b57223bc3817c84a6f8dab9b0754fddc35"
+}

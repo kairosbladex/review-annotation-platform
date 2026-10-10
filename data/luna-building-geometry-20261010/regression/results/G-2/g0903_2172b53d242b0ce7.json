@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_2172b53d242b0ce7",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标位于图像最左边缘，仅部分可见，无法唯一判断空间结构。",
+        "observed_object": "边缘处局部蓝色物体",
+        "reasoning": "目标被截断且无法确认是否为覆盖在建筑或棚架上的屋面，不能仅凭颜色判断。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色矩形顶棚",
+        "reasoning": "框内可见成片浅蓝色、带平行瓦楞纹理的连续覆盖面，边缘规整，符合蓝色顶棚特征。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色矩形顶棚",
+        "reasoning": "框内可见连续覆盖建筑或棚架的蓝绿色屋面，呈规整长方形并带明显平行条纹，符合蓝绿色顶棚特征。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "f428aeb45e56494e9330619bd463165c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615951.254883,
+      "status": 200
+    }
+  ],
+  "seconds": 15.979603290557861,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "2172b53d242b0ce7d6d54e822870d31408117a4c6622913e35d0535ea680c11a"
+}

@@ -1,0 +1,56 @@
+{
+  "unit": "g0903_116b8c88f7c80f7b",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见成片浅蓝色矩形屋面，符合蓝色顶棚特征。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为浅蓝色屋面，边缘规整，符合类别。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见小面积浅蓝色顶棚，符合类别要求。",
+        "target_index": 2
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域较小且受红色框线、文字和分辨率影响，无法可靠确认是否为蓝绿色顶棚。",
+        "observed_object": "疑似小型屋面",
+        "reasoning": "可见区域不足以排除其他物体，不能明确判定。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内为成片浅蓝色矩形屋面，符合蓝色顶棚特征。",
+        "target_index": 4
+      }
+    ],
+    "execution_id": "dcb573a0ac124c279aba123912cb2ecd",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617231.1166973,
+      "status": 200
+    }
+  ],
+  "seconds": 42.046987533569336,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "116b8c88f7c80f7b80a2455b90b6d4f61c3f381275170bf0f452dca64f279930"
+}

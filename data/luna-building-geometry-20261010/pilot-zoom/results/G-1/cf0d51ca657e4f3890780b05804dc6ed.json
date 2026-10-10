@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见浅蓝色方形物体，但仅凭现有俯拍图无法唯一确认其为空间覆盖的屋面或顶棚，也可能是地面物体。",
+        "observed_object": "候选框内为浅蓝色方形区域，外有红色框线。",
+        "reasoning": "不能将框线或颜色单独作为违建证据；未能明确确认目标具有连续覆盖面的蓝绿色屋面结构，因此判定为uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "4ef5244dc4174785b599398bc78d5f88",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617354.477861,
+      "status": 200
+    }
+  ],
+  "seconds": 6.18555212020874,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_9d25c20709a7eaec",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像最右侧边缘，目标几乎被截断，无法唯一判断其是否为蓝绿色屋面。",
+        "observed_object": "仅能看到边缘处的狭窄竖向彩色区域，疑似框线或被截断物体。",
+        "reasoning": "候选框内缺乏足够空间结构证据，不能确认是覆盖在建筑或棚架上的蓝绿色顶棚。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a7e6305ac8174694b38643f5c4cd3b5a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616713.672813,
+      "status": 200
+    }
+  ],
+  "seconds": 16.54470443725586,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "9d25c20709a7eaec63c178c4e5e16ce30052c5b09081d41a9ba06b12af72b5a5"
+}

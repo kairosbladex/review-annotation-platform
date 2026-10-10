@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_50f9dfad512831ab",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内是建筑的浅灰色屋面，未见蓝色或绿色顶棚。",
+        "reasoning": "候选框内主体为灰白色连续屋面，不符合蓝色或绿色顶棚的违建类别判定；框线和文字不作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "466ae6ab2cf2438ab1597b30b775fa82",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615611.7266195,
+      "status": 200
+    }
+  ],
+  "seconds": 41.776424407958984,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "50f9dfad512831abdc7e39537189143a1acda5782411ebacc343416dcc72b8f5"
+}

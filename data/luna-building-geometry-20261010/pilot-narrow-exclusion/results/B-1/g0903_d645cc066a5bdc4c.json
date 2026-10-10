@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "建筑外墙上的窗户",
+        "reasoning": "框内主体是建筑窗户，不是蓝色或绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色彩钢顶棚",
+        "reasoning": "框内可见蓝色、成片且有规则边缘的屋面顶棚，符合类别。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色彩钢顶棚",
+        "reasoning": "框内可见蓝色屋面顶棚，属于蓝色顶棚。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "0e4b71211b864285863bf782782c4c0d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614578.8646283,
+      "status": 200
+    }
+  ],
+  "seconds": 61.62006592750549,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

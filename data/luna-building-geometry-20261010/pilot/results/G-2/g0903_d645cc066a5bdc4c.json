@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "建筑外墙上的窗户或玻璃面",
+        "reasoning": "框内是建筑立面上的竖直窗户，不是覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "蓝色围挡或板材侧面",
+        "reasoning": "框内主体为沿道路设置的竖直蓝色板材，属于围挡/立面，不是屋面；不能仅凭蓝绿色和条纹判定为顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "蓝色围挡或板材侧面",
+        "reasoning": "框内为竖直蓝色板材，未见连续覆盖形成的屋面结构，属于围挡而非蓝绿色顶棚。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "5768db00ea1d4f2a9cbc594470d63477",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614288.4711137,
+      "status": 200
+    }
+  ],
+  "seconds": 16.19831085205078,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_7e752d9beff9387a",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内区域较小且被标注框线覆盖，无法清晰确认主体是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似建筑顶部或棚面区域",
+        "reasoning": "可见区域不足以排除其为其他屋面、地面物体或标注覆盖部分；依据不足，不能明确判定为违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "0cee15d92fa745c8945807441902dd8a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616275.873976,
+      "status": 200
+    }
+  ],
+  "seconds": 58.016831159591675,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "7e752d9beff9387ae4834ec0d865fe6da6da039bdd7a772e998d21c697be47d9"
+}

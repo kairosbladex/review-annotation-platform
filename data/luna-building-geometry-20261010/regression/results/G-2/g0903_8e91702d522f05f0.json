@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8e91702d522f05f0",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色广告围挡及城市建筑背景",
+        "reasoning": "框内主体是沿道路边界竖立的连续蓝色广告围挡，属于立面围挡而非覆盖在建筑或棚架上方的屋面；不能仅凭蓝色判断为违建顶棚。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "bb0554b645f849178e8229db58ab39b2",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615373.8318822,
+      "status": 200
+    }
+  ],
+  "seconds": 58.51755428314209,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8e91702d522f05f01a66ee9cb5e8b519ceef77f21c1654ef07cc4b4814d3e10c"
+}

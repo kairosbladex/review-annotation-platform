@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_955fabb694e9283a",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积很小，且被框线和图中文字干扰，无法清楚确认其是否为蓝绿色屋面。",
+        "observed_object": "道路旁的狭长区域，疑似建筑或棚顶边缘。",
+        "reasoning": "无法唯一判断框内主体是符合类别要求的蓝绿色连续覆盖屋面，不能仅凭颜色或邻近顶棚作出推断。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "fcf1ce8dde4441e8ad418c641fb68a44",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615969.0321097,
+      "status": 200
+    }
+  ],
+  "seconds": 17.39603352546692,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "955fabb694e9283a1fff660796b3ba24d5da650af4e0e14e0c4b131b98390b52"
+}

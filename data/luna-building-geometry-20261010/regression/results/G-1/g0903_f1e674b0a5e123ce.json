@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_f1e674b0a5e123ce",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内疑似为屋顶区域，但颜色受框线和文字遮挡影响，无法明确判断主体是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似建筑屋面及设备，框内有明显文字和框线遮挡。",
+        "reasoning": "可确认其位于建筑顶部，但仅凭当前图像无法排除灰白屋面、设备或其他结构，不能明确符合蓝绿色顶棚类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "c70cfcefdd264d5d88c47b105f2b12a2",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614856.3950725,
+      "status": 200
+    }
+  ],
+  "seconds": 27.805973529815674,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f1e674b0a5e123ce2893758a47bccf6acfe94c4717fceeb39bb50f9781752074"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "3b06cea8e7464826b41922d0a7bde63a",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为覆盖在建筑上方的浅蓝色规整矩形彩钢瓦屋面，具有平行瓦楞纹理。",
+        "reasoning": "从整图看，目标是连续覆盖建筑上方的屋面，不是围挡或其他地面物体；其主体呈浅蓝色，符合蓝色顶棚类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "b9be1ba1d37f469993f38404846983d5",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615673.1887436,
+      "status": 200
+    }
+  ],
+  "seconds": 57.61459922790527,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f8692d72f874c14a689abc1e47e4df57a3ba00ab04c01a64dc28667c10d04231"
+}

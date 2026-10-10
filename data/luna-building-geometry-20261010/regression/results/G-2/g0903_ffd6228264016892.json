@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ffd6228264016892",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内是建筑立面的竖向窗户/墙体区域，并非蓝色或绿色顶棚。",
+        "reasoning": "目标呈竖直立面结构，未见覆盖建筑、棚架或空地上方的连续蓝绿色屋面，因此不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "d96448a3571d40fc84e0de295ee0a780",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615820.2123103,
+      "status": 200
+    }
+  ],
+  "seconds": 65.16705560684204,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ffd6228264016892b07fa71cf15c7219831b1607593cbdde94d66987027f013d"
+}

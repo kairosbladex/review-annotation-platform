@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_4435733c135c7bf8",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为成片、规则的蓝色屋面，符合违建类别定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "屋面颜色偏灰蓝且受反光影响，蓝绿色属性不够明确",
+        "observed_object": "半透明棚顶",
+        "reasoning": "可见规则棚顶结构，但颜色更接近灰蓝或浅色，无法明确判定为蓝色或绿色顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色顶棚",
+        "reasoning": "框内可见成片蓝绿色弧形棚顶，符合蓝色或绿色顶棚判定标准。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "717bb544f7ff425eab953061ee85f6eb",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614966.4222376,
+      "status": 200
+    }
+  ],
+  "seconds": 55.84189057350159,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "4435733c135c7bf8ee2e998f7de23c00aba2befb081161f52024543ff5475809"
+}

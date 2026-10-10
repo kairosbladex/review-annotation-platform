@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_1d737b615da670e0",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑上的蓝绿色标识或装饰区域，不是覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+        "reasoning": "目标缺乏蓝色或绿色屋面、篷布等顶棚结构证据，不能按违建类别判定。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "79d7c30b6dc34421ba9ed18728ab9774",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614734.1019113,
+      "status": 200
+    }
+  ],
+  "seconds": 15.593088150024414,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1d737b615da670e0c415f3e1be7c8e210284361129ab8765980fe7b320929dd2"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见小面积浅蓝色矩形顶棚",
+        "reasoning": "候选框主体为覆盖在空地上的蓝色屋面，符合蓝色顶棚类别；未将框线或文字作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "4e1368bb94304bf1a71dfdf31ee8e44a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614511.2316816,
+      "status": 200
+    }
+  ],
+  "seconds": 40.72231078147888,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

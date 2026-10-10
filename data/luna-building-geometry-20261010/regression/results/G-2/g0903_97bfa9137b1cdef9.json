@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_97bfa9137b1cdef9",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为道路旁的红褐色地面/铺装区域及树木遮挡，不是蓝色或绿色顶棚。",
+        "reasoning": "目标区域明显不符合违建类别中蓝色或绿色屋面的判定条件；框线和文字不作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e7a0f568de844cf6be7334836218301c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615493.890381,
+      "status": 200
+    }
+  ],
+  "seconds": 30.055989503860474,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "97bfa9137b1cdef92146a53a8812891303be935a0b92b79ce042a57295459637"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_1d737b615da670e0",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积较小且部分被裁切，无法唯一确认其为空间覆盖屋面还是其他蓝绿色物体。",
+        "observed_object": "疑似蓝绿色小型目标，位于建筑边缘附近。",
+        "reasoning": "虽然颜色可能属于蓝绿色，但现有图像不足以确认其为覆盖在建筑、棚架或空地上方的连续屋面；不能仅凭颜色判定为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "5a5d8d0ddd0e46ff92b8eac7df0cfa65",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614767.6815066,
+      "status": 200
+    }
+  ],
+  "seconds": 42.64120173454285,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1d737b615da670e0c415f3e1be7c8e210284361129ab8765980fe7b320929dd2"
+}

@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "建筑外墙上的蓝色玻璃窗/窗体",
+        "reasoning": "框内是立面上的竖直窗体，不是覆盖在建筑或棚架上方的屋面。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "沿道路边界设置的蓝色围挡板",
+        "reasoning": "框内主体是竖起的长条状围挡，未见连续覆盖面的屋面结构。",
+        "target_index": 1
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "蓝色围挡或板材的局部",
+        "reasoning": "框内是地面附近的竖直板状物，不是建筑或棚架上方的蓝绿色顶棚。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "9c7f41255f1141ada94b8d9b48d5431c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614905.993258,
+      "status": 200
+    }
+  ],
+  "seconds": 14.757890224456787,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

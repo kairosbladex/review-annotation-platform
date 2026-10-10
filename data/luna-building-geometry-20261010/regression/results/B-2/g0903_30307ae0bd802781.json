@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_30307ae0bd802781",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积小且部分被裁切，无法确认是否为蓝色或绿色顶棚。",
+        "observed_object": "左下角被框出的局部物体",
+        "reasoning": "仅凭可见局部无法唯一判断其是否为符合类别的蓝绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色长条状顶棚",
+        "reasoning": "框内主体呈规则矩形蓝绿色屋面，符合蓝色或绿色顶棚的类别要求。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "ad0b2d753fa649fc968e3af6e0ad114a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616576.770654,
+      "status": 200
+    }
+  ],
+  "seconds": 57.54032492637634,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "30307ae0bd802781b8a599d530e1b24f024facd24ede66d40aa8f53e4e8cb2a2"
+}

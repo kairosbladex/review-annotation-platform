@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_783a28ac76814d6e",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑外侧的灰白色设备/平台区域，未见蓝色或绿色顶棚。",
+        "reasoning": "候选框主体不是蓝色或绿色屋面，不符合该类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "18d294a0e850490aac89f0cf8de85dd4",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616406.460382,
+      "status": 200
+    }
+  ],
+  "seconds": 24.388100624084473,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "783a28ac76814d6e599620a8f2c22520be41cdb845f6e20547b90a3e50182074"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_23ed7170a18100cb",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像最右下角，目标面积很小且部分贴近边缘，颜色和结构无法清晰辨认。",
+        "observed_object": "疑似建筑边缘处的狭长区域，无法确认是否为蓝色或绿色顶棚。",
+        "reasoning": "无法明确观察到符合类别的蓝色或绿色屋面结构，因此不能判定为true；目标不清晰，输出uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "4a9ea7d2c9384616a528eb6a9e17043f",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616352.4694734,
+      "status": 200
+    }
+  ],
+  "seconds": 14.577258110046387,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "23ed7170a18100cb415d37dc174e2ff0034246c76fcf336d0fd79180cfa0438d"
+}

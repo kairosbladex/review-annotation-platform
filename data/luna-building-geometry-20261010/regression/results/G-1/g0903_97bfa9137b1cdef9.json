@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_97bfa9137b1cdef9",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是红褐色地面或屋面及树木，未见蓝色或绿色顶棚。",
+        "reasoning": "候选框内没有符合类别要求的蓝色或绿色连续覆盖面，明显不属于目标违建屋面。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "00a5f1a05d3c4ffb8ce7a79755135eea",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615492.6544745,
+      "status": 200
+    }
+  ],
+  "seconds": 53.48738622665405,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "97bfa9137b1cdef92146a53a8812891303be935a0b92b79ce042a57295459637"
+}

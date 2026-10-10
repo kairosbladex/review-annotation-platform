@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_97effc5717ba345b",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为高层建筑的竖直立面，不是蓝色或绿色屋面；未见符合类别的顶棚结构。",
+        "observed_object": "高层建筑立面",
+        "reasoning": "候选框主体是建筑墙面和窗户，目标位于竖直立面而非覆盖在建筑、棚架或空地上方的蓝绿色屋面，因此明显不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "cf3c738d002548299e0ba06c0e86b881",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615550.5049837,
+      "status": 200
+    }
+  ],
+  "seconds": 56.229559898376465,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "97effc5717ba345b6517078ef6a77ec1804105b984c612495acddd3573e7f9cc"
+}

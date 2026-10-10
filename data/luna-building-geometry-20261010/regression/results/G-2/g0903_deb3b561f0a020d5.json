@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_deb3b561f0a020d5",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是建筑外墙或竖直立面上的浅蓝色矩形区域，并非覆盖在建筑、棚架或空地上方的屋面。",
+        "reasoning": "从整张俯拍图看，候选框位于建筑侧面，未见连续覆盖面的蓝色或绿色顶棚结构，因此不符合该类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "3cc833bffd174045a8a6f53b5df8c032",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616111.4800894,
+      "status": 200
+    }
+  ],
+  "seconds": 41.21867108345032,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "deb3b561f0a020d5f9bfafb1040d5fe1f573c1b6d85fe7297dec54a50ff49aed"
+}

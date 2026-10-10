@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_d957dc0fe761e79a",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为建筑顶部的蓝色顶棚",
+        "reasoning": "候选框主体呈蓝色，覆盖在建筑结构上方，符合蓝色顶棚的类别判定要求；未将框线或文字作为依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a67de4c103c7441998e87c9e8273bffe",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615022.4058557,
+      "status": 200
+    }
+  ],
+  "seconds": 55.621402978897095,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d957dc0fe761e79aad752f48751027bea7bd471d8b79562f76df0800e46ac0a6"
+}

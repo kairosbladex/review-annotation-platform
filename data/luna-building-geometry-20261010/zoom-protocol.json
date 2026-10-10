@@ -1,0 +1,8 @@
+{
+  "at": 1791616480.056811,
+  "factor": "Only crop magnification changes; same original structure-first prompt",
+  "hypothesis": "Small/partial roof still occupies very few pixels in crop sheet; upsampling with context may preserve appearance acceptance without weakening geometry rejection",
+  "selection": "original six dev pilot images plus two new dev true rejection images; no holdout outputs read",
+  "gate": "both repeats: focus false accepts lower than B and true rejections no higher than B; inspect any new paired true rejection",
+  "no_change": "B and default/mixed image pipeline unchanged"
+}

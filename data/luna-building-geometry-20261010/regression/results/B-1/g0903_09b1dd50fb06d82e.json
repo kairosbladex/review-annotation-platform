@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_09b1dd50fb06d82e",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内屋面部分被树冠遮挡，剩余可见区域呈浅灰或白色，无法确认是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似建筑屋面或棚顶",
+        "reasoning": "框内主体不是明显的蓝色或绿色屋面，且受遮挡影响无法唯一判断颜色；按规则输出uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "c51379fb529a49b591066dd0622f0b75",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615753.776062,
+      "status": 200
+    }
+  ],
+  "seconds": 41.67971634864807,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "09b1dd50fb06d82e6db4fe5445c27c69e88247188470faaf37c846db82132094"
+}

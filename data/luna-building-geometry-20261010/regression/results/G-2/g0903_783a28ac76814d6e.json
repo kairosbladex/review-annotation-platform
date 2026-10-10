@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_783a28ac76814d6e",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内疑似小型屋面，但颜色与覆盖结构受分辨率和标注遮挡影响，无法唯一确认是否为蓝绿色顶棚。",
+        "observed_object": "建筑边缘处的矩形浅色区域，疑似屋面或棚体。",
+        "reasoning": "仅凭当前候选框无法明确确认其为符合类别定义的蓝色或绿色顶棚，不能排除其他结构或颜色。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a5318fa35cbf4fbd959e85aa973f2bb2",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616396.8137019,
+      "status": 200
+    }
+  ],
+  "seconds": 43.95292353630066,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "783a28ac76814d6e599620a8f2c22520be41cdb845f6e20547b90a3e50182074"
+}

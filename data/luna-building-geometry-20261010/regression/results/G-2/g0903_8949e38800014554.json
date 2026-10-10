@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_8949e38800014554",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是树冠和地面绿化，未见蓝色或绿色顶棚屋面。",
+        "reasoning": "候选框内没有符合定义的连续覆盖面屋顶，不能将树木或地面绿化判为蓝绿色顶棚。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "6f5794a6d2e94474963d9bdbfd774ccf",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616749.3889773,
+      "status": 503
+    },
+    {
+      "at": 1791616783.0481007,
+      "status": 200
+    }
+  ],
+  "seconds": 66.636465549469,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8949e3880001455459857d9e95a6fe92959ea086b64a1e3229a34f046bc72261"
+}

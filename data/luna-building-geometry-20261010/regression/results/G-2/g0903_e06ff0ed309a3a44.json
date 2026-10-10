@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_e06ff0ed309a3a44",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内区域面积较小且受框线、文字及影像分辨率影响，无法可靠确认其是否为蓝绿色连续覆盖屋面。",
+        "observed_object": "疑似建筑边缘的小块浅蓝色区域",
+        "reasoning": "无法排除该区域是墙面、设备或其他非屋面结构；依据类别要求不能仅凭颜色判定为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "584b370dfb134fd78b7056e4117d4bb9",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615215.4376214,
+      "status": 200
+    }
+  ],
+  "seconds": 25.369444608688354,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "e06ff0ed309a3a44e35fd318a5e0a3203c35cd06ed326781f4e97a0e236698f7"
+}

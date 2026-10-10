@@ -1,0 +1,91 @@
+{
+  "unit": "g0903_f46f4e48265d368d",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色顶棚",
+        "reasoning": "框内可见蓝绿色矩形屋面，符合类别定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内主体为浅蓝色屋面，符合蓝色顶棚定义。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内为成片浅蓝色矩形屋面。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内可见蓝色屋面。",
+        "target_index": 3
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "灰白色屋面",
+        "reasoning": "框内主体为灰白色屋面，不属于蓝色或绿色顶棚。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见蓝色矩形屋面。",
+        "target_index": 5
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域位于图像底边，结构和颜色可见范围不足。",
+        "observed_object": "小型疑似屋面",
+        "reasoning": "无法充分确认其是否为蓝色或绿色顶棚。",
+        "target_index": 6
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色顶棚",
+        "reasoning": "框内可见蓝绿色屋面区域。",
+        "target_index": 7
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内为成片浅蓝色矩形屋面。",
+        "target_index": 8
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色小型顶棚",
+        "reasoning": "框内可见狭长蓝色屋面，属于小面积蓝色顶棚。",
+        "target_index": 9
+      }
+    ],
+    "execution_id": "a7d01e350b7c4d709934b2967f0ffa64",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616640.793915,
+      "status": 200
+    }
+  ],
+  "seconds": 61.55917286872864,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f46f4e48265d368d3f2f9db11b6ce90d78418715ffb292099012602beec3d8da"
+}

@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_6bf599d99ef023cd",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色连续屋面",
+        "reasoning": "框内可见覆盖建筑上方的成片蓝绿色屋面，边缘规整，符合类别要求。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色连续屋面",
+        "reasoning": "框内主体是覆盖建筑上方的大面积蓝绿色屋面，具有连续覆盖面，符合类别要求。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色连续屋面",
+        "reasoning": "框内可见矩形蓝绿色屋面，呈彩钢板状连续覆盖面，符合类别要求。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色连续屋面",
+        "reasoning": "框内可见覆盖建筑上方的蓝绿色屋面，边缘规整且具有连续覆盖面，符合类别要求。",
+        "target_index": 3
+      }
+    ],
+    "execution_id": "ea79e8b57a614d619720caf180602987",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615675.9437053,
+      "status": 200
+    }
+  ],
+  "seconds": 37.269750356674194,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "6bf599d99ef023cd300473f2c82dbdfaf0088b2b4fad0ec55fce187595f1958a"
+}

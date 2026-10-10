@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8070f545773281f2",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为绿色场地/地面，未见覆盖建筑或棚架的连续蓝绿色屋面。",
+        "reasoning": "候选框主体呈平面场地特征，缺乏屋面结构；绿色本身不能证明是蓝绿色顶棚，因此不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "02bf9fe6a2bd48b0bafbc68516f39051",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614712.4743478,
+      "status": 200
+    }
+  ],
+  "seconds": 25.92243194580078,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8070f545773281f22c198e0304800522aa87b06cb726277ddac8aa7cde17ecec"
+}

@@ -1,0 +1,23 @@
+{
+  "seed": 20261010,
+  "arms": {
+    "B": "p000-building-only",
+    "G": "p000-building-geometry"
+  },
+  "repeats": 2,
+  "focus_units": [
+    "g0903_d645cc066a5bdc4c",
+    "g0903_f7b7535a5d748f91",
+    "g0903_ffda9753a1865e4b"
+  ],
+  "primary": "四个已确认非顶棚误放减少；每轮真实顶棚驳回不多于B，报告新增驳回和配对区间。",
+  "limits": {
+    "memory": "4G aggregate",
+    "swap": 0,
+    "cpu": "300% and 3-core affinity",
+    "concurrency": 6
+  },
+  "pilot": "三个问题图及三个dev真顶棚图，保持截图和CLI不变，只增加结构优先提示。冻结后全76图回归，保留原dev/holdout。",
+  "labels": "原人工标签优先使用更正后版本；不改标签，未知标签排除准确率。",
+  "limitations": "既有样本回归，不是全新盲测；不证明未来零误差。"
+}

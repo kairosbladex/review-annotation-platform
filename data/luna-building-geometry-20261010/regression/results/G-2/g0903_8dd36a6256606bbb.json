@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_8dd36a6256606bbb",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色围挡的竖直侧面",
+        "reasoning": "框内是沿地块边界竖起的蓝色围挡，呈长条状且没有覆盖在建筑或棚架上方的连续屋面结构，不能作为蓝绿色顶棚判断。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "1f2928b6b3974e40acddf9e70e522999",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616984.1629648,
+      "status": 503
+    },
+    {
+      "at": 1791617006.5096984,
+      "status": 200
+    }
+  ],
+  "seconds": 55.26336717605591,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8dd36a6256606bbbb1f3694ed4ffe999c0347b1dfbabce94dd9190c44a5524c9"
+}

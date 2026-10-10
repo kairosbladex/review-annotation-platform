@@ -1,0 +1,56 @@
+{
+  "unit": "g0903_116b8c88f7c80f7b",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色屋面",
+        "reasoning": "框内可见成片浅蓝色覆盖面，呈规则矩形并位于建筑上方，符合蓝绿色顶棚特征。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色屋面",
+        "reasoning": "框内主体为建筑上方的蓝色矩形覆盖面，属于蓝色顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标面积较小且受框线、文字和阴影干扰，无法确认其空间结构是否为屋面。",
+        "observed_object": "疑似小型蓝色覆盖物",
+        "reasoning": "颜色可见但不能唯一确认是覆盖在建筑或棚架上的屋面。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色屋面",
+        "reasoning": "框内可见小型浅蓝色成片覆盖面，位于建筑结构上方，符合蓝色顶棚。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色屋面",
+        "reasoning": "框内为规则矩形浅蓝色覆盖面，空间上位于建筑上方，符合蓝色顶棚特征。",
+        "target_index": 4
+      }
+    ],
+    "execution_id": "533e50bc19a5452299a9446f0623a45a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617256.1755686,
+      "status": 200
+    }
+  ],
+  "seconds": 70.9927020072937,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "116b8c88f7c80f7b80a2455b90b6d4f61c3f381275170bf0f452dca64f279930"
+}

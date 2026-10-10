@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_50f9dfad512831ab",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见建筑顶部的小块蓝绿色屋面/顶棚",
+        "reasoning": "候选框主体呈蓝绿色，位于建筑顶部，符合蓝色或绿色顶棚的类别定义；未将框线或文字作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "866a997e6e1b41a58c6d337f8ed0d9ac",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615642.3575194,
+      "status": 200
+    }
+  ],
+  "seconds": 30.23425841331482,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "50f9dfad512831abdc7e39537189143a1acda5782411ebacc343416dcc72b8f5"
+}

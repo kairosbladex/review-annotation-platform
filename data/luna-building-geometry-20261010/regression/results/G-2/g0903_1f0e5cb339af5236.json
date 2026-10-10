@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_1f0e5cb339af5236",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "蓝色施工围挡，呈竖直长条板状，非覆盖性屋面。",
+        "reasoning": "框内主体是沿地块边界设置的连续蓝色围挡，未见其覆盖建筑、棚架或空地形成屋面，因此不符合违建类别判定。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "蓝色施工围挡，呈竖直板状延伸。",
+        "reasoning": "框内主体是地面上的蓝色围挡，不是覆盖在建筑或棚架上方的蓝绿色顶棚；不能仅凭蓝色判断为违建屋面。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "b320b99f8d3f4d3ea361f6bc0329ab5c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615156.1458545,
+      "status": 200
+    }
+  ],
+  "seconds": 26.459388256072998,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1f0e5cb339af52361207fedee0722bfb22d5d9ceb2fcff7e9f65bd91bfd81179"
+}

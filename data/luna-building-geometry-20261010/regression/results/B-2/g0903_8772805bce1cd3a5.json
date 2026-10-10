@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8772805bce1cd3a5",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是带文字标识的矩形物体，未见蓝色或绿色顶棚结构。",
+        "reasoning": "不把框线和文字作为目标证据；候选区域内未明确符合蓝色或绿色顶棚定义，判定为false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "8dcb8ba7ebe648a19a9436e6b58446e7",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616720.1997614,
+      "status": 200
+    }
+  ],
+  "seconds": 34.72603726387024,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8772805bce1cd3a5d3eaac4f6734eaa5c3d2e87297a730e84c64b5584c65ea30"
+}

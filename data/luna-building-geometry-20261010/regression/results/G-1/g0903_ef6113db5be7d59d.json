@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_ef6113db5be7d59d",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见蓝灰色条纹状物体，但仅凭图像无法明确确认其为空间覆盖性的屋面，可能是围挡或其他长条结构。",
+        "observed_object": "建筑边缘的一段蓝灰色条纹状长条物体",
+        "reasoning": "目标颜色接近蓝色，但缺乏足够结构证据证明其为蓝绿色顶棚；按要求无法唯一定位和确认类别，判定为uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "7a3cd8e711e849f1a7199e4f6c5fc19d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615706.4518585,
+      "status": 503
+    },
+    {
+      "at": 1791615738.1321433,
+      "status": 200
+    }
+  ],
+  "seconds": 63.89798545837402,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ef6113db5be7d59d3297cca956c944b57751c26ac6ccaa67956fcb682272e182"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_5991fee6c4141b5c",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为带规则网格的透明或灰色棚架屋面，未见蓝色或绿色顶棚。",
+        "reasoning": "候选框主体不是蓝色或绿色屋面，且不属于符合类别的蓝绿色顶棚。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "341fbe35a74248fab5fe8225af561cf3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617003.087957,
+      "status": 200
+    }
+  ],
+  "seconds": 63.80824041366577,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5991fee6c4141b5cdbc042932102b4c255ec09fd45326a70be22c3cdfc46af92"
+}

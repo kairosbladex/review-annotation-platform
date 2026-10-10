@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_8949e38800014554",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内区域被树冠和标注文字遮挡，无法清晰确认是否为蓝色或绿色顶棚。",
+        "observed_object": "树冠覆盖区域及标注框，未能唯一识别出顶棚。",
+        "reasoning": "依据俯拍图无法确认框内主体是否为蓝色或绿色屋面，不能仅凭颜色或文字判断。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e97c30475c1e41399a3f9bc64f0a503e",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616745.3611348,
+      "status": 503
+    },
+    {
+      "at": 1791616831.7583158,
+      "status": 200
+    }
+  ],
+  "seconds": 111.16563987731934,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8949e3880001455459857d9e95a6fe92959ea086b64a1e3229a34f046bc72261"
+}

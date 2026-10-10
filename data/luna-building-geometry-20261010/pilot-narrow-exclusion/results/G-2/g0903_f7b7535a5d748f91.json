@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_f7b7535a5d748f91",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为蓝绿色的成片顶棚，呈规则长条状覆盖面，位于球场边缘上方。",
+        "reasoning": "主体明确是蓝绿色屋面，符合该类别对蓝色或绿色顶棚的判定，不将框线或文字作为依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "ee9b26ae4d3a494db1bca565455ed4b2",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614576.4154975,
+      "status": 200
+    }
+  ],
+  "seconds": 55.983365535736084,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f7b7535a5d748f9136c64b91276b6ad3461feae8c67103a44ae93ebfa729b3c0"
+}

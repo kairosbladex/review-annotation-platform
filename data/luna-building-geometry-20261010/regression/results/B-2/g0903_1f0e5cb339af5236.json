@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_1f0e5cb339af5236",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色施工围挡",
+        "reasoning": "框内主体是立在地面的长条状蓝色围挡，不是覆盖在上方的蓝色或绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色施工围挡",
+        "reasoning": "框内主体是立在地面的长条状蓝色围挡，不是蓝色或绿色顶棚。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "bd1cd6b3c797410ba4c3f1e8cf45ec67",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615157.01761,
+      "status": 200
+    }
+  ],
+  "seconds": 27.76836133003235,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1f0e5cb339af52361207fedee0722bfb22d5d9ceb2fcff7e9f65bd91bfd81179"
+}

@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_4ddd374b50ae0b62",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为立在地面的蓝色围挡，不是覆盖在上方的蓝绿色顶棚。",
+        "observed_object": "蓝色施工围挡及其后方区域",
+        "reasoning": "主体是长条状蓝色围挡，符合明确排除项，不能作为违建顶棚判断。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为立在地面的蓝色围挡，不是覆盖在上方的蓝绿色顶棚。",
+        "observed_object": "蓝色施工围挡及后方地面",
+        "reasoning": "主体仍是长条状蓝色围挡，属于明确排除的围挡，不是蓝绿色屋面。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "7fc118b22369422dbc2ea77b486757b9",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615914.814102,
+      "status": 200
+    }
+  ],
+  "seconds": 62.494248390197754,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "4ddd374b50ae0b626f34586e5859fed4c8dc8f81ecd0b3aad253b00512a105ef"
+}

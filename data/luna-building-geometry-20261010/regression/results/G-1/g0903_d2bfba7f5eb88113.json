@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_d2bfba7f5eb88113",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为红褐色屋面或棚顶",
+        "reasoning": "目标主体颜色为红褐色，不属于蓝色或绿色顶棚，因此不符合该类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "6956096a65e44daf955f58126414944e",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615537.9974298,
+      "status": 503
+    },
+    {
+      "at": 1791615569.5988748,
+      "status": 200
+    }
+  ],
+  "seconds": 64.14047408103943,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d2bfba7f5eb88113d61d799483570d6e1286b3967d5fb8cb75df0f3f12f36c3a"
+}

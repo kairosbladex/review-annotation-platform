@@ -1,0 +1,39 @@
+{
+  "unit": "g0903_68daf1b01a605bfe",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见主体为绿化、灰色铺装及建筑立面，不是蓝色或绿色顶棚。",
+        "observed_object": "绿化带、灰色地面和建筑立面",
+        "reasoning": "候选框内没有符合定义的蓝色或绿色屋面，不能将绿化或建筑立面作为违建证据。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "框内主体为浅蓝灰色建筑立面/玻璃区域，未见蓝绿色顶棚结构。",
+        "observed_object": "建筑立面及浅蓝灰色竖向区域",
+        "reasoning": "该区域不是覆盖在建筑、棚架、院落或空地上方的蓝色或绿色屋面，明显不符合违建类别。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "c36e733f88094a7cad36d477eae8f846",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615408.977738,
+      "status": 503
+    },
+    {
+      "at": 1791615440.3195162,
+      "status": 200
+    }
+  ],
+  "seconds": 63.74414563179016,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "68daf1b01a605bfe5152055d3a6e0257405b5555c45dc5e148c6f3be2872d010"
+}

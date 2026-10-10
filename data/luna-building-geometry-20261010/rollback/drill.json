@@ -1,0 +1,159 @@
+{
+  "steps": [
+    {
+      "version": "p000-building-geometry",
+      "health": {
+        "model": "gpt-5.6-luna",
+        "max_concurrency": 3,
+        "policy": "only_true_is_true_v1",
+        "prompt_version": "p000-building-geometry"
+      },
+      "response": {
+        "unit": "g0903_d645cc066a5bdc4c",
+        "arm": "G",
+        "repeat": 0,
+        "status": 200,
+        "body": {
+          "results": [
+            {
+              "decision": "false",
+              "image_limitation": "",
+              "observed_object": "建筑外墙上的窗户",
+              "reasoning": "框内是垂直建筑窗体，不是覆盖在建筑或棚架上方的蓝绿色屋面。",
+              "target_index": 0
+            },
+            {
+              "decision": "false",
+              "image_limitation": "",
+              "observed_object": "蓝色围挡或板材侧面",
+              "reasoning": "框内呈竖直板面，沿道路边界设置，属于围挡或立面，不是屋面。",
+              "target_index": 1
+            },
+            {
+              "decision": "false",
+              "image_limitation": "",
+              "observed_object": "蓝色竖直板材",
+              "reasoning": "框内为立起的蓝色板面，未见连续覆盖面的屋顶结构，不能判为蓝绿色顶棚。",
+              "target_index": 2
+            }
+          ],
+          "execution_id": "9f7cab2da1874186b1fd4cd03553c35c",
+          "requested_model": "gpt-5.6-luna"
+        },
+        "attempts": [
+          {
+            "at": 1791617482.918775,
+            "status": 200
+          }
+        ],
+        "seconds": 31.600751638412476,
+        "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+        "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+      }
+    },
+    {
+      "version": "p000",
+      "health": {
+        "model": "gpt-5.6-luna",
+        "max_concurrency": 3,
+        "policy": "only_true_is_true_v1",
+        "prompt_version": "p000"
+      },
+      "response": {
+        "unit": "g0903_d645cc066a5bdc4c",
+        "arm": "G",
+        "repeat": 0,
+        "status": 200,
+        "body": {
+          "results": [
+            {
+              "decision": "uncertain",
+              "image_limitation": "可见候选框内是建筑外墙窗户，缺乏审批或区域业务依据，无法据此认定违建。",
+              "observed_object": "建筑外墙上的窗户或封闭空间",
+              "reasoning": "仅凭外观无法确认其是否属于未经审批的违法建筑。",
+              "target_index": 0
+            },
+            {
+              "decision": "uncertain",
+              "image_limitation": "可见候选框内主要是施工围挡或临时设施，缺乏审批或区域业务依据。",
+              "observed_object": "施工围挡及临时设施",
+              "reasoning": "无法仅凭图像确认其是否构成违建。",
+              "target_index": 1
+            },
+            {
+              "decision": "uncertain",
+              "image_limitation": "候选框位于画面边缘，目标部分被截断，且缺乏审批或区域业务依据。",
+              "observed_object": "被截断的施工围挡或临时设施",
+              "reasoning": "无法唯一、完整判断其是否属于违建。",
+              "target_index": 2
+            }
+          ],
+          "execution_id": "25d65ffdb5544e6f8e140ab415fa5795",
+          "requested_model": "gpt-5.6-luna"
+        },
+        "attempts": [
+          {
+            "at": 1791617533.1138825,
+            "status": 200
+          }
+        ],
+        "seconds": 49.04890251159668,
+        "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+        "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+      }
+    },
+    {
+      "version": "p000-building-geometry",
+      "health": {
+        "model": "gpt-5.6-luna",
+        "max_concurrency": 3,
+        "policy": "only_true_is_true_v1",
+        "prompt_version": "p000-building-geometry"
+      },
+      "response": {
+        "unit": "g0903_d645cc066a5bdc4c",
+        "arm": "G",
+        "repeat": 0,
+        "status": 200,
+        "body": {
+          "results": [
+            {
+              "decision": "false",
+              "image_limitation": "目标清晰可见。",
+              "observed_object": "建筑外墙上的蓝色玻璃窗或窗面",
+              "reasoning": "框内是立面窗户，不是覆盖在建筑或棚架上方的蓝绿色屋面。",
+              "target_index": 0
+            },
+            {
+              "decision": "false",
+              "image_limitation": "目标部分位于画面下方，但主体可辨认。",
+              "observed_object": "蓝色施工围挡或板材侧面",
+              "reasoning": "框内为沿道路边界竖立的蓝色窄板，属于围挡，不是屋面。",
+              "target_index": 1
+            },
+            {
+              "decision": "false",
+              "image_limitation": "目标被画面底部截断，但结构仍可辨认。",
+              "observed_object": "蓝色施工围挡或板材侧面",
+              "reasoning": "框内是竖直蓝色板材，未见连续覆盖面或屋面结构，不能判为蓝绿色顶棚。",
+              "target_index": 2
+            }
+          ],
+          "execution_id": "03b265f7184d4c499ae9407f28728b5f",
+          "requested_model": "gpt-5.6-luna"
+        },
+        "attempts": [
+          {
+            "at": 1791617539.519608,
+            "status": 200
+          }
+        ],
+        "seconds": 5.287166118621826,
+        "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+        "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+      }
+    }
+  ],
+  "shared_unchanged": true,
+  "scope": "isolated candidate configuration only; B is not an approved release target"
+}

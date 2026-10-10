@@ -1,0 +1,28 @@
+{
+  "unit": "26f5758c999d4c03a0bfd39e1920ed60",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见蓝绿色连续覆盖面，呈规则矩形屋面结构。",
+        "reasoning": "候选框内主体是覆盖在建筑上方的蓝绿色屋面，符合违建类别中蓝色或绿色顶棚的判定条件；未将框线或文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e2a6c84f52a74d6f85604c795bc1c41a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615044.0627904,
+      "status": 200
+    }
+  ],
+  "seconds": 16.789763689041138,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "369a12acd305d101fe805d2ab52b4729157c0822fa8b210f96d027d9c2a8a4c9"
+}

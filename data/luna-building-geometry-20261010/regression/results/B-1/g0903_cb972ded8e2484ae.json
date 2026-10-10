@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_cb972ded8e2484ae",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑立面上的深色窗格/幕墙，不是蓝色或绿色顶棚。",
+        "reasoning": "候选框主体是垂直建筑外墙，未见覆盖在建筑、棚架或空地上方的蓝绿色屋面，符合类别条件不足。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "651a328ae6a7456cb67d85213803ae23",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615929.2114666,
+      "status": 200
+    }
+  ],
+  "seconds": 16.2294864654541,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "cb972ded8e2484aee44914c7fb157c88897ac5c1bbc10953ef2040096be1ca23"
+}

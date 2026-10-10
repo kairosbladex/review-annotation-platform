@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_09b1dd50fb06d82e",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见部分疑似屋面，但被树木、画面边缘和框线遮挡，颜色与材质无法明确判断为蓝色或绿色顶棚。",
+        "observed_object": "建筑或棚面的局部，主要呈浅灰白色，旁有树冠。",
+        "reasoning": "候选框内未能确认主体是符合类别要求的蓝色或绿色屋面；浅灰白区域不能作为蓝绿色顶棚证据，因此无法明确判定。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "9f7d82212e724782b0065b1f8885abfb",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615752.1880422,
+      "status": 200
+    }
+  ],
+  "seconds": 40.117005348205566,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "09b1dd50fb06d82e6db4fe5445c27c69e88247188470faaf37c846db82132094"
+}

@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_45bb9c009a4ae098",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色矩形顶棚",
+        "reasoning": "框内主体为覆盖在棚架或建筑上方的成片浅蓝色矩形屋面，边缘规整，符合蓝色顶棚类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色矩形顶棚",
+        "reasoning": "框内可见成片浅蓝色矩形屋面，具有规整边缘，符合蓝色顶棚类别。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "6e78344b93fd48209aab179f1b628859",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615773.8758893,
+      "status": 200
+    }
+  ],
+  "seconds": 40.80866527557373,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "45bb9c009a4ae09893b702d7ff1447f40239faae16d2ebf107536106133c8dfe"
+}

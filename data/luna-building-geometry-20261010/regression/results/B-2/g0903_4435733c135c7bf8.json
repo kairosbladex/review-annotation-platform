@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_4435733c135c7bf8",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为成片规则的蓝色屋面，符合类别定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "屋面受反光和半透明结构影响，颜色难以明确判定为蓝色或绿色。",
+        "observed_object": "浅灰蓝色半透明棚顶",
+        "reasoning": "虽呈矩形棚顶结构，但颜色是否属于蓝绿色不够明确。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色顶棚",
+        "reasoning": "框内可见规则的蓝绿色成片棚顶，符合类别定义。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "4e4f364f114e4f9385b0421c69458b36",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614949.8600094,
+      "status": 200
+    }
+  ],
+  "seconds": 43.494492053985596,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "4435733c135c7bf8ee2e998f7de23c00aba2befb081161f52024543ff5475809"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_c77510204bad30e6",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标被树木和阴影遮挡，空间结构及颜色无法清晰确认是否为蓝色或绿色顶棚。",
+        "observed_object": "道路旁树木遮挡下的狭长区域，疑似屋面或其他设施。",
+        "reasoning": "无法唯一确认框内主体是覆盖在建筑或棚架上方的蓝绿色屋面，因此不能判定为true；也缺乏明显不符合证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "89df1a8733c74778859d35dec7b665a6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615129.2442472,
+      "status": 200
+    }
+  ],
+  "seconds": 47.82779788970947,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "c77510204bad30e6d8b365a211ac6937c12173e483f04ae5399c3485e975d88a"
+}

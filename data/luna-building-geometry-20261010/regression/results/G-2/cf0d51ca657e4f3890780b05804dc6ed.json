@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内仅见小面积浅色矩形区域，受分辨率和标注遮挡影响，无法确认其为空间覆盖的蓝色或绿色顶棚。",
+        "observed_object": "疑似地面上的小型浅色矩形物体或区域，无法唯一判断结构。",
+        "reasoning": "违建类别需确认框内主体是蓝色或绿色屋面；当前证据不足，不能仅凭颜色或标注框作出判断。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "6f86ea5a3f3f4537b16041c8bbb07dcd",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614890.8372884,
+      "status": 200
+    }
+  ],
+  "seconds": 30.848520517349243,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

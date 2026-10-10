@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_cb972ded8e2484ae",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是建筑立面，未能确认是否为蓝色或绿色顶棚。",
+        "observed_object": "建筑立面及窗格",
+        "reasoning": "候选框内可见连续的竖直建筑墙面和窗格结构，没有明确的屋面覆盖面；仅凭颜色和框线不能判定为违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "15264ab25df647bead1d60b67c785540",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615934.9088907,
+      "status": 200
+    }
+  ],
+  "seconds": 21.935319185256958,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "cb972ded8e2484aee44914c7fb157c88897ac5c1bbc10953ef2040096be1ca23"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8070f545773281f2",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为规则矩形的蓝绿色顶棚结构",
+        "reasoning": "主体呈成片蓝绿色屋面，符合违建类别中蓝色或绿色顶棚的判定标准；未将框线和文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "b0e4dd4847304b6ba7ca7951ecf4861c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614679.690001,
+      "status": 200
+    }
+  ],
+  "seconds": 22.27975296974182,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8070f545773281f22c198e0304800522aa87b06cb726277ddac8aa7cde17ecec"
+}

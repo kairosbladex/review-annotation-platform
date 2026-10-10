@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_97bfa9137b1cdef9",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是红褐色地面、树木和道路边缘，未见蓝色或绿色顶棚。",
+        "reasoning": "目标不符合违建类别中蓝色或绿色顶棚的定义。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "fbfd27d5bc2a41c79ce299743bd3155c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615467.3465767,
+      "status": 200
+    }
+  ],
+  "seconds": 33.15156030654907,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "97bfa9137b1cdef92146a53a8812891303be935a0b92b79ce042a57295459637"
+}

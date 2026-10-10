@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_b03a5d82b77dd1a1",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见浅蓝色矩形顶棚屋面，覆盖在地面建筑或棚架上方。",
+        "reasoning": "主体符合蓝色顶棚的违建初审类别；未将框线或文字作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "9350bc68414c4ccc9cc0592fea67bc26",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615282.912082,
+      "status": 200
+    }
+  ],
+  "seconds": 32.95592451095581,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "b03a5d82b77dd1a1f90921e59dce915037619bed74875b952b81cf6f661b01d3"
+}

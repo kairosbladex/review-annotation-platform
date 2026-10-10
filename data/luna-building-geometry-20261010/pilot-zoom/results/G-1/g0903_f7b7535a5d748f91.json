@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_f7b7535a5d748f91",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内是篮球场边缘的蓝绿色地面及围挡，不是覆盖在建筑或棚架上方的屋面。",
+        "reasoning": "整图显示该区域具有明显球场线，并与道路相接，属于地面或场地设施；蓝绿色不能单独证明是顶棚。因此不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "32a61120fa814bc0a4ae6629a8f805bd",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617355.9976768,
+      "status": 200
+    }
+  ],
+  "seconds": 51.2175395488739,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f7b7535a5d748f9136c64b91276b6ad3461feae8c67103a44ae93ebfa729b3c0"
+}

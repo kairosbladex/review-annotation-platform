@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_deb3b561f0a020d5",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见蓝色矩形区域，但无法确认其为空间覆盖形成的屋面，可能是墙面或其他平面结构。",
+        "observed_object": "建筑侧面附近的蓝色矩形区域",
+        "reasoning": "仅凭颜色不能证明是蓝绿色顶棚，缺乏明确的覆盖关系、屋面结构或棚架证据，因此无法确认符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "8a399c4cf5374bf3b92700c96dcc38b6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616111.864815,
+      "status": 200
+    }
+  ],
+  "seconds": 14.648139476776123,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "deb3b561f0a020d5f9bfafb1040d5fe1f573c1b6d85fe7297dec54a50ff49aed"
+}

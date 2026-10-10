@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_45bb9c009a4ae098",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色成片屋面",
+        "reasoning": "框内主体为覆盖在建筑或棚架上方的连续蓝绿色屋面，具有规则矩形边缘和条纹结构，符合蓝绿色顶棚类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色成片屋面",
+        "reasoning": "框内可见连续的浅蓝绿色矩形屋面，覆盖于下方结构上方，符合蓝绿色顶棚类别。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "fc8f69568d3149ada4f0929a29d1cd0b",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615754.6577795,
+      "status": 200
+    }
+  ],
+  "seconds": 16.13728976249695,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "45bb9c009a4ae09893b702d7ff1447f40239faae16d2ebf107536106133c8dfe"
+}

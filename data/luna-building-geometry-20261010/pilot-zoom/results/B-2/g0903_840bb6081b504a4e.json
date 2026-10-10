@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_840bb6081b504a4e",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见成片浅蓝色屋面，覆盖在棚架或建筑上方，符合蓝色顶棚的类别定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域很小且部分接近图像边缘，顶棚结构和颜色细节不够清晰。",
+        "observed_object": "疑似蓝色长条状顶棚或屋面",
+        "reasoning": "虽可见蓝色区域，但无法可靠确认其是否为覆盖在建筑、棚架、院落或空地上方的顶棚，不能据此明确判定。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "9e705719e25746f29aa1a91da307d472",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617370.9331453,
+      "status": 200
+    }
+  ],
+  "seconds": 79.33181715011597,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "840bb6081b504a4ebbcd6202d14a42b57223bc3817c84a6f8dab9b0754fddc35"
+}

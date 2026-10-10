@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8e13ea8a27e0dec9",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为沿建筑侧面的狭长灰色屋面或覆盖面，不呈蓝色或绿色顶棚特征。",
+        "reasoning": "候选框内主体颜色为灰色，且未见符合类别要求的蓝色或绿色屋面；不把框线和文字作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "b486863b0a3944329e2c30d59182a83d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616685.0804927,
+      "status": 200
+    }
+  ],
+  "seconds": 45.29709076881409,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8e13ea8a27e0dec95ffa439f8370a43c9090679dd95ccc8afef785fafaf91b03"
+}

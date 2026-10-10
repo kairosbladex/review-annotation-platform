@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为小块浅蓝色覆盖面，呈规则矩形屋面特征。",
+        "reasoning": "整图中目标位于建筑旁的地面区域，框内主体是浅蓝色成片覆盖面，符合蓝色顶棚判定；未将红色框线和文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "f31f1350c8ca4255b613b514907ba87c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617325.1573489,
+      "status": 200
+    }
+  ],
+  "seconds": 5.307847499847412,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

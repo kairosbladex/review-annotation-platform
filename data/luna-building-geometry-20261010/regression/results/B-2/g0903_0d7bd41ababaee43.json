@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_0d7bd41ababaee43",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见成片浅蓝色、矩形屋面，符合蓝色顶棚类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见细长的浅蓝色矩形顶棚，属于蓝色屋面。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "20aba124f05743ecae60513d0d957059",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616195.1206045,
+      "status": 200
+    }
+  ],
+  "seconds": 29.070480346679688,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "0d7bd41ababaee43e8da4c47c05970a0d8b47ecf4a671a2cc12174a367817cb4"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_c77510204bad30e6",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内主体细节较暗且被树木遮挡，但可见部分呈灰色通道/地面状结构，未见蓝色或绿色顶棚特征。",
+        "observed_object": "树木旁的灰色狭长区域或通道",
+        "reasoning": "目标不符合蓝色或绿色顶棚的违建类别定义，明显不是可确认的蓝绿色屋面。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "c4ab35e9536344fa9e03e2b76e363ff6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615129.0899382,
+      "status": 200
+    }
+  ],
+  "seconds": 47.67338275909424,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "c77510204bad30e6d8b365a211ac6937c12173e483f04ae5399c3485e975d88a"
+}

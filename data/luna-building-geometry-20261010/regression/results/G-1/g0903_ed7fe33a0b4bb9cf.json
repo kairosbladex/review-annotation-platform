@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ed7fe33a0b4bb9cf",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为浅灰色、带规则分隔线的建筑屋面，不是蓝色或绿色顶棚。",
+        "reasoning": "候选框内主体颜色明显为灰白色，依据违建类别口径，灰、白等非蓝绿色屋面判定为false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "2e6eee55411a4b7d85a37566eee4b2b5",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615823.661269,
+      "status": 200
+    }
+  ],
+  "seconds": 31.877042055130005,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ed7fe33a0b4bb9cfad54295903960b069a352993f83af9001f0c4280a94bd7b7"
+}

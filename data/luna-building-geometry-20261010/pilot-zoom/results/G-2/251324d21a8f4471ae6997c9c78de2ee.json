@@ -1,0 +1,39 @@
+{
+  "unit": "251324d21a8f4471ae6997c9c78de2ee",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为连续覆盖的浅蓝色瓦楞屋面",
+        "reasoning": "目标是成片、边缘规整的蓝色顶棚屋面，符合类别判定要求。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为连续覆盖的浅蓝色瓦楞屋面",
+        "reasoning": "目标主体是覆盖建筑或棚架的蓝色条纹屋面，不是围挡或其他物体，符合类别判定要求。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "02ac5704262c4831b5926a383cfd892b",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617217.875485,
+      "status": 503
+    },
+    {
+      "at": 1791617232.3562522,
+      "status": 200
+    }
+  ],
+  "seconds": 62.236698627471924,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "751dd3699e4f19c6a85fdb5cfd8df77dc8fa7704cca4236f1d96c5ad7393896c"
+}

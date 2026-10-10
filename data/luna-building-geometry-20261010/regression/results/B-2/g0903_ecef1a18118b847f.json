@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ecef1a18118b847f",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑屋顶上的灰白色设备或结构，不是蓝色或绿色顶棚。",
+        "reasoning": "候选框主体颜色为灰白色，未见符合类别定义的蓝色或绿色屋面。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "aab82176742d46d980bef45eb0bfd659",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616381.690719,
+      "status": 200
+    }
+  ],
+  "seconds": 33.67897963523865,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ecef1a18118b847f8785b4e92d7526b69f6dfd0337164efb7708ab0edfa4ce65"
+}

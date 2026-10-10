@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_23ed7170a18100cb",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "候选框位于画面右下角，目标仅部分可见，且未见蓝色或绿色顶棚的连续覆盖面。",
+        "observed_object": "建筑立面或边缘区域，含紫色框线及文字标记。",
+        "reasoning": "框内没有明确可见的蓝色或绿色屋面，框线和文字不作为目标证据，因此不符合违建类别初审条件。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "2b9fcd06b0b04ef59c49764e80710c78",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616342.4069974,
+      "status": 200
+    }
+  ],
+  "seconds": 27.485568046569824,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "23ed7170a18100cb415d37dc174e2ff0034246c76fcf336d0fd79180cfa0438d"
+}

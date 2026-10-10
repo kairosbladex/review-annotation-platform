@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_955fabb694e9283a",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见蓝色矩形顶棚的局部，位于建筑结构上方，呈连续覆盖面。",
+        "reasoning": "候选框内主体是蓝色屋面，符合蓝绿色顶棚类别判断；未将框线或文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "02a3ef34607f45389df9e8c3d6352b59",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615986.297208,
+      "status": 200
+    }
+  ],
+  "seconds": 16.843179941177368,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "955fabb694e9283a1fff660796b3ba24d5da650af4e0e14e0c4b131b98390b52"
+}

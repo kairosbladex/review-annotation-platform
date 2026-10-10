@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_d1e729ed315f72c2",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为绿化草地及步道",
+        "reasoning": "主体是草地和步道，不是蓝色或绿色顶棚；不应将绿化植被作为违建证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e7bad51c521244a0ad1e2049951acee1",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616484.6284354,
+      "status": 200
+    }
+  ],
+  "seconds": 27.68164300918579,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d1e729ed315f72c291bc269dba12cd82bbea545f8a0b53e37629c3157de3c4ea"
+}

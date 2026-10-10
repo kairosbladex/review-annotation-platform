@@ -1,0 +1,13 @@
+{
+  "base_commit": "42397238abe9e6fe544af826478f61757fb748ee",
+  "files": {
+    "scripts/run_codex_luna_worker.py": "71a25bd93ac6c60a965853f8d79615c60fd796cd21e762f0d17d42e9ef7b82f4",
+    "scripts/luna_prompts/p000.json": "0f265c686c73c751c545d440e3e3e5a1de7cc8206ca86c73e6710412f70e67e9",
+    "scripts/luna_prompts/p002.json": "8da46d8cf25ce51c92291e586561e0cedfa7c268dd3d03bb824f22e7366ffa45",
+    "scripts/luna_prompts/building-geometry.json": "0c641c934a4bd0deed6d74fdab8dc8c975fc8f34b079e42bd943cbdfd73943dc"
+  },
+  "default": "p000",
+  "new_opt_in": "p000-building-geometry",
+  "control": "p000-building-only",
+  "runtime_harness": "Only LIMIT and SLOTS are set to 3 per worker; source package unchanged"
+}

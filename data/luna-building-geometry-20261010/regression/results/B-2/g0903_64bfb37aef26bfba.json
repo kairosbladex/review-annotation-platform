@@ -1,0 +1,126 @@
+{
+  "unit": "g0903_64bfb37aef26bfba",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见规则矩形浅蓝色屋面，符合蓝色顶棚定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为浅蓝色矩形顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域很小且细节不足，无法确认是否为蓝绿色顶棚。",
+        "observed_object": "疑似小型蓝色物体",
+        "reasoning": "无法排除其他地面物体，证据不足。",
+        "target_index": 2
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "灰白色屋面及地面建筑",
+        "reasoning": "框内主体不是蓝色或绿色顶棚。",
+        "target_index": 3
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "灰白色屋面",
+        "reasoning": "屋面为灰白色，不属于蓝绿色顶棚。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内左侧可见成片浅蓝色矩形屋面，符合蓝色顶棚定义。",
+        "target_index": 5
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "灰白色屋面",
+        "reasoning": "框内主体为灰白色屋面，不属于蓝绿色顶棚。",
+        "target_index": 6
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标框较小且被周边标注和建筑遮挡，无法唯一确认主体。",
+        "observed_object": "疑似小型棚面",
+        "reasoning": "颜色和结构证据不足。",
+        "target_index": 7
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内左侧主体呈浅蓝色矩形顶棚。",
+        "target_index": 8
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "灰白色长方形屋面",
+        "reasoning": "框内为灰白色屋面，不属于蓝绿色顶棚。",
+        "target_index": 9
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "灰白色屋面",
+        "reasoning": "框内主体为灰白色屋面。",
+        "target_index": 10
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "深蓝色矩形物体",
+        "reasoning": "更像小型地面物体或设备，不能确认是覆盖在建筑上的顶棚。",
+        "target_index": 11
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内可见成片浅蓝色矩形屋面。",
+        "target_index": 12
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见蓝色矩形屋面，符合蓝色顶棚定义。",
+        "target_index": 13
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝绿色小型顶棚",
+        "reasoning": "框内可见小面积浅蓝绿色规则屋面，符合小面积蓝绿色顶棚标准。",
+        "target_index": 14
+      }
+    ],
+    "execution_id": "79582cceb3d140edac8bafa759c73311",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616890.197644,
+      "status": 200
+    }
+  ],
+  "seconds": 58.041126012802124,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "64bfb37aef26bfbad062fdb62855b920aabf2718dba9c99f080c6e9e23f52ce5"
+}

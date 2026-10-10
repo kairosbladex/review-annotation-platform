@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_783a28ac76814d6e",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内屋面颜色受阴影、标注框及分辨率影响，无法明确判定为蓝色或绿色顶棚。",
+        "observed_object": "建筑边缘的一小块浅色矩形屋面或棚面",
+        "reasoning": "目标主体不是明确可辨识的蓝色或绿色顶棚，依据不足，不能确认符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "624c46c9b677482f8e744680853f80c0",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616413.6868289,
+      "status": 200
+    }
+  ],
+  "seconds": 49.48981833457947,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "783a28ac76814d6e599620a8f2c22520be41cdb845f6e20547b90a3e50182074"
+}

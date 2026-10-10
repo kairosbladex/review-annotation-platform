@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8b4392b49d6ef5f6",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色广告围挡的侧面长条区域",
+        "reasoning": "框内主体是立在地面的蓝色围挡，不是覆盖在建筑、棚架、院落或空地上方的蓝绿色顶棚，按类别要点应判为false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "f8a927e1d08e4ca1bd109933b9c793f5",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616033.426588,
+      "status": 200
+    }
+  ],
+  "seconds": 39.16999435424805,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8b4392b49d6ef5f6e4ca79fb0bee70640141f67e3d7fe8813a967f1e93ca3977"
+}

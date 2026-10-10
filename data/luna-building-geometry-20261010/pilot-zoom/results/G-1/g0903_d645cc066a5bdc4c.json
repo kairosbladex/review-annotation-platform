@@ -1,0 +1,50 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "无遮挡，目标清晰可见。",
+        "observed_object": "建筑立面上的蓝绿色窗户或玻璃面",
+        "reasoning": "框内是建筑立面上的竖直窗户/玻璃，不是覆盖在建筑或棚架上方的屋面。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "无遮挡，目标清晰可见。",
+        "observed_object": "沿道路边界设置的蓝绿色围挡",
+        "reasoning": "框内为竖直的窄板围挡，未见连续覆盖面，不能作为蓝绿色顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标部分位于图像边缘，但主体仍可辨认。",
+        "observed_object": "沿道路边界设置的蓝绿色围挡",
+        "reasoning": "框内为竖直围挡板，不是覆盖建筑、棚架或地块上方的屋面。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "25cd843040f241388861ca0eba3993a0",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617275.72789,
+      "status": 503
+    },
+    {
+      "at": 1791617293.8103738,
+      "status": 503
+    },
+    {
+      "at": 1791617304.8296475,
+      "status": 200
+    }
+  ],
+  "seconds": 61.787702560424805,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

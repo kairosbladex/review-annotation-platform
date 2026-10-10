@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_791e6578fa41f3c6",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主体颜色偏灰蓝，受阴影影响，无法明确判断是否为蓝色或绿色顶棚；且框线和文字不作为证据。",
+        "observed_object": "疑似建筑边缘的长条状灰蓝色表面",
+        "reasoning": "无法确认其为符合类别定义的蓝色或绿色顶棚，依据不足，判定为uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "28f383d8f11b4b008890a9a9b2ed1060",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615085.4087765,
+      "status": 200
+    }
+  ],
+  "seconds": 40.96401023864746,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "791e6578fa41f3c61e7341d436fe0521d6e3bb85652d4eed22621d9609158d9d"
+}

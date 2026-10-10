@@ -1,0 +1,77 @@
+{
+  "unit": "g0903_2d60e266ae02013a",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "框内主体为连续覆盖面的浅蓝色屋面，结构和颜色均清晰可见。",
+        "observed_object": "蓝色顶棚/屋面",
+        "reasoning": "符合蓝色屋面的违建初审类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "框内可见连续的浅蓝色矩形屋面，虽部分被框线和文字遮挡但主体明确。",
+        "observed_object": "蓝色顶棚/屋面",
+        "reasoning": "符合蓝色屋面的违建初审类别。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内面积很小，主要被框线遮挡，无法唯一确认是否为屋面。",
+        "observed_object": "疑似蓝色屋面边缘",
+        "reasoning": "缺乏足够结构证据，不能明确判断。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "框内主体为连续浅蓝色覆盖面，屋面结构清晰。",
+        "observed_object": "蓝色顶棚/屋面",
+        "reasoning": "符合蓝色屋面的违建初审类别。",
+        "target_index": 3
+      },
+      {
+        "decision": "true",
+        "image_limitation": "框内可见连续浅蓝色屋面，部分区域被框线遮挡但不影响主体判断。",
+        "observed_object": "蓝色顶棚/屋面",
+        "reasoning": "符合蓝色屋面的违建初审类别。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "框内主体为浅蓝色连续屋面，形状和覆盖关系明确。",
+        "observed_object": "蓝色顶棚/屋面",
+        "reasoning": "符合蓝色屋面的违建初审类别。",
+        "target_index": 5
+      },
+      {
+        "decision": "true",
+        "image_limitation": "框内可见大面积浅蓝色屋面，虽边缘被截断但覆盖面明确。",
+        "observed_object": "蓝色顶棚/屋面",
+        "reasoning": "符合蓝色屋面的违建初审类别。",
+        "target_index": 6
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是狭窄的蓝色区域和边缘结构，无法确认是连续屋面还是其他立面/围挡。",
+        "observed_object": "疑似蓝色结构",
+        "reasoning": "屋面结构证据不足，不能明确归类。",
+        "target_index": 7
+      }
+    ],
+    "execution_id": "95703fac810944a991396ace9d275162",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616337.8656046,
+      "status": 200
+    }
+  ],
+  "seconds": 52.26113843917847,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "2d60e266ae02013a95146f0e0a4515455fc7c5bb97b605455ad311add3311f57"
+}

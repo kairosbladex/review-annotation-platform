@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_ecef1a18118b847f",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑顶部的狭长竖向结构，呈灰白色，未见蓝色或绿色连续顶棚面。",
+        "reasoning": "该目标明显不是蓝绿色屋面，符合违建类别判定中的false情形。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "b5e59d3924994b0c9aa4e423c3e42098",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616380.750455,
+      "status": 503
+    },
+    {
+      "at": 1791616418.986456,
+      "status": 200
+    }
+  ],
+  "seconds": 71.01637268066406,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ecef1a18118b847f8785b4e92d7526b69f6dfd0337164efb7708ab0edfa4ce65"
+}

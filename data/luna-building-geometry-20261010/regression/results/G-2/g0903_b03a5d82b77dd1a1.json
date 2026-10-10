@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_b03a5d82b77dd1a1",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见一处浅蓝色、具有连续覆盖面的屋面/顶棚。",
+        "reasoning": "目标位于地块内，框内主体呈浅蓝色平面覆盖结构，符合蓝色顶棚判定；未将框线或旁侧文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "318d61416d8545ed92b3ba54ab2e9463",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615250.2361042,
+      "status": 200
+    }
+  ],
+  "seconds": 34.49464392662048,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "b03a5d82b77dd1a1f90921e59dce915037619bed74875b952b81cf6f661b01d3"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "26f5758c999d4c03a0bfd39e1920ed60",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像顶部边缘，目标面积很小且部分被裁切，无法清晰确认是否为蓝色或绿色顶棚。",
+        "observed_object": "框内可见一小段青绿色区域，但目标结构不完整，无法唯一判断为顶棚。",
+        "reasoning": "依据仅凭明确可见的蓝绿色成片顶棚才判定为true；当前画面中无法排除其为其他物体或非顶棚结构，因此判定为uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "064b026afeb24c1aa6828e6a0bff0401",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615050.0088441,
+      "status": 200
+    }
+  ],
+  "seconds": 37.89168906211853,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "369a12acd305d101fe805d2ab52b4729157c0822fa8b210f96d027d9c2a8a4c9"
+}

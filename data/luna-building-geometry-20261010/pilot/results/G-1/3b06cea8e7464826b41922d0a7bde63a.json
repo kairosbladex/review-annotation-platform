@@ -1,0 +1,28 @@
+{
+  "unit": "3b06cea8e7464826b41922d0a7bde63a",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为覆盖在建筑上的浅蓝色、带平行瓦楞纹理的连续屋面，属于蓝色顶棚。",
+        "reasoning": "整图中该框对应建筑上方的成片浅蓝色屋面，边缘规整且具有明显遮盖关系，不是围挡、文字或其他物体。按类别口径，蓝色顶棚符合违建判定。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "928e70b446f2442c80edb485db9d12b3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614276.8250804,
+      "status": 200
+    }
+  ],
+  "seconds": 33.61311078071594,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f8692d72f874c14a689abc1e47e4df57a3ba00ab04c01a64dc28667c10d04231"
+}

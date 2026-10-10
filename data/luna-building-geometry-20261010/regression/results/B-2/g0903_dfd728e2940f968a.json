@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_dfd728e2940f968a",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见疑似规则板状结构，但受分辨率和框线影响，无法可靠确认其为蓝色或绿色顶棚；也不能排除光伏板等其他结构。",
+        "observed_object": "建筑旁的矩形板状结构",
+        "reasoning": "仅凭图像无法明确判断主体是否符合蓝色或绿色顶棚类别，因此输出uncertain。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "7e38657a9c0a447b8d68c6f967e1a771",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616454.5885148,
+      "status": 200
+    }
+  ],
+  "seconds": 47.71356725692749,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "dfd728e2940f968a8744a46c8727eb3e388fcf67fd8bd5e3f85b280d82d80f97"
+}

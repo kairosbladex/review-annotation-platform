@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_50f9dfad512831ab",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑顶部的灰白色屋面及标注框、文字",
+        "reasoning": "主体屋面不是蓝色或绿色顶棚，且框线和文字不作为目标证据，不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "346cdfad5d824e87b881664d0d67ce78",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615611.803045,
+      "status": 200
+    }
+  ],
+  "seconds": 43.43980026245117,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "50f9dfad512831abdc7e39537189143a1acda5782411ebacc343416dcc72b8f5"
+}

@@ -1,0 +1,26 @@
+{
+  "shared": {
+    "api": "running healthy 0 2026-10-08T08:28:13.245765359Z",
+    "worker": "MainPID=676783\nNRestarts=0\nActiveEnterTimestamp=Sat 2026-10-10 14:08:57 CST"
+  },
+  "resources": {
+    "at": 1791617123.345749,
+    "available": 0.44521563016193266,
+    "swap_used": 2096552,
+    "load": 2.95263671875,
+    "memory.current": "10539008",
+    "memory.peak": "19714048",
+    "memory.swap.current": "0",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+  },
+  "limits": {
+    "memory.max": "4294967296",
+    "memory.swap.max": "0"
+  },
+  "cpus": [
+    61,
+    62,
+    63
+  ],
+  "cpu_max": "not delegated; enforced by 3-core affinity"
+}

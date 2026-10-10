@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内主要为地面上的小型浅蓝色物体，无法确认其为覆盖在建筑、棚架或空地上方的蓝色顶棚。",
+        "observed_object": "疑似浅蓝色小型物体",
+        "reasoning": "仅凭当前图像无法唯一判断其是否属于蓝色屋面，不能据此确认违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "3578085d94114efca1764169abad71d1",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614910.1487205,
+      "status": 200
+    }
+  ],
+  "seconds": 23.55908966064453,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

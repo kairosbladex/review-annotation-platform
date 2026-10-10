@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_deb3b561f0a020d5",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内主体为建筑立面上的浅色矩形区域，未见蓝色或绿色顶棚结构。",
+        "observed_object": "建筑外墙/立面区域",
+        "reasoning": "不符合蓝色或绿色顶棚的类别定义，且不能将框线或文字作为目标证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "ec6bf9c09b0646928fc735a74717a8bb",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616101.4357462,
+      "status": 200
+    }
+  ],
+  "seconds": 31.17664909362793,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "deb3b561f0a020d5f9bfafb1040d5fe1f573c1b6d85fe7297dec54a50ff49aed"
+}

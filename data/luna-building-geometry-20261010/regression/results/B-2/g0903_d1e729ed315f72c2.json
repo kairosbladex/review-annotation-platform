@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_d1e729ed315f72c2",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为绿化草地及步道，不是蓝色或绿色顶棚。",
+        "reasoning": "依据违建类别要求，目标必须是覆盖建筑、棚架、院落或空地的蓝色或绿色屋面；框内主体呈条带状草地和灰色步道，明显不符合。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "af8b6efd85ec4bdb90a35345126937ae",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616484.5551624,
+      "status": 200
+    }
+  ],
+  "seconds": 15.9937424659729,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d1e729ed315f72c291bc269dba12cd82bbea545f8a0b53e37629c3157de3c4ea"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_d2bfba7f5eb88113",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内主体颜色为红褐色，未见蓝色或绿色顶棚结构。",
+        "observed_object": "红褐色矩形屋面或物体",
+        "reasoning": "根据类别要求，违建目标须为蓝色或绿色顶棚；该候选框内明显不是蓝绿色顶棚，因此判定为false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "96619a3bc7704ef8b53bbf4d051e8b57",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615551.7873127,
+      "status": 200
+    }
+  ],
+  "seconds": 55.44533133506775,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d2bfba7f5eb88113d61d799483570d6e1286b3967d5fb8cb75df0f3f12f36c3a"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_0250b965fe9d463b",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为建筑边缘的灰色小型结构/设备，未见蓝色或绿色顶棚。",
+        "reasoning": "候选框主体颜色为灰色，且不符合蓝色或绿色屋面的类别特征，因此判定为明显不符合。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "78c8f584e9ce472f8661fe0341d3190d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616075.0417829,
+      "status": 200
+    }
+  ],
+  "seconds": 38.2388482093811,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "0250b965fe9d463bd3d36802b7c06e27eba4e44fd74c53126d538ca0bf6364f0"
+}

@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_2172b53d242b0ce7",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标位于图像最左侧，主体被截断，无法唯一确认空间结构。",
+        "observed_object": "局部蓝紫色边框内的狭长区域",
+        "reasoning": "仅凭局部颜色和截断轮廓，不能确认是蓝绿色屋面，可能是其他立面或围挡。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "成片浅蓝色、带平行瓦楞纹理的覆盖面",
+        "reasoning": "框内可见规则矩形蓝色屋面，覆盖在建筑或棚架上方，符合蓝色顶棚判定。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "狭长成片浅蓝绿色瓦楞屋面",
+        "reasoning": "框内主体是连续覆盖面的蓝绿色屋顶，具有明显平行条纹和规整边缘，符合蓝绿色顶棚。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "854d317ed7e848f19a072a071e747449",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615979.724339,
+      "status": 200
+    }
+  ],
+  "seconds": 39.58092260360718,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "2172b53d242b0ce7d6d54e822870d31408117a4c6622913e35d0535ea680c11a"
+}

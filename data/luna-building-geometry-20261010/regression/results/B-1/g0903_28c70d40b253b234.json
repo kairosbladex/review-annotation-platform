@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_28c70d40b253b234",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见主体为灰白色/棕色建筑或棚架区域，未见明确蓝色或绿色顶棚；框线和文字不作为证据。",
+        "observed_object": "建筑边缘及树木、棚架区域",
+        "reasoning": "不符合蓝色或绿色顶棚的违建类别定义。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a06f94c73a044218a49c95ecbfd2e6a0",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616113.2269802,
+      "status": 200
+    }
+  ],
+  "seconds": 50.63886284828186,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "28c70d40b253b23497b8ae871f7434eb99a06438c870ba4a398fcebb7ea3b06f"
+}

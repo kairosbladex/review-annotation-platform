@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_eb288fad610cfac1",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标位于图像左下角，面积较小且受框线、文字及遮挡影响，颜色和顶部结构无法清晰确认。",
+        "observed_object": "疑似建筑立面或屋面局部，未能明确看出蓝色或绿色顶棚。",
+        "reasoning": "初审类别要求明确识别蓝色或绿色顶棚；当前候选框内无法排除其为建筑立面、窗户或其他结构，因此不能判定为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "deb0689c7ef34f3597e6ffb768969bf9",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616154.2418866,
+      "status": 200
+    }
+  ],
+  "seconds": 41.577635526657104,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "eb288fad610cfac10c0bee57546f8e0740db78ef064453db0476771171adb2bf"
+}

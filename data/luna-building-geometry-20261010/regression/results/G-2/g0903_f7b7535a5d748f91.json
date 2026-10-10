@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_f7b7535a5d748f91",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "球场边缘的蓝绿色围挡或栏板",
+        "reasoning": "框内目标位于球场边界，呈狭长竖直板状，旁侧可见球场线和地面，不是覆盖在建筑、棚架或空地上方的连续屋面。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a0cf7c62b3074f4bbbc050a63d478011",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616051.0875208,
+      "status": 200
+    }
+  ],
+  "seconds": 17.2423677444458,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f7b7535a5d748f9136c64b91276b6ad3461feae8c67103a44ae93ebfa729b3c0"
+}

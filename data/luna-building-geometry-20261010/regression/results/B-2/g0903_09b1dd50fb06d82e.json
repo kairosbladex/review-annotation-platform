@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_09b1dd50fb06d82e",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见主体为灰白色屋面，颜色明显不属于蓝色或绿色顶棚。",
+        "observed_object": "灰白色屋面及树木",
+        "reasoning": "候选框内不是蓝色或绿色顶棚，符合明显不符合类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "26451e8e21d34ff3968d465f2c94ee7b",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615731.8391833,
+      "status": 200
+    }
+  ],
+  "seconds": 37.07660531997681,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "09b1dd50fb06d82e6db4fe5445c27c69e88247188470faaf37c846db82132094"
+}

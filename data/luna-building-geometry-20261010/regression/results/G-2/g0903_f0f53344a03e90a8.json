@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_f0f53344a03e90a8",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为浅灰色连续平面，未见蓝色或绿色顶棚特征。",
+        "observed_object": "灰色屋面或地面平面",
+        "reasoning": "候选框内主体颜色为灰色，按类别规则不属于蓝色或绿色顶棚，因此不符合违建初审类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "284a017c612948a0a4ea9713f17d61fe",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614790.3011506,
+      "status": 200
+    }
+  ],
+  "seconds": 23.440008640289307,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f0f53344a03e90a875e94a8252609bf0a1ae43bfc5110a3cb15db7f0cb7d926b"
+}

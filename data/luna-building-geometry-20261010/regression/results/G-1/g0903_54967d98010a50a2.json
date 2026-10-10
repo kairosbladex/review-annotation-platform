@@ -1,0 +1,39 @@
+{
+  "unit": "g0903_54967d98010a50a2",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为地面上的长条状深色物体，未见连续覆盖建筑或棚架的蓝绿色屋面结构。",
+        "observed_object": "长条状深色物体",
+        "reasoning": "明显不是蓝色或绿色顶棚，符合排除条件。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "框内主体清晰可见。",
+        "observed_object": "蓝绿色成片覆盖面，呈屋面或篷布状",
+        "reasoning": "框内主体为成片蓝绿色覆盖面，符合蓝绿色顶棚类别。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "224ccf89391c4ada815721b5c547c89d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615353.6764283,
+      "status": 503
+    },
+    {
+      "at": 1791615383.6717107,
+      "status": 200
+    }
+  ],
+  "seconds": 62.889538049697876,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "54967d98010a50a2a3b024bf941ee89169a14a65082150bf4be54c49b946ad02"
+}

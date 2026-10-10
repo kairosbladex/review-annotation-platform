@@ -1,0 +1,35 @@
+{
+  "unit": "c34f4e7e7a484fb896634bb06d991d16",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为成片蓝色、带平行条纹的连续屋面，覆盖在建筑或棚架上方。",
+        "reasoning": "目标是俯视可见的蓝色连续顶棚，符合类别中的蓝绿色屋面特征；未将框线或文字作为证据。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为规则矩形的蓝色连续屋面，具有明显平行条纹。",
+        "reasoning": "目标构成覆盖建筑或棚架的蓝色屋面，符合类别定义；不是围挡、车辆或其他地面物体。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "9850c35fda6d4d9aaca5e8a4c0f9847c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616036.4159284,
+      "status": 200
+    }
+  ],
+  "seconds": 56.29169535636902,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "255c7e2c0c1d3d85c4cfd596bc7b420b59302af61e57042d589deedecb795d26"
+}

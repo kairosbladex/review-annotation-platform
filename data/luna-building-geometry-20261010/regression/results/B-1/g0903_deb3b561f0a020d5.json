@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_deb3b561f0a020d5",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内屋面颜色受框线和阴影影响，无法明确判断为蓝色或绿色顶棚。",
+        "observed_object": "建筑侧面一处浅色矩形区域",
+        "reasoning": "未能明确确认框内主体是符合类别定义的蓝色或绿色顶棚，因此不能判定为true；也无法明显排除颜色不确定性。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "cd472c0d18724e30a8cf48c5571fa99d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616112.2625973,
+      "status": 200
+    }
+  ],
+  "seconds": 15.039370059967041,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "deb3b561f0a020d5f9bfafb1040d5fe1f573c1b6d85fe7297dec54a50ff49aed"
+}

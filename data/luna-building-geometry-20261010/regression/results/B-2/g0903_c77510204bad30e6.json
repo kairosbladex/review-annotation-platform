@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_c77510204bad30e6",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见主要是灰色道路/地面及树木阴影，未见明确蓝色或绿色顶棚结构。",
+        "observed_object": "道路、树木及阴影",
+        "reasoning": "候选框主体不是蓝色或绿色屋面，不符合违建类别定义。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a8836ad4c49e4039ba52e371cb02ec04",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615128.8302171,
+      "status": 200
+    }
+  ],
+  "seconds": 41.05862545967102,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "c77510204bad30e6d8b365a211ac6937c12173e483f04ae5399c3485e975d88a"
+}

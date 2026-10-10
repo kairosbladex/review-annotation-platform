@@ -1,0 +1,35 @@
+{
+  "unit": "f3c08bcb4efc4aa185eca7559e25b27f",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为地面上的窄条状蓝色物体，未见连续覆盖面或屋面结构。",
+        "observed_object": "蓝色竖向板状物",
+        "reasoning": "根据整图空间结构，该目标位于地面区域，属于立板或类似围挡，不是覆盖在建筑或棚架上方的蓝绿色屋面。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为道路或地块边界附近的窄条状蓝色物体，未见连续覆盖面或屋面结构。",
+        "observed_object": "蓝色竖向板状物",
+        "reasoning": "该目标呈狭长竖向板状，周围仍可见地面和绿化，符合围挡或立板特征，不属于违建类别要求的蓝绿色顶棚。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "807354815a0944c0a337b2733fb1b280",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616939.1185532,
+      "status": 200
+    }
+  ],
+  "seconds": 70.68313217163086,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "19ab37f6be657766c886027de842779416026e0e865dbd9728434c0d56322953"
+}

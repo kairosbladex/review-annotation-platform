@@ -1,0 +1,39 @@
+{
+  "unit": "g0903_4ddd374b50ae0b62",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "沿地块边界设置的蓝色围挡，呈竖直板状，后方仍可见地面和绿地。",
+        "reasoning": "框内主体是围挡而非覆盖在建筑或棚架上方的连续屋面，不能作为蓝绿色顶棚判断。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见。",
+        "observed_object": "蓝色竖直围挡及其边界结构。",
+        "reasoning": "该物体是立在地面的长条状围挡，不是屋面；不能仅凭蓝色判断为违建顶棚。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "10ea00bc3c5f49069595439e11ed4cc7",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615891.7970672,
+      "status": 503
+    },
+    {
+      "at": 1791615917.1934502,
+      "status": 200
+    }
+  ],
+  "seconds": 59.83947443962097,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "4ddd374b50ae0b626f34586e5859fed4c8dc8f81ecd0b3aad253b00512a105ef"
+}

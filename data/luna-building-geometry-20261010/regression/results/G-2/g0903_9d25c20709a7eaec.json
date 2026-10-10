@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_9d25c20709a7eaec",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内仅见道路旁的窄条状竖直物体，未见连续覆盖面的蓝色或绿色屋面。",
+        "reasoning": "该目标更像围挡、立板或其他竖向结构，不符合违建类别中蓝绿色顶棚的判定条件。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "b35eb0c7dda54465966bcd765f1258fb",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616741.7153857,
+      "status": 503
+    },
+    {
+      "at": 1791616836.7311451,
+      "status": 200
+    }
+  ],
+  "seconds": 127.33021903038025,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "9d25c20709a7eaec63c178c4e5e16ce30052c5b09081d41a9ba06b12af72b5a5"
+}

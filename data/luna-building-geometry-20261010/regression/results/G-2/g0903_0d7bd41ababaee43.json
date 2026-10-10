@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_0d7bd41ababaee43",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色覆盖屋面",
+        "reasoning": "框内可见规则的蓝绿色成片屋面，覆盖在棚架或建筑结构上方，符合蓝绿色顶棚类别。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标较小且部分被遮挡，屋面结构与颜色细节不够清晰。",
+        "observed_object": "远处狭长建筑物或棚顶",
+        "reasoning": "无法唯一确认框内是否为蓝绿色顶棚，依据不足。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "680cbddf474e4650a4bc9e2b339d2da1",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616216.7986898,
+      "status": 200
+    }
+  ],
+  "seconds": 50.71435070037842,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "0d7bd41ababaee43e8da4c47c05970a0d8b47ecf4a671a2cc12174a367817cb4"
+}

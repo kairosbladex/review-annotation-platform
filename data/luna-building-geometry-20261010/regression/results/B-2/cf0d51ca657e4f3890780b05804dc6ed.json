@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见小面积浅蓝色矩形屋面/顶棚",
+        "reasoning": "目标主体为蓝色屋面，符合违建类别判定要求；框线和文字未作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "de5e39c3145c4f6d8d5175679d8cf3d8",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614904.8934748,
+      "status": 200
+    }
+  ],
+  "seconds": 44.91901922225952,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_05cf93bb163a24d4",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是高层建筑立面，未能明确确认蓝色或绿色顶棚结构；且违建属性缺乏审批或区域业务依据。",
+        "observed_object": "被紫色框标出的高层建筑及其立面",
+        "reasoning": "框内未见可明确判定为蓝色或绿色屋面的连续覆盖面，不能仅凭颜色或建筑外观认定为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "6918c729a5324946b1f2a2a20b1f183d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614948.6874018,
+      "status": 200
+    }
+  ],
+  "seconds": 38.12403964996338,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "05cf93bb163a24d4931cfb764310d24eef5a0a1ffa02b30900b11aa001db9c51"
+}

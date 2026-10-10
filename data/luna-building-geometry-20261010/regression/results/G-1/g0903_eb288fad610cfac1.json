@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_eb288fad610cfac1",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见深色网格状竖向表面，受框线、裁切和分辨率影响，无法确认其为覆盖在建筑或棚架上方的蓝绿色屋面。",
+        "observed_object": "左下角建筑边缘的深色网格状区域",
+        "reasoning": "候选框内未能明确观察到连续覆盖面、屋面结构或可确认的蓝绿色顶棚；不能仅凭颜色和条纹判断为违建顶棚。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "9a004915454d4ac29c6c8846e8cddc3c",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616154.6184754,
+      "status": 200
+    }
+  ],
+  "seconds": 56.39615535736084,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "eb288fad610cfac10c0bee57546f8e0740db78ef064453db0476771171adb2bf"
+}

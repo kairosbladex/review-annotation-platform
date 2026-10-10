@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "无明显局限",
+        "observed_object": "建筑立面上的蓝色玻璃窗",
+        "reasoning": "框内主体是建筑窗户，不是覆盖在建筑、棚架或空地上方的蓝绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "无明显局限",
+        "observed_object": "蓝色彩钢瓦顶棚",
+        "reasoning": "框内可见成片蓝色、带条纹的矩形屋面，符合蓝色顶棚特征。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "无明显局限",
+        "observed_object": "蓝色彩钢瓦顶棚",
+        "reasoning": "框内可见蓝色条纹状屋面，主体符合蓝色顶棚特征。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "0c16c464b54744f493a51150a8501d33",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614528.6945276,
+      "status": 200
+    }
+  ],
+  "seconds": 25.683565378189087,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

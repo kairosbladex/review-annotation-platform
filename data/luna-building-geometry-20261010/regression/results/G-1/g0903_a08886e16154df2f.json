@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_a08886e16154df2f",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内区域较小且被截断，屋面颜色与空间结构难以明确辨认。",
+        "observed_object": "疑似建筑或棚顶边缘及红色文字/框线",
+        "reasoning": "不能排除框内主要是屋面，但图像模糊且目标被边界截断，无法确认是否为蓝色或绿色顶棚；不将框线和文字作为证据。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "框内目标虽可见，但图像较模糊。",
+        "observed_object": "浅灰白色屋面/棚顶",
+        "reasoning": "可见主体呈灰白色，不属于蓝色或绿色顶棚，因此不符合违建类别；红色框线不作为判断依据。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "3e0cc98451884f499717c18cb033adae",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615087.3636124,
+      "status": 200
+    }
+  ],
+  "seconds": 31.70840287208557,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "a08886e16154df2f2604cc7a02d11bd4a1e04203f0b3ea3c8eab71fc42b2ef9c"
+}

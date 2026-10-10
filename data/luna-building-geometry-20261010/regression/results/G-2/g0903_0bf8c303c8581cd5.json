@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_0bf8c303c8581cd5",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标较小且受标注框影响，无法清晰确认其是否为蓝绿色连续覆盖屋面。",
+        "observed_object": "疑似建筑顶部或棚面区域",
+        "reasoning": "仅凭当前图像无法唯一判断框内主体是符合类别要求的蓝绿色顶棚，不能排除其他结构。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "4bcfe29c71004bbbb8c41e85a0fd86ad",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615267.3813183,
+      "status": 200
+    }
+  ],
+  "seconds": 14.389723062515259,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "0bf8c303c8581cd574089d6bf3b8048511b864fe7c706025709fcd3f7707c10f"
+}

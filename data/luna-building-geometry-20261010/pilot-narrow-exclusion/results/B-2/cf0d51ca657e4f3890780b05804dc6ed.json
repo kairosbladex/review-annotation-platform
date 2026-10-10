@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积较小且受标注框、文字和俯拍视角影响，无法清晰确认其是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似地面上的小型浅色矩形物体，颜色和结构不清晰。",
+        "reasoning": "无法明确判断为蓝色或绿色屋面，不能仅凭现有图像确认符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "5d778bd9ef0347e986bfd05ac95ab214",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614517.226755,
+      "status": 200
+    }
+  ],
+  "seconds": 36.79701852798462,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

@@ -1,0 +1,39 @@
+{
+  "unit": "g0903_4ddd374b50ae0b62",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "无遮挡，目标可见。",
+        "observed_object": "沿道路设置的蓝色施工围挡，呈竖直板状并非屋面。",
+        "reasoning": "框内主体是地面上的连续围挡，不能仅凭蓝绿色和条纹认定为顶棚，符合明确排除项。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "无遮挡，目标可见。",
+        "observed_object": "蓝色施工围挡及其侧面结构。",
+        "reasoning": "目标是立在地面的长条状围挡，没有覆盖在建筑或棚架上方的连续屋面，因此不符合违建类别。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "73f41ffd92ff49d287f7d2b6b708e3bd",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615904.0827935,
+      "status": 503
+    },
+    {
+      "at": 1791615939.7340388,
+      "status": 200
+    }
+  ],
+  "seconds": 87.07291507720947,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "4ddd374b50ae0b626f34586e5859fed4c8dc8f81ecd0b3aad253b00512a105ef"
+}

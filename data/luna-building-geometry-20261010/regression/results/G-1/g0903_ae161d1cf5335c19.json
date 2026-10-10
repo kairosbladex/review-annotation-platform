@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ae161d1cf5335c19",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为道路边缘的地面/路缘区域，未见蓝色或绿色顶棚覆盖面。",
+        "observed_object": "道路边缘及地面区域",
+        "reasoning": "候选框内没有符合定义的蓝色或绿色屋面，不能判定为违建目标。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "15603e665a014817b5c751c322c45627",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615871.0134466,
+      "status": 200
+    }
+  ],
+  "seconds": 43.529221534729004,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ae161d1cf5335c191f4f4de141cb23d500bb82a2cf8e429b87ddd3748494b05b"
+}

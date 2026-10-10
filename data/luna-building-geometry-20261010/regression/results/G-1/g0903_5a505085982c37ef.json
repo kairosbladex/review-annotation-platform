@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_5a505085982c37ef",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积很小，且被图像底部边缘截断，无法确认是否为屋面及其完整空间结构。",
+        "observed_object": "底部建筑边缘处的蓝色框状区域",
+        "reasoning": "可见蓝色区域，但仅凭框内局部无法排除其为立面、围挡或其他结构，不能唯一确认是蓝绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积很小，且被图像底部边缘截断，无法确认是否为屋面及其完整空间结构。",
+        "observed_object": "底部建筑边缘处的蓝色框状区域",
+        "reasoning": "可见蓝色边框和浅色内部，但缺少覆盖关系及屋面结构证据，不能确认属于蓝绿色顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内目标面积很小，且被图像底部边缘截断，无法确认是否为屋面及其完整空间结构。",
+        "observed_object": "底部建筑边缘处的蓝色框状区域",
+        "reasoning": "虽然呈蓝色框状，但目标被截断且无法判断其是屋顶覆盖面还是建筑/设施局部，证据不足。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "c215eb81060a46d99e86efa71577bd49",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614686.110451,
+      "status": 200
+    }
+  ],
+  "seconds": 28.91180682182312,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5a505085982c37efb127b782fb3436e399fa1bdb1c9aadd42921fb9a06312ad9"
+}

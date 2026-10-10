@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_0250b965fe9d463b",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内是建筑的灰白色屋面边缘及附属设施，不是蓝色或绿色顶棚。",
+        "reasoning": "候选框内主体屋面呈灰白色，未见符合类别的蓝色或绿色覆盖屋面，因此不符合违建初审类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "2d1d179b28864d1ab92e7f6ac17455d3",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616064.456065,
+      "status": 200
+    }
+  ],
+  "seconds": 14.995479345321655,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "0250b965fe9d463bd3d36802b7c06e27eba4e44fd74c53126d538ca0bf6364f0"
+}

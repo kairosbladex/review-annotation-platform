@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_0bf8c303c8581cd5",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内可见蓝色顶棚，呈规则长方形屋面结构。",
+        "reasoning": "目标主体是覆盖在建筑上方的蓝色顶棚，符合违建类别初审口径；未将框线或文字作为判断依据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "392cf6145f524060b5f595d609827d4b",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615289.5558896,
+      "status": 200
+    }
+  ],
+  "seconds": 39.140273094177246,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "0bf8c303c8581cd574089d6bf3b8048511b864fe7c706025709fcd3f7707c10f"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_1d35e28d6924f963",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可见为道路旁浅色铺装/地面区域，不是覆盖在建筑或棚架上的蓝绿色屋面；框线和文字不作为证据。",
+        "observed_object": "道路旁的浅色地面或铺装区域",
+        "reasoning": "整图核查后，候选框内未见符合定义的蓝色或绿色顶棚结构，明显不属于该类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "164d8494419b4185958a8d0b8285ae50",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614767.5371768,
+      "status": 200
+    }
+  ],
+  "seconds": 56.298094272613525,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1d35e28d6924f963cd24545948d967c90f80ec3c5a6393997bbbac74ba4f966a"
+}

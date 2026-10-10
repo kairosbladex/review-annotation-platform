@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "建筑外墙上的蓝色玻璃窗",
+        "reasoning": "框内是建筑窗户，不是覆盖在建筑、棚架或地面上方的蓝绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色成片顶棚",
+        "reasoning": "框内可见规则的蓝色覆盖面，符合蓝色顶棚特征。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色成片顶棚",
+        "reasoning": "框内可见蓝色覆盖面，属于蓝色顶棚，即使部分被截断仍符合类别。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "783cbcd781644fa489d1016339ddf442",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614550.428013,
+      "status": 200
+    }
+  ],
+  "seconds": 33.18845725059509,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

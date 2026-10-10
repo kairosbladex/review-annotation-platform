@@ -1,0 +1,32 @@
+{
+  "unit": "g0903_97effc5717ba345b",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为高层建筑立面，主要是灰色墙体和窗户，不是蓝色或绿色顶棚。",
+        "reasoning": "依据类别定义，目标主体不符合蓝色或绿色屋面的特征，且不将框线、文字作为证据。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "283ab93d361040aa80d5c08050422c24",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615526.7438269,
+      "status": 503
+    },
+    {
+      "at": 1791615542.7453077,
+      "status": 200
+    }
+  ],
+  "seconds": 48.47543287277222,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "97effc5717ba345b6517078ef6a77ec1804105b984c612495acddd3573e7f9cc"
+}

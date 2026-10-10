@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_e06ff0ed309a3a44",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见浅蓝色矩形区域，但面积较小且被框线、文字及周边建筑结构干扰，无法确认其是否为连续覆盖的屋面。",
+        "observed_object": "疑似浅蓝色矩形结构",
+        "reasoning": "仅凭颜色不能证明是违建屋面，目标空间结构不清，无法唯一判断为蓝色顶棚。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a09f9841eb3c47d58b5621946b9345f4",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615203.2011137,
+      "status": 200
+    }
+  ],
+  "seconds": 32.965429067611694,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "e06ff0ed309a3a44e35fd318a5e0a3203c35cd06ed326781f4e97a0e236698f7"
+}

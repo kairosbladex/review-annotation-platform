@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框内目标面积很小，且被红色框线与文字干扰，无法清晰确认主体是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似地面上的小型蓝色物体或屋面区域",
+        "reasoning": "仅凭当前图像无法唯一判断其为符合定义的蓝色或绿色顶棚，不能排除车辆、设施或其他物体。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "ba7bfbc1fc4e442e84af1cadae258edc",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617371.711906,
+      "status": 200
+    }
+  ],
+  "seconds": 59.13792824745178,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

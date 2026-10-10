@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8949e38800014554",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内主要是绿化树冠和地面区域，未见可确认的蓝色或绿色屋面结构。",
+        "reasoning": "候选框内没有明确的连续覆盖面、屋脊或檐边等屋面证据，不能将树冠或地面认定为蓝绿色顶棚，因此明显不符合该类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "e61bfd40e42e472c83d7a74c3c679af6",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791617082.9894032,
+      "status": 200
+    }
+  ],
+  "seconds": 34.51533818244934,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8949e3880001455459857d9e95a6fe92959ea086b64a1e3229a34f046bc72261"
+}

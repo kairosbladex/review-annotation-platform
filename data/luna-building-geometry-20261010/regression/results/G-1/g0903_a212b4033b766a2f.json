@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_a212b4033b766a2f",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "框内可清晰看到蓝色连续竖直围挡，未见其为覆盖在建筑或棚架上方的屋面结构。",
+        "observed_object": "蓝色施工围挡/广告墙",
+        "reasoning": "目标是沿道路边界竖立的连续板状围挡，主体为立面而非顶棚；不能仅凭蓝色判断为违建屋面，因此不符合该类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "23b5d706113e4989b55a14c68c5d5735",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615282.655207,
+      "status": 200
+    }
+  ],
+  "seconds": 14.88655948638916,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "a212b4033b766a2fc2240beadeabdc742c213c239160bcc8919d9944c7d611e9"
+}

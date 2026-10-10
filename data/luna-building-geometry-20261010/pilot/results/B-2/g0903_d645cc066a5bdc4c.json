@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是建筑窗户，未能明确看到蓝色或绿色顶棚。",
+        "observed_object": "建筑窗户及墙面",
+        "reasoning": "不将框线和文字作为目标证据，框内未见符合类别的蓝绿色屋面。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色矩形顶棚",
+        "reasoning": "框内可见成片蓝色、边缘规整的覆盖面，符合蓝色顶棚特征。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见蓝色覆盖面，具有规整的顶棚外观，符合类别要求。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "8f76ecdc603c49e09a074303999dd89a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614320.8125174,
+      "status": 200
+    }
+  ],
+  "seconds": 48.548757553100586,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

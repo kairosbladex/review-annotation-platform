@@ -1,0 +1,265 @@
+{
+  "all": {
+    "B-1": {
+      "scored": 19,
+      "true_targets": 14,
+      "false_targets": 5,
+      "accuracy": 0.631578947368421,
+      "true_rejected": 3,
+      "false_accepted": 4,
+      "uncertain": 4
+    },
+    "B-2": {
+      "scored": 19,
+      "true_targets": 14,
+      "false_targets": 5,
+      "accuracy": 0.631578947368421,
+      "true_rejected": 3,
+      "false_accepted": 4,
+      "uncertain": 3
+    },
+    "G-1": {
+      "scored": 19,
+      "true_targets": 14,
+      "false_targets": 5,
+      "accuracy": 0.7368421052631579,
+      "true_rejected": 5,
+      "false_accepted": 0,
+      "uncertain": 5
+    },
+    "G-2": {
+      "scored": 19,
+      "true_targets": 14,
+      "false_targets": 5,
+      "accuracy": 0.8421052631578947,
+      "true_rejected": 3,
+      "false_accepted": 0,
+      "uncertain": 4
+    },
+    "paired_ci": {
+      "accuracy": {
+        "difference_G_minus_B": 0.15789473684210525,
+        "ci95": [
+          -0.07894736842105263,
+          0.46875
+        ],
+        "groups": 8,
+        "resamples": 10000
+      },
+      "true_rejected": {
+        "difference_G_minus_B": 0.07142857142857142,
+        "ci95": [
+          -0.125,
+          0.175
+        ],
+        "groups": 6,
+        "resamples": 10000
+      },
+      "false_accepted": {
+        "difference_G_minus_B": -0.8,
+        "ci95": [
+          -1.0,
+          -0.6666666666666666
+        ],
+        "groups": 3,
+        "resamples": 10000
+      }
+    }
+  },
+  "dev": {
+    "B-1": {
+      "scored": 19,
+      "true_targets": 14,
+      "false_targets": 5,
+      "accuracy": 0.631578947368421,
+      "true_rejected": 3,
+      "false_accepted": 4,
+      "uncertain": 4
+    },
+    "B-2": {
+      "scored": 19,
+      "true_targets": 14,
+      "false_targets": 5,
+      "accuracy": 0.631578947368421,
+      "true_rejected": 3,
+      "false_accepted": 4,
+      "uncertain": 3
+    },
+    "G-1": {
+      "scored": 19,
+      "true_targets": 14,
+      "false_targets": 5,
+      "accuracy": 0.7368421052631579,
+      "true_rejected": 5,
+      "false_accepted": 0,
+      "uncertain": 5
+    },
+    "G-2": {
+      "scored": 19,
+      "true_targets": 14,
+      "false_targets": 5,
+      "accuracy": 0.8421052631578947,
+      "true_rejected": 3,
+      "false_accepted": 0,
+      "uncertain": 4
+    },
+    "paired_ci": {
+      "accuracy": {
+        "difference_G_minus_B": 0.15789473684210525,
+        "ci95": [
+          -0.07894736842105263,
+          0.46875
+        ],
+        "groups": 8,
+        "resamples": 10000
+      },
+      "true_rejected": {
+        "difference_G_minus_B": 0.07142857142857142,
+        "ci95": [
+          -0.125,
+          0.175
+        ],
+        "groups": 6,
+        "resamples": 10000
+      },
+      "false_accepted": {
+        "difference_G_minus_B": -0.8,
+        "ci95": [
+          -1.0,
+          -0.6666666666666666
+        ],
+        "groups": 3,
+        "resamples": 10000
+      }
+    }
+  },
+  "holdout": {
+    "B-1": {
+      "scored": 0,
+      "true_targets": 0,
+      "false_targets": 0,
+      "accuracy": null,
+      "true_rejected": 0,
+      "false_accepted": 0,
+      "uncertain": 0
+    },
+    "B-2": {
+      "scored": 0,
+      "true_targets": 0,
+      "false_targets": 0,
+      "accuracy": null,
+      "true_rejected": 0,
+      "false_accepted": 0,
+      "uncertain": 0
+    },
+    "G-1": {
+      "scored": 0,
+      "true_targets": 0,
+      "false_targets": 0,
+      "accuracy": null,
+      "true_rejected": 0,
+      "false_accepted": 0,
+      "uncertain": 0
+    },
+    "G-2": {
+      "scored": 0,
+      "true_targets": 0,
+      "false_targets": 0,
+      "accuracy": null,
+      "true_rejected": 0,
+      "false_accepted": 0,
+      "uncertain": 0
+    },
+    "paired_ci": {
+      "accuracy": null,
+      "true_rejected": null,
+      "false_accepted": null
+    }
+  },
+  "focus_four": {
+    "B-1": {
+      "scored": 4,
+      "true_targets": 0,
+      "false_targets": 4,
+      "accuracy": 0.0,
+      "true_rejected": 0,
+      "false_accepted": 4,
+      "uncertain": 0
+    },
+    "B-2": {
+      "scored": 4,
+      "true_targets": 0,
+      "false_targets": 4,
+      "accuracy": 0.0,
+      "true_rejected": 0,
+      "false_accepted": 4,
+      "uncertain": 0
+    },
+    "G-1": {
+      "scored": 4,
+      "true_targets": 0,
+      "false_targets": 4,
+      "accuracy": 1.0,
+      "true_rejected": 0,
+      "false_accepted": 0,
+      "uncertain": 1
+    },
+    "G-2": {
+      "scored": 4,
+      "true_targets": 0,
+      "false_targets": 4,
+      "accuracy": 1.0,
+      "true_rejected": 0,
+      "false_accepted": 0,
+      "uncertain": 1
+    },
+    "paired_ci": {
+      "accuracy": {
+        "difference_G_minus_B": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "groups": 3,
+        "resamples": 10000
+      },
+      "true_rejected": null,
+      "false_accepted": {
+        "difference_G_minus_B": -1.0,
+        "ci95": [
+          -1.0,
+          -1.0
+        ],
+        "groups": 3,
+        "resamples": 10000
+      }
+    }
+  },
+  "new_true_rejections": {
+    "1": [
+      {
+        "key": "gold0903:b2983d65d2bb46ffb63fa30cb3ef3485",
+        "unit": "g0903_116b8c88f7c80f7b",
+        "B": "true",
+        "G": "uncertain"
+      },
+      {
+        "key": "gold0903:460476105a944c1983776d57323dd549",
+        "unit": "g0903_840bb6081b504a4e",
+        "B": "true",
+        "G": "uncertain"
+      }
+    ],
+    "2": [
+      {
+        "key": "gold0903:b2983d65d2bb46ffb63fa30cb3ef3485",
+        "unit": "g0903_116b8c88f7c80f7b",
+        "B": "true",
+        "G": "uncertain"
+      }
+    ]
+  },
+  "gate_observed": false,
+  "no_new_paired_true_rejections": false,
+  "gate_warning": "Observed counts only. Any new paired true rejection requires visual review; CI and previous-label disagreement must be reported. Not a guarantee of population noninferiority."
+}

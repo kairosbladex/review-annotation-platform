@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8e91702d522f05f0",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "蓝色广告围挡，沿道路边界竖立，未见覆盖建筑或棚架的连续屋面结构。",
+        "reasoning": "候选框主体是立面的长条形围挡/广告牌，不是蓝绿色顶棚，依据类别规则应判为false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "b5883cc8207d4c8baf2494089348446e",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615320.40646,
+      "status": 200
+    }
+  ],
+  "seconds": 30.429121732711792,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8e91702d522f05f01a66ee9cb5e8b519ceef77f21c1654ef07cc4b4814d3e10c"
+}

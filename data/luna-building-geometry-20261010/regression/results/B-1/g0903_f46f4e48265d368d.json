@@ -1,0 +1,95 @@
+{
+  "unit": "g0903_f46f4e48265d368d",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色顶棚",
+        "reasoning": "框内可见蓝绿色矩形屋面，符合违建类别定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内主体为浅蓝色屋面，属于蓝色顶棚。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内为覆盖建筑的浅蓝色矩形顶棚。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见蓝色屋面，边缘规整。",
+        "target_index": 3
+      },
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "灰白色屋面",
+        "reasoning": "框内主体为灰白色屋面，不属于蓝色或绿色顶棚。",
+        "target_index": 4
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见蓝色矩形屋面。",
+        "target_index": 5
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "候选框位于图像底部，目标仅部分可见，无法可靠确认其是否为蓝绿色顶棚。",
+        "observed_object": "部分可见的小型目标",
+        "reasoning": "可见区域过少，不能唯一判断类别。",
+        "target_index": 6
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝绿色顶棚",
+        "reasoning": "框内可见蓝绿色屋面覆盖物。",
+        "target_index": 7
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "浅蓝色顶棚",
+        "reasoning": "框内主体为大面积浅蓝色矩形顶棚。",
+        "target_index": 8
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标极窄且部分贴近图像边缘，无法排除其为其他蓝色物体而非顶棚。",
+        "observed_object": "狭长蓝色目标",
+        "reasoning": "缺乏足够结构证据确认是顶棚。",
+        "target_index": 9
+      }
+    ],
+    "execution_id": "b5ffce7410be41348ca5f7677726c17a",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616610.127518,
+      "status": 503
+    },
+    {
+      "at": 1791616653.5267386,
+      "status": 200
+    }
+  ],
+  "seconds": 76.34813904762268,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f46f4e48265d368d3f2f9db11b6ce90d78418715ffb292099012602beec3d8da"
+}

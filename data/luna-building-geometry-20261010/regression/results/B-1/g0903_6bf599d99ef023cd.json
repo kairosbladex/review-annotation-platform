@@ -1,0 +1,49 @@
+{
+  "unit": "g0903_6bf599d99ef023cd",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为覆盖在建筑区域上的成片浅蓝色屋面，符合违建类别定义。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见大面积浅蓝色矩形顶棚，属于蓝色屋面。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内主体为规则矩形浅蓝色顶棚，符合类别要求。",
+        "target_index": 2
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "蓝色顶棚",
+        "reasoning": "框内可见成片浅蓝色屋面，边缘规整，符合违建类别定义。",
+        "target_index": 3
+      }
+    ],
+    "execution_id": "ac629cbb71d84b2fb47d57c50fe68174",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615677.1266487,
+      "status": 200
+    }
+  ],
+  "seconds": 32.052061796188354,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "6bf599d99ef023cd300473f2c82dbdfaf0088b2b4fad0ec55fce187595f1958a"
+}

@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_0bf8c303c8581cd5",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为道路或地面边缘的细长结构，未见连续覆盖的蓝色或绿色屋面。",
+        "reasoning": "候选框内主体不是屋面顶棚，不能依据框旁或远处的其他结构判定为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "3d2e4e99e8db4abaae4a59a75f03a513",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615309.5833242,
+      "status": 200
+    }
+  ],
+  "seconds": 57.206050395965576,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "0bf8c303c8581cd574089d6bf3b8048511b864fe7c706025709fcd3f7707c10f"
+}

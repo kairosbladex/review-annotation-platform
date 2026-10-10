@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_f0f53344a03e90a8",
+  "arm": "B",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内屋面颜色和材质较模糊，无法明确确认是否为蓝色或绿色顶棚。",
+        "observed_object": "疑似浅色屋面或棚顶",
+        "reasoning": "候选框内可见一块规则矩形区域，但颜色偏灰浅，缺乏明确的蓝绿色顶棚特征，不能据此判定为违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "051ab5f104964af19925493cde69b763",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614777.5978916,
+      "status": 200
+    }
+  ],
+  "seconds": 43.09928250312805,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "f0f53344a03e90a875e94a8252609bf0a1ae43bfc5110a3cb15db7f0cb7d926b"
+}

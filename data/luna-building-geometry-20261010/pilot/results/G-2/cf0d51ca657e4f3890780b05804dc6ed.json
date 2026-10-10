@@ -1,0 +1,28 @@
+{
+  "unit": "cf0d51ca657e4f3890780b05804dc6ed",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内仅见小型浅蓝色矩形物体，受框线、俯拍角度及分辨率影响，无法确认其为空间覆盖在建筑或棚架上方的屋面。",
+        "observed_object": "左下角疑似浅蓝色矩形物体",
+        "reasoning": "颜色可落入蓝色范畴，但无法唯一确认其为蓝色顶棚，不能据此判定违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "70a74b3167cc424591981dda78b176c8",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614299.552451,
+      "status": 200
+    }
+  ],
+  "seconds": 33.84469199180603,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "96294d64d798ca60c676efc2867b3f773e84a603e676e3f26204f0ab9e07ad36"
+}

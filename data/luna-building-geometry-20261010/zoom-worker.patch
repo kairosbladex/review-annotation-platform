@@ -1,0 +1,16 @@
+--- a/scripts/run_codex_luna_worker.py
++++ b/scripts/run_codex_luna_worker.py
+@@ -126,7 +126,12 @@
+             b = c['bbox'];x1,y1,x2,y2 = b[0]*source.width,b[1]*source.height,b[2]*source.width,b[3]*source.height
+             mx,my = max(20,(x2-x1)*0.25),max(20,(y2-y1)*0.25)
+             crop = source.crop((max(0,x1-mx),max(0,y1-my),min(source.width,x2+mx),min(source.height,y2+my)))
+-            crop.thumbnail((256,256));sheet.paste(crop,((i%5)*256,(i//5)*280+24));sd.text(((i%5)*256,(i//5)*280),str(i),fill='black')
++            crop.thumbnail((256,256))
++            if PROMPT_DOCUMENT['version'] == 'p000-building-geometry' and all(_class_key(x['class_name']) == '违建' for x in candidates):
++                # 小目标也使用完整裁剪格；保持上下文和比例，不要求新像素细节。
++                scale = min(256 / crop.width, 256 / crop.height)
++                crop = crop.resize((max(1, round(crop.width * scale)), max(1, round(crop.height * scale))), Image.LANCZOS)
++            sheet.paste(crop,((i%5)*256,(i//5)*280+24));sd.text(((i%5)*256,(i//5)*280),str(i),fill='black')
+         sheet.save(root/'crops.jpg', quality=95)
+         schema = root/'schema.json';schema.write_text(json.dumps(SCHEMA))
+         binary = os.environ['CODEX_REVIEW_BINARY'];home = Path(os.environ.get('CODEX_REVIEW_HOME', '/home/user/.codex'))

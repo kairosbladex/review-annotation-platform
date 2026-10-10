@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_5855e63b7f22d882",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内为一栋高层建筑的竖直立面，未见可明确判断为蓝色或绿色顶棚的覆盖面。",
+        "observed_object": "高层建筑立面及窗户",
+        "reasoning": "目标空间结构明显是建筑墙面而非屋面或棚顶；但类别要求针对违建屋面判断，无法确认框内存在符合条件的蓝绿色顶棚，因此不能判定为true或false。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "34e2ad290835450b9f3fa3ea3c6bd128",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616314.5415318,
+      "status": 200
+    }
+  ],
+  "seconds": 31.25629949569702,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "5855e63b7f22d882980c76f67fb51c27a6286fafa5b30b6be3eca96c4befa45f"
+}

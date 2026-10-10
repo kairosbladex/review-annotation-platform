@@ -1,0 +1,42 @@
+{
+  "unit": "g0903_d645cc066a5bdc4c",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "目标清晰可见",
+        "observed_object": "建筑立面上的普通窗户",
+        "reasoning": "框内主体是窗户玻璃及建筑立面，不是蓝色或绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "目标清晰可见",
+        "observed_object": "蓝绿色成片顶棚",
+        "reasoning": "框内可见规则矩形的蓝绿色覆盖面，符合蓝色顶棚特征。",
+        "target_index": 1
+      },
+      {
+        "decision": "true",
+        "image_limitation": "目标部分被图像底部截断但主体清晰",
+        "observed_object": "蓝绿色顶棚",
+        "reasoning": "框内主体为蓝绿色覆盖面，符合蓝色顶棚特征；虽下缘被截断，但不影响类别判断。",
+        "target_index": 2
+      }
+    ],
+    "execution_id": "3ca89d20960b4488aa1d6a4dcd60591d",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614519.994215,
+      "status": 200
+    }
+  ],
+  "seconds": 31.121631622314453,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "d645cc066a5bdc4cfe5e9e2f9e48c28baedbecf35ecd959478e0bac32a196fe2"
+}

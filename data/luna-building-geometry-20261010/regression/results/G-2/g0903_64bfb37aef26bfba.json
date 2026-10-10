@@ -1,0 +1,126 @@
+{
+  "unit": "g0903_64bfb37aef26bfba",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见蓝色顶棚，但无法仅凭图像确认违建业务属性。",
+        "observed_object": "蓝色屋面或棚顶",
+        "reasoning": "目标可见为屋面，但类别涉及违建，缺乏审批或区域业务依据，按要求判定为uncertain。",
+        "target_index": 0
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要为浅蓝色屋面，但无法确认违建属性。",
+        "observed_object": "浅蓝色屋面",
+        "reasoning": "屋面颜色符合蓝色口径，但缺乏违建业务依据，判定为uncertain。",
+        "target_index": 1
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标区域很小，虽可见疑似蓝色覆盖物，但结构和属性均不清晰。",
+        "observed_object": "疑似小型蓝色屋面",
+        "reasoning": "无法唯一确认其为空间覆盖屋面，也缺乏违建依据。",
+        "target_index": 2
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见灰白色建筑及小块疑似蓝色物体，结构不清。",
+        "observed_object": "建筑及疑似小型蓝色覆盖物",
+        "reasoning": "无法确认框内主体为蓝绿色顶棚，且缺乏违建依据。",
+        "target_index": 3
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "可见灰白色屋面，颜色与目标口径不完全明确。",
+        "observed_object": "灰白色屋面",
+        "reasoning": "即使确认是屋面，也难以判断为蓝绿色顶棚；同时缺乏违建依据。",
+        "target_index": 4
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见蓝色与灰白色相邻屋面，目标边界和主体颜色存在歧义。",
+        "observed_object": "蓝色及灰白色相邻屋面",
+        "reasoning": "无法唯一确认框内主体是否为蓝绿色顶棚，且缺乏违建依据。",
+        "target_index": 5
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内为灰白色屋面及下方小结构，颜色和空间关系不充分。",
+        "observed_object": "灰白色屋面",
+        "reasoning": "不符合明确蓝绿色顶棚证据标准，且缺乏违建依据。",
+        "target_index": 6
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标较小，疑似小型附属结构，无法确认是否为屋面。",
+        "observed_object": "疑似小型附属屋面",
+        "reasoning": "结构和颜色证据不足，且缺乏违建依据。",
+        "target_index": 7
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内包含蓝色和灰白色相邻区域，无法确定主体覆盖面。",
+        "observed_object": "蓝色与灰白色相邻屋面",
+        "reasoning": "无法唯一确认蓝色部分为框内主体屋面，且缺乏违建依据。",
+        "target_index": 8
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "可见较大灰白色屋面，蓝色区域仅在框外或边缘，无法确认目标主体。",
+        "observed_object": "灰白色长条屋面",
+        "reasoning": "主体不是明确蓝绿色顶棚，且缺乏违建依据。",
+        "target_index": 9
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内为灰白色屋面，未见明确蓝绿色覆盖面。",
+        "observed_object": "灰白色屋面",
+        "reasoning": "不满足蓝绿色顶棚的颜色证据，且缺乏违建依据。",
+        "target_index": 10
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内为深蓝色小矩形，可能是屋面或其他物体，结构不足。",
+        "observed_object": "疑似深蓝色小型覆盖物",
+        "reasoning": "无法确认其为顶棚而非其他物体，且缺乏违建依据。",
+        "target_index": 11
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见浅蓝色矩形覆盖面，但无法确认违建属性。",
+        "observed_object": "浅蓝色屋面",
+        "reasoning": "颜色和屋面形态较符合，但缺乏违建业务依据，判定为uncertain。",
+        "target_index": 12
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见蓝色区域，但被结构遮挡，无法充分确认连续屋面。",
+        "observed_object": "疑似蓝色屋面",
+        "reasoning": "屋面结构和主体边界不够清晰，且缺乏违建依据。",
+        "target_index": 13
+      },
+      {
+        "decision": "uncertain",
+        "image_limitation": "目标很小，虽见浅蓝色区域，但无法确认其为空间覆盖屋面。",
+        "observed_object": "疑似小型蓝色物体或屋面",
+        "reasoning": "证据不足以明确判定为蓝绿色顶棚，且缺乏违建依据。",
+        "target_index": 14
+      }
+    ],
+    "execution_id": "a08c854bf1bd4550a351004f71631657",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616868.0713768,
+      "status": 200
+    }
+  ],
+  "seconds": 36.872308015823364,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "64bfb37aef26bfbad062fdb62855b920aabf2718dba9c99f080c6e9e23f52ce5"
+}

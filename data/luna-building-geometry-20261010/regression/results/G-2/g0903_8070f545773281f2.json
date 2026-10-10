@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_8070f545773281f2",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "false",
+        "image_limitation": "",
+        "observed_object": "框内为蓝绿色球场地面，有明显场地线，与道路相接，不是屋顶或顶棚。",
+        "reasoning": "依据整图和裁剪图，候选区域呈平面且具有球场规则线，属于地面设施；蓝绿色不能单独证明是顶棚，因此不符合违建类别。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "a14c137d3f2a43029d36b89959ea2cd7",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614724.6176243,
+      "status": 200
+    }
+  ],
+  "seconds": 44.4749550819397,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "8070f545773281f22c198e0304800522aa87b06cb726277ddac8aa7cde17ecec"
+}

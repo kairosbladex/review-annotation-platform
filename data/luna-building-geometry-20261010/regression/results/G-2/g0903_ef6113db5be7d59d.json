@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_ef6113db5be7d59d",
+  "arm": "G",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内可见蓝灰色条纹状表面，但仅凭当前图像无法唯一确认其为空间覆盖建筑或棚架的连续屋面，也可能是其他结构表面。",
+        "observed_object": "疑似蓝灰色条纹结构",
+        "reasoning": "颜色接近蓝色，但目标是否为屋面无法明确判断；按规则不能仅凭颜色和条纹认定违建屋面。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "47843dd30c244abcab5264958b6df6b0",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615731.8987937,
+      "status": 200
+    }
+  ],
+  "seconds": 55.57137131690979,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "ef6113db5be7d59d3297cca956c944b57751c26ac6ccaa67956fcb682272e182"
+}

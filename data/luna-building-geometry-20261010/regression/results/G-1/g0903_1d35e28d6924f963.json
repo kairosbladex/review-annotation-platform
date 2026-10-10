@@ -1,0 +1,28 @@
+{
+  "unit": "g0903_1d35e28d6924f963",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要为浅色矩形屋面或地面区域，受框线和文字干扰，无法确认是否为蓝色或绿色顶棚。",
+        "observed_object": "浅色矩形区域",
+        "reasoning": "候选框内未能明确识别出符合类别要求的蓝色或绿色连续覆盖屋面，无法仅凭颜色或位置判断为违建。",
+        "target_index": 0
+      }
+    ],
+    "execution_id": "fd635993bb4145cc9effd23a3dc71f03",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791614710.8549545,
+      "status": 200
+    }
+  ],
+  "seconds": 14.910660743713379,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "1d35e28d6924f963cd24545948d967c90f80ec3c5a6393997bbbac74ba4f966a"
+}

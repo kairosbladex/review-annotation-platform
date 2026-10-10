@@ -1,0 +1,35 @@
+{
+  "unit": "251324d21a8f4471ae6997c9c78de2ee",
+  "arm": "G",
+  "repeat": 1,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为成片浅蓝色、带平行瓦楞纹理的连续屋面，覆盖在建筑或棚架上方。",
+        "reasoning": "整图中该目标呈规则矩形屋面，主体颜色属于蓝色范畴，符合违建类别判定口径。",
+        "target_index": 0
+      },
+      {
+        "decision": "true",
+        "image_limitation": "",
+        "observed_object": "框内为狭长但连续的浅蓝色瓦楞屋面，边缘规整并覆盖在结构上方。",
+        "reasoning": "该物体不是围挡或竖板，而是可见连续覆盖面的蓝色顶棚；浅蓝色属于蓝色范畴，符合类别。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "0dab0dd69c864e75a8805bc79cf6294b",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791616455.4498007,
+      "status": 200
+    }
+  ],
+  "seconds": 36.010706663131714,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "751dd3699e4f19c6a85fdb5cfd8df77dc8fa7704cca4236f1d96c5ad7393896c"
+}

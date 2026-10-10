@@ -1,0 +1,35 @@
+{
+  "unit": "g0903_a08886e16154df2f",
+  "arm": "B",
+  "repeat": 2,
+  "status": 200,
+  "body": {
+    "results": [
+      {
+        "decision": "uncertain",
+        "image_limitation": "框内主要是文字和框线，未能清晰确认顶棚颜色及结构。",
+        "observed_object": "疑似局部区域，主体被文字与框线干扰",
+        "reasoning": "无法依据可见证据确认蓝色或绿色顶棚。",
+        "target_index": 0
+      },
+      {
+        "decision": "false",
+        "image_limitation": "框内可见屋面，但图像较模糊。",
+        "observed_object": "灰白色屋面/顶棚",
+        "reasoning": "主体颜色明显偏灰白，不符合蓝色或绿色顶棚类别。",
+        "target_index": 1
+      }
+    ],
+    "execution_id": "e9422910da974d6fb1af662e2e9c12f2",
+    "requested_model": "gpt-5.6-luna"
+  },
+  "attempts": [
+    {
+      "at": 1791615113.0564747,
+      "status": 200
+    }
+  ],
+  "seconds": 37.57887673377991,
+  "binary_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+  "image_sha256": "a08886e16154df2f2604cc7a02d11bd4a1e04203f0b3ea3c8eab71fc42b2ef9c"
+}
