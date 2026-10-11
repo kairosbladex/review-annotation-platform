@@ -1,0 +1,72 @@
+{
+  "snapshot": {
+    "snapshot_time": "2026-10-11 12:42:55",
+    "db": "ktd_lx",
+    "ro": 1
+  },
+  "source_events": 219,
+  "eligible_events": 201,
+  "initial_candidates": 1446,
+  "labeled_candidates": 528,
+  "unmatched_labeled_candidates": 0,
+  "excluded_reasons": {
+    "URLError": 1,
+    "current_image_sha_mismatch": 8,
+    "missing_complete_initial_bbox": 9
+  },
+  "period": [
+    "2026-07-28 10:44:15",
+    "2026-09-23 17:50:27"
+  ],
+  "by_class": {
+    "车": {
+      "true": 359,
+      "false": 28
+    },
+    "三轮车": {
+      "false": 3,
+      "true": 1
+    },
+    "人员": {
+      "true": 58,
+      "false": 52
+    },
+    "卡车": {
+      "false": 8,
+      "true": 1
+    },
+    "公交车": {
+      "false": 1,
+      "true": 2
+    },
+    "两轮车": {
+      "true": 2,
+      "false": 4
+    },
+    "违建": {
+      "true": 9
+    }
+  },
+  "labels_sha256": "c990580379d13f4a6c84715ee80cf8620e74aa80ca1df8634923ddcf1b6e252d",
+  "units_sha256": "ff4e8fc1fdd988beb1c7fbf456803a189026afb4f93e192d1a41412d78787a57",
+  "policy": "only_true_is_true_v1",
+  "clean_image": false,
+  "scope": "原始初审截图与全部初审候选经当前算法API复检；仅人工已标注且精确匹配的框计分；无平台复检回写。",
+  "duplicate_image_events": 1,
+  "duplicate_gold_boxes": 0,
+  "gold_true": 432,
+  "gold_false": 96,
+  "source_labeled_candidates": 628,
+  "excluded_labeled_by_reason": {
+    "URLError": 1,
+    "missing_complete_initial_bbox": 53,
+    "current_image_sha_mismatch": 46
+  },
+  "task_groups": 52,
+  "splits": {
+    "dev": 134,
+    "holdout": 67
+  },
+  "label_free_request": true,
+  "request_scope": "current algorithm API upload -> shared worker -> Codex CLI -> API normalized result and result file; no Java business writeback"
+}

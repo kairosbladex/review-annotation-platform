@@ -1,0 +1,64 @@
+{
+  "identity": {
+    "verified_at": "2026-10-11T04:49:04.165917+00:00",
+    "client_sha256": "c57397118e6e66696ada36c06ebda8a824ef8df295b96e206218438cb208f04d",
+    "worker_sha256": "b909136b16f0f357e58f9d3e221482e122195b34e7cec124bf0760aca59495e1",
+    "worker_commit": "25a612f28403bed971db96430ab638508589b5f6",
+    "worker_state": "MainPID=1203610\nNRestarts=0\nMemoryCurrent=264765440\nCPUQuotaPerSecUSec=4s\nMemoryMax=8589934592\nActiveState=active\n",
+    "cli_sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4",
+    "cli_version": "codex-cli 0.162.0-alpha.17.2",
+    "api/review_agent_routes.py_sha256": "652d63b9914af05f613c66a9c9368b76d58bd3d9a5a2c58d4cae0cc7d16a4376",
+    "zhuoyi二次检测智能体/codex_luna_review.py_sha256": "77b78b9d067be2f8900f6d4ea6c8a4183819c3edb1a9168cdb3655b77d706ea3",
+    "prompt_version": "p000-pure-class-cards",
+    "pre_model_failure": {
+      "requests": 2,
+      "http_status": 400,
+      "cause": "algorithm container certificate verification failed while fetching testing-site HTTPS images",
+      "worker_log_window": "2026-10-11 12:45:10..12:45:30 +08:00: no entries",
+      "resolution": "upload existing cache whose SHA256 matches current testing-platform initial screenshot; no TLS configuration change"
+    }
+  },
+  "final_state": {
+    "time": 1791695455.8411562,
+    "client": {
+      "MainPID": "0",
+      "NRestarts": "0",
+      "MemoryCurrent": "[not set]",
+      "ActiveState": "inactive",
+      "SubState": "dead"
+    },
+    "worker": {
+      "MainPID": "1203610",
+      "NRestarts": "0",
+      "MemoryCurrent": "77414400",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "container_healthy": "healthy",
+    "container_id": "a02617a749cb1379f9a2540e8e60d31210fea79121917ac0804f31fabd49fbef",
+    "image_id": "sha256:eb10b5b55337ae0c4be79d905c0e629b9e47892582303b0313d294dd99c62c73",
+    "worker_health": {
+      "model": "gpt-5.6-luna",
+      "max_concurrency": 20,
+      "policy": "only_true_is_true_v1",
+      "prompt_version": "p000-pure-class-cards"
+    },
+    "host_mem_available_kib": 220079476,
+    "journal_count": 202,
+    "journal_results": {
+      "ok": 201,
+      "503": 1
+    }
+  },
+  "client_limits": {
+    "memory_max_gib": 2,
+    "memory_swap_max": 0,
+    "cpu_quota_percent": 100,
+    "tasks_max": 32,
+    "concurrency": 4
+  },
+  "flow": "algorithm API upload -> current shared worker -> official Codex CLI -> response and result file",
+  "upstream_native_thread_id_verified": false,
+  "java_business_writeback_executed": false,
+  "source_manifest_sha256": "5f1c16e77f4a56c8bb8db10e249da8b2ae9f89cb9e2c6e2e7ceeb5b726fbc7d1"
+}

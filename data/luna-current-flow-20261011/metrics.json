@@ -1,0 +1,133 @@
+{
+  "events": {
+    "ok": 201
+  },
+  "labeled_boxes": 528,
+  "initial_candidates": 1446,
+  "unlabeled_candidates": 918,
+  "gold_matrix": {
+    "true": {
+      "true": 316,
+      "uncertain": 93,
+      "false": 23
+    },
+    "false": {
+      "uncertain": 48,
+      "true": 30,
+      "false": 18
+    }
+  },
+  "gold_matrix_by_class": {
+    "车": {
+      "true": {
+        "true": 303,
+        "uncertain": 56
+      },
+      "false": {
+        "uncertain": 6,
+        "true": 20,
+        "false": 2
+      }
+    },
+    "三轮车": {
+      "false": {
+        "true": 1,
+        "uncertain": 2
+      },
+      "true": {
+        "uncertain": 1
+      }
+    },
+    "人员": {
+      "true": {
+        "uncertain": 30,
+        "false": 21,
+        "true": 7
+      },
+      "false": {
+        "false": 14,
+        "uncertain": 32,
+        "true": 6
+      }
+    },
+    "卡车": {
+      "false": {
+        "uncertain": 5,
+        "true": 1,
+        "false": 2
+      },
+      "true": {
+        "uncertain": 1
+      }
+    },
+    "公交车": {
+      "false": {
+        "uncertain": 1
+      },
+      "true": {
+        "false": 1,
+        "uncertain": 1
+      }
+    },
+    "两轮车": {
+      "true": {
+        "uncertain": 1,
+        "false": 1
+      },
+      "false": {
+        "uncertain": 2,
+        "true": 2
+      }
+    },
+    "违建": {
+      "true": {
+        "uncertain": 3,
+        "true": 6
+      }
+    }
+  },
+  "raw_decisions_all_candidates": {
+    "车": {
+      "true": 1049,
+      "uncertain": 198,
+      "false": 6
+    },
+    "公交车": {
+      "true": 4,
+      "uncertain": 3,
+      "false": 1
+    },
+    "两轮车": {
+      "uncertain": 21,
+      "true": 6,
+      "false": 1
+    },
+    "三轮车": {
+      "uncertain": 9,
+      "true": 1
+    },
+    "人员": {
+      "uncertain": 69,
+      "false": 36,
+      "true": 13
+    },
+    "卡车": {
+      "uncertain": 10,
+      "true": 3,
+      "false": 2
+    },
+    "违建": {
+      "uncertain": 3,
+      "true": 11
+    }
+  },
+  "prior_pre_model_http_failures": 2,
+  "preserved_failed_model_attempts": 1,
+  "total_model_attempts": 202,
+  "policy": "only_true_is_true_v1",
+  "business_database_writeback": false,
+  "event_period": [
+    "2026-07-28 10:44:15",
+    "2026-09-23 17:50:27"
+  ]
+}
