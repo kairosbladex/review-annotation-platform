@@ -1,0 +1,35 @@
+[
+  {
+    "cases": [
+      "P21"
+    ],
+    "view": "special-P21.png",
+    "unchanged_labels": true,
+    "unchanged_boxes": true,
+    "finding": "原框偏左、偏紧，白衣目标沿右边界超出；可见头顶仍位于原框内，框不完整不能解释全部人员漏判。"
+  },
+  {
+    "cases": [
+      "P09",
+      "P15"
+    ],
+    "view": "special-P09-P15.png",
+    "unchanged_labels": true,
+    "unchanged_boxes": true,
+    "iou": 0.1142857143,
+    "smaller_box_overlap_fraction": 0.2666666667,
+    "finding": "同一横道骑行区域，P09偏骑行者、P15偏车体与部分人体。不同框不等于不同人员；是否分别满足人员标注口径需人工复核。"
+  },
+  {
+    "cases": [
+      "P16",
+      "P17"
+    ],
+    "view": "special-P16-P17.png",
+    "unchanged_labels": true,
+    "unchanged_boxes": true,
+    "iou": 0.3740458015,
+    "smaller_box_overlap_fraction": 0.5444444444,
+    "finding": "同一骑行区域明显重叠，很可能是同一对象的重复候选；保留两个旧真标签并单独报告，不能算两名独立人员。"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-11",
+  "strong_model_request": "gpt-5.6-sol",
+  "reference_model_request": "gpt-5.6-luna",
+  "model_identity_limit": "underlying gateway model identity is not independently observable",
+  "original_labels_unchanged": true,
+  "original_cases_unchanged": true,
+  "source_dataset_sha256": "8a2c3da367ccba42381e6f843e7b3970d38973b7eeb95948de6051c37b5a31ac",
+  "formal_calls": 40,
+  "formal_success": 40,
+  "formal_retries": 0,
+  "probe_calls": 2,
+  "probe_models_both_passed": true,
+  "all_three_view_bytes_and_prompt_match": true,
+  "no_candidate_passed": true,
+  "published": false,
+  "runtime_scripts": {
+    "luna_person_image_probe.py": "0077d6e2bc426c3eb7d0647737fb7e1b5740de5dff7da7506b06b1161aca8718",
+    "luna_person_ablation.py": "e2a603caae1c95c00a4a8999df7c9b7c953ef54f76293c0b14e35a8f3df02c3a",
+    "luna_person_model_compare.py": "cc38c22514c5a3edf12e85476c5ab1b4db8d79b0d056f00622c333bfeca6e585"
+  },
+  "frozen_inputs_sha256": "1f3ce91d64ca7e95b1faf94a3f3664b7de3d85142439bd1838276db2f53f02e2",
+  "attempt_ledger_sha256": "bdb60b8a94ff10f68906e0f141f78aed41ea02c9285d02d28a084f43d24448b2"
+}
