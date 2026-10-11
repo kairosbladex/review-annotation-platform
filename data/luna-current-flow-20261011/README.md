@@ -165,6 +165,26 @@ C++ 原稀疏工作树因两个未推送提交保留；本机保留约 8.6 MiB �
 本轮测试发生一项已确认副作用：首次加载依赖模块的日志轮转配置，在本地 `biz-inspection/logs` 自动删除 2026-09-10、09-11 的 debug/info/error 共 6 个旧日志文件，未恢复；没有删除共享日志或业务数据。
 已增加本模块测试专用控制台日志配置，后续测试不再触发文件日志清理。详细删除记录保留于 `test-log-cleanup-incident.json`。
 
+## 部署线索补查与跨语言验证（2026-10-11 22:17 更新）
+
+用户已说明不知道源码、登录或备份入口。本轮沿未核对的部署步骤、Gitea 工作流、容器 Git 配置和 Termius 可见历史继续追查，没有重复 MinIO 对象清单、历史帧目录、已排除部署归档或相同模型实验。
+
+- **推理 Java 的构建断点更明确**：实际 Dockerfile 和镜像历史仅将外部 `infer-v1.0.0.jar` 复制到镜像，没有 Maven 构建步骤或源码入口。宿主文件 mtime/ctime 为 2026-10-09 14:54:47 +08:00；该时段的有界 SSH 日志没有识别出上传者。它只能定位交接时间，不能据此猜提交。已知 `config_backup` 只有模型配置文件。
+- **C++ 登录有具体维护入口，但尚未取得凭据**：`.gitea/workflows/build.yml` 使用 runner 标签 `pusai-ubuntu-22.04`，认证引用 Gitea 服务端 secret `DOCKER_PUSH_TOKEN_AI_INFERENCE`。这里只发现变量引用，没有读取到令牌值，也没有证明它拥有仓库写权限。当前目标站点的 Docker credential helper、GPU 用户 Docker 登录、Firefox 保存登录/会话和运行容器 Git 配置均没有可用认证；未改账号或权限，也未把其他 registry 的凭据试送给 Gitea。C++ 两个本地提交继续保留，未重复无凭据 push。
+- **新增备份线索已定向核对**：Termius 历史出现 `/dockrbackup/docker_volumes_backup_2025-07-09.tar.gz`，该精确路径在前端、GIS、GPU 三台已保存连接的服务器上均不存在。部署文档的 `/opt/rule-node-backups` 是配置/镜像回滚步骤，该路径在 GPU 机也不存在。GPU 的 `/`、`/data` 为普通 ext4，未发现已挂载的 LVM/ZFS 快照。以上不能证明其他离线备份不存在；严格原帧仍为 **0/24**。Termius 仅核对了有界可见历史页和尾部，不冒称已完整导出历史。
+
+在不依赖这些材料的范围，已新增 **Java → 实际 HTTP API → 实际 HTTP worker → CLI 测试替身** 的可复现验证。加载上一轮真实 test 模块 JAR，调用 `ReviewAgentUtil.submitReview`，不启动 Spring、数据库或消息消费。合成红色截图与蓝色原图经过实际下载、multipart、候选校验和裁剪后，CLI 读取的 `source.jpg`、`located.jpg`、`crops.jpg` 与归档摘要逐一相同；PTS `9007199254740993` 完整保留。
+
+**5/5 场景通过**：合法原图；候选摘要不匹配；原图字节不匹配；上传 pending；CLI 退出失败。后三类失败的拦截层级、模型调用次数以及失败不生成真假结果均有断言；固定 uncertain 仍按既有 `candidate_drop` 口径返回。脚本位于 yoloe 仓库 `scripts/verify_luna_java_bridge.py`，命令和资源边界见该仓库 `docs/luna-input-evidence.md`。
+
+本轮代码版本为 `bugfix/luna-input-provenance` / `16ff52d00d2e1b60dc7e6fda8dd010b707b5522c`，已 push 并核对远端 SHA。Java 候选、dev-wxl、test 与模块摘要沿用上一节已交付版本；本轮没有新增 Java 应用改动。跨语言验证使用合成输入和 CLI 替身，真实模型调用为 0，业务写回为 0，不能作为业务效果或完整后端独立实例验收。
+
+**没有发布共享测试，也没有运行环境回滚动作。** 冻结 units、selection、逐框结果三个文件的 SHA-256 与前轮一致；10 月 11 日原基线仍为 382/528 = 72.35%，没有候选新成绩。规则/API/推理 Java 的启动时间与重启数未变；GIS Java PID 仍为 `1276893`，JAR 路径与进程 fd5 仍指向 inode `806109583`。后续发布仍必须先闭合原帧来源和完整独立验收，再满足原准确率与误拒/误放门槛，不能拿工程通过代替效果通过。
+
+现有可访问证据尚不能补齐三项材料。最有效的下一步是由**推理 Java 制品上传/构建维护者**提供 10 月 9 日上述 JAR 对应的构建任务或源码仓库入口；由 **Gitea Actions 维护者**恢复该仓库已有账号访问；由**历史存储维护者**提供冻结事件画框前原帧和原始 PTS/流会话索引的归档位置。只需入口或构建回执，不需要在聊天发送密码。缺项分别阻塞上游自动透传、C++ 推送、同冻结样本效果复验；目前没有新的可核验入口可支持继续盲扫。
+
+必要回执保存在 `private/deployment-followup/`，含跨语言结果、源文件摘要、新线索、冻结摘要及清理记录。全部临时 Java/CLI/HTTP 进程和 localhost 监听已退出；Termius GIS 会话已关闭。本轮没有新增容器、GPU 占用或工作树，复用 Python 主检出、Java 主检出及本审计工作树；C++ 原工作树因未推送提交继续保留。保留小体积最终回执，删除本轮可再生的临时截图、GUI 摘录和中间检查目录。
+
 ## 文件和复现
 
 - `selection.json`：取样条件、排除项、金标/输入清单哈希。
