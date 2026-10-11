@@ -1,0 +1,32 @@
+{
+  "status": "no_candidate_passed",
+  "published": false,
+  "cohort": "historical diagnostic cohort, not blind holdout",
+  "positive_boxes": 24,
+  "negative_boxes": 17,
+  "two_round_gate": {
+    "min_true_confirmed": 7,
+    "max_false_confirmed": 0
+  },
+  "selected_first_stage": "H",
+  "selected_rounds": [
+    "H1",
+    "H2"
+  ],
+  "selected_confirmed": [
+    7,
+    2
+  ],
+  "no_repeat_for_failed_first_round": [
+    "P1",
+    "Z4",
+    "C1"
+  ],
+  "excluded": [
+    "Z1: CLI not started",
+    "Z2: extra JPEG generation confound"
+  ],
+  "attempts": 100,
+  "successful_model_calls": 80,
+  "failed_before_cli_start": 20
+}
