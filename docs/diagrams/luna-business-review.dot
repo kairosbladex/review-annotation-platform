@@ -1,7 +1,7 @@
 digraph LunaReview {
   graph [rankdir=TB, bgcolor="white", pad=0.35, nodesep=0.45, ranksep=0.48, splines=polyline,
     fontname="PingFang SC", fontsize=24, labelloc=t,
-    label="业务事件复检流程\n当前测试链路 · 2026-10-12 核对"];
+    label="业务事件复检流程\n测试 API / worker 已更新 · 2026-10-12"];
   node [shape=box, style="rounded,filled", fillcolor="#eef5fd", color="#2a78d6",
     fontcolor="#0b0b0b", fontname="PingFang SC", fontsize=16, penwidth=1.2, margin="0.20,0.14"];
   edge [color="#898781", fontcolor="#52514e", fontname="PingFang SC", fontsize=13, arrowsize=0.7];
@@ -46,6 +46,6 @@ digraph LunaReview {
   result -> display;
 
   note [shape=plain, style="", fontsize=13, fontcolor="#52514e",
-    label="提示词配置：p000-pure-class-cards。流程图表示现有业务链路，不是新版本部署成功回执。\n候选新增：私有目录保存实际 CLI 图片、manifest 和 outcome；尚未部署／启用。\n未启用独立全流程接管；关联图片不等于可信同帧原图。真实事件结果保存需用户人工验收。"];
+    label="提示词保持 p000-pure-class-cards；最小业务复检代码 6755b1e 已部署并通过工程验证。\n已启用：0700 私有目录保存实际 CLI 图片、manifest 和 outcome；上限 512 MiB，满额返回失败。\n未启用独立全流程接管；关联图片不等于可信同帧原图。真实事件结果保存需用户人工验收。"];
   display -> note [style=invis];
 }

@@ -10,7 +10,7 @@
 <title>LunaReview</title>
 <polygon fill="white" stroke="none" points="-25.2,25.2 -25.2,-1850.84 1083.88,-1850.84 1083.88,25.2 -25.2,25.2"/>
 <text xml:space="preserve" text-anchor="middle" x="529.34" y="-1798.84" font-family="PingFang SC" font-size="24.00">业务事件复检流程</text>
-<text xml:space="preserve" text-anchor="middle" x="529.34" y="-1765.09" font-family="PingFang SC" font-size="24.00">当前测试链路 · 2026&#45;10&#45;12 核对</text>
+<text xml:space="preserve" text-anchor="middle" x="529.34" y="-1765.09" font-family="PingFang SC" font-size="24.00">测试 API / worker 已更新 · 2026&#45;10&#45;12</text>
 <!-- start -->
 <g id="node1" class="node">
 <title>start</title>
@@ -284,8 +284,8 @@
 <!-- note -->
 <g id="node19" class="node">
 <title>note</title>
-<text xml:space="preserve" text-anchor="middle" x="435.9" y="-43.9" font-family="PingFang SC" font-size="13.00" fill="#52514e">提示词配置：p000&#45;pure&#45;class&#45;cards。流程图表示现有业务链路，不是新版本部署成功回执。</text>
-<text xml:space="preserve" text-anchor="middle" x="435.9" y="-25.15" font-family="PingFang SC" font-size="13.00" fill="#52514e">候选新增：私有目录保存实际 CLI 图片、manifest 和 outcome；尚未部署／启用。</text>
+<text xml:space="preserve" text-anchor="middle" x="435.9" y="-43.9" font-family="PingFang SC" font-size="13.00" fill="#52514e">提示词保持 p000&#45;pure&#45;class&#45;cards；最小业务复检代码 6755b1e 已部署并通过工程验证。</text>
+<text xml:space="preserve" text-anchor="middle" x="435.9" y="-25.15" font-family="PingFang SC" font-size="13.00" fill="#52514e">已启用：0700 私有目录保存实际 CLI 图片、manifest 和 outcome；上限 512 MiB，满额返回失败。</text>
 <text xml:space="preserve" text-anchor="middle" x="435.9" y="-6.4" font-family="PingFang SC" font-size="13.00" fill="#52514e">未启用独立全流程接管；关联图片不等于可信同帧原图。真实事件结果保存需用户人工验收。</text>
 </g>
 <!-- display&#45;&gt;note -->
