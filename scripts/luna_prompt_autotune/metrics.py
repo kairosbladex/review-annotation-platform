@@ -14,7 +14,7 @@ import promptlib
 MIN_CLASS_N = 10
 DECISIONS = ('true', 'false', 'uncertain')
 CRITICAL_CLASSES = ('人员', '道路裂纹')
-GATE_VERSION = 2
+GATE_VERSION = 3
 
 
 def _sha(value) -> str:
@@ -116,6 +116,15 @@ def _comparison_errors(cand: dict, bases: list) -> list[str]:
     if len(bases) < 2: errors.append('需要两次独立基线运行，不能只用一次基线晋级')
     runs = [('候选', cand)] + [(f'基线{i + 1}', b) for i, b in enumerate(bases)]
     for name, run in runs:
+        evidence = run.get('input_evidence') or {}
+        reference = cand.get('input_evidence') or {}
+        if (type(evidence.get('version')) is not int or evidence['version'] != 1 or evidence.get('complete') is not True
+                or not isinstance(evidence.get('inputs_sha256'), str) or len(evidence['inputs_sha256']) != 64
+                or type(evidence.get('expected_units')) is not int or evidence['expected_units'] < 1
+                or type(evidence.get('verified_units')) is not int or evidence['verified_units'] != evidence['expected_units']):
+            errors.append(f'{name}缺少完整的实际模型输入证据，不能用清单哈希代替')
+        elif evidence['inputs_sha256'] != reference.get('inputs_sha256'):
+            errors.append(f'{name}实际图片、裁剪、请求模型或输入处理实现与候选不一致')
         if not run.get('evaluation_sha256'):
             errors.append(f'{name}缺少冻结输入清单身份，旧汇总仅供参考')
         elif run['evaluation_sha256'] != cand.get('evaluation_sha256'):

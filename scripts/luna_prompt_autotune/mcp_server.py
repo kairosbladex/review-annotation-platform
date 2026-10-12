@@ -81,6 +81,7 @@ def get_round_result(version: str) -> dict:
             'vs_baseline': m.get('vs_baseline'), 'parent': m.get('parent'), 'parent_dev_accuracy': m.get('parent_dev_accuracy'),
             'is_new_best': m.get('is_new_best'), 'failed_units': m.get('failed_units'), 'units': m.get('units'),
             'evaluation_status': m.get('evaluation_status'), 'promotion_errors': m.get('promotion_errors'),
+            'input_evidence': m.get('input_evidence'),
             'paired_baselines': m.get('paired_baselines')}
 
 

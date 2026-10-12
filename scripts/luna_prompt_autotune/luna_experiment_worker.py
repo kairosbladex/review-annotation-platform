@@ -1,4 +1,5 @@
-"""Luna 提示词实验 worker：与测试环境 run_codex_luna_worker.py（816cc81）相同，只是提示词随请求传入。
+"""Luna 提示词实验 worker：保持测试 worker（816cc81）的图像处理与判断方式，提示词随请求传入。
+新增实际 CLI 附件、裁剪来源及执行结果证据；不将关联干净图自动视为严格同帧。
 只监听 127.0.0.1，供提示词自动迭代 runner 使用，不接入测试环境。
 Private HTTP worker running at most 20 official Codex CLI image requests.
 Run under a resource-limited systemd scope. Never starts business tasks or GPU models.
@@ -18,11 +19,14 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from PIL import Image, ImageDraw
 
+import input_evidence
+
 LIMIT = 20
 SLOTS = threading.BoundedSemaphore(LIMIT)
 PROCESSES = set()
 LOCK = threading.Lock()
 MODEL = 'gpt-5.6-luna'
+LOADED_SHA256 = input_evidence.file_digest(Path(__file__))
 RESOURCE_LOW = threading.Event()
 STOP = threading.Event()
 SCHEMA = {'type': 'object', 'properties': {'results': {'type': 'array', 'items': {'type': 'object', 'properties': {
@@ -48,13 +52,15 @@ def execute(payload):
         raise ValueError('invalid candidates')
     for i, c in enumerate(candidates):
         b = c['bbox']
-        if c['target_index'] != i or not isinstance(c['class_name'], str) or not c['class_name'].strip() or len(b) != 4 or not (0 <= b[0] < b[2] <= 1 and 0 <= b[1] < b[3] <= 1):
+        if type(c['target_index']) is not int or c['target_index'] != i or not isinstance(c['class_name'], str) or not c['class_name'].strip() or len(b) != 4 or not (0 <= b[0] < b[2] <= 1 and 0 <= b[1] < b[3] <= 1):
             raise ValueError('invalid candidate')
     with tempfile.TemporaryDirectory(prefix='codex-luna-', dir=os.environ.get('CODEX_REVIEW_TMP_DIR')) as directory:
         root = Path(directory)
-        source = Image.open(io.BytesIO(base64.b64decode(payload['image'], validate=True)))
+        source_bytes = base64.b64decode(payload['image'], validate=True)
+        source = Image.open(io.BytesIO(source_bytes))
         if source.width * source.height > 40_000_000: raise ValueError('image too large')
         source = source.convert('RGB');source.save(root/'source.jpg', quality=95)
+        source_sha256 = input_evidence.digest(source_bytes)
         locator = source.copy();draw = ImageDraw.Draw(locator)
         for c in candidates:
             b = [c['bbox'][0]*source.width, c['bbox'][1]*source.height, c['bbox'][2]*source.width, c['bbox'][3]*source.height]
@@ -62,11 +68,14 @@ def execute(payload):
         locator.save(root/'located.jpg', quality=95)
         sheet = Image.new('RGB', (5*256, ((len(candidates)+4)//5)*280), 'white')
         sd = ImageDraw.Draw(sheet)
+        crops = []
         for i, c in enumerate(candidates):
-            b = c['bbox'];x1,y1,x2,y2 = b[0]*source.width,b[1]*source.height,b[2]*source.width,b[3]*source.height
-            mx,my = max(20,(x2-x1)*0.25),max(20,(y2-y1)*0.25)
-            crop = source.crop((max(0,x1-mx),max(0,y1-my),min(source.width,x2+mx),min(source.height,y2+my)))
+            box = input_evidence.context_box(c['bbox'], source.width, source.height)
+            crop = source.crop(box)
             crop.thumbnail((256,256));sheet.paste(crop,((i%5)*256,(i//5)*280+24));sd.text(((i%5)*256,(i//5)*280),str(i),fill='black')
+            crops.append({'target_index': c['target_index'], 'bbox': c['bbox'], 'source_sha256': source_sha256,
+                          'pixel_box': [round(v) for v in box], 'thumbnail_size': list(crop.size),
+                          'paste_xy': [(i % 5) * 256, (i // 5) * 280 + 24]})
         sheet.save(root/'crops.jpg', quality=95)
         schema = root/'schema.json';schema.write_text(json.dumps(SCHEMA))
         binary = os.environ['CODEX_REVIEW_BINARY'];home = Path(os.environ.get('CODEX_REVIEW_HOME', '/home/user/.codex'))
@@ -78,15 +87,25 @@ def execute(payload):
                '-c', 'model_providers.review.wire_api="responses"', '-c', 'model_providers.review.env_key="CODEX_REVIEW_UPSTREAM_KEY"',
                '-c', 'model_providers.review.requires_openai_auth=false', '-c', 'model_providers.review.request_max_retries=0', '-c', 'model_providers.review.stream_max_retries=0',
                '-c', 'model_reasoning_effort="none"', '-c', 'web_search="disabled"', '--disable', 'shell_tool', '--disable', 'multi_agent', '--disable', 'fast_mode',
-               '--output-schema', str(schema), '-i', str(root/'source.jpg'), '-i', str(root/'located.jpg'), '-i', str(root/'crops.jpg')]
+               '--output-schema', str(schema)]
+        attachments = [('source', root/'source.jpg'), ('locator', root/'located.jpg'), ('crops', root/'crops.jpg')]
+        clean_bytes, clean_size = None, None
         if payload.get('clean_image'):
-            clean = Image.open(io.BytesIO(base64.b64decode(payload['clean_image'], validate=True)))
+            clean_bytes = base64.b64decode(payload['clean_image'], validate=True)
+            clean = Image.open(io.BytesIO(clean_bytes))
             if clean.width*clean.height > 40_000_000: raise ValueError('clean image too large')
-            clean.convert('RGB').save(root/'clean.jpg', quality=95);cmd += ['-i', str(root/'clean.jpg')]
+            clean_size = clean.size
+            clean.convert('RGB').save(root/'clean.jpg', quality=95);attachments.append(('clean_auxiliary', root/'clean.jpg'))
+        for _, path in attachments: cmd += ['-i', str(path)]
         cmd += ['-']
         prompt = payload['prompt']  # 实验用：提示词由 runner 按版本组装后随请求传入
         if not isinstance(prompt, str) or not 0 < len(prompt) <= 20000: raise ValueError('invalid prompt')
-        proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=env, start_new_session=True)
+        execution_id = uuid.uuid4().hex
+        evidence = input_evidence.capture_inputs(source_bytes=source_bytes, source_size=source.size,
+            attachments=attachments, candidates=candidates, prompt=prompt, crops=crops, schema_path=schema,
+            worker_path=Path(__file__), loaded_worker_sha256=LOADED_SHA256, execution_id=execution_id,
+            model=MODEL, clean_bytes=clean_bytes, clean_size=clean_size)
+        proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding='utf-8', env=env, start_new_session=True)
         with LOCK: PROCESSES.add(proc)
         try:
             try: stdout, _ = proc.communicate(prompt, timeout=215)
@@ -103,7 +122,12 @@ def execute(payload):
             result = json.loads(messages[-1]);items = result['results']
             if len(items) != len(candidates) or any(type(x.get('target_index')) is not int for x in items) or {x['target_index'] for x in items} != set(range(len(candidates))): raise RuntimeError('target mapping mismatch')
             if any(x.get('decision') not in {'true', 'false', 'uncertain'} or not x.get('reasoning') for x in items): raise RuntimeError('invalid decision')
-            return dict(result, execution_id=uuid.uuid4().hex, requested_model=MODEL)
+            if any(input_evidence.file_digest(path) != image['sha256'] for (_, path), image in zip(attachments, evidence['attachments'])):
+                raise RuntimeError('input attachment changed during execution')
+            evidence = input_evidence.bind_result(evidence, items)
+            input_evidence.validate(evidence, request=input_evidence.request_identity(source_sha256, candidates, prompt),
+                candidates=candidates, execution_id=execution_id, model=MODEL, decisions=items, allow_unverified_clean=True)
+            return dict(result, execution_id=execution_id, requested_model=MODEL, input_evidence=evidence)
         finally:
             with LOCK: PROCESSES.discard(proc)
 
@@ -112,7 +136,12 @@ class Handler(BaseHTTPRequestHandler):
     def reply(self, status, body):
         data = json.dumps(body, ensure_ascii=False).encode();self.send_response(status);self.send_header('Content-Type', 'application/json');self.send_header('Content-Length', str(len(data)));self.end_headers();self.wfile.write(data)
     def do_GET(self):
-        if self.path == '/health': self.reply(200, {'model': MODEL, 'max_concurrency': LIMIT, 'policy': 'only_true_is_true_v1'})
+        if self.path == '/health':
+            try: input_evidence.implementation_identity(Path(__file__), LOADED_SHA256)
+            except input_evidence.EvidenceError:
+                self.reply(503, {'error': 'worker implementation changed; restart required'});return
+            self.reply(200, {'model': MODEL, 'max_concurrency': LIMIT, 'policy': 'only_true_is_true_v1',
+                             'input_evidence_version': input_evidence.VERSION})
         else: self.reply(404, {'error': 'not found'})
     def do_POST(self):
         expected = 'Bearer ' + os.environ['CODEX_REVIEW_WORKER_TOKEN']

@@ -8,6 +8,8 @@ from unittest import mock
 
 import metrics
 import promptlib
+import input_evidence
+from test_input_evidence import SOURCE, WorkerHarness
 
 HERE = Path(__file__).resolve().parent
 OLD = ('逐一核查候选框内目标是否符合初审类别，不把框线、文字当作目标证据。编号图只用于定位；若有第四张原图，只有能唯一对应同一目标时辅助判断。'
@@ -76,17 +78,20 @@ class Tests(unittest.TestCase):
 def fixture():
     labels = {f'{cls}-{i}': {'label': 'true' if i < 5 else 'false', 'class_name': cls, 'split': 'dev'}
               for cls in ('人员', '道路裂纹') for i in range(10)}
-    items = [{'unit': key, 'split': 'dev', 'sha256': 'image-hash',
+    items = [{'unit': key, 'split': 'dev', 'sha256': input_evidence.digest(SOURCE),
               'candidates': [{'key': key, 'class_name': lab['class_name'], 'bbox': [0, 0, 1, 1]}]}
              for key, lab in labels.items()]
-    items.append({'unit': 'u', 'split': 'unlabeled', 'candidates': [{'key': 'u', 'class_name': '车'}]})
+    items.append({'unit': 'u', 'split': 'unlabeled', 'candidates': [{'key': 'u', 'class_name': '车', 'bbox': [0, 0, 1, 1]}]})
     candidate = {k: v['label'] for k, v in labels.items()} | {'u': 'false'}
     baseline = dict(candidate, **{'人员-0': 'uncertain', '道路裂纹-0': 'uncertain', 'u': 'uncertain'})
     return labels, items, baseline, candidate
 
 
 def measurement(results, labels, items):
+    units = sum(it['split'] in ('dev', 'unlabeled') for it in items)
     return {'evaluation_sha256': metrics.evaluation_identity(items, labels),
+            'input_evidence': {'version': 1, 'complete': True, 'inputs_sha256': 'e' * 64,
+                               'expected_units': units, 'verified_units': units, 'invalid_units': {}},
             'dev': metrics.score(results, labels, 'dev'), 'unlabeled': metrics.unlabeled(results, items)}
 
 
@@ -167,6 +172,22 @@ class MetricTests(unittest.TestCase):
         old.pop('evaluation_sha256')
         old['dev'].pop('coverage'); old['unlabeled'].pop('coverage')
         self.assertFalse(self.gates(bases=[old, old])['passed'])
+
+    def test_actual_input_evidence_is_required_for_all_runs(self):
+        for missing in ('candidate', 'baseline'):
+            cand = measurement(self.cand_res, self.labels, self.items)
+            base = copy.deepcopy(self.base)
+            (cand if missing == 'candidate' else base).pop('input_evidence')
+            gates = metrics.gates(cand, [self.base, base])
+            self.assertFalse(gates['passed'])
+            self.assertTrue(any('实际模型输入证据' in e for e in gates['comparison_errors']))
+
+    def test_same_manifest_with_different_actual_input_cannot_pass(self):
+        base = copy.deepcopy(self.base)
+        base['input_evidence']['inputs_sha256'] = 'f' * 64
+        gates = self.gates(bases=[self.base, base])
+        self.assertFalse(gates['passed'])
+        self.assertTrue(any('实际图片' in e for e in gates['comparison_errors']))
 
     def test_more_true_rejections_cannot_be_offset_by_fewer_false_releases(self):
         for cls in metrics.CRITICAL_CLASSES:
@@ -250,6 +271,8 @@ class RunnerTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
+        self.worker_harness = WorkerHarness(); self.addCleanup(self.worker_harness.close)
+        self.doc = {'common': '离线测试', 'cards': {}}
         for name in ('STATE', 'ASSETS', 'RUNS', 'HUMAN'):
             path = self.root / name.lower(); path.mkdir()
             patch = mock.patch.object(runner, name, path); patch.start(); self.addCleanup(patch.stop)
@@ -259,16 +282,19 @@ class RunnerTests(unittest.TestCase):
         self.labels, self.items, self.base_res, self.cand_res = fixture()
         self.labels['holdout-secret'] = {'label': 'true', 'class_name': '人员', 'split': 'holdout'}
         self.items.append({'unit': 'holdout-secret', 'split': 'holdout',
-                           'candidates': [{'key': 'holdout-secret', 'class_name': '人员'}]})
+                           'candidates': [{'key': 'holdout-secret', 'class_name': '人员', 'bbox': [0, 0, 1, 1]}]})
         self.cand_res['holdout-secret'] = 'true'
         self.base_res['holdout-secret'] = 'true'
         runner.wj(runner.ASSETS / 'items.json', self.items)
         runner.wj(runner.ASSETS / 'labels.json', self.labels)
+        units = [u for u in self.items if u['split'] in ('dev', 'unlabeled')]
         for version in ('p000', 'p000b'):
             base = measurement(self.base_res, self.labels, self.items) | {'version': version}
-            runner.wj(runner.STATE / 'metrics' / f'{version}.json', base)
             self.write_outputs(version, self.items, self.base_res)
-        runner.wj(runner.STATE / 'prompts/p001.json', {'parent': 'p000'})
+            outputs = [runner.rj(runner.RUNS / version / 'out' / (u['unit'] + '.json')) for u in units]
+            base['input_evidence'] = runner.summarize_inputs(outputs, units, self.doc)
+            runner.wj(runner.STATE / 'metrics' / f'{version}.json', base)
+        runner.wj(runner.STATE / 'prompts/p001.json', dict(self.doc, parent='p000'))
         runner.wj(runner.STATE / 'rounds/p001.json', {'status': 'queued'})
         self.omit = set()
         patch = mock.patch.object(runner, 'run_units', side_effect=self.fake_run)
@@ -276,9 +302,8 @@ class RunnerTests(unittest.TestCase):
 
     def write_outputs(self, version, units, results):
         for unit in units:
-            rows = [{'key': c['key'], 'raw': results[c['key']]} for c in unit['candidates'] if c['key'] in results]
             self.runner.wj(self.runner.RUNS / version / 'out' / (unit['unit'] + '.json'),
-                           {'success': True, 'results': rows, 'elapsed': 1})
+                           self.worker_harness.record(unit, results, self.doc))
 
     def fake_run(self, version, doc, units):
         self.write_outputs(version, [u for u in units if u['unit'] not in self.omit], self.cand_res)
@@ -363,6 +388,16 @@ class RunnerTests(unittest.TestCase):
         self.assertFalse(result['is_new_best'])
         self.assertEqual(self.runner.rj(self.runner.STATE / 'best.json'), previous)
         self.assertEqual(self.run_units.call_count, 1)
+
+    def test_best_from_different_actual_inputs_cannot_be_overwritten(self):
+        self.execute()
+        previous = self.runner.rj(self.runner.STATE / 'best.json')
+        previous.update(inputs_sha256='f' * 64, dev_accuracy=.1)
+        self.runner.wj(self.runner.STATE / 'best.json', previous)
+        result = self.execute()
+        self.assertFalse(result['is_new_best'])
+        self.assertTrue(result['promotion_errors'])
+        self.assertEqual(self.runner.rj(self.runner.STATE / 'best.json'), previous)
 
     def test_legacy_best_is_not_silently_overwritten(self):
         old = {'version': 'p002', 'dev_accuracy': .1}

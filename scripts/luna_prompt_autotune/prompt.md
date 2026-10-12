@@ -22,7 +22,7 @@ baseline_repeat_noise 是同一提示词跑两次的结论翻转比例；差异�
    c. write_report：结论（通过/未通过，未通过列出不通过的标准）→ 与基线和 parent 的数字对比（只抄工具返回的，含各类准确率、真目标被驳回、非目标被放过、uncertain 比例，无标签池各类 uncertain 比例）→ 看图观察 → 下一步假设。
    d. update_ledger。
 3. queued_or_running 为空、submitted_today 小于 daily_limit、converged 为 false 时：
-   a. 先读取最近已完成轮次的 get_round_result。evaluation_status 不是 complete（含旧报告缺该字段）、vs_baseline.comparison_errors 或 promotion_errors 非空，或 vs_baseline.critical_classes 有 insufficient_evidence 时，写明“待补齐评测证据”，本次结束，不用改提示词重试，也不把数据阻塞标成模型收敛。paired_baselines 仅为共同有效框诊断，不能代替完整覆盖门禁。
+   a. 先读取最近已完成轮次的 get_round_result。evaluation_status 不是 complete（含旧报告缺该字段）、input_evidence.complete 不是 true、vs_baseline.comparison_errors 或 promotion_errors 非空，或 vs_baseline.critical_classes 有 insufficient_evidence 时，写明“待补齐评测证据”，本次结束，不用改提示词重试，也不把数据阻塞标成模型收敛。paired_baselines 仅为共同有效框诊断，不能代替完整覆盖门禁。
    b. 以 best 版本为 parent（best 还是 p000 时用 p001），get_prompt 读出全文。
    c. 针对上一轮错得最多的 1～2 个类别改写它们的定义卡，其余不动；用 submit_prompt 提交，hypothesis 写明改了哪个类别的什么内容、预期哪个数字怎么变。
    d. 提交被拒绝时按 reason 调整，不要重复同样的提交。
