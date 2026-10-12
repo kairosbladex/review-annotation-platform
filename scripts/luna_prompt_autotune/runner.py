@@ -126,46 +126,88 @@ def run_units(version, doc, units):
     if stop_flag['stop']: raise RuntimeError('资源或共享服务健康检查未通过，本轮中断（已完成的图片保留，下次续跑）')
 
 
-def collect(version):
+def collect(version, units=None):
     res, detail = {}, {}
-    for f in (RUNS / version / 'out').glob('*.json'):
-        r = json.loads(f.read_text(encoding='utf-8'))
-        for x in r['results']: res[x['key']] = x['raw']; detail[x['key']] = x
+    out = RUNS / version / 'out'
+    files = [(out / (u['unit'] + '.json'), {c['key'] for c in u['candidates']}) for u in units] if units is not None else [(f, None) for f in out.glob('*.json')]
+    for f, expected in files:
+        r = rj(f)
+        if not r or not r.get('success'): continue
+        rows = r.get('results', [])
+        keys = [x['key'] for x in rows]
+        if len(keys) != len(set(keys)) or (expected is not None and set(keys) - expected): continue
+        for x in rows: res[x['key']] = x.get('raw'); detail[x['key']] = x
     return res, detail
 
 
 def execute(version):
     rd = rj(STATE / 'rounds' / f'{version}.json'); doc = rj(STATE / 'prompts' / f'{version}.json')
     items, labels = rj(ASSETS / 'items.json'), rj(ASSETS / 'labels.json')
-    rd.update(status='running', started_at=rd.get('started_at') or now().isoformat(timespec='seconds')); wj(STATE / 'rounds' / f'{version}.json', rd)
+    identity = metrics.evaluation_identity(items, labels)
+    holdout_identity = metrics.evaluation_identity(items, labels, splits=('holdout',))
+    previous_identity = rd.get('evaluation_sha256')
+    if previous_identity and previous_identity != identity:
+        raise ValueError('输入或标签清单已变化，禁止混用已有输出续跑；请另建冻结评测轮次')
+    if rd.get('holdout_sha256') and rd['holdout_sha256'] != holdout_identity:
+        raise ValueError('锁定集清单已变化，禁止混用已有输出续跑')
+    if (not previous_identity or not rd.get('holdout_sha256')) and any((RUNS / version / 'out').glob('*.json')):
+        raise ValueError('已有输出缺少冻结清单身份，仅可离线诊断，禁止自动绑定当前清单续跑')
+    rd.update(status='running', evaluation_sha256=identity, holdout_sha256=holdout_identity,
+              started_at=rd.get('started_at') or now().isoformat(timespec='seconds'))
+    wj(STATE / 'rounds' / f'{version}.json', rd)
     ensure_worker()
     log(f'{version} 开始：dev + 无标签池')
-    run_units(version, doc, [u for u in items if u['split'] in ('dev', 'unlabeled')])
-    res, detail = collect(version)
-    files = list((RUNS / version / 'out').glob('*.json'))
-    failed_units = sum(not json.loads(f.read_text())['success'] for f in files)
-    m = {'version': version, 'dev': metrics.score(res, labels, 'dev'), 'unlabeled': metrics.unlabeled(res, items),
-         'failed_units': failed_units, 'units': len(files),
-         'elapsed_median': sorted(json.loads(f.read_text())['elapsed'] for f in files)[len(files) // 2]}
-    base = rj(STATE / 'metrics/p000.json')
-    bases = [x for x in (base, rj(STATE / 'metrics/p000b.json')) if x]
-    if version not in ('p000', 'p000b') and bases:
+    units = [u for u in items if u['split'] in ('dev', 'unlabeled')]
+    run_units(version, doc, units)
+    res, detail = collect(version, units)
+    outputs = [rj(RUNS / version / 'out' / (u['unit'] + '.json')) for u in units]
+    failed_units = sum(not r or not r.get('success') for r in outputs)
+    elapsed = sorted(r['elapsed'] for r in outputs if r is not None)
+    m = {'version': version, 'gate_version': metrics.GATE_VERSION, 'evaluation_sha256': identity,
+         'dev': metrics.score(res, labels, 'dev'), 'unlabeled': metrics.unlabeled(res, items),
+         'failed_units': failed_units, 'units': len(units), 'completed_units': sum(r is not None for r in outputs),
+         'elapsed_median': elapsed[len(elapsed) // 2] if elapsed else None}
+    complete = not failed_units and bool(m['dev']['overall']['expected_n']) and all(m[s]['coverage']['complete'] for s in ('dev', 'unlabeled'))
+    m['evaluation_status'] = 'complete' if complete else 'incomplete'
+    bases = [x for x in (rj(STATE / 'metrics/p000.json'), rj(STATE / 'metrics/p000b.json')) if x]
+    if version not in ('p000', 'p000b'):
         m['vs_baseline'] = metrics.gates(m, bases)
+        if complete and m['vs_baseline']['comparison_errors']: m['evaluation_status'] = 'not_comparable'
+        m['paired_baselines'] = {b['version']: metrics.paired_comparison(res, collect(b['version'], units)[0], labels, 'dev') for b in bases}
         parent = rj(STATE / 'metrics' / f"{doc.get('parent')}.json")
         if parent: m['parent'] = doc['parent']; m['parent_dev_accuracy'] = parent['dev']['overall']['accuracy']
     if version == 'p000b':
-        m['noise'] = metrics.flips(collect('p000')[0], res)
-    best = rj(STATE / 'best.json', {'version': 'p000', 'dev_accuracy': max(x['dev']['overall']['accuracy'] for x in bases) if bases else 0})
-    m['is_new_best'] = version not in ('p000', 'p000b') and bool(m.get('vs_baseline', {}).get('passed')) and m['dev']['overall']['accuracy'] > best['dev_accuracy'] and failed_units <= 0.05 * len(files)
+        m['noise'] = metrics.flips(collect('p000', units)[0], res)
+    best = rj(STATE / 'best.json')
+    m['promotion_errors'] = []
+    if best and (best.get('evaluation_sha256') != identity or best.get('gate_version') != metrics.GATE_VERSION):
+        m['promotion_errors'].append('已有最佳版本缺少当前清单/门禁身份，不自动覆盖；需在独立冻结评测中重新建立基线')
+    threshold = best['dev_accuracy'] if best else max((b['dev']['overall']['accuracy'] or 0 for b in bases), default=0)
+    eligible = (version not in ('p000', 'p000b') and complete and bool(m.get('vs_baseline', {}).get('passed'))
+                and not m['promotion_errors'] and m['dev']['overall']['accuracy'] > threshold)
+    m['is_new_best'] = False
     wj(STATE / 'metrics' / f'{version}.json', m)
     samples.build(version, items, labels, detail, STATE / 'samples' / version)
-    if version == 'p000' or m['is_new_best']:
+    if (version == 'p000' and complete) or eligible:
         log(f'{version} 跑锁定 holdout')
-        run_units(version, doc, [u for u in items if u['split'] == 'holdout'])
-        hres, _ = collect(version)
-        wj(HUMAN / f'holdout-{version}.json', {'version': version, 'holdout': metrics.score(hres, labels, 'holdout')})
-        if m['is_new_best']: wj(STATE / 'best.json', {'version': version, 'dev_accuracy': m['dev']['overall']['accuracy'], 'at': now().isoformat(timespec='seconds')})
-    rd.update(status='done', finished_at=now().isoformat(timespec='seconds')); wj(STATE / 'rounds' / f'{version}.json', rd)
+        holdout_units = [u for u in items if u['split'] == 'holdout']
+        run_units(version, doc, holdout_units)
+        hres, _ = collect(version, holdout_units)
+        holdout = metrics.score(hres, labels, 'holdout')
+        wj(HUMAN / f'holdout-{version}.json', {'version': version, 'evaluation_sha256': identity,
+                                            'holdout_sha256': holdout_identity, 'holdout': holdout})
+        if eligible:
+            if holdout['overall']['expected_n'] and holdout['coverage']['complete']:
+                m['is_new_best'] = True
+                wj(STATE / 'best.json', {'version': version, 'dev_accuracy': m['dev']['overall']['accuracy'],
+                                       'evaluation_sha256': identity, 'gate_version': metrics.GATE_VERSION,
+                                       'at': now().isoformat(timespec='seconds')})
+            else:
+                m['evaluation_status'] = 'incomplete'
+                m['promotion_errors'].append('锁定集执行不完整，未更新最佳版本；具体结果仅保留在 human/')
+        wj(STATE / 'metrics' / f'{version}.json', m)
+    rd.update(status='done', evaluation_status=m['evaluation_status'], finished_at=now().isoformat(timespec='seconds'))
+    wj(STATE / 'rounds' / f'{version}.json', rd)
     log(f"{version} 完成：dev 准确率 {m['dev']['overall']['accuracy']}，无标签 uncertain {m['unlabeled']['overall']['uncertain_rate']}，新最好 {m['is_new_best']}")
 
 

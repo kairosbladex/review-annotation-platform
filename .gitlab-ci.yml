@@ -38,6 +38,14 @@ backend-test:
     - PYTHONPATH=backend python3 -m compileall -q backend scripts migrations
     - PYTHONPATH=backend python3 -m pytest backend/tests -q
 
+luna-autotune-test:
+  stage: validate
+  image: python:3.12-slim
+  before_script:
+    - python3 -m pip install --quiet 'Pillow>=10,<12' 'mcp>=1,<2'
+  script:
+    - PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/luna_prompt_autotune -p 'test_*.py' -v
+
 compose-config:
   stage: validate
   image: python:3.12-slim

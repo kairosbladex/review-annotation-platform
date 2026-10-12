@@ -12,7 +12,7 @@
 【合格标准】
 由 get_round_result 返回的 vs_baseline 判定，passed 为 true 才算优于基线。不要自己计算，也不要改变标准。
 baseline_repeat_noise 是同一提示词跑两次的结论翻转比例；差异小于它的变化可能只是随机波动，写报告时要注明。
-道路裂纹没有人工标签，只能看无标签池的 true/false/uncertain 分布。uncertain 减少如果只是变成了大量 false（或大量 true），不算改善；报告里要写出 true、false、uncertain 各自的数量，并用 uncertain 拼图之外的观察谨慎描述，不要声称道路裂纹准确率提高。
+当前冻结开发集没有道路裂纹金标；另有 197 框单人标注供独立诊断，但未自动并入开发集，不能声称它是独立盲测集。以 get_round_result 返回的关键类别证据状态为准；缺正负例或样本不足时不得声称道路裂纹准确率已提高。uncertain 减少如果只是变成大量 false（或大量 true），不算改善；报告要同时列出真目标误拒、假目标误放和 true/false/uncertain 分布。
 
 【每次唤醒的步骤】
 1. 调用 get_state。stop_requested 为 true：写一句“收到停止指令：<stop_reason>”并结束。
@@ -22,9 +22,10 @@ baseline_repeat_noise 是同一提示词跑两次的结论翻转比例；差异�
    c. write_report：结论（通过/未通过，未通过列出不通过的标准）→ 与基线和 parent 的数字对比（只抄工具返回的，含各类准确率、真目标被驳回、非目标被放过、uncertain 比例，无标签池各类 uncertain 比例）→ 看图观察 → 下一步假设。
    d. update_ledger。
 3. queued_or_running 为空、submitted_today 小于 daily_limit、converged 为 false 时：
-   a. 以 best 版本为 parent（best 还是 p000 时用 p001），get_prompt 读出全文。
-   b. 针对上一轮错得最多的 1～2 个类别改写它们的定义卡，其余不动；用 submit_prompt 提交，hypothesis 写明改了哪个类别的什么内容、预期哪个数字怎么变。
-   c. 提交被拒绝时按 reason 调整，不要重复同样的提交。
+   a. 先读取最近已完成轮次的 get_round_result。evaluation_status 不是 complete（含旧报告缺该字段）、vs_baseline.comparison_errors 或 promotion_errors 非空，或 vs_baseline.critical_classes 有 insufficient_evidence 时，写明“待补齐评测证据”，本次结束，不用改提示词重试，也不把数据阻塞标成模型收敛。paired_baselines 仅为共同有效框诊断，不能代替完整覆盖门禁。
+   b. 以 best 版本为 parent（best 还是 p000 时用 p001），get_prompt 读出全文。
+   c. 针对上一轮错得最多的 1～2 个类别改写它们的定义卡，其余不动；用 submit_prompt 提交，hypothesis 写明改了哪个类别的什么内容、预期哪个数字怎么变。
+   d. 提交被拒绝时按 reason 调整，不要重复同样的提交。
 4. 其他情况：写一句当前状态并结束。
 
 【怎么改定义卡】

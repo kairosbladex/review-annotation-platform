@@ -79,7 +79,9 @@ def get_round_result(version: str) -> dict:
             'baseline_p000': {'dev_overall': base['dev']['overall'], 'dev_by_class': base['dev']['by_class'],
                               'unlabeled_by_class': base['unlabeled']['by_class'], 'unlabeled_overall': base['unlabeled']['overall']} if base else None,
             'vs_baseline': m.get('vs_baseline'), 'parent': m.get('parent'), 'parent_dev_accuracy': m.get('parent_dev_accuracy'),
-            'is_new_best': m.get('is_new_best'), 'failed_units': m.get('failed_units'), 'units': m.get('units')}
+            'is_new_best': m.get('is_new_best'), 'failed_units': m.get('failed_units'), 'units': m.get('units'),
+            'evaluation_status': m.get('evaluation_status'), 'promotion_errors': m.get('promotion_errors'),
+            'paired_baselines': m.get('paired_baselines')}
 
 
 @mcp.tool()
