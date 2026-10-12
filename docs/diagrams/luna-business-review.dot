@@ -1,0 +1,51 @@
+digraph LunaReview {
+  graph [rankdir=TB, bgcolor="white", pad=0.35, nodesep=0.45, ranksep=0.48, splines=polyline,
+    fontname="PingFang SC", fontsize=24, labelloc=t,
+    label="业务事件复检流程\n当前测试链路 · 2026-10-12 核对"];
+  node [shape=box, style="rounded,filled", fillcolor="#eef5fd", color="#2a78d6",
+    fontcolor="#0b0b0b", fontname="PingFang SC", fontsize=16, penwidth=1.2, margin="0.20,0.14"];
+  edge [color="#898781", fontcolor="#52514e", fontname="PingFang SC", fontsize=13, arrowsize=0.7];
+
+  start [label="用户在测试平台事件详情发起复检"];
+  business [label="业务后端提交请求图片、初审类别和目标框\n初审及已有业务规则保持不变"];
+  api [label="复检 API 接收并校验请求\nHTTPS :8189 /api/v1/review-agent/review"];
+  valid [shape=diamond, style=filled, label="参数校验通过？", margin=0.08];
+  worker [label="转交 Luna worker（:18396）\n鉴权、并发控制与资源保护\n此复检分支不再运行 YOLO / Qwen"];
+  views [label="从请求图片生成模型输入\n① 图片视图　② 编号定位图　③ 目标裁剪拼图\n可选关联图片作为第④张辅助图；不据此认定同帧"];
+  cards [shape=diamond, style=filled, label="整图候选的类别组成？", margin=0.08];
+  building [label="全部为违建\n旧通用提示词＋违建定义卡"];
+  crack [label="全部为道路裂纹\n旧通用提示词＋道路裂纹定义卡"];
+  other [label="混合类别或其他类别\n仅旧通用提示词，不加类别卡"];
+  luna [label="固定 Codex CLI 调用 Luna\n请求模型：gpt-5.6-luna\n一次处理本图所有候选；按原目标编号返回 JSON"];
+  success [shape=diamond, style=filled, label="执行成功，且输出\n格式与目标编号合法？", margin=0.10];
+  decision [shape=diamond, style=filled, label="每个目标的原始判断？", margin=0.08];
+  keep [label="true（判真）\nconfirmed：保留目标"];
+  reject [label="false（判假）或 uncertain（无法确定）\nrejected：按现行业务口径剔除\n仍保留原始判断，不把 uncertain 改写为 false"];
+  result [label="API 返回逐目标结果与真假汇总\n保留解释、观察对象、图像限制与执行编号"];
+  display [label="业务后端处理结果，事件页面展示\n用户人工核对目标、计数、原因及状态"];
+  failure [label="返回校验／执行失败\n超时、限流、资源不足、缺目标、非法输出等\n不能当成模型判假，也不能计入假目标", fillcolor="#f5f5f4", color="#898781"];
+
+  start -> business -> api -> valid;
+  valid -> worker [label="是"];
+  valid -> failure [label="否"];
+  worker -> views [label="请求获准"];
+  worker -> failure [label="鉴权／资源等失败"];
+  views -> cards;
+  cards -> building [label="纯违建"];
+  cards -> crack [label="纯道路裂纹"];
+  cards -> other [label="其余"];
+  { rank=same; building; crack; other; }
+  building -> luna; crack -> luna; other -> luna;
+  luna -> success;
+  success -> decision [label="是"];
+  success -> failure [label="否"];
+  decision -> keep [label="true"];
+  decision -> reject [label="false / uncertain"];
+  { rank=same; keep; reject; }
+  keep -> result; reject -> result;
+  result -> display;
+
+  note [shape=plain, style="", fontsize=13, fontcolor="#52514e",
+    label="提示词配置：p000-pure-class-cards。流程图表示现有业务链路，不是新版本部署成功回执。\n候选新增：私有目录保存实际 CLI 图片、manifest 和 outcome；尚未部署／启用。\n未启用独立全流程接管；关联图片不等于可信同帧原图。真实事件结果保存需用户人工验收。"];
+  display -> note [style=invis];
+}
