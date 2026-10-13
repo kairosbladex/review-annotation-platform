@@ -2,9 +2,9 @@
   "schema_version": 2,
   "project": "review-annotation-platform",
   "source_branch": "feature/luna-person-view-candidate",
-  "source_head": "5b3248bbd41bdc183739a010a419603457640190",
-  "source_commit_time": "2026-10-13T12:05:45+08:00",
-  "generated_at": "2026-10-13T12:51:27.505471+08:00",
+  "source_head": "1758247724827414c618aac8bb8c4331fd9ac41c",
+  "source_commit_time": "2026-10-13T13:39:17+08:00",
+  "generated_at": "2026-10-13T14:48:16.376025+08:00",
   "snapshot_kind": "committed-source-with-redactions",
   "uncommitted_changes_included": false,
   "source_was_dirty_at_export": false,
@@ -8643,9 +8643,9 @@
   "credential_scan": {
     "tool": "gitleaks",
     "version": "8.30.1",
+    "remaining_findings": 0,
     "additional_named_credential_rules": true,
-    "scope": "Seven changed committed Python files and this manifest; unchanged files reuse the previous sanitized snapshot.",
-    "remaining_findings": 0
+    "scope": "Three immutable committed source files and manifest; named-literal scan reused from the same source commit before interruption."
   },
   "limitations": [
     "仅用于源码阅读与规划，凭据、现场数据和媒体已排除，不能作为部署包",
@@ -8653,13 +8653,9 @@
     "文档中的历史验收结论不代表当前在线业务验收"
   ],
   "incremental_export": {
-    "parent_snapshot": "af39c78d575609b5552c44c9571db59c73b19759",
-    "previous_source_head": "231d1d5d507f41087635c304c0a63f01256329d1",
+    "parent_snapshot": "b0f920cf572027fcd24978138c6ee8cc8813c9a6",
+    "previous_source_head": "5b3248bbd41bdc183739a010a419603457640190",
     "changed_files": [
-      "scripts/luna_prompt_autotune/luna_experiment_worker.py",
-      "scripts/luna_prompt_autotune/person_candidate.py",
-      "scripts/luna_prompt_autotune/person_experiment.py",
-      "scripts/luna_prompt_autotune/person_view.py",
       "scripts/luna_prompt_autotune/run_person_view_eval.py",
       "scripts/luna_prompt_autotune/test_person_view.py",
       "scripts/luna_prompt_autotune/view_protocol.py"
@@ -8669,10 +8665,15 @@
   "candidate_acceptance": {
     "status": "not_passed",
     "accuracy_improvement_verified": false,
-    "findings": [
-      "Incomplete input evidence can still pass the scoring gate.",
-      "The evaluation runner maps results by list order rather than target_index."
+    "fixed_findings": [
+      "Missing required attachment evidence is rejected.",
+      "Results map by target_index."
     ],
-    "note": "Source reading and planning only. No business images, model outputs, credentials, company Git history or uncommitted files are included."
+    "findings": [
+      "Raw input hash is incorrectly compared with re-encoded JPEG hash, rejecting valid PNG and JPEG inputs."
+    ],
+    "validation": "30 targeted tests passed. Synthetic PNG and JPEG preprocessing with mocked CLI reproduced valid-input rejection.",
+    "runtime_observation": "The previous evaluation restarted under a scope and was at 381/432 recorded calls at 2026-10-13 14:47 UTC+8; its runner still uses the old positional result mapping.",
+    "note": "Source review only. No business images, model outputs, credentials, company Git history or uncommitted files included."
   }
 }
