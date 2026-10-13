@@ -1,5 +1,6 @@
 """人员视图与类别卡的离线测试。不调用模型，不把缺失结果当成判假。"""
 import base64
+import copy
 import io
 import os
 import subprocess
@@ -436,6 +437,49 @@ class WorkerModeTests(unittest.TestCase):
             self.assertEqual(len(config['schema_sha256']), 64)
             self.assertNotIn('model_config', item['input_evidence'])
         self.assertEqual(legacy['model_config']['schema_sha256'], fixed['model_config']['schema_sha256'])
+
+    def test_reencoded_source_passes_projected_view_comparison(self):
+        import run_person_view_eval as eval_plan
+
+        def role_sha(evidence, role):
+            return next(item['sha256'] for item in evidence['attachments'] if item['role'] == role)
+
+        def project_pair(image_bytes):
+            payload = dict(self.payload, image=base64.b64encode(image_bytes).decode())
+            decisions = self.decisions(payload)
+            baseline = self.harness.execute(payload, decisions)
+            candidate = self.harness.execute(dict(payload, view_mode='fixed_view_v1'), decisions)
+            return (eval_plan.project_evidence(baseline['input_evidence']),
+                    eval_plan.project_evidence(candidate['input_evidence']))
+
+        png_base, png_cand = project_pair(SOURCE)
+        jpeg_buf = io.BytesIO()
+        Image.open(io.BytesIO(SOURCE)).convert('RGB').save(jpeg_buf, format='JPEG', quality=90)
+        jpeg_base, jpeg_cand = project_pair(jpeg_buf.getvalue())
+        for base, cand in ((png_base, png_cand), (jpeg_base, jpeg_cand)):
+            self.assertNotEqual(base['source_sha256'], role_sha(base, 'source'))
+            self.assertEqual(role_sha(base, 'source'), role_sha(cand, 'source'))
+            self.assertEqual(role_sha(base, 'locator'), role_sha(cand, 'locator'))
+            self.assertNotEqual(role_sha(base, 'crops'), role_sha(cand, 'crops'))
+            self.assertEqual(view_protocol.factor_errors(base, cand, 'person_view'), [])
+
+        changed_image = Image.open(io.BytesIO(SOURCE)).convert('RGB')
+        changed_image.putpixel((1, 1), (9, 8, 7))
+        other_buf = io.BytesIO()
+        changed_image.save(other_buf, format='PNG')
+        _other_base, other_cand = project_pair(other_buf.getvalue())
+        self.assertTrue(any('source_sha256' in item for item in view_protocol.factor_errors(png_base, other_cand, 'person_view')))
+
+        swapped_source = copy.deepcopy(png_cand)
+        next(item for item in swapped_source['attachments'] if item['role'] == 'source')['sha256'] = role_sha(other_cand, 'source')
+        self.assertTrue(any('source 附件' in item for item in view_protocol.factor_errors(png_base, swapped_source, 'person_view')))
+        swapped_locator = copy.deepcopy(png_cand)
+        next(item for item in swapped_locator['attachments'] if item['role'] == 'locator')['sha256'] = role_sha(other_cand, 'locator')
+        self.assertTrue(any('locator 附件' in item for item in view_protocol.factor_errors(png_base, swapped_locator, 'person_view')))
+
+        missing = copy.deepcopy(png_cand)
+        missing['attachments'] = [item for item in missing['attachments'] if item['role'] != 'locator']
+        self.assertTrue(any('覆盖不足' in item for item in view_protocol.factor_errors(png_base, missing, 'person_view')))
 
     def test_card_mode_keeps_the_legacy_view_and_appends_references(self):
         legacy = self.harness.execute(self.payload, self.decisions(self.payload))
