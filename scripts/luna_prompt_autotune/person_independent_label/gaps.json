@@ -1,0 +1,25 @@
+{
+ "purpose": "未曝光人员人工验证。历史回归样本不进入本清单，看不清不计入正负例。",
+ "initial_review_ready": 0,
+ "human_added_ready": 0,
+ "held": 0,
+ "rejected": 0,
+ "labels": {
+  "是人员": 0,
+  "不是人员": 0,
+  "看不清": 0,
+  "未标": 0
+ },
+ "positive_negative_covered": false,
+ "independent_validation_ready": false,
+ "historical_regression_separate": true,
+ "rejected_reasons": {},
+ "hold_reasons": {},
+ "held_rows": [],
+ "rejected_rows": [],
+ "findings": [
+  "当前业务输入存档没有人员初审框，帧绑定未核验，也没有干净原图。",
+  "已查看的历史上游任务与已曝光航次重叠，或没有原帧字节和人员框。",
+  "时间接近不能当作同帧，也不能把这些任务写成新的独立样本。"
+ ]
+}

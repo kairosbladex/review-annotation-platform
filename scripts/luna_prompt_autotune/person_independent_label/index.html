@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>人员人工验证</title>
+  <style>
+    body { margin: 24px; font: 16px/1.5 sans-serif; color: #172033; background: #f6f7f4; }
+    h1 { font-size: 22px; margin: 0 0 8px; }
+    .note, .gap { max-width: 760px; }
+    .gap { padding: 12px 14px; background: #fff; border: 1px solid #d5d8d0; }
+    img { max-width: min(960px, 100%); background: #111; }
+    .choices { display: flex; gap: 8px; margin: 12px 0; }
+    button { font: inherit; padding: 8px 14px; border: 1px solid #8b9184; background: #fff; }
+    button.active { background: #1f4b3a; color: #fff; border-color: #1f4b3a; }
+    .meta { color: #445; }
+  </style>
+</head>
+<body>
+  <h1>人员人工验证</h1>
+  <p class="note">只看图片和框。可选“是人员”“不是人员”或“看不清”。看不清保持未知。本页不提供自动结论，也不会预先填好选项。人工补框单独列出，不能当成初审原框。历史回归不在这里计为独立验证。</p>
+  <section id="status" class="gap">正在读取清单。</section>
+  <section id="stage" hidden>
+    <p class="meta" id="position"></p>
+    <img id="photo" alt="待核对图片">
+    <p class="meta" id="box"></p>
+    <div class="choices">
+      <button type="button" data-label="是人员">1 · 是人员</button>
+      <button type="button" data-label="不是人员">2 · 不是人员</button>
+      <button type="button" data-label="看不清">3 · 看不清</button>
+    </div>
+    <div class="choices">
+      <button type="button" id="prev">上一框</button>
+      <button type="button" id="next">下一框</button>
+    </div>
+  </section>
+  <section id="human"></section>
+<script>
+const labels = ["是人员", "不是人员", "看不清"];
+let rows = [];
+let index = 0;
+
+function showStatus(summary) {
+  const status = document.querySelector("#status");
+  const ready = summary.initial_review_ready || 0;
+  const human = summary.human_added_ready || 0;
+  const held = summary.held || 0;
+  const rejected = summary.rejected || 0;
+  const lines = [
+    `初审原框 ${ready}，人工补框 ${human}，待补依据 ${held}，已排除 ${rejected}。`,
+    summary.independent_validation_ready ? "初审原框已有人工确认的正负例。" : "独立验证仍未就绪。看不清保持未知，未标框不算覆盖。"
+  ];
+  status.textContent = lines.join("");
+}
+
+function render() {
+  const stage = document.querySelector("#stage");
+  if (!rows.length) {
+    stage.hidden = true;
+    return;
+  }
+  stage.hidden = false;
+  const row = rows[index];
+  document.querySelector("#position").textContent = `初审原框 ${index + 1} / ${rows.length} · 任务 ${row.task_id} · 事件 ${row.event_id}`;
+  document.querySelector("#box").textContent = `框坐标 ${row.bbox} · 同帧 ${row.frame_binding === "same_frame_verified" ? "已绑定" : "缺失"}`;
+  const photo = document.querySelector("#photo");
+  photo.src = row.image_file;
+  document.querySelectorAll("[data-label]").forEach((button) => {
+    button.classList.toggle("active", button.dataset.label === row.label);
+  });
+}
+
+async function save(label) {
+  if (!rows.length) return;
+  const row = rows[index];
+  const response = await fetch("/api/label", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({candidate_id: row.candidate_id, label})
+  });
+  if (!response.ok) return;
+  row.label = label;
+  render();
+}
+
+async function load() {
+  const [status, initial, human] = await Promise.all([
+    fetch("/api/status").then((response) => response.json()),
+    fetch("/api/rows").then((response) => response.json()),
+    fetch("/api/human-rows").then((response) => response.json())
+  ]);
+  showStatus(status);
+  rows = initial.rows || [];
+  if (!rows.length) {
+    document.querySelector("#status").textContent += "当前没有可标注的未曝光人员初审框。";
+  }
+  const added = human.rows || [];
+  document.querySelector("#human").textContent = added.length
+    ? `另有人工补框 ${added.length} 个，不并入初审原框。`
+    : "";
+  render();
+}
+
+document.querySelectorAll("[data-label]").forEach((button) => {
+  button.addEventListener("click", () => save(button.dataset.label));
+});
+document.querySelector("#prev").addEventListener("click", () => {
+  if (index > 0) { index -= 1; render(); }
+});
+document.querySelector("#next").addEventListener("click", () => {
+  if (index + 1 < rows.length) { index += 1; render(); }
+});
+document.addEventListener("keydown", (event) => {
+  if (event.target.matches("textarea, input")) return;
+  const chosen = {"1": labels[0], "2": labels[1], "3": labels[2]}[event.key];
+  if (chosen) save(chosen);
+  if (event.key === "ArrowLeft") document.querySelector("#prev").click();
+  if (event.key === "ArrowRight") document.querySelector("#next").click();
+});
+load();
+</script>
+</body>
+</html>
