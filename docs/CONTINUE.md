@@ -2,6 +2,10 @@
 
 > 2026-09-29：无人机预警空间定位（AFMAP 撒点偏移、AR 投影、光伏组件定位）已拆到独立仓库 `/Users/wangxiaolin/PycharmProjects/skypin`，相关文档、脚本、证据数据和 10 个分支都在那里继续；本仓库只做视觉复检、标注与训练。定位的原交接内容见 skypin 的 `docs/CONTINUE.md`。
 
+## 人员独立待标（2026-10-13）
+
+新窗口没有可标注的未曝光人员初审框。入口和缺口在 `data/person-fresh-label-20261013/README.md`。历史 43 个事件、110 个人员标签只留作回归，不要重新打开或补造。算法候选仍为 `a548e2d`，本项不改算法、不跑模型。
+
 ## 原标注任务上下文
 
 当前 Frontier：**用类别筛选标空类**。5173 队列已有「没戴头盔」等 class 下拉。完成图 35 张 / 104 框。没戴头盔还剩 10 张单框图。
@@ -72,8 +76,8 @@ SOURCE_IMAGE_BASE_URL=https://lxtest.zhuoyilingxi.com:8088/minio-src \
 SOURCE_IMAGE_BUCKET=minio-src \
 MINIO_ENDPOINT= MINIO_ACCESS_KEY= MINIO_SECRET_KEY= \
 DATABASE_URL=sqlite:///./data/ktd-local.sqlite3 \
-SERVICE_API_KEY=change-me-service-api-key \
-ADMIN_PASSWORD=change-me-admin-password \
+SERVICE_API_KEY=REDACTED \
+ADMIN_PASSWORD=REDACTED \
 PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190
 ```
 

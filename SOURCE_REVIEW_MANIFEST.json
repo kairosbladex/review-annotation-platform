@@ -2,17 +2,17 @@
   "schema_version": 2,
   "project": "review-annotation-platform",
   "source_branch": "feature/luna-person-view-candidate",
-  "source_head": "318ae6ed14febeb9e7da4b4debef530f808124fc",
-  "source_commit_time": "2026-10-13T15:10:14+08:00",
-  "generated_at": "2026-10-13T15:17:09.398834+08:00",
+  "source_head": "c492bf1bc0d55338564ab57fde12ca8ab58469c0",
+  "source_commit_time": "2026-10-13T16:21:27+08:00",
+  "generated_at": "2026-10-13T08:40:38.004Z",
   "snapshot_kind": "committed-source-with-redactions",
   "uncommitted_changes_included": false,
   "source_was_dirty_at_export": false,
   "source_status_unchanged_during_export": true,
   "snapshot_branch": "chore/source-review-snapshot",
   "source_history_included": false,
-  "source_text_files": 261,
-  "unchanged_source_blobs_verified": 239,
+  "source_text_files": 267,
+  "unchanged_source_blobs_verified": 0,
   "redacted_files": {
     ".env.example": [
       "扫描器检测到的凭据字面值"
@@ -80,7 +80,15 @@
     ],
     "scripts/verify_advance_next_box.py": [
       "Python 结构化凭据默认值脱敏"
-    ]
+    ],
+    "docs/CONTINUE.md": {
+      "count": 2,
+      "fields": [
+        "SERVICE_API_KEY",
+        "ADMIN_PASSWORD"
+      ],
+      "reason": "Literal credential-like values removed from export copy only; company source unchanged."
+    }
   },
   "excluded_files": [
     {
@@ -8645,7 +8653,7 @@
     "version": "8.30.1",
     "remaining_findings": 0,
     "additional_named_credential_rules": true,
-    "scope": "Two changed committed source files and manifest; unchanged sanitized files reused."
+    "scope": "Seven changed committed text files and generated manifest; unchanged sanitized files reused."
   },
   "limitations": [
     "仅用于源码阅读与规划，凭据、现场数据和媒体已排除，不能作为部署包",
@@ -8653,26 +8661,38 @@
     "文档中的历史验收结论不代表当前在线业务验收"
   ],
   "incremental_export": {
-    "parent_snapshot": "8b0b05031a5ff67d8c5836c2fd0f5a9c2a258618",
-    "previous_source_head": "1758247724827414c618aac8bb8c4331fd9ac41c",
+    "parent_snapshot": "8aeb2a0cbde53013c0666c9ed8bfb4e0ff24c324",
+    "previous_source_head": "318ae6ed14febeb9e7da4b4debef530f808124fc",
     "changed_files": [
-      "scripts/luna_prompt_autotune/test_person_view.py",
-      "scripts/luna_prompt_autotune/view_protocol.py"
+      "data/person-fresh-label-20261013/README.md",
+      "data/person-fresh-label-20261013/annotations.csv",
+      "data/person-fresh-label-20261013/index.html",
+      "data/person-fresh-label-20261013/label_server.py",
+      "data/person-fresh-label-20261013/samples.json",
+      "data/person-fresh-label-20261013/test_label_entry.py",
+      "docs/CONTINUE.md"
     ],
-    "unchanged_files_reused": true
+    "unchanged_files_reused": true,
+    "verification_basis": "Exact committed diff has seven paths; unchanged previously sanitized snapshot files are reused without re-scanning.",
+    "data_directory_exception": "Only source code, documentation, empty annotation header, and aggregate empty queue included. No business IDs, images, private audit rows or labels exported."
   },
   "candidate_acceptance": {
-    "status": "engineering_passed_effectiveness_unverified",
+    "status": "partial_label_entry_failed_effectiveness_unverified",
     "accuracy_improvement_verified": false,
     "fixed_findings": [
       "Missing required attachment evidence is rejected.",
       "Results map by target_index.",
       "Raw source hashes and re-encoded attachment hashes are compared separately across conditions."
     ],
-    "findings": [],
-    "validation": "31 targeted tests independently passed, including actual synthetic PNG/JPEG preprocessing, changed-source/attachment rejection and reordered target indices.",
+    "findings": [
+      "The page has no target image rendering or label-save interaction; adding eligible rows does not make it usable.",
+      "The loader accepts missing box coordinates, image dimensions and source/frame evidence.",
+      "README permits generic image MAD <= 22 as an alternative to frame provenance; this does not establish strict same-frame identity."
+    ],
+    "validation": "Two empty-queue checks passed. Synthetic diagnostics reproduced acceptance of a row with no image, box or source proof, and a non-empty queue still leaving all three UI buttons disabled. No browser acceptance or model run performed.",
     "runtime_observation": "At 2026-10-13 15:11 UTC+8, the old evaluation process and scope were absent. Closure preserves 415 of 432 planned records, including 413 successes and two failures. Records lack raw target indices, model configuration and label hashes, and cannot establish accuracy improvement.",
-    "remaining_evidence": "No new trustworthy paired accuracy comparison or independent person-positive/person-negative validation is available.",
-    "note": "Source review only. No business images, model outputs, credentials, company Git history or uncommitted files included."
+    "remaining_evidence": "Saved audit at 2026-10-13 16:08:03 UTC+8 has 22 events including seven personnel events, zero personnel box payloads and zero image recheck rows. Eligible fresh personnel samples remain zero. This update provides no new personnel or other-class accuracy comparison.",
+    "note": "Source review only. No business images, model outputs, credentials, company Git history or uncommitted files included.",
+    "reused_validation": "31 targeted tests independently passed, including actual synthetic PNG/JPEG preprocessing, changed-source/attachment rejection and reordered target indices."
   }
 }
