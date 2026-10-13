@@ -368,6 +368,32 @@ class ProtocolTests(unittest.TestCase):
         self.assertFalse(result['measurement_passed'])
         self.assertTrue(any('其他类别 车' in item for item in result['errors']))
 
+    def test_incomplete_evidence_cannot_pass_as_improvement(self):
+        labels = person_labels()
+        baseline = {key: ('uncertain' if key == 'p0' else value['label']) for key, value in labels.items()}
+        better = {key: value['label'] for key, value in labels.items()}
+        empty = {'source_kind': 'screenshot', 'attachments': []}
+        blocked = view_protocol.evaluate(
+            [seal(better, labels, empty), seal(better, labels, empty)],
+            [seal(baseline, labels, empty), seal(baseline, labels, empty)],
+            labels, factor='person_view', exposure=independent_source(labels))
+        self.assertFalse(blocked['checks_passed'])
+        self.assertFalse(blocked['measurement_passed'])
+        self.assertFalse(blocked['release_allowed'])
+        self.assertTrue(any('附件为空' in item for item in blocked['errors']))
+        source_only = {
+            'source_kind': 'screenshot', 'source_sha256': 'img', 'candidates_sha256': 'boxes',
+            'prompt_sha256': 'prompt', 'attachments': [{'role': 'source', 'sha256': 'img'}],
+        }
+        partial = view_protocol.evaluate(
+            [seal(better, labels, source_only), seal(better, labels, source_only)],
+            [seal(baseline, labels, source_only), seal(baseline, labels, source_only)],
+            labels, factor='person_view', exposure=independent_source(labels))
+        self.assertFalse(partial['checks_passed'])
+        self.assertFalse(partial['measurement_passed'])
+        self.assertFalse(partial['release_allowed'])
+        self.assertTrue(any('覆盖不足' in item for item in partial['errors']))
+
 
 class WorkerModeTests(unittest.TestCase):
     def setUp(self):
@@ -606,6 +632,27 @@ class EvalPlanTests(unittest.TestCase):
         candidate['candidates_sha256'] = 'c' * 64
         candidate['attachments'][1]['sha256'] = 'l' * 64
         self.assertEqual(view_protocol.factor_errors(baseline, candidate, 'person_view'), [])
+
+    def test_results_bind_by_target_index_not_response_order(self):
+        import run_person_view_eval as eval_plan
+        candidates = [
+            {'key': 'p0', 'class_name': '人员', 'bbox': [0, 0, 1, 1]},
+            {'key': 'p1', 'class_name': '人员', 'bbox': [0, 0, 1, 1]},
+        ]
+        bound = eval_plan.decisions_by_key(candidates, [
+            {'target_index': 1, 'decision': 'false'},
+            {'target_index': 0, 'decision': 'true'},
+        ])
+        self.assertEqual(bound['p0'], 'true')
+        self.assertEqual(bound['p1'], 'false')
+        for bad in (
+            [{'target_index': 0, 'decision': 'true'}, {'target_index': 0, 'decision': 'false'}],
+            [{'target_index': 0, 'decision': 'true'}],
+            [{'target_index': 0, 'decision': 'true'}, {'target_index': 2, 'decision': 'false'}],
+            [{'target_index': '0', 'decision': 'true'}, {'target_index': 1, 'decision': 'false'}],
+        ):
+            with self.assertRaisesRegex(RuntimeError, 'target mapping mismatch'):
+                eval_plan.decisions_by_key(candidates, bad)
 
     def test_loaded_rounds_keep_only_agreed_model_and_label_evidence(self):
         import json

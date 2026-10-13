@@ -252,6 +252,24 @@ def _payload(item, prompt, mode, image_b64, sheet):
     return payload
 
 
+def decisions_by_key(candidates, results):
+    """按 target_index 绑回原候选。重复、缺失或非法编号沿用 worker 的失败，不按数组顺序猜测。"""
+    if not isinstance(results, list):
+        raise RuntimeError('target mapping mismatch')
+    by_index = {}
+    for row in results:
+        index = row.get('target_index') if isinstance(row, dict) else None
+        if type(index) is not int or index in by_index:
+            raise RuntimeError('target mapping mismatch')
+        decision = row.get('decision')
+        if decision not in {'true', 'false', 'uncertain'}:
+            raise RuntimeError('invalid decision')
+        by_index[index] = decision
+    if set(by_index) != set(range(len(candidates))):
+        raise RuntimeError('target mapping mismatch')
+    return {candidate['key']: by_index[index] for index, candidate in enumerate(candidates)}
+
+
 def _call(payload, mode):
     started = time.perf_counter()
     if mode == 'legacy':
@@ -316,9 +334,7 @@ def execute_budget(out: Path, assets: Path, annotated_root, gold_dir, max_calls:
             started = time.perf_counter()
             try:
                 result, elapsed = _call(payload, mode)
-                decisions = {}
-                for candidate, row in zip(item['candidates'], result['results']):
-                    decisions[candidate['key']] = row['decision']
+                decisions = decisions_by_key(item['candidates'], result['results'])
                 record.update({'status': 'ok', 'elapsed_s': elapsed, 'decisions': decisions,
                                'evidence': project_evidence(result['input_evidence']),
                                'execution_id': result.get('execution_id'),

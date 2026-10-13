@@ -34,11 +34,45 @@ def _attachment_map(evidence):
     return {item['role']: item['sha256'] for item in evidence['attachments']}
 
 
+def _filled(value):
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _evidence_gaps(evidence):
+    """必要字段和附件角色必须先齐，缺了就不能拿空值互相比较。"""
+    if not isinstance(evidence, dict):
+        return ['实际输入证据不完整']
+    gaps = []
+    for name in ('source_sha256', 'candidates_sha256', 'source_kind', 'prompt_sha256'):
+        if not _filled(evidence.get(name)):
+            gaps.append(f'缺少{name}')
+    attachments = evidence.get('attachments')
+    if not isinstance(attachments, list) or not attachments:
+        gaps.append('附件为空或缺失')
+        return gaps
+    found = {}
+    for item in attachments:
+        if not isinstance(item, dict) or not _filled(item.get('role')) or not _filled(item.get('sha256')):
+            gaps.append('附件缺少角色或摘要')
+            continue
+        found.setdefault(item['role'], item['sha256'])
+    missing = [role for role in ('source', 'locator', 'crops') if role not in found]
+    if missing:
+        gaps.append('附件角色覆盖不足：' + '、'.join(missing))
+    if 'source' in found and _filled(evidence.get('source_sha256')) and found['source'] != evidence['source_sha256']:
+        gaps.append('source 附件与原图摘要不一致')
+    return gaps
+
+
 def factor_errors(baseline, candidate, factor):
     """原图、框、定位图必须相同。允许变化的只有本因素声明的附件或提示词。"""
-    errors = []
     if factor not in FACTORS:
         return ['未知实验因素']
+    gaps = [f'基线{item}' for item in _evidence_gaps(baseline)]
+    gaps += [f'候选{item}' for item in _evidence_gaps(candidate)]
+    if gaps:
+        return gaps
+    errors = []
     for name in ('source_sha256', 'candidates_sha256', 'source_kind'):
         if baseline.get(name) != candidate.get(name):
             errors.append(f'{name} 发生变化，超出视图实验允许的因素')
