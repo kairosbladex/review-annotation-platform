@@ -1,0 +1,11 @@
+[Unit]
+Description=复检微调自动迭代执行器（推进训练/评测一步）
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flock -n /data/workspace/jzheng/recheck-autotrain/live/runner.lock /usr/bin/python3 /data/workspace/jzheng/recheck-autotrain/live/src/runner.py
+MemoryMax=2G
+CPUQuota=100%
+TimeoutStartSec=900
+StandardOutput=append:/data/workspace/jzheng/recheck-autotrain/live/logs/runner.log
+StandardError=append:/data/workspace/jzheng/recheck-autotrain/live/logs/runner.log

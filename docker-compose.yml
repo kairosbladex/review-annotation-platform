@@ -1,0 +1,163 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-review_annotation}
+      POSTGRES_USER: ${POSTGRES_USER:-review}
+      POSTGRES_PASSWORD: REDACTED_FOR_GITHUB
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  minio:
+    image: minio/minio:RELEASE.2025-02-28T09-55-16Z
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:REDACTED_FOR_GITHUB
+      MINIO_ROOT_PASSWORD: REDACTED_FOR_GITHUB
+    volumes:
+      - minio-data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+  minio-init:
+    image: minio/mc:RELEASE.2025-02-21T16-00-46Z
+    depends_on:
+      - minio
+    environment:
+      MINIO_ACCESS_KEY: REDACTED_FOR_GITHUB
+      MINIO_SECRET_KEY: REDACTED_FOR_GITHUB
+      MINIO_BUCKET: ${MINIO_BUCKET:-review-annotation}
+    entrypoint: ["/bin/sh", "-c"]
+    command: >-
+      "until mc alias set local http://minio:9000 $${MINIO_ACCESS_KEY:REDACTED_FOR_GITHUB $${MINIO_SECRET_KEY:REDACTED_FOR_GITHUB do sleep 2; done;
+      mc mb --ignore-existing local/$${MINIO_BUCKET:-review-annotation}"
+    restart: "no"
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - .env.example
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:REDACTED_FOR_GITHUB
+      REDIS_URL: redis://redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: REDACTED_FOR_GITHUB
+      MINIO_SECRET_KEY: REDACTED_FOR_GITHUB
+      MINIO_BUCKET: ${MINIO_BUCKET:-review-annotation}
+      MINIO_REGION: ${MINIO_REGION:-us-east-1}
+      MINIO_AUTO_CREATE_BUCKET: ${MINIO_AUTO_CREATE_BUCKET:-true}
+      OBJECT_STORE_REQUIRED: ${OBJECT_STORE_REQUIRED:-false}
+      MINIO_PUBLIC_ENDPOINT: ${MINIO_PUBLIC_ENDPOINT:-127.0.0.1:9000}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: REDACTED_FOR_GITHUB
+      JWT_SECRET: REDACTED_FOR_GITHUB
+      SERVICE_API_KEY: REDACTED_FOR_GITHUB
+      MODEL_ADAPTER_TYPE: ${MODEL_ADAPTER_TYPE:-http}
+      MODEL_SERVICE_BASE_URL: ${MODEL_SERVICE_BASE_URL:-}
+      MODEL_SERVICE_API_KEY: REDACTED_FOR_GITHUB
+      MODEL_SERVICE_DETECT_ENDPOINT: ${MODEL_SERVICE_DETECT_ENDPOINT:-/api/v1/review-agent/yolo-detect}
+      MODEL_SERVICE_REVIEW_ENDPOINT: ${MODEL_SERVICE_REVIEW_ENDPOINT:-/api/v1/review-agent/review}
+      MODEL_SERVICE_VERIFY_TLS: ${MODEL_SERVICE_VERIFY_TLS:-true}
+      HISTORY_COMPARE_OLLAMA_URL: ${HISTORY_COMPARE_OLLAMA_URL:-}
+      HISTORY_COMPARE_MODEL: ${HISTORY_COMPARE_MODEL:-qwen3.5:9b}
+      HISTORY_COMPARE_TIMEOUT_SECONDS: ${HISTORY_COMPARE_TIMEOUT_SECONDS:-60}
+      AUTO_ANNOTATION_API_KEY: REDACTED_FOR_GITHUB
+      AUTO_ANNOTATION_BASE_URL: ${AUTO_ANNOTATION_BASE_URL:-https://sub.butterfly2sea.us}
+      AUTO_ANNOTATION_MODEL: ${AUTO_ANNOTATION_MODEL:-gpt-5.6-luna}
+      AUTO_ANNOTATION_ENDPOINT: ${AUTO_ANNOTATION_ENDPOINT:-/responses}
+      AUTO_ANNOTATION_REASONING_EFFORT: ${AUTO_ANNOTATION_REASONING_EFFORT:-low}
+      AUTO_ANNOTATION_TIMEOUT_SECONDS: ${AUTO_ANNOTATION_TIMEOUT_SECONDS:-120}
+      AUTO_ANNOTATION_VERIFY_TLS: ${AUTO_ANNOTATION_VERIFY_TLS:-true}
+      AUTO_ANNOTATION_USE_CODEX_CLI: ${AUTO_ANNOTATION_USE_CODEX_CLI:-true}
+      AUTO_ANNOTATION_CODEX_BINARY: ${AUTO_ANNOTATION_CODEX_BINARY:-codex}
+      AUTO_ANNOTATION_ACTOR_AUTHORIZATION: ${AUTO_ANNOTATION_ACTOR_AUTHORIZATION:-local-image-extension}
+      SOURCE_IMAGE_BASE_URL: ${SOURCE_IMAGE_BASE_URL:-}
+      SOURCE_IMAGE_BUCKET: ${SOURCE_IMAGE_BUCKET:-minio-src}
+      SOURCE_IMAGE_VERIFY_TLS: ${SOURCE_IMAGE_VERIFY_TLS:-true}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+    ports:
+      - "${API_PORT:-8190}:8000"
+
+  worker:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - .env.example
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:REDACTED_FOR_GITHUB
+      REDIS_URL: redis://redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: REDACTED_FOR_GITHUB
+      MINIO_SECRET_KEY: REDACTED_FOR_GITHUB
+      MINIO_BUCKET: ${MINIO_BUCKET:-review-annotation}
+      MINIO_REGION: ${MINIO_REGION:-us-east-1}
+      MINIO_AUTO_CREATE_BUCKET: ${MINIO_AUTO_CREATE_BUCKET:-true}
+      OBJECT_STORE_REQUIRED: ${OBJECT_STORE_REQUIRED:-false}
+      MINIO_PUBLIC_ENDPOINT: ${MINIO_PUBLIC_ENDPOINT:-127.0.0.1:9000}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: REDACTED_FOR_GITHUB
+      JWT_SECRET: REDACTED_FOR_GITHUB
+      SERVICE_API_KEY: REDACTED_FOR_GITHUB
+      MODEL_ADAPTER_TYPE: ${MODEL_ADAPTER_TYPE:-http}
+      MODEL_SERVICE_BASE_URL: ${MODEL_SERVICE_BASE_URL:-}
+      MODEL_SERVICE_API_KEY: REDACTED_FOR_GITHUB
+      MODEL_SERVICE_DETECT_ENDPOINT: ${MODEL_SERVICE_DETECT_ENDPOINT:-/api/v1/review-agent/yolo-detect}
+      MODEL_SERVICE_REVIEW_ENDPOINT: ${MODEL_SERVICE_REVIEW_ENDPOINT:-/api/v1/review-agent/review}
+      MODEL_SERVICE_VERIFY_TLS: ${MODEL_SERVICE_VERIFY_TLS:-true}
+      AUTO_ANNOTATION_API_KEY: REDACTED_FOR_GITHUB
+      AUTO_ANNOTATION_BASE_URL: ${AUTO_ANNOTATION_BASE_URL:-https://sub.butterfly2sea.us}
+      AUTO_ANNOTATION_MODEL: ${AUTO_ANNOTATION_MODEL:-gpt-5.6-luna}
+      AUTO_ANNOTATION_ENDPOINT: ${AUTO_ANNOTATION_ENDPOINT:-/responses}
+      AUTO_ANNOTATION_REASONING_EFFORT: ${AUTO_ANNOTATION_REASONING_EFFORT:-low}
+      AUTO_ANNOTATION_TIMEOUT_SECONDS: ${AUTO_ANNOTATION_TIMEOUT_SECONDS:-120}
+      AUTO_ANNOTATION_VERIFY_TLS: ${AUTO_ANNOTATION_VERIFY_TLS:-true}
+      AUTO_ANNOTATION_USE_CODEX_CLI: ${AUTO_ANNOTATION_USE_CODEX_CLI:-true}
+      AUTO_ANNOTATION_CODEX_BINARY: ${AUTO_ANNOTATION_CODEX_BINARY:-codex}
+      AUTO_ANNOTATION_ACTOR_AUTHORIZATION: ${AUTO_ANNOTATION_ACTOR_AUTHORIZATION:-local-image-extension}
+      SOURCE_IMAGE_BASE_URL: ${SOURCE_IMAGE_BASE_URL:-}
+      SOURCE_IMAGE_BUCKET: ${SOURCE_IMAGE_BUCKET:-minio-src}
+      SOURCE_IMAGE_VERIFY_TLS: ${SOURCE_IMAGE_VERIFY_TLS:-true}
+    command: celery -A app.tasks.celery_app.celery_app worker --loglevel=INFO --concurrency=2
+    depends_on:
+      api:
+        condition: service_started
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    depends_on:
+      - api
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+
+volumes:
+  postgres-data:
+  redis-data:
+  minio-data:

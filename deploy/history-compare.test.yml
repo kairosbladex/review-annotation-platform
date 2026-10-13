@@ -1,0 +1,37 @@
+name: review-history-test
+
+services:
+  api:
+    image: review-history-api:683feb3
+    environment:
+      HISTORY_COMPARE_OLLAMA_URL: http://192.168.130.238:11434
+      HISTORY_COMPARE_MODEL: qwen3.5:9b
+      HISTORY_COMPARE_TIMEOUT_SECONDS: "60"
+      MINIO_PUBLIC_ENDPOINT: 127.0.0.1:9002
+    ports: !override
+      - "127.0.0.1:8392:8000"
+    restart: unless-stopped
+
+  frontend:
+    image: review-history-frontend:683feb3
+    ports: !override
+      - "127.0.0.1:5275:80"
+    restart: unless-stopped
+
+  worker:
+    image: review-history-api:683feb3
+    environment:
+      MINIO_PUBLIC_ENDPOINT: 127.0.0.1:9002
+    restart: unless-stopped
+
+  postgres:
+    restart: unless-stopped
+
+  redis:
+    restart: unless-stopped
+
+  minio:
+    ports: !override
+      - "127.0.0.1:9002:9000"
+      - "127.0.0.1:9003:9001"
+    restart: unless-stopped

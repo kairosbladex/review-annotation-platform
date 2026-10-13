@@ -1,0 +1,9 @@
+[Unit]
+Description=每 2 分钟推进复检微调自动迭代
+
+[Timer]
+OnCalendar=*:0/2
+AccuracySec=10s
+
+[Install]
+WantedBy=timers.target

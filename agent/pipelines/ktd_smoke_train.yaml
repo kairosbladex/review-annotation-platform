@@ -1,0 +1,54 @@
+# Real YOLOE training on AI-lingxi. Command template follows the one proven
+# by Codex's 50-epoch formal run (container ktd-formal-training-20260903-final2):
+# one-shot docker run, dataset mounted read-only, mobileclip2_b.ts mounted to
+# avoid the 242MB download at validation time, amp=False to avoid AMP
+# self-check downloads.
+#
+# Red lines (from Codex session + docs): never disturb the online recheck
+# services on 8188/8189, never touch the online weights under /app/pretrain,
+# release the GPU when done. Models meant for recheck-service feedback must
+# keep the YOLOE English vocabulary (the online YoloERechecker matches on it).
+pipeline_id: ktd-smoke-train
+version: "0.2.0"
+nodes:
+  - remote_preflight
+  - remote_submit
+  - remote_monitor
+  - remote_sync
+params:
+  remote_root: /data/workspace/review-annotation-platform-ktd/agent-runs
+  gpu_index: 4
+  min_free_gpu_mib: 20000
+  # dataset must already exist on the server (Codex upload convention);
+  # it must contain dataset-container.yaml with container paths (/ktd-data).
+  dataset_remote_dir: /data/workspace/jzheng/yoloe_service/data/ktd-formal-training-20260903/dataset
+  base_model: yoloe-26l-seg-pf.pt
+  epochs: 1
+  imgsz: 640
+  batch: 4
+  patience: 15
+  command: >-
+    docker run --rm --name agent-{run_id} --gpus "device={gpu_index}" --ipc=host
+    -e CUDA_VISIBLE_DEVICES=0
+    -v {dataset_remote_dir}:/ktd-data:ro
+    -v {remote_run_dir}/runs:/ktd-runs
+    -v /data/workspace/jzheng/yoloe_service/pretrain:/app/pretrain:ro
+    -v /data/workspace/jzheng/yoloe_service/pretrain/mobileclip2_b.ts:/app/mobileclip2_b.ts:ro
+    -w /app yoloe_service:latest python3 -u -c
+    "from ultralytics import YOLO; model=YOLO('/app/pretrain/{base_model}');
+    model.train(data='/ktd-data/dataset-container.yaml', task='segment', epochs={epochs},
+    imgsz={imgsz}, batch={batch}, workers=0, device=0, project='/ktd-runs', name='train',
+    exist_ok=True, pretrained=True, amp=False, patience={patience}, seed=42,
+    deterministic=True, cache=False, plots=True, close_mosaic=10, overlap_mask=False,
+    mask_ratio=4, verbose=True)"
+  poll_seconds: 30
+  max_wait_seconds: 7200
+  progress_file: runs/train/results.csv
+  local_dir: data/agent-runs/{run_id}
+  sync_files:
+    - path: runs/train/results.csv
+      kind: metrics
+    - path: runs/train/args.yaml
+      kind: config
+    - path: runs/train/weights/best.pt
+      kind: checkpoint

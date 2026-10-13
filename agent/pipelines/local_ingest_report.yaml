@@ -1,0 +1,15 @@
+# Reference pipeline for the ingest -> persist -> publish chain.
+# Runs fully locally (no LLM, no SSH): ingest the KTD YOLO label files as
+# text items, persist them into the agent store, render a run report.
+pipeline_id: local-ingest-report
+version: "0.1.0"
+nodes:
+  - ingest_files
+  - persist_store
+  - render_report
+params:
+  source_dir: data/recheck-runs/ktd-uncertain-recheck-20260903/yolo_labels
+  glob: "*.txt"
+  output_dir: data/agent-runs/{run_id}/ingest
+  store_db: data/agent-runs/agent-store-demo.sqlite3
+  report_dir: data/agent-runs/{run_id}
