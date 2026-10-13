@@ -1,0 +1,33 @@
+{
+  "purpose": "未曝光人员人工验证队列。历史回归不进入本文件。",
+  "labels": ["是人员", "不是人员", "看不清"],
+  "show_model_answer": false,
+  "prefill": false,
+  "eligible": [],
+  "manual_boxes": [],
+  "blocked_groups": [
+    {
+      "group": "2026-10-11至2026-10-13/人员类型",
+      "events": 7,
+      "task_groups": 4,
+      "initial_person_boxes": 0,
+      "events_with_screenshot_annex": 5,
+      "events_without_annex": 2,
+      "distinct_clean_original": 0,
+      "mp4_annex": 0,
+      "image_recheck_rows": 0,
+      "same_frame": "missing",
+      "reason": "业务类型是人员聚集或人员检测，事件和附件都没有初审框。有截图的原图路径与截图相同。时间接近不能当作同帧，也不能手画框冒充初审框。"
+    },
+    {
+      "group": "2026-10-11至2026-10-13/车辆类型",
+      "events": 15,
+      "reason": "车辆识别、小客车或卡车。不是人员样本，不转入本队列。"
+    },
+    {
+      "group": "6755b1e-business两条输入存档",
+      "archives": 2,
+      "reason": "已检查。一份是 8 个车框，一份是 4 个道路裂纹框。没有人员框。"
+    }
+  ]
+}
