@@ -16,9 +16,15 @@
     .actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
     button { min-height: 48px; border: 1px solid #c7cbd1; background: #fff; border-radius: 7px; font: inherit; font-weight: 600; }
     button:disabled { opacity: .45; cursor: not-allowed; }
+    button.active { background: #1f4b3a; color: #fff; border-color: #1f4b3a; }
     .yes { border-color: #2f6fed; color: #174ea6; }
     .no { border-color: #d69200; color: #8a5b00; }
     .unclear { border-color: #7b61a8; color: #5d3f8f; }
+    .frame { position: relative; display: inline-block; margin-top: 12px; background: #111; }
+    [hidden] { display: none !important; }
+    .frame img { display: block; max-width: 100%; height: auto; }
+    #box { position: absolute; border: 3px solid #e6b000; box-sizing: border-box; pointer-events: none; }
+    .nav { display: flex; gap: 10px; margin-top: 12px; }
     ul { padding-left: 18px; }
     li { margin: 8px 0; line-height: 1.5; }
     @media (max-width: 700px) { .actions { grid-template-columns: 1fr; } }
@@ -27,37 +33,130 @@
 <body>
   <header>
     <h1>人员人工待标</h1>
-    <p class="meta">只判断初审原框里是不是人员。选项是「是人员」「不是人员」「看不清」。页面不展示模型答案，也不自动填写标签。当前没有可标注的框。</p>
+    <p class="meta">只判断初审原框里是不是人员。选项是「是人员」「不是人员」「看不清」。页面不展示模型答案，也不自动填写标签。</p>
   </header>
   <main>
     <section class="card">
-      <p id="count">正在读取队列。</p>
+      <p id="count">当前没有可标注的框。</p>
+      <p id="meta"></p>
+      <div class="frame" id="viewer" hidden>
+        <img id="photo" alt="待核对图片">
+        <div id="box"></div>
+      </div>
+      <p id="saved"></p>
       <div id="groups"></div>
+      <p id="manual"></p>
       <div class="actions">
-        <button class="yes" type="button" disabled>是人员</button>
-        <button class="no" type="button" disabled>不是人员</button>
-        <button class="unclear" type="button" disabled>看不清</button>
+        <button class="yes" type="button" data-label="是人员" disabled>是人员</button>
+        <button class="no" type="button" data-label="不是人员" disabled>不是人员</button>
+        <button class="unclear" type="button" data-label="看不清" disabled>看不清</button>
+      </div>
+      <div class="nav">
+        <button id="prev" type="button" disabled>上一框</button>
+        <button id="next" type="button" disabled>下一框</button>
       </div>
     </section>
   </main>
   <script>
     const count = document.getElementById("count");
     const groups = document.getElementById("groups");
-    fetch("/api/queue").then((response) => response.json()).then((payload) => {
-      const rows = Array.isArray(payload.eligible) ? payload.eligible : [];
+    const viewer = document.getElementById("viewer");
+    const photo = document.getElementById("photo");
+    const box = document.getElementById("box");
+    const meta = document.getElementById("meta");
+    const saved = document.getElementById("saved");
+    const manual = document.getElementById("manual");
+    const buttons = Array.from(document.querySelectorAll("[data-label]"));
+    let rows = [];
+    let index = 0;
+
+    function show() {
+      const row = rows[index];
+      if (!row) {
+        viewer.hidden = true;
+        buttons.forEach((button) => { button.disabled = true; button.classList.remove("active"); });
+        document.getElementById("prev").disabled = true;
+        document.getElementById("next").disabled = true;
+        return;
+      }
+      viewer.hidden = false;
+      photo.src = row.image_file;
+      photo.alt = "初审框 " + row.candidate_id;
+      const bbox = row.bbox;
+      box.style.left = (bbox.x / row.frame_width * 100) + "%";
+      box.style.top = (bbox.y / row.frame_height * 100) + "%";
+      box.style.width = (bbox.width / row.frame_width * 100) + "%";
+      box.style.height = (bbox.height / row.frame_height * 100) + "%";
+      const source = row.source || {};
+      const frameMark = source.frame_id
+        ? source.frame_id
+        : (source.pts_ns === 0 || source.pts_ns ? String(source.pts_ns) : "");
+      meta.textContent = `编号 ${row.candidate_id} · 任务 ${row.group} · 来源 ${source.task_id || ""} / ${source.stream_id || ""} / ${frameMark}`;
+      saved.textContent = row.label ? `已保存：${row.label}` : "尚未标注";
+      saved.dataset.candidateId = row.candidate_id;
+      saved.dataset.label = row.label || "";
+      buttons.forEach((button) => {
+        button.disabled = false;
+        button.classList.toggle("active", button.dataset.label === row.label);
+      });
+      document.getElementById("prev").disabled = index === 0;
+      document.getElementById("next").disabled = index + 1 >= rows.length;
+    }
+
+    async function save(label) {
+      const row = rows[index];
+      if (!row) return;
+      const response = await fetch("/api/label", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ candidate_id: row.candidate_id, label })
+      });
+      if (!response.ok) {
+        saved.textContent = "没有保存。";
+        return;
+      }
+      const payload = await fetch("/api/queue", { cache: "no-store" }).then((item) => item.json());
+      rows = Array.isArray(payload.eligible) ? payload.eligible : [];
+      const current = rows.find((item) => item.candidate_id === row.candidate_id);
+      if (!current || current.label !== label) {
+        saved.textContent = "保存后与编号不一致";
+        return;
+      }
+      index = rows.indexOf(current);
+      show();
+    }
+
+    function render(payload) {
+      rows = Array.isArray(payload.eligible) ? payload.eligible : [];
+      index = 0;
       count.textContent = rows.length
-        ? `待标初审框 ${rows.length} 个。标签仍为空白。`
+        ? `待标初审框 ${rows.length} 个。`
         : "当前没有可标注的初审框。下面各组都还不能进入人工验证。";
       const blocked = Array.isArray(payload.blocked_groups) ? payload.blocked_groups : [];
-      if (!blocked.length) return;
-      const list = document.createElement("ul");
-      blocked.forEach((item) => {
-        const line = document.createElement("li");
-        line.textContent = `${item.group || "未命名分组"}：${item.reason || "缺少说明"}`;
-        list.appendChild(line);
-      });
-      groups.appendChild(list);
-    }).catch(() => {
+      groups.replaceChildren();
+      if (blocked.length) {
+        const list = document.createElement("ul");
+        blocked.forEach((item) => {
+          const line = document.createElement("li");
+          line.textContent = `${item.group || "未命名分组"}：${item.reason || "缺少说明"}`;
+          list.appendChild(line);
+        });
+        groups.appendChild(list);
+      }
+      const added = Array.isArray(payload.manual_boxes) ? payload.manual_boxes : [];
+      manual.textContent = added.length ? `人工补框 ${added.length} 个，单独列出，不进入初审待标。` : "";
+      show();
+    }
+
+    buttons.forEach((button) => button.addEventListener("click", () => save(button.dataset.label)));
+    document.getElementById("prev").addEventListener("click", () => { if (index > 0) { index -= 1; show(); } });
+    document.getElementById("next").addEventListener("click", () => { if (index + 1 < rows.length) { index += 1; show(); } });
+    document.addEventListener("keydown", (event) => {
+      if (event.target.matches("textarea, input")) return;
+      const chosen = { "1": "是人员", "2": "不是人员", "3": "看不清" }[event.key];
+      if (chosen) save(chosen);
+    });
+    fetch("/api/queue", { cache: "no-store" }).then((response) => response.json()).then(render).catch(() => {
       count.textContent = "队列没有读到。请从本目录启动 label_server.py 后再打开。";
     });
   </script>
