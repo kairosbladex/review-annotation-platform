@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
   "project": "review-annotation-platform",
-  "source_branch": "docs/luna-business-test-release",
-  "source_head": "231d1d5d507f41087635c304c0a63f01256329d1",
-  "source_commit_time": "2026-10-12T14:46:42+08:00",
-  "generated_at": "2026-10-13T11:52:51.592726+08:00",
+  "source_branch": "feature/luna-person-view-candidate",
+  "source_head": "5b3248bbd41bdc183739a010a419603457640190",
+  "source_commit_time": "2026-10-13T12:05:45+08:00",
+  "generated_at": "2026-10-13T12:51:27.505471+08:00",
   "snapshot_kind": "committed-source-with-redactions",
   "uncommitted_changes_included": false,
-  "source_was_dirty_at_export": true,
+  "source_was_dirty_at_export": false,
   "source_status_unchanged_during_export": true,
   "snapshot_branch": "chore/source-review-snapshot",
   "source_history_included": false,
-  "source_text_files": 255,
-  "unchanged_source_blobs_verified": 233,
+  "source_text_files": 261,
+  "unchanged_source_blobs_verified": 239,
   "redacted_files": {
     ".env.example": [
       "扫描器检测到的凭据字面值"
@@ -8644,11 +8644,35 @@
     "tool": "gitleaks",
     "version": "8.30.1",
     "additional_named_credential_rules": true,
+    "scope": "Seven changed committed Python files and this manifest; unchanged files reuse the previous sanitized snapshot.",
     "remaining_findings": 0
   },
   "limitations": [
     "仅用于源码阅读与规划，凭据、现场数据和媒体已排除，不能作为部署包",
     "不包含本机未提交或未跟踪内容；dirty 信息仅对应导出时刻",
     "文档中的历史验收结论不代表当前在线业务验收"
-  ]
+  ],
+  "incremental_export": {
+    "parent_snapshot": "af39c78d575609b5552c44c9571db59c73b19759",
+    "previous_source_head": "231d1d5d507f41087635c304c0a63f01256329d1",
+    "changed_files": [
+      "scripts/luna_prompt_autotune/luna_experiment_worker.py",
+      "scripts/luna_prompt_autotune/person_candidate.py",
+      "scripts/luna_prompt_autotune/person_experiment.py",
+      "scripts/luna_prompt_autotune/person_view.py",
+      "scripts/luna_prompt_autotune/run_person_view_eval.py",
+      "scripts/luna_prompt_autotune/test_person_view.py",
+      "scripts/luna_prompt_autotune/view_protocol.py"
+    ],
+    "unchanged_files_reused": true
+  },
+  "candidate_acceptance": {
+    "status": "not_passed",
+    "accuracy_improvement_verified": false,
+    "findings": [
+      "Incomplete input evidence can still pass the scoring gate.",
+      "The evaluation runner maps results by list order rather than target_index."
+    ],
+    "note": "Source reading and planning only. No business images, model outputs, credentials, company Git history or uncommitted files are included."
+  }
 }
