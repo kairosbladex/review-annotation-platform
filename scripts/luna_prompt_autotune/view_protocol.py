@@ -59,13 +59,15 @@ def _evidence_gaps(evidence):
     missing = [role for role in ('source', 'locator', 'crops') if role not in found]
     if missing:
         gaps.append('附件角色覆盖不足：' + '、'.join(missing))
-    if 'source' in found and _filled(evidence.get('source_sha256')) and found['source'] != evidence['source_sha256']:
-        gaps.append('source 附件与原图摘要不一致')
     return gaps
 
 
 def factor_errors(baseline, candidate, factor):
-    """原图、框、定位图必须相同。允许变化的只有本因素声明的附件或提示词。"""
+    """原图、框、定位图必须相同。允许变化的只有本因素声明的附件或提示词。
+
+    source_sha256 是收到的原始字节。附件 source 的 sha256 是重新编码后的 source.jpg。
+    两者可以不同；基线和候选分别比较原始来源，以及实际提交的 source、locator。
+    """
     if factor not in FACTORS:
         return ['未知实验因素']
     gaps = [f'基线{item}' for item in _evidence_gaps(baseline)]
