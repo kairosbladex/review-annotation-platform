@@ -1,14 +1,14 @@
 # 历史对比
 
-## 2026-10-14 结果文字改为一句结论（v9，已发布 8189）
+## 2026-10-14 结果文字改为整体结论（v9b，已发布 8189）
 
-AFMAP 右侧“对比结果”原来把同一屋面的四处模型描述全部拼进 `diff_summary`，出现四段近乎重复的长句。v9 在原有批次复核调用里同时要求 `conclusion`：一句不超过30字、概括 keep 行、沿用“历史图/当前图”称呼、无 keep 行为空字符串。`diff_summary` 改为 `检测到N处明显变化：<结论>`；模型未返回可用结论（缺失、空白或超80字）时回退为 `检测到N处符合任务的明显变化`。不增加模型调用，不改配准、轮廓、任务筛选、复核预算和 uncertain 语义；多批次各自有 keep 时按去重后的结论用“；”连接。
+AFMAP 右侧“对比结果”原来把同一屋面的四处模型描述全部拼进 `diff_summary`，出现四段近乎重复的长句。v9b 在原有批次复核调用里同时要求 `conclusion`：概括 keep 行共同反映的变化，用“历史图/当前图”分别说明两期可见状态，一至两句、不超过60字，不重复逐行罗列、不写事件推断、无 keep 行为空字符串。`diff_summary` 改为 `检测到N处明显变化：<结论>`；模型未返回可用结论（缺失、空白或超120字）时回退为 `检测到N处符合任务的明显变化`。不增加模型调用，不改配准、轮廓、任务筛选、复核预算和 uncertain 语义；多批次各自有 keep 时按去重后的结论用“；”连接。
 
 兼容层只在任务范围内（携带 task_description）使用该结论，未携带任务时的“。局部变化描述（N处）：……”维持原样；`semantic.summary` 仍在独立平台按原编号返回，未改动。
 
-定向回归：`test_history_compare.py`、`test_history_compare_scope.py`、`test_history_compare_legacy.py`、`test_imports.py` 共 34 项通过。真实模型契约核验（共享 Ollama 192.168.130.238:11434，qwen3.5:9b，合成图，无业务样本）：两行批次返回 2 条合法 decision 及 `conclusion`“历史图显示灰色光伏板，当前图显示蓝色光伏板”；全 ignore 批次返回空 `conclusion` 与“没有明显变化”。合成图不代表真实光伏样本效果。
+定向回归：`test_history_compare.py`、`test_history_compare_scope.py`、`test_history_compare_legacy.py`、`test_imports.py` 共 35 项通过，覆盖结论拼接、缺失/超长回退、全 ignore、多批次去重、两句话结论、兼容层单句。真实模型契约核验（共享 Ollama 192.168.130.238:11434，qwen3.5:9b，合成图，无业务样本）：两行批次返回 2 条合法 decision 及两句话 `conclusion`“历史图可见灰色光伏板区域；当前图可见深蓝色光伏板区域”（26字）；全 ignore 批次返回空 `conclusion` 与“没有明显变化”。合成图不代表真实光伏样本效果。
 
-2026-10-14 11:24:24（UTC+8）经用户授权发布到共享测试：仅把 8189 容器 `yoloe_service_test` 切到 `yoloe_service_test:history-compare-20261014-v9`（镜像ID `sha256:78a0f4257be2408751102adcd131f31cdf50320b7abd6460db58ac03a61a9b70`），基础镜像为当时在跑的 `luna-business-6755b1e`，只覆盖 `history_compare_runtime` 并删除其 `__pycache__`；`/app/api/vl_compare.py` 与 `history_compare.txt` 未变。切换前批次计数器全为0且无 :8189 连接，切换后 healthy、容器 env/挂载/端口/设备请求/内存与CPU限额与切换前快照一致、5 个运行文件 SHA256 与提交 `3f5ffab` 一致；容器内确定性核验输出“检测到1处明显变化：屋面大部分区域新增蓝色光伏板阵列”，真实 qwen3.5:9b 调用 10.3 秒返回同样格式（合成样本判为无明显变化）。`--no-deps`、未使用 `--remove-orphans`，8188 生产容器与其他服务未动，旧镜像保留。回退执行 `/data/workspace/jzheng/review-test-releases/history-compare-20261014-v9/switch.py rollback`；真实光伏样本仍需在测试页重新发起一次对比确认，旧记录不回写。
+同日前一版 v9（结论≤30字）曾在 11:24 发布并被 v9b 取代，镜像 `history-compare-20261014-v9` 保留可回切。v9b 于 11:32:55（UTC+8）发布：仅把 8189 容器 `yoloe_service_test` 切到 `yoloe_service_test:history-compare-20261014-v9b`（镜像ID `sha256:c43e5721c49a8c7afccebee904e7d289f77d4488d5cf58d9fd5f0b19163cf7d7`），基础镜像为 `luna-business-6755b1e`，只覆盖 `history_compare_runtime` 并删除其 `__pycache__`；`/app/api/vl_compare.py` 与 `history_compare.txt` 未变。切换前批次计数器全为0且无 :8189 连接，切换后 healthy、restart=0、容器 env/挂载/端口/设备请求/内存与CPU限额与切换前快照一致、5 个运行文件 SHA256 与提交 `67230af` 一致。首次校验在 90 秒窗口内报 unhealthy，实际是 SenseVoice 启动预热约40秒（03:33:28 起服务、03:34:13 完成）尚未监听，重新校验通过，未回滚。容器内确定性核验输出“检测到1处明显变化：对比照片屋面大部分区域为裸露混凝土；基准照片屋面大部分区域被新增的蓝色光伏板阵列覆盖”（42字）。`--no-deps`、未使用 `--remove-orphans`，8188 生产容器与其他服务未动。回退执行 `/data/workspace/jzheng/review-test-releases/history-compare-20261014-v9b/switch.py rollback`；真实光伏样本仍需在测试页重新发起一次对比确认，旧记录不回写。
 
 ## 2026-09-08 恢复详细结果文字（v8）
 
