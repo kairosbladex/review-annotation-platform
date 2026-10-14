@@ -94,50 +94,72 @@ def test_no_geometry_candidates_has_no_obvious_change():
     assert data['diff_summary'] == '没有明显变化'
 
 
-def test_kept_change_text_is_one_conclusion(monkeypatch):
+def group(kind, count, detail):
+    return {'type': kind, 'count': count, 'detail': detail}
+
+
+def test_kept_change_text_groups_by_kind(monkeypatch):
     mock_model(monkeypatch, [{'regions': rows(['keep', 'ignore']),
-                              'conclusion': '当前图屋面新增蓝色光伏板'}])
+                              'changes': [group('新增', 1, '当前图屋面中部可见蓝色光伏板')]}])
     data = result(2)
     review(data)
-    assert data['diff_summary'] == '检测到1处明显变化：当前图屋面新增蓝色光伏板'
+    assert data['diff_summary'] == '检测到1处明显变化：新增1处（当前图屋面中部可见蓝色光伏板）'
 
 
-def test_missing_conclusion_keeps_count_only_text(monkeypatch):
+def test_kinds_are_merged_in_fixed_order(monkeypatch):
+    mock_model(monkeypatch, [{'regions': rows(['keep'] * 3),
+                              'changes': [group('破损', 1, '当前图屋面右侧可见板面开裂'),
+                                          group('新增', 2, '当前图屋面中部可见蓝色光伏板')]}])
+    data = result(3)
+    review(data)
+    assert data['diff_summary'] == ('检测到3处明显变化：新增2处（当前图屋面中部可见蓝色光伏板）；'
+                                    '破损1处（当前图屋面右侧可见板面开裂）')
+
+
+def test_same_kind_across_batches_merges_into_one_clause(monkeypatch):
+    mock_model(monkeypatch, [
+        {'regions': rows(['keep'] * 8), 'changes': [group('新增', 8, '当前图屋面中部可见蓝色光伏板')]},
+        {'regions': rows(['keep']), 'changes': [group('新增', 1, '当前图屋面右侧可见蓝色光伏板')]},
+    ])
+    data = result(9)
+    outcome = review(data)
+    assert data['diff_summary'] == ('检测到9处明显变化：新增9处'
+                                    '（当前图屋面中部可见蓝色光伏板、当前图屋面右侧可见蓝色光伏板）')
+    assert len(data['polygons']) == 9 and outcome['region_count'] == 9
+
+
+def test_missing_changes_keeps_count_only_text(monkeypatch):
     mock_model(monkeypatch, [rows(['keep'])])
     data = result(1)
     review(data)
     assert data['diff_summary'] == '检测到1处符合任务的明显变化'
 
 
-def test_overlong_conclusion_is_not_used(monkeypatch):
-    mock_model(monkeypatch, [{'regions': rows(['keep']), 'conclusion': '长' * 121}])
+@pytest.mark.parametrize('groups', [
+    [],
+    [group('新增', 2, '当前图可见蓝色光伏板')],
+    [group('新增', 1, '长' * 61)],
+    [group('未知类型', 1, '当前图可见蓝色光伏板')],
+    [group('新增', True, '当前图可见蓝色光伏板')],
+    [group('新增', 1, '')],
+])
+def test_invalid_grouping_falls_back_to_count_only(monkeypatch, groups):
+    mock_model(monkeypatch, [{'regions': rows(['keep']), 'changes': groups}])
     data = result(1)
     review(data)
     assert data['diff_summary'] == '检测到1处符合任务的明显变化'
 
 
-def test_two_clause_conclusion_is_kept(monkeypatch):
-    conclusion = '对比照片：屋面大部分区域为裸露混凝土；基准照片：屋面大部分区域被新增的蓝色光伏板阵列覆盖'
-    mock_model(monkeypatch, [{'regions': rows(['keep']), 'conclusion': conclusion}])
-    data = result(1)
-    review(data)
-    assert len(conclusion) <= 60
-    assert data['diff_summary'] == f'检测到1处明显变化：{conclusion}'
-
-
-def test_conclusion_of_ignored_batch_is_not_used(monkeypatch):
-    mock_model(monkeypatch, [{'regions': rows(['ignore']), 'conclusion': '当前图新增光伏板'}])
+def test_ignored_batch_never_reports_kinds(monkeypatch):
+    mock_model(monkeypatch, [{'regions': rows(['ignore']), 'changes': []}])
     data = result(1)
     review(data)
     assert data['diff_summary'] == '没有明显变化'
 
 
-def test_batches_join_distinct_conclusions(monkeypatch):
-    mock_model(monkeypatch, [
-        {'regions': rows(['keep'] * 8), 'conclusion': '当前图新增光伏板'},
-        {'regions': rows(['keep']), 'conclusion': '当前图新增光伏板'},
-    ])
-    data = result(9)
-    outcome = review(data)
-    assert data['diff_summary'] == '检测到9处明显变化：当前图新增光伏板'
-    assert len(data['polygons']) == 9 and outcome['region_count'] == 9
+def test_non_empty_groups_without_kept_rows_are_ignored(monkeypatch):
+    mock_model(monkeypatch, [{'regions': rows(['ignore']),
+                              'changes': [group('新增', 1, '当前图可见蓝色光伏板')]}])
+    data = result(1)
+    review(data)
+    assert data['diff_summary'] == '没有明显变化'

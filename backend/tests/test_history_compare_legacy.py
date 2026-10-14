@@ -40,7 +40,7 @@ def test_adapter_uses_current_pixels_and_correct_semantic_direction(monkeypatch,
         assert '当前' not in result['diff_summary'] and '历史' not in result['diff_summary']
 
 
-def test_task_scoped_result_keeps_single_conclusion(monkeypatch):
+def test_task_scoped_result_is_not_extended_with_region_list(monkeypatch):
     rng = np.random.default_rng(52)
     history = cv2.GaussianBlur(rng.integers(40, 210, (480, 640, 3), dtype=np.uint8), (5, 5), 0)
     current = cv2.warpAffine(history, np.float32([[1, 0, 8], [0, 1, 5]]), (640, 480))

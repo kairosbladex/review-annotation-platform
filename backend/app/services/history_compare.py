@@ -14,7 +14,29 @@ from PIL import Image, ImageDraw, ImageOps, UnidentifiedImageError
 MAX_IMAGE_BYTES = 20 * 1024 * 1024
 MAX_PIXELS = 25_000_000
 MAX_SIDE = 1600
+# Change kinds the task-scoped review groups kept regions by; order controls the summary wording.
+CHANGE_TYPES = ('新增', '破损', '缺失', '遮挡', '布局改变', '其他')
 logger = logging.getLogger(__name__)
+
+
+def parse_change_groups(payload: dict, kept_count: int) -> list[dict] | None:
+    """Validate the model's per-kind grouping of kept regions; None means unusable."""
+    groups = payload.get('changes')
+    if not isinstance(groups, list) or (kept_count and not groups) or (not kept_count and groups):
+        return None
+    parsed = []
+    for group in groups:
+        if not isinstance(group, dict):
+            return None
+        kind, number, detail = group.get('type'), group.get('count'), group.get('detail')
+        if kind not in CHANGE_TYPES or type(number) is not int or number < 1:
+            return None
+        if not isinstance(detail, str) or not detail.strip() or len(detail.strip()) > 60:
+            return None
+        parsed.append({'type': kind, 'count': number, 'detail': detail.strip().rstrip('。；;')})
+    if sum(group['count'] for group in parsed) != kept_count:
+        return None
+    return parsed
 
 
 def decode_image(data: bytes) -> np.ndarray:
@@ -171,16 +193,11 @@ def describe_changes(result: dict, *, base_url: str, model: str, timeout: float,
                         raise ValueError('invalid region summary')
                     decisions[identifier] = region
                 kept = [i for i in range(1, count + 1) if decisions[i]['decision'] == 'keep']
-                conclusion = parsed.get('conclusion')
-                if not isinstance(conclusion, str) or len(conclusion.strip()) > 120:
-                    conclusion = ''
-                else:
-                    conclusion = conclusion.strip().rstrip('。；;')
                 return {'status': 'completed', 'summary': '；'.join(decisions[i]['summary'] for i in kept) or None,
                         'error': None, 'region_count': len(kept), 'kept_indices': [i - 1 for i in kept],
                         'region_summaries': [decisions[i]['summary'].strip().rstrip('。；;') for i in kept],
                         'uncertain_count': sum(r['decision'] == 'uncertain' for r in regions),
-                        'conclusion': conclusion}
+                        'change_groups': parse_change_groups(parsed, len(kept)) or []}
             summary = parsed.get('summary')
             if not isinstance(summary, str) or not summary.strip() or len(summary) > 1000:
                 raise ValueError('invalid summary')
@@ -198,7 +215,7 @@ def filter_task_changes(result: dict, *, base_url: str, model: str, timeout: flo
     candidates = result['polygons']
     retained = []
     summaries = []
-    conclusions = []
+    grouped = {}
     uncertain = 0
     deadline = time.monotonic() + timeout
     # Review every candidate in readable batches; an unfinished review is not "no change".
@@ -215,15 +232,19 @@ def filter_task_changes(result: dict, *, base_url: str, model: str, timeout: flo
             break
         retained.extend(batch['polygons'][i] for i in review['kept_indices'])
         summaries.extend(review['region_summaries'])
-        if review['conclusion'] and review['kept_indices']:
-            conclusions.append(review['conclusion'])
+        for group in review['change_groups']:
+            slot = grouped.setdefault(group['type'], {'count': 0, 'details': []})
+            slot['count'] += group['count']
+            if group['detail'] not in slot['details']:
+                slot['details'].append(group['detail'])
         uncertain += review['uncertain_count']
     error = f'{uncertain}处候选区域未能确认，需人工复核' if uncertain else None
-    # One short conclusion replaces the repeated per-region wording; the numbered list stays in summary.
-    conclusion = '；'.join(dict.fromkeys(conclusions))
+    # Same-kind changes merge into one clause; the numbered per-region list stays in summary.
+    brief = '；'.join(f'{kind}{grouped[kind]["count"]}处（{"、".join(grouped[kind]["details"])}）'
+                      for kind in CHANGE_TYPES if kind in grouped)
     result.update(polygons=retained, change_count=len(retained),
                   status='not_found' if uncertain and not retained else 'matched',
-                  diff_summary=(f'检测到{len(retained)}处明显变化：{conclusion}' if retained and conclusion else
+                  diff_summary=(f'检测到{len(retained)}处明显变化：{brief}' if retained and brief else
                                 f'检测到{len(retained)}处符合任务的明显变化' if retained else
                                 '未能确认目标变化，请人工复核' if uncertain else '没有明显变化'))
     return {'summary': '；'.join(f'{i}. {text}' for i, text in enumerate(summaries, 1)) or None,
