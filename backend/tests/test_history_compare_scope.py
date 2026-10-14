@@ -110,10 +110,19 @@ def test_missing_conclusion_keeps_count_only_text(monkeypatch):
 
 
 def test_overlong_conclusion_is_not_used(monkeypatch):
-    mock_model(monkeypatch, [{'regions': rows(['keep']), 'conclusion': '长' * 81}])
+    mock_model(monkeypatch, [{'regions': rows(['keep']), 'conclusion': '长' * 121}])
     data = result(1)
     review(data)
     assert data['diff_summary'] == '检测到1处符合任务的明显变化'
+
+
+def test_two_clause_conclusion_is_kept(monkeypatch):
+    conclusion = '对比照片：屋面大部分区域为裸露混凝土；基准照片：屋面大部分区域被新增的蓝色光伏板阵列覆盖'
+    mock_model(monkeypatch, [{'regions': rows(['keep']), 'conclusion': conclusion}])
+    data = result(1)
+    review(data)
+    assert len(conclusion) <= 60
+    assert data['diff_summary'] == f'检测到1处明显变化：{conclusion}'
 
 
 def test_conclusion_of_ignored_batch_is_not_used(monkeypatch):

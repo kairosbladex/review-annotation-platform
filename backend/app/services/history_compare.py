@@ -172,7 +172,7 @@ def describe_changes(result: dict, *, base_url: str, model: str, timeout: float,
                     decisions[identifier] = region
                 kept = [i for i in range(1, count + 1) if decisions[i]['decision'] == 'keep']
                 conclusion = parsed.get('conclusion')
-                if not isinstance(conclusion, str) or len(conclusion.strip()) > 80:
+                if not isinstance(conclusion, str) or len(conclusion.strip()) > 120:
                     conclusion = ''
                 else:
                     conclusion = conclusion.strip().rstrip('。；;')
