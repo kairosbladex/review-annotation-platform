@@ -171,10 +171,16 @@ def describe_changes(result: dict, *, base_url: str, model: str, timeout: float,
                         raise ValueError('invalid region summary')
                     decisions[identifier] = region
                 kept = [i for i in range(1, count + 1) if decisions[i]['decision'] == 'keep']
+                conclusion = parsed.get('conclusion')
+                if not isinstance(conclusion, str) or len(conclusion.strip()) > 80:
+                    conclusion = ''
+                else:
+                    conclusion = conclusion.strip().rstrip('。；;')
                 return {'status': 'completed', 'summary': '；'.join(decisions[i]['summary'] for i in kept) or None,
                         'error': None, 'region_count': len(kept), 'kept_indices': [i - 1 for i in kept],
                         'region_summaries': [decisions[i]['summary'].strip().rstrip('。；;') for i in kept],
-                        'uncertain_count': sum(r['decision'] == 'uncertain' for r in regions)}
+                        'uncertain_count': sum(r['decision'] == 'uncertain' for r in regions),
+                        'conclusion': conclusion}
             summary = parsed.get('summary')
             if not isinstance(summary, str) or not summary.strip() or len(summary) > 1000:
                 raise ValueError('invalid summary')
@@ -192,6 +198,7 @@ def filter_task_changes(result: dict, *, base_url: str, model: str, timeout: flo
     candidates = result['polygons']
     retained = []
     summaries = []
+    conclusions = []
     uncertain = 0
     deadline = time.monotonic() + timeout
     # Review every candidate in readable batches; an unfinished review is not "no change".
@@ -208,11 +215,16 @@ def filter_task_changes(result: dict, *, base_url: str, model: str, timeout: flo
             break
         retained.extend(batch['polygons'][i] for i in review['kept_indices'])
         summaries.extend(review['region_summaries'])
+        if review['conclusion'] and review['kept_indices']:
+            conclusions.append(review['conclusion'])
         uncertain += review['uncertain_count']
     error = f'{uncertain}处候选区域未能确认，需人工复核' if uncertain else None
+    # One short conclusion replaces the repeated per-region wording; the numbered list stays in summary.
+    conclusion = '；'.join(dict.fromkeys(conclusions))
     result.update(polygons=retained, change_count=len(retained),
                   status='not_found' if uncertain and not retained else 'matched',
-                  diff_summary=(f'检测到{len(retained)}处符合任务的明显变化' if retained else
+                  diff_summary=(f'检测到{len(retained)}处明显变化：{conclusion}' if retained and conclusion else
+                                f'检测到{len(retained)}处符合任务的明显变化' if retained else
                                 '未能确认目标变化，请人工复核' if uncertain else '没有明显变化'))
     return {'summary': '；'.join(f'{i}. {text}' for i, text in enumerate(summaries, 1)) or None,
             'error': error, 'region_count': len(retained)}

@@ -20,8 +20,9 @@ def mock_model(monkeypatch, batches):
         reply = batches.pop(0)
         if isinstance(reply, Exception):
             raise reply
+        payload = reply if isinstance(reply, dict) else {'regions': reply}
         return httpx.Response(200, request=httpx.Request('POST', url),
-                              json={'message': {'content': json.dumps({'regions': reply})}})
+                              json={'message': {'content': json.dumps(payload)}})
     monkeypatch.setattr(httpx.Client, 'post', post)
     return calls
 
@@ -91,3 +92,43 @@ def test_no_geometry_candidates_has_no_obvious_change():
     data = result(0)
     review(data)
     assert data['diff_summary'] == '没有明显变化'
+
+
+def test_kept_change_text_is_one_conclusion(monkeypatch):
+    mock_model(monkeypatch, [{'regions': rows(['keep', 'ignore']),
+                              'conclusion': '当前图屋面新增蓝色光伏板'}])
+    data = result(2)
+    review(data)
+    assert data['diff_summary'] == '检测到1处明显变化：当前图屋面新增蓝色光伏板'
+
+
+def test_missing_conclusion_keeps_count_only_text(monkeypatch):
+    mock_model(monkeypatch, [rows(['keep'])])
+    data = result(1)
+    review(data)
+    assert data['diff_summary'] == '检测到1处符合任务的明显变化'
+
+
+def test_overlong_conclusion_is_not_used(monkeypatch):
+    mock_model(monkeypatch, [{'regions': rows(['keep']), 'conclusion': '长' * 81}])
+    data = result(1)
+    review(data)
+    assert data['diff_summary'] == '检测到1处符合任务的明显变化'
+
+
+def test_conclusion_of_ignored_batch_is_not_used(monkeypatch):
+    mock_model(monkeypatch, [{'regions': rows(['ignore']), 'conclusion': '当前图新增光伏板'}])
+    data = result(1)
+    review(data)
+    assert data['diff_summary'] == '没有明显变化'
+
+
+def test_batches_join_distinct_conclusions(monkeypatch):
+    mock_model(monkeypatch, [
+        {'regions': rows(['keep'] * 8), 'conclusion': '当前图新增光伏板'},
+        {'regions': rows(['keep']), 'conclusion': '当前图新增光伏板'},
+    ])
+    data = result(9)
+    outcome = review(data)
+    assert data['diff_summary'] == '检测到9处明显变化：当前图新增光伏板'
+    assert len(data['polygons']) == 9 and outcome['region_count'] == 9

@@ -40,6 +40,28 @@ def test_adapter_uses_current_pixels_and_correct_semantic_direction(monkeypatch,
         assert '当前' not in result['diff_summary'] and '历史' not in result['diff_summary']
 
 
+def test_task_scoped_result_keeps_single_conclusion(monkeypatch):
+    rng = np.random.default_rng(52)
+    history = cv2.GaussianBlur(rng.integers(40, 210, (480, 640, 3), dtype=np.uint8), (5, 5), 0)
+    current = cv2.warpAffine(history, np.float32([[1, 0, 8], [0, 1, 5]]), (640, 480))
+    current[110:180, 160:250] = 0
+
+    def filter_task(result, **kwargs):
+        assert kwargs['task_description'] == '对比一下光伏板的变化'
+        result.update(polygons=result['polygons'][:1], change_count=1, status='matched',
+                      diff_summary='检测到1处明显变化：当前图屋面新增蓝色光伏板')
+        return {'summary': '1. 历史图：裸露混凝土；当前图：新增蓝色光伏板',
+                'error': None, 'region_count': 1}
+
+    monkeypatch.setattr('app.services.history_compare_legacy.filter_task_changes', filter_task)
+    result = compare_legacy_pair(Image.fromarray(current), Image.fromarray(history),
+                                 one_to_many=False, baseline_is_current=True,
+                                 base_url='http://model.invalid', model='test', timeout=1,
+                                 task_description='对比一下光伏板的变化')
+    assert result['diff_summary'] == '检测到1处明显变化：基准照片屋面新增蓝色光伏板'
+    assert '局部变化描述' not in result['diff_summary'] and len(result['polygons']) == 1
+
+
 def test_overlay_refuses_unknown_source_and_keeps_legacy_branch():
     path = Path(__file__).resolve().parents[2] / 'scripts/prepare_history_overlay.py'
     spec = importlib.util.spec_from_file_location('history_overlay', path)

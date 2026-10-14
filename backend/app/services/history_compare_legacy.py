@@ -34,7 +34,8 @@ def compare_legacy_pair(first: Image.Image, second: Image.Image, *, one_to_many:
                                         task_description=task_description) if task_description else
                     describe_changes(result, base_url=base_url, model=model, timeout=timeout))
         summary = result['diff_summary']
-        if semantic['summary']:
+        # Task-scoped results already carry one short conclusion; unscoped descriptions stay unchanged.
+        if semantic['summary'] and not task_description:
             summary += f"。局部变化描述（{semantic['region_count']}处）：{semantic['summary']}"
         if semantic['error']:
             summary += f"。{semantic['error']}"
