@@ -1,0 +1,89 @@
+{
+  "schema": "history_ui_geometry_diagnosis_v1",
+  "date": "2026-10-16",
+  "scope": "Read-only page acceptance and frozen two-pair geometry diagnosis; no semantic accuracy claim",
+  "frontend_candidate": {
+    "branch": "bugfix/history-compare-shortcuts",
+    "commit": "a7670d96bc73aa9f84fbb55a86b5457d4f341d44",
+    "baseline": "cached origin/master@35574cba46d498e0992de05504756bccf7014ade",
+    "red": {"total": 9, "failed": 4, "passed": 5},
+    "green": {"total": 9, "failed": 0, "passed": 9},
+    "independent_parent_replay": {"total": 9, "failed": 0, "passed": 9},
+    "deployed": false,
+    "blocker": "Existing GitLab identity is denied repository download; current mainline cannot be verified",
+    "live_component_sha256": "13ef2e0116ddfc69dfb548893087cec51c2be7f88bee4b19b2c36299b3cbd4fe",
+    "live_unguarded_shortcut_independently_verified": true
+  },
+  "live_page": {
+    "completed_records_total": 49,
+    "record_list_rows_read": 10,
+    "records_opened": 1,
+    "baseline_images": 1,
+    "historical_images": 44,
+    "pairs_visually_checked": 2,
+    "history_switch": "verified",
+    "split_and_roll_views": "verified",
+    "final_broken_images": 0,
+    "final_pending_images": 0,
+    "media_http_errors": 0,
+    "axios_errors_with_blocked_background_requests": 3,
+    "whole_page_error_free_acceptance": false,
+    "baseline_switch": "missing_sample",
+    "save_and_reopen": "not_executed",
+    "historical_record_date": "2026-10-09",
+    "historical_algorithm_version": "not_returned",
+    "historical_not_found": {"count": 44, "denominator": 44},
+    "historical_unable_to_align_text": {"count": 42, "denominator": 44}
+  },
+  "frozen_geometry": {
+    "image_id": "sha256:dac104a6a8935905cfa3bbae6ed2d5114e0ed9f3bde7f90e5442361bce220ed1",
+    "runtime_source_sha256": "ab7593d2a24f3a2177d0cbff284a65e12199251a78a29895c1c6aa0e0807f680",
+    "function_sha256": "6e7c31044205fba5ea887e710bceb6ffe584b93fbd4d8aab47f8964ec06c8122",
+    "original_images": 3,
+    "shape": [4032, 3024],
+    "reencoded": false,
+    "unique_pairs": 2,
+    "primary_direction": "history to current in Python one-to-many API",
+    "java_upstream_mapping_verified": false,
+    "conditions": [
+      {"feature": "ORB", "max_features": 5000, "accepted": 0, "denominator": 2, "good_matches": [5, 26], "raw_inliers": [null, 10]},
+      {"feature": "SIFT", "max_features": 5000, "accepted": 0, "denominator": 2, "good_matches": [13, 26], "raw_inliers": [null, 11]},
+      {"feature": "SIFT", "max_features": 10000, "accepted": 0, "denominator": 2, "good_matches": [27, 79], "raw_inliers": [4, 35]}
+    ],
+    "orb_reverse_diagnostic": {"not_found": 2, "denominator": 2},
+    "all_original_thresholds_preserved": true,
+    "sift_10000_second_pair": {
+      "eroded_overlap": 0.69795,
+      "minimum_overlap": 0.7,
+      "holdout_correspondences": 13,
+      "holdout_within_2_5_px": 3,
+      "holdout_median_error_px": 25.68,
+      "holdout_p95_error_px": 862.32,
+      "error_unit": "resized target-image pixels",
+      "independent_geometric_truth": false
+    },
+    "sift_5000_holdout": "not_evaluable: insufficient unique training or held-out correspondences for both pairs",
+    "sift_10000_first_pair_holdout": "not_evaluable: insufficient correspondences",
+    "appearance_gate_executed_for_sift_pairs": false,
+    "startup_failures_before_geometry": 3,
+    "startup_failures_in_pair_denominator": 0,
+    "diagnostic_result_file_sha256": {
+      "orb": "a5e9946fca2b629d9ca6591350351fdbcc35683ad45beeb0ed70ce832c05db1a",
+      "sift_5000": "7d2eaa921f67d76a4a0969f130a3f3172174477848da2f07efc30a7de2ea58db",
+      "sift_10000": "26ecd902ec19269cbbd43c60ea5eda6f6fff8c42840ebce475dcaa618475582c"
+    },
+    "provenance_limit": "The SIFT5000 diagnostic file includes later review annotations named unique_coordinate_matches and unique_coordinate_inliers*. These are not raw worker output and are not used to claim independent physical inliers or acceptance. Posterior full_geometry gate displays do not replace the runtime rejection or prove later appearance gates ran."
+  },
+  "side_effects": {
+    "business_writes": 0,
+    "model_calls": 0,
+    "network_attempts_from_offline_workers": 0,
+    "shared_geometry_changed": false,
+    "shared_service_restarted": false,
+    "temporary_containers_remaining": 0,
+    "browser_sessions_remaining": 0,
+    "credentials_or_source_urls_persisted": false,
+    "original_images_in_git": false
+  },
+  "decision": "Keep the deployed geometry algorithm. Neither SIFT diagnostic is a releasable improvement. Frontend candidates remain local pending GitLab access."
+}
