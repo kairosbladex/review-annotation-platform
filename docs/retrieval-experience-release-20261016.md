@@ -63,7 +63,7 @@
 
 - AFMAP 智能检索真实历史失败/取消记录均被页面显示为“暂无检索记录”；进度 GET 中断一次后，7.5 秒内没有恢复查询。隔离前端候选已用真实组件浏览器 TDD 修复，9/9 通过，构建通过：独立显示状态，网络/格式错误最多自动重试三次，之后仅提供重新读取；切任务和离页拒绝旧响应。未创建或重启业务任务。
 - 前端公司仓库 fresh fetch 被 GitLab 拒绝读取，SSH 身份确认为现有 `wangxiaolin`；未切换他人身份。当前只能核对缓存 `master@35574cba`。候选为 `bugfix/retrieval-progress-states@a41aee6b88a2be1f345a59444322bf9f7497ae27`，主 Agent 独立复跑真实组件浏览器用例 9/9。`build:test` 通过；组件原有 ESLint 7 错/13 警告与基线一致，本轮未新增。另删除构建配置的全量环境打印，不改环境值。
-- 当前 8189 历史对比对损坏图片返回 500，原因是 Ultralytics 包装的 Pillow 解码器尝试加载缺失的 `pi_heif`。最小两函数修复的同镜像隔离回归 33/33 通过，无效 base64/HTTP/local 图片改为 422，其他依赖故障不冒充输入错误。计算、v9c 摘要和非目标函数保持一致。详见[实际运行版回归](evidence/live-review-history-regression-20261016/README.md)。
+- 发布前，8189 历史对比对损坏图片返回 500，原因是 Ultralytics 包装的 Pillow 解码器尝试加载缺失的 `pi_heif`。最小两函数修复的同镜像隔离回归 33/33 通过，无效 base64/HTTP/local 图片改为 422；发布后也已实测坏图片返回 422，其他依赖故障不冒充输入错误。计算、v9c 摘要和非目标函数保持一致。详见[实际运行版回归](evidence/live-review-history-regression-20261016/README.md)。
 - 标注仓库原有历史对比/策略测试 46/46 通过，但该旧仓库结果不替代运行镜像 v9c 的 HTTP 验收。
 
 完整标注后端测试最终 159 通过、1 跳过、0 失败。唯一跳过项要求独立 PostgreSQL 的 `TEST_POSTGRES_URL`，本轮未连接共享 PG。另补齐旧合成审计夹具缺失的 `source_object_key`；原基线同样 2 项失败，补齐后定向 3/3，未放宽生产校验或改真实标签。
