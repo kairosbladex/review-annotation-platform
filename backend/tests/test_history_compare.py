@@ -2,7 +2,7 @@ import io
 
 import numpy as np
 import pytest
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 
 from app.services.history_compare import compare_geometry, decode_image
 
@@ -69,6 +69,36 @@ def test_invalid_image_rejected():
         decode_image(b'not an image')
 
 
+def test_optional_heif_fallback_for_unreadable_image_is_input_error(monkeypatch):
+    def optional_decoder(*args, **kwargs):
+        try:
+            raise UnidentifiedImageError('synthetic unreadable image')
+        except UnidentifiedImageError:
+            raise ModuleNotFoundError('optional decoder unavailable', name='pi_heif')
+
+    monkeypatch.setattr(Image, 'open', optional_decoder)
+    with pytest.raises(ValueError, match='无法读取图片'):
+        decode_image(b'not an image')
+
+
+@pytest.mark.parametrize('module_name,unidentified_context', [
+    ('pi_heif', False), ('unrelated_runtime_dependency', True),
+])
+def test_decoder_dependency_failures_are_not_misclassified_as_input(monkeypatch, module_name, unidentified_context):
+    def broken_decoder(*args, **kwargs):
+        if unidentified_context:
+            try:
+                raise UnidentifiedImageError('synthetic unreadable image')
+            except UnidentifiedImageError:
+                raise ModuleNotFoundError('dependency unavailable', name=module_name)
+        raise ModuleNotFoundError('dependency unavailable', name=module_name)
+
+    monkeypatch.setattr(Image, 'open', broken_decoder)
+    with pytest.raises(ModuleNotFoundError) as error:
+        decode_image(b'synthetic input')
+    assert error.value.name == module_name
+
+
 def test_decoder_loads_rgb():
     buf = io.BytesIO()
     Image.new('L', (64, 48), 120).save(buf, format='PNG')
@@ -81,12 +111,12 @@ def test_api_requires_login_and_validates_uploads(tmp_path):
     from app.main import create_app
 
     settings = Settings(database_url=f'sqlite:///{tmp_path / "compare.sqlite3"}',
-                        admin_password='REDACTED_FOR_GITHUB', jwt_secret='REDACTED_FOR_GITHUB',
+                        admin_password='REDACTED', jwt_secret='REDACTED',
                         minio_auto_create_bucket=False)
     app = create_app(settings, object_store=object())
     with TestClient(app) as client:
         assert client.post('/api/v1/history-compare').status_code == 401
-        token = client.post('/api/v1/auth/login', json={'username': 'admin', 'password': 'REDACTED_FOR_GITHUB'}).json()['access_token']
+        token = client.post('/api/v1/auth/login', json={'username': 'admin', 'password': 'REDACTED'}).json()['access_token']
         headers = {'Authorization': f'Bearer {token}'}
         buf = io.BytesIO()
         Image.fromarray(scene()).save(buf, format='PNG')

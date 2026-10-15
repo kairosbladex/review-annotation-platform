@@ -35,15 +35,6 @@ SCHEMA = {'type': 'object', 'properties': {'results': {'type': 'array', 'items':
     'required': ['target_index', 'decision', 'observed_object', 'reasoning', 'image_limitation'], 'additionalProperties': False}}},
     'required': ['results'], 'additionalProperties': False}
 
-def _model_config(schema_text):
-    """与实际写入的输出约束同一份字节。放在证据旁边，不塞进严格校验的 v1 证据。"""
-    return {
-        'requested_model': MODEL,
-        'reasoning_effort': 'none',
-        'decision_policy': 'three_state',
-        'schema_sha256': input_evidence.digest(schema_text.encode('utf-8')),
-    }
-
 def terminate(proc):
     try: os.killpg(proc.pid, signal.SIGTERM)
     except ProcessLookupError: pass
@@ -56,8 +47,6 @@ def terminate(proc):
         if pipe: pipe.close()
 
 def execute(payload):
-    if isinstance(payload, dict) and payload.get('view_mode', 'legacy') != 'legacy':
-        return execute_view_experiment(payload)
     candidates = payload['candidates']
     if not isinstance(candidates, list) or not 1 <= len(candidates) <= 128:
         raise ValueError('invalid candidates')
@@ -88,8 +77,7 @@ def execute(payload):
                           'pixel_box': [round(v) for v in box], 'thumbnail_size': list(crop.size),
                           'paste_xy': [(i % 5) * 256, (i // 5) * 280 + 24]})
         sheet.save(root/'crops.jpg', quality=95)
-        schema_text = json.dumps(SCHEMA)
-        schema = root/'schema.json';schema.write_text(schema_text)
+        schema = root/'schema.json';schema.write_text(json.dumps(SCHEMA))
         binary = os.environ['CODEX_REVIEW_BINARY'];home = Path(os.environ.get('CODEX_REVIEW_HOME', '/home/user/.codex'))
         secret = json.loads((home/'auth.json').read_text())['OPENAI_API_KEY']
         env = dict(os.environ, CODEX_HOME=str(home), CODEX_REVIEW_UPSTREAM_KEY=secret, CUDA_VISIBLE_DEVICES='')
@@ -139,82 +127,9 @@ def execute(payload):
             evidence = input_evidence.bind_result(evidence, items)
             input_evidence.validate(evidence, request=input_evidence.request_identity(source_sha256, candidates, prompt),
                 candidates=candidates, execution_id=execution_id, model=MODEL, decisions=items, allow_unverified_clean=True)
-            return dict(result, execution_id=execution_id, requested_model=MODEL, input_evidence=evidence,
-                        model_config=_model_config(schema_text))
+            return dict(result, execution_id=execution_id, requested_model=MODEL, input_evidence=evidence)
         finally:
             with LOCK: PROCESSES.discard(proc)
-
-def execute_view_experiment(payload):
-    """候选视图或参考图。失败仍是执行失败，不返回 false。裁剪只来自请求截图。"""
-    import person_experiment
-    candidates = payload['candidates']
-    if not isinstance(candidates, list) or not 1 <= len(candidates) <= 128:
-        raise ValueError('invalid candidates')
-    for i, c in enumerate(candidates):
-        b = c['bbox']
-        if type(c['target_index']) is not int or c['target_index'] != i or not isinstance(c['class_name'], str) or not c['class_name'].strip() or len(b) != 4 or not (0 <= b[0] < b[2] <= 1 and 0 <= b[1] < b[3] <= 1):
-            raise ValueError('invalid candidate')
-    with tempfile.TemporaryDirectory(prefix='codex-luna-', dir=os.environ.get('CODEX_REVIEW_TMP_DIR')) as directory:
-        root = Path(directory)
-        attachments, evidence = person_experiment.prepare(root, payload)
-        schema_text = json.dumps(SCHEMA)
-        schema = root / 'schema.json'
-        schema.write_text(schema_text)
-        binary = os.environ['CODEX_REVIEW_BINARY']
-        home = Path(os.environ.get('CODEX_REVIEW_HOME', '/home/user/.codex'))
-        secret = json.loads((home / 'auth.json').read_text())['OPENAI_API_KEY']
-        env = dict(os.environ, CODEX_HOME=str(home), CODEX_REVIEW_UPSTREAM_KEY=secret, CUDA_VISIBLE_DEVICES='')
-        cmd = [binary, 'exec', '--ignore-user-config', '--ignore-rules', '--ephemeral', '--json', '--skip-git-repo-check', '-C', str(root), '-s', 'read-only', '-m', MODEL,
-               '-c', 'model_provider="review"', '-c', 'model_providers.review.name="Review"',
-               '-c', 'model_providers.review.base_url="https://sub.butterfly2sea.us"',
-               '-c', 'model_providers.review.wire_api="responses"', '-c', 'model_providers.review.env_key="CODEX_REVIEW_UPSTREAM_KEY"',
-               '-c', 'model_providers.review.requires_openai_auth=false', '-c', 'model_providers.review.request_max_retries=0', '-c', 'model_providers.review.stream_max_retries=0',
-               '-c', 'model_reasoning_effort="none"', '-c', 'web_search="disabled"', '--disable', 'shell_tool', '--disable', 'multi_agent', '--disable', 'fast_mode',
-               '--output-schema', str(schema)]
-        for _, path in attachments:
-            cmd += ['-i', str(path)]
-        cmd += ['-']
-        prompt = payload['prompt']
-        execution_id = uuid.uuid4().hex
-        proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding='utf-8', env=env, start_new_session=True)
-        with LOCK:
-            PROCESSES.add(proc)
-        try:
-            try:
-                stdout, _ = proc.communicate(prompt, timeout=215)
-            except subprocess.TimeoutExpired:
-                terminate(proc)
-                raise RuntimeError('CLI timed out')
-            if proc.returncode:
-                raise RuntimeError('CLI failed')
-            messages = []
-            for line in stdout.splitlines():
-                try:
-                    event = json.loads(line)
-                except ValueError:
-                    continue
-                item = event.get('item', {})
-                if item.get('type') in {'command_execution', 'web_search', 'mcp_tool_call', 'file_change'}:
-                    raise RuntimeError('unexpected tool')
-                if event.get('type') == 'item.completed' and item.get('type') == 'agent_message':
-                    messages.append(item['text'])
-            result = json.loads(messages[-1])
-            items = result['results']
-            if len(items) != len(candidates) or any(type(x.get('target_index')) is not int for x in items) or {x['target_index'] for x in items} != set(range(len(candidates))):
-                raise RuntimeError('target mapping mismatch')
-            if any(x.get('decision') not in {'true', 'false', 'uncertain'} or not x.get('reasoning') for x in items):
-                raise RuntimeError('invalid decision')
-            if any(input_evidence.file_digest(path) != image['sha256'] for (_, path), image in zip(attachments, evidence['attachments'])):
-                raise RuntimeError('input attachment changed during execution')
-            evidence = dict(evidence, execution_id=execution_id, requested_model=MODEL)
-            evidence['decisions_sha256'] = input_evidence.decisions_digest(items)
-            sealed = dict(evidence, evidence_sha256=input_evidence.json_digest(evidence))
-            return dict(result, execution_id=execution_id, requested_model=MODEL, input_evidence=sealed,
-                        model_config=_model_config(schema_text))
-        finally:
-            with LOCK:
-                PROCESSES.discard(proc)
-
 
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, *args): pass

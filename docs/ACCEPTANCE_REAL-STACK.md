@@ -68,8 +68,8 @@ MinIO smoke：
 
 ```bash
 MINIO_ENDPOINT=127.0.0.1:9000 \
-MINIO_ACCESS_KEY=minioadmin \
-MINIO_SECRET_KEY=change-me-minio-secret \
+MINIO_ACCESS_KEY=REDACTED \
+MINIO_SECRET_KEY=REDACTED \
 MINIO_BUCKET=review-annotation \
 PYTHONPATH=backend python3 scripts/check_minio.py
 ```

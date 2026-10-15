@@ -337,7 +337,7 @@ def test_gpt_command_provider_can_use_responses_http_without_cli_plugin_sync(mon
     assert isinstance(result, ProviderResponse)
     assert result.payload == {"images": []}
     assert captured["url"] == "https://gateway.example/v1/responses"
-    assert captured["headers"] == {"Authorization": "Bearer secret", "Content-Type": "application/json"}
+    assert captured["headers"] == {"Authorization": 'REDACTED', "Content-Type": "application/json"}
     assert captured["json"]["model"] == "gpt-test"
 
 

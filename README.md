@@ -49,10 +49,10 @@ cp deploy/ktd-local.env.example .env.ktd.local
 # 填写源库密码；本地副本默认是 docker mysql:8.0 映射的 127.0.0.1:3307
 
 docker run -d --name review-ktd-mysql \
-  -e MYSQL_ROOT_PASSWORD=local-ktd-root \
+  -e MYSQL_ROOT_PASSWORD=REDACTED \
   -e MYSQL_DATABASE=ktd_lx \
   -e MYSQL_USER=ktd_local \
-  -e MYSQL_PASSWORD=ktd_local \
+  -e MYSQL_PASSWORD=REDACTED \
   -p 3307:3306 mysql:8.0
 
 PYTHONPATH=backend python3 scripts/sync_ktd_annex.py --env-file .env.ktd.local
@@ -138,7 +138,7 @@ curl -X POST http://localhost:8190/api/v1/auth/login \
 ```bash
 curl -X POST http://localhost:8190/api/v1/ingest/review-events \
   -H 'Content-Type: application/json' \
-  -H 'X-Service-Key: REDACTED_FOR_GITHUB' \
+  -H "X-Service-Key: ${SERVICE_API_KEY}" \
   -d '{
     "event_id": "review-event-001",
     "source_service": "yoloe-review-service",

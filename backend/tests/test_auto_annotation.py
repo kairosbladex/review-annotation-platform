@@ -102,7 +102,7 @@ def test_codex_responses_adapter_sends_one_image_request_and_parses_votes(monkey
     )
 
     assert captured["url"] == "https://codex.example/v1/responses"
-    assert captured["headers"] == {"Authorization": "Bearer secret", "Content-Type": "application/json"}
+    assert captured["headers"] == {"Authorization": 'REDACTED', "Content-Type": "application/json"}
     assert captured["json"]["model"] == "gpt-test"
     assert captured["json"]["reasoning"] == {"effort": "low"}
     assert captured["json"]["input"][0]["content"][1]["type"] == "input_image"
