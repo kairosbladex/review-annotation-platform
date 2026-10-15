@@ -42,7 +42,7 @@
 
 ## 复现
 
-本地 TDD 命令与结果见 `results.json`。容器中直接执行 `python3 /regression.py`，其中 `/regression.py` 为同目录 `run_live_regression.py` 的只读挂载。原镜像运行时不设置 `REGRESSION_CANDIDATE_HASHES`；候选验证把两个精确生成的运行文件挂到对应 `/app/...` 路径，并设置 `REGRESSION_CANDIDATE_HASHES=/candidate_hashes.json`。启动前会核对全部选定源文件摘要，摘要不同直接停止。
+本地 TDD 命令与结果见 `results.json`。容器设置 `PYTHONPATH=/app` 后执行 `python3 /regression.py`，其中 `/regression.py` 为同目录 `run_live_regression.py` 的只读挂载，合成测试文件与挂载目录须对容器用户可读。原镜像运行时不设置 `REGRESSION_CANDIDATE_HASHES`；候选验证把两个精确生成的运行文件挂到对应 `/app/...` 路径，并设置 `REGRESSION_CANDIDATE_HASHES=/candidate_hashes.json`。启动前会核对全部选定源文件摘要，摘要不同直接停止。
 
 主任务尚需把这里已经验证的两个函数并入统一发布包，并独立复核发布包摘要与最终共享版本。本子任务没有提交、推送、部署、重启共享服务或写业务数据。
 

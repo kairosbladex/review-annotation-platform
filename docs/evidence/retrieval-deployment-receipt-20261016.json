@@ -1,0 +1,42 @@
+{
+  "status": "deployed_and_verified",
+  "target": "yoloe_service_test",
+  "image": "sha256:dac104a6a8935905cfa3bbae6ed2d5114e0ed9f3bde7f90e5442361bce220ed1",
+  "container_id": "e2b673da59299676ede93fd69afc0c26ecf5142ec126ea1bd479e01aa9eade32",
+  "started_at_utc": "2026-10-15T17:55:23.884484408Z",
+  "verified_at_utc": "2026-10-15T17:58:59.373426+00:00",
+  "code_commit": "a407bf3513589ed43b604766e414f50566fd1cdf",
+  "review_commit": "f678967bd60a879803760bd3b320e21dbbd331e9",
+  "release_tool_commit": "8adac81798c55855f686ad24b6b9c50209430662",
+  "compose_layers": 25,
+  "environment_equal": true,
+  "binds_equal_ignoring_order": true,
+  "unchanged_running_containers": 66,
+  "source_hashes": {
+    "/app/api/retrieval_batch_state.py": "dfbd3fb7c058ec7a2a4368a5ba6cc0d4551d701a2a0fa54262f1e732f5c54ecb",
+    "/app/api/retrieval_batch_media.py": "cc848ce03ddbebdedafce2b575711c05282b65ae641cc94d3f10acfecea94327",
+    "/app/api/remote_media.py": "6e3bf892f8e305dfb45d693a1371401df1fc422f72a0be391621fa0342817d81",
+    "/app/api/retrieval_batch.py": "42875ab385d161a0f0e07f8f131ef4b19d5119fea36d257054263d8fe82bf3da",
+    "/app/config/models.py": "00fe260583719bcc961b51b61c8ad3e108dbaa8a0ce3368918f73d3472e0d652",
+    "/app/history_compare_runtime/services/history_compare.py": "ab7593d2a24f3a2177d0cbff284a65e12199251a78a29895c1c6aa0e0807f680",
+    "/app/api/vl_compare.py": "b167697b3b272c419a1e89fc88fb390a0af2467424c977891b81dbc0b8bcbf95",
+    "/app/PATCH_COMMIT": "89c955e7b82158022b41520051878878a37c45fddd0d582ae1a9f9473117c82f"
+  },
+  "unchanged_source_files": 16,
+  "health": {
+    "success": true,
+    "status": "ok",
+    "model_loaded": true
+  },
+  "health_seconds": [
+    0.004892557975836098,
+    0.0040109510300680995,
+    0.003595750022213906
+  ],
+  "active_jobs": 0,
+  "invalid_image_http_status": 422,
+  "model_calls_from_acceptance": 0,
+  "business_tasks_submitted": 0,
+  "failed_first_verification": "Docker bind order changed; exact binding contents and mounts were equal. Added red/green regression, sorted comparison, then verified without a second restart.",
+  "rollback": "python3 /data/workspace/jzheng/retrieval-latency-20261016.W22HSv/tooling/release_retrieval_latency.py rollback --release-dir /data/workspace/jzheng/retrieval-latency-20261016.W22HSv"
+}
