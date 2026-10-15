@@ -1,0 +1,133 @@
+{
+  "passed": true,
+  "contract_equal": true,
+  "execution_identity_verified": true,
+  "execution_identity_note": "GPU and image identity verified from recorded contract or supplied sidecars.",
+  "allowed_scheduling_parameters": {
+    "baseline": {
+      "prefetch_files": 4,
+      "prefetch_window_supported": false,
+      "BATCH_VIDEO_FFMPEG_SAMPLE_WORKERS": 4
+    },
+    "candidate": {
+      "prefetch_files": 4,
+      "prefetch_window_supported": true,
+      "BATCH_VIDEO_FFMPEG_SAMPLE_WORKERS": 4
+    }
+  },
+  "baseline_execution_metadata": {
+    "variant": "baseline",
+    "gpu_identity": "GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7",
+    "image_id": "sha256:a7fc3867056b89fe5aee410ad499e8243d05cb537d81c9cfd24ebbff0455698e",
+    "started_at": "2026-10-15T17:18:56.609003+00:00",
+    "settings": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONUNBUFFERED": "1",
+      "OMP_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "GPU_INFER_PARALLEL_SLOTS": "1",
+      "BATCH_INFER_FRAME_BATCH_SIZE": "1",
+      "BATCH_VIDEO_FRAME_QUEUE_SIZE": "24",
+      "BATCH_VIDEO_FFMPEG_SAMPLE_WORKERS": "4",
+      "BATCH_MEDIA_PREFETCH_FILES": "4",
+      "VIDEO_FFMPEG_HWACCEL": "cuda",
+      "YOLOE_MODEL_VERSION": "26",
+      "YOLOE_MODEL_SIZE": "l",
+      "YOLOE_MODEL_TYPE": "seg"
+    },
+    "container_name": "review-latency-baseline-full-v3",
+    "owner": "01a14079-1712-7cb1-874f-b1dc70c08bd4",
+    "timeout_seconds": 1800,
+    "runtime_source_sha256": {
+      "api/retrieval_batch_state.py": "aec1b825c8e9c4540cead7d5f9576828610f99af2b683d58b859112afcb2ea9e",
+      "api/retrieval_batch_media.py": "aa6876aa37629e0dc99de7975f194253d4da0063601e7284a700015a311c4c31",
+      "api/retrieval_batch.py": "f3c31d7d5e7509c466da16307f96099f38389c41b4016ce1efe212adb0155af7",
+      "api/remote_media.py": "909b93cd197458f3bdca6efb5bda2ec53747ec6cb7cb39b59f8fc55d5eb6555f",
+      "config/models.py": "c04b4c5788913f0888b8de4d28eec1dd592f21eb20c1e78dd95772ddc1cbe419"
+    },
+    "exit_code": 0,
+    "completed_at": "2026-10-15T17:33:09.102053+00:00"
+  },
+  "candidate_execution_metadata": {
+    "variant": "candidate",
+    "gpu_identity": "GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7",
+    "image_id": "sha256:a7fc3867056b89fe5aee410ad499e8243d05cb537d81c9cfd24ebbff0455698e",
+    "started_at": "2026-10-15T17:34:35.019867+00:00",
+    "settings": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONUNBUFFERED": "1",
+      "OMP_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "GPU_INFER_PARALLEL_SLOTS": "1",
+      "BATCH_INFER_FRAME_BATCH_SIZE": "1",
+      "BATCH_VIDEO_FRAME_QUEUE_SIZE": "24",
+      "BATCH_VIDEO_FFMPEG_SAMPLE_WORKERS": "4",
+      "BATCH_MEDIA_PREFETCH_FILES": "4",
+      "VIDEO_FFMPEG_HWACCEL": "cuda",
+      "YOLOE_MODEL_VERSION": "26",
+      "YOLOE_MODEL_SIZE": "l",
+      "YOLOE_MODEL_TYPE": "seg"
+    },
+    "container_name": "review-latency-candidate-full-v1",
+    "owner": "01a14079-1712-7cb1-874f-b1dc70c08bd4",
+    "timeout_seconds": 1800,
+    "runtime_source_sha256": {
+      "api/retrieval_batch_state.py": "dfbd3fb7c058ec7a2a4368a5ba6cc0d4551d701a2a0fa54262f1e732f5c54ecb",
+      "api/retrieval_batch_media.py": "cc848ce03ddbebdedafce2b575711c05282b65ae641cc94d3f10acfecea94327",
+      "api/remote_media.py": "6e3bf892f8e305dfb45d693a1371401df1fc422f72a0be391621fa0342817d81",
+      "api/retrieval_batch.py": "42875ab385d161a0f0e07f8f131ef4b19d5119fea36d257054263d8fe82bf3da",
+      "config/models.py": "00fe260583719bcc961b51b61c8ad3e108dbaa8a0ce3368918f73d3472e0d652"
+    },
+    "exit_code": 0,
+    "completed_at": "2026-10-15T17:43:51.245199+00:00"
+  },
+  "baseline_records": 1655,
+  "candidate_records": 1655,
+  "missing_samples": [],
+  "extra_samples": [],
+  "changed_frames": [],
+  "changed_detection_records": [],
+  "non_bit_exact_detection_records": [],
+  "bbox_atol": 0.0,
+  "confidence_atol": 0.0,
+  "baseline_run_seconds": 840.804171974014,
+  "candidate_run_seconds": 542.488065632002,
+  "observed_duration_ratio": 1.5499035374989714,
+  "speedup": 1.5499035374989714,
+  "accuracy_claim": "Output equivalence only; no human-labelled accuracy conclusion.",
+  "timing_scope": "Isolated media download, decode, sampling and optional inference; excludes application persistence, rendering, MQTT and UI.",
+  "baseline_jobs": [
+    {
+      "job_id": "3168cb46fb904e9f",
+      "inputs": 17,
+      "samples": 1493,
+      "detections": 429,
+      "wall_seconds": 750.7403400810435
+    },
+    {
+      "job_id": "2b2cd3c0f74446eb",
+      "inputs": 162,
+      "samples": 162,
+      "detections": 290,
+      "wall_seconds": 90.06287964701187
+    }
+  ],
+  "candidate_jobs": [
+    {
+      "job_id": "3168cb46fb904e9f",
+      "inputs": 17,
+      "samples": 1493,
+      "detections": 429,
+      "wall_seconds": 488.2089090090012
+    },
+    {
+      "job_id": "2b2cd3c0f74446eb",
+      "inputs": 162,
+      "samples": 162,
+      "detections": 290,
+      "wall_seconds": 54.27835726499325
+    }
+  ]
+}

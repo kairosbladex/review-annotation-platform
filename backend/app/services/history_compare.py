@@ -25,6 +25,12 @@ def decode_image(data: bytes) -> np.ndarray:
             if image.width * image.height > MAX_PIXELS or min(image.size) < 32:
                 raise ValueError('图片尺寸须至少32像素，总像素不能超过2500万')
             return np.asarray(ImageOps.exif_transpose(image).convert('RGB')).copy()
+    except ModuleNotFoundError as exc:
+        # Ultralytics tries its optional HEIF decoder only after Pillow rejects
+        # the bytes. Preserve unrelated dependency failures as execution errors.
+        if exc.name != 'pi_heif' or not isinstance(exc.__context__, UnidentifiedImageError):
+            raise
+        raise ValueError('无法读取图片，请使用有效的JPEG或PNG图片') from exc
     except (UnidentifiedImageError, OSError, Image.DecompressionBombError) as exc:
         raise ValueError('无法读取图片，请使用有效的JPEG或PNG图片') from exc
 

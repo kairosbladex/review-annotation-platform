@@ -53,6 +53,7 @@ def _pilot(tmp_path: Path) -> tuple[Path, Path]:
                 "image_size": [100, 100],
                 "original_sha256": original_sha,
                 "source_original": "source/original.jpg",
+                "source_object_key": "synthetic-pilot/source-original-01.jpg",
                 "full_original_copy": str(original.relative_to(pilot)),
                 "media": view_paths,
                 "derived_sha256": view_hashes,
