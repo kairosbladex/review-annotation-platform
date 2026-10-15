@@ -1,10 +1,10 @@
 {
-  "source_head": "60148276be8180238a069698be541b4e9dbb2c4c",
+  "source_head": "b752d0ef83da874f7c5c05e9f7b95d9f4640c447",
   "source_branch": "perf/review-experience-evaluation",
-  "previous_source_head": "56f61707e9e90265fe03bed224552df8578e8def",
-  "parent_snapshot": "631d0d1dbbf3f75d5e0f97ff679682e80709b325",
+  "previous_source_head": "60148276be8180238a069698be541b4e9dbb2c4c",
+  "parent_snapshot": "9ae3c0c4b24bb34e9d51578dfe5beddddb2adfcb",
   "changed_committed_paths": [
-    "docs/evidence/live-review-history-regression-20261016/README.md",
+    "docs/evidence/history-ui-geometry-diagnosis-20261016.json",
     "docs/retrieval-experience-release-20261016.md"
   ],
   "removed_snapshot_paths": [],
@@ -12,8 +12,8 @@
   "uncommitted_changes_included": false,
   "schema_version": 3,
   "project": "review-annotation-platform",
-  "generated_at": "2026-10-15T18:32:00.334607+00:00",
-  "source_commit_time": "2026-10-16T02:29:30+08:00",
+  "generated_at": "2026-10-15T19:13:51.421115+00:00",
+  "source_commit_time": "2026-10-16T03:11:23+08:00",
   "snapshot_kind": "committed-source-with-redactions",
   "snapshot_branch": "chore/source-review-snapshot",
   "source_history_included": false,
@@ -21,10 +21,10 @@
   "source_status_unchanged_during_export": true,
   "source_text_files": 262,
   "unchanged_source_blobs_verified": 0,
-  "verified_cache_files_reused": 260,
+  "verified_cache_files_reused": 261,
   "sanitized_cache": {
-    "source_head": "56f61707e9e90265fe03bed224552df8578e8def",
-    "manifest_sha256": "44ee1df77347345db5a5cca4e8da1886bbd30dbe014740038d8550f913855794"
+    "source_head": "60148276be8180238a069698be541b4e9dbb2c4c",
+    "manifest_sha256": "e9498c7fcca7c557c9a492bae8661c71a4be9809e2b976ed981c0cdb68cbabdf"
   },
   "redacted_files": {
     "README.md": {
@@ -8656,6 +8656,10 @@
       "reason": "previous snapshot scope retained; unchanged source was not previously exported"
     },
     {
+      "path": "docs/evidence/history-ui-geometry-diagnosis-20261016.json",
+      "reason": "unapproved raw evidence"
+    },
+    {
       "path": "docs/evidence/retrieval-deployment-receipt-20261016.json",
       "reason": "previous snapshot scope retained; unchanged source was not previously exported"
     },
@@ -9521,7 +9525,7 @@
       "sha256": "a86ecdf8178f5fabea834f173c4464471caab487e531a0a577012759914236b1",
       "source_blob": "a125ca6e04150b5574efd528c699543d963c888a",
       "source_mode": "100644",
-      "provenance": "committed-source-sanitized-in-memory"
+      "provenance": "verified-sanitized-export-cache"
     },
     "docs/evidence/live-review-history-regression-20261016/candidate_hashes.json": {
       "sha256": "50cc9191ce5b9867f84858c9d3f6b0e9b02a07bc9e2e736f927a512efd203a07",
@@ -9632,8 +9636,8 @@
       "provenance": "verified-sanitized-export-cache"
     },
     "docs/retrieval-experience-release-20261016.md": {
-      "sha256": "df93fb38c975e388c52d1cd895ec5084a383b82ea4051710ce4ef36b23df52c6",
-      "source_blob": "56ad897015dddfc877126855a081d5c155615286",
+      "sha256": "ad3a5cf3b4813ef7c94a8db091d38cefbf36ff2806279891dba2f14f65464fbe",
+      "source_blob": "be29ec0a7159d3a7b9230081d38c594c2b701a07",
       "source_mode": "100644",
       "provenance": "committed-source-sanitized-in-memory"
     },
