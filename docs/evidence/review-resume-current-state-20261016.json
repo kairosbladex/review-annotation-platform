@@ -1,0 +1,56 @@
+{
+  "schema": "review_resume_current_state_v1",
+  "date": "2026-10-16",
+  "scope": "Read-only verification after goal resumption; no shared deployment or business writes.",
+  "gitlab": {"onegismap_a": "read_denied", "ktd_backend": "read_denied", "attempts_each": 1, "identity_changed": false, "origin_changed": false},
+  "frontend_release_host": {"ssh": "authentication_denied", "attempts": 1, "remote_command_executed": false},
+  "java": {
+    "pid": 91454,
+    "process_started_at_utc": "2026-10-16T03:46:16.240000+00:00",
+    "jar_mtime_utc": "2026-10-16T03:46:14.974924+00:00",
+    "jar_sha256": "ab5beba1898275cde6b0befc463f74f86ea5e1acf24a5a068c8a751ae897eb59",
+    "previous_jar_sha256": "3280e60610b5a0f92ccb2be51c7381a40cebd3ebcf4b254d618c0c994769a270",
+    "open_fds_matching_current_jar": 2,
+    "loader_override": false,
+    "retrieval_service_class_sha256": "ab7dbc7a5dce69dda2ada70313251f806e5df12466894419a8ac66e42b2f7b17",
+    "retrieval_service_class_changed": false,
+    "known_recovery_patch_9381_present": false,
+    "alternative_recovery_implementation": "not_audited",
+    "source_commit": "unknown"
+  },
+  "deployed_frontend": {
+    "html_sha256": "6533252883b3ccd4df90e595c255b87eaab00e0831356eaad6bda68f3d88ed92",
+    "html_etag_observed_by_parent": "W/\"6ad19ef0-7bd\"",
+    "main_resource": "/AFMAP/assets/index-DsaWFQOV.js",
+    "main_resource_sha256": "f1ada3adfa1fcd7b73046f79eda81f91977a1688e837676ba22f6bb5900abbb0",
+    "retrieval_resource": "detail-CwCxs-oT.js",
+    "retrieval_resource_sha256": "355884c11a11e01d7bdc96fec27b5d274d9557d4e59a00d59baf2d01480c37d9",
+    "comparison_resource": "CompareResultContent-Dv_HswgS.js",
+    "comparison_resource_sha256": "90dabf488e7dd73b79bf16346abb79e9fa78ccce6bc7b9f78fd6561e8548d810",
+    "source_commit": "unknown",
+    "task_fix_deployment_proven": false,
+    "verification": "Parent independently verified HTML bytes and main resource identity; child inspected the named static bundles. This is not UI acceptance."
+  },
+  "completed_record_refresh_attempt": {
+    "frontend_source_commit": "ac92838789a8c070970d56c6ac5e9161559a5d7d",
+    "test_proxy_identity_checked": true,
+    "authentication_attempts": 1,
+    "login_http_status": 400,
+    "login_application_code": 10004,
+    "code_definition_in_existing_contract": "ACCOUNT_LOCK_ERROR",
+    "outcome": "stopped_before_record_access",
+    "record_refresh_verified": false,
+    "credentials_or_login_state_exported": false,
+    "evidence": "/tmp/review-resume-acceptance.bp8LoJ/completed-refresh-summary.json"
+  },
+  "known_person_label_inputs": {
+    "eligible": 0,
+    "manual_boxes": 0,
+    "annotation_rows": 0,
+    "samples_sha256": "d96f73c73d6024558f54c797feee4f81082c46c629eecce5972031403e65ca3c",
+    "annotations_sha256": "9242949013f242f5cc818a3d1aea4c21e6fc0823fd6750fbf28b259cd69e3848",
+    "live_database_refreshed": false
+  },
+  "side_effects": {"local_frontend_restarted_after_confirmed_exit": true, "model_calls": 0, "business_writes": 0, "shared_restarts": 0, "new_labels": 0},
+  "release_constraint": "Previous Java package and frontend resource identities are stale; obtain and verify the current integration baseline before release."
+}
