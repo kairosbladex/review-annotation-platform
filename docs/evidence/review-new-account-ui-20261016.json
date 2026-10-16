@@ -1,0 +1,62 @@
+{
+  "schema": "review_new_account_ui_v1",
+  "observed_at_utc": "2026-10-16T07:31:56Z",
+  "display_timezone": "Asia/Taipei",
+  "scope": "User-supplied new test account; login and read-only existing-record UI verification",
+  "local_frontend_source_commit": "ac92838789a8c070970d56c6ac5e9161559a5d7d",
+  "deployed_site": "https://lxtest.zhuoyilingxi.com:8088/AFMAP/",
+  "local_site": "http://127.0.0.1:3081/AFMAP/",
+  "local_api_proxy_origin_verified": "https://lxtest.zhuoyilingxi.com:8088",
+  "login": {
+    "credential_source": "user_provided_in_current_turn",
+    "deployed_form_submissions": 1,
+    "local_form_submissions": 1,
+    "deployed_project_list_verified": true,
+    "local_project_list_verified": true,
+    "displayed_account_matches_user_supplied_account": true,
+    "same_test_project_entered": true,
+    "remember_password_checked": false,
+    "old_local_session_signed_out_via_ui": true,
+    "credentials_or_session_exported": false,
+    "old_account_lock_is_not_new_account_blocker": true
+  },
+  "existing_result_record": {
+    "same_record_on_both_frontends": true,
+    "deployed_open_target_count": 290,
+    "deployed_after_reload_target_count": 290,
+    "local_open_target_count": 290,
+    "local_after_reload_target_count": 290,
+    "category": "car",
+    "local_displayed_status_before_and_after_reload": "failed",
+    "result_thumbnails_visually_present_before_and_after_reload": true,
+    "database_status_independently_queried": false,
+    "completed_task_refresh_verified": false,
+    "interpretation": "Existing results remain viewable after reload; results alone do not prove task completion."
+  },
+  "other_existing_record": {
+    "local_displayed_status": "cancelled",
+    "local_empty_state": "cancelled_with_no_results"
+  },
+  "private_screenshot_directory": "/tmp/review-new-account-F5ClAl/",
+  "access_boundaries": {
+    "frontend_origin": "git@192.168.110.2:zhuoyi/onegismap_a.git",
+    "java_origin": "http://192.168.110.2/zhuoyi/ktd_backend.git",
+    "latest_gitlab_read_results": "both_denied_in_previous_checks",
+    "frontend_release_ssh": "zhuoyi@192.168.110.17:22",
+    "git_or_ssh_retried_this_turn": false,
+    "test_account_used_for_git_or_ssh": false
+  },
+  "verification_limits": [
+    "No successful-completion record refresh sample verified",
+    "No fresh end-to-end retrieval latency measurement",
+    "No model accuracy evaluation",
+    "No proof of local frontend patch deployment"
+  ],
+  "side_effects": {
+    "login_sessions_changed": true,
+    "new_or_restarted_business_tasks": 0,
+    "business_record_writes": 0,
+    "model_calls_initiated": 0,
+    "shared_deployments_or_restarts": 0
+  }
+}
