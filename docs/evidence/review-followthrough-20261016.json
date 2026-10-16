@@ -1,0 +1,19 @@
+{
+  "schema": "review_experience_followthrough_v1",
+  "date": "2026-10-16",
+  "baseline": "b752d0ef83da874f7c5c05e9f7b95d9f4640c447",
+  "workbench": {
+    "branch": "bugfix/review-uncertain-display",
+    "red": {"passed": 14, "failed": 10, "total": 24},
+    "green": {"passed": 24, "total": 24},
+    "parent_affected_regression": {"passed": 29, "total": 29, "skipped": 0, "warnings": 1},
+    "preserved": ["rawResult", "summary", "businessAction", "order", "geometry"]
+  },
+  "afmap": {"branch": "bugfix/model-review-verdict-label", "commit": "76e2cd8b469e66c1650217492e538b0866ebec66", "red_passed": 2, "red_failed": 1, "green_passed": 3, "green_total": 3, "build_test_exit_code": 0, "existing_lint_errors": 19, "new_lint_errors": 0, "integrated_in_3081": false},
+  "new_source_metadata": {"window_start": "2026-10-14 00:00:00", "window_end_exclusive": "2026-10-16 00:00:00", "total_events": 310, "person_events": 52, "person_boxes": 80, "person_tasks": 12, "old_task_reference_count": 111, "task_overlap": 0, "same_primary_shot_path_events": 37, "different_path_events": 15, "war_to_ai_linked_events": 15, "events_in_duplicate_primary_path": 2, "boxes_in_duplicate_metadata": 2, "candidate_frame_identity_count": 0, "new_human_labels": 0, "independent_accuracy": "not_evaluable", "transaction_end": "rollback"},
+  "java_runtime": {"pid": 48486, "jar_sha256": "3280e60610b5a0f92ccb2be51c7381a40cebd3ebcf4b254d618c0c994769a270", "class_sha256": "ab7dbc7a5dce69dda2ada70313251f806e5df12466894419a8ac66e42b2f7b17", "jar_argument_same_file": true, "open_fds_match": true, "recovery_fix_9381_included": false, "source_commit": "unknown", "historical_completed_task_count": 1, "algorithm_to_java_receipt_seconds": [1.5, 2.5], "db_commit_independently_verified": false, "ui_first_completed_time": null, "pending_recovery_scope": "not_checked"},
+  "release": {"frontend_deployment_host_auth": "denied", "java_gitlab_read": "denied", "frontend_cached_test_tree_difference_paths": 949, "executed": false},
+  "side_effects": {"model_calls": 0, "model_cost": 0, "business_writes": 0, "labels_written": 0, "images_downloaded": 0, "shared_restarts": 0, "push": false},
+  "private_evidence": ["/tmp/review-uncertain-tdd.LwdGaj", "/tmp/review-source-refresh.e0jSOo"],
+  "goal_complete": false
+}

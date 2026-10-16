@@ -244,6 +244,11 @@ def candidates_for(raw_boxes, result, manifest):
         decision = str(rec.get("decision") or "pending").lower()
         if decision not in {"confirmed", "rejected", "uncertain"}:
             decision = "pending"
+        raw_decision = rec.get("rawDecision")
+        if raw_decision is None and isinstance(rec.get("codexReview"), dict):
+            raw_decision = rec["codexReview"].get("rawDecision")
+        if isinstance(raw_decision, str):
+            decision = {"true": "confirmed", "false": "rejected", "uncertain": "uncertain"}.get(raw_decision, decision)
         out.append({"index": i + 1, "className": initial.get("class_name") or rec.get("original_class") or rec.get("originalClass") or "未记录类别",
                     "initialConfidence": finite(initial.get("confidence", rec.get("original_confidence", rec.get("originalConfidence")))),
                     "bbox": box, "geometry": geometry, "decision": decision,

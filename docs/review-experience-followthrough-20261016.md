@@ -1,0 +1,65 @@
+# 三功能后续核验与复检显示修复（2026-10-16）
+
+本轮完成两处确定性的复检显示修复，并发现两个会改变下一步安排的事实：测试 Java 尚未包含终态恢复修复；最近两天已有 80 个人员初审框，不能再沿用“没有新人员框”的旧快照。整体目标尚未完成，当前证据不足以发布准确率候选或覆盖共享前端/Java。
+
+## 任务卡
+
+- 目标：推进三功能真实体验与测试发布，核对剩余端到端等待、人员数据和发布条件。
+- 验收：原始存疑不再冒充明确假目标；完整保留业务动作、原结果与几何；新来源有固定窗口和分母；部署判断绑定实际运行包。
+- 非目标：重标历史真值、修改 only_true_is_true_v1、执行真实复检/检索或设备任务、用本地旧整包覆盖共享站点。
+- 输入：当前本地已验证分支、实际测试容器/Java 包、只读测试库的 2026-10-14 至 2026-10-16 元数据、旧曝光分组清单。
+- 输出：最小代码与 TDD、本文和脱敏证据；业务元数据仅留本机 0700 临时目录。
+- 身份与模式：本机当前用户，已有 `ai-lingxi`/`gis-backend` SSH 身份；本地候选修改与只读核验。保持用户“先本地调试”的阶段，本轮不推送、不部署。
+- 预算与副作用：模型调用、模型费用、业务写入、图片下载和标签写入均为 0；没有重启共享服务或执行发布脚本。
+- 人工节点：发布授权已经具备；仍需恢复仓库/发布机访问并核对在役集成来源。新候选真值须由人工盲标和独立争议裁决，不能由模型生成。
+
+## 显示修复与 TDD
+
+本仓分支 `bugfix/review-uncertain-display` 从干净的 `b752d0ef83da874f7c5c05e9f7b95d9f4640c447` 创建，位于 `/Users/wangxiaolin/.codex/worktrees/review-uncertain-display/review-annotation-platform`。原 review 工作区及数据未改。
+
+当前运行的 Luna 适配器保留 `rawDecision`，但旧 `decision=rejected` 与 `summary.falseCount` 同时包含 false 和 uncertain。本地历史对照台以前只读 `decision`，把“无法判断”显示为“假目标”。`backend/app/recheck_workbench.py` 仅新增 5 行：有效顶层原始判断优先；缺失/null 时读取 `codexReview.rawDecision`；没有有效原始判断时兼容旧值，不从理由自由文本猜测结论。
+
+通过真实 `GET /workbench-api/events/{eid}` 在 MySQL 连接/游标边界提供合成记录，先红测 24 项中 10 失败/14 通过，再绿测 24/24。主 Agent 独立复跑新测试及既有适配器契约测试共 **29/29**，只有一个依赖弃用警告。原始 `rawResult`、summary、businessAction、记录顺序、类别和框坐标不变；非法事件 ID 为 400，数据库失败为 503，不生成真假结果。继承环境清空、只注入合成配置、DATA 为临时目录，测试禁止外部 DNS/connect。该证明属于展示接口契约，不是业务准确率或真实数据库回写。
+
+```sh
+/usr/bin/env -i PATH=/usr/bin:/bin PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 /Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python -m pytest -p no:cacheprovider backend/tests/test_recheck_workbench.py backend/tests/test_adapter_contract.py -q
+```
+
+原始红绿 JUnit 留在 `/tmp/review-uncertain-tdd.LwdGaj/`。语法与 `git diff --check` 通过；没有新增依赖。
+
+AFMAP 的真实业务组件只有 `typeStats` 汇总，无法反推出 uncertain 数量，因此只把“假目标”改为“未通过/复核未通过”，提示可能包含证据不足、请人工确认，框上的文字同步修改。所有计数、框、props/事件名、模型和业务判断保持不变。
+
+该前端修复在 `/Users/wangxiaolin/PycharmProjects/onegismap_a-model-review-local` 的 `bugfix/model-review-verdict-label@76e2cd8b469e66c1650217492e538b0866ebec66`，基线 `09b3cc74e5354575527868a0dd17f78bf8eba0b1`；未合入 3081 主线入口。真实组件浏览器 TDD 先 1 失败/2 通过，再 3/3，主 Agent 独立复跑；`npm run build:test` 通过（1m29s）。`AiReviewResult.vue` 原有 19 个格式 lint 错误的行号/规则/严重度/消息完全相同，测试文件 lint 0/0；不宣称全量 lint 通过。画布绘制/显隐有像素测试，中文画布文字没有单独 OCR 断言。
+
+## 新人员来源：有候选，尚无独立金标
+
+只读一致性事务固定窗口 `[2026-10-14 00:00:00, 2026-10-16 00:00:00)`，限定当前测试项目，查询上限 2000 事件/20 秒，最后 rollback。09:37:20 快照共 **310 事件、620 附件**；其中人员为 **52 事件、80 个符合 x/y/width/height/frame_width/frame_height 契约的框、12 个任务**。
+
+- 与旧清单 111 个任务的交集为 0/12；对子集旧人员来源、历史事件也未发现标识重叠。仅证明已核对标识不重叠，不能排除改名/不同路径的同图。
+- 37/52 事件的 PRIMARYIMG 与 SHOTIMG 路径相同，15/52 不同；后续只读关系查询证实 15 个事件有 WAR_TO_AI 关联，但不同路径/关联本身尚未完成可信原帧绑定审计。
+- 104 条附件中有 66 个唯一路径；一个 PRIMARYIMG 路径被两个事件复用，两事件的候选列表相同，涉及 2/80 框。未按图片内容确认，不能静默删去后改变分母。
+- 新候选中的 frame/PTS 与 stream 身份字段为 0/80；没有图片 SHA-256，也没有新增人工真值。52 个事件的图片级与事件级已保存复检结果均为 0。
+
+因此“最近没有新人员初审框”的旧材料已过时，但“80 框全部是可信独立金标”仍不成立。本轮不把它们写入 `eligible`、不填造 `source_evidence`、不将看不清当负例。下一轮应先对这 12 个新任务完成图片去重和来源绑定，再盲标真/假/看不清；与旧 443 框回归单列。
+
+私有元数据、只读脚本和摘要位于 `/tmp/review-source-refresh.e0jSOo/`，原记录不提交 Git。主 Agent独立复核了 52/80/12、旧任务交集、37/15 路径比例和重复路径分母。
+
+## Java 终态恢复尚未发布
+
+测试算法容器仍是 `e2b673da…`、镜像 `dac104a6…`；其复检适配器 SHA-256 为 `dd24a7f215b0903c395d6f9b3bf56eed1c71d446e9a44eee3157025e049e8179`，实际 routes 为 `a56fb3bc6e9fea5ef3049960d1270052e4d2beeaf3a3903b76fa1aef4181bf00`。算法提速发布不证明 Java 已更新。
+
+`gis-backend` 测试 Java PID 48486 运行 `/data/ktd/project/ktd-backend/biz-visualization.jar`，包 SHA-256 为 `3280e60610b5a0f92ccb2be51c7381a40cebd3ebcf4b254d618c0c994769a270`。jar mtime/ctime 早于进程启动约 1.236 秒，进程 fd 5/6 指向同一 inode；主 Agent 独立核对唯一 `.jar` 参数与文件身份，未见 classpath/javaagent 覆盖。不能简单取 `-jar` 后紧邻参数，因为该启动命令在其后仍有 JVM 选项。
+
+实际 `AiSearchAsyncService2.class` 摘要为 `ab7dbc7a5dce69dda2ada70313251f806e5df12466894419a8ac66e42b2f7b17`，缺少 `recoverPendingTasks`、`reconcileTask`、`selectTaskForUpdate`、`publishTerminalProgress`、`queryRemoteJob`。能够证明当前包未包含 `9381d620` 的恢复修复；包内没有 Git/build 元数据，不能反推完整源码 SHA。
+
+既有 1 条完成任务的日志显示：算法 11:48:03.461 完成 17/17，Java 在 11:48:05 接收并记录批量保存/status=1/Redis completed。按日志精度，接收相差约 1.5–2.5 秒；这不是分钟级等待的证明，也没有独立核对该记录的数据库提交或页面首次完成时刻。末帧推理、最后上传、页面完成仍缺对应时间点。Java 使用 5 秒 HTTP 轮询，相关 MQTT 订阅被注释，不能将缺口归因于 MQTT。
+
+`9381` 跨两个 Java 模块的 7 个生产文件及 1 个测试，包含 Mapper 行锁 XML和新的恢复执行器；已有 Surefire 19/19 属历史本地证据，本轮未重复执行。扫描默认每 30 秒处理全体满足条件的运行中任务，每批 50 个；当前待恢复名单未核实。不能仅替换一个 class、直接覆盖旧整包，或声称只影响此前两条任务。
+
+## 发布障碍与交付边界
+
+前端 test/release 脚本声明目标为 `zhuoyi@192.168.110.17:/home/zhuoyi/ktd/web/amap/`，但一次 BatchMode 只读检查返回认证拒绝，未取得在役 manifest/index 摘要。当前主线候选与缓存 test 相差 949 个路径，包含重叠修改；脚本会整包替换且缺来源校验/统一失败中止，当前不能直接执行。
+
+Java 仓库的 HTTP 配置先因没有非交互凭据停止；核对 URL 重写后，使用相同现有 SSH 身份、显式 `ssh://` 访问正确的 `ktd_backend` 仓库，得到 GitLab 明确的 `You are not allowed to download code from this project`。没有切换用户、修改 origin、重试前端仓库或索取其他凭据。当前无法刷新 prod/dev-wxl/test 并证明共享集成来源。
+
+本轮代码只保留本地提交，未改变现有 8189 发布、共享前端、Java、旧任务状态或标签。停止本地候选服务/切回对应基线即可回退本轮显示修改，无业务数据需要回滚。发布下一步依赖仓库及既定发布机访问恢复、正确集成基线、待恢复任务范围和精确回滚包；准确率提升另依赖上述来源绑定及独立人工真值。原完整目标保持未完成。
