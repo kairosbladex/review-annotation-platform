@@ -1,0 +1,79 @@
+{
+  "schema": "review_completed_ui_v1",
+  "recorded_at_utc": "2026-10-16T08:02:29Z",
+  "display_timezone": "Asia/Taipei",
+  "local_frontend_source_commit": "ac92838789a8c070970d56c6ac5e9161559a5d7d",
+  "scope": "Existing completed records in the authorized test project; read-only database and browser acceptance",
+  "database_evidence": {
+    "directory": "/tmp/review-completed-searches.34dx9F/",
+    "search_metadata_sha256": "7b7c1885c18828868d142aef33d3009fe945a0995b4ba191d1a896a93f1006b4",
+    "comparison_metadata_sha256": "45d2c54dcf206f8001fe9bb4782b0a9575698d1a274d2a36f7a60521dbd67d16",
+    "search_snapshot_database_time": "2026-10-16 15:41:19",
+    "comparison_snapshot_database_time": "2026-10-16 15:45:35",
+    "project_scope_verified": true,
+    "transaction_read_only": true,
+    "repeatable_read": true,
+    "query_timeout_ms": 5000,
+    "limits": {"search_tasks": 3, "comparison_tasks": 1},
+    "transaction_end": "rollback",
+    "parent_verified_query_scripts_and_artifact_hashes": true,
+    "raw_connection_configuration_printed": false
+  },
+  "completed_nonempty_search": {
+    "database_status": 1,
+    "valid_result_rows": 256,
+    "annotation_target_count": 429,
+    "label_count_sum": 429,
+    "local_status_before_and_after_reload": "completed",
+    "local_target_count_before_and_after_reload": 429,
+    "deployed_target_count_before_and_after_reload": 429,
+    "visible_thumbnails_retained_on_both_frontends": true,
+    "every_thumbnail_individually_verified": false,
+    "historical_status_change_time_and_actor": "not_verified"
+  },
+  "completed_zero_hit_search": {
+    "database_status": 1,
+    "valid_result_rows": 0,
+    "targets": 0,
+    "local_status_before_and_after_reload": "completed",
+    "local_empty_message_before_and_after_reload": "未发现匹配目标",
+    "deployed_zero_hit_case_verified": false
+  },
+  "historical_comparison": {
+    "database_status": 1,
+    "baseline_images": 1,
+    "historical_images": 44,
+    "local_open_and_reload_verified": true,
+    "deployed_open_and_reload_verified": true,
+    "retained_result_text": "两张图片无法可靠对齐",
+    "local_final_dom_images": {"total": 51, "loaded": 51, "pending": 0, "broken": 0},
+    "deployed_initial_reload_pending_images": 24,
+    "deployed_final_dom_images": {"total": 51, "loaded": 51, "pending": 0, "broken": 0},
+    "dom_image_count_includes_interface_images": true,
+    "save_or_edit_performed": false,
+    "geometric_or_semantic_accuracy_verified": false
+  },
+  "private_screenshot_directory": "/tmp/review-completed-ui-vT40kO/",
+  "screenshot_sha256": {
+    "local-completed-after-refresh.jpg": "1f724afbd307e94e5e66238e6efa7710ab4d8b9ef1b32e0f4d297540d464af42",
+    "deployed-completed-after-refresh.jpg": "14f52777fe4ec2fd13b10bff88d4ed46e72d5a09e3849222a4338910e1253545",
+    "local-completed-zero-after-refresh.jpg": "5f2e440badd4af4b6831b3968e2088bd9379cd4af9f64fa66883f53eecf87a6a",
+    "local-comparison-after-refresh.jpg": "988b5beda5478045af73e66f9dfb81ee6ee499e684c0632c6f50381b2d9faaeb",
+    "deployed-comparison-after-refresh.jpg": "84b8b415c274d8c212e12825348267c32860e07bb1a602ed11a8a5bd54037c75"
+  },
+  "side_effects": {
+    "new_login_submissions": 0,
+    "business_writes": 0,
+    "new_or_restarted_tasks": 0,
+    "model_calls_initiated": 0,
+    "shared_deployments_or_restarts": 0,
+    "git_or_ssh_retries": 0
+  },
+  "remaining_limits": [
+    "Local frontend and Java fixes have not been deployed",
+    "Repository and frontend deployment access remain unresolved",
+    "No new full-task end-to-end latency measurement",
+    "No new independently verified recognition accuracy uplift",
+    "Historical comparison save-and-reopen after an edit was not executed"
+  ]
+}
