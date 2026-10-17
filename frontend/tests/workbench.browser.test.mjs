@@ -12,9 +12,10 @@ after(async () => { await browser?.close(); });
 
 const task = (extra = {}) => ({ task_id: "task-1", status: "running", query: "人员", message: "分析中", media_count: 1, total_hits: 0, processed_count: 0, total_count: 1, video_progress: { progress: 0.4, current_seconds: 4, duration_seconds: 10 }, error_code: null, sync_error: null, created_at: "2026-10-17T00:00:00Z", finished_at: null, results: [], file_errors: [], ...extra });
 const comparison = { comparison_id: "compare-1", created_at: "2026-10-17T00:00:00Z", baseline_url: "/synthetic-baseline.png", current_url: "/synthetic-current.png", result: { status: "matched", polygons: [[[0.1, 0.1], [0.4, 0.1], [0.4, 0.4]]], change_count: 1, current_width: 10, current_height: 10, baseline_width: 10, baseline_height: 10, coordinate_space: "normalized_current", alignment: { method: "synthetic", inliers: 10, overlap: 0.8 }, diff_summary: "新增一处变化", semantic: { status: "skipped", summary: null, error: null, region_count: 1 } } };
-async function setup(handler) {
+async function setup(handler, initialize) {
   const context = await browser.newContext();
   await context.addInitScript(() => sessionStorage.setItem("review-annotation-token", "synthetic-test-session"));
+  if (initialize) await context.addInitScript(initialize);
   const page = await context.newPage();
   await page.route("**/synthetic-*.png", (route) => route.fulfill({ contentType: "image/svg+xml", body: '<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360"><rect width="640" height="360" fill="#243746"/><rect x="230" y="70" width="70" height="190" rx="20" fill="#9db9bc"/><text x="20" y="330" fill="#d3e0e0" font-size="18">Synthetic browser fixture</text></svg>' }));
   await page.route("**/api/v1/**", async (route) => {
@@ -33,6 +34,62 @@ async function setup(handler) {
   return { page, context };
 }
 const visible = (page, text) => page.getByText(text, { exact: true }).first().waitFor({ timeout: 4000 });
+
+test("HTTP browser without randomUUID uploads and creates distinct secure UUIDv4 idempotency keys", async () => {
+  const keys = []; let uploads = 0; const errors = [];
+  const { page, context } = await setup(async (route, url) => {
+    if (url.pathname.endsWith("/retrieval/media")) { uploads++; await route.fulfill({ json: { media_id: `media-${uploads}`, filename: "clip.mp4", media_type: "video", size_bytes: 3 } }); return true; }
+    if (url.pathname.endsWith("/retrieval/tasks") && route.request().method() === "POST") { keys.push(route.request().headers()["idempotency-key"]); await route.fulfill({ json: task({ status: "completed" }) }); return true; }
+    if (url.pathname.endsWith("/retrieval/tasks/task-1")) { await route.fulfill({ json: task({ status: "completed" }) }); return true; }
+  }, () => Object.defineProperty(globalThis.crypto, "randomUUID", { value: undefined, configurable: true }));
+  page.on("pageerror", (error) => errors.push(error.message));
+  try {
+    assert.equal(await page.evaluate(() => typeof crypto.randomUUID), "undefined");
+    assert.equal(await page.evaluate(() => typeof crypto.getRandomValues), "function");
+    await page.getByRole("tab", { name: "智能检索" }).click();
+    await page.getByLabel("检索目标").fill("人员");
+    await page.getByLabel("上传图片或视频").setInputFiles({ name: "clip.mp4", mimeType: "video/mp4", buffer: Buffer.from("abc") });
+    await page.waitForTimeout(100); assert.deepEqual(errors, []);
+    await visible(page, "待检索媒体 · 上传完成");
+    await page.getByRole("button", { name: "开始检索", exact: true }).click(); await visible(page, "检索完成，未发现符合条件的目标。");
+    const secondPost = page.waitForResponse((response) => response.request().method() === "POST" && new URL(response.url()).pathname.endsWith("/retrieval/tasks"));
+    await page.getByRole("button", { name: "开始检索", exact: true }).click(); await secondPost;
+    assert.equal(uploads, 1); assert.equal(keys.length, 2); assert.notEqual(keys[0], keys[1]);
+    for (const key of keys) assert.match(key, /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
+    assert.deepEqual(errors, []);
+  } finally { await context.close(); }
+});
+
+test("browser without cryptographic randomness shows an upload error without making a request", async () => {
+  let uploads = 0; const errors = [];
+  const { page, context } = await setup(async (_route, url) => { if (url.pathname.endsWith("/retrieval/media")) uploads++; }, () => Object.defineProperty(globalThis, "crypto", { value: undefined, configurable: true }));
+  page.on("pageerror", (error) => errors.push(error.message));
+  try {
+    await page.getByRole("tab", { name: "智能检索" }).click();
+    await page.getByLabel("上传图片或视频").setInputFiles({ name: "clip.mp4", mimeType: "video/mp4", buffer: Buffer.from("abc") });
+    await visible(page, "浏览器暂不支持安全随机标识，无法上传或创建任务。请更换浏览器或使用 HTTPS。");
+    assert.equal(uploads, 0); assert.deepEqual(errors, []);
+  } finally { await context.close(); }
+});
+
+test("losing browser crypto after upload refuses submission clearly and keeps the form usable", async () => {
+  let creates = 0; const errors = [];
+  const { page, context } = await setup(async (route, url) => {
+    if (url.pathname.endsWith("/retrieval/media")) { await route.fulfill({ json: { media_id: "media-1", filename: "clip.mp4", media_type: "video", size_bytes: 3 } }); return true; }
+    if (url.pathname.endsWith("/retrieval/tasks") && route.request().method() === "POST") creates++;
+  });
+  page.on("pageerror", (error) => errors.push(error.message));
+  try {
+    await page.getByRole("tab", { name: "智能检索" }).click(); await page.getByLabel("检索目标").fill("人员");
+    await page.getByLabel("上传图片或视频").setInputFiles({ name: "clip.mp4", mimeType: "video/mp4", buffer: Buffer.from("abc") });
+    await visible(page, "待检索媒体 · 上传完成");
+    await page.evaluate(() => Object.defineProperty(globalThis, "crypto", { value: undefined, configurable: true }));
+    await page.getByRole("button", { name: "开始检索", exact: true }).click();
+    await visible(page, "浏览器暂不支持安全随机标识，无法上传或创建任务。请更换浏览器或使用 HTTPS。");
+    assert.equal(creates, 0); assert.equal(await page.getByRole("button", { name: "开始检索", exact: true }).isEnabled(), true); assert.deepEqual(errors, []);
+    assert.equal(await page.getByText(/提交结果暂时未知/).count(), 0);
+  } finally { await context.close(); }
+});
 
 test("retrieval uploads media, creates once, shows terminal results and survives refresh", async () => {
   let current = task(); let creates = 0; let reads = 0; let key;

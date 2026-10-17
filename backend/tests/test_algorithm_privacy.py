@@ -38,3 +38,22 @@ def test_exception_and_named_credentials_are_redacted_too(privacy_logging):
     text = logging.Formatter('%(message)s').format(record)
     assert all(value not in text for value in ('synthetic-key', 'synthetic-bearer', 'synthetic-token'))
     assert 'RuntimeError' in text
+
+
+@pytest.mark.parametrize('target', [
+    '/api/v1/retrieval/tasks?X-Amz-Signature=synthetic-signature&token=synthetic-token',
+    'https://identity:synthetic-password@media.invalid/result.png?X-Amz-Signature=synthetic-signature',
+])
+def test_uvicorn_access_formatter_keeps_structured_arguments_and_redacts_queries(privacy_logging, target):
+    from uvicorn.logging import AccessFormatter
+
+    logger = logging.getLogger('uvicorn.access')
+    record = logger.makeRecord(logger.name, logging.INFO, 'source.py', 1,
+                              '%s - "%s %s HTTP/%s" %d',
+                              ('127.0.0.1:1234', 'GET', target, '1.1', 200), None)
+    text = AccessFormatter('%(client_addr)s - "%(request_line)s" %(status_code)s',
+                           use_colors=False).format(record)
+    assert 'GET ' in text and 'HTTP/1.1' in text and '200 OK' in text
+    assert all(value not in text for value in (
+        'X-Amz-Signature', 'synthetic-signature', 'synthetic-token', 'synthetic-password',
+    ))

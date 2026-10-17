@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { cancelRetrievalTask, createRetrievalTask, getCapabilities, getRetrievalTask, listRetrievalTasks, uploadRetrievalMedia } from "../api";
 import type { RetrievalMedia, RetrievalResult, RetrievalTask } from "../api";
 import { RecordPagination } from "./RecordPagination";
+import { createSecureUuid } from "../secureUuid";
 
 const TERMINAL = new Set(["completed", "partial", "failed", "cancelled", "submission_unknown"]);
 const STATUS: Record<string, string> = { pending: "排队中", submitting: "提交中", running: "分析中", stopping: "停止中", completed: "已完成", partial: "部分完成", failed: "检索失败", cancelled: "已取消", submission_unknown: "提交结果待确认" };
@@ -130,17 +131,21 @@ export function IntelligentRetrieval({ token }: { token: string }) {
     const supported = reference ? /^image\/(jpeg|png|webp)$/ : /^(image\/(jpeg|png|webp)|video\/(mp4|quicktime|webm))$/;
     if (files.some((file) => file.size > 256 * 1024 * 1024 || !supported.test(file.type))) { setSubmitError(reference ? "参考图仅支持 JPG、PNG、WebP，单个文件不超过 256MB。" : "请选择 JPG、PNG、WebP 图片或 MP4、MOV、WebM 视频，单个文件不超过 256MB。"); return; }
     setSubmitError("");
-    const entries: Upload[] = files.map((file) => ({ id: crypto.randomUUID(), file, reference, state: "uploading" }));
+    let entries: Upload[];
+    try { entries = files.map((file) => ({ id: createSecureUuid(), file, reference, state: "uploading" })); }
+    catch (reason) { setSubmitError(message(reason, "无法创建安全上传标识")); return; }
     setUploads((items) => [...items, ...entries]);
     for (const item of entries) { if (!alive.current) break; await uploadOne(item); }
   }
   function selectTask(id: string) { setTask(null); setSelectedId(id); setReadEpoch((value) => value + 1); setCancelConfirm(false); }
   async function submit() {
     if (submissionLock.current || !enabled || submissionUnknown || (!query.trim() && !uploads.some((item) => item.reference)) || !uploads.some((item) => !item.reference) || uploads.some((item) => item.state !== "ready")) return;
+    let key: string;
+    try { key = createSecureUuid(); }
+    catch (reason) { setSubmitError(message(reason, "无法创建安全任务标识")); return; }
     submissionLock.current = true; setSubmitting(true); setSubmitError("");
     const version = generation.current; const controller = new AbortController(); controllers.current.add(controller);
     const timeout = window.setTimeout(() => controller.abort(), 30000);
-    const key = crypto.randomUUID();
     try {
       const data = await createRetrievalTask(token, { query: query.trim(), media_ids: uploads.filter((item) => !item.reference).map((item) => item.media!.media_id), prompt_media_ids: uploads.filter((item) => item.reference).map((item) => item.media!.media_id), confidence: 0.2, sample_interval_seconds: 3 }, key, controller.signal);
       if (!alive.current || version !== generation.current) return;

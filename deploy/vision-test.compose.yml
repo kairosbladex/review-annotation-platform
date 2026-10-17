@@ -29,7 +29,7 @@ x-api-environment: &api-environment
   RETRIEVAL_SERVICE_API_KEY: "${VISION_ALGORITHM_API_KEY:?algorithm secret required}"
   RETRIEVAL_SERVICE_VERIFY_TLS: "true"
   HISTORY_COMPARE_OLLAMA_URL: "${VISION_HISTORY_OLLAMA_URL:?verified Ollama URL required}"
-  HISTORY_COMPARE_MODEL: "${LLM_MODEL:-qwen3.5:9b}"
+  HISTORY_COMPARE_MODEL: "${VISION_HISTORY_MODEL:?verified history instruct model required}"
   AUTO_ANNOTATION_API_KEY: ""
   SOURCE_IMAGE_BASE_URL: ""
 
