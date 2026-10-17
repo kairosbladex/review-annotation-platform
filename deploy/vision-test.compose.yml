@@ -1,0 +1,225 @@
+name: review-vision-test
+
+x-ownership: &ownership
+  vision.managed: "true"
+  vision.release: "${VISION_REVISION:?revision required}"
+
+x-api-environment: &api-environment
+  PYTHONPATH: /app/backend
+  DATABASE_URL: "postgresql+psycopg://vision_test:${VISION_PG_PASSWORD:?database secret required}@postgres:5432/vision_test"
+  REDIS_URL: redis://redis:6379/0
+  ADMIN_USERNAME: "${VISION_ADMIN_USERNAME:?admin required}"
+  ADMIN_PASSWORD: "${VISION_ADMIN_PASSWORD:?admin secret required}"
+  JWT_SECRET: "${VISION_JWT_SECRET:?JWT secret required}"
+  SERVICE_API_KEY: "${VISION_SERVICE_API_KEY:?service secret required}"
+  MINIO_ENDPOINT: minio:9000
+  MINIO_PUBLIC_ENDPOINT: "${VISION_PUBLIC_HOST:?public host required}:19004"
+  MINIO_ACCESS_KEY: "${VISION_MINIO_USER:?object user required}"
+  MINIO_SECRET_KEY: "${VISION_MINIO_PASSWORD:?object secret required}"
+  MINIO_BUCKET: vision-test
+  MINIO_SECURE: "false"
+  MINIO_AUTO_CREATE_BUCKET: "true"
+  OBJECT_STORE_REQUIRED: "true"
+  MODEL_ADAPTER_TYPE: legacy_review_agent
+  MODEL_SERVICE_BASE_URL: http://algorithm:8193
+  MODEL_SERVICE_API_KEY: "${VISION_ALGORITHM_API_KEY:?algorithm secret required}"
+  MODEL_SERVICE_VERIFY_TLS: "true"
+  RETRIEVAL_ENABLED: "true"
+  RETRIEVAL_SERVICE_BASE_URL: http://algorithm:8193
+  RETRIEVAL_SERVICE_API_KEY: "${VISION_ALGORITHM_API_KEY:?algorithm secret required}"
+  RETRIEVAL_SERVICE_VERIFY_TLS: "true"
+  HISTORY_COMPARE_OLLAMA_URL: "${VISION_HISTORY_OLLAMA_URL:?verified Ollama URL required}"
+  HISTORY_COMPARE_MODEL: "${LLM_MODEL:-qwen3.5:9b}"
+  AUTO_ANNOTATION_API_KEY: ""
+  SOURCE_IMAGE_BASE_URL: ""
+
+services:
+  postgres:
+    image: postgres:13
+    labels: *ownership
+    environment:
+      POSTGRES_DB: vision_test
+      POSTGRES_USER: vision_test
+      POSTGRES_PASSWORD: "${VISION_PG_PASSWORD:?database secret required}"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U vision_test -d vision_test"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+  redis:
+    image: redis:7-alpine
+    labels: *ownership
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+  minio:
+    image: quay.io/minio/minio:RELEASE.2024-10-02T17-50-41Z
+    labels: *ownership
+    environment:
+      MINIO_ROOT_USER: "${VISION_MINIO_USER:?object user required}"
+      MINIO_ROOT_PASSWORD: "${VISION_MINIO_PASSWORD:?object secret required}"
+    command: [server, /data]
+    ports:
+      - "19004:9000"
+    volumes:
+      - minio-data:/data
+    restart: unless-stopped
+  algorithm:
+    image: sha256:dac104a6a8935905cfa3bbae6ed2d5114e0ed9f3bde7f90e5442361bce220ed1
+    labels: *ownership
+    working_dir: /app
+    command: [python3, yoloe_service_main.py]
+    environment:
+      PYTHONPATH: /opt/vision-privacy:/app
+      PYTHONUNBUFFERED: "1"
+      API_HOST: 0.0.0.0
+      API_PORT: "8193"
+      API_WORKERS: "1"
+      API_KEY: "${VISION_ALGORITHM_API_KEY:?algorithm secret required}"
+      MYSQL_ENABLED: "false"
+      MQTT_HOST: ""
+      SSL_CERT_FILE: ""
+      SSL_KEY_FILE: ""
+      DEVICE: cuda:0
+      REVIEW_YOLOE_DEVICE: cuda:0
+      REVIEW_CROP_DEVICE: cuda:0
+      CLEAN_SOURCE_DEVICE: cuda:0
+      CLEAN_SOURCE_WORKER_GPU_UUID: GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,video
+      YOLOE_MODEL_VERSION: "26"
+      YOLOE_MODEL_SIZE: l
+      YOLOE_MODEL_TYPE: seg
+      CONFIDENCE_THRESHOLD: "0.15"
+      IOU_THRESHOLD: "0.7"
+      MAX_DETECTIONS: "300"
+      BATCH_INFER_FRAME_BATCH_SIZE: "1"
+      BATCH_MAX_CONCURRENT_GPU_JOBS: "1"
+      GPU_INFER_PARALLEL_SLOTS: "1"
+      REVIEW_ANNOTATION_DB_PATH: /app/results/review_agent/annotations.sqlite3
+      CLEAN_SOURCE_BASE_MODEL_PATH: /opt/clean-source/base
+      CLEAN_SOURCE_ADAPTER_PATH: /opt/clean-source/adapter
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: "${VISION_MINIO_USER:?object user required}"
+      MINIO_SECRET_KEY: "${VISION_MINIO_PASSWORD:?object secret required}"
+      MINIO_BUCKET: vision-test
+      MINIO_SECURE: "false"
+      MINIO_PUBLIC_BASE_URL: ""
+      RESULT_PUBLIC_URL_PREFIX: "http://${VISION_PUBLIC_HOST:?public host required}:8193"
+      LLM_BASE_URL: "${LLM_BASE_URL:-}"
+      LLM_MODEL: "${LLM_MODEL:-qwen3.5:9b}"
+      LLM_USE_OLLAMA: "${LLM_USE_OLLAMA:-true}"
+      LLM_TRANSLATION_ENABLED: "${LLM_TRANSLATION_ENABLED:-true}"
+      TRANSLATE_LLM_BASE_URL: "${TRANSLATE_LLM_BASE_URL:-}"
+      TRANSLATE_LLM_MODEL: "${TRANSLATE_LLM_MODEL:-qwen3.5:9b}"
+      TRANSLATE_LLM_TIMEOUT: "${TRANSLATE_LLM_TIMEOUT:-60}"
+      TRANSLATE_LLM_KEEP_ALIVE: "${TRANSLATE_LLM_KEEP_ALIVE:-5m}"
+      CODEX_REVIEW_ENABLED: "${CODEX_REVIEW_ENABLED:-false}"
+      CODEX_REVIEW_WORKER_URL: "${CODEX_REVIEW_WORKER_URL:-}"
+      CODEX_REVIEW_WORKER_TOKEN: "${CODEX_REVIEW_WORKER_TOKEN:-}"
+      CLEAN_SOURCE_REVIEW_ENABLED: "${CLEAN_SOURCE_REVIEW_ENABLED:-false}"
+      CLEAN_SOURCE_WORKER_ENABLED: "${CLEAN_SOURCE_WORKER_ENABLED:-true}"
+      CLEAN_SOURCE_PERSON_AUTO_CONFIRM_ENABLED: "${CLEAN_SOURCE_PERSON_AUTO_CONFIRM_ENABLED:-false}"
+      CLEAN_SOURCE_RECTANGLE_RECOVERY_ENABLED: "${CLEAN_SOURCE_RECTANGLE_RECOVERY_ENABLED:-true}"
+      CLEAN_SOURCE_VEHICLE_SURFACE_GATE_ENABLED: "${CLEAN_SOURCE_VEHICLE_SURFACE_GATE_ENABLED:-true}"
+      CLEAN_SOURCE_MODEL_ID: "${CLEAN_SOURCE_MODEL_ID:-clean-source-fixed}"
+      CLEAN_SOURCE_BASE_MODEL_SHA256: "${CLEAN_SOURCE_BASE_MODEL_SHA256:-}"
+      CLEAN_SOURCE_ADAPTER_SHA256: "${CLEAN_SOURCE_ADAPTER_SHA256:-}"
+      CLEAN_SOURCE_MAX_NEW_TOKENS: "${CLEAN_SOURCE_MAX_NEW_TOKENS:-256}"
+      CLEAN_SOURCE_MAX_PIXELS: "${CLEAN_SOURCE_MAX_PIXELS:-12845056}"
+      CLEAN_SOURCE_MIN_PIXELS: "${CLEAN_SOURCE_MIN_PIXELS:-200704}"
+      CLEAN_SOURCE_MAX_SEQUENCE_LENGTH: "${CLEAN_SOURCE_MAX_SEQUENCE_LENGTH:-8192}"
+      CLEAN_SOURCE_MIN_MATCH_SCORE: "${CLEAN_SOURCE_MIN_MATCH_SCORE:-0.8}"
+      CLEAN_SOURCE_WORKER_TIMEOUT_SECONDS: "${CLEAN_SOURCE_WORKER_TIMEOUT_SECONDS:-600}"
+      REVIEW_TWO_STATE_COMPAT: "${REVIEW_TWO_STATE_COMPAT:-true}"
+      REVIEW_CROP_MODEL_PATH: "${REVIEW_CROP_MODEL_PATH:-/app/pretrain/review-crop.pt}"
+      BATCH_HLS_USE_FFMPEG_SAMPLE: "${BATCH_HLS_USE_FFMPEG_SAMPLE:-true}"
+      BATCH_HLS_SKIP_SEQUENTIAL_FALLBACK: "${BATCH_HLS_SKIP_SEQUENTIAL_FALLBACK:-false}"
+      VIDEO_FFMPEG_HWACCEL: "${VIDEO_FFMPEG_HWACCEL:-cuda}"
+      BATCH_VIDEO_FRAME_QUEUE_SIZE: "${BATCH_VIDEO_FRAME_QUEUE_SIZE:-24}"
+      BATCH_IO_THREAD_POOL_SIZE: "${BATCH_IO_THREAD_POOL_SIZE:-8}"
+      BATCH_TICKER_INTERVAL_CAP_SECONDS: "${BATCH_TICKER_INTERVAL_CAP_SECONDS:-0.2}"
+      OPENCV_NUM_THREADS: "${OPENCV_NUM_THREADS:-1}"
+      OMP_NUM_THREADS: "${OMP_NUM_THREADS:-1}"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7]
+              capabilities: [gpu]
+    ports:
+      - "8193:8193"
+    volumes:
+      - type: bind
+        source: /data/workspace/jzheng/yoloe_service_test_prod/pretrain
+        target: /app/pretrain
+        read_only: true
+      - type: bind
+        source: /data/workspace/jzheng/yoloe_service_test_prod/pretrain
+        target: /root/.cache/ultralytics
+        read_only: true
+      - type: bind
+        source: /data/workspace/jzheng/yoloe_service/data/ktd-qwen-vl-8b-instruct
+        target: /opt/clean-source/base
+        read_only: true
+      - type: bind
+        source: /data/workspace/jzheng/ktd-clean-source-qwen-20260925-v1/selected-adapter-epoch2
+        target: /opt/clean-source/adapter
+        read_only: true
+      - type: bind
+        source: ./algorithm-privacy/sitecustomize.py
+        target: /opt/vision-privacy/sitecustomize.py
+        read_only: true
+      - algorithm-uploads:/app/uploads
+      - algorithm-results:/app/results
+      - algorithm-cache:/app/cache
+      - algorithm-test-result:/app/test_result
+    restart: unless-stopped
+  api:
+    image: "review-vision-test-api:${VISION_REVISION:?revision required}"
+    labels: *ownership
+    environment: *api-environment
+    ports:
+      - "8393:8000"
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+      minio: {condition: service_started}
+    restart: unless-stopped
+  worker:
+    image: "review-vision-test-api:${VISION_REVISION:?revision required}"
+    labels: *ownership
+    environment: *api-environment
+    command: [celery, -A, app.tasks.celery_app.celery_app, worker, --loglevel=INFO, --concurrency=2]
+    depends_on:
+      api: {condition: service_started}
+    restart: unless-stopped
+  frontend:
+    image: "review-vision-test-frontend:${VISION_REVISION:?revision required}"
+    labels: *ownership
+    ports:
+      - "5276:80"
+    depends_on:
+      api: {condition: service_started}
+    restart: unless-stopped
+
+volumes:
+  postgres-data: {labels: *ownership}
+  redis-data: {labels: *ownership}
+  minio-data: {labels: *ownership}
+  algorithm-uploads: {labels: *ownership}
+  algorithm-results: {labels: *ownership}
+  algorithm-cache: {labels: *ownership}
+  algorithm-test-result: {labels: *ownership}
+
+networks:
+  default:
+    labels: *ownership

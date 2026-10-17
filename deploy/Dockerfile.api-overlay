@@ -1,0 +1,5 @@
+FROM review-annotation-test-api:4e3e5c7
+WORKDIR /app
+COPY backend ./backend
+COPY migrations ./migrations
+COPY alembic.ini ./

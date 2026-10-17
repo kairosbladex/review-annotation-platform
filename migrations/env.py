@@ -8,6 +8,7 @@ from sqlalchemy import engine_from_config, pool
 
 from app.db import Base
 from app import models  # noqa: F401 - register all model tables
+from app.services import history_compare_records, retrieval  # noqa: F401
 
 config = context.config
 database_url = os.getenv("DATABASE_URL")

@@ -99,14 +99,64 @@ export async function createExport(token: string, runId: string, formats: string
 }
 
 export async function uploadImages(token: string, files: File[]) {
-  const data = new FormData();
-  files.forEach((file) => data.append("files", file));
-  const response = await fetch(`${API_BASE}/imports/uploads`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}` },
-    body: data,
-  });
+  const summary = { imported: 0, skipped: 0, failed: 0, errors: [] as string[] };
+  for (const file of files) {
+    const data = new FormData(); data.append("files", file);
+    try {
+      const response = await fetch(`${API_BASE}/imports/uploads`, { method: "POST", headers: { Authorization: `Bearer ${token}` }, body: data });
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) { summary.failed++; summary.errors.push(`HTTP ${response.status}`); continue; }
+      summary.imported += body.imported ?? 0; summary.skipped += body.skipped ?? 0; summary.failed += body.failed ?? 0;
+      if (body.failed > 0) summary.errors.push("图片格式不支持或无法读取");
+    } catch { summary.failed++; summary.errors.push("网络连接失败"); }
+  }
+  return summary;
+}
+
+export type HistoryComparison = { comparison_id: string; created_at: string; baseline_url: string; current_url: string; result: HistoryCompareResult };
+export type HistoryComparisonSummary = { comparison_id: string; created_at: string; status: string; change_count: number; diff_summary: string };
+export function listHistoryComparisons(token: string, signal?: AbortSignal, page = 1, limit = 20) {
+  return request<{ comparisons: HistoryComparisonSummary[]; total: number }>(`/history-comparisons?page=${page}&limit=${limit}`, { signal }, token);
+}
+export function getHistoryComparison(token: string, id: string, signal?: AbortSignal) {
+  return request<HistoryComparison>(`/history-comparisons/${encodeURIComponent(id)}`, { signal }, token);
+}
+export async function createHistoryComparison(token: string, baseline: File, current: File, signal: AbortSignal) {
+  const form = new FormData(); form.append("baseline", baseline); form.append("current", current);
+  const response = await fetch(`${API_BASE}/history-comparisons`, { method: "POST", headers: { Authorization: `Bearer ${token}` }, body: form, signal });
   const body = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(body.detail ?? `上传失败（${response.status}）`);
-  return body as { imported: number; skipped: number; failed: number };
+  if (!response.ok) throw new Error(typeof body.detail === "string" ? body.detail : `对比失败（${response.status}）`);
+  return body as HistoryComparison;
+}
+
+export type RetrievalMedia = { media_id: string; filename: string; media_type: string; size_bytes: number };
+export type RetrievalDetection = { class_name: string; confidence: number; bbox: [number, number, number, number] };
+export type RetrievalResult = { file_index: number | null; frame_index?: number | null; timestamp_seconds?: number | null; image_url?: string | null; thumbnail_url?: string | null; detections: RetrievalDetection[] };
+export type RetrievalTask = {
+  task_id: string; status: string; query: string; message?: string | null; media_count: number; total_hits: number;
+  processed_count?: number; total_count?: number; video_progress?: number | { progress?: number; current_seconds?: number; duration_seconds?: number; processed_frames?: number; sampled_frames?: number; total_frames?: number; processed_samples?: number; sample_count?: number; estimated_total_samples?: number; phase?: string } | null; error_code?: string | null;
+  sync_error?: string | null; created_at: string; finished_at?: string | null; results?: RetrievalResult[];
+  file_errors?: { file_index?: number | null; message?: string; error?: string }[];
+};
+export function getCapabilities(token: string, signal?: AbortSignal) {
+  return request<{ retrieval_enabled: boolean }>("/capabilities", { signal }, token);
+}
+export async function uploadRetrievalMedia(token: string, file: File, signal: AbortSignal) {
+  const body = new FormData(); body.append("file", file);
+  const response = await fetch(`${API_BASE}/retrieval/media`, { method: "POST", headers: { Authorization: `Bearer ${token}` }, body, signal });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(typeof data.detail === "string" ? data.detail : `上传失败（${response.status}）`);
+  return data as RetrievalMedia;
+}
+export function createRetrievalTask(token: string, payload: { query: string; media_ids: string[]; prompt_media_ids?: string[]; confidence: number; sample_interval_seconds: number }, idempotencyKey: string, signal?: AbortSignal) {
+  return request<RetrievalTask>("/retrieval/tasks", { method: "POST", headers: { "Idempotency-Key": idempotencyKey }, body: JSON.stringify(payload), signal }, token);
+}
+export function listRetrievalTasks(token: string, signal?: AbortSignal, offset = 0, limit = 20) {
+  return request<{ tasks: RetrievalTask[]; total: number }>(`/retrieval/tasks?offset=${offset}&limit=${limit}`, { signal }, token);
+}
+export function getRetrievalTask(token: string, id: string, signal?: AbortSignal) {
+  return request<RetrievalTask>(`/retrieval/tasks/${encodeURIComponent(id)}`, { signal }, token);
+}
+export function cancelRetrievalTask(token: string, id: string, signal?: AbortSignal) {
+  return request<RetrievalTask>(`/retrieval/tasks/${encodeURIComponent(id)}/cancel`, { method: "POST", signal }, token);
 }
