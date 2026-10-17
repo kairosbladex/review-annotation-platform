@@ -40,11 +40,19 @@ _previous_factory = logging.getLogRecordFactory()
 
 def _private_record(*args, **kwargs):
     record = _previous_factory(*args, **kwargs)
-    try:
-        record.msg = redact(record.getMessage())
-    except (TypeError, ValueError):
-        record.msg = '[unformattable log message]'
-    record.args = ()
+    if record.name == 'uvicorn.access' and isinstance(record.args, tuple) and len(record.args) == 5:
+        # AccessFormatter reads these five arguments after LogRecord creation.
+        # Keep their structure while removing credentials from the request target.
+        client, method, target, version, status = record.args
+        target = str(target).split('?', 1)[0].split('#', 1)[0]
+        record.msg = redact(record.msg)
+        record.args = (redact(client), redact(method), redact(target), redact(version), status)
+    else:
+        try:
+            record.msg = redact(record.getMessage())
+        except (TypeError, ValueError):
+            record.msg = '[unformattable log message]'
+        record.args = ()
     if record.exc_info:
         record.exc_text = redact(''.join(traceback.format_exception(*record.exc_info)))
         record.exc_info = None

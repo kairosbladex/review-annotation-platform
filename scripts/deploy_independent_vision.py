@@ -11,6 +11,7 @@ import hashlib
 import json
 import os
 import re
+import runpy
 import secrets
 import stat
 import subprocess
@@ -29,6 +30,9 @@ FRONTEND_BASE_IMAGE = 'sha256:8fc26b906cd0c0737a497938ef9d5b97d4a4cc5067ab54b69c
 WEIGHT_SHA256 = 'a9413bf3f15772c223a03bbedd71b79af5822f830e80aa1b51b1a469e65927b1'
 IMAGE_CROP_MODEL_PATH = '/opt/review-models/resnet18-human-20260907.pt'
 IMAGE_CROP_SHA256 = '933447331226ab3f05868828864e7737efc62c4c51a226cd12fc2a06a2d4e683'
+HISTORY_MODEL = 'qwen3-vl:8b-instruct'
+REVIEW_WORKER_PORT = 18397
+REVIEW_WORKER_NAME = PROJECT + '-luna-worker'
 GPU_UUID = 'GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7'
 SERVICES = {'postgres', 'redis', 'minio', 'algorithm', 'api', 'worker', 'frontend'}
 PORTS = {19004, 8193, 8393, 5276}
@@ -68,14 +72,17 @@ def validate_release_id(revision):
     return revision
 
 
-def validate_existing_resources(resources, revision):
-    """Only exact-release owned resources can participate in an operation."""
+def validate_existing_resources(resources, revision, previous_resources=None):
+    """Allow this release and only the exact resources verified during upgrade."""
+    previous_resources = previous_resources or {}
     for resource in resources:
         name = resource['name']
         labels = resource.get('labels') or {}
         if not (name.startswith(PROJECT + '-') or name.startswith(PROJECT + '_')):
             raise ValueError('resource is outside the independent project')
-        if labels.get('vision.managed') != 'true' or labels.get('vision.release') != revision:
+        owner = labels.get('vision.release')
+        allowed = owner == revision or name in previous_resources and previous_resources[name] == owner
+        if labels.get('vision.managed') != 'true' or not allowed:
             raise ValueError('existing resource ownership does not match this release')
 
 
@@ -84,6 +91,19 @@ def validate_crop_model_path(crop):
         not crop.startswith('/app/pretrain/') or '..' in Path(crop).parts
     ):
         raise ValueError('crop model path is outside approved read-only sources')
+
+
+def independent_review_worker(environment, public_host):
+    if environment.get('CODEX_REVIEW_ENABLED', '').lower() == 'true':
+        environment['CODEX_REVIEW_WORKER_URL'] = f'http://{public_host}:{REVIEW_WORKER_PORT}'
+
+
+def validate_review_worker(environment, public_host):
+    if environment.get('CODEX_REVIEW_ENABLED', '').lower() == 'true' and (
+        environment.get('CODEX_REVIEW_WORKER_URL') != f'http://{public_host}:{REVIEW_WORKER_PORT}'
+        or not environment.get('CODEX_REVIEW_WORKER_TOKEN')
+    ):
+        raise ValueError('algorithm must use the independent review worker')
 
 
 def private_environment(algorithm, original_api, revision, public_host):
@@ -106,12 +126,14 @@ def private_environment(algorithm, original_api, revision, public_host):
     ):
         raise ValueError('real review worker configuration is incomplete')
     validate_crop_model_path(result.get('REVIEW_CROP_MODEL_PATH', ''))
+    independent_review_worker(result, public_host)
     result.update({
         'VISION_REVISION': revision, 'VISION_PUBLIC_HOST': public_host,
         'VISION_ADMIN_USERNAME': original_api['ADMIN_USERNAME'],
         'VISION_ADMIN_PASSWORD': original_api['ADMIN_PASSWORD'],
         'VISION_MINIO_USER': 'vision_test',
         'VISION_HISTORY_OLLAMA_URL': result['LLM_BASE_URL'].rstrip('/'),
+        'VISION_HISTORY_MODEL': HISTORY_MODEL,
     })
     for key in ('VISION_PG_PASSWORD', 'VISION_MINIO_PASSWORD', 'VISION_JWT_SECRET',
                 'VISION_SERVICE_API_KEY', 'VISION_ALGORITHM_API_KEY'):
@@ -197,6 +219,7 @@ def validate_config(config, release_dir, revision):
         if (app_env.get('MODEL_ADAPTER_TYPE') != 'legacy_review_agent'
                 or app_env.get('MODEL_SERVICE_BASE_URL') != 'http://algorithm:8193'
                 or app_env.get('RETRIEVAL_SERVICE_BASE_URL') != 'http://algorithm:8193'
+                or app_env.get('HISTORY_COMPARE_MODEL') != HISTORY_MODEL
                 or app_env.get('MINIO_ENDPOINT') != 'minio:9000'
                 or app_env.get('MINIO_BUCKET') != 'vision-test'):
             raise ValueError('application is not connected to the independent real algorithm and storage')
@@ -204,6 +227,8 @@ def validate_config(config, release_dir, revision):
         raise ValueError('unexpected frontend image target')
     algorithm = services['algorithm']
     env = algorithm.get('environment') or {}
+    public_host = services['api']['environment']['MINIO_PUBLIC_ENDPOINT'].rsplit(':', 1)[0]
+    validate_review_worker(env, public_host)
     if env.get('MYSQL_ENABLED') != 'false' or env.get('MQTT_HOST') != '':
         raise ValueError('business writes are enabled')
     if any(key.startswith('MYSQL_') and key != 'MYSQL_ENABLED' or
@@ -301,18 +326,90 @@ def _write_new(path, text):
         stream.write(text)
 
 
-def prepare(release, revision, public_host):
+def _release_path(path, revision):
+    path = Path(path)
+    if (not path.is_absolute() or path.resolve() != path or path.is_symlink()
+            or path.parent != RELEASE_ROOT or path.name != validate_release_id(revision)):
+        raise ValueError('release directory is outside the approved deployment root')
+    return path
+
+
+def _previous_release(previous_release_dir, *, check_runtime):
+    previous = Path(previous_release_dir)
+    _release_path(previous, previous.name)
+    if not previous.is_dir():
+        raise ValueError('previous release is unavailable')
+    for filename in ('deployment.json', '.private.env'):
+        path = previous / filename
+        if (path.is_symlink() or not path.is_file() or stat.S_IMODE(path.stat().st_mode) != 0o600
+                or path.stat().st_uid != os.getuid()):
+            raise ValueError('previous release metadata permissions or ownership changed')
+    recorded = json.loads((previous / 'deployment.json').read_text())
+    if recorded.get('project') != PROJECT or recorded.get('revision') != previous.name:
+        raise ValueError('previous release ownership mismatch')
+    script = previous / 'source/scripts/deploy_independent_vision.py'
+    if (not script.is_file() or script.is_symlink() or script.resolve() != script
+            or script.stat().st_uid != os.getuid()):
+        raise ValueError('previous release validator is unavailable or symlinked')
+    # Run the release's own contract: the old history model remains valid there.
+    # run_path reads source without creating bytecode in the previous release.
+    try:
+        legacy = runpy.run_path(str(script))
+        if legacy.get('PROJECT') != PROJECT:
+            raise ValueError('previous release validator belongs to another project')
+        manifest = legacy['load_manifest'](previous, previous.name)
+        containers = legacy['_guard'](manifest) if check_runtime else None
+    except Exception:
+        raise ValueError('previous release validation failed; raw diagnostics withheld') from None
+    values = {}
+    for line in (previous / '.private.env').read_text().splitlines():
+        key, separator, value = line.partition('=')
+        if (not separator or not re.fullmatch('[A-Z][A-Z0-9_]*', key) or key in values
+                or len(value) < 2 or not value.startswith("'") or not value.endswith("'")
+                or any(char in value[1:-1] for char in "\r\n\0'\\")):
+            raise ValueError('previous private environment encoding is invalid')
+        values[key] = value[1:-1]
+    required = {'VISION_PG_PASSWORD', 'VISION_MINIO_USER', 'VISION_MINIO_PASSWORD',
+                'VISION_JWT_SECRET', 'VISION_SERVICE_API_KEY', 'VISION_ALGORITHM_API_KEY',
+                'VISION_ADMIN_USERNAME', 'VISION_ADMIN_PASSWORD', 'VISION_PUBLIC_HOST',
+                'VISION_HISTORY_OLLAMA_URL', 'LLM_MODEL'}
+    if not all(values.get(key) for key in required) or values.get('VISION_REVISION') != previous.name:
+        raise ValueError('previous private environment is incomplete')
+    provenance = {'release_dir': str(previous), 'revision': previous.name,
+                  'source_sha256': manifest['source_sha256'], 'config_sha256': manifest['config_sha256'],
+                  'manifest_sha256': hashlib.sha256((previous / 'deployment.json').read_bytes()).hexdigest(),
+                  'private_env_sha256': hashlib.sha256((previous / '.private.env').read_bytes()).hexdigest(),
+                  'validator_sha256': hashlib.sha256(script.read_bytes()).hexdigest()}
+    if containers is not None:
+        provenance['resources'] = {item['name']: item['labels']['vision.release']
+                                   for item in _resources(containers)}
+    return provenance, values
+
+
+def prepare(release, revision, public_host, *, previous_release_dir=None):
     release = Path(release)
     source_hash = source_fingerprint(release / 'source')
     if (release / 'deployment.json').exists():
         manifest = load_manifest(release, revision)
         if manifest['source_sha256'] != source_hash:
             raise ValueError('prepared source changed')
+        if previous_release_dir is not None and manifest.get('previous_release', {}).get('release_dir') != str(previous_release_dir):
+            raise ValueError('prepared previous release does not match the requested upgrade')
         return manifest
     if (release / '.private.env').exists() or any(p.name != 'source' for p in release.iterdir()):
         raise ValueError('unrecognized existing release files')
+    previous = None
+    if previous_release_dir is not None:
+        _release_path(release, revision)
+        if Path(previous_release_dir) == release:
+            raise ValueError('previous release must differ from the new release')
+        previous, values = _previous_release(previous_release_dir, check_runtime=True)
+        if values['VISION_PUBLIC_HOST'] != public_host:
+            raise ValueError('upgrade must preserve the previous public host')
+        values.update(VISION_REVISION=revision, VISION_HISTORY_MODEL=HISTORY_MODEL)
+        independent_review_worker(values, public_host)
     containers = _all_containers()
-    validate_existing_resources(_resources(containers), revision)
+    validate_existing_resources(_resources(containers), revision, previous['resources'] if previous else None)
     by_name = {item['Name'].lstrip('/'): item for item in containers}
     original = by_name.get('yoloe_service_test')
     if not original or original['Image'] != ALGORITHM_IMAGE:
@@ -320,13 +417,14 @@ def prepare(release, revision, public_host):
     original_api = by_name.get('review-annotation-test-api-1')
     if not original_api or original_api['Image'] != API_BASE_IMAGE:
         raise ValueError('original administrator source unavailable')
-    values = private_environment(_container_environment(original), _container_environment(original_api),
-                                 revision, public_host)
+    if previous is None:
+        values = private_environment(_container_environment(original), _container_environment(original_api),
+                                     revision, public_host)
     try:
         with urllib.request.urlopen(values['VISION_HISTORY_OLLAMA_URL'] + '/api/tags', timeout=5) as response:
             models = json.loads(response.read(1024 * 1024))
-        if not any(model.get('name') == values['LLM_MODEL'] or model.get('model') == values['LLM_MODEL']
-                   for model in models.get('models', [])):
+        available = {model.get(key) for model in models.get('models', []) for key in ('name', 'model')}
+        if not {values['LLM_MODEL'], values['VISION_HISTORY_MODEL']} <= available:
             raise ValueError('configured semantic model is not available from Ollama')
     except (OSError, ValueError, TypeError, AttributeError):
         raise ValueError('native Ollama service or selected semantic model is unavailable') from None
@@ -341,6 +439,8 @@ def prepare(release, revision, public_host):
                 'infrastructure_images': {name: _docker_json('image', 'inspect', config['services'][name]['image'])[0]['Id']
                                           for name in ('postgres', 'redis', 'minio')},
                 'public_host': public_host, 'status': 'prepared', 'images': {}}
+    if previous is not None:
+        manifest['previous_release'] = previous
     _write_new(release / 'deployment.json', json.dumps(manifest, sort_keys=True, indent=2) + '\n')
     return manifest
 
@@ -359,6 +459,11 @@ def load_manifest(release, revision):
         raise ValueError('source artifact drifted')
     if _digest(_config(release, revision)) != manifest['config_sha256']:
         raise ValueError('deployment configuration drifted')
+    if manifest.get('previous_release'):
+        previous = manifest['previous_release']
+        current, _ = _previous_release(previous['release_dir'], check_runtime=False)
+        if any(previous.get(key) != value for key, value in current.items()):
+            raise ValueError('verified previous release artifacts drifted')
     return manifest
 
 
@@ -366,7 +471,8 @@ def _guard(manifest):
     containers = _all_containers()
     if protected_identity(containers) != manifest['protected']:
         raise ValueError('protected container identity changed')
-    validate_existing_resources(_resources(containers), manifest['revision'])
+    validate_existing_resources(_resources(containers), manifest['revision'],
+                                manifest.get('previous_release', {}).get('resources'))
     return containers
 
 
@@ -453,12 +559,23 @@ def up(release, manifest):
 def verify(release, manifest):
     containers = _guard(manifest)
     candidates = [item for item in containers if item['Name'].lstrip('/').startswith(PROJECT + '-')]
+    review_workers = [item for item in candidates
+                      if item['Name'].lstrip('/') == REVIEW_WORKER_NAME
+                      and item['Config'].get('Labels', {}).get('vision.component') == 'luna-worker']
+    for worker in review_workers:
+        if (len(review_workers) != 1 or not worker['State']['Running']
+                or worker['Image'] != API_BASE_IMAGE or worker['HostConfig'].get('DeviceRequests')):
+            raise ValueError('independent review worker runtime identity mismatch')
+    candidates = [item for item in candidates if item not in review_workers]
     by_service = {item['Config'].get('Labels', {}).get('com.docker.compose.service'): item for item in candidates}
     if set(by_service) != SERVICES or len(candidates) != len(SERVICES):
         raise ValueError('candidate service set is incomplete')
     for service, item in by_service.items():
         if not item['State']['Running']:
             raise ValueError('candidate service is not running')
+        labels = item['Config'].get('Labels') or {}
+        if labels.get('vision.managed') != 'true' or labels.get('vision.release') != manifest['revision']:
+            raise ValueError('running container release ownership mismatch')
         if service == 'algorithm' and item['Image'] != ALGORITHM_IMAGE:
             raise ValueError('running algorithm image mismatch')
         if service in ('api', 'worker', 'frontend') and item['Image'] != manifest['images'].get('api' if service == 'worker' else service):
@@ -467,6 +584,11 @@ def verify(release, manifest):
             raise ValueError('running infrastructure image mismatch')
     algorithm = by_service['algorithm']
     env = _container_environment(algorithm)
+    public_host = manifest.get('public_host') or _container_environment(
+        by_service['api'])['MINIO_PUBLIC_ENDPOINT'].rsplit(':', 1)[0]
+    validate_review_worker(env, public_host)
+    if env.get('CODEX_REVIEW_ENABLED', '').lower() == 'true' and len(review_workers) != 1:
+        raise ValueError('independent review worker runtime is missing')
     if env.get('MYSQL_ENABLED') != 'false' or env.get('MQTT_HOST') != '' or env.get('MINIO_BUCKET') != 'vision-test':
         raise ValueError('running algorithm side-effect boundary drifted')
     if any(mount['Type'] == 'bind' and mount['RW'] for mount in algorithm['Mounts']):
@@ -510,13 +632,15 @@ def main():
     parser.add_argument('--release-dir', type=Path, required=True)
     parser.add_argument('--revision', required=True)
     parser.add_argument('--public-host', default='192.168.130.238')
+    parser.add_argument('--previous-release-dir', type=Path)
     args = parser.parse_args()
     try:
         revision = validate_release_id(args.revision)
-        release = args.release_dir.resolve()
-        if release.parent != RELEASE_ROOT or release.name != revision:
-            raise ValueError('release directory is outside the approved deployment root')
-        manifest = prepare(release, revision, args.public_host) if args.operation == 'prepare' else load_manifest(release, revision)
+        release = _release_path(args.release_dir, revision)
+        if args.previous_release_dir is not None and args.operation != 'prepare':
+            raise ValueError('previous release may only be specified for prepare')
+        manifest = (prepare(release, revision, args.public_host, previous_release_dir=args.previous_release_dir)
+                    if args.operation == 'prepare' else load_manifest(release, revision))
         if args.operation == 'plan':
             _host_preflight(release, manifest, _guard(manifest))
         if args.operation == 'up':

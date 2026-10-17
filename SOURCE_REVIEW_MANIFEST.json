@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
   "project": "review-annotation-platform",
-  "source_head": "b597612d5e5703610a6f1bdc0ba5e2426947f263",
+  "source_head": "c97e46a7d5b01fdf842b91f469a04bfc0f8fb371",
   "source_branch": "feature/independent-vision-workbench",
-  "previous_source_head": "7b987a7aaf14d0689330acbae9fea28c0dd8ddd6",
-  "source_commit_time": "2026-10-18T00:19:00+08:00",
-  "generated_at": "2026-10-17T16:21:18.611Z",
+  "previous_source_head": "b597612d5e5703610a6f1bdc0ba5e2426947f263",
+  "source_commit_time": "2026-10-18T00:59:38+08:00",
+  "generated_at": "2026-10-17T17:02:01.865Z",
   "snapshot_kind": "sanitized-committed-source-review",
   "snapshot_branch": "chore/source-review-snapshot",
-  "parent_snapshot": "f4fd639f432254bb992774fca9c6733e3b49f105",
+  "parent_snapshot": "8601101505429808bbcfbe9ac828f86eac18ab20",
   "source_history_included": false,
   "uncommitted_changes_included": false,
   "source_was_dirty_at_export": true,
-  "source_text_files": 280,
+  "source_text_files": 283,
   "scope": "Previously verified source scope plus eligible committed changes; complete selected-file git archive of exact source SHA.",
   "red_lines": [
     "no company Git history",
@@ -22,18 +22,30 @@
     "no Actions activation or force push"
   ],
   "sanitized_cache": {
-    "source_head": "7b987a7aaf14d0689330acbae9fea28c0dd8ddd6",
-    "snapshot_commit": "f4fd639f432254bb992774fca9c6733e3b49f105",
-    "manifest_sha256": "7af00e7bf3e51e4c979747e942faa25c981957b187988c0df3611beb24c40da5"
+    "source_head": "b597612d5e5703610a6f1bdc0ba5e2426947f263",
+    "snapshot_commit": "8601101505429808bbcfbe9ac828f86eac18ab20",
+    "manifest_sha256": "46d40f8d268f5497ea8a23b3114676f452ecd952caefe352fc6b95a23faf9b68"
   },
-  "verified_cache_files_reused": 278,
+  "verified_cache_files_reused": 273,
   "changed_committed_paths": [
+    "backend/tests/test_algorithm_privacy.py",
     "backend/tests/test_deploy_independent_vision.py",
-    "scripts/deploy_independent_vision.py"
+    "backend/tests/test_deploy_vision_review_worker.py",
+    "deploy/algorithm-privacy/sitecustomize.py",
+    "deploy/vision-test.compose.yml",
+    "docs/evidence/independent-workbench-20261018/README.md",
+    "frontend/src/components/IntelligentRetrieval.tsx",
+    "frontend/src/secureUuid.ts",
+    "frontend/tests/workbench.browser.test.mjs",
+    "scripts/deploy_independent_vision.py",
+    "scripts/deploy_vision_review_worker.py"
   ],
   "removed_snapshot_paths": [],
   "redacted_files": {
-    "backend/tests/test_deploy_independent_vision.py": 9
+    "backend/tests/test_algorithm_privacy.py": 2,
+    "backend/tests/test_deploy_independent_vision.py": 15,
+    "backend/tests/test_deploy_vision_review_worker.py": 2,
+    "deploy/vision-test.compose.yml": 1
   },
   "inherited_redacted_paths": [
     "README.md",
@@ -52,9 +64,9 @@
     "docs/CONTINUE.md",
     "docs/evidence/live-review-history-regression-20261016/run_live_regression.py"
   ],
-  "excluded_file_count": 2155,
+  "excluded_file_count": 2156,
   "excluded_by_reason": {
-    "runtime-data-or-evidence": 2128,
+    "runtime-data-or-evidence": 2129,
     "operational-record-or-scan-override": 1,
     "non-source-format": 18,
     "retain-previous-export-exclusion": 8
@@ -504,10 +516,10 @@
       "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_algorithm_privacy.py": {
-      "sha256": "d5a3399d9bddc3022c024ac828a7df0601a0354f5e4de0319cd1bdafc4a25048",
-      "source_blob": "feedc11a013866354411c7b0560d9f7cc67808ed",
+      "sha256": "f6b0f0765b0b3ccd1e649f642332344dc91d1e071a55174146be221ad928501d",
+      "source_blob": "793ecd697fc3546ac4ef775a101c1882bc97eabe",
       "source_mode": "100644",
-      "provenance": "verified-source-cache-sanitized"
+      "provenance": "committed-archive-sanitized"
     },
     "backend/tests/test_annex_import.py": {
       "sha256": "09c2d733b70155b96d307f588f17485a247b0264e1b7d1f115ba1d89681b3c23",
@@ -546,8 +558,14 @@
       "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_deploy_independent_vision.py": {
-      "sha256": "a3e0b85a64f7d98e7f16f74e26a62d1a684369ef103acb291dec4c1f2a6e2c51",
-      "source_blob": "c6340d94734b22582a5ebf7d4842d2518b4f0c4b",
+      "sha256": "8fdfb0f3a0376dc834657690de518977abd900c3b575a6a6d945d74416e703be",
+      "source_blob": "e108ef220ffed956b50250c830249b57e7371053",
+      "source_mode": "100644",
+      "provenance": "committed-archive-sanitized"
+    },
+    "backend/tests/test_deploy_vision_review_worker.py": {
+      "sha256": "9d6e693497eacd5ca65741722327b2c140bcbc7dfe8d13252f657de1a350a812",
+      "source_blob": "d48569aeddeebbec105e2d9cea17e0bf203d64fb",
       "source_mode": "100644",
       "provenance": "committed-archive-sanitized"
     },
@@ -714,10 +732,10 @@
       "provenance": "verified-source-cache-sanitized"
     },
     "deploy/algorithm-privacy/sitecustomize.py": {
-      "sha256": "8ce567f7a4a95d7b7b4196150ac5ba46856e2469963d3cbdbe8fb81ce960d8ee",
-      "source_blob": "9dff4ad80ab28011aaff1412e3b4816838dce8ee",
+      "sha256": "014edff75e78708b78f05702580bbe0599812b126728258fc45bb924fa214fe7",
+      "source_blob": "7579e3de21c8733e0667f3032a088ce165badb07",
       "source_mode": "100644",
-      "provenance": "verified-source-cache-sanitized"
+      "provenance": "committed-archive-sanitized"
     },
     "deploy/history-compare.test.yml": {
       "sha256": "c18dbb84e29ed18576da3270ec5d98ce885eb3362e5e946f1bea8c257a17a357",
@@ -744,10 +762,10 @@
       "provenance": "verified-source-cache-sanitized"
     },
     "deploy/vision-test.compose.yml": {
-      "sha256": "156ae6d7a13e1ddb3caa30ee836e5261274014702434255608eae13c6dcd4528",
-      "source_blob": "1bfeb07b9aaa4f09549337885b8fbf9d9e38f99f",
+      "sha256": "6d44fc65d7c69389ca96b887e3cbf9402bfe9240ec03d283310d3d035b0aeacf",
+      "source_blob": "63a51847d7a905f6073ea7b010ac9ab2744bf5d0",
       "source_mode": "100644",
-      "provenance": "verified-source-cache-sanitized"
+      "provenance": "committed-archive-sanitized"
     },
     "deploy/vl-compare-overlay.Dockerfile": {
       "sha256": "fa44e9cbc762493ee901b2b0d8cd8699c48b1b41854449b787f1927a57591a66",
@@ -1062,10 +1080,10 @@
       "provenance": "verified-source-cache-sanitized"
     },
     "frontend/src/components/IntelligentRetrieval.tsx": {
-      "sha256": "030b699e8c52fb17a764c11e1f3306558aebb26c987e2e5535db1a8c0f9e8746",
-      "source_blob": "4d22346efd8782b2eebe6190d01c921df5b6c990",
+      "sha256": "56798be3ee2544939b8630636d584f70b7311d5dd73551cce50e1dc8ca11db4c",
+      "source_blob": "a140fae4b9725c5b2087da85fffd36dd30e2c0ca",
       "source_mode": "100644",
-      "provenance": "verified-source-cache-sanitized"
+      "provenance": "committed-archive-sanitized"
     },
     "frontend/src/components/QueuePanel.tsx": {
       "sha256": "b9446cb78283bf83fe23b54fdc05e09fb4b297a0ebbce44a7b5f5298309f6e3d",
@@ -1102,6 +1120,12 @@
       "source_blob": "ae8cc0cd9017a3597c702e1cae8c8bde57e7526f",
       "source_mode": "100644",
       "provenance": "verified-source-cache-sanitized"
+    },
+    "frontend/src/secureUuid.ts": {
+      "sha256": "4ee362c9151cd4334d343a4d4f5e06efc0b5dbccbe381f0b4aa3b0b6ead74fba",
+      "source_blob": "427eaf5c35c6215aef7a04ed1c12dce89f704662",
+      "source_mode": "100644",
+      "provenance": "committed-archive-sanitized"
     },
     "frontend/src/selection.test.ts": {
       "sha256": "adf6b1e0234e7a1c807b1d2f382e1d9d0e6a949069221c669bcdc1206736288d",
@@ -1146,10 +1170,10 @@
       "provenance": "verified-source-cache-sanitized"
     },
     "frontend/tests/workbench.browser.test.mjs": {
-      "sha256": "51137a23e119386507b99c4fcca1edb90b6fb5c2b5d84618638ebd74b02b2eec",
-      "source_blob": "aaac9f7b3365c5dfaa4164fc35bb1a42bc0e26eb",
+      "sha256": "94fa97bbc7e54c5f3f2abf760aeacda824d54a8d94fbcb496248c7555016c246",
+      "source_blob": "6a2ed447fbd3f72d9e9a016ac0119cb47caddba0",
       "source_mode": "100644",
-      "provenance": "verified-source-cache-sanitized"
+      "provenance": "committed-archive-sanitized"
     },
     "frontend/tsconfig.app.json": {
       "sha256": "fc4fefbbd28162eb365d71964ed07b79b4c08732c93c9e4947f05d1777c17d98",
@@ -1338,8 +1362,14 @@
       "provenance": "verified-source-cache-sanitized"
     },
     "scripts/deploy_independent_vision.py": {
-      "sha256": "562722a50ad031c0196d92a9174c640f1cd745b9e98bf9c6eb3a3dc3308bda9f",
-      "source_blob": "41cebbc20bb4bfc94dedc869299420a989e0aa49",
+      "sha256": "03f0f3e84ff2112293ae3a1d89b77d4c3581f70be2b8f0046adccbbcb2bedb30",
+      "source_blob": "3aef490cde51db3feb30a4cdbbbb59607c9f7446",
+      "source_mode": "100644",
+      "provenance": "committed-archive-sanitized"
+    },
+    "scripts/deploy_vision_review_worker.py": {
+      "sha256": "8c7bf7e6591a9115a44f6e5e77ee4789ab6f9120266490dcb6698f59171193f8",
+      "source_blob": "8adae8a757aa41cb232d8706d4fb5e2161f9ecf2",
       "source_mode": "100644",
       "provenance": "committed-archive-sanitized"
     },
