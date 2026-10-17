@@ -49,7 +49,7 @@ export function QueuePanel({ samples, selectedId, statusFilter, classFilter, dat
         </div>
         <label className="icon-button upload-button" title="上传图片">
           {uploading ? <LoaderCircle className="spin" size={17} /> : <Upload size={17} />}
-          <input type="file" accept="image/*" multiple hidden onChange={(event) => {
+          <input type="file" aria-label="上传复核图片" accept="image/*" multiple hidden disabled={uploading} onChange={(event) => {
             if (event.target.files?.length) onUpload(Array.from(event.target.files));
             event.currentTarget.value = "";
           }} />

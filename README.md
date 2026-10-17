@@ -208,7 +208,7 @@ docker compose --env-file deploy/production.env -f docker-compose.production.yml
 ```bash
 PYTHONPATH=backend python3 scripts/migrate_legacy_sqlite.py \
   /path/to/annotations.sqlite3 \
-  --database-url 'postgresql+psycopg://review:REDACTED_FOR_GITHUB@localhost:5432/review_annotation'
+  --database-url 'postgresql+psycopg://REDACTED:REDACTED@localhost:5432/review_annotation'
 ```
 
 迁移前请确认 `MINIO_ENDPOINT`、`MINIO_ACCESS_KEY`、`MINIO_SECRET_KEY` 已指向可写的目标对象存储。迁移输出 JSON 汇总 `total/imported/skipped/failed`，失败样本会打印原因，可修复后重跑；事件 ID 使重跑幂等。

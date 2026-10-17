@@ -179,7 +179,7 @@ def test_human_gold_exports_only_human_true_false_with_lineage(tmp_path):
     uncertain_id = seed_candidate(app, suffix="uncertain", sha256="f" * 64, created_at=now + timedelta(seconds=2))
 
     with app.state.session_factory() as session:
-        human = User(username="annotator", password_hash=hash_password("secret"))
+        human = User(username="annotator", password_hash=hash_password("REDACTED"))
         session.add(human)
         session.flush()
         session.add_all(
@@ -236,7 +236,7 @@ def test_human_gold_cursor_emits_a_new_revision_at_the_same_timestamp(tmp_path):
         created_at=labeled_at - timedelta(minutes=1),
     )
     with app.state.session_factory() as session:
-        human = User(username="revision-reviewer", password_hash=hash_password("secret"))
+        human = User(username="revision-reviewer", password_hash=hash_password("REDACTED"))
         session.add(human)
         session.flush()
         session.add(

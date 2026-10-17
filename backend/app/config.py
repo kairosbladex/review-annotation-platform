@@ -10,14 +10,14 @@ class Settings:
     # Compose/.env overrides this with PostgreSQL for every deployed instance.
     database_url: str = "sqlite:///./data/dev.sqlite3"
     redis_url: str = "redis://redis:6379/0"
-    service_api_key: str = 'REDACTED_FOR_GITHUB'
+    service_api_key: str = "REDACTED"
     admin_username: str = "admin"
-    admin_password: str = 'REDACTED_FOR_GITHUB'
-    jwt_secret: str = 'REDACTED_FOR_GITHUB'
+    admin_password: str = "REDACTED"
+    jwt_secret: str = "REDACTED"
     jwt_exp_minutes: int = 720
     minio_endpoint: str = "minio:9000"
-    minio_access_key: str = 'REDACTED_FOR_GITHUB'
-    minio_secret_key: str = 'REDACTED_FOR_GITHUB'
+    minio_access_key: str = "REDACTED"
+    minio_secret_key: str = "REDACTED"
     minio_bucket: str = "review-annotation"
     minio_public_endpoint: str = ""
     minio_secure: bool = False
@@ -33,6 +33,12 @@ class Settings:
     history_compare_ollama_url: str = ""
     history_compare_model: str = "qwen3.5:9b"
     history_compare_timeout_seconds: int = 60
+    retrieval_enabled: bool = False
+    retrieval_service_base_url: str = ""
+    retrieval_service_api_key: str = ""
+    retrieval_service_verify_tls: bool = True
+    retrieval_timeout_seconds: int = 15
+    retrieval_max_upload_bytes: int = 256 * 1024 * 1024
     # The auto-annotation path talks to an OpenAI Responses-compatible vision
     # endpoint.  Its credential intentionally has no non-empty default and is
     # never copied into a model profile or job payload.
@@ -82,6 +88,12 @@ class Settings:
             history_compare_ollama_url=os.getenv("HISTORY_COMPARE_OLLAMA_URL", "").rstrip("/"),
             history_compare_model=os.getenv("HISTORY_COMPARE_MODEL", cls.history_compare_model),
             history_compare_timeout_seconds=int(os.getenv("HISTORY_COMPARE_TIMEOUT_SECONDS", "60")),
+            retrieval_enabled=os.getenv("RETRIEVAL_ENABLED", "false").lower() in {"1", "true", "yes", "on"},
+            retrieval_service_base_url=os.getenv("RETRIEVAL_SERVICE_BASE_URL", "").rstrip("/"),
+            retrieval_service_api_key=os.getenv("RETRIEVAL_SERVICE_API_KEY", ""),
+            retrieval_service_verify_tls=os.getenv("RETRIEVAL_SERVICE_VERIFY_TLS", "true").lower() in {"1", "true", "yes", "on"},
+            retrieval_timeout_seconds=int(os.getenv("RETRIEVAL_TIMEOUT_SECONDS", "15")),
+            retrieval_max_upload_bytes=int(os.getenv("RETRIEVAL_MAX_UPLOAD_BYTES", str(cls.retrieval_max_upload_bytes))),
             auto_annotation_api_key=os.getenv("AUTO_ANNOTATION_API_KEY", ""),
             auto_annotation_base_url=os.getenv("AUTO_ANNOTATION_BASE_URL", cls.auto_annotation_base_url).rstrip("/"),
             auto_annotation_model=os.getenv("AUTO_ANNOTATION_MODEL", cls.auto_annotation_model),

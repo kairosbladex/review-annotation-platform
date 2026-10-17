@@ -7,7 +7,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 
-from qwen3vl_qlora_train import _balanced_sampling_manifest
+from qwen_training_provenance import _balanced_sampling_manifest
 
 
 def _row(class_name: str, label: str) -> dict:
@@ -46,7 +46,7 @@ def test_loads_and_hash_checks_clean_source_deployment_contract(tmp_path: Path):
     import hashlib
     import json
 
-    from qwen3vl_qlora_train import (
+    from qwen_training_provenance import (
         _QUANTIZATION_CONTRACT,
         _STRICT_OUTPUT_CONTRACT,
         _load_dataset_contract,
@@ -111,7 +111,7 @@ def test_loads_and_hash_checks_clean_source_deployment_contract(tmp_path: Path):
 
 
 def test_configure_processor_supports_transformers_size_dict_shape():
-    from qwen3vl_qlora_smoke import _configure_processor
+    from qwen_training_provenance import _configure_processor
 
     class SizeLike:
         def __init__(self) -> None:
@@ -134,7 +134,7 @@ def test_configure_processor_supports_transformers_size_dict_shape():
 
 
 def test_configure_processor_rejects_unverifiable_pixel_budget():
-    from qwen3vl_qlora_smoke import _configure_processor
+    from qwen_training_provenance import _configure_processor
 
     class Processor:
         image_processor = object()
@@ -144,7 +144,7 @@ def test_configure_processor_rejects_unverifiable_pixel_budget():
 
 
 def test_capped_sampling_limits_boost_and_keeps_mean_weight():
-    from qwen3vl_qlora_train import _capped_sampling_manifest
+    from qwen_training_provenance import _capped_sampling_manifest
 
     rows = (
         [_row("车", "true") for _ in range(92)]
@@ -167,7 +167,31 @@ def test_capped_sampling_limits_boost_and_keeps_mean_weight():
 
 
 def test_capped_sampling_rejects_non_positive_cap():
-    from qwen3vl_qlora_train import _capped_sampling_manifest
+    from qwen_training_provenance import _capped_sampling_manifest
 
     with pytest.raises(ValueError):
         _capped_sampling_manifest([_row("车", "true")], seed=42, cap=0)
+
+
+def test_training_contract_helpers_import_without_site_packages():
+    import subprocess
+
+    script_dir = str(Path(__file__).resolve().parents[2] / "scripts")
+    program = (
+        "import sys; sys.path.insert(0, sys.argv[1]); "
+        "from qwen_training_provenance import _balanced_sampling_manifest, "
+        "_capped_sampling_manifest, _configure_processor, _load_dataset_contract; "
+        "weights, manifest = _balanced_sampling_manifest("
+        "[{'meta': {'class_name': 'person', 'human_label': 'true'}}], seed=42); "
+        "assert weights == [1.0]; "
+        "assert manifest['validation_sampling'] == 'natural_original_partition'; "
+        "assert 'torch' not in sys.modules and 'transformers' not in sys.modules"
+    )
+    completed = subprocess.run(
+        [sys.executable, "-S", "-c", program, script_dir],
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=10,
+    )
+    assert completed.returncode == 0, completed.stderr

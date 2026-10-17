@@ -1,5 +1,7 @@
 # Continue Here
 
+> 2026-10-17：三功能独立工作台在 `feature/independent-vision-workbench` 继续，任务与门禁见 [独立工作台验收](ACCEPTANCE_VISION-WORKBENCH.md)，部署边界见 [独立测试发布计划](independent-test-deployment-plan-20261017.md)。本条只索引本轮任务；下方历史上下文保留。
+
 > 2026-09-29：无人机预警空间定位（AFMAP 撒点偏移、AR 投影、光伏组件定位）已拆到独立仓库 `/Users/wangxiaolin/PycharmProjects/skypin`，相关文档、脚本、证据数据和 10 个分支都在那里继续；本仓库只做视觉复检、标注与训练。定位的原交接内容见 skypin 的 `docs/CONTINUE.md`。
 
 ## 原标注任务上下文
@@ -72,8 +74,8 @@ SOURCE_IMAGE_BASE_URL=https://lxtest.zhuoyilingxi.com:8088/minio-src \
 SOURCE_IMAGE_BUCKET=minio-src \
 MINIO_ENDPOINT= MINIO_ACCESS_KEY= MINIO_SECRET_KEY= \
 DATABASE_URL=sqlite:///./data/ktd-local.sqlite3 \
-SERVICE_API_KEY=REDACTED \
-ADMIN_PASSWORD=REDACTED \
+SERVICE_API_KEY=change-me-service-api-key \
+ADMIN_PASSWORD=change-me-admin-password \
 PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190
 ```
 
