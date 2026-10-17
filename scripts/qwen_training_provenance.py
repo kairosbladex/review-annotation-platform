@@ -718,3 +718,203 @@ def validate_supervision_lengths(
     if prompt_length < 0 or answer_length <= 0:
         raise ValueError("row " + row_id + " has no supervised assistant answer tokens")
     return answer_length
+
+
+_QUANTIZATION_CONTRACT = {
+    "load_in_4bit": True,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": True,
+    "bnb_4bit_compute_dtype": "bfloat16",
+}
+_STRICT_OUTPUT_CONTRACT = {
+    "json_object_keys": ["decision"],
+    "allowed_decisions": ["CONFIRMED", "REJECTED"],
+    "invalid_output": "uncertain",
+}
+
+def _training_stratum(row: dict[str, Any]) -> str:
+    meta = row.get("meta")
+    if not isinstance(meta, dict) or not meta.get("class_name"):
+        raise ValueError("balanced sampling requires class_name metadata")
+    label = meta.get("human_label")
+    if label not in {"true", "false"}:
+        conversations = row.get("conversations")
+        if not isinstance(conversations, list) or not conversations:
+            raise ValueError("balanced sampling requires a binary human target")
+        try:
+            target = json.loads(str(conversations[-1]["value"]))
+        except (KeyError, TypeError, json.JSONDecodeError) as exc:
+            raise ValueError("balanced sampling requires a JSON assistant target") from exc
+        label = {"CONFIRMED": "true", "REJECTED": "false"}.get(target.get("decision"))
+    if label not in {"true", "false"}:
+        raise ValueError("balanced sampling requires a binary human target")
+    return str(meta["class_name"]) + "|" + str(label)
+
+
+def _balanced_sampling_manifest(rows: list[dict[str, Any]], seed: int) -> tuple[list[float], dict[str, Any]]:
+    strata = [_training_stratum(row) for row in rows]
+    counts = Counter(strata)
+    weights = [len(rows) / (len(counts) * counts[stratum]) for stratum in strata]
+    return weights, {
+        "strategy": "deterministic_weighted_replacement_by_class_and_human_label",
+        "seed": seed,
+        "replacement": True,
+        "samples_per_epoch": len(rows),
+        "validation_sampling": "natural_original_partition",
+        "stratum_counts": dict(sorted(counts.items())),
+        "per_row_weight_by_stratum": {
+            stratum: len(rows) / (len(counts) * count)
+            for stratum, count in sorted(counts.items())
+        },
+    }
+
+
+def _capped_sampling_manifest(
+    rows: list[dict[str, Any]], seed: int, cap: float
+) -> tuple[list[float], dict[str, Any]]:
+    """等权抽样的折中：每个“类别|标签”分组的放大倍数不超过 cap，再整体归一化到平均权重 1。
+
+    cap 越小越接近自然比例，越大越接近完全等权（balanced_stratum）。
+    """
+    if not cap > 0:
+        raise ValueError("stratum weight cap must be positive")
+    strata = [_training_stratum(row) for row in rows]
+    counts = Counter(strata)
+    raw = {
+        stratum: min(len(rows) / (len(counts) * count), cap)
+        for stratum, count in counts.items()
+    }
+    scale = len(rows) / sum(raw[stratum] for stratum in strata)
+    per_stratum = {stratum: raw[stratum] * scale for stratum in raw}
+    weights = [per_stratum[stratum] for stratum in strata]
+    return weights, {
+        "strategy": "deterministic_weighted_replacement_by_class_and_human_label_capped",
+        "seed": seed,
+        "replacement": True,
+        "stratum_weight_cap": cap,
+        "samples_per_epoch": len(rows),
+        "validation_sampling": "natural_original_partition",
+        "stratum_counts": dict(sorted(counts.items())),
+        "per_row_weight_by_stratum": dict(sorted(per_stratum.items())),
+    }
+
+
+def _load_dataset_contract(
+    train_path: Path,
+    val_path: Path,
+    train_rows: list[dict[str, Any]],
+    val_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    clean_schema = "annotated_locator_plus_clean_original_v1"
+    schemas = {
+        str(row.get("meta", {}).get("view_schema") or "")
+        for row in train_rows + val_rows
+    }
+    if clean_schema not in schemas:
+        schemas.discard("")
+        return {
+            "view_schema": sorted(schemas) or ["legacy_context_plus_roi"],
+            "strict_output": dict(_STRICT_OUTPUT_CONTRACT),
+            "processor": None,
+            "quantization": dict(_QUANTIZATION_CONTRACT),
+            "contract_source": "derived_from_legacy_dataset",
+        }
+    if schemas != {clean_schema}:
+        raise ValueError(
+            "clean-source train and validation must contain only the four-view schema"
+        )
+    if train_path.resolve().parent != val_path.resolve().parent:
+        raise ValueError("clean-source train and validation files must share a dataset manifest")
+    manifest_path = train_path.resolve().parent / "dataset_manifest.json"
+    if not manifest_path.is_file():
+        raise ValueError("clean-source dataset is missing dataset_manifest.json")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    contract = manifest.get("deployment_contract")
+    if not isinstance(contract, dict):
+        raise ValueError("clean-source dataset manifest lacks deployment_contract")
+    template = contract.get("prompt_template")
+    template_sha = contract.get("prompt_template_sha256")
+    if not isinstance(template, str) or hashlib.sha256(template.encode("utf-8")).hexdigest() != template_sha:
+        raise ValueError("dataset prompt template SHA-256 is invalid")
+    if contract.get("view_schema") != clean_schema:
+        raise ValueError("dataset view schema differs from clean-source training schema")
+    if contract.get("strict_output") != _STRICT_OUTPUT_CONTRACT:
+        raise ValueError("dataset strict-output contract is unsupported")
+    if contract.get("quantization") != _QUANTIZATION_CONTRACT:
+        raise ValueError("dataset quantization contract is unsupported")
+    for split, path, rows in (
+        ("train", train_path, train_rows),
+        ("validation", val_path, val_rows),
+    ):
+        declared = manifest.get("outputs", {}).get(split, {})
+        if declared.get("sha256") != _file_sha256(path) or declared.get("rows") != len(rows):
+            raise ValueError(f"{split} file differs from dataset manifest")
+        for row in rows:
+            meta = row.get("meta", {})
+            if meta.get("view_schema") != clean_schema:
+                raise ValueError("row view schema differs from the clean-source contract")
+            if meta.get("prompt_template_sha256") != template_sha:
+                raise ValueError("row prompt template differs from dataset manifest")
+            conversations = row.get("conversations")
+            prompt = None
+            if isinstance(conversations, list):
+                for turn in conversations:
+                    if isinstance(turn, dict) and turn.get("from") in {"human", "user"}:
+                        prompt = turn.get("value")
+                        break
+            expected_prompt = template.replace(
+                "{class_name}", str(meta.get("class_name") or "")
+            )
+            if prompt != expected_prompt:
+                raise ValueError(
+                    "row human prompt differs from the rendered deployment template"
+                )
+    return {**contract, "contract_source": str(manifest_path)}
+
+
+def _configure_processor(processor: Any, min_pixels: int, max_pixels: int) -> None:
+    """Apply and verify the pixel budget across dict and SizeDict processors."""
+    image_processor = processor.image_processor
+    size = getattr(image_processor, "size", None)
+    configured_min = False
+    configured_max = False
+
+    if hasattr(image_processor, "min_pixels"):
+        image_processor.min_pixels = min_pixels
+        configured_min = True
+    if hasattr(image_processor, "max_pixels"):
+        image_processor.max_pixels = max_pixels
+        configured_max = True
+
+    if size is not None:
+        if hasattr(size, "shortest_edge"):
+            size.shortest_edge = min_pixels
+            configured_min = True
+        elif hasattr(size, "__setitem__"):
+            size["shortest_edge"] = min_pixels
+            configured_min = True
+        if hasattr(size, "longest_edge"):
+            size.longest_edge = max_pixels
+            configured_max = True
+        elif hasattr(size, "__setitem__"):
+            size["longest_edge"] = max_pixels
+            configured_max = True
+
+    observed_min = getattr(image_processor, "min_pixels", None)
+    observed_max = getattr(image_processor, "max_pixels", None)
+    if observed_min is None and size is not None:
+        observed_min = getattr(size, "shortest_edge", None)
+        if observed_min is None and hasattr(size, "get"):
+            observed_min = size.get("shortest_edge")
+    if observed_max is None and size is not None:
+        observed_max = getattr(size, "longest_edge", None)
+        if observed_max is None and hasattr(size, "get"):
+            observed_max = size.get("longest_edge")
+
+    if not configured_min or not configured_max:
+        raise RuntimeError("image processor exposes no supported pixel-budget fields")
+    if observed_min != min_pixels or observed_max != max_pixels:
+        raise RuntimeError(
+            "image processor pixel budget differs after configuration: "
+            f"min={observed_min!r}, max={observed_max!r}"
+        )
