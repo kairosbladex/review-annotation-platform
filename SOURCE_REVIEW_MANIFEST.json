@@ -1,14 +1,14 @@
 {
   "schema_version": 2,
   "project": "review-annotation-platform",
-  "source_head": "7b987a7aaf14d0689330acbae9fea28c0dd8ddd6",
+  "source_head": "b597612d5e5703610a6f1bdc0ba5e2426947f263",
   "source_branch": "feature/independent-vision-workbench",
-  "previous_source_head": "b752d0ef83da874f7c5c05e9f7b95d9f4640c447",
-  "source_commit_time": "2026-10-18T00:08:18+08:00",
-  "generated_at": "2026-10-17T16:17:50.310Z",
+  "previous_source_head": "7b987a7aaf14d0689330acbae9fea28c0dd8ddd6",
+  "source_commit_time": "2026-10-18T00:19:00+08:00",
+  "generated_at": "2026-10-17T16:21:18.611Z",
   "snapshot_kind": "sanitized-committed-source-review",
   "snapshot_branch": "chore/source-review-snapshot",
-  "parent_snapshot": "75f7c9c0c6bcb400070faa1f528a427751215e73",
+  "parent_snapshot": "f4fd639f432254bb992774fca9c6733e3b49f105",
   "source_history_included": false,
   "uncommitted_changes_included": false,
   "source_was_dirty_at_export": true,
@@ -22,86 +22,32 @@
     "no Actions activation or force push"
   ],
   "sanitized_cache": {
-    "source_head": "b752d0ef83da874f7c5c05e9f7b95d9f4640c447",
-    "snapshot_commit": "75f7c9c0c6bcb400070faa1f528a427751215e73",
-    "manifest_sha256": "631877dcaf1cf7b7f179180b83fa6727426c414f608a7074f2fada9a86cc02fb"
+    "source_head": "7b987a7aaf14d0689330acbae9fea28c0dd8ddd6",
+    "snapshot_commit": "f4fd639f432254bb992774fca9c6733e3b49f105",
+    "manifest_sha256": "7af00e7bf3e51e4c979747e942faa25c981957b187988c0df3611beb24c40da5"
   },
-  "verified_cache_files_reused": 238,
+  "verified_cache_files_reused": 278,
   "changed_committed_paths": [
-    "backend/app/adapters/retrieval.py",
-    "backend/app/config.py",
-    "backend/app/main.py",
-    "backend/app/services/history_compare_records.py",
-    "backend/app/services/retrieval.py",
-    "backend/tests/test_agent_api_migration.py",
-    "backend/tests/test_algorithm_privacy.py",
     "backend/tests/test_deploy_independent_vision.py",
-    "backend/tests/test_history_compare_records.py",
-    "backend/tests/test_qwen3vl_qlora_train.py",
-    "backend/tests/test_retrieval_adapter.py",
-    "backend/tests/test_retrieval_api.py",
-    "backend/tests/test_retrieval_migration.py",
-    "backend/tests/test_score_frozen_recheck.py",
-    "deploy/Dockerfile.api-overlay",
-    "deploy/Dockerfile.frontend-artifact",
-    "deploy/algorithm-privacy/sitecustomize.py",
-    "deploy/vision-test.compose.yml",
-    "docs/ACCEPTANCE_VISION-WORKBENCH.md",
-    "docs/CONTINUE.md",
-    "docs/evidence/frozen-recheck-accounting-20261017/A-qwen3-vl_8b-instruct-fixed.json",
-    "docs/evidence/frozen-recheck-accounting-20261017/B-qwen3-vl_8b-instruct-fixed.json",
-    "docs/evidence/frozen-recheck-accounting-20261017/B-qwen3.6_latest-fixed.json",
-    "docs/evidence/frozen-recheck-accounting-20261017/README.md",
-    "docs/evidence/frozen-recheck-accounting-20261017/green.xml",
-    "docs/evidence/frozen-recheck-accounting-20261017/red.xml",
-    "docs/independent-test-deployment-plan-20261017.md",
-    "docs/review-accuracy-research-20261016.md",
-    "frontend/nginx.conf",
-    "frontend/package.json",
-    "frontend/src/App.tsx",
-    "frontend/src/api.ts",
-    "frontend/src/components/HistoryCompare.tsx",
-    "frontend/src/components/IntelligentRetrieval.tsx",
-    "frontend/src/components/QueuePanel.tsx",
-    "frontend/src/components/RecordPagination.tsx",
-    "frontend/src/styles.css",
-    "frontend/tests/README.md",
-    "frontend/tests/live-workbench.mjs",
-    "frontend/tests/workbench.browser.test.mjs",
-    "migrations/env.py",
-    "migrations/versions/0005_history_comparisons.py",
-    "migrations/versions/0006_independent_retrieval.py",
-    "scripts/deploy_independent_vision.py",
-    "scripts/qwen3vl_qlora_smoke.py",
-    "scripts/qwen3vl_qlora_train.py",
-    "scripts/qwen_training_provenance.py",
-    "scripts/score_frozen_recheck.py"
+    "scripts/deploy_independent_vision.py"
   ],
-  "removed_snapshot_paths": [
-    "docs/CODEX_PROGRESS.md",
-    "docs/diagrams/luna-business-review.svg",
-    "docs/evidence/live-review-history-regression-20261016/README.md",
-    "docs/evidence/live-review-history-regression-20261016/candidate_hashes.json",
-    "docs/evidence/live-review-history-regression-20261016/candidate_vl_compare_image_loader.py",
-    "docs/evidence/live-review-history-regression-20261016/results.json",
-    "docs/evidence/live-review-history-regression-20261016/run_live_regression.py"
-  ],
+  "removed_snapshot_paths": [],
   "redacted_files": {
-    "README.md": 1,
-    "backend/app/config.py": 5,
-    "backend/tests/test_agent_api.py": 2,
-    "backend/tests/test_algorithm_privacy.py": 1,
-    "backend/tests/test_deploy_independent_vision.py": 7,
-    "backend/tests/test_history_compare_records.py": 2,
-    "backend/tests/test_retrieval_api.py": 2,
-    "deploy/production.env.example": 1,
-    "deploy/vision-test.compose.yml": 1
+    "backend/tests/test_deploy_independent_vision.py": 9
   },
   "inherited_redacted_paths": [
     "README.md",
+    "backend/app/config.py",
+    "backend/tests/test_agent_api.py",
+    "backend/tests/test_algorithm_privacy.py",
     "backend/tests/test_auto_annotation.py",
+    "backend/tests/test_deploy_independent_vision.py",
     "backend/tests/test_history_compare.py",
+    "backend/tests/test_history_compare_records.py",
     "backend/tests/test_ktd_recheck.py",
+    "backend/tests/test_retrieval_api.py",
+    "deploy/production.env.example",
+    "deploy/vision-test.compose.yml",
     "docs/ACCEPTANCE_REAL-STACK.md",
     "docs/CONTINUE.md",
     "docs/evidence/live-review-history-regression-20261016/run_live_regression.py"
@@ -357,13 +303,13 @@
       "sha256": "d74fa4764ef998b989793cc3fae59b6cc2fd21e982c24425044485087d3090b0",
       "source_blob": "bc9eb1e010619e48dd92a8c3867af79ce03a0943",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/app/config.py": {
       "sha256": "5844cc0ea9da5e5a9d220475bfe03ef6036aea8795b3049d808e044d6ef42049",
       "source_blob": "d11909300fddb1ce4a8e2fcc8649ae3ffd88dbf7",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/app/db.py": {
       "sha256": "91a8e67415402312ff3ce43baa01ca5b386340acb4e6c3ccc49c4ec1adbffb11",
@@ -375,7 +321,7 @@
       "sha256": "eb88b5ed8c4b54d7ad05d32113a9e1b3a5791b08c84b29bdc766c53ac6c399f5",
       "source_blob": "abf9a995196fdf171df55fb17012aa9dad36ec4b",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/app/models.py": {
       "sha256": "5fbb9acbb0e89b73e4f601dd00a0df82086bf2dd87fea29a4cdb8b6fa0dc93cc",
@@ -483,7 +429,7 @@
       "sha256": "310b72e41aeff7d41c96ae299142dbfd8a929c3fe3bc15df3d4d9aecd22757f1",
       "source_blob": "5e891ee656e1f3ef0ab9e443176aa9960d6838d2",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/app/services/ktd_recheck.py": {
       "sha256": "9779bc4d5b8c2696a12be941d4a7f7cfefbccff4dc27445c51af4ed74bad9da0",
@@ -501,7 +447,7 @@
       "sha256": "36cea7c81d41b4e5cd327b9b2572e60b859d487aed8bc19d707f425e8db8bc99",
       "source_blob": "9ce67c97ac62dcd3ed25173d854e1e58a773aeda",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/app/services/review_policy.py": {
       "sha256": "2df3e383cc1e5dbe5c5747eaa57bd12e395cb288714417623a57d77aa5d3dd1a",
@@ -555,13 +501,13 @@
       "sha256": "c881a0a509ae81831ded543397ab1ed8033b2582e88e454d75f4c6cc5aa18777",
       "source_blob": "af1675bab014217f9cb8575b7eeab4fcbc1fac19",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_algorithm_privacy.py": {
       "sha256": "d5a3399d9bddc3022c024ac828a7df0601a0354f5e4de0319cd1bdafc4a25048",
       "source_blob": "feedc11a013866354411c7b0560d9f7cc67808ed",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_annex_import.py": {
       "sha256": "09c2d733b70155b96d307f588f17485a247b0264e1b7d1f115ba1d89681b3c23",
@@ -600,8 +546,8 @@
       "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_deploy_independent_vision.py": {
-      "sha256": "5e98bd2c19e2f63c1568321ed66326961196d3bc0d250b47df089372a478b2f9",
-      "source_blob": "28d44487e24f6615eee31057d9dad0b5ae2c9030",
+      "sha256": "a3e0b85a64f7d98e7f16f74e26a62d1a684369ef103acb291dec4c1f2a6e2c51",
+      "source_blob": "c6340d94734b22582a5ebf7d4842d2518b4f0c4b",
       "source_mode": "100644",
       "provenance": "committed-archive-sanitized"
     },
@@ -633,7 +579,7 @@
       "sha256": "d53d1855a90e0336545587ff20a11d43e615510133f9a7de4309230d46b6edb5",
       "source_blob": "aaf7eaff279b23cee4c366e4888e180b1a29ed11",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_history_compare_scope.py": {
       "sha256": "296173c87962edc83541155c05f6886ff4a9536ee2d4e809ebba61a381f432c1",
@@ -705,7 +651,7 @@
       "sha256": "155529d8ff6a0a73a59706f041022cd5336e987f2663f4292682b9d1ab6fc5f8",
       "source_blob": "35b58c2de6cc4dea7cc63a64f8537d3f54fd4805",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_qwen3vl_verify.py": {
       "sha256": "c95ed625cfb190fca7cfc1005ce0702010c204c4bad1e9338cfb1dae71fdbc8e",
@@ -723,19 +669,19 @@
       "sha256": "19daf1178c8425662a1e579b0fea2172e05844eea04df3ba5d26a542c0753e8b",
       "source_blob": "d6dc0cbf8b85751d14c2a2d5d1a15adb248fb214",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_retrieval_api.py": {
       "sha256": "741565b74e32f97c3310d1549ac5ff36174121128cd436025b2eabc505e09500",
       "source_blob": "a92288c02a4835727e2114831fa428d43ca171ee",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_retrieval_migration.py": {
       "sha256": "9ba313ec6ff33e0ec0069120c08a90c9286ad70396c6b29bda835744c6d531a6",
       "source_blob": "992d21de299c9ab1238ad0501b8d98469024bac2",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "backend/tests/test_review_policy.py": {
       "sha256": "9c3b29307ad545c043a9f125ed59271b9d7d69566097692bbbf97c0828d56987",
@@ -747,19 +693,19 @@
       "sha256": "f1189ff91700b1167999106d210a1cccc165fe8706b7bd9acb2c8550bc3362a7",
       "source_blob": "7dc61a148a53bb294de9eb6068d5cac96da3c70b",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "deploy/Dockerfile.api-overlay": {
       "sha256": "85904bb031006fab3c804ad0ae4f5342cf85ff8284c4e795390f36f36206a698",
       "source_blob": "3b9ccb864407465753ab97dc7b92588d419807ff",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "deploy/Dockerfile.frontend-artifact": {
       "sha256": "695f4ab0bd3a823f3d224f10b508639fe833ad0209bc55008c5671847671661e",
       "source_blob": "00ff386f9ee4f23e27a3d3f9f5ba3a3b1764c252",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "deploy/afmap-history-test.override.yml": {
       "sha256": "56862d3e7f6f6689b2137a90872f49d1cc139f771734dcf04272818fdcecc6e6",
@@ -771,7 +717,7 @@
       "sha256": "8ce567f7a4a95d7b7b4196150ac5ba46856e2469963d3cbdbe8fb81ce960d8ee",
       "source_blob": "9dff4ad80ab28011aaff1412e3b4816838dce8ee",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "deploy/history-compare.test.yml": {
       "sha256": "c18dbb84e29ed18576da3270ec5d98ce885eb3362e5e946f1bea8c257a17a357",
@@ -801,7 +747,7 @@
       "sha256": "156ae6d7a13e1ddb3caa30ee836e5261274014702434255608eae13c6dcd4528",
       "source_blob": "1bfeb07b9aaa4f09549337885b8fbf9d9e38f99f",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "deploy/vl-compare-overlay.Dockerfile": {
       "sha256": "fa44e9cbc762493ee901b2b0d8cd8699c48b1b41854449b787f1927a57591a66",
@@ -903,7 +849,7 @@
       "sha256": "75496c18ac6e271f6a322ed1320808ad543d3a0ccbec06b873fe9834123948d1",
       "source_blob": "554c8b8508d0c72ad193652d79a4059932533767",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "docs/AUTO_ANNOTATION.md": {
       "sha256": "89a8f7fa5bb6a3fca634ce2723b6aacde6c6c18ea86468c67fda6f40e33d4748",
@@ -921,7 +867,7 @@
       "sha256": "c6aec180dcf83540aced66b4c6d3748f1adc7cc609bab2ec39d66fa76a50a14b",
       "source_blob": "552195f588aad5c5a2ad67469b13c420dba2354a",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "docs/HISTORY_COMPARE.md": {
       "sha256": "dff003eaf60b53a95e9b0b5bde480ecaf68fa283b79e05aa2962fbb5566a74c3",
@@ -963,7 +909,7 @@
       "sha256": "e788f27f03d9c45a31b902de26f8c50aab9b410db4c10ef0f8be26ddaac496b3",
       "source_blob": "8677ac12f82d3e5eeed785e037be19a5c930f63b",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "docs/ktd-review-workbench.md": {
       "sha256": "af1e6fb7b2c340eed4dddf80007b66d7e37b75686800ce6d47506d55d9970205",
@@ -1059,7 +1005,7 @@
       "sha256": "e2a30d19a8624b936dc920f39d4aaee9c9b38817c4725f588d272ab78686c840",
       "source_blob": "d29766a962fef8a52d0587a1dd0f5118e3a2a57a",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/Dockerfile": {
       "sha256": "7ad79ccb013e0f711e06f946ff8e1036a7617263f8868b7a803ae70babe44c45",
@@ -1077,7 +1023,7 @@
       "sha256": "2c56763438e3b58934bc4a55a8b8469116a410f12e02125252c687489b60b240",
       "source_blob": "892516b4363b92e018d7e5f50c62404facffa63a",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/package-lock.json": {
       "sha256": "f503328863c9f41512a22dc45f722aa0d60069d62a0fcb964f1b2ab060ac60f2",
@@ -1089,25 +1035,25 @@
       "sha256": "76f574a76ce67f5309f12c8c513e9833e3186e9d9593fc01d1367f552b49f4fe",
       "source_blob": "865e36faf7126764971e0f11c238c736420a94c3",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/src/App.tsx": {
       "sha256": "368f70b3a34cc4a00b082eedb062635ef9e259f3b2daffcd7069f903a77fd5d8",
       "source_blob": "57b511e6f1e2fd7a691b203c970ff25571250fb9",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/src/api.ts": {
       "sha256": "f75f6343faba2d6205d6716f44f28b269f0c5aa92d6e283b13b22276918bad51",
       "source_blob": "119bd361973b14b9d75360afc67fd83f7b004677",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/src/components/HistoryCompare.tsx": {
       "sha256": "917a2eeaf5bbc596a0c2b40530a11b24a03fc2fb424a9c50c0b364b64ee29489",
       "source_blob": "688b3b4ed7e354d389bf2a115ce66463d52131e5",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/src/components/Inspector.tsx": {
       "sha256": "882e7810d5adc09b1367b823e7ad8018e6f18acb8b5adc888ce36b9754485b3c",
@@ -1119,19 +1065,19 @@
       "sha256": "030b699e8c52fb17a764c11e1f3306558aebb26c987e2e5535db1a8c0f9e8746",
       "source_blob": "4d22346efd8782b2eebe6190d01c921df5b6c990",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/src/components/QueuePanel.tsx": {
       "sha256": "b9446cb78283bf83fe23b54fdc05e09fb4b297a0ebbce44a7b5f5298309f6e3d",
       "source_blob": "12a407695718ce7eafc6560992aabdf045397a5b",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/src/components/RecordPagination.tsx": {
       "sha256": "f0bee1d02cfd4e08a8a07b2e87b7e4d256aa8a97a895f512763c8c8cd3929b6f",
       "source_blob": "e8f82e08810d4c7fdb53f43b9418d8b64ee63a4c",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/src/components/ReviewCanvas.tsx": {
       "sha256": "e161ae3d5930a81b4b40395e53c2a93c5b6c8e6fee5a3bb8fc805e5a91bf2a50",
@@ -1173,7 +1119,7 @@
       "sha256": "bfb1a994dd06b60138e33ac3c50320cc09218956597c3cb6e50c1d6dbc97b927",
       "source_blob": "47167ec3388e88423f9c4acd19c2600be8cafa67",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/src/types.ts": {
       "sha256": "3437346d79066215b0758dcb538ff862bccc5ed2fd414398deedc9ae0a8fa081",
@@ -1191,19 +1137,19 @@
       "sha256": "28b312549eabb04848cb677005ea1138e219276c54f3206f973b0c9e03dfb573",
       "source_blob": "3534009bcc4b92a7a3032b89d89cdbbdec753608",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/tests/live-workbench.mjs": {
       "sha256": "ded0bd830dd292600c6bfe941396b46943f791ea79c1c961ea8aad2f7b257638",
       "source_blob": "aa9c7a351b54da7bfed3a7a74b35ef1d5f12ae3d",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/tests/workbench.browser.test.mjs": {
       "sha256": "51137a23e119386507b99c4fcca1edb90b6fb5c2b5d84618638ebd74b02b2eec",
       "source_blob": "aaac9f7b3365c5dfaa4164fc35bb1a42bc0e26eb",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "frontend/tsconfig.app.json": {
       "sha256": "fc4fefbbd28162eb365d71964ed07b79b4c08732c93c9e4947f05d1777c17d98",
@@ -1239,7 +1185,7 @@
       "sha256": "2c45001388cd3af86c74419a7c3b10441e0fe00257a77c79642d7721db9d00fa",
       "source_blob": "d3fecaa47db1ae08fa208ce0e2160b3fc2bd2202",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "migrations/versions/0001_initial.py": {
       "sha256": "7100c1e16201d449ca22adf1d1b7376925b09375083f288b56ea33d6fc16117a",
@@ -1269,13 +1215,13 @@
       "sha256": "e4c85b78f0ad194b5c8e8712cccb4a01eef231461103f25ac26cadfebf33bdff",
       "source_blob": "9a45d8db6d2b519d7ba2a81056cbef3d8ae9a83e",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "migrations/versions/0006_independent_retrieval.py": {
       "sha256": "0c86e6580b7239be8e8c4455b52e296d40c274302f0c3a90ecae1cdf200d095d",
       "source_blob": "a06e5c6da663110f54a4fde39ab1c44fb601eba6",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "pyproject.toml": {
       "sha256": "060845eacaf7dd3fa9e68a259137f30263175839bb995bbba5292c61bb0e1264",
@@ -1392,8 +1338,8 @@
       "provenance": "verified-source-cache-sanitized"
     },
     "scripts/deploy_independent_vision.py": {
-      "sha256": "28dd122207839be89c71b8993c511f261c2dd069fa94808231ab7dae0c93591d",
-      "source_blob": "9109ba65fa9e8c420406d9a24f0d674e992f99ea",
+      "sha256": "562722a50ad031c0196d92a9174c640f1cd745b9e98bf9c6eb3a3dc3308bda9f",
+      "source_blob": "41cebbc20bb4bfc94dedc869299420a989e0aa49",
       "source_mode": "100644",
       "provenance": "committed-archive-sanitized"
     },
@@ -1623,13 +1569,13 @@
       "sha256": "44a3c8bf568acba5dafa6009ba117ad73c13ee992d73284bda07e60a229f8d5a",
       "source_blob": "7bc514cd8cffe33a02dab9cbe9ea330b548143d3",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "scripts/qwen3vl_qlora_train.py": {
       "sha256": "7b9148da3a0da6f77aff98957ae035d3259c46d16f0ab4dff3d3d3f81de20d6c",
       "source_blob": "0c2abb1ecd4b326835183deab247a13aee8c5c6c",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "scripts/qwen3vl_verify.py": {
       "sha256": "d2ff514f83a3745d56b82fc1ca2057074162e97a4a47ee92b7e5840b396432a6",
@@ -1641,7 +1587,7 @@
       "sha256": "c3078f3c780abc91b8ba19209ad010a4be616a9bc956deacc909bedee855751e",
       "source_blob": "4b1d9e75fd8de4f4c7a97c91f9750a04065356fb",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "scripts/recheck_autotrain/README.md": {
       "sha256": "a760ff9ed4322cd873fa19e3c8a3ccc51465ce254ace3f6e33ae964e16422380",
@@ -1755,7 +1701,7 @@
       "sha256": "b49a11d150b79d694ba5892c39c4abdf40eb45bbb97aa30bbf7a81905323524a",
       "source_blob": "65f7061e1f38a08c26267e6e94f504bd130f0d0a",
       "source_mode": "100644",
-      "provenance": "committed-archive-sanitized"
+      "provenance": "verified-source-cache-sanitized"
     },
     "scripts/score_luna_annotated.py": {
       "sha256": "87d2ad7b6a598d1d32e13bc20588a88709726011840aee31cb660c25d6b8711a",
