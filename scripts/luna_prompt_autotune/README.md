@@ -1,6 +1,6 @@
 # Luna 复检分类型提示词自动迭代（Hermes Agent）
 
-服务器 ai-lingxi 上按定时任务循环：执行器用 Luna 跑一整轮评测 → Hermes 看结果和错判拼图、写报告、改类别定义卡并提交下一版 → 执行器再跑。
+服务器 REDACTED_SSH_HOST 上按定时任务循环：执行器用 Luna 跑一整轮评测 → Hermes 看结果和错判拼图、写报告、改类别定义卡并提交下一版 → 执行器再跑。
 目标是提高各类别准确率、减少“看不清”（uncertain），不改测试环境；线上替换须人工在锁定集上复核后另行决定。
 
 ## 组成
@@ -92,14 +92,14 @@ GitLab 的 `luna-autotune-test` 作业执行同一命令，安装 Pillow 与 MCP
 
 ## 资源与停止
 
-- 根目录 `/data/workspace/jzheng/luna-prompt-autotune/`：`state/`（提示词、轮次、指标、拼图、报告、台账，挂给 Hermes）、`human/`（holdout 结果）、`runs/`（逐图原始输出）、`logs/`、`private/`（worker 令牌，仅本用户可读）。
+- 根目录 `/REDACTED_RUNTIME_ROOT/luna-prompt-autotune/`：`state/`（提示词、轮次、指标、拼图、报告、台账，挂给 Hermes）、`human/`（holdout 结果）、`runs/`（逐图原始输出）、`logs/`、`private/`（worker 令牌，仅本用户可读）。
 - 实验 worker：systemd 用户服务 `luna-autotune-worker`，MemoryMax 4G、无 swap、CPU 300%，并发 6；无排队版本时执行器自动停掉。共享 worker 18396 与测试环境不受影响。
 - 大脑：`qwen3.6` 在共享服务 L20 上按需加载（模型未加载且空闲显存 < 30GB 时跳过），容器 4GB/2 核。共享 ollama 设了 `OLLAMA_KEEP_ALIVE=0`，冷加载约 90 秒，Hermes 会等不及放弃，所以唤醒前先用原生接口加载并保持 25 分钟，结束后立即卸载。
 - 限额：每天最多 8 个版本，2026-10-16 后自动停止；Hermes 连续 3 次唤醒无进展、或判定收敛且空闲 3 小时，自动写 STOP 并停用定时器。
 
 ```bash
 # 立即停止（下次执行器运行时停掉 worker 并停用定时器）
-echo "人工停止" > /data/workspace/jzheng/luna-prompt-autotune/state/STOP
+echo "人工停止" > /REDACTED_RUNTIME_ROOT/luna-prompt-autotune/state/STOP
 # 直接停用定时器与 worker
 systemctl --user disable --now luna-autotune-runner.timer luna-autotune-brain.timer
 systemctl --user stop luna-autotune-worker

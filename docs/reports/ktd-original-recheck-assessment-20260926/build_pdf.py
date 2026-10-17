@@ -175,7 +175,7 @@ def main(src,output):
     r.table([['交付文件','作用'],['metrics.json / analyze.py','逐框重算、175 配对分母、源文件与旧快照哈希'],['visual-observations.jsonl','143 个图像核查记录，明确 humanGold=false'],['live-results.json','2026-09-26 20:04 左右读回；36 事件全部一致'],['README.md / assets/','完整文字说明、报告使用的初审与原图证据']], [185,CW-185],small=True)
     r.text('原始证据：~/Downloads/ktd-clean-source-test-acceptance-20260926/。包括真实样本复核结果、批次汇总、训练重合检查、原图分辨率与来源缺口检查。',SMALL)
     r.text('180 条源结果 SHA-256：<br/><font size="7.1">'+metrics['sources']['resultJsonl']['sha256']+'</font>',SMALL)
-    r.text('<link href="https://lxtest.zhuoyilingxi.com:8088/afmap/#/eventCenter" color="#147f80">打开测试事件中心</link>　 |　<link href="http://127.0.0.1:8194/?status=2&amp;source=linked&amp;event=ba0131e19c1d4c368fad538e53acf09e" color="#147f80">打开本机桌台误报对照</link>',SMALL)
+    r.text('<link href="https://REDACTED_TEST_HOST.invalid:8088/afmap/#/eventCenter" color="#147f80">打开测试事件中心</link>　 |　<link href="http://127.0.0.1:8194/?status=2&amp;source=linked&amp;event=ba0131e19c1d4c368fad538e53acf09e" color="#147f80">打开本机桌台误报对照</link>',SMALL)
     r.save()
     print(json.dumps({'pdf':str(output),'pages':r.n,'layout':r.layout},ensure_ascii=False))
 

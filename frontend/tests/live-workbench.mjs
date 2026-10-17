@@ -8,11 +8,11 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-const TARGET = "http://192.168.130.238:5276";
+const TARGET = "http://192.0.2.1:5276";
 const RELEASE_PATTERN = /^\/data\/workspace\/user\/review-vision-test\/releases\/[a-f0-9]{40}$/;
 const TERMINAL_JOB = new Set(["succeeded", "completed", "success", "failed", "error", "partial_failed"]);
 const TERMINAL_RETRIEVAL = new Set(["completed", "partial", "failed", "cancelled", "submission_unknown"]);
-const PYTHON = process.env.VISION_PYTHON ?? "/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python";
+const PYTHON = process.env.VISION_PYTHON ?? "/REDACTED_HOME/PycharmProjects/review-annotation-platform/.venv/bin/python";
 const HASH = (bytes) => createHash("sha256").update(bytes).digest("hex");
 class CheckFailure extends Error { constructor(code) { super(code); this.code = code; } }
 const check = (condition, code) => { if (!condition) throw new CheckFailure(code); };
@@ -63,7 +63,7 @@ import json, re, stat, subprocess, sys, urllib.request
 from pathlib import Path
 try:
     release = Path(sys.argv[1])
-    if not re.fullmatch(r'/data/workspace/user/review-vision-test/releases/[a-f0-9]{40}', str(release)):
+    if not re.fullmatch(r'/REDACTED_RUNTIME_ROOT/review-vision-test/releases/[a-f0-9]{40}', str(release)):
         raise ValueError()
     if release.resolve() != release or release.is_symlink():
         raise ValueError()
@@ -156,7 +156,7 @@ async function main() {
     input = await fixtures(); report.inputs = input.metadata;
     try {
       const command = "python3 -c " + quote(LOGIN_PROGRAM) + " " + quote(release);
-      token = JSON.parse(execFileSync("ssh", ["-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "ai-lingxi", command], { stdio: ["ignore", "pipe", "pipe"], timeout: 30000, maxBuffer: 65536 }).toString()).access_token;
+      token = JSON.parse(execFileSync("ssh", ["-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "REDACTED_SSH_HOST", command], { stdio: ["ignore", "pipe", "pipe"], timeout: 30000, maxBuffer: 65536 }).toString()).access_token;
       check(typeof token === "string" && token.length >= 16, "AUTHENTICATION_FAILED");
     } catch { throw new CheckFailure("AUTHENTICATION_FAILED"); }
     const { chromium } = await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE_PATH).href);

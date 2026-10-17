@@ -76,12 +76,12 @@ def test_required_object_store_does_not_silently_downgrade_when_config_is_missin
 
 
 def test_fallback_store_uses_http_prefix_when_minio_object_is_absent():
-    http_store = HttpPrefixObjectStore(base_url="https://lxtest.zhuoyilingxi.com:8088/minio-src")
+    http_store = HttpPrefixObjectStore(base_url="https://REDACTED_TEST_HOST.invalid:8088/minio-src")
     store = FallbackObjectStore(NullObjectStore(), http_store)
 
     assert store.exists("minio-src", "zm-zq-test/a.jpg") is True
     assert store.presigned_get_url("minio-src", "zm-zq-test/a.jpg") == (
-        "https://lxtest.zhuoyilingxi.com:8088/minio-src/zm-zq-test/a.jpg"
+        "https://REDACTED_TEST_HOST.invalid:8088/minio-src/zm-zq-test/a.jpg"
     )
     assert store.exists("review-annotation", "raw/a.jpg") is False
 
@@ -91,10 +91,10 @@ def test_fallback_store_does_not_probe_primary_for_http_source_bucket():
         def exists(self, _bucket, _object_key):
             raise AssertionError("source bucket must not probe the unavailable primary store")
 
-    http_store = HttpPrefixObjectStore(base_url="https://lxtest.zhuoyilingxi.com:8088/minio-src")
+    http_store = HttpPrefixObjectStore(base_url="https://REDACTED_TEST_HOST.invalid:8088/minio-src")
     store = FallbackObjectStore(FailingPrimary(), http_store)
 
     assert store.presigned_get_url("minio-src", "zm-zq-test/a.jpg") == (
-        "https://lxtest.zhuoyilingxi.com:8088/minio-src/zm-zq-test/a.jpg"
+        "https://REDACTED_TEST_HOST.invalid:8088/minio-src/zm-zq-test/a.jpg"
     )
     assert store.exists("minio-src", "zm-zq-test/a.jpg") is True

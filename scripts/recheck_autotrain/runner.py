@@ -18,16 +18,16 @@ import subprocess
 import sys
 from pathlib import Path
 
-LIVE = Path(os.environ.get("AUTOTRAIN_LIVE", "/data/workspace/jzheng/recheck-autotrain/live"))
+LIVE = Path(os.environ.get("AUTOTRAIN_LIVE", "/REDACTED_RUNTIME_ROOT/recheck-autotrain/live"))
 STATE = LIVE / "state"
 RUNS = LIVE / "runs"
 SRC = LIVE / "src"
 ASSETS = LIVE / "assets"
-GPU = "GPU-c977647c-baa1-4f69-87ba-1e384cfa6de3"
-BASE_MODEL = "/data/workspace/jzheng/yoloe_service/data/ktd-qwen-vl-8b-instruct"
-DATASET = "/data/workspace/jzheng/ktd-clean-source-qwen-20260930-v2/data"
-EVAL_SETS = {"hard": "/data/workspace/jzheng/claude-vsg-resolution-ab-20260929",
-             "random": "/data/workspace/jzheng/claude-vsg-random-ab-20260929"}
+GPU = "GPU-REDACTED"
+BASE_MODEL = "/REDACTED_RUNTIME_ROOT/yoloe_service/data/ktd-qwen-vl-8b-instruct"
+DATASET = "/REDACTED_RUNTIME_ROOT/ktd-clean-source-qwen-20260930-v2/data"
+EVAL_SETS = {"hard": "/REDACTED_RUNTIME_ROOT/claude-vsg-resolution-ab-20260929",
+             "random": "/REDACTED_RUNTIME_ROOT/claude-vsg-random-ab-20260929"}
 TRAIN_IMAGE = "ktd-qwen-runtime:clean-source-20260925-v1"
 EVAL_IMAGE = "yoloe_service_test:vehicle-surface-v3-20260929-v1"
 EVAL_ENV = str(ASSETS / "container.env")  # 清空 MQTT/MinIO/数据库等业务连接的环境变量

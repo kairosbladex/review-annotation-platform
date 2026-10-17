@@ -311,7 +311,7 @@ def main() -> int:
     )
     parser.add_argument(
         "--source-base-url",
-        default="https://lxtest.zhuoyilingxi.com:8088/minio-src",
+        default="https://REDACTED_TEST_HOST.invalid:8088/minio-src",
     )
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--no-verify-tls", action="store_true")

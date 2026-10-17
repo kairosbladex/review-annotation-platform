@@ -19,7 +19,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-SERVICE_GPU = "GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7"
+SERVICE_GPU = "GPU-REDACTED"
 FACTORS = (2.0, 4.0)
 # 诊断用裁剪：tight=只含目标本身（框 1.25 倍）；ctxmask=框 4 倍但框内涂成中灰，只剩周边环境
 VARIANTS = {"tight": (1.25, False), "ctxmask_f4": (4.0, True)}

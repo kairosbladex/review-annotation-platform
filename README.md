@@ -25,7 +25,7 @@ YOLO ZIP / JSONL / hard-negative 数据
 后端本地开发默认使用 SQLite 和内存外部存储降级，因此不安装 Docker 也可以运行 API 和测试：
 
 ```bash
-cd /Users/wangxiaolin/PycharmProjects/review-annotation-platform
+cd /REDACTED_HOME/PycharmProjects/review-annotation-platform
 PYTHONPATH=backend python3 -m pytest backend/tests -q
 PYTHONPATH=backend python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8190
 ```
@@ -33,7 +33,7 @@ PYTHONPATH=backend python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8190
 前端另开终端：
 
 ```bash
-cd /Users/wangxiaolin/PycharmProjects/review-annotation-platform/frontend
+cd /REDACTED_HOME/PycharmProjects/review-annotation-platform/frontend
 npm install
 npm run dev
 ```
@@ -42,7 +42,7 @@ npm run dev
 
 ## 从 ktd 测试库导入到本机标注
 
-测试环境的 `sys_annex_file` 可以先同步到本机 MySQL，图片仍走公开前缀 `https://lxtest.zhuoyilingxi.com:8088/minio-src` + `file_path`，不把原图拷进本地 MinIO。
+测试环境的 `sys_annex_file` 可以先同步到本机 MySQL，图片仍走公开前缀 `https://REDACTED_TEST_HOST.invalid:8088/minio-src` + `file_path`，不把原图拷进本地 MinIO。
 
 ```bash
 cp deploy/ktd-local.env.example .env.ktd.local
@@ -56,7 +56,7 @@ docker run -d --name review-ktd-mysql \
   -p 3307:3306 mysql:8.0
 
 PYTHONPATH=backend python3 scripts/sync_ktd_annex.py --env-file .env.ktd.local
-SOURCE_IMAGE_BASE_URL=https://lxtest.zhuoyilingxi.com:8088/minio-src \
+SOURCE_IMAGE_BASE_URL=https://REDACTED_TEST_HOST.invalid:8088/minio-src \
 MINIO_ENDPOINT= MINIO_ACCESS_KEY= MINIO_SECRET_KEY= \
 DATABASE_URL=sqlite:///./data/ktd-local.sqlite3 \
 PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190

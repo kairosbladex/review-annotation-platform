@@ -14,18 +14,18 @@ Coverage includes upload and single submission with an idempotency key, referenc
 
 ## Deployed test-site acceptance
 
-`live-workbench.mjs` uses the real browser, login, API, storage, worker and algorithm at the fixed independent test URL `http://192.168.130.238:5276`. It never intercepts requests or substitutes responses. Running without a flag only prints preparation status. `--prepare-only` generates and verifies local synthetic images and a six-second MP4, then removes those temporary fixtures without accessing the test site.
+`live-workbench.mjs` uses the real browser, login, API, storage, worker and algorithm at the fixed independent test URL `http://192.0.2.1:5276`. It never intercepts requests or substitutes responses. Running without a flag only prints preparation status. `--prepare-only` generates and verifies local synthetic images and a six-second MP4, then removes those temporary fixtures without accessing the test site.
 
 Run `--execute` only after the release has been deployed and acceptance writes are authorized:
 
 ```sh
-VISION_RELEASE_DIR=/data/workspace/user/review-vision-test/releases/REPLACE_WITH_40_LOWERCASE_HEX_SHA \
+VISION_RELEASE_DIR=/REDACTED_RUNTIME_ROOT/review-vision-test/releases/REPLACE_WITH_40_LOWERCASE_HEX_SHA \
 VISION_EVIDENCE_DIR=/absolute/path/to/acceptance-evidence \
 PLAYWRIGHT_MODULE_PATH=/absolute/path/to/existing/playwright/index.mjs \
 node frontend/tests/live-workbench.mjs --execute
 ```
 
-The runner validates the release directory and the four running application containers' release labels, reads the two administrator fields from the release `.private.env` through fixed SSH host `ai-lingxi`, performs a real login remotely, and retains only the real token in process/browser memory. It does not print credentials, headers, session state, raw API errors, or signed media URLs; browser tracing, inherited Playwright diagnostics and saved authentication state are not used. The report contains only hashes, created resource IDs, counts, safe status codes and browser error counters.
+The runner validates the release directory and the four running application containers' release labels, reads the two administrator fields from the release `.private.env` through fixed SSH host `REDACTED_SSH_HOST`, performs a real login remotely, and retains only the real token in process/browser memory. It does not print credentials, headers, session state, raw API errors, or signed media URLs; browser tracing, inherited Playwright diagnostics and saved authentication state are not used. The report contains only hashes, created resource IDs, counts, safe status codes and browser error counters.
 
 `VISION_PYTHON` may select an existing absolute Python interpreter with Pillow, NumPy and OpenCV. `VISION_LIVE_IMAGE` may select an existing absolute frozen image for the review and video fixture; the runner records its hash and never copies it into the repository or report. Optional `VISION_LIVE_SCREENSHOTS=1` captures synthetic-only UI views and is disabled when a real image is supplied.
 

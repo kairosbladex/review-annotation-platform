@@ -13,7 +13,7 @@
 
 | 项目 | 值 |
 |---|---|
-| 服务器 | `192.168.130.238` / `AI-lingxi` |
+| 服务器 | `192.0.2.1` / `AI-lingxi` |
 | 容器 | `yoloe_service:latest` |
 | Python | 3.10.12 |
 | PyTorch | 2.9.1+cu128 |
@@ -70,7 +70,7 @@ Ultralytics 的最后一个 epoch 会强制进入验证流程。本次冒烟进�
 远程运行目录：
 
 ```text
-/data/workspace/jzheng/yoloe_service/data/ktd-smoke-runs/yoloe-v8l-seg-1epoch-20260903-gpu4-final/
+/REDACTED_RUNTIME_ROOT/yoloe_service/data/ktd-smoke-runs/yoloe-v8l-seg-1epoch-20260903-gpu4-final/
 ```
 
 已同步到本机的文件：

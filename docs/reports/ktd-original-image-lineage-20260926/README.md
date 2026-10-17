@@ -157,7 +157,7 @@
 - `match_recording.py`：使用已下载录像与初审图复现候选检索，不访问外部服务。OpenCV 版本差异可能影响具体匹配数量。
 - `原图来源与取回证据.html`、`build_evidence_page.py`：页面模板和组装脚本。已生成本机调查目录下的 `view/index.html`，可查看图片对比；图片留在本机调查目录。
 
-本机完整调查目录：`/Users/wangxiaolin/Downloads/ktd-original-image-lineage-20260926`。
+本机完整调查目录：`/REDACTED_HOME/Downloads/ktd-original-image-lineage-20260926`。
 
 ```sh
 python3 summarize.py /path/to/private-snapshot-directory metrics.json

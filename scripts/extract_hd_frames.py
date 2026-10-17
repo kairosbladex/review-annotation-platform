@@ -15,7 +15,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-SNAPSHOT = Path('/data/workspace/jzheng/codex-ktd-real-monitoring-20260924')
+SNAPSHOT = Path('/REDACTED_RUNTIME_ROOT/codex-ktd-real-monitoring-20260924')
 ANNOTATED = SNAPSHOT / 'work' / 'annotated'
 SHOT_W, SHOT_H = 960, 720
 WINDOW = 1.5

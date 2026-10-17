@@ -3,7 +3,7 @@
 # 在资源受限的临时容器中让 Hermes 以指定大脑模型执行一轮提示词；模型由 diagnostic-ollama（共享服务 L20）按需加载。
 set -eu
 MODEL="$1"; DIR="$2"; NEED_MIB="$3"
-SERVICE_GPU=GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7
+SERVICE_GPU=GPU-REDACTED
 FREE=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits -i "$SERVICE_GPU" | tr -d ' ')
 if [ "$FREE" -lt "$NEED_MIB" ]; then echo "共享卡空闲显存 ${FREE}MiB 不足 ${NEED_MIB}MiB，放弃本轮"; exit 3; fi
 mkdir -p "$DIR/hermes"

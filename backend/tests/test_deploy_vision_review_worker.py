@@ -26,7 +26,7 @@ def deployment():
 
 def source_environment(d):
     return {'CODEX_REVIEW_WORKER_TOKEN': 'REDACTED',
-            'CODEX_REVIEW_BINARY': d.SOURCE_BINARY, 'CODEX_REVIEW_HOME': '/home/user/.codex',
+            'CODEX_REVIEW_BINARY': d.SOURCE_BINARY, 'CODEX_REVIEW_HOME': '/REDACTED_HOME/.codex',
             'CODEX_REVIEW_PROMPT_VERSION': d.PROMPT,
             'MYSQL_PASSWORD': 'REDACTED', 'OPENAI_BASE_URL': 'https://unapproved.invalid',
             'CODEX_REVIEW_EVIDENCE_DIR': '/shared/archive'}

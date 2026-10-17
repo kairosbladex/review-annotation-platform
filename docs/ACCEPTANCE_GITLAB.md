@@ -10,8 +10,8 @@ COMPLETED：项目已创建并推送到公司 GitLab，最新默认校验流水�
 
 ## Delivered behavior
 
-- 在公司 GitLab 创建了私有项目 `wangxiaolin/review-annotation-platform`；
-- 本地 `master` 已配置 remote：`origin` → `git@192.168.110.2:wangxiaolin/review-annotation-platform.git`；
+- 在公司 GitLab 创建了私有项目 `REDACTED_OPERATOR/review-annotation-platform`；
+- 本地 `master` 已配置 remote：`origin` → `git@192.0.2.3:REDACTED_OPERATOR/review-annotation-platform.git`；
 - 当前 `master` 已推送到 `origin/master`；
 - 新增 `.gitlab-ci.yml`，对 push 和 Merge Request 自动执行后端、Compose 配置和前端构建校验；
 - 新增 `compose-integration` 手动作业，用于需要 Docker-in-Docker/privileged executor 的真实 Compose 验收；
@@ -23,7 +23,7 @@ COMPLETED：项目已创建并推送到公司 GitLab，最新默认校验流水�
 最新流水线：
 
 - Pipeline `#83`：
-  `http://192.168.110.2/wangxiaolin/review-annotation-platform/-/pipelines/83`
+  `http://192.0.2.3/REDACTED_OPERATOR/review-annotation-platform/-/pipelines/83`
 - Commit：`1879d1f`（`docs: refresh gitlab evidence`）；
 - `backend-test`：passed；
 - `compose-config`：passed；

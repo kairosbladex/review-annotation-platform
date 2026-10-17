@@ -65,7 +65,7 @@
 ## Handoff commands
 
 ```bash
-cd /Users/wangxiaolin/PycharmProjects/review-annotation-platform
+cd /REDACTED_HOME/PycharmProjects/review-annotation-platform
 cp deploy/production.env.example deploy/production.env
 # 仅在部署主机或密钥管理注入真实值，不要提交 deploy/production.env
 python3 scripts/check_production_config.py --env-file deploy/production.env

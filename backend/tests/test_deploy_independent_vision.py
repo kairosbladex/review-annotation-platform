@@ -182,7 +182,7 @@ def running_release(resolved_compose, monkeypatch):
             'Config': {'Labels': dict(service['labels'], **{'com.docker.compose.service': name}),
                        'Env': [key + '=' + str(value) for key, value in service.get('environment', {}).items()]},
             'Mounts': mounts,
-            'HostConfig': {'DeviceRequests': [{'DeviceIDs': ['GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7']}]},
+            'HostConfig': {'DeviceRequests': [{'DeviceIDs': ['GPU-REDACTED']}]},
         })
     algorithm = next(item for item in containers if item['Id'] == 'runtime-algorithm')
     algorithm['Config']['Env'] = [entry for entry in algorithm['Config']['Env']
@@ -453,7 +453,7 @@ def upgrading_release(preparing_release, monkeypatch):
     private = previous / '.private.env'
     private.write_text(private.read_text().replace("VISION_HISTORY_MODEL='qwen3-vl:8b-instruct'",
                                                   "VISION_HISTORY_MODEL='qwen3-vl:8b'").replace(
-        "VISION_ADMIN_USERNAME='admin'", "VISION_ADMIN_USERNAME='suxiaonian'").replace(
+        "VISION_ADMIN_USERNAME='admin'", "VISION_ADMIN_USERNAME='REDACTED_TEST_ACCOUNT'").replace(
         "VISION_ADMIN_PASSWORD='REDACTED'", "VISION_ADMIN_PASSWORD='REDACTED'"))
     legacy = runpy.run_path(str(script))
     config = legacy['_config'](previous, previous.name)

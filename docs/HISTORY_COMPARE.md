@@ -8,7 +8,7 @@ v7 的模型已经返回逐区域说明，但汇总函数固定返回 `summary=N
 
 27 项测试通过，覆盖描述与轮廓顺序对应、跨批次编号、忽略无关描述、后批失败保留已确认说明。候选原图回放：光伏无变化为0框（26.785秒），道路为5框及5条描述（12.512秒），光伏新增为4框及4条描述（12.877秒）。
 
-18:23:35（UTC+8）确认活动任务为零后，仅切换8189至 `history-compare-20260908-v8`，镜像ID `sha256:53de95954837a029831f9eade2649ba088671ca4ac773bb28e4fbce4b025974b`。第五份override为 `/data/workspace/jzheng/review-test-releases/history-compare-20260908-v8/compose.override.yml`；回退文字调整可切回v7并仅重建空闲的8189。8188未变动，环境变量、端口、挂载、GPU配置保持一致。服务及提示词文件SHA256与本地一致。
+18:23:35（UTC+8）确认活动任务为零后，仅切换8189至 `history-compare-20260908-v8`，镜像ID `sha256:53de95954837a029831f9eade2649ba088671ca4ac773bb28e4fbce4b025974b`。第五份override为 `/REDACTED_RUNTIME_ROOT/review-test-releases/history-compare-20260908-v8/compose.override.yml`；回退文字调整可切回v7并仅重建空闲的8189。8188未变动，环境变量、端口、挂载、GPU配置保持一致。服务及提示词文件SHA256与本地一致。
 
 线上真实接口验收：道路5框及5条具体说明（12.798秒），光伏新增4框及4条说明（14.529秒），光伏无变化0框且只显示“没有明显变化”（26.847秒），均无复核错误。容器状态healthy。旧记录不回写，重新发起对比才显示新文字。
 
@@ -53,7 +53,7 @@ v7 保留 v2 的配准和轮廓定位，传入结构化任务要求，每批最�
 安装项目依赖后即可运行几何对比；语义描述需要配置可访问的 Ollama：
 
 ```dotenv
-HISTORY_COMPARE_OLLAMA_URL=http://192.168.130.238:11434
+HISTORY_COMPARE_OLLAMA_URL=http://192.0.2.1:11434
 HISTORY_COMPARE_MODEL=qwen3.5:9b
 HISTORY_COMPARE_TIMEOUT_SECONDS=60
 ```
@@ -95,7 +95,7 @@ AFMAP 的 `/ai-comparison/image/add` 经业务服务调用 8189 的 `/api/v1/vl-
 
 ## AFMAP 在线验收
 
-2026-09-08 经用户确认，已部署至 `192.168.130.238:8189`，容器 `yoloe_service_test`。镜像为 `yoloe_service_test:history-compare-20260908-v1`，镜像 ID 为 `sha256:8d304ce9c59a78445b63f754d6ec582f45a4cbb3d5353d6fb05f6db53babc574`，兼容层代码提交为 `f9cea75`。切换时 `active_count=0`；只修改 3 个历史对比环境变量，端口、挂载和 GPU 配置保持一致。8188 生产容器未重启、未修改；8189 部署后为 healthy。
+2026-09-08 经用户确认，已部署至 `192.0.2.1:8189`，容器 `yoloe_service_test`。镜像为 `yoloe_service_test:history-compare-20260908-v1`，镜像 ID 为 `sha256:8d304ce9c59a78445b63f754d6ec582f45a4cbb3d5353d6fb05f6db53babc574`，兼容层代码提交为 `f9cea75`。切换时 `active_count=0`；只修改 3 个历史对比环境变量，端口、挂载和 GPU 配置保持一致。8188 生产容器未重启、未修改；8189 部署后为 healthy。
 
 通过 Computer Use 在用户指定的 AFMAP 历史任务页面，打开 `DJI_20260715113309_0005_V_P2A3.jpeg` 并发起智能对比。算法数据库 `zhuoyi_vl_compare_test` 的同一请求证据：
 
@@ -113,8 +113,8 @@ AFMAP 的 `/ai-comparison/image/add` 经业务服务调用 8189 的 `/api/v1/vl-
 
 按用户调整，保留 AFMAP 前端“基准照片/对比照片”标签，仅在多对多兼容接口返回摘要时将几何结论和模型描述中的照片称呼统一为前端标签。AFMAP 的当前图对应“基准照片”，历史图对应“对比照片”；标准 baseline=历史图的调用按相反映射处理。一对多和独立平台仍保留当前/历史称呼，图片角色、变化方向、坐标不变。
 
-8189 已更新至 `yoloe_service_test:history-compare-20260908-v2`（镜像 ID `sha256:e3077572ea636a54d9576ed09aad3023887585eccc3584448a79c6e691fde851`）。部署目录为 `/data/workspace/jzheng/review-test-releases/history-compare-20260908-v2`，替换原第五份 Compose override，保留原四份配置。回退本次文案调整时，将第五份 override 切回 v1 目录，仅重建测试服务。切换前活动任务为零，环境变量、挂载、端口及 GPU 配置一致，8188 未变动。
+8189 已更新至 `yoloe_service_test:history-compare-20260908-v2`（镜像 ID `sha256:e3077572ea636a54d9576ed09aad3023887585eccc3584448a79c6e691fde851`）。部署目录为 `/REDACTED_RUNTIME_ROOT/review-test-releases/history-compare-20260908-v2`，替换原第五份 Compose override，保留原四份配置。回退本次文案调整时，将第五份 override 切回 v1 目录，仅重建测试服务。切换前活动任务为零，环境变量、挂载、端口及 GPU 配置一致，8188 未变动。
 
 16 项相关测试通过。部署后的真实 HTTP 请求使用同一光伏照片对，耗时 9.84 秒返回 4 处变化，摘要为“基准照片相较对比照片，检测到4处可定位变化。局部变化描述（4处）：基准照片相较对比照片，屋面新增了大量深蓝色光伏板阵列，覆盖了大部分原本裸露的混凝土表面。”历史持久化记录未批量改写，需要重新对比才能生成新文案。
 
-远端部署目录：`/data/workspace/jzheng/review-test-releases/history-compare-20260908-v1`。旧镜像保留为 `yoloe_service_test:history-compare-base-20260908`（原镜像 ID `sha256:49c6f52ba9967f18f717c8fe647ac9769fc41476008bc19af83072c7a52a3106`）。原 Compose 配置依次为主项目 `docker-compose.yml`、`resnet18-20260907-v1/deploy/resnet-test/compose.override.yml`、`voice-perf-20260907-v2/compose.override.yml`、`human-20260907-v1/compose.model-test.yml`，部署时追加本次目录的 `compose.override.yml`。回退需在无活动任务时使用原四份配置、移除本次附加文件，仅重建 `yoloe_service_test`；不得删除共享网络或使用 `--remove-orphans`。
+远端部署目录：`/REDACTED_RUNTIME_ROOT/review-test-releases/history-compare-20260908-v1`。旧镜像保留为 `yoloe_service_test:history-compare-base-20260908`（原镜像 ID `sha256:49c6f52ba9967f18f717c8fe647ac9769fc41476008bc19af83072c7a52a3106`）。原 Compose 配置依次为主项目 `docker-compose.yml`、`resnet18-20260907-v1/deploy/resnet-test/compose.override.yml`、`voice-perf-20260907-v2/compose.override.yml`、`human-20260907-v1/compose.model-test.yml`，部署时追加本次目录的 `compose.override.yml`。回退需在无活动任务时使用原四份配置、移除本次附加文件，仅重建 `yoloe_service_test`；不得删除共享网络或使用 `--remove-orphans`。

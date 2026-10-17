@@ -101,7 +101,7 @@
 - `analyze.py`：只读聚合脚本，可重新计算全部统计，并校验前后快照和实时读回。
 - 原始证据目录：`~/Downloads/ktd-clean-source-test-acceptance-20260926/`，重点文件为 `真实样本复核结果.jsonl`、`批次汇总.json`、`training-overlap-audit.json`、`source-resolution-summary.json`、`source-coverage-limitations.json`。
 - 模型服务：本次 SSH 只读检查为 `yoloe_service_test:clean-source-qwen-20260926-v8`，running / healthy；镜像 SHA-256 `0837b17d0f1835122543a2d0304aa9fd59d45f5219e0990fb4dd3fa848ffaf49`。本报告未变更服务。
-- 测试验收：[测试事件中心](https://lxtest.zhuoyilingxi.com:8088/afmap/#/eventCenter)；[本机原图对照台](http://127.0.0.1:8194/)。
+- 测试验收：[测试事件中心](https://REDACTED_TEST_HOST.invalid:8088/afmap/#/eventCenter)；[本机原图对照台](http://127.0.0.1:8194/)。
 
 复现示例：
 

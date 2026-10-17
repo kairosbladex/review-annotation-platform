@@ -50,7 +50,7 @@ Changed files:
 ## 如何验收
 
 ```bash
-cd /Users/wangxiaolin/PycharmProjects/review-annotation-platform
+cd /REDACTED_HOME/PycharmProjects/review-annotation-platform
 PYTHONPATH=backend python3 -m pytest backend/tests/test_annotation_flow.py -q
 # 期望含 test_needs_review_queue_keeps_in_progress_sample，全部 passed
 

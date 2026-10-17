@@ -5,7 +5,7 @@
 ## 执行
 
 ```bash
-cd /Users/wangxiaolin/PycharmProjects/review-annotation-platform
+cd /REDACTED_HOME/PycharmProjects/review-annotation-platform
 PYTHONPATH=backend python3 scripts/run_ktd_gpt_recheck.py \
   --env-file .env.ktd.local \
   --model-env-file .env.auto-annotation.local \

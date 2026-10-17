@@ -20,7 +20,7 @@ import urllib.error
 import urllib.request
 
 MODEL = 'gpt-5.6-luna'
-ALLOWED_TASKS = {Path('/data/workspace/jzheng/codex-luna-prompt-v2-20261009'), Path('/data/workspace/jzheng/codex-luna-prompt-v3-20261009')}
+ALLOWED_TASKS = {Path('/REDACTED_RUNTIME_ROOT/codex-luna-prompt-v2-20261009'), Path('/REDACTED_RUNTIME_ROOT/codex-luna-prompt-v3-20261009')}
 
 
 def write_json(path, value):

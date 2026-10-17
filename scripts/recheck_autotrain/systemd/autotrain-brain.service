@@ -3,9 +3,9 @@ Description=唤醒 Hermes 执行一轮复检微调迭代提示词
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/flock -n /data/workspace/jzheng/recheck-autotrain/live/brain.lock /bin/sh /data/workspace/jzheng/recheck-autotrain/live/src/run_brain_tick.sh
+ExecStart=/usr/bin/flock -n /REDACTED_RUNTIME_ROOT/recheck-autotrain/live/brain.lock /bin/sh /REDACTED_RUNTIME_ROOT/recheck-autotrain/live/src/run_brain_tick.sh
 MemoryMax=1G
 CPUQuota=50%
 TimeoutStartSec=1800
-StandardOutput=append:/data/workspace/jzheng/recheck-autotrain/live/logs/brain.log
-StandardError=append:/data/workspace/jzheng/recheck-autotrain/live/logs/brain.log
+StandardOutput=append:/REDACTED_RUNTIME_ROOT/recheck-autotrain/live/logs/brain.log
+StandardError=append:/REDACTED_RUNTIME_ROOT/recheck-autotrain/live/logs/brain.log

@@ -23,7 +23,7 @@ from urllib.parse import quote
 import httpx
 
 
-DEFAULT_SOURCE_BASE_URL = "https://lxtest.zhuoyilingxi.com:8088/minio-src"
+DEFAULT_SOURCE_BASE_URL = "https://REDACTED_TEST_HOST.invalid:8088/minio-src"
 DEFAULT_GPU_BASE_URL = "https://123.52.43.165:8188"
 DEFAULT_REVIEW_ENDPOINT = "/api/v1/review-agent/review"
 MAX_IMAGE_BYTES = 50 * 1024 * 1024

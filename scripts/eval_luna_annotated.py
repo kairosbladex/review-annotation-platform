@@ -22,11 +22,11 @@ import urllib.request
 
 MODEL = 'gpt-5.6-luna'
 POLICY = 'only_true_is_true_v1'
-ANNOTATED = Path('/data/workspace/jzheng/codex-ktd-real-monitoring-20260924/work/annotated')
-TASK = Path('/data/workspace/jzheng/codex-luna-eval-20261008')
-ALLOWED_TASKS = {TASK, Path('/data/workspace/jzheng/codex-luna-hd-20261008')}
-WORKER = Path('/data/workspace/jzheng/codex-luna-review')
-URL = 'http://192.168.130.238:18396/review'
+ANNOTATED = Path('/REDACTED_RUNTIME_ROOT/codex-ktd-real-monitoring-20260924/work/annotated')
+TASK = Path('/REDACTED_RUNTIME_ROOT/codex-luna-eval-20261008')
+ALLOWED_TASKS = {TASK, Path('/REDACTED_RUNTIME_ROOT/codex-luna-hd-20261008')}
+WORKER = Path('/REDACTED_RUNTIME_ROOT/codex-luna-review')
+URL = 'http://192.0.2.1:18396/review'
 
 def write_json(path, value):
     tmp = path.with_suffix('.tmp')

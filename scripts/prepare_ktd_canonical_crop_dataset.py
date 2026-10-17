@@ -209,7 +209,7 @@ def build_dataset(
     snapshot_dir: Path,
     output_dir: Path,
     image_root: Path | None = None,
-    image_base_url: str = "https://lxtest.zhuoyilingxi.com:8088/minio-src",
+    image_base_url: str = "https://REDACTED_TEST_HOST.invalid:8088/minio-src",
     timeout: float = 60.0,
     no_verify_tls: bool = False,
     workers: int = 8,
@@ -417,7 +417,7 @@ def main() -> int:
     parser.add_argument("--snapshot-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--image-root", type=Path, default=None, help="local root keyed by image_object_key")
-    parser.add_argument("--image-base-url", default="https://lxtest.zhuoyilingxi.com:8088/minio-src")
+    parser.add_argument("--image-base-url", default="https://REDACTED_TEST_HOST.invalid:8088/minio-src")
     parser.add_argument("--timeout", type=float, default=60.0)
     parser.add_argument("--no-verify-tls", action="store_true")
     parser.add_argument("--workers", type=int, default=8)

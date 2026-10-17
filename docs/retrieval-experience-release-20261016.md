@@ -1,5 +1,7 @@
 # 三功能体验迭代与测试环境发布记录（2026-10-16）
 
+> 2026-10-18 更新：三个功能现已由本仓[独立测试工作台](ACCEPTANCE_VISION-WORKBENCH.md)承载并完成真实5/5验收，无需共享前端/Java 仓库权限；该独立站不代表旧灵犀入口已更新。下方保留10月16日的发布状态、性能回放和失败诊断；35.5%仍仅对应同批离线 A/B，准确率没有新增独立提升证据。
+
 状态：后端已发布到测试环境；前端修复已有本地提交，受公司仓库读取权限阻碍尚未发布。图片复检研究完成，但没有新的可验证准确率提升。
 
 ## 任务卡
@@ -14,9 +16,9 @@
 
 - 标注/评测仓库：`docs/luna-business-test-release@231d1d5d507f41087635c304c0a63f01256329d1`。原工作区已有标注 CSV、`docs/CODEX_PROGRESS.md` 和大量未跟踪文件，均保留。此次使用隔离分支 `perf/review-experience-evaluation`。
 - 算法源码：`feature/luna-independent-pipeline@60c23831b7261b85294ad4bbb99b267a3f179e49`；本轮隔离分支 `perf/retrieval-response-latency`。既有 `perf/retrieval-media-throughput` 的未提交候选仅作为经复核的实现来源，原文件未改。
-- 实际测试 API：`ai-lingxi` 的 `yoloe_service_test`，HTTPS 8189；初始镜像 ID `sha256:a7fc3867056b89fe5aee410ad499e8243d05cb537d81c9cfd24ebbff0455698e`，完整 Compose 24 层。
+- 实际测试 API：`REDACTED_SSH_HOST` 的 `yoloe_service_test`，HTTPS 8189；初始镜像 ID `sha256:a7fc3867056b89fe5aee410ad499e8243d05cb537d81c9cfd24ebbff0455698e`，完整 Compose 24 层。
 - 实际运行源码包含独立配置包、API 拆分、瓦片初检、历史对比 v9c 及 TTS 修复，不能拿本地旧单体文件直接替换。仅通过逐文件 SHA 绑定的函数级增量生成发布制品。
-- 真实视频回放 run root 为 `/data/workspace/jzheng/retrieval-latency-20261016.W22HSv`；GPU 为 `GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7`。权限受限的原始日志/媒体不提交。
+- 真实视频回放 run root 为 `/REDACTED_RUNTIME_ROOT/retrieval-latency-20261016.W22HSv`；GPU 为 `GPU-REDACTED`。权限受限的原始日志/媒体不提交。
 
 ## 已完成的确定性改进
 
@@ -49,7 +51,7 @@
 
 首次隔离启动因使用了不生效的 `MODEL_NAME` 环境变量，实际默认模型与冻结模型不符，被校验拒绝。随后改用该服务真实配置 `YOLOE_MODEL_VERSION=26`；失败记录保留，不作为成功回放或准确率样本。
 
-完整回放已通过：基线 840.804 秒，候选 542.488 秒，耗时减少 35.5%。视频部分 750.740→488.209 秒（减少 35.0%）；图片部分 90.063→54.278 秒（减少 39.7%）。1655/1655 个采样的像素、尺寸、帧号及 719 个检测框的类别、坐标、置信度零容差一致；没有缺失/额外采样，没有变化框。机器可复算结果见 [完整对比](evidence/retrieval-full-comparison-20261016.json)。
+完整回放已通过：基线 840.804 秒，候选 542.488 秒，耗时减少 35.5%。视频部分 750.740→488.209 秒（减少 35.0%）；图片部分 90.063→54.278 秒（减少 39.7%）。1655/1655 个采样的像素、尺寸、帧号及 719 个检测框的类别、坐标、置信度零容差一致；没有缺失/额外采样，没有变化框。机器可复算结果见 完整对比（原始证据未随快照导出）。
 
 这是一次同机顺序 A/B 回放的观测值，没有反向顺序重复；不能写成线上整体 p95 保证。渲染、上传、数据库、MQTT 与页面不在该计时内。
 
@@ -62,8 +64,8 @@
 ## 体验验收发现与待关闭项
 
 - AFMAP 智能检索真实历史失败/取消记录均被页面显示为“暂无检索记录”；进度 GET 中断一次后，7.5 秒内没有恢复查询。隔离前端候选已用真实组件浏览器 TDD 修复，9/9 通过，构建通过：独立显示状态，网络/格式错误最多自动重试三次，之后仅提供重新读取；切任务和离页拒绝旧响应。未创建或重启业务任务。
-- 前端公司仓库 fresh fetch 被 GitLab 拒绝读取，SSH 身份确认为现有 `wangxiaolin`；未切换他人身份。当前只能核对缓存 `master@35574cba`。候选为 `bugfix/retrieval-progress-states@a41aee6b88a2be1f345a59444322bf9f7497ae27`，主 Agent 独立复跑真实组件浏览器用例 9/9。`build:test` 通过；组件原有 ESLint 7 错/13 警告与基线一致，本轮未新增。另删除构建配置的全量环境打印，不改环境值。
-- 发布前，8189 历史对比对损坏图片返回 500，原因是 Ultralytics 包装的 Pillow 解码器尝试加载缺失的 `pi_heif`。最小两函数修复的同镜像隔离回归 33/33 通过，无效 base64/HTTP/local 图片改为 422；发布后也已实测坏图片返回 422，其他依赖故障不冒充输入错误。计算、v9c 摘要和非目标函数保持一致。详见[实际运行版回归](evidence/live-review-history-regression-20261016/README.md)。
+- 前端公司仓库 fresh fetch 被 GitLab 拒绝读取，SSH 身份确认为现有 `REDACTED_OPERATOR`；未切换他人身份。当前只能核对缓存 `master@35574cba`。候选为 `bugfix/retrieval-progress-states@a41aee6b88a2be1f345a59444322bf9f7497ae27`，主 Agent 独立复跑真实组件浏览器用例 9/9。`build:test` 通过；组件原有 ESLint 7 错/13 警告与基线一致，本轮未新增。另删除构建配置的全量环境打印，不改环境值。
+- 发布前，8189 历史对比对损坏图片返回 500，原因是 Ultralytics 包装的 Pillow 解码器尝试加载缺失的 `pi_heif`。最小两函数修复的同镜像隔离回归 33/33 通过，无效 base64/HTTP/local 图片改为 422；发布后也已实测坏图片返回 422，其他依赖故障不冒充输入错误。计算、v9c 摘要和非目标函数保持一致。详见实际运行版回归（原始证据未随快照导出）。
 - 标注仓库原有历史对比/策略测试 46/46 通过，但该旧仓库结果不替代运行镜像 v9c 的 HTTP 验收。
 
 完整标注后端测试最终 159 通过、1 跳过、0 失败。唯一跳过项要求独立 PostgreSQL 的 `TEST_POSTGRES_URL`，本轮未连接共享 PG。另补齐旧合成审计夹具缺失的 `source_object_key`；原基线同样 2 项失败，补齐后定向 3/3，未放宽生产校验或改真实标签。
@@ -86,7 +88,7 @@
 
 三个条件使用相同图片、缩放尺寸及原质量门槛，两个 SIFT 条件均未进入业务代码或发布。增加特征后的第二对虽有 35 个原始内点，但固定留出对应中的 13 点只有 3 点误差不超过 2.5 像素，中位误差为 25.68 像素；这些对应不是独立人工几何真值。不能凭更多内点宣称质量提升，也不降低重叠门槛制造通过。两对均未到达外观变化检查，未执行的门槛不记为通过。本次停止此调参路线，保留当前算法。
 
-这只是两对图片的配准诊断，没有变化真值，不是历史对比语义准确率或图片复检准确率。三次隔离容器启动权限失败均发生在几何调用前，单列记录，没有混入图片失败分母；之后所有临时容器已退出，模型调用和业务写入均为 0。聚合证据见[补充验收摘要](evidence/history-ui-geometry-diagnosis-20261016.json)，原图、截图和原始诊断保存在受限临时目录，不进入 Git 或个人快照。
+这只是两对图片的配准诊断，没有变化真值，不是历史对比语义准确率或图片复检准确率。三次隔离容器启动权限失败均发生在几何调用前，单列记录，没有混入图片失败分母；之后所有临时容器已退出，模型调用和业务写入均为 0。聚合证据见补充验收摘要（原始证据未随快照导出），原图、截图和原始诊断保存在受限临时目录，不进入 Git 或个人快照。
 
 ## 发布与回滚
 
@@ -100,18 +102,18 @@
 | 发布检查补丁 | `8adac81798c55855f686ad24b6b9c50209430662`，同一 `perf/retrieval-response-latency` 已推送并核验 |
 | 历史修复/评测提交 | `f678967bd60a879803760bd3b320e21dbbd331e9`，`perf/review-experience-evaluation` 已推送并核验 |
 | 测试镜像 | `yoloe_service_test:retrieval-latency-a407bf3` / `sha256:dac104a6a8935905cfa3bbae6ed2d5114e0ed9f3bde7f90e5442361bce220ed1` |
-| 运行容器 | `e2b673da59299676ede93fd69afc0c26ecf5142ec126ea1bd479e01aa9eade32` |
+| 运行容器 | `REDACTED_CONTAINER_ID` |
 | 配置与功能保护 | 原环境、挂载内容一致；24 层追加 1 层镜像覆盖；7 个改动源码与 16 个未改源码摘要通过 |
 | 其他服务 | 66 个原有运行容器 ID/镜像/启动时间/重启次数一致 |
 | 发布后 HTTP | TLS 完整校验；health 3 次约 3.6–4.9ms；坏图片返回 422；活动检索任务 0 |
 | 验收副作用 | 未提交业务检索任务、未调用真实 Luna；仅发起输入校验阶段即被拒绝的合成坏图片请求 |
 
-[部署回执](evidence/retrieval-deployment-receipt-20261016.json)保存完整摘要。首轮 verify 因 `HostConfig.Binds` 列表顺序变化而误报，自动恢复也因同一检查未执行；容器实际已在候选镜像上健康运行。确认绑定内容与 Mounts 一致后，先加红测，再按排序后的完整列表比较，权限或重复项变化仍拒绝；重新验证通过，没有第二次重启。不能把这次误报写成真实配置变化或“已经回滚”。
+部署回执（原始证据未随快照导出）保存完整摘要。首轮 verify 因 `HostConfig.Binds` 列表顺序变化而误报，自动恢复也因同一检查未执行；容器实际已在候选镜像上健康运行。确认绑定内容与 Mounts 一致后，先加红测，再按排序后的完整列表比较，权限或重复项变化仍拒绝；重新验证通过，没有第二次重启。不能把这次误报写成真实配置变化或“已经回滚”。
 
 旧镜像 `a7fc3867...`、24 层 Compose 与本轮私有环境快照均保留。需要回滚时，脚本会重新确认身份、配置和无在途请求：
 
 ```sh
-ssh ai-lingxi 'python3 /data/workspace/jzheng/retrieval-latency-20261016.W22HSv/tooling/release_retrieval_latency.py rollback --release-dir /data/workspace/jzheng/retrieval-latency-20261016.W22HSv'
+ssh REDACTED_SSH_HOST 'python3 /REDACTED_RUNTIME_ROOT/retrieval-latency-20261016.W22HSv/tooling/release_retrieval_latency.py rollback --release-dir /REDACTED_RUNTIME_ROOT/retrieval-latency-20261016.W22HSv'
 ```
 
 未为演示回滚而反复中断共享服务；自动恢复路径已有离线测试，实际回滚命令保留待需要时执行。回放和验证容器均已退出，未留下额外 GPU 服务；原冻结媒体与受限运行证据保留。

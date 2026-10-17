@@ -13,8 +13,8 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 SETS = {
-    "random": ("/data/workspace/jzheng/claude-vsg-random-ab-20260929", "input/sample.jsonl"),
-    "hard": ("/data/workspace/jzheng/claude-vsg-resolution-ab-20260929", "input/rows.jsonl"),
+    "random": ("/REDACTED_RUNTIME_ROOT/claude-vsg-random-ab-20260929", "input/sample.jsonl"),
+    "hard": ("/REDACTED_RUNTIME_ROOT/claude-vsg-resolution-ab-20260929", "input/rows.jsonl"),
 }
 TILE = 224
 MAX_ROWS = 4  # Hermes 送图上限约 256KB，控制行数与 JPEG 质量避免再压缩

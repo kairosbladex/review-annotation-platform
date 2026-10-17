@@ -2,10 +2,10 @@
 # 定时唤醒 Hermes 执行一轮提示词（由 systemd 用户定时器调用）。
 # 停止文件存在或共享服务 L20 空闲显存不足时跳过本轮；大脑模型 qwen3.6 由 diagnostic-ollama 按需加载后卸载。
 set -u
-LIVE=/data/workspace/jzheng/recheck-autotrain/live
+LIVE=/REDACTED_RUNTIME_ROOT/recheck-autotrain/live
 MODEL=qwen3.6:latest
 NEED_MIB=30000
-SERVICE_GPU=GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7
+SERVICE_GPU=GPU-REDACTED
 TS=$(date +%Y%m%d-%H%M%S)
 mkdir -p "$LIVE/logs/brain"
 if [ -e "$LIVE/state/STOP" ]; then echo "$TS 跳过：STOP 文件存在"; exit 0; fi

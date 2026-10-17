@@ -3,10 +3,10 @@ Description=Luna 提示词自动迭代执行器（跑一轮评测或推进一步
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/flock -n /data/workspace/jzheng/luna-prompt-autotune/runner.lock /usr/bin/python3 /data/workspace/jzheng/luna-prompt-autotune/src/runner.py
+ExecStart=/usr/bin/flock -n /REDACTED_RUNTIME_ROOT/luna-prompt-autotune/runner.lock /usr/bin/python3 /REDACTED_RUNTIME_ROOT/luna-prompt-autotune/src/runner.py
 MemoryMax=2G
 MemorySwapMax=0
 CPUQuota=100%
 TimeoutStartSec=7200
-StandardOutput=append:/data/workspace/jzheng/luna-prompt-autotune/logs/runner.log
-StandardError=append:/data/workspace/jzheng/luna-prompt-autotune/logs/runner.log
+StandardOutput=append:/REDACTED_RUNTIME_ROOT/luna-prompt-autotune/logs/runner.log
+StandardError=append:/REDACTED_RUNTIME_ROOT/luna-prompt-autotune/logs/runner.log

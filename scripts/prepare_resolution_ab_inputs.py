@@ -16,9 +16,9 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-CODEX_ROOT = Path("/data/workspace/jzheng/codex-ktd-real-monitoring-20260924")
-OLD_HIRES = Path("/data/workspace/jzheng/claude-hires-review-20260929")
-NEW_ROOT = Path("/data/workspace/jzheng/claude-vsg-new-events-20260929")
+CODEX_ROOT = Path("/REDACTED_RUNTIME_ROOT/codex-ktd-real-monitoring-20260924")
+OLD_HIRES = Path("/REDACTED_RUNTIME_ROOT/claude-hires-review-20260929")
+NEW_ROOT = Path("/REDACTED_RUNTIME_ROOT/claude-vsg-new-events-20260929")
 LOW_SIZE = (960, 720)
 
 

@@ -19,7 +19,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-ROOT = Path(os.environ.get('AUTOTUNE_ROOT', '/data/workspace/jzheng/luna-prompt-autotune'))
+ROOT = Path(os.environ.get('AUTOTUNE_ROOT', '/REDACTED_RUNTIME_ROOT/luna-prompt-autotune'))
 STATE, ASSETS, RUNS, HUMAN = ROOT / 'state', ROOT / 'assets', ROOT / 'runs', ROOT / 'human'
 sys.path.insert(0, str(ROOT / 'src'))
 import metrics  # noqa: E402

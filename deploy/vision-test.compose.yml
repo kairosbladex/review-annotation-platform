@@ -92,7 +92,7 @@ services:
       REVIEW_YOLOE_DEVICE: cuda:0
       REVIEW_CROP_DEVICE: cuda:0
       CLEAN_SOURCE_DEVICE: cuda:0
-      CLEAN_SOURCE_WORKER_GPU_UUID: GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7
+      CLEAN_SOURCE_WORKER_GPU_UUID: GPU-REDACTED
       NVIDIA_DRIVER_CAPABILITIES: compute,utility,video
       YOLOE_MODEL_VERSION: "26"
       YOLOE_MODEL_SIZE: l
@@ -153,25 +153,25 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: [GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7]
+              device_ids: [GPU-REDACTED]
               capabilities: [gpu]
     ports:
       - "8193:8193"
     volumes:
       - type: bind
-        source: /data/workspace/jzheng/yoloe_service_test_prod/pretrain
+        source: /REDACTED_RUNTIME_ROOT/yoloe_service_test_prod/pretrain
         target: /app/pretrain
         read_only: true
       - type: bind
-        source: /data/workspace/jzheng/yoloe_service_test_prod/pretrain
+        source: /REDACTED_RUNTIME_ROOT/yoloe_service_test_prod/pretrain
         target: /root/.cache/ultralytics
         read_only: true
       - type: bind
-        source: /data/workspace/jzheng/yoloe_service/data/ktd-qwen-vl-8b-instruct
+        source: /REDACTED_RUNTIME_ROOT/yoloe_service/data/ktd-qwen-vl-8b-instruct
         target: /opt/clean-source/base
         read_only: true
       - type: bind
-        source: /data/workspace/jzheng/ktd-clean-source-qwen-20260925-v1/selected-adapter-epoch2
+        source: /REDACTED_RUNTIME_ROOT/ktd-clean-source-qwen-20260925-v1/selected-adapter-epoch2
         target: /opt/clean-source/adapter
         read_only: true
       - type: bind

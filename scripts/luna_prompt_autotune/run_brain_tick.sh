@@ -3,10 +3,10 @@
 # 只有“有待写报告的版本”或“可以提交下一版”时才加载大脑模型；共享服务 L20 空闲显存不足、STOP、上一轮未结束时跳过。
 # Hermes 连续 3 次唤醒都没有让状态前进（没写报告也没提交）时，写 STOP 并停用定时器，避免空转占卡。
 set -u
-ROOT=/data/workspace/jzheng/luna-prompt-autotune
+ROOT=/REDACTED_RUNTIME_ROOT/luna-prompt-autotune
 MODEL=qwen3.6:latest
 NEED_MIB=30000
-SERVICE_GPU=GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7
+SERVICE_GPU=GPU-REDACTED
 TS=$(date +%Y%m%d-%H%M%S)
 mkdir -p "$ROOT/logs/brain"
 if [ -e "$ROOT/state/STOP" ]; then echo "$TS 跳过：STOP 文件存在"; exit 0; fi

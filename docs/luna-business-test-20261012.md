@@ -2,7 +2,7 @@
 
 ## 结果与边界
 
-**2026-10-12 14:42（UTC+8），最小业务复检版本已发布到公司测试主机 `ai-lingxi / 192.168.130.238`，测试 API 与 Luna worker 均完成版本及健康核验。** 本轮用户明确授权上传 `6755b1e`、隔离验证及可回滚更新。此前上传权限拒绝属于上一轮记录；本轮正常上传成功，没有修改宿主权限策略。
+**2026-10-12 14:42（UTC+8），最小业务复检版本已发布到公司测试主机 `REDACTED_SSH_HOST / 192.0.2.1`，测试 API 与 Luna worker 均完成版本及健康核验。** 本轮用户明确授权上传 `6755b1e`、隔离验证及可回滚更新。此前上传权限拒绝属于上一轮记录；本轮正常上传成功，没有修改宿主权限策略。
 
 此次仅更新现有业务事件复检 API/worker。初审、现有业务规则、`p000-pure-class-cards` 提示词、固定 CLI、原 API 环境与挂载均保留。未上传或启动 `luna_pipeline/`，未主动发起真实业务任务、真实事件复检、Luna 模型请求或业务结果保存；API 沿用原有启动预热。标注平台 `5275/8392` 不在发布范围。
 
@@ -31,16 +31,16 @@
 
 | 项目 | 本轮核验结果 |
 |---|---|
-| 业务 API | `https://192.168.130.238:8189`，健康路径 `/api/v1/health` |
+| 业务 API | `https://192.0.2.1:8189`，健康路径 `/api/v1/health` |
 | API 容器 | `yoloe_service_test`；2026-10-12 14:42:07（UTC+8）启动 |
 | 当前镜像 | `yoloe_service_test:luna-business-6755b1e` |
 | 当前镜像 ID | `sha256:63877b8ca42c9f29fbf0ddf5cb9bc8754fcf52eaecee07b7c83006c63e658ee7` |
-| Worker | 用户服务 `codex-luna-review-worker.service`，`192.168.130.238:18396`；14:42:04 启动 |
-| 发布目录 | `/data/workspace/jzheng/codex-luna-review/releases/6755b1e-business` |
+| Worker | 用户服务 `codex-luna-review-worker.service`，`192.0.2.1:18396`；14:42:04 启动 |
+| 发布目录 | `/REDACTED_RUNTIME_ROOT/codex-luna-review/releases/6755b1e-business` |
 | 提示词 | `p000-pure-class-cards`，沿用原 `47ca276…/prompt.env` |
 | CLI | `codex-0.162.0-alpha.17.2/codex`；SHA-256 `73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4` |
 | API/worker 上限 | 各 8 GiB、4 CPU；API 不额外使用 swap，worker `MemorySwapMax=0` |
-| 最终输入存档 | `/data/workspace/jzheng/codex-luna-review/input-evidence/6755b1e-business`，0700，最多 536870912 字节（512 MiB） |
+| 最终输入存档 | `/REDACTED_RUNTIME_ROOT/codex-luna-review/input-evidence/6755b1e-business`，0700，最多 536870912 字节（512 MiB） |
 
 API 保留原八层 Compose 配置、顺序、两个环境文件、所有环境变量、挂载、端口与 GPU 配置；仅追加发布目录的 `compose.image.yml` 指定候选镜像。原八个文件摘要均未变化。不要只用最后一层 Compose 启停，也不要使用 `--remove-orphans`，同项目标签下有无关服务。
 
@@ -74,13 +74,13 @@ Worker 保留原服务单元和 `50-prompt-release.conf`，新增 `60-business-r
 只读复核已部署版本（不发送复检请求）：
 
 ```bash
-ssh ai-lingxi 'python3 /data/workspace/jzheng/codex-luna-review/releases/6755b1e-business/release.py verify'
+ssh REDACTED_SSH_HOST 'python3 /REDACTED_RUNTIME_ROOT/codex-luna-review/releases/6755b1e-business/release.py verify'
 ```
 
 需要回滚时，在无在途请求后执行以下命令；脚本会核对原配置摘要、旧制品和当前候选身份，有漂移则停止，不覆盖未知改动：
 
 ```bash
-ssh ai-lingxi 'python3 /data/workspace/jzheng/codex-luna-review/releases/6755b1e-business/release.py rollback'
+ssh REDACTED_SSH_HOST 'python3 /REDACTED_RUNTIME_ROOT/codex-luna-review/releases/6755b1e-business/release.py rollback'
 ```
 
 回滚仅移除本次 `60-business-release.conf`，恢复旧 worker，并以保存的原八层 Compose 参数与环境恢复旧 API 镜像；随后检查 TLS 健康、源码路径、资源与配置。既有输入存档不删除、不重放，原提示词 drop-in 不动。不要直接打印私有 `rollback/` 内的环境快照。

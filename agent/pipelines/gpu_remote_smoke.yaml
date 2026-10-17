@@ -8,7 +8,7 @@ nodes:
   - remote_monitor
   - remote_sync
 params:
-  remote_root: /data/workspace/review-annotation-platform-ktd/agent-runs
+  remote_root: /REDACTED_RUNTIME_ROOT/agent-runs
   gpu_index: 4
   min_free_gpu_mib: 1024
   command: "echo job-start; sleep 5; hostname; echo job-done"

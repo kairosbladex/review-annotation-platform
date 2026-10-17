@@ -61,12 +61,12 @@ def test_imgxy_skips_zero_size_and_clamps_to_frame():
 
 
 def test_http_prefix_store_joins_public_image_url():
-    store = HttpPrefixObjectStore(base_url="https://lxtest.zhuoyilingxi.com:8088/minio-src")
+    store = HttpPrefixObjectStore(base_url="https://REDACTED_TEST_HOST.invalid:8088/minio-src")
 
     assert store.exists("minio-src", "/zm-zq-test/ktdTest/a.jpg") is True
     assert store.exists("review-annotation", "raw/a.jpg") is False
     assert store.presigned_get_url("minio-src", "/zm-zq-test/ktdTest/a.jpg") == (
-        "https://lxtest.zhuoyilingxi.com:8088/minio-src/zm-zq-test/ktdTest/a.jpg"
+        "https://REDACTED_TEST_HOST.invalid:8088/minio-src/zm-zq-test/ktdTest/a.jpg"
     )
 
 
@@ -76,11 +76,11 @@ def test_build_object_store_uses_http_prefix_when_minio_is_absent(monkeypatch):
         minio_endpoint="",
         minio_access_key="",
         minio_secret_key="",
-        source_image_base_url="https://lxtest.zhuoyilingxi.com:8088/minio-src",
+        source_image_base_url="https://REDACTED_TEST_HOST.invalid:8088/minio-src",
     )
     store = build_object_store(settings)
     assert store.presigned_get_url("minio-src", "zm-zq-test/a.jpg") == (
-        "https://lxtest.zhuoyilingxi.com:8088/minio-src/zm-zq-test/a.jpg"
+        "https://REDACTED_TEST_HOST.invalid:8088/minio-src/zm-zq-test/a.jpg"
     )
 
 
@@ -105,7 +105,7 @@ def test_annex_row_ingests_as_ready_sample_with_public_image_url(tmp_path):
         admin_password='REDACTED_FOR_GITHUB',
         jwt_secret='REDACTED_FOR_GITHUB',
         minio_endpoint="",
-        source_image_base_url="https://lxtest.zhuoyilingxi.com:8088/minio-src",
+        source_image_base_url="https://REDACTED_TEST_HOST.invalid:8088/minio-src",
     )
     client = TestClient(create_app(settings, object_store=build_object_store(settings)))
     created = client.post(
@@ -127,6 +127,6 @@ def test_annex_row_ingests_as_ready_sample_with_public_image_url(tmp_path):
     url = client.get(f"/api/v1/assets/{original['asset_id']}/url", headers=auth)
     assert url.status_code == 200, url.text
     assert url.json()["url"] == (
-        "https://lxtest.zhuoyilingxi.com:8088/minio-src/"
+        "https://REDACTED_TEST_HOST.invalid:8088/minio-src/"
         "zm-zq-test/ktdTest/aiEventImg/20260826/69c83b9359ed4e4396200ff3e832d82a.jpg"
     )

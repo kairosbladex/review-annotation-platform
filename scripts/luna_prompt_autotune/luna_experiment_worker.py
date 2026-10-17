@@ -78,7 +78,7 @@ def execute(payload):
                           'paste_xy': [(i % 5) * 256, (i // 5) * 280 + 24]})
         sheet.save(root/'crops.jpg', quality=95)
         schema = root/'schema.json';schema.write_text(json.dumps(SCHEMA))
-        binary = os.environ['CODEX_REVIEW_BINARY'];home = Path(os.environ.get('CODEX_REVIEW_HOME', '/home/user/.codex'))
+        binary = os.environ['CODEX_REVIEW_BINARY'];home = Path(os.environ.get('CODEX_REVIEW_HOME', '/REDACTED_HOME/.codex'))
         secret = json.loads((home/'auth.json').read_text())['OPENAI_API_KEY']
         env = dict(os.environ, CODEX_HOME=str(home), CODEX_REVIEW_UPSTREAM_KEY=secret, CUDA_VISIBLE_DEVICES='')
         cmd = [binary, 'exec', '--ignore-user-config', '--ignore-rules', '--ephemeral', '--json', '--skip-git-repo-check', '-C', str(root), '-s', 'read-only', '-m', MODEL,

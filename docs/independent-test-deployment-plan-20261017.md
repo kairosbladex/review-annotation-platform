@@ -1,6 +1,8 @@
 # 独立视觉工作台测试发布计划
 
-状态：`PREPARED / NOT DEPLOYED`。本文件基于 2026-10-17 对 `ai-lingxi` 的只读审计；只新增本文档，服务器、容器、环境变量、数据库和对象均未修改。发布执行及真实页面验收由主任务继续。
+> 2026-10-18 更新：本计划已执行，最终独立站、运行 SHA、真实5/5验收和回滚以[验收工单](ACCEPTANCE_VISION-WORKBENCH.md)及[实机证据](evidence/independent-workbench-20261018/README.md)为准。下方保留发布前只读审计快照，`NOT DEPLOYED`、候选端口和待执行表述均为当时状态。
+
+状态：`PREPARED / NOT DEPLOYED`。本文件基于 2026-10-17 对 `REDACTED_SSH_HOST` 的只读审计；只新增本文档，服务器、容器、环境变量、数据库和对象均未修改。发布执行及真实页面验收由主任务继续。
 
 ## 任务卡与结论
 
@@ -8,7 +10,7 @@
 - 可验收结果：新入口可登录、上传、执行、查看进度和重开结果；数据库、素材和算法产物均能证明归属；旧容器身份保持稳定。
 - 输入：实际容器的镜像/Compose 标签/挂载、白名单配置和源码；本仓最终提交。凭据仅由部署主机安全配置提供。
 - 允许副作用：本阶段只读检查及本文档；执行阶段仅新测试空间的容器、数据库、对象和模型请求。
-- 身份：SSH 用户 `user`，具备 Docker 组权限；当前 API/worker 以 root 运行，PostgreSQL 主进程 UID 999。
+- 身份：SSH 用户 `REDACTED_SSH_USER`，具备 Docker 组权限；当前 API/worker 以 root 运行，PostgreSQL 主进程 UID 999。
 - 审计预算：首轮 10 分钟/25 次工具；补充算法隔离核查 8 分钟/20 次；文档准备 10 分钟/25 次。
 - 非目标：准确率提升结论、生产发布、Lingxi 业务库写回、设备动作。
 
@@ -21,8 +23,8 @@
 | 项目 | 实际状态 |
 |---|---|
 | 旧标注项目 | `review-annotation-test`，前端 5275、API 8392、MinIO 19002/19003 |
-| 旧发布目录 | `/data/workspace/user/review-annotation-test/releases/4e3e5c7` |
-| 旧 Compose 文件 | `/data/workspace/user/review-annotation-test/releases/4e3e5c7/deploy/review-compose.override.yml` |
+| 旧发布目录 | `/REDACTED_RUNTIME_ROOT/review-annotation-test/releases/4e3e5c7` |
+| 旧 Compose 文件 | `/REDACTED_RUNTIME_ROOT/review-annotation-test/releases/4e3e5c7/deploy/review-compose.override.yml` |
 | 旧配置来源 | 同版本 `source/.env`；Compose `env_file` 和插值均可用该文件正确解析 |
 | 旧源版本 | MANIFEST 记录 `4e3e5c728012d05adbe1854cad22de53ea2d06da`；发布目录和 source 均无 `.git` |
 | 旧 API/worker 镜像 | `review-annotation-test-api:4e3e5c7`，`sha256:941b8e3c54001b53546aa19593b1d77c739de5ce6a04def7240cd278bccc3c00` |
@@ -67,7 +69,7 @@
 
 | 来源 | 容器目标 | 模式 |
 |---|---|---|
-| 原算法 `/data/workspace/jzheng/yoloe_service_test_prod/pretrain` | `/app/pretrain` | 只读，复用固定权重 |
+| 原算法 `/REDACTED_RUNTIME_ROOT/yoloe_service_test_prod/pretrain` | `/app/pretrain` | 只读，复用固定权重 |
 | 同一 pretrain 或独立已冻结权重缓存 | `/root/.cache/ultralytics` | 只读；若需要新增缓存，改用本轮独立可写目录 |
 | 原算法证书目录（采用 HTTPS 时） | `/app/certs` | 只读，私钥不进入文档/新源码包 |
 | clean-source base/adapter（保持该链路时） | `/opt/clean-source/base`、`/opt/clean-source/adapter` | 沿用原固定版本，只读 |
@@ -80,7 +82,7 @@
 
 ## GPU、模型与配置
 
-GPU 快照：index 4，UUID `GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7`，总显存 46,068 MiB、已用 462 MiB、可用 44,998 MiB。仅给新容器该 UUID；容器内索引按 `cuda:0`，启动前再次检查可用显存。原实例当前暴露全部 GPU，不能照抄 `Count=-1`。
+GPU 快照：index 4，UUID `GPU-REDACTED`，总显存 46,068 MiB、已用 462 MiB、可用 44,998 MiB。仅给新容器该 UUID；容器内索引按 `cuda:0`，启动前再次检查可用显存。原实例当前暴露全部 GPU，不能照抄 `Count=-1`。
 
 | 配置键 | 新实例要求 |
 |---|---|
@@ -133,8 +135,8 @@ API 镜像启动会先执行 `alembic upgrade head`。执行前冻结最终候�
 
 ```sh
 docker compose \
-  --env-file /data/workspace/user/review-annotation-test/releases/4e3e5c7/source/.env \
-  -f /data/workspace/user/review-annotation-test/releases/4e3e5c7/deploy/review-compose.override.yml \
+  --env-file /REDACTED_RUNTIME_ROOT/review-annotation-test/releases/4e3e5c7/source/.env \
+  -f /REDACTED_RUNTIME_ROOT/review-annotation-test/releases/4e3e5c7/deploy/review-compose.override.yml \
   --project-name review-annotation-test \
   up -d --no-deps api worker frontend
 ```

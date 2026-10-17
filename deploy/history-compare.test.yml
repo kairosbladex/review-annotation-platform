@@ -4,7 +4,7 @@ services:
   api:
     image: review-history-api:683feb3
     environment:
-      HISTORY_COMPARE_OLLAMA_URL: http://192.168.130.238:11434
+      HISTORY_COMPARE_OLLAMA_URL: http://192.0.2.1:11434
       HISTORY_COMPARE_MODEL: qwen3.5:9b
       HISTORY_COMPARE_TIMEOUT_SECONDS: "60"
       MINIO_PUBLIC_ENDPOINT: 127.0.0.1:9002

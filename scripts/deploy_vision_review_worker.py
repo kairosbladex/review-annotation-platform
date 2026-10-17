@@ -16,12 +16,12 @@ import urllib.request
 NAME = 'review-vision-test-luna-worker'
 RELEASE = 'b597612d5e5703610a6f1bdc0ba5e2426947f263'
 IMAGE = 'sha256:941b8e3c54001b53546aa19593b1d77c739de5ce6a04def7240cd278bccc3c00'
-HOST, PORT = '192.168.130.238', 18397
-RUNTIME = Path('/data/workspace/jzheng/review-vision-test/luna-worker-18397')
+HOST, PORT = '192.0.2.1', 18397
+RUNTIME = Path('/REDACTED_RUNTIME_ROOT/review-vision-test/luna-worker-18397')
 SOURCE_UNIT = 'codex-luna-review-worker.service'
-SOURCE_SCRIPT = '/data/workspace/jzheng/codex-luna-review/releases/6755b1e-business/scripts/run_codex_luna_worker.py'
-SOURCE_BINARY = '/data/workspace/jzheng/codex-luna-review/bin/codex-0.162.0-alpha.17.2/codex'
-SOURCE_HOME = '/home/user/.codex'
+SOURCE_SCRIPT = '/REDACTED_RUNTIME_ROOT/codex-luna-review/releases/6755b1e-business/scripts/run_codex_luna_worker.py'
+SOURCE_BINARY = '/REDACTED_RUNTIME_ROOT/codex-luna-review/bin/codex-0.162.0-alpha.17.2/codex'
+SOURCE_HOME = '/REDACTED_HOME/.codex'
 PROMPT = 'p000-pure-class-cards'
 PINS = {
     SOURCE_SCRIPT: 'd9feadd55cd42410f427e5d9b766f67698244c73b16641dac4a0f8ec20d39edf',
@@ -238,7 +238,7 @@ def main():
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument('--start', action='store_true')
     mode.add_argument('--stop', action='store_true')
-    parser.add_argument('--source-pid', type=int, default=276692)
+    parser.add_argument('--source-pid', type=int, default=0)
     args = parser.parse_args()
     try:
         if args.start:

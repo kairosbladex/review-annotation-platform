@@ -17,7 +17,7 @@ import collections
 import json
 from pathlib import Path
 
-CODEX = Path("/data/workspace/jzheng/codex-ktd-real-monitoring-20260924")
+CODEX = Path("/REDACTED_RUNTIME_ROOT/codex-ktd-real-monitoring-20260924")
 IDENTITY = [[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]
 CURRENT_PROMPT = "2cbeee9e"
 

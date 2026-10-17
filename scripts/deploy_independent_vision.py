@@ -23,7 +23,7 @@ from pathlib import Path
 
 
 PROJECT = 'review-vision-test'
-RELEASE_ROOT = Path('/data/workspace/user/review-vision-test/releases')
+RELEASE_ROOT = Path('/REDACTED_RUNTIME_ROOT/review-vision-test/releases')
 ALGORITHM_IMAGE = 'sha256:dac104a6a8935905cfa3bbae6ed2d5114e0ed9f3bde7f90e5442361bce220ed1'
 API_BASE_IMAGE = 'sha256:941b8e3c54001b53546aa19593b1d77c739de5ce6a04def7240cd278bccc3c00'
 FRONTEND_BASE_IMAGE = 'sha256:8fc26b906cd0c0737a497938ef9d5b97d4a4cc5067ab54b69cce02f0613dfa3e'
@@ -33,7 +33,7 @@ IMAGE_CROP_SHA256 = '933447331226ab3f05868828864e7737efc62c4c51a226cd12fc2a06a2d
 HISTORY_MODEL = 'qwen3-vl:8b-instruct'
 REVIEW_WORKER_PORT = 18397
 REVIEW_WORKER_NAME = PROJECT + '-luna-worker'
-GPU_UUID = 'GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7'
+GPU_UUID = 'GPU-REDACTED'
 SERVICES = {'postgres', 'redis', 'minio', 'algorithm', 'api', 'worker', 'frontend'}
 PORTS = {19004, 8193, 8393, 5276}
 PROVIDER_KEYS = frozenset({
@@ -51,10 +51,10 @@ PROVIDER_KEYS = frozenset({
     'OPENCV_NUM_THREADS', 'OMP_NUM_THREADS',
 })
 WEIGHT_BINDS = {
-    '/app/pretrain': '/data/workspace/jzheng/yoloe_service_test_prod/pretrain',
-    '/root/.cache/ultralytics': '/data/workspace/jzheng/yoloe_service_test_prod/pretrain',
-    '/opt/clean-source/base': '/data/workspace/jzheng/yoloe_service/data/ktd-qwen-vl-8b-instruct',
-    '/opt/clean-source/adapter': '/data/workspace/jzheng/ktd-clean-source-qwen-20260925-v1/selected-adapter-epoch2',
+    '/app/pretrain': '/REDACTED_RUNTIME_ROOT/yoloe_service_test_prod/pretrain',
+    '/root/.cache/ultralytics': '/REDACTED_RUNTIME_ROOT/yoloe_service_test_prod/pretrain',
+    '/opt/clean-source/base': '/REDACTED_RUNTIME_ROOT/yoloe_service/data/ktd-qwen-vl-8b-instruct',
+    '/opt/clean-source/adapter': '/REDACTED_RUNTIME_ROOT/ktd-clean-source-qwen-20260925-v1/selected-adapter-epoch2',
 }
 ALGORITHM_VOLUMES = {
     '/app/uploads': 'algorithm-uploads', '/app/results': 'algorithm-results',
@@ -631,7 +631,7 @@ def main():
     parser.add_argument('operation', choices=['prepare', 'plan', 'up', 'verify', 'stop'])
     parser.add_argument('--release-dir', type=Path, required=True)
     parser.add_argument('--revision', required=True)
-    parser.add_argument('--public-host', default='192.168.130.238')
+    parser.add_argument('--public-host', default='192.0.2.1')
     parser.add_argument('--previous-release-dir', type=Path)
     args = parser.parse_args()
     try:

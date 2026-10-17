@@ -28,7 +28,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 ROOT = Path(__file__).resolve().parents[2]
 DIST = ROOT / "frontend/dist"
 PROJECT = os.getenv("KTD_REVIEW_PROJECT_ID", "2c95908e958f3b75019593551f520126")
-TEST_ORIGIN = "https://lxtest.zhuoyilingxi.com:8088"
+TEST_ORIGIN = "https://REDACTED_TEST_HOST.invalid:8088"
 DATA = Path(os.getenv("KTD_REVIEW_DATA_DIR", str(ROOT / "data/ktd-review-workbench")))
 TLS_VERIFY = os.getenv("KTD_REVIEW_VERIFY_TLS", "true").lower() != "false"
 SUBMIT_ENABLED = os.getenv("KTD_REVIEW_ALLOW_SUBMIT", "false").lower() == "true"

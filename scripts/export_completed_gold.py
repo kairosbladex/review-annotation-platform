@@ -32,7 +32,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--database", default="data/ktd-local.sqlite3")
     parser.add_argument("--output-dir", default="data/gold-export-20260903")
-    parser.add_argument("--source-base-url", default="https://lxtest.zhuoyilingxi.com:8088/minio-src")
+    parser.add_argument("--source-base-url", default="https://REDACTED_TEST_HOST.invalid:8088/minio-src")
     parser.add_argument("--download-images", action="store_true")
     args = parser.parse_args()
 

@@ -19,14 +19,14 @@
 后端：
 
 ```bash
-cd /Users/wangxiaolin/PycharmProjects/review-annotation-platform
+cd /REDACTED_HOME/PycharmProjects/review-annotation-platform
 PYTHONPATH=backend python3 -m pytest backend/tests -q
 ```
 
 前端：
 
 ```bash
-cd /Users/wangxiaolin/PycharmProjects/review-annotation-platform/frontend
+cd /REDACTED_HOME/PycharmProjects/review-annotation-platform/frontend
 npm install
 npm run build
 ```
@@ -34,7 +34,7 @@ npm run build
 Compose：
 
 ```bash
-cd /Users/wangxiaolin/PycharmProjects/review-annotation-platform
+cd /REDACTED_HOME/PycharmProjects/review-annotation-platform
 cp .env.example .env
 docker compose config
 docker compose up --build

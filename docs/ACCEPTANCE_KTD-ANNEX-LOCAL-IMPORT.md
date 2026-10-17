@@ -53,7 +53,7 @@ Changed files:
 ## 如何验收
 
 ```bash
-cd /Users/wangxiaolin/PycharmProjects/review-annotation-platform
+cd /REDACTED_HOME/PycharmProjects/review-annotation-platform
 PYTHONPATH=backend python3 -m pytest backend/tests -q
 # 期望 21 passed
 
@@ -74,7 +74,7 @@ curl -sS -X POST http://127.0.0.1:8190/api/v1/auth/login \
 - `python3 scripts/sync_ktd_annex.py --env-file .env.ktd.local` → `copied: 1510`
 - `python3 scripts/ingest_ktd_annex.py --env-file .env.ktd.local --limit 20` → `created: 20, failed: 0`
 - `GET /api/v1/samples` → `total=20`，`asset_status=ready`，`raw_decision=uncertain`
-- 资产 URL 返回 `https://lxtest.zhuoyilingxi.com:8088/minio-src/zm-zq-test/...jpg`，HTTP 200 JPEG
+- 资产 URL 返回 `https://REDACTED_TEST_HOST.invalid:8088/minio-src/zm-zq-test/...jpg`，HTTP 200 JPEG
 - 前端 `http://127.0.0.1:5173/` HTTP 200
 - 未在浏览器里实际点 true/false（当前环境没有浏览器自动化工具）
 - 角标过大挡住小目标：已改为框外小号序号、去掉框内半透明填充、缩放上限 400%。

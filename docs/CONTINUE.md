@@ -1,8 +1,8 @@
 # Continue Here
 
-> 2026-10-17：三功能独立工作台在 `feature/independent-vision-workbench` 继续，任务与门禁见 [独立工作台验收](ACCEPTANCE_VISION-WORKBENCH.md)，部署边界见 [独立测试发布计划](independent-test-deployment-plan-20261017.md)。本条只索引本轮任务；下方历史上下文保留。
+> 2026-10-18：三个功能已独立发布至 [192.0.2.1:5276](http://192.0.2.1:5276)，代码 `c97e46a7d5b01fdf842b91f469a04bfc0f8fb371`，分支 `feature/independent-vision-workbench`，测试账号 `REDACTED_TEST_ACCOUNT`（凭据不入文档）。第二轮真实浏览器验收5/5、持久化与账号隔离已复核；见[验收工单](ACCEPTANCE_VISION-WORKBENCH.md)、[实机证据](evidence/independent-workbench-20261018/README.md)及[发布回执摘要](evidence/independent-workbench-20261018/receipt.json)。不再依赖两个共享仓库权限；人员/全类别精度仍无独立提升证据。下方历史上下文保留。
 
-> 2026-09-29：无人机预警空间定位（AFMAP 撒点偏移、AR 投影、光伏组件定位）已拆到独立仓库 `/Users/wangxiaolin/PycharmProjects/skypin`，相关文档、脚本、证据数据和 10 个分支都在那里继续；本仓库只做视觉复检、标注与训练。定位的原交接内容见 skypin 的 `docs/CONTINUE.md`。
+> 2026-09-29：无人机预警空间定位（AFMAP 撒点偏移、AR 投影、光伏组件定位）已拆到独立仓库 `/REDACTED_HOME/PycharmProjects/skypin`，相关文档、脚本、证据数据和 10 个分支都在那里继续；本仓库只做视觉复检、标注与训练。定位的原交接内容见 skypin 的 `docs/CONTINUE.md`。
 
 ## 原标注任务上下文
 
@@ -25,10 +25,10 @@
 
 ## 已有能力
 
-1. 本机 Docker MySQL `review-ktd-mysql`：`127.0.0.1:3307` / `ktd_lx` / `ktd_local` / `ktd_local`，**1510** 行 `sys_annex_file`。
-2. 图片仍用 `https://lxtest.zhuoyilingxi.com:8088/minio-src` + `file_path`，不拷原图。
+- 历史本地开发/default 凭据已从私有源码快照移除；运行时请从安全配置读取。
+2. 图片仍用 `https://REDACTED_TEST_HOST.invalid:8088/minio-src` + `file_path`，不拷原图。
 3. 本机标注 API：`http://127.0.0.1:8190`（SQLite `data/ktd-local.sqlite3`）。
-4. 本机前端：`http://127.0.0.1:5173`，账号 `admin / change-me-admin-password`。
+- 历史本地开发/default 凭据已从私有源码快照移除；运行时请从安全配置读取。
 5. SQLite 已 ingest **1510** 样本 / **7104** 候选。人工金标仍很少（约 19 条，以库为准）。
 6. 队列默认过滤 `needs_review`（pending + in_progress）。
 
@@ -70,12 +70,12 @@ curl -sS http://127.0.0.1:8190/api/v1/health
 重启本机 API（必须清空 MinIO 环境变量）：
 
 ```bash
-SOURCE_IMAGE_BASE_URL=https://lxtest.zhuoyilingxi.com:8088/minio-src \
+SOURCE_IMAGE_BASE_URL=https://REDACTED_TEST_HOST.invalid:8088/minio-src \
 SOURCE_IMAGE_BUCKET=minio-src \
 MINIO_ENDPOINT= MINIO_ACCESS_KEY= MINIO_SECRET_KEY= \
 DATABASE_URL=sqlite:///./data/ktd-local.sqlite3 \
-SERVICE_API_KEY=change-me-service-api-key \
-ADMIN_PASSWORD=change-me-admin-password \
+SERVICE_API_KEY=REDACTED \
+ADMIN_PASSWORD=REDACTED \
 PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190
 ```
 
