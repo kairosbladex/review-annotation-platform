@@ -1,5 +1,7 @@
 # 独立视觉工作台测试发布计划
 
+> 2026-10-18 更新：本计划已执行，最终独立站、运行 SHA、真实5/5验收和回滚以[验收工单](ACCEPTANCE_VISION-WORKBENCH.md)及[实机证据](evidence/independent-workbench-20261018/README.md)为准。下方保留发布前只读审计快照，`NOT DEPLOYED`、候选端口和待执行表述均为当时状态。
+
 状态：`PREPARED / NOT DEPLOYED`。本文件基于 2026-10-17 对 `ai-lingxi` 的只读审计；只新增本文档，服务器、容器、环境变量、数据库和对象均未修改。发布执行及真实页面验收由主任务继续。
 
 ## 任务卡与结论

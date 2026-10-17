@@ -1,6 +1,6 @@
 # Continue Here
 
-> 2026-10-17：三功能独立工作台在 `feature/independent-vision-workbench` 继续，任务与门禁见 [独立工作台验收](ACCEPTANCE_VISION-WORKBENCH.md)，部署边界见 [独立测试发布计划](independent-test-deployment-plan-20261017.md)。本条只索引本轮任务；下方历史上下文保留。
+> 2026-10-18：三个功能已独立发布至 [192.168.130.238:5276](http://192.168.130.238:5276)，代码 `c97e46a7d5b01fdf842b91f469a04bfc0f8fb371`，分支 `feature/independent-vision-workbench`，测试账号 `suxiaonian`（凭据不入文档）。第二轮真实浏览器验收5/5、持久化与账号隔离已复核；见[验收工单](ACCEPTANCE_VISION-WORKBENCH.md)、[实机证据](evidence/independent-workbench-20261018/README.md)及[发布回执摘要](evidence/independent-workbench-20261018/receipt.json)。不再依赖两个共享仓库权限；人员/全类别精度仍无独立提升证据。下方历史上下文保留。
 
 > 2026-09-29：无人机预警空间定位（AFMAP 撒点偏移、AR 投影、光伏组件定位）已拆到独立仓库 `/Users/wangxiaolin/PycharmProjects/skypin`，相关文档、脚本、证据数据和 10 个分支都在那里继续；本仓库只做视觉复检、标注与训练。定位的原交接内容见 skypin 的 `docs/CONTINUE.md`。
 
