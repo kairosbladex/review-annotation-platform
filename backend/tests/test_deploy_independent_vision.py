@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import copy
+import io
 import json
 import shutil
 import subprocess
@@ -91,6 +92,120 @@ def test_openai_compatible_base_url_cannot_be_treated_as_ollama():
             {'LLM_MODEL': 'test-model', 'LLM_BASE_URL': 'http://provider.internal/v1', 'LLM_USE_OLLAMA': 'false'},
             {'ADMIN_USERNAME': 'admin', 'ADMIN_PASSWORD': 'synthetic-admin'}, 'a' * 40, '192.0.2.1',
         )
+
+
+@pytest.mark.parametrize('crop_path', [
+    '/opt/review-models/resnet18-human-20260907.pt',
+    '/app/pretrain/review-crop.pt',
+    '/app/pretrain/person/resnet18.pt',
+])
+def test_private_environment_preserves_approved_crop_model_sources(crop_path):
+    values = deployment.private_environment(
+        {'LLM_MODEL': 'test-model', 'LLM_BASE_URL': 'http://model.internal:11434',
+         'LLM_USE_OLLAMA': 'true', 'REVIEW_CROP_MODEL_PATH': crop_path},
+        {'ADMIN_USERNAME': 'admin', 'ADMIN_PASSWORD': 'synthetic-admin'}, 'a' * 40, '192.0.2.1',
+    )
+    assert values['REVIEW_CROP_MODEL_PATH'] == crop_path
+
+
+@pytest.mark.parametrize('crop_path', [
+    '/opt/review-models/unapproved.pt',
+    '/opt/other/resnet18-human-20260907.pt',
+    '/app/pretrain/../unapproved.pt',
+    '/app/pretrain/person/../../unapproved.pt',
+    '/opt/review-models/../review-models/resnet18-human-20260907.pt',
+])
+def test_private_environment_rejects_unapproved_crop_paths_and_traversal(crop_path):
+    with pytest.raises(ValueError):
+        deployment.private_environment(
+            {'LLM_MODEL': 'test-model', 'LLM_BASE_URL': 'http://model.internal:11434',
+             'LLM_USE_OLLAMA': 'true', 'REVIEW_CROP_MODEL_PATH': crop_path},
+            {'ADMIN_USERNAME': 'admin', 'ADMIN_PASSWORD': 'synthetic-admin'}, 'a' * 40, '192.0.2.1',
+        )
+
+
+@pytest.fixture
+def running_release(resolved_compose, monkeypatch):
+    release, config = resolved_compose
+    containers = []
+    for name, service in config['services'].items():
+        image = service['image'] if name == 'algorithm' else 'running-' + name
+        if name == 'worker':
+            image = 'running-api'
+        mounts = []
+        for mount in service.get('volumes', []):
+            mounts.append({'Type': mount['type'], 'Destination': mount['target'],
+                           'Source': mount['source'], 'RW': not mount.get('read_only', False),
+                           'Name': 'review-vision-test_' + mount['source']})
+        containers.append({
+            'Name': '/review-vision-test-' + name + '-1', 'Id': 'runtime-' + name, 'Image': image,
+            'State': {'Running': True, 'StartedAt': 'candidate-start'},
+            'Config': {'Labels': dict(service['labels'], **{'com.docker.compose.service': name}),
+                       'Env': [key + '=' + str(value) for key, value in service.get('environment', {}).items()]},
+            'Mounts': mounts,
+            'HostConfig': {'DeviceRequests': [{'DeviceIDs': ['GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7']}]},
+        })
+    algorithm = next(item for item in containers if item['Id'] == 'runtime-algorithm')
+    algorithm['Config']['Env'] = [entry for entry in algorithm['Config']['Env']
+                                  if not entry.startswith('REVIEW_CROP_MODEL_PATH=')]
+    algorithm['Config']['Env'].append('REVIEW_CROP_MODEL_PATH=/opt/review-models/resnet18-human-20260907.pt')
+    manifest = {'revision': 'a' * 40, 'protected': [],
+                'images': {'api': 'running-api', 'frontend': 'running-frontend'},
+                'infrastructure_images': {name: 'running-' + name for name in ('postgres', 'redis', 'minio')}}
+    calls = []
+    boundary = {'crop_sha256': '933447331226ab3f05868828864e7737efc62c4c51a226cd12fc2a06a2d4e683'}
+
+    def docker_run(arguments, **kwargs):
+        calls.append(arguments)
+        if arguments == ['docker', 'ps', '-aq']:
+            output = '\n'.join(item['Id'] for item in containers)
+        elif arguments == ['docker', 'inspect', *(item['Id'] for item in containers)]:
+            output = json.dumps(containers)
+        elif arguments in (['docker', 'volume', 'ls', '--format', '{{.Name}}'],
+                           ['docker', 'network', 'ls', '--format', '{{.Name}}']):
+            output = ''
+        elif arguments[:4] == ['docker', 'exec', 'runtime-algorithm', 'python3']:
+            output = ''
+        elif arguments == ['docker', 'exec', 'runtime-algorithm', 'sha256sum',
+                           '/opt/review-models/resnet18-human-20260907.pt']:
+            output = boundary['crop_sha256'] + '  /opt/review-models/resnet18-human-20260907.pt\n'
+        else:
+            raise AssertionError('unexpected external command: ' + repr(arguments))
+        return subprocess.CompletedProcess(arguments, 0, stdout=output, stderr='')
+
+    class ReadyResponse(io.BytesIO):
+        status = 200
+
+    monkeypatch.setattr(subprocess, 'run', docker_run)
+    monkeypatch.setattr(deployment.urllib.request, 'urlopen',
+                        lambda *args, **kwargs: ReadyResponse(b'{"status":"ok"}'))
+    return release, manifest, algorithm, boundary, calls
+
+
+def test_verify_checks_approved_image_crop_digest_on_the_running_algorithm(running_release):
+    release, manifest, _, _, calls = running_release
+    result = deployment.verify(release, manifest)
+    assert result['status'] == 'engineering_verified'
+    assert result['business_acceptance'] == 'pending'
+    assert ['docker', 'exec', 'runtime-algorithm', 'sha256sum',
+            '/opt/review-models/resnet18-human-20260907.pt'] in calls
+
+
+def test_verify_rejects_a_changed_image_crop_model(running_release):
+    release, manifest, _, boundary, _ = running_release
+    boundary['crop_sha256'] = '0' * 64
+    with pytest.raises(ValueError, match='crop model'):
+        deployment.verify(release, manifest)
+
+
+@pytest.mark.parametrize('crop_path', ['/opt/review-models/unapproved.pt', '/app/pretrain/../unapproved.pt'])
+def test_verify_rejects_runtime_crop_path_drift(running_release, crop_path):
+    release, manifest, algorithm, _, _ = running_release
+    algorithm['Config']['Env'] = [entry for entry in algorithm['Config']['Env']
+                                  if not entry.startswith('REVIEW_CROP_MODEL_PATH=')]
+    algorithm['Config']['Env'].append('REVIEW_CROP_MODEL_PATH=' + crop_path)
+    with pytest.raises(ValueError, match='crop model'):
+        deployment.verify(release, manifest)
 
 
 @pytest.mark.parametrize('mutation', ['writable_weights', 'shared_outputs', 'all_gpus', 'old_port', 'extra_fixture'])

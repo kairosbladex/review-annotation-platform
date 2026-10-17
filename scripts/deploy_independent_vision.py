@@ -27,6 +27,8 @@ ALGORITHM_IMAGE = 'sha256:dac104a6a8935905cfa3bbae6ed2d5114e0ed9f3bde7f90e544236
 API_BASE_IMAGE = 'sha256:941b8e3c54001b53546aa19593b1d77c739de5ce6a04def7240cd278bccc3c00'
 FRONTEND_BASE_IMAGE = 'sha256:8fc26b906cd0c0737a497938ef9d5b97d4a4cc5067ab54b69cce02f0613dfa3e'
 WEIGHT_SHA256 = 'a9413bf3f15772c223a03bbedd71b79af5822f830e80aa1b51b1a469e65927b1'
+IMAGE_CROP_MODEL_PATH = '/opt/review-models/resnet18-human-20260907.pt'
+IMAGE_CROP_SHA256 = '933447331226ab3f05868828864e7737efc62c4c51a226cd12fc2a06a2d4e683'
 GPU_UUID = 'GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7'
 SERVICES = {'postgres', 'redis', 'minio', 'algorithm', 'api', 'worker', 'frontend'}
 PORTS = {19004, 8193, 8393, 5276}
@@ -77,6 +79,13 @@ def validate_existing_resources(resources, revision):
             raise ValueError('existing resource ownership does not match this release')
 
 
+def validate_crop_model_path(crop):
+    if crop and crop != IMAGE_CROP_MODEL_PATH and (
+        not crop.startswith('/app/pretrain/') or '..' in Path(crop).parts
+    ):
+        raise ValueError('crop model path is outside approved read-only sources')
+
+
 def private_environment(algorithm, original_api, revision, public_host):
     validate_release_id(revision)
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9.-]{0,252}', public_host):
@@ -96,9 +105,7 @@ def private_environment(algorithm, original_api, revision, public_host):
         result.get(key) for key in ('CODEX_REVIEW_WORKER_URL', 'CODEX_REVIEW_WORKER_TOKEN')
     ):
         raise ValueError('real review worker configuration is incomplete')
-    crop = result.get('REVIEW_CROP_MODEL_PATH', '')
-    if crop and not crop.startswith('/app/pretrain/'):
-        raise ValueError('crop model path is outside the read-only weight mount')
+    validate_crop_model_path(result.get('REVIEW_CROP_MODEL_PATH', ''))
     result.update({
         'VISION_REVISION': revision, 'VISION_PUBLIC_HOST': public_host,
         'VISION_ADMIN_USERNAME': original_api['ADMIN_USERNAME'],
@@ -475,6 +482,12 @@ def verify(release, manifest):
     devices = algorithm['HostConfig'].get('DeviceRequests') or []
     if len(devices) != 1 or devices[0].get('DeviceIDs') != [GPU_UUID]:
         raise ValueError('running algorithm GPU identity mismatch')
+    crop = env.get('REVIEW_CROP_MODEL_PATH', '')
+    validate_crop_model_path(crop)
+    if crop == IMAGE_CROP_MODEL_PATH:
+        checksum = _run(['docker', 'exec', algorithm['Id'], 'sha256sum', IMAGE_CROP_MODEL_PATH]).split()
+        if checksum != [IMAGE_CROP_SHA256, IMAGE_CROP_MODEL_PATH]:
+            raise ValueError('running image crop model digest mismatch')
     _run(['docker', 'exec', algorithm['Id'], 'python3', '-c',
           "import sitecustomize; assert sitecustomize.__file__ == '/opt/vision-privacy/sitecustomize.py'"])
     for _ in range(30):
