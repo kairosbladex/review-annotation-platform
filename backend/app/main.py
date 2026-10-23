@@ -25,6 +25,8 @@ from .services.model_run_service import execute_model_job
 from .services.export_service import execute_export_job
 from .services.auto_annotation_service import build_auto_annotation_options, create_auto_annotation_run, execute_auto_annotation_job
 from .services.agent_api import create_agent_review_request, list_agent_candidates, list_human_gold
+from .services.retrieval import register_retrieval_routes
+from .services.history_compare_records import register_history_record_routes
 from .tasks.dispatcher import CeleryDispatcher
 
 
@@ -131,6 +133,9 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             )
         ):
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="服务密钥无效")
+
+    register_retrieval_routes(app, current_user)
+    register_history_record_routes(app, current_user)
 
     history_compare_slots = threading.BoundedSemaphore(2)
 

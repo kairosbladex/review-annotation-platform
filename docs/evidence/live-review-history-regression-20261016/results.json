@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-16",
+  "scope": "offline live-image regression; synthetic images and model HTTP substitutes only",
+  "base_image": "sha256:a7fc3867056b89fe5aee410ad499e8243d05cb537d81c9cfd24ebbff0455698e",
+  "baseline": {
+    "tests": 31,
+    "passed": 27,
+    "failures": 3,
+    "errors": 1,
+    "skipped": 0,
+    "seconds": 8.059,
+    "http_invalid_base64_status": 500,
+    "http_invalid_downloaded_image_status": 500,
+    "http_invalid_local_image_status": 500,
+    "decoder_error": "ModuleNotFoundError: pi_heif; context PIL.UnidentifiedImageError"
+  },
+  "candidate": {
+    "tests": 33,
+    "passed": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 7.188,
+    "http_invalid_base64_status": 422,
+    "http_invalid_downloaded_image_status": 422,
+    "http_invalid_local_image_status": 422,
+    "unrelated_dependency_failure_status": 500,
+    "local_file_access_failure_status": 500,
+    "valid_local_source_with_path_read_bytes_disabled_status": 200,
+    "extra_cases_vs_baseline": [
+      "valid_local_image_is_streamed_without_path_read_bytes",
+      "local_file_access_failure_is_not_image_format_error"
+    ]
+  },
+  "local_tdd": {
+    "red_command": "PYTHONPATH=backend python3 -m pytest backend/tests/test_history_compare.py -k 'optional_heif or decoder_dependency' -q",
+    "red_passed": 2,
+    "red_failed": 1,
+    "green_command": "PYTHONPATH=backend python3 -m pytest backend/tests/test_history_compare.py backend/tests/test_history_compare_scope.py backend/tests/test_history_compare_legacy.py -q",
+    "green_passed": 30
+  },
+  "patch_contracts": {
+    "api/vl_compare.py": {
+      "function": "_load_image",
+      "old_file_sha256": "e7d904fc30007d0e5dd5a84502396d58e79f64692c2d50c057040eddda2ffabd",
+      "new_file_sha256": "b167697b3b272c419a1e89fc88fb390a0af2467424c977891b81dbc0b8bcbf95",
+      "old_function_sha256": "5a75f41329d870c8ac076f7572983a2752c84b2ec7f013532bc2ebb3eb061ad5",
+      "new_function_sha256": "028ffc15f2a752bb559ad66129d503d792a3cdbeb838239ab2237e02633bd098",
+      "bytes_outside_function_unchanged": true
+    },
+    "history_compare_runtime/services/history_compare.py": {
+      "function": "decode_image",
+      "old_file_sha256": "5884b3a4c20106875ec8fba7e3927896eb5f40e1f8fe4447888a87577ec165eb",
+      "new_file_sha256": "ab7593d2a24f3a2177d0cbff284a65e12199251a78a29895c1c6aa0e0807f680",
+      "old_function_sha256": "c0d8efdbdaa5a4d9485a8886f72d3377de0b32d16ab289f67d6930273143454e",
+      "new_function_sha256": "9b0f15e2b6ad754213063070461c82e7c65eaa7c9eab918ba511a814d7f036aa",
+      "bytes_outside_function_unchanged": true
+    }
+  },
+  "isolation": {
+    "docker_network": "none",
+    "docker_runtime": "runc",
+    "memory_bytes": 4294967296,
+    "memory_swap_bytes": 4294967296,
+    "cpus": 2,
+    "pids_limit": 256,
+    "capabilities": "ALL dropped",
+    "security_opt": "no-new-privileges",
+    "process_environment": "env -i followed by synthetic test-only settings",
+    "host_mounts": "only this task's test script, hash manifest, and two candidate source files; all read-only",
+    "shared_data_or_credentials_mounted": false,
+    "gpu": "none",
+    "real_model_requests": 0,
+    "shared_database_writes": 0,
+    "external_notifications": 0
+  },
+  "startup_failures_retained": [
+    "Initial directory bind: container user could not traverse host mktemp directory; no tests executed. Replaced with explicit read-only file bind.",
+    "Initial candidate file bind: generated files were mode 600; no tests executed. Set those exact temporary source copies to mode 644 while parent directory stayed private."
+  ],
+  "cleanup": {
+    "temporary_container_remaining": false,
+    "temporary_server_directory_remaining": false,
+    "removed_only_task_owned_copies": true,
+    "local_sources_and_reproduction_evidence_retained": true,
+    "shared_container_id_after": "b654ec3957ed0bcf416649ec309fdac5cbfe7a6fae588671dac7ccb50930ead8",
+    "shared_image_after": "sha256:a7fc3867056b89fe5aee410ad499e8243d05cb537d81c9cfd24ebbff0455698e"
+  }
+}

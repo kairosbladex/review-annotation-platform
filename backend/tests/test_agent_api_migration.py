@@ -99,7 +99,7 @@ def test_legacy_agent_review_table_is_upgraded_without_losing_requests(
     _seed_legacy_schema(engine)
     monkeypatch.setenv("DATABASE_URL", database_url)
     config = Config("alembic.ini")
-    command.upgrade(config, "head")
+    command.upgrade(config, "0004_agent_review_fingerprint")
 
     _assert_upgraded(engine)
 
@@ -125,7 +125,7 @@ def test_postgres_legacy_agent_review_table_upgrades_in_isolated_schema(
         _seed_legacy_schema(engine)
         monkeypatch.setenv("DATABASE_URL", schema_url)
         config = Config("alembic.ini")
-        command.upgrade(config, "head")
+        command.upgrade(config, "0004_agent_review_fingerprint")
         _assert_upgraded(engine)
     finally:
         engine.dispose()

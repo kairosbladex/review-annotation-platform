@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="13" skipped="0" tests="13" time="0.471" timestamp="2026-10-17T23:35:42.015437+08:00" hostname="kairosbladeMacBook-Pro.local"><testcase classname="backend.tests.test_score_frozen_recheck" name="test_fixed_denominators_failure_uncertainty_and_confusion_are_separate" time="0.032"><failure message="AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n&quot;).returncode">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_fixed_denominators_failur0')
+
+    def test_fixed_denominators_failure_uncertainty_and_confusion_are_separate(tmp_path):
+        paths, _, _, _ = frozen_files(tmp_path)
+        result = invoke(paths)
+&gt;       assert result.returncode == 0, result.stderr
+E       AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+E
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n").returncode
+
+backend/tests/test_score_frozen_recheck.py:68: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_empty_predictions_keep_all_nine_boxes_in_denominator" time="0.028"><failure message="AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n&quot;).returncode">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_empty_predictions_keep_al0')
+
+    def test_empty_predictions_keep_all_nine_boxes_in_denominator(tmp_path):
+        paths, _, _, _ = frozen_files(tmp_path)
+        paths["predictions.jsonl"].write_text("")
+        result = invoke(paths)
+&gt;       assert result.returncode == 0, result.stderr
+E       AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+E
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n").returncode
+
+backend/tests/test_score_frozen_recheck.py:101: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_invalid_response_is_failure_without_false_labels[bad_result0]" time="0.029"><failure message="AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n&quot;).returncode">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_invalid_response_is_failu0')
+bad_result = {'decision': 'true', 'target_index': True}
+
+    @pytest.mark.parametrize("bad_result", [
+        {"target_index": True, "decision": "true"},
+        {"target_index": 8, "decision": "false"},
+        {"target_index": -1, "decision": "false"},
+        {"target_index": "4", "decision": "true"},
+        {"target_index": 4, "decision": "maybe"},
+        {"target_index": 0, "decision": "true"},  # Duplicate of the real result.
+    ])
+    def test_invalid_response_is_failure_without_false_labels(tmp_path, bad_result):
+        paths, _, _, predictions = frozen_files(tmp_path)
+        predictions[0]["parsed"]["results"].append(bad_result)
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+&gt;       assert result.returncode == 0, result.stderr
+E       AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+E
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n").returncode
+
+backend/tests/test_score_frozen_recheck.py:121: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_invalid_response_is_failure_without_false_labels[bad_result1]" time="0.040"><failure message="AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n&quot;).returncode">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_invalid_response_is_failu1')
+bad_result = {'decision': 'false', 'target_index': 8}
+
+    @pytest.mark.parametrize("bad_result", [
+        {"target_index": True, "decision": "true"},
+        {"target_index": 8, "decision": "false"},
+        {"target_index": -1, "decision": "false"},
+        {"target_index": "4", "decision": "true"},
+        {"target_index": 4, "decision": "maybe"},
+        {"target_index": 0, "decision": "true"},  # Duplicate of the real result.
+    ])
+    def test_invalid_response_is_failure_without_false_labels(tmp_path, bad_result):
+        paths, _, _, predictions = frozen_files(tmp_path)
+        predictions[0]["parsed"]["results"].append(bad_result)
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+&gt;       assert result.returncode == 0, result.stderr
+E       AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+E
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n").returncode
+
+backend/tests/test_score_frozen_recheck.py:121: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_invalid_response_is_failure_without_false_labels[bad_result2]" time="0.029"><failure message="AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n&quot;).returncode">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_invalid_response_is_failu2')
+bad_result = {'decision': 'false', 'target_index': -1}
+
+    @pytest.mark.parametrize("bad_result", [
+        {"target_index": True, "decision": "true"},
+        {"target_index": 8, "decision": "false"},
+        {"target_index": -1, "decision": "false"},
+        {"target_index": "4", "decision": "true"},
+        {"target_index": 4, "decision": "maybe"},
+        {"target_index": 0, "decision": "true"},  # Duplicate of the real result.
+    ])
+    def test_invalid_response_is_failure_without_false_labels(tmp_path, bad_result):
+        paths, _, _, predictions = frozen_files(tmp_path)
+        predictions[0]["parsed"]["results"].append(bad_result)
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+&gt;       assert result.returncode == 0, result.stderr
+E       AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+E
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n").returncode
+
+backend/tests/test_score_frozen_recheck.py:121: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_invalid_response_is_failure_without_false_labels[bad_result3]" time="0.029"><failure message="AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n&quot;).returncode">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_invalid_response_is_failu3')
+bad_result = {'decision': 'true', 'target_index': '4'}
+
+    @pytest.mark.parametrize("bad_result", [
+        {"target_index": True, "decision": "true"},
+        {"target_index": 8, "decision": "false"},
+        {"target_index": -1, "decision": "false"},
+        {"target_index": "4", "decision": "true"},
+        {"target_index": 4, "decision": "maybe"},
+        {"target_index": 0, "decision": "true"},  # Duplicate of the real result.
+    ])
+    def test_invalid_response_is_failure_without_false_labels(tmp_path, bad_result):
+        paths, _, _, predictions = frozen_files(tmp_path)
+        predictions[0]["parsed"]["results"].append(bad_result)
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+&gt;       assert result.returncode == 0, result.stderr
+E       AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+E
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n").returncode
+
+backend/tests/test_score_frozen_recheck.py:121: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_invalid_response_is_failure_without_false_labels[bad_result4]" time="0.029"><failure message="AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n&quot;).returncode">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_invalid_response_is_failu4')
+bad_result = {'decision': 'maybe', 'target_index': 4}
+
+    @pytest.mark.parametrize("bad_result", [
+        {"target_index": True, "decision": "true"},
+        {"target_index": 8, "decision": "false"},
+        {"target_index": -1, "decision": "false"},
+        {"target_index": "4", "decision": "true"},
+        {"target_index": 4, "decision": "maybe"},
+        {"target_index": 0, "decision": "true"},  # Duplicate of the real result.
+    ])
+    def test_invalid_response_is_failure_without_false_labels(tmp_path, bad_result):
+        paths, _, _, predictions = frozen_files(tmp_path)
+        predictions[0]["parsed"]["results"].append(bad_result)
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+&gt;       assert result.returncode == 0, result.stderr
+E       AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+E
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n").returncode
+
+backend/tests/test_score_frozen_recheck.py:121: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_invalid_response_is_failure_without_false_labels[bad_result5]" time="0.029"><failure message="AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n&quot;).returncode">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_invalid_response_is_failu5')
+bad_result = {'decision': 'true', 'target_index': 0}
+
+    @pytest.mark.parametrize("bad_result", [
+        {"target_index": True, "decision": "true"},
+        {"target_index": 8, "decision": "false"},
+        {"target_index": -1, "decision": "false"},
+        {"target_index": "4", "decision": "true"},
+        {"target_index": 4, "decision": "maybe"},
+        {"target_index": 0, "decision": "true"},  # Duplicate of the real result.
+    ])
+    def test_invalid_response_is_failure_without_false_labels(tmp_path, bad_result):
+        paths, _, _, predictions = frozen_files(tmp_path)
+        predictions[0]["parsed"]["results"].append(bad_result)
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+&gt;       assert result.returncode == 0, result.stderr
+E       AssertionError: /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+E
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/Users/wangxiaolin/PycharmProjects/review-annotation-platform/.venv/bin/python', '/Users/wangx...erience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory\n").returncode
+
+backend/tests/test_score_frozen_recheck.py:121: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_broken_source_binding_is_rejected_without_private_details[missing_label]" time="0.029"><failure message="AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'&#10;  &#10;  - INPUT_CONTRACT_ERROR&#10;  + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_broken_source_binding_is_0')
+problem = 'missing_label'
+
+    @pytest.mark.parametrize("problem", ["missing_label", "duplicate_label", "label_geometry", "candidate_order", "duplicate_event"])
+    def test_broken_source_binding_is_rejected_without_private_details(tmp_path, problem):
+        paths, _, labels, predictions = frozen_files(tmp_path)
+        if problem == "missing_label":
+            labels.pop()
+        elif problem == "duplicate_label":
+            labels.append(labels[0])
+        elif problem == "label_geometry":
+            labels[0]["bbox"] = [0, 0, 0.1, 0.1]
+        elif problem == "candidate_order":
+            predictions[0]["candidate_ids"].reverse()
+        else:
+            predictions.append(predictions[0])
+        paths["labels.json"].write_text(json.dumps(labels))
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+        assert result.returncode == 2
+        assert result.stdout == ""
+&gt;       assert result.stderr.strip() == "INPUT_CONTRACT_ERROR"
+E       AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'
+E
+E         - INPUT_CONTRACT_ERROR
+E         + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+
+backend/tests/test_score_frozen_recheck.py:146: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_broken_source_binding_is_rejected_without_private_details[duplicate_label]" time="0.031"><failure message="AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'&#10;  &#10;  - INPUT_CONTRACT_ERROR&#10;  + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_broken_source_binding_is_1')
+problem = 'duplicate_label'
+
+    @pytest.mark.parametrize("problem", ["missing_label", "duplicate_label", "label_geometry", "candidate_order", "duplicate_event"])
+    def test_broken_source_binding_is_rejected_without_private_details(tmp_path, problem):
+        paths, _, labels, predictions = frozen_files(tmp_path)
+        if problem == "missing_label":
+            labels.pop()
+        elif problem == "duplicate_label":
+            labels.append(labels[0])
+        elif problem == "label_geometry":
+            labels[0]["bbox"] = [0, 0, 0.1, 0.1]
+        elif problem == "candidate_order":
+            predictions[0]["candidate_ids"].reverse()
+        else:
+            predictions.append(predictions[0])
+        paths["labels.json"].write_text(json.dumps(labels))
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+        assert result.returncode == 2
+        assert result.stdout == ""
+&gt;       assert result.stderr.strip() == "INPUT_CONTRACT_ERROR"
+E       AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'
+E
+E         - INPUT_CONTRACT_ERROR
+E         + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+
+backend/tests/test_score_frozen_recheck.py:146: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_broken_source_binding_is_rejected_without_private_details[label_geometry]" time="0.029"><failure message="AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'&#10;  &#10;  - INPUT_CONTRACT_ERROR&#10;  + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_broken_source_binding_is_2')
+problem = 'label_geometry'
+
+    @pytest.mark.parametrize("problem", ["missing_label", "duplicate_label", "label_geometry", "candidate_order", "duplicate_event"])
+    def test_broken_source_binding_is_rejected_without_private_details(tmp_path, problem):
+        paths, _, labels, predictions = frozen_files(tmp_path)
+        if problem == "missing_label":
+            labels.pop()
+        elif problem == "duplicate_label":
+            labels.append(labels[0])
+        elif problem == "label_geometry":
+            labels[0]["bbox"] = [0, 0, 0.1, 0.1]
+        elif problem == "candidate_order":
+            predictions[0]["candidate_ids"].reverse()
+        else:
+            predictions.append(predictions[0])
+        paths["labels.json"].write_text(json.dumps(labels))
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+        assert result.returncode == 2
+        assert result.stdout == ""
+&gt;       assert result.stderr.strip() == "INPUT_CONTRACT_ERROR"
+E       AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'
+E
+E         - INPUT_CONTRACT_ERROR
+E         + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+
+backend/tests/test_score_frozen_recheck.py:146: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_broken_source_binding_is_rejected_without_private_details[candidate_order]" time="0.029"><failure message="AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'&#10;  &#10;  - INPUT_CONTRACT_ERROR&#10;  + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_broken_source_binding_is_3')
+problem = 'candidate_order'
+
+    @pytest.mark.parametrize("problem", ["missing_label", "duplicate_label", "label_geometry", "candidate_order", "duplicate_event"])
+    def test_broken_source_binding_is_rejected_without_private_details(tmp_path, problem):
+        paths, _, labels, predictions = frozen_files(tmp_path)
+        if problem == "missing_label":
+            labels.pop()
+        elif problem == "duplicate_label":
+            labels.append(labels[0])
+        elif problem == "label_geometry":
+            labels[0]["bbox"] = [0, 0, 0.1, 0.1]
+        elif problem == "candidate_order":
+            predictions[0]["candidate_ids"].reverse()
+        else:
+            predictions.append(predictions[0])
+        paths["labels.json"].write_text(json.dumps(labels))
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+        assert result.returncode == 2
+        assert result.stdout == ""
+&gt;       assert result.stderr.strip() == "INPUT_CONTRACT_ERROR"
+E       AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'
+E
+E         - INPUT_CONTRACT_ERROR
+E         + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+
+backend/tests/test_score_frozen_recheck.py:146: AssertionError</failure></testcase><testcase classname="backend.tests.test_score_frozen_recheck" name="test_broken_source_binding_is_rejected_without_private_details[duplicate_event]" time="0.029"><failure message="AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'&#10;  &#10;  - INPUT_CONTRACT_ERROR&#10;  + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory">tmp_path = PosixPath('/private/tmp/pytest-of-wangxiaolin/pytest-0/test_broken_source_binding_is_4')
+problem = 'duplicate_event'
+
+    @pytest.mark.parametrize("problem", ["missing_label", "duplicate_label", "label_geometry", "candidate_order", "duplicate_event"])
+    def test_broken_source_binding_is_rejected_without_private_details(tmp_path, problem):
+        paths, _, labels, predictions = frozen_files(tmp_path)
+        if problem == "missing_label":
+            labels.pop()
+        elif problem == "duplicate_label":
+            labels.append(labels[0])
+        elif problem == "label_geometry":
+            labels[0]["bbox"] = [0, 0, 0.1, 0.1]
+        elif problem == "candidate_order":
+            predictions[0]["candidate_ids"].reverse()
+        else:
+            predictions.append(predictions[0])
+        paths["labels.json"].write_text(json.dumps(labels))
+        paths["predictions.jsonl"].write_text("\n".join(json.dumps(r) for r in predictions))
+        result = invoke(paths)
+        assert result.returncode == 2
+        assert result.stdout == ""
+&gt;       assert result.stderr.strip() == "INPUT_CONTRACT_ERROR"
+E       AssertionError: assert '/Library/Fra... or directory' == 'INPUT_CONTRACT_ERROR'
+E
+E         - INPUT_CONTRACT_ERROR
+E         + /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/wangxiaolin/.codex/worktrees/review-experience-evaluation/review-annotation-platform/scripts/score_frozen_recheck.py': [Errno 2] No such file or directory
+
+backend/tests/test_score_frozen_recheck.py:146: AssertionError</failure></testcase></testsuite></testsuites>

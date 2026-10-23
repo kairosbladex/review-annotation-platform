@@ -2,7 +2,7 @@ import io
 
 import numpy as np
 import pytest
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 
 from app.services.history_compare import compare_geometry, decode_image
 
@@ -67,6 +67,36 @@ def test_unrelated_images_are_not_reported_unchanged():
 def test_invalid_image_rejected():
     with pytest.raises(ValueError):
         decode_image(b'not an image')
+
+
+def test_optional_heif_fallback_for_unreadable_image_is_input_error(monkeypatch):
+    def optional_decoder(*args, **kwargs):
+        try:
+            raise UnidentifiedImageError('synthetic unreadable image')
+        except UnidentifiedImageError:
+            raise ModuleNotFoundError('optional decoder unavailable', name='pi_heif')
+
+    monkeypatch.setattr(Image, 'open', optional_decoder)
+    with pytest.raises(ValueError, match='无法读取图片'):
+        decode_image(b'not an image')
+
+
+@pytest.mark.parametrize('module_name,unidentified_context', [
+    ('pi_heif', False), ('unrelated_runtime_dependency', True),
+])
+def test_decoder_dependency_failures_are_not_misclassified_as_input(monkeypatch, module_name, unidentified_context):
+    def broken_decoder(*args, **kwargs):
+        if unidentified_context:
+            try:
+                raise UnidentifiedImageError('synthetic unreadable image')
+            except UnidentifiedImageError:
+                raise ModuleNotFoundError('dependency unavailable', name=module_name)
+        raise ModuleNotFoundError('dependency unavailable', name=module_name)
+
+    monkeypatch.setattr(Image, 'open', broken_decoder)
+    with pytest.raises(ModuleNotFoundError) as error:
+        decode_image(b'synthetic input')
+    assert error.value.name == module_name
 
 
 def test_decoder_loads_rgb():
