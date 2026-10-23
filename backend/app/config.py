@@ -63,8 +63,15 @@ class Settings:
     jev_omni_mode: str = "http"
     jev_omni_base_url: str = "http://127.0.0.1:18010"
     jev_omni_model_id: str = "akhilaaa3/Jev-Omni"
-    jev_omni_confirm_threshold: float = 0.88
-    jev_omni_reject_threshold: float = 0.12
+    # Thresholds calibrated on the round-5 real-machine run (142 human-gold candidates,
+    # English `state`): (0.60, 0.01) is the lowest grid point that keeps end-to-end F1 at
+    # the pure-VLM level (0.9579 vs 0.9583) while cutting VLM calls by 44%, lowering FAR
+    # from 8.70% to 6.52% and mean per-box latency from 4857 ms to ~2100 ms (-57%).
+    # Raising confirm to 0.88 costs 2 more false negatives (F1 0.9519); lowering reject to
+    # 0.005 trades 2 extra false positives for 1 recall point (F1 0.9534).
+    # See docs/HANDOVER_4T4_2L20_FIVE_CLASS_VERIFY_20261023.md section 12.
+    jev_omni_confirm_threshold: float = 0.60
+    jev_omni_reject_threshold: float = 0.01
     jev_omni_timeout_seconds: float = 30.0
     jev_omni_verify_tls: bool = True
     vllm_l20_base_url: str = ""

@@ -104,7 +104,7 @@ def test_evaluate_gold_four_way_runs_cascade_with_real_probabilities(tmp_path):
     ]
     prob_rows = [
         {"candidate_id": "evt1:000", "p_true": 0.95, "p_false": 0.05, "latency_ms": 200.0},
-        {"candidate_id": "evt1:001", "p_true": 0.02, "p_false": 0.98, "latency_ms": 210.0},
+        {"candidate_id": "evt1:001", "p_true": 0.005, "p_false": 0.995, "latency_ms": 210.0},
     ]
 
     report = evaluate_gold_four_way(
@@ -127,7 +127,7 @@ def test_evaluate_gold_four_way_runs_cascade_with_real_probabilities(tmp_path):
     # 组 A 只按 0.25 门槛：两个候选都被接受 → 1 个 FP
     assert report["groups"]["A_detector_only"]["tp"] == 1
     assert report["groups"]["A_detector_only"]["fp"] == 1
-    # 组 D：Tier1 收下第一个，Tier2.5 用真机 p_true=0.02 拒识第二个
+    # 组 D：Tier1 收下第一个，Tier2.5 用真机 p_true=0.005（≤ 拒识阈值 0.01）拒识第二个
     assert report["cascade_tier_counts"]["tier1_auto_confirm"] == 1
     assert report["cascade_tier_counts"]["tier2_5_jev_omni_reject"] == 1
     assert report["groups"]["D_cascade_fused"]["tp"] == 1

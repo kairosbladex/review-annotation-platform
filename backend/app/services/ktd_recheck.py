@@ -284,8 +284,14 @@ def partition_candidates_by_cascade_tier(
 # P(true) for the double-view (global context + clean ROI) composite image, which
 # lets the cascade reject obvious false boxes that the detector scored >= 0.25
 # (the reason Tier 2 never fires on real traffic).
-JEV_OMNI_CONFIRM_THRESHOLD = 0.88
-JEV_OMNI_REJECT_THRESHOLD = 0.12
+# Calibrated on the round-5 real-machine run (142 human-gold candidates, English `state`):
+# (0.60, 0.01) keeps end-to-end F1 at the pure-VLM level (0.9579 vs 0.9583) while cutting
+# VLM calls by 44%, lowering FAR from 8.70% to 6.52% and per-box latency by 57%.
+# Do not restore 0.88/0.12: with the old Chinese `state` it rejected 21 true positives
+# (FRR 21.88%, end-to-end F1 0.8721); with the English `state` it still costs 2 more FN.
+# See docs/HANDOVER_4T4_2L20_FIVE_CLASS_VERIFY_20261023.md sections 11-12.
+JEV_OMNI_CONFIRM_THRESHOLD = 0.60
+JEV_OMNI_REJECT_THRESHOLD = 0.01
 # Scene-dependent classes can never be settled by a probability alone: the same
 # rooftop evidence is needed to confirm *and* to reject, so they always reach the
 # L20 verifier (Jev-Omni's P(true) is still forwarded as a prior).
