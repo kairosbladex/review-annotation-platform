@@ -579,6 +579,17 @@ def _process_item(
             "local_decision": label,
             "confidence_floor": AUTO_ANNOTATION_CONFIDENCE_FLOOR,
         }
+        # Preserve the raw Tier 3 adapter evidence alongside the policy-normalized
+        # evidence.  The latter intentionally keeps only review-policy fields and
+        # therefore used to discard modelVersion/modelProbability/reasonCode from
+        # the real Qwen3-VL response, making database acceptance audits unable to
+        # prove which model actually ran.
+        model_evidence = decision.get("evidence")
+        if isinstance(model_evidence, dict) and model_evidence:
+            audit_payload["model_evidence"] = model_evidence
+            qwen_evidence = model_evidence.get("qwen3_vl")
+            if isinstance(qwen_evidence, dict):
+                audit_payload["qwen3_vl"] = qwen_evidence
         if cascade_routing:
             audit_payload["cascade_routing"] = cascade_routing
         if arbiter_result is not None:
