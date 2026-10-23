@@ -1459,3 +1459,106 @@ Coverage 从 `90.14%` 提升到 `100%`。方案 4 的平均单框耗时比 Qwen3
   输出为 `244 passed, 1 skipped, 2 warnings`。
 - 本轮未操作 `5275/8392`、`5276/8393`、`8188/8189` 共享服务；GPU 4 上的
   `jev-omni-t25-verify` 只接收了 142 条真金标 HTTP 请求，未重启。
+
+## 15. review-vision-test 合并与真机发布验收（2026-10-24）
+
+### 15.1 代码与发布身份
+
+- 合并 `c97e46a7d5b01fdf842b91f469a04bfc0f8fb371`（独立视觉复检/智能检索）
+  到 `docs/luna-business-test-release`，合并提交
+  `33cd8ace01139bebe14d07b9ab67aecc75303e48`。
+- 合并后的 QLoRA 冲突同时保留数据集契约、L20/T4 自适应、全线性层 LoRA 与
+  `MultiSamplePadCollator`；解决后全量测试为
+  `374 passed, 1 skipped`，最终发布代码为
+  `29eb66a6e5195cf13afff734f7ba32ef681c73c0`，全量测试为
+  `376 passed, 1 skipped`。
+- 最终 release 目录：
+  `/data/workspace/user/review-vision-test/releases/29eb66a6e5195cf13afff734f7ba32ef681c73c0`。
+  旧目录
+  `/data/workspace/user/review-vision-test/releases/c97e46a7d5b01fdf842b91f469a04bfc0f8fb371`
+  及其旧容器镜像未删除、未覆盖。
+- 官方 `deploy_independent_vision.py prepare` 依赖旧 release 的受保护容器
+  快照；旧快照已因后续容器变化失效，因此本轮使用等价的定向容器切换：
+  `api/worker/frontend` 重建，`postgres/minio/redis/algorithm/luna-worker`
+  的既有容器与数据卷保持。未执行数据库重置或 MinIO 清空。
+
+### 15.2 运行状态与连通性
+
+| 资源 | 状态 |
+|---|---|
+| `review-vision-test-api-1` | `29eb66a6`，8393，`/api/v1/health` 200 |
+| `review-vision-test-worker-1` | `29eb66a6`，Celery 正常 |
+| `review-vision-test-frontend-1` | `29eb66a6`，5276，HTTP 200 |
+| `review-vision-test-postgres-1` / `redis` / `minio` | 原容器与数据卷继续运行 |
+| `review-vision-test-algorithm-1` | 原镜像 `dac104a6`，`/api/v1/health` 200、`model_loaded=true`；容器 healthcheck 因探针路径仍显示 unhealthy，不能据此判定服务不可用 |
+| `jev-omni-t25-verify` | 18010 健康，`model_id=akhilaaa3/Jev-Omni`、`loaded=true` |
+| 临时 `review-verify-90e9d054` / `review-tier3-mock-verify` | 已停止并删除；18392/18393 已释放 |
+
+API/Worker 环境变量已核验为 `AUTO_ANNOTATION_MODE=adaptive`、
+`AUTO_ANNOTATION_CASCADE_ROUTING=true`、Tier1 `0.85`、Tier2 `0.12`、
+Jev confirm/reject `0.60/0.01`，Jev 地址为容器网络内的
+`http://jev-omni-t25-verify:8010`。宿主机 `127.0.0.1:18010` 保持原回环映射，
+未暴露新端口。
+
+### 15.3 五类业务复检结果
+
+真实 API 任务 `1a69631300734a90a93fab46d0c6f198`：
+`succeeded`，`9/9` 完成、`0` 失败。审计证据显示：
+
+| 路径 | 真实结果 |
+|---|---|
+| Tier 1 | 人员、车辆各 1 条，`tier1_high_confidence_auto_confirm`，均未调用 Jev |
+| Tier 2 | 车辆低分 1 条，`tier2_low_confidence_auto_reject` |
+| Tier 2.5 confirm | 车辆 `p_true=0.9052`，`tier2_5_jev_omni_calibrated_confirm` |
+| Tier 2.5 reject 样本 | 真实 `p_true=0.0876`，落在 `(0.01, 0.60)` 灰区，转 Tier 3；未达到 `<=0.01`，不能把该样本算作 Tier 2.5 reject 通过 |
+| Tier 3 | 三轮车、蓝色违建、道路裂纹、两个几何冲突候选共 5 条进入 `tier3_vlm_verify` |
+| 仲裁 | `arbiter_uncertain_resolved_false/true`、`arbiter_kept_uncertain`、`arbiter_kept_vlm_decision` 均出现在审计中 |
+
+真实模型标签与旧脚本预期不完全一致：三轮车被判 `false`，蓝色违建/道路裂纹
+保留 `uncertain`，几何冲突车/三轮车被判 `true`。因此旧脚本的
+`9/9` 预期标签检查为 false，但“任务执行 9/9 成功、路由字段 10/10 完整、
+Jev 与仲裁真实调用”是已验证事实；不能把旧预期标签当作模型精度结论。
+
+### 15.4 Qwen3-VL 边界
+
+已新增并部署 `QwenVLTierAdapter`，API 与 Worker 在
+`MODEL_ADAPTER_TYPE=legacy_review_agent` 时统一调用 algorithm
+`/api/v1/review-agent/review`，并传入原图作为清洁源触发 clean-source 门禁。
+请求实测返回 `clean_source.requested=true`、`enabled=true`，但本轮样本返回
+`clean_match_quality_missing`，未产生 `modelVersion`/Qwen3-VL 概率。
+
+因此本轮可确认的是：Tier 3 已真实调用 algorithm 复核链路，Jev 灰区先验与
+`arbitrate_jev_omni_and_vlm` 仲裁已真实生效；**Qwen3-VL clean-source 实际推理
+仍未取得可验收证据，标记 `not_evaluable`**，不能宣称双模型 Qwen3-VL 仲裁
+已完成真机闭环。需要带匹配质量的清洁源帧重新跑 Tier 3 后再下结论。
+
+### 15.5 智能检索实测
+
+通过 8393 真实 API 上传素材并创建任务
+`0bc476684e6749b1a63aae9beebaf34e`，最终为 `completed`，
+`processed_count=1/1`、`total_hits=0`、`sync_error=null`，无接口报错。
+algorithm 日志同时记录 `POST /api/v1/detect/batch/text-search` 200，
+文本后端为 `yolo`，说明请求确实到达检索服务；零命中是检索结果，不是传输或
+服务失败。
+
+### 15.6 GPU 与回滚
+
+发布后 GPU 4（`GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7`）显存为
+`24849 MiB used / 20746 MiB free`。`jev-omni-t25-verify` 仍为
+`restart=no`，因为该容器启用了 `AutoRemove`，Docker 拒绝更新 restart 策略；
+当前已健康常驻，但宿主机重启后不会自动恢复，需按原启动方式重新拉起。
+
+10 秒回滚到 `c97e46a7`（先停新容器，再启动已保留的旧容器）：
+
+```bash
+ssh ai-lingxi '
+docker stop review-vision-test-api-1 review-vision-test-worker-1 review-vision-test-frontend-1
+docker network connect --alias api review-vision-test_default review-vision-test-api-backup-c97e46a7 2>/dev/null || true
+docker network connect --alias worker review-vision-test_default review-vision-test-worker-backup-c97e46a7 2>/dev/null || true
+docker network connect --alias frontend review-vision-test_default review-vision-test-frontend-backup-c97e46a7 2>/dev/null || true
+docker start review-vision-test-api-backup-c97e46a7 review-vision-test-worker-backup-c97e46a7 review-vision-test-frontend-backup-c97e46a7
+'
+```
+
+旧容器名带 `backup-c97e46a7` 后缀，但其原端口绑定与网络别名保持不变；
+启动后 5276/8393 即由旧版接管。旧 release 目录和旧镜像均保留完整。
