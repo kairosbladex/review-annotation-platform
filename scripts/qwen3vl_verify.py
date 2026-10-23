@@ -89,16 +89,127 @@ def _metric_block(rows: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _compute_f1(tp: int, fp: int, fn: int) -> float:
+    denom = 2 * tp + fp + fn
+    return (2.0 * tp) / denom if denom > 0 else 0.0
+
+
+def _build_class_table_row(class_name: str, metrics: Mapping[str, Any]) -> dict[str, Any]:
+    conf = metrics.get("confusion", {})
+    tp = int(conf.get("tp", 0))
+    fp = int(conf.get("fp", 0))
+    tn = int(conf.get("tn", 0))
+    fn = int(conf.get("fn", 0))
+    return {
+        "class_name": class_name,
+        "n": int(metrics.get("n", 0)),
+        "tp": tp,
+        "fp": fp,
+        "tn": tn,
+        "fn": fn,
+        "f1": _compute_f1(tp, fp, fn),
+        "far": metrics.get("far"),
+        "frr": metrics.get("frr"),
+        "coverage": metrics.get("coverage", 0.0),
+        "manual_review_rate": metrics.get("manual_review_rate", 0.0),
+    }
+
+
+def format_by_class_markdown_table(summary: Mapping[str, Any]) -> str:
+    """Format a Markdown per-class breakdown table including F1, TP, FP, FN, FAR, and FRR."""
+    rows = summary.get("by_class_table") or []
+    header = "| Class | N | TP | FP | TN | FN | F1 | FAR | FRR | Coverage | Manual Review |"
+    sep = "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|"
+    lines = [header, sep]
+    for r in rows:
+        far_str = f"{r['far']:.4f}" if isinstance(r.get("far"), (int, float)) else "N/A"
+        frr_str = f"{r['frr']:.4f}" if isinstance(r.get("frr"), (int, float)) else "N/A"
+        lines.append(
+            f"| {r['class_name']} | {r['n']} | {r['tp']} | {r['fp']} | {r['tn']} | {r['fn']} "
+            f"| {r['f1']:.4f} | {far_str} | {frr_str} | {r['coverage']:.4f} | {r['manual_review_rate']:.4f} |"
+        )
+    return "\n".join(lines)
+
+
+def apply_confidence_threshold(
+    predictions: Iterable[Mapping[str, Any]], threshold: float
+) -> list[dict[str, Any]]:
+    """Apply a positive decision confidence threshold: positive predictions with score < threshold become false."""
+    adjusted: list[dict[str, Any]] = []
+    for row in predictions:
+        item = dict(row)
+        score = item.get("score", item.get("confidence"))
+        if isinstance(score, (int, float)):
+            if float(score) >= threshold:
+                item["prediction"] = "true"
+            else:
+                item["prediction"] = "false"
+            item["correct"] = item["prediction"] == item.get("gold")
+        adjusted.append(item)
+    return adjusted
+
+
+def find_optimal_threshold_for_far(
+    predictions: Iterable[Mapping[str, Any]], max_far: float = 0.05
+) -> dict[str, Any]:
+    """Search candidate confidence thresholds in [0.05, 0.99] to maximize F1 subject to FAR <= max_far."""
+    rows = list(predictions)
+    best: dict[str, Any] | None = None
+    candidates = [round(0.05 * i, 2) for i in range(1, 20)] + [0.98, 0.99]
+    for th in candidates:
+        evaluated = apply_confidence_threshold(rows, th)
+        block = _metric_block(evaluated)
+        conf = block["confusion"]
+        f1 = _compute_f1(conf["tp"], conf["fp"], conf["fn"])
+        far = block["far"]
+        meets_far = far is None or far <= max_far
+        entry = {
+            "threshold": th,
+            "f1": f1,
+            "far": far,
+            "frr": block["frr"],
+            "accuracy": block["accuracy"],
+            "meets_far_constraint": meets_far,
+        }
+        if meets_far:
+            if best is None or entry["f1"] > best["f1"]:
+                best = entry
+    if best is None:
+        evaluated = apply_confidence_threshold(rows, 0.99)
+        block = _metric_block(evaluated)
+        conf = block["confusion"]
+        best = {
+            "threshold": 0.99,
+            "f1": _compute_f1(conf["tp"], conf["fp"], conf["fn"]),
+            "far": block["far"],
+            "frr": block["frr"],
+            "accuracy": block["accuracy"],
+            "meets_far_constraint": False,
+        }
+    return {
+        "max_far": max_far,
+        "recommended_threshold": best["threshold"],
+        "best_metrics": best,
+    }
+
+
 def summarize_predictions(predictions: list[dict[str, Any]]) -> dict[str, Any]:
     by_class_rows: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in predictions:
         by_class_rows[str(row.get("class_name") or "__missing__")].append(row)
+    overall = _metric_block(predictions)
+    by_class = {
+        class_name: _metric_block(rows)
+        for class_name, rows in sorted(by_class_rows.items())
+    }
+    by_class_table = [
+        _build_class_table_row(class_name, metrics)
+        for class_name, metrics in by_class.items()
+    ]
     return {
-        "overall": _metric_block(predictions),
-        "by_class": {
-            class_name: _metric_block(rows)
-            for class_name, rows in sorted(by_class_rows.items())
-        },
+        "overall": overall,
+        "by_class": by_class,
+        "by_class_table": by_class_table,
         "parse_failures": sum(bool(row.get("parse_error")) for row in predictions),
     }
 
@@ -191,9 +302,10 @@ def _load_model(
     import torch
     from transformers import AutoProcessor, BitsAndBytesConfig, Qwen3VLForConditionalGeneration
 
-    from qwen3vl_qlora_smoke import _configure_processor
+    from qwen3vl_qlora_smoke import _configure_processor, _detect_gpu_capabilities
 
-    dtype = torch.bfloat16
+    gpu_caps = _detect_gpu_capabilities(0)
+    dtype = gpu_caps["compute_dtype"]
     quantization = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_quant_type="nf4",
@@ -211,7 +323,7 @@ def _load_model(
         quantization_config=quantization,
         torch_dtype=dtype,
         device_map={"": 0},
-        attn_implementation="sdpa",
+        attn_implementation=gpu_caps["attn_implementation"],
     )
     if adapter:
         from peft import PeftModel
@@ -232,6 +344,18 @@ def main() -> int:
     parser.add_argument("--data", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--max-new-tokens", type=int, default=64)
+    parser.add_argument(
+        "--threshold",
+        type=float,
+        default=None,
+        help="Optional positive decision confidence threshold in [0, 1].",
+    )
+    parser.add_argument(
+        "--target-far",
+        type=float,
+        default=0.05,
+        help="Target maximum FAR for threshold search (default: 0.05).",
+    )
     args = parser.parse_args()
 
     import torch
@@ -300,12 +424,16 @@ def main() -> int:
                 "correct": predicted == gold,
                 "parse_error": parse_error,
                 "raw_response": text,
+                "score": row.get("meta", {}).get("detector_score"),
             }
         )
         if index % 25 == 0:
             print(f"evaluated {index}/{len(rows)}", flush=True)
 
+    if args.threshold is not None:
+        predictions = apply_confidence_threshold(predictions, args.threshold)
     metrics = summarize_predictions(predictions)
+    threshold_search = find_optimal_threshold_for_far(predictions, max_far=args.target_far)
     summary = {
         "schema_version": 2,
         "model": args.model,
@@ -317,11 +445,13 @@ def main() -> int:
         "generation": {
             "do_sample": False,
             "max_new_tokens": args.max_new_tokens,
+            "threshold": args.threshold,
         },
         "strict_json_policy": {
             "required_shape": '{"decision":"CONFIRMED|REJECTED"}',
             "invalid_output": "uncertain",
         },
+        "threshold_search": threshold_search,
         **metrics,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -171,3 +171,37 @@ def test_merge_agent_results_supports_positional_votes_in_role_order():
 
     assert result is not None
     assert result["label"] == "true"
+
+
+def test_category_specific_guidelines_cover_all_five_target_classes():
+    from app.services.auto_annotation_prompts import (
+        CATEGORY_SPECIFIC_GUIDELINES,
+        get_category_guidelines,
+        parse_fast_response,
+        render_fast_prompt,
+    )
+
+    assert set(CATEGORY_SPECIFIC_GUIDELINES) == {
+        "person",
+        "vehicle",
+        "tricycle",
+        "blue_illegal_roof",
+        "road_crack",
+    }
+    assert "交通锥桶" in get_category_guidelines("人员")
+    assert "三轮结构" in get_category_guidelines("三轮车")
+    assert "scene=rooftop" in get_category_guidelines("蓝色违建顶棚")
+    assert "沥青修补接缝" in get_category_guidelines("道路裂缝")
+
+    fast_prompt = render_fast_prompt(
+        [{"target_index": 0, "class_name": "道路裂缝", "bbox": [0.1, 0.1, 0.2, 0.2]}]
+    )
+    assert "<CATEGORY_SPECIFIC_GUIDELINES>" in fast_prompt
+    assert "沥青修补接缝" in fast_prompt
+
+    parsed = parse_fast_response(
+        '{"decisions":[{"target_index":0,"decision":"REJECTED","confidence":0.91,"reason":"沥青接缝"}]}'
+    )
+    assert parsed["decisions"][0]["label"] == "false"
+    assert parsed["decisions"][0]["confidence"] == 0.91
+    assert len(parsed["decisions"][0]["votes"]) == 3

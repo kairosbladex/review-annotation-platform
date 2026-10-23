@@ -19,7 +19,29 @@ from typing import Any
 from urllib.parse import quote
 
 import httpx
+import numpy as np
 from PIL import Image
+
+try:
+    from scripts.prepare_ktd_clean_source_qwen_dataset import (
+        CATEGORY_ADAPTIVE_SPECS,
+        NEUTRAL_GRAY_RGB,
+        VALID_BBOX_STYLES,
+        VALID_VIEW_MODES,
+        draw_bbox_overlay,
+        get_category_crop_spec,
+        get_processor_pixel_budget,
+    )
+except ImportError:
+    from prepare_ktd_clean_source_qwen_dataset import (  # type: ignore[no-redef]
+        CATEGORY_ADAPTIVE_SPECS,
+        NEUTRAL_GRAY_RGB,
+        VALID_BBOX_STYLES,
+        VALID_VIEW_MODES,
+        draw_bbox_overlay,
+        get_category_crop_spec,
+        get_processor_pixel_budget,
+    )
 
 
 VALID_LABELS = {"true", "false", "uncertain"}
@@ -87,11 +109,20 @@ def _split_non_eval(shas: set[str], *, val_ratio: float, seed: int) -> set[str]:
 
 
 def _square_context(
-    image_size: tuple[int, int], target: tuple[int, int, int, int], scale: float
+    image_size: tuple[int, int],
+    target: tuple[int, int, int, int],
+    scale: float,
+    *,
+    class_name: str | None = None,
+    is_context: bool = False,
 ) -> tuple[int, int, int, int]:
     width, height = image_size
     x1, y1, x2, y2 = target
-    side = max(2, round(max(x2 - x1, y2 - y1) * scale))
+    cat_spec = get_category_crop_spec(class_name) if class_name is not None else None
+    effective_scale = float(scale)
+    if is_context and cat_spec and cat_spec.get("clamp_context_to_image"):
+        effective_scale = max(effective_scale, float(cat_spec.get("min_context_scale", 3.0)))
+    side = max(2, round(max(x2 - x1, y2 - y1) * effective_scale))
     side = min(max(side, 32), max(width, height))
     cx = (x1 + x2) / 2
     cy = (y1 + y2) / 2
@@ -106,16 +137,39 @@ def _render_crop(
     image: Image.Image,
     crop_box: tuple[int, int, int, int],
     size: int,
+    *,
+    target: tuple[int, int, int, int] | None = None,
+    bbox_style: str = "none",
+    class_name: str | None = None,
+    is_clean_roi: bool = False,
 ) -> Image.Image:
     left, top, right, bottom = crop_box
     crop = image.crop((left, top, right, bottom))
     scale = min(size / crop.width, size / crop.height)
+    cat_spec = get_category_crop_spec(class_name) if class_name is not None else None
+    resample = (
+        Image.Resampling.BICUBIC
+        if is_clean_roi and cat_spec and cat_spec.get("clean_roi_upscale") == "cv2.INTER_CUBIC" and scale > 1.0
+        else Image.Resampling.LANCZOS
+    )
     resized = crop.resize(
         (max(1, round(crop.width * scale)), max(1, round(crop.height * scale))),
-        Image.Resampling.LANCZOS,
+        resample,
     )
-    canvas = Image.new("RGB", (size, size), (230, 230, 230))
-    canvas.paste(resized, ((size - resized.width) // 2, (size - resized.height) // 2))
+    canvas = Image.new("RGB", (size, size), NEUTRAL_GRAY_RGB)
+    offset_x = (size - resized.width) // 2
+    offset_y = (size - resized.height) // 2
+    canvas.paste(resized, (offset_x, offset_y))
+    if target is not None and bbox_style != "none":
+        tx1, ty1, tx2, ty2 = target
+        shifted_bbox = (
+            offset_x + (tx1 - left) * scale,
+            offset_y + (ty1 - top) * scale,
+            offset_x + (tx2 - left) * scale,
+            offset_y + (ty2 - top) * scale,
+        )
+        drawn = draw_bbox_overlay(canvas, shifted_bbox, style=bbox_style)
+        return Image.fromarray(drawn)
     return canvas
 
 
@@ -216,9 +270,15 @@ def build_dataset(
     image_size: int = 224,
     val_ratio: float = 0.2,
     seed: int = 42,
+    bbox_style: str = "corner_ticks",
+    view_mode: str = "2view",
 ) -> dict[str, Any]:
     if image_size < 32:
         raise ValueError("image_size must be at least 32")
+    if bbox_style not in VALID_BBOX_STYLES:
+        raise ValueError(f"unsupported bbox_style: {bbox_style!r}")
+    if view_mode not in VALID_VIEW_MODES:
+        raise ValueError(f"unsupported view_mode: {view_mode!r}")
     inference = _read_jsonl(snapshot_dir / "inference_records.jsonl")
     gold = _read_jsonl(snapshot_dir / "gold_records.jsonl")
     selection_inputs = _read_jsonl(snapshot_dir / "selection_inputs.jsonl")
@@ -317,10 +377,30 @@ def build_dataset(
         if not (0 <= x1 < x2 <= width and 0 <= y1 < y2 <= height):
             raise ValueError(f"bbox_px outside image for {canonical_id}")
         target = (x1, y1, x2, y2)
+        class_name_str = str(row.get("class_name") or "")
+        cat_spec = get_category_crop_spec(class_name_str)
+        context_scale = float(cat_spec["context_scale"])
+        roi_scale = float(cat_spec["roi_scale"])
         context_path = media_dir / f"{canonical_id}-context.jpg"
         roi_path = media_dir / f"{canonical_id}-roi.jpg"
-        _render_crop(image, _square_context(image.size, target, 8.0), image_size).save(context_path, quality=95)
-        _render_crop(image, _square_context(image.size, target, 3.5), image_size).save(roi_path, quality=95)
+        _render_crop(
+            image,
+            _square_context(image.size, target, context_scale, class_name=class_name_str, is_context=True),
+            image_size,
+            target=target,
+            bbox_style=bbox_style,
+            class_name=class_name_str,
+            is_clean_roi=False,
+        ).save(context_path, quality=95)
+        _render_crop(
+            image,
+            _square_context(image.size, target, roi_scale, class_name=class_name_str, is_context=False),
+            image_size,
+            target=target,
+            bbox_style="none",
+            class_name=class_name_str,
+            is_clean_roi=True,
+        ).save(roi_path, quality=95)
         context_rel = str(context_path.relative_to(output_dir))
         roi_rel = str(roi_path.relative_to(output_dir))
         teacher_label = _latest_teacher_label(row)
@@ -396,7 +476,16 @@ def build_dataset(
         "locked_test_images": len(locked_sha),
         "source_images": len(images),
         "crop_size": image_size,
-        "crop_views": {"context_scale": 8.0, "roi_scale": 3.5, "overlay": False},
+        "view_mode": view_mode,
+        "bbox_style": bbox_style,
+        "processor": get_processor_pixel_budget(view_mode),
+        "crop_views": {
+            "context_scale": 8.0,
+            "roi_scale": 3.5,
+            "overlay": bbox_style != "none",
+            "bbox_style": bbox_style,
+            "category_adaptive": True,
+        },
         "split_policy": "selection/locked SHA from pg1; non-eval SHA grouped deterministic train/val",
         "seed": seed,
         "val_ratio": val_ratio,
@@ -424,6 +513,8 @@ def main() -> int:
     parser.add_argument("--image-size", type=int, default=224)
     parser.add_argument("--val-ratio", type=float, default=0.2)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--bbox-style", choices=VALID_BBOX_STYLES, default="corner_ticks")
+    parser.add_argument("--view-mode", choices=VALID_VIEW_MODES, default="2view")
     args = parser.parse_args()
     summary = build_dataset(
         snapshot_dir=args.snapshot_dir,
@@ -436,6 +527,8 @@ def main() -> int:
         image_size=args.image_size,
         val_ratio=args.val_ratio,
         seed=args.seed,
+        bbox_style=args.bbox_style,
+        view_mode=args.view_mode,
     )
     print(json.dumps(summary, ensure_ascii=False))
     return 0

@@ -11,7 +11,13 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from ..models import Annotation, AnnotationTask, Asset, AuditEvent, AutoAnnotationItem, AutoAnnotationRun, Candidate, Job, Sample, new_id, utc_now
-from .auto_annotation_prompts import ROLE_ORDER, merge_agent_results
+from .auto_annotation_prompts import ROLE_ORDER, merge_agent_results, parse_fast_response
+from .ktd_recheck import (
+    TIER1_AUTO_CONFIRM_THRESHOLD,
+    TIER2_AUTO_REJECT_THRESHOLD,
+    apply_pre_llm_geometric_gate,
+    evaluate_cascade_tier,
+)
 from .review_policy import apply_review_policy, normalize_scene
 
 
@@ -124,6 +130,9 @@ def _normalise_decisions(result: Any, candidates: list[Candidate]) -> dict[int, 
         if target_index in parsed:
             raise ValueError(f"duplicate decision for target {target_index}")
         votes = decision.get("votes")
+        if votes is None and "decision" in decision:
+            fast_item = parse_fast_response({"decisions": [{**decision, "target_index": target_index}]})["decisions"][0]
+            votes = fast_item["votes"]
         if isinstance(votes, dict):
             # Preferred contract from auto_annotation_prompts.py: role names
             # are keys, making it impossible to silently reorder a vote.
@@ -247,12 +256,62 @@ def _audit(session: Session, *, action: str, sample_id: str, candidate_id: str |
     ))
 
 
-def _invoke_adapter(adapter: Any, image: dict[str, Any], candidates: list[dict[str, Any]], options: dict[str, Any]) -> Any:
+def _call_adapter_once(adapter: Any, image: dict[str, Any], candidates: list[dict[str, Any]], options: dict[str, Any]) -> Any:
     if hasattr(adapter, "review"):
         return adapter.review(image, candidates, options)
     adapter_options = dict(options)
     adapter_options["candidates"] = candidates
     return adapter.infer(image, adapter_options)
+
+
+def _invoke_adapter(adapter: Any, image: dict[str, Any], candidates: list[dict[str, Any]], options: dict[str, Any]) -> Any:
+    mode = str(options.get("mode") or "").strip().lower()
+    if mode == "adaptive" and not hasattr(adapter, "_post_responses_payload") and not hasattr(adapter, "_call_chat_completions"):
+        fast_opts = {**options, "mode": "fast"}
+        fast_res = _call_adapter_once(adapter, image, candidates, fast_opts)
+        if isinstance(fast_res, dict):
+            decisions = fast_res.get("decisions") or []
+            needs_fallback = False
+            for d in decisions:
+                if not isinstance(d, dict):
+                    continue
+                if "decision" in d and "votes" not in d:
+                    norm_d = parse_fast_response({"decisions": [d]})["decisions"][0]
+                    if norm_d["label"] == "uncertain" or norm_d["confidence"] < 0.75:
+                        needs_fallback = True
+                        break
+                elif "votes" in d:
+                    votes = d["votes"]
+                    vote_list = list(votes.values()) if isinstance(votes, dict) else list(votes)
+                    lbl = decision_from_votes(vote_list)
+                    conf = _model_confidence(vote_list) or 0.0
+                    if lbl == "uncertain" or conf < 0.75:
+                        needs_fallback = True
+                        break
+            if not needs_fallback:
+                return fast_res
+        deep_opts = {**options, "mode": "deep"}
+        return _call_adapter_once(adapter, image, candidates, deep_opts)
+    return _call_adapter_once(adapter, image, candidates, options)
+
+
+def _synthetic_cascade_decision(target_index: int, routing: dict[str, Any]) -> dict[str, Any]:
+    auto_label = str(routing["auto_label"])
+    conf = float(routing.get("confidence") or (0.95 if auto_label == "true" else 0.95))
+    reason = str(routing.get("reason_code") or "cascade_auto")
+    votes = [
+        {"role": role, "label": auto_label, "confidence": conf, "reason": reason}
+        for role in ROLE_ORDER
+    ]
+    return {
+        "target_index": target_index,
+        "votes": votes,
+        "votes_by_role": None,
+        "consensus": auto_label,
+        "scene": normalize_scene(None),
+        "evidence": {},
+        "cascade_routing": routing,
+    }
 
 
 def _process_item(session: Session, item: AutoAnnotationItem, *, adapter: Any, options: dict[str, Any]) -> None:
@@ -268,9 +327,32 @@ def _process_item(session: Session, item: AutoAnnotationItem, *, adapter: Any, o
         _audit(session, action="auto_annotation.no_candidates", sample_id=sample.id, candidate_id=None, payload={"status": "no_candidates"})
         return
     image = {"bucket": asset.bucket, "object_key": asset.object_key, "sha256": asset.sha256}
-    candidate_payloads = [_candidate_payload(candidate) for candidate in candidates]
-    result = _invoke_adapter(adapter, image, candidate_payloads, options)
-    decisions = _normalise_decisions(result, candidates)
+    candidate_payloads = apply_pre_llm_geometric_gate(
+        [_candidate_payload(candidate) for candidate in candidates]
+    )
+    decisions: dict[int, dict[str, Any]] = {}
+    if options.get("cascade_routing"):
+        tier1_th = float(options.get("tier1_threshold", TIER1_AUTO_CONFIRM_THRESHOLD))
+        tier2_th = float(options.get("tier2_threshold", TIER2_AUTO_REJECT_THRESHOLD))
+        tier3_payloads: list[dict[str, Any]] = []
+        tier3_candidates: list[Candidate] = []
+        cand_by_idx = {c.target_index: c for c in candidates}
+        for payload in candidate_payloads:
+            routing = evaluate_cascade_tier(
+                payload, tier1_threshold=tier1_th, tier2_threshold=tier2_th
+            )
+            t_idx = int(payload["target_index"])
+            if routing["requires_vlm"]:
+                tier3_payloads.append(payload)
+                tier3_candidates.append(cand_by_idx[t_idx])
+            else:
+                decisions[t_idx] = _synthetic_cascade_decision(t_idx, routing)
+        if tier3_payloads:
+            result = _invoke_adapter(adapter, image, tier3_payloads, options)
+            decisions.update(_normalise_decisions(result, tier3_candidates))
+    else:
+        result = _invoke_adapter(adapter, image, candidate_payloads, options)
+        decisions = _normalise_decisions(result, candidates)
     for candidate in candidates:
         decision = decisions[candidate.target_index]
         votes = decision["votes"]

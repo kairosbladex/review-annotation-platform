@@ -41,40 +41,132 @@ def _format(template: str, state: RunState, **extra: object) -> str:
     return template.format(run_id=state["run_id"], **scalars, **extra)
 
 
+def parse_nvidia_smi_csv(output: str) -> list[dict[str, object]]:
+    """Parse 4-column or 5-column nvidia-smi CSV output into structured GPU dicts."""
+    gpus: list[dict[str, object]] = []
+    for raw_line in output.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        parts = [part.strip() for part in line.split(",")]
+        if len(parts) == 5:
+            index, name, free, used, total = parts
+            free_mib = int(free)
+            used_mib = int(used)
+            total_mib = int(total)
+        elif len(parts) == 4:
+            index, name, used, total = parts
+            used_mib = int(used)
+            total_mib = int(total)
+            free_mib = total_mib - used_mib
+        else:
+            raise ValueError(f"unexpected nvidia-smi CSV line: {line!r}")
+        gpus.append(
+            {
+                "index": int(index),
+                "name": name,
+                "memory_free_mib": free_mib,
+                "memory_used_mib": used_mib,
+                "memory_total_mib": total_mib,
+            }
+        )
+    return gpus
+
+
+def select_gpu_device(
+    gpus: list[dict[str, object]],
+    *,
+    gpu_index: object = None,
+    min_free_gpu_mib: int = 1024,
+    preferred_gpu_arch: str | None = None,
+    hostname: str = "remote",
+) -> dict[str, object]:
+    """Select and validate a target GPU, supporting automatic idle L20 selection."""
+    arch_filter = (preferred_gpu_arch or "").strip().lower()
+    if gpu_index is not None and str(gpu_index).strip().lower() not in {"", "auto"}:
+        target_idx = int(gpu_index)  # type: ignore[arg-type]
+        gpu = next((g for g in gpus if int(g["index"]) == target_idx), None)
+        if gpu is None:
+            raise RuntimeError(f"gpu {target_idx} not found on {hostname}")
+        if arch_filter and arch_filter not in str(gpu["name"]).lower():
+            raise RuntimeError(
+                f"gpu {target_idx} on {hostname} is {gpu['name']!r}, expected arch {preferred_gpu_arch!r}"
+            )
+        free = int(gpu.get("memory_free_mib", int(gpu["memory_total_mib"]) - int(gpu["memory_used_mib"])))
+        if free < min_free_gpu_mib:
+            raise RuntimeError(
+                f"gpu {target_idx} on {hostname} has {free} MiB free, need >= {min_free_gpu_mib} MiB"
+            )
+        return gpu
+
+    eligible = [
+        g
+        for g in gpus
+        if int(g.get("memory_free_mib", int(g["memory_total_mib"]) - int(g["memory_used_mib"])))
+        >= min_free_gpu_mib
+    ]
+    if arch_filter:
+        arch_matches = [g for g in eligible if arch_filter in str(g["name"]).lower()]
+        if not arch_matches:
+            raise RuntimeError(
+                f"no GPU matching arch {preferred_gpu_arch!r} with >= {min_free_gpu_mib} MiB free on {hostname}"
+            )
+        eligible = arch_matches
+    else:
+        # Prefer L20 (>40GB) automatically when available among eligible GPUs
+        l20_matches = [
+            g
+            for g in eligible
+            if "l20" in str(g["name"]).lower() or int(g["memory_total_mib"]) >= 40000
+        ]
+        if l20_matches:
+            eligible = l20_matches
+
+    if not eligible:
+        raise RuntimeError(
+            f"no GPU on {hostname} has >= {min_free_gpu_mib} MiB free"
+        )
+    eligible.sort(
+        key=lambda g: (
+            int(g.get("memory_free_mib", int(g["memory_total_mib"]) - int(g["memory_used_mib"]))),
+            -int(g["index"]),
+        ),
+        reverse=True,
+    )
+    return eligible[0]
+
+
 @register("remote_preflight")
 def remote_preflight(state: RunState) -> RunState:
     params = state["params"]
     exe = RemoteExecutor.from_env()
     try:
         hostname = exe.run_ok("hostname").strip()
-        gpus = []
-        for line in exe.run_ok(
-            "nvidia-smi --query-gpu=index,name,memory.used,memory.total "
+        smi_out = exe.run_ok(
+            "nvidia-smi --query-gpu=index,name,memory.free,memory.used,memory.total "
             "--format=csv,noheader,nounits"
-        ).splitlines():
-            index, name, used, total = (part.strip() for part in line.split(","))
-            gpus.append(
-                {
-                    "index": int(index),
-                    "name": name,
-                    "memory_used_mib": int(used),
-                    "memory_total_mib": int(total),
-                }
-            )
+        )
+        gpus = parse_nvidia_smi_csv(smi_out)
         device = params.get("gpu_index")
         min_free = int(params.get("min_free_gpu_mib", 1024))
-        if device is not None:
-            gpu = next((g for g in gpus if g["index"] == int(device)), None)
-            if gpu is None:
-                raise RuntimeError(f"gpu {device} not found on {hostname}")
-            free = gpu["memory_total_mib"] - gpu["memory_used_mib"]
-            if free < min_free:
-                raise RuntimeError(
-                    f"gpu {device} on {hostname} has {free} MiB free, need >= {min_free} MiB"
-                )
+        preferred_arch = params.get("preferred_gpu_arch")
+        selected_gpu = None
+        if device is not None or preferred_arch is not None:
+            selected_gpu = select_gpu_device(
+                gpus,
+                gpu_index=device,
+                min_free_gpu_mib=min_free,
+                preferred_gpu_arch=str(preferred_arch) if preferred_arch else None,
+                hostname=hostname,
+            )
+            params["gpu_index"] = int(selected_gpu["index"])
         remote_root = _format(str(params["remote_root"]), state)
         exe.run_ok(f"mkdir -p {shlex.quote(remote_root)}")
-        state["metrics"]["remote"] = {"hostname": hostname, "gpus": gpus}
+        state["metrics"]["remote"] = {
+            "hostname": hostname,
+            "gpus": gpus,
+            "selected_gpu": selected_gpu,
+        }
     finally:
         exe.close()
     return state

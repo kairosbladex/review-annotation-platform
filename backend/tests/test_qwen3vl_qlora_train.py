@@ -171,3 +171,72 @@ def test_capped_sampling_rejects_non_positive_cap():
 
     with pytest.raises(ValueError):
         _capped_sampling_manifest([_row("车", "true")], seed=42, cap=0)
+
+
+def test_negative_oversample_ratio_boosts_false_strata_and_preserves_total_weight():
+    rows = (
+        [_row("车", "true") for _ in range(40)]
+        + [_row("车", "false") for _ in range(10)]
+        + [_row("人员", "true") for _ in range(20)]
+        + [_row("人员", "false") for _ in range(10)]
+    )
+    weights, manifest = _balanced_sampling_manifest(
+        rows, seed=42, negative_oversample_ratio=1.3
+    )
+    assert manifest["negative_oversample_ratio"] == 1.3
+    assert sum(weights) == pytest.approx(len(rows))
+    masses = {}
+    for row, weight in zip(rows, weights):
+        key = row["meta"]["class_name"] + "|" + row["meta"]["human_label"]
+        masses[key] = masses.get(key, 0.0) + weight
+    assert masses["车|false"] / masses["车|true"] == pytest.approx(1.3)
+    assert masses["人员|false"] / masses["人员|true"] == pytest.approx(1.3)
+
+
+def test_lora_target_modules_and_multi_sample_pad_collator():
+    import numpy as np
+    from qwen3vl_qlora_smoke import (
+        DEFAULT_LORA_TARGET_MODULES,
+        MultiSamplePadCollator,
+        _detect_gpu_capabilities,
+        resolve_lora_target_modules,
+    )
+
+    assert DEFAULT_LORA_TARGET_MODULES == [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj",
+    ]
+    with_vision = resolve_lora_target_modules(include_vision_proj=True)
+    assert "merger.mlp.0" in with_vision
+    assert "merger.mlp.2" in with_vision
+
+    caps = _detect_gpu_capabilities(0)
+    assert "attn_implementation" in caps
+    assert "recommended_batch_size" in caps
+
+    collator = MultiSamplePadCollator(pad_token_id=0)
+    f1 = {
+        "input_ids": np.array([[1, 2, 3]]),
+        "attention_mask": np.array([[1, 1, 1]]),
+        "labels": np.array([[-100, 2, 3]]),
+        "pixel_values": np.zeros((4, 16)),
+        "image_grid_thw": np.array([[1, 2, 2]]),
+    }
+    f2 = {
+        "input_ids": np.array([[4, 5, 6, 7, 8]]),
+        "attention_mask": np.array([[1, 1, 1, 1, 1]]),
+        "labels": np.array([[-100, -100, 6, 7, 8]]),
+        "pixel_values": np.ones((6, 16)),
+        "image_grid_thw": np.array([[1, 2, 3]]),
+    }
+    batch = collator([f1, f2])
+    assert batch["input_ids"].shape == (2, 5)
+    assert batch["labels"].shape == (2, 5)
+    assert batch["labels"][0, 3:].tolist() == [-100, -100]
+    assert batch["pixel_values"].shape == (10, 16)
+    assert batch["image_grid_thw"].shape == (2, 3)

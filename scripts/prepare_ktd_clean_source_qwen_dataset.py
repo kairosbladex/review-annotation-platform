@@ -17,27 +17,110 @@ from PIL import Image
 
 
 VIEW_SCHEMA = "annotated_locator_plus_clean_original_v1"
-VIEW_ROLES = (
+VIEW_ROLES_4VIEW = (
     "annotated_context",
     "annotated_roi",
     "clean_context",
     "clean_roi",
 )
+VIEW_ROLES_2VIEW = (
+    "annotated_context",
+    "clean_roi",
+)
+VIEW_ROLES = VIEW_ROLES_4VIEW
+VALID_VIEW_MODES = ("2view", "4view")
+VALID_BBOX_STYLES = ("corner_ticks", "solid_box", "none")
+NEUTRAL_GRAY_RGB = (230, 230, 230)
 ELIGIBLE_MATCH_STATUSES = {"strong", "usable"}
 PARTITION_OUTPUTS = {"train": "train.jsonl", "validation": "validation.jsonl"}
 PROCESSOR_MIN_PIXELS = 28 * 28 * 64
 PROCESSOR_MAX_PIXELS = 28 * 28 * 256
+PROCESSOR_MIN_PIXELS_2VIEW = 28 * 28 * 32
+PROCESSOR_MAX_PIXELS_2VIEW = 28 * 28 * 128
 NORMALIZED_BBOX_MARGIN = 0.05
+
+CATEGORY_ADAPTIVE_SPECS: dict[str, dict[str, Any]] = {
+    "person": {
+        "aliases": ("person", "pedestrian", "human", "人员", "行人", "人"),
+        "bbox_margin": 0.20,
+        "roi_scale": 5.0,
+        "context_scale": 14.0,
+        "min_context_scale": 5.0,
+        "clamp_context_to_image": False,
+        "clean_roi_upscale": "cv2.INTER_LANCZOS4",
+    },
+    "road_crack": {
+        "aliases": ("road_crack", "crack", "pavement_crack", "道路裂缝", "裂缝", "路面裂缝"),
+        "bbox_margin": 0.15,
+        "roi_scale": 3.5,
+        "context_scale": 10.0,
+        "min_context_scale": 3.5,
+        "clamp_context_to_image": False,
+        "clean_roi_upscale": "cv2.INTER_CUBIC",
+    },
+    "blue_illegal_roof": {
+        "aliases": (
+            "blue_illegal_roof",
+            "illegal_roof",
+            "blue_roof",
+            "蓝色违建顶棚",
+            "违建",
+            "蓝色顶棚",
+            "蓝顶违建",
+        ),
+        "bbox_margin": 0.15,
+        "roi_scale": 4.0,
+        "context_scale": 12.0,
+        "min_context_scale": 3.0,
+        "clamp_context_to_image": True,
+        "clean_roi_upscale": "cv2.INTER_LANCZOS4",
+    },
+    "tricycle": {
+        "aliases": ("tricycle", "three_wheeler", "三轮车"),
+        "bbox_margin": 0.12,
+        "roi_scale": 4.0,
+        "context_scale": 12.0,
+        "min_context_scale": 4.0,
+        "clamp_context_to_image": False,
+        "clean_roi_upscale": "cv2.INTER_LANCZOS4",
+    },
+    "vehicle": {
+        "aliases": ("vehicle", "car", "truck", "van", "bus", "车辆", "机动车", "车", "汽车"),
+        "bbox_margin": 0.12,
+        "roi_scale": 4.0,
+        "context_scale": 12.0,
+        "min_context_scale": 4.0,
+        "clamp_context_to_image": False,
+        "clean_roi_upscale": "cv2.INTER_LANCZOS4",
+    },
+}
+
+DEFAULT_CATEGORY_SPEC: dict[str, Any] = {
+    "canonical_category": "default",
+    "bbox_margin": NORMALIZED_BBOX_MARGIN,
+    "roi_scale": 4.0,
+    "context_scale": 12.0,
+    "min_context_scale": 3.0,
+    "clamp_context_to_image": False,
+    "clean_roi_upscale": "cv2.INTER_LANCZOS4",
+}
+
 CROP_SPEC = {
     "annotated_context": {"factor": 12.0, "min_side": 320, "output_size": 768},
     "annotated_roi": {"factor": 4.0, "min_side": 96, "output_size": 512},
     "clean_context": {"factor": 12.0, "min_side": 320, "output_size": 768},
     "clean_roi": {"factor": 4.0, "min_side": 96, "output_size": 512},
-    "padding": "cv2.BORDER_REFLECT_101",
+    "padding": "viewport_shift_then_cv2.BORDER_CONSTANT_rgb_230_230_230",
+    "padding_color_rgb": list(NEUTRAL_GRAY_RGB),
+    "bbox_style_default": "corner_ticks",
     "downscale": "cv2.INTER_AREA",
     "upscale": "cv2.INTER_LANCZOS4",
+    "category_adaptive_specs": {
+        key: {k: v for k, v in spec.items() if k != "aliases"}
+        for key, spec in CATEGORY_ADAPTIVE_SPECS.items()
+    },
 }
-PROMPT_TEMPLATE = (
+PROMPT_TEMPLATE_4VIEW = (
     "<image>\n图1：带初审定位信息的上下文图。\n"
     "<image>\n图2：带初审定位信息的候选区域图。\n"
     "<image>\n图3：同一现场的清晰无标注原图上下文。\n"
@@ -46,6 +129,53 @@ PROMPT_TEMPLATE = (
     "只能输出一个 JSON 对象，不得输出解释或 Markdown："
     '{"decision":"CONFIRMED"} 或 {"decision":"REJECTED"}。'
 )
+PROMPT_TEMPLATE_2VIEW = (
+    "<image>\n图1：带初审定位角标的全局上下文图。\n"
+    "<image>\n图2：从清晰无标注原图裁剪得到的纯净候选区域细节图。\n"
+    "初审类别：{class_name}。结合两张图判断定位角标所指候选是否确为该类别。"
+    "只能输出一个 JSON 对象，不得输出解释或 Markdown："
+    '{"decision":"CONFIRMED"} 或 {"decision":"REJECTED"}。'
+)
+PROMPT_TEMPLATE = PROMPT_TEMPLATE_4VIEW
+
+
+def get_category_crop_spec(class_name: str | None) -> dict[str, Any]:
+    """Resolve category-adaptive crop margin and scale configuration."""
+    normalized = str(class_name or "").strip().lower()
+    if not normalized:
+        return dict(DEFAULT_CATEGORY_SPEC)
+    for canonical, spec in CATEGORY_ADAPTIVE_SPECS.items():
+        aliases = tuple(str(alias).lower() for alias in spec["aliases"])
+        if normalized in aliases:
+            return {
+                "canonical_category": canonical,
+                **{k: v for k, v in spec.items() if k != "aliases"},
+            }
+    for canonical, spec in CATEGORY_ADAPTIVE_SPECS.items():
+        aliases = tuple(str(alias).lower() for alias in spec["aliases"])
+        if any(alias in normalized for alias in aliases if len(alias) >= 2):
+            return {
+                "canonical_category": canonical,
+                **{k: v for k, v in spec.items() if k != "aliases"},
+            }
+    return dict(DEFAULT_CATEGORY_SPEC)
+
+
+def get_processor_pixel_budget(view_mode: str = "4view") -> dict[str, int]:
+    """Return processor min/max pixel budget adjusted for 2view or 4view mode."""
+    if view_mode == "2view":
+        return {
+            "min_pixels": PROCESSOR_MIN_PIXELS_2VIEW,
+            "max_pixels": PROCESSOR_MAX_PIXELS_2VIEW,
+            "max_sequence_length": 2048,
+        }
+    if view_mode == "4view":
+        return {
+            "min_pixels": PROCESSOR_MIN_PIXELS,
+            "max_pixels": PROCESSOR_MAX_PIXELS,
+            "max_sequence_length": 2048,
+        }
+    raise ValueError(f"unsupported view_mode: {view_mode!r}")
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -124,6 +254,7 @@ def _normalized_bbox(
     image_size: tuple[int, int],
     candidate_id: str,
     field: str,
+    class_name: str | None = None,
 ) -> tuple[float, float, float, float]:
     if isinstance(value, (str, bytes)) or not isinstance(value, Sequence) or len(value) != 4:
         raise ValueError(f"candidate {candidate_id} has invalid {field}")
@@ -138,11 +269,12 @@ def _normalized_bbox(
     nx1, ny1, nx2, ny2 = normalized
     if not (nx1 < nx2 and ny1 < ny2):
         raise ValueError(f"candidate {candidate_id} has invalid {field}")
+    margin = float(get_category_crop_spec(class_name)["bbox_margin"])
     if not (
-        -NORMALIZED_BBOX_MARGIN <= nx1
-        and -NORMALIZED_BBOX_MARGIN <= ny1
-        and nx2 <= 1.0 + NORMALIZED_BBOX_MARGIN
-        and ny2 <= 1.0 + NORMALIZED_BBOX_MARGIN
+        -margin <= nx1
+        and -margin <= ny1
+        and nx2 <= 1.0 + margin
+        and ny2 <= 1.0 + margin
         and nx2 > 0.0
         and ny2 > 0.0
         and nx1 < 1.0
@@ -152,14 +284,76 @@ def _normalized_bbox(
     return normalized
 
 
-def _crop_square(
+def draw_bbox_overlay(
+    image: np.ndarray | Image.Image,
+    bbox_px: tuple[float, float, float, float],
+    *,
+    style: str = "corner_ticks",
+    color: tuple[int, int, int] = (255, 0, 0),
+    thickness: int = 2,
+    expand_px: int = 2,
+) -> np.ndarray:
+    """Draw non-occluding L-shaped corner ticks or a solid box around bbox_px."""
+    if style not in VALID_BBOX_STYLES:
+        raise ValueError(f"unsupported bbox style: {style!r}")
+    canvas = np.asarray(image.convert("RGB") if isinstance(image, Image.Image) else image).copy()
+    if style == "none":
+        return canvas
+    height, width = canvas.shape[:2]
+    x1, y1, x2, y2 = bbox_px
+    if style == "solid_box":
+        bx1 = int(np.clip(round(x1), 0, max(0, width - 1)))
+        by1 = int(np.clip(round(y1), 0, max(0, height - 1)))
+        bx2 = int(np.clip(round(x2), 0, max(0, width - 1)))
+        by2 = int(np.clip(round(y2), 0, max(0, height - 1)))
+        cv2.rectangle(canvas, (bx1, by1), (bx2, by2), color, thickness=thickness)
+        return canvas
+
+    # corner_ticks: expand 2px outward and draw 4 L-shaped corners (20% of side, clamped to [6, 24] px)
+    bx1 = int(np.clip(round(x1) - expand_px, 0, max(0, width - 1)))
+    by1 = int(np.clip(round(y1) - expand_px, 0, max(0, height - 1)))
+    bx2 = int(np.clip(round(x2) + expand_px, 0, max(0, width - 1)))
+    by2 = int(np.clip(round(y2) + expand_px, 0, max(0, height - 1)))
+    bw = max(1, bx2 - bx1)
+    bh = max(1, by2 - by1)
+    tick_w = int(np.clip(round(bw * 0.20), 6, 24))
+    tick_h = int(np.clip(round(bh * 0.20), 6, 24))
+    # Prevent ticks from crossing opposite corners on very tiny boxes while keeping open mid-edges
+    if bw > 2 * tick_w + 2:
+        eff_w = tick_w
+    else:
+        eff_w = max(2, (bw - 2) // 2) if bw >= 6 else max(1, bw // 3)
+    if bh > 2 * tick_h + 2:
+        eff_h = tick_h
+    else:
+        eff_h = max(2, (bh - 2) // 2) if bh >= 6 else max(1, bh // 3)
+
+    # Top-left L
+    cv2.line(canvas, (bx1, by1), (min(width - 1, bx1 + eff_w), by1), color, thickness=thickness)
+    cv2.line(canvas, (bx1, by1), (bx1, min(height - 1, by1 + eff_h)), color, thickness=thickness)
+    # Top-right L
+    cv2.line(canvas, (bx2, by1), (max(0, bx2 - eff_w), by1), color, thickness=thickness)
+    cv2.line(canvas, (bx2, by1), (bx2, min(height - 1, by1 + eff_h)), color, thickness=thickness)
+    # Bottom-left L
+    cv2.line(canvas, (bx1, by2), (min(width - 1, bx1 + eff_w), by2), color, thickness=thickness)
+    cv2.line(canvas, (bx1, by2), (bx1, max(0, by2 - eff_h)), color, thickness=thickness)
+    # Bottom-right L
+    cv2.line(canvas, (bx2, by2), (max(0, bx2 - eff_w), by2), color, thickness=thickness)
+    cv2.line(canvas, (bx2, by2), (bx2, max(0, by2 - eff_h)), color, thickness=thickness)
+    return canvas
+
+
+def _crop_square_with_metadata(
     image: Image.Image,
     bbox: tuple[float, float, float, float],
     *,
     factor: float,
     min_side: int,
     output_size: int,
-) -> Image.Image:
+    class_name: str | None = None,
+    role: str = "clean_roi",
+    bbox_style: str = "none",
+) -> tuple[Image.Image, dict[str, Any]]:
     array = np.asarray(image.convert("RGB"))
     width, height = image.size
     x1, y1, x2, y2 = (
@@ -172,10 +366,54 @@ def _crop_square(
     box_h = max(1.0, y2 - y1)
     center_x = (x1 + x2) / 2.0
     center_y = (y1 + y2) / 2.0
-    side = max(float(min_side), max(box_w, box_h) * factor)
+
+    cat_spec = get_category_crop_spec(class_name)
+    effective_factor = float(factor)
+    is_context = "context" in role
+    if is_context and cat_spec.get("clamp_context_to_image"):
+        min_ctx = float(cat_spec.get("min_context_scale", 3.0))
+        effective_factor = max(effective_factor, min_ctx)
+        min_required_side = max(box_w, box_h) * min_ctx
+        max_image_side = float(max(width, height))
+        desired_side = max(float(min_side), max(box_w, box_h) * effective_factor)
+        side = min(max(desired_side, min_required_side), max_image_side)
+    else:
+        side = max(float(min_side), max(box_w, box_h) * effective_factor)
+
     side_int = max(8, int(round(side)))
     left = int(round(center_x - side_int / 2.0))
     top = int(round(center_y - side_int / 2.0))
+
+    # 1. Prioritize shifting viewport within original image bounds while keeping target inside viewport
+    if side_int <= width:
+        if left < 0:
+            left = 0
+        elif left + side_int > width:
+            left = width - side_int
+    else:
+        # Center image inside oversized viewport
+        left = int(round((width - side_int) / 2.0))
+
+    if side_int <= height:
+        if top < 0:
+            top = 0
+        elif top + side_int > height:
+            top = height - side_int
+    else:
+        top = int(round((height - side_int) / 2.0))
+
+    # Ensure shifted viewport still contains target bbox if target is inside image
+    if 0 <= x1 and x2 <= width and side_int >= box_w:
+        if left > int(math.floor(x1)) if "math" in globals() else left > int(np.floor(x1)):
+            left = max(0, int(np.floor(x1)))
+        if left + side_int < int(np.ceil(x2)):
+            left = min(max(0, width - side_int), int(np.ceil(x2)) - side_int)
+    if 0 <= y1 and y2 <= height and side_int >= box_h:
+        if top > int(np.floor(y1)):
+            top = max(0, int(np.floor(y1)))
+        if top + side_int < int(np.ceil(y2)):
+            top = min(max(0, height - side_int), int(np.ceil(y2)) - side_int)
+
     right = left + side_int
     bottom = top + side_int
     pad_top = max(0, -top)
@@ -195,11 +433,59 @@ def _crop_square(
             pad_bottom,
             pad_left,
             pad_right,
-            cv2.BORDER_REFLECT_101,
+            cv2.BORDER_CONSTANT,
+            value=NEUTRAL_GRAY_RGB,
         )
-    interpolation = cv2.INTER_LANCZOS4 if max(crop.shape[:2]) < output_size else cv2.INTER_AREA
+
+    upscale_method = (
+        cv2.INTER_CUBIC
+        if role == "clean_roi" and cat_spec.get("clean_roi_upscale") == "cv2.INTER_CUBIC"
+        else cv2.INTER_LANCZOS4
+    )
+    interpolation = upscale_method if max(crop.shape[:2]) < output_size else cv2.INTER_AREA
     resized = cv2.resize(crop, (output_size, output_size), interpolation=interpolation)
-    return Image.fromarray(resized)
+
+    scale = output_size / float(side_int)
+    shifted_bbox = (
+        float(np.clip((x1 - left) * scale, 0.0, float(output_size))),
+        float(np.clip((y1 - top) * scale, 0.0, float(output_size))),
+        float(np.clip((x2 - left) * scale, 0.0, float(output_size))),
+        float(np.clip((y2 - top) * scale, 0.0, float(output_size))),
+    )
+    if bbox_style != "none" and role.startswith("annotated_"):
+        resized = draw_bbox_overlay(resized, shifted_bbox, style=bbox_style)
+
+    meta = {
+        "viewport": [left, top, right, bottom],
+        "padding": [pad_top, pad_bottom, pad_left, pad_right],
+        "shifted_bbox_px": [round(v, 2) for v in shifted_bbox],
+        "effective_factor": effective_factor,
+    }
+    return Image.fromarray(resized), meta
+
+
+def _crop_square(
+    image: Image.Image,
+    bbox: tuple[float, float, float, float],
+    *,
+    factor: float,
+    min_side: int,
+    output_size: int,
+    class_name: str | None = None,
+    role: str = "clean_roi",
+    bbox_style: str = "none",
+) -> Image.Image:
+    cropped, _ = _crop_square_with_metadata(
+        image,
+        bbox,
+        factor=factor,
+        min_side=min_side,
+        output_size=output_size,
+        class_name=class_name,
+        role=role,
+        bbox_style=bbox_style,
+    )
+    return cropped
 
 
 def _copy_source_frame(
@@ -236,28 +522,59 @@ def _save_generated_views(
     clean_bbox: tuple[float, float, float, float],
     output_dir: Path,
     candidate_id: str,
-) -> tuple[list[str], dict[str, str]]:
-    with Image.open(annotated_source) as annotated_image, Image.open(clean_source) as clean_image:
-        views = (
-            _crop_square(annotated_image, annotated_bbox, factor=12.0, min_side=320, output_size=768),
-            _crop_square(annotated_image, annotated_bbox, factor=4.0, min_side=96, output_size=512),
-            _crop_square(clean_image, clean_bbox, factor=12.0, min_side=320, output_size=768),
-            _crop_square(clean_image, clean_bbox, factor=4.0, min_side=96, output_size=512),
-        )
+    class_name: str | None = None,
+    view_mode: str = "4view",
+    bbox_style: str = "corner_ticks",
+) -> tuple[list[str], dict[str, str], dict[str, Any]]:
+    if view_mode not in VALID_VIEW_MODES:
+        raise ValueError(f"unsupported view_mode: {view_mode!r}")
+    if bbox_style not in VALID_BBOX_STYLES:
+        raise ValueError(f"unsupported bbox_style: {bbox_style!r}")
+    cat_spec = get_category_crop_spec(class_name)
+    context_scale = float(cat_spec["context_scale"])
+    roi_scale = float(cat_spec["roi_scale"])
+    active_roles = VIEW_ROLES_2VIEW if view_mode == "2view" else VIEW_ROLES_4VIEW
+
+    role_configs = {
+        "annotated_context": (annotated_source, annotated_bbox, context_scale, 320, 768, bbox_style),
+        "annotated_roi": (annotated_source, annotated_bbox, roi_scale, 96, 512, bbox_style),
+        "clean_context": (clean_source, clean_bbox, context_scale, 320, 768, "none"),
+        "clean_roi": (clean_source, clean_bbox, roi_scale, 96, 512, "none"),
+    }
+
     image_paths: list[str] = []
     view_shas: dict[str, str] = {}
-    for role, view in zip(VIEW_ROLES, views):
-        destination = output_dir / "media" / role / f"{candidate_id}.png"
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        view.save(destination, format="PNG")
-        relative = str(destination.relative_to(output_dir))
-        image_paths.append(relative)
-        view_shas[role] = _sha256(destination)
-    return image_paths, view_shas
+    view_crop_meta: dict[str, Any] = {}
+    with Image.open(annotated_source) as annotated_image, Image.open(clean_source) as clean_image:
+        source_map = {
+            annotated_source: annotated_image,
+            clean_source: clean_image,
+        }
+        for role in active_roles:
+            src_path, bbox, factor, min_side, out_size, style = role_configs[role]
+            view, meta = _crop_square_with_metadata(
+                source_map[src_path],
+                bbox,
+                factor=factor,
+                min_side=min_side,
+                output_size=out_size,
+                class_name=class_name,
+                role=role,
+                bbox_style=style,
+            )
+            destination = output_dir / "media" / role / f"{candidate_id}.png"
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            view.save(destination, format="PNG")
+            relative = str(destination.relative_to(output_dir))
+            image_paths.append(relative)
+            view_shas[role] = _sha256(destination)
+            view_crop_meta[role] = meta
+    return image_paths, view_shas, view_crop_meta
 
 
-def _training_prompt(class_name: str) -> str:
-    return PROMPT_TEMPLATE.replace("{class_name}", class_name)
+def _training_prompt(class_name: str, *, view_mode: str = "4view") -> str:
+    template = PROMPT_TEMPLATE_2VIEW if view_mode == "2view" else PROMPT_TEMPLATE_4VIEW
+    return template.replace("{class_name}", class_name)
 
 
 def build_dataset(
@@ -265,7 +582,17 @@ def build_dataset(
     candidate_pairs_path: Path,
     gold_path: Path,
     output_dir: Path,
+    view_mode: str = "4view",
+    bbox_style: str = "corner_ticks",
 ) -> dict[str, Any]:
+    if view_mode not in VALID_VIEW_MODES:
+        raise ValueError(f"unsupported view_mode: {view_mode!r}")
+    if bbox_style not in VALID_BBOX_STYLES:
+        raise ValueError(f"unsupported bbox_style: {bbox_style!r}")
+    active_roles = VIEW_ROLES_2VIEW if view_mode == "2view" else VIEW_ROLES_4VIEW
+    active_prompt_template = PROMPT_TEMPLATE_2VIEW if view_mode == "2view" else PROMPT_TEMPLATE_4VIEW
+    processor_budget = get_processor_pixel_budget(view_mode)
+
     candidate_pairs_path = candidate_pairs_path.expanduser().resolve()
     gold_path = gold_path.expanduser().resolve()
     if not candidate_pairs_path.is_file():
@@ -363,29 +690,36 @@ def build_dataset(
             expected_size=clean_size,
             candidate_id=candidate_id,
         )
+        class_name_str = str(pair["class_name"])
+        cat_spec = get_category_crop_spec(class_name_str)
         normalized_review_bbox = _normalized_bbox(
             pair.get("bbox_px"),
             image_size=annotated_size,
             candidate_id=candidate_id,
             field="bbox_px",
+            class_name=class_name_str,
         )
         normalized_clean_bbox = _normalized_bbox(
             pair.get("projected_clean_bbox_px"),
             image_size=clean_size,
             candidate_id=candidate_id,
             field="projected_clean_bbox_px",
+            class_name=class_name_str,
         )
-        image_paths, view_shas = _save_generated_views(
+        image_paths, view_shas, view_crop_meta = _save_generated_views(
             annotated_source=annotated_source,
             clean_source=clean_source,
             annotated_bbox=normalized_review_bbox,
             clean_bbox=normalized_clean_bbox,
             output_dir=output_dir,
             candidate_id=candidate_id,
+            class_name=class_name_str,
+            view_mode=view_mode,
+            bbox_style=bbox_style,
         )
         decision = "CONFIRMED" if gold_row["human_label"] == "true" else "REJECTED"
-        prompt = _training_prompt(str(pair["class_name"]))
-        prompt_template_sha256 = hashlib.sha256(PROMPT_TEMPLATE.encode("utf-8")).hexdigest()
+        prompt = _training_prompt(class_name_str, view_mode=view_mode)
+        prompt_template_sha256 = hashlib.sha256(active_prompt_template.encode("utf-8")).hexdigest()
         prompt_sha256 = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
         training_row = {
             "id": candidate_id,
@@ -396,8 +730,12 @@ def build_dataset(
             ],
             "meta": {
                 "view_schema": VIEW_SCHEMA,
-                "view_roles": list(VIEW_ROLES),
+                "view_mode": view_mode,
+                "bbox_style": bbox_style,
+                "view_roles": list(active_roles),
                 "view_sha256": view_shas,
+                "view_crop_meta": view_crop_meta,
+                "category_crop_spec": cat_spec,
                 "prompt_template_sha256": prompt_template_sha256,
                 "prompt_sha256": prompt_sha256,
                 "label_source": "human_gold",
@@ -437,7 +775,9 @@ def build_dataset(
         output_rows[str(pair["partition"])].append(training_row)
         lineage.update(
             view_schema=VIEW_SCHEMA,
-            views=[{"role": role, "path": path, "sha256": view_shas[role]} for role, path in zip(VIEW_ROLES, image_paths)],
+            view_mode=view_mode,
+            bbox_style=bbox_style,
+            views=[{"role": role, "path": path, "sha256": view_shas[role]} for role, path in zip(active_roles, image_paths)],
             annotated_frame=annotated_frame_path,
             annotated_frame_sha256=annotated_frame_sha256,
             clean_frame=clean_frame_path,
@@ -493,24 +833,24 @@ def build_dataset(
     summary = {
         "schema_version": 1,
         "view_schema": VIEW_SCHEMA,
+        "view_mode": view_mode,
+        "bbox_style": bbox_style,
         "deployment_contract": {
             "view_schema": VIEW_SCHEMA,
-            "view_roles": list(VIEW_ROLES),
-            "prompt_template": PROMPT_TEMPLATE,
+            "view_mode": view_mode,
+            "bbox_style": bbox_style,
+            "view_roles": list(active_roles),
+            "prompt_template": active_prompt_template,
             "crop_spec": CROP_SPEC,
             "view_generation": "service_crop_v1_lossless_png",
             "normalized_bbox_margin": NORMALIZED_BBOX_MARGIN,
-            "prompt_template_sha256": hashlib.sha256(PROMPT_TEMPLATE.encode("utf-8")).hexdigest(),
+            "prompt_template_sha256": hashlib.sha256(active_prompt_template.encode("utf-8")).hexdigest(),
             "strict_output": {
                 "json_object_keys": ["decision"],
                 "allowed_decisions": ["CONFIRMED", "REJECTED"],
                 "invalid_output": "uncertain",
             },
-            "processor": {
-                "min_pixels": PROCESSOR_MIN_PIXELS,
-                "max_pixels": PROCESSOR_MAX_PIXELS,
-                "max_sequence_length": 2048,
-            },
+            "processor": processor_budget,
             "quantization": {
                 "load_in_4bit": True,
                 "bnb_4bit_quant_type": "nf4",
@@ -551,11 +891,25 @@ def main() -> int:
     parser.add_argument("--candidate-pairs", type=Path, required=True)
     parser.add_argument("--gold", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--view-mode",
+        choices=VALID_VIEW_MODES,
+        default="2view",
+        help="Multi-view mode: 2view (annotated_context + clean_roi, default) or 4view (legacy compatibility).",
+    )
+    parser.add_argument(
+        "--bbox-style",
+        choices=VALID_BBOX_STYLES,
+        default="corner_ticks",
+        help="Bounding box drawing style on annotated views: corner_ticks (default), solid_box, or none.",
+    )
     args = parser.parse_args()
     summary = build_dataset(
         candidate_pairs_path=args.candidate_pairs,
         gold_path=args.gold,
         output_dir=args.output_dir,
+        view_mode=args.view_mode,
+        bbox_style=args.bbox_style,
     )
     print(json.dumps(summary, ensure_ascii=False))
     return 0

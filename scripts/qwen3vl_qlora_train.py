@@ -13,22 +13,39 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import torch
-import transformers
-from transformers import (
-    AutoProcessor,
-    BitsAndBytesConfig,
-    Qwen3VLForConditionalGeneration,
-    Trainer,
-    TrainingArguments,
-)
-from torch.utils.data import WeightedRandomSampler
+try:
+    import torch
+    from torch.utils.data import WeightedRandomSampler
+except ModuleNotFoundError:  # pragma: no cover - local CPU test env without torch
+    torch = None  # type: ignore[assignment]
+    WeightedRandomSampler = Any  # type: ignore[assignment,misc]
+
+try:
+    import transformers
+    from transformers import (
+        AutoProcessor,
+        BitsAndBytesConfig,
+        Qwen3VLForConditionalGeneration,
+        Trainer,
+        TrainingArguments,
+    )
+except ModuleNotFoundError:  # pragma: no cover - local CPU test env without transformers
+    transformers = None  # type: ignore[assignment]
+    AutoProcessor = None  # type: ignore[assignment]
+    BitsAndBytesConfig = None  # type: ignore[assignment]
+    Qwen3VLForConditionalGeneration = None  # type: ignore[assignment]
+    Trainer = object  # type: ignore[assignment,misc]
+    TrainingArguments = None  # type: ignore[assignment]
 
 from qwen3vl_qlora_smoke import (
+    DEFAULT_LORA_TARGET_MODULES,
+    MultiSamplePadCollator,
     QwenVerifierDataset,
     SingleSampleCollator,
     _configure_processor,
+    _detect_gpu_capabilities,
     _read_jsonl,
+    resolve_lora_target_modules,
 )
 from qwen_training_provenance import (
     deduplicate_human_gold_rows,
@@ -69,26 +86,42 @@ def _training_stratum(row: dict[str, Any]) -> str:
     return str(meta["class_name"]) + "|" + str(label)
 
 
-def _balanced_sampling_manifest(rows: list[dict[str, Any]], seed: int) -> tuple[list[float], dict[str, Any]]:
+def _balanced_sampling_manifest(
+    rows: list[dict[str, Any]],
+    seed: int,
+    *,
+    negative_oversample_ratio: float = 1.0,
+) -> tuple[list[float], dict[str, Any]]:
+    if not negative_oversample_ratio > 0:
+        raise ValueError("negative_oversample_ratio must be positive")
     strata = [_training_stratum(row) for row in rows]
     counts = Counter(strata)
-    weights = [len(rows) / (len(counts) * counts[stratum]) for stratum in strata]
+    raw = {
+        stratum: (len(rows) / (len(counts) * count))
+        * (negative_oversample_ratio if stratum.endswith("|false") else 1.0)
+        for stratum, count in counts.items()
+    }
+    scale = len(rows) / sum(raw[stratum] for stratum in strata) if rows else 1.0
+    per_stratum = {stratum: raw[stratum] * scale for stratum in raw}
+    weights = [per_stratum[stratum] for stratum in strata]
     return weights, {
         "strategy": "deterministic_weighted_replacement_by_class_and_human_label",
         "seed": seed,
         "replacement": True,
+        "negative_oversample_ratio": negative_oversample_ratio,
         "samples_per_epoch": len(rows),
         "validation_sampling": "natural_original_partition",
         "stratum_counts": dict(sorted(counts.items())),
-        "per_row_weight_by_stratum": {
-            stratum: len(rows) / (len(counts) * count)
-            for stratum, count in sorted(counts.items())
-        },
+        "per_row_weight_by_stratum": dict(sorted(per_stratum.items())),
     }
 
 
 def _capped_sampling_manifest(
-    rows: list[dict[str, Any]], seed: int, cap: float
+    rows: list[dict[str, Any]],
+    seed: int,
+    cap: float,
+    *,
+    negative_oversample_ratio: float = 1.0,
 ) -> tuple[list[float], dict[str, Any]]:
     """等权抽样的折中：每个“类别|标签”分组的放大倍数不超过 cap，再整体归一化到平均权重 1。
 
@@ -96,10 +129,13 @@ def _capped_sampling_manifest(
     """
     if not cap > 0:
         raise ValueError("stratum weight cap must be positive")
+    if not negative_oversample_ratio > 0:
+        raise ValueError("negative_oversample_ratio must be positive")
     strata = [_training_stratum(row) for row in rows]
     counts = Counter(strata)
     raw = {
         stratum: min(len(rows) / (len(counts) * count), cap)
+        * (negative_oversample_ratio if stratum.endswith("|false") else 1.0)
         for stratum, count in counts.items()
     }
     scale = len(rows) / sum(raw[stratum] for stratum in strata)
@@ -110,6 +146,7 @@ def _capped_sampling_manifest(
         "seed": seed,
         "replacement": True,
         "stratum_weight_cap": cap,
+        "negative_oversample_ratio": negative_oversample_ratio,
         "samples_per_epoch": len(rows),
         "validation_sampling": "natural_original_partition",
         "stratum_counts": dict(sorted(counts.items())),
@@ -447,6 +484,35 @@ def main() -> int:
         default=2.0,
         help="capped_stratum only: maximum per-stratum weight before renormalization.",
     )
+    parser.add_argument(
+        "--negative-oversample-ratio",
+        type=float,
+        default=1.3,
+        help="Oversample ratio for REJECTED (false) strata to prioritize FAR reduction (default: 1.3).",
+    )
+    parser.add_argument(
+        "--include-vision-proj",
+        action="store_true",
+        help="Include vision merger MLP projection layers in LoRA target modules.",
+    )
+    parser.add_argument(
+        "--per-device-train-batch-size",
+        type=int,
+        default=None,
+        help="Override per-device train batch size (auto: 4 on L20 48GB, 1 on <40GB).",
+    )
+    parser.add_argument(
+        "--gradient-accumulation-steps",
+        type=int,
+        default=None,
+        help="Override gradient accumulation steps (auto: 4 on L20 48GB, 16 on <40GB).",
+    )
+    parser.add_argument(
+        "--dataloader-num-workers",
+        type=int,
+        default=None,
+        help="Override DataLoader worker count (auto: 8 on L20 48GB, 2 on <40GB).",
+    )
     parser.add_argument("--learning-rate", type=float, default=2e-5)
     parser.add_argument("--min-free-gb", type=float, default=24.0)
     parser.add_argument(
@@ -468,6 +534,8 @@ def main() -> int:
         raise ValueError("--learning-rate must be within [1e-6, 1e-4]")
     if args.min_free_gb < 0:
         raise ValueError("--min-free-gb must be non-negative")
+    if args.negative_oversample_ratio <= 0:
+        raise ValueError("--negative-oversample-ratio must be positive")
     for path in (args.train, args.val):
         if not path.is_file():
             raise FileNotFoundError(path)
@@ -545,9 +613,9 @@ def main() -> int:
         val_dataset.provenance_summary,
     )
 
-    free_bytes, total_bytes = torch.cuda.mem_get_info(0)
-    free_gb = free_bytes / (1024**3)
-    total_gb = total_bytes / (1024**3)
+    gpu_caps = _detect_gpu_capabilities(0)
+    free_gb = float(gpu_caps["free_gb"])
+    total_gb = float(gpu_caps["total_gb"])
     if free_gb < args.min_free_gb:
         raise RuntimeError(
             f"GPU 0 has {free_gb:.1f} GiB free of {total_gb:.1f} GiB; "
@@ -569,11 +637,16 @@ def main() -> int:
     _write_jsonl(args.output_dir / "val_conflicts_excluded.jsonl", val_conflicts)
     if args.train_sampling == "balanced_stratum":
         train_sample_weights, sampling_manifest = _balanced_sampling_manifest(
-            train_rows, args.seed
+            train_rows,
+            args.seed,
+            negative_oversample_ratio=args.negative_oversample_ratio,
         )
     elif args.train_sampling == "capped_stratum":
         train_sample_weights, sampling_manifest = _capped_sampling_manifest(
-            train_rows, args.seed, args.stratum_weight_cap
+            train_rows,
+            args.seed,
+            args.stratum_weight_cap,
+            negative_oversample_ratio=args.negative_oversample_ratio,
         )
     else:
         train_sample_weights = []
@@ -592,7 +665,7 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    compute_dtype = torch.bfloat16
+    compute_dtype = gpu_caps["compute_dtype"]
     quantization = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_quant_type="nf4",
@@ -607,7 +680,7 @@ def main() -> int:
         quantization_config=quantization,
         torch_dtype=compute_dtype,
         device_map={"": 0},
-        attn_implementation="sdpa",
+        attn_implementation=gpu_caps["attn_implementation"],
     )
     model.config.use_cache = False
     train_dataset.processor = processor
@@ -615,14 +688,15 @@ def main() -> int:
 
     from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 
+    target_modules = resolve_lora_target_modules(args.include_vision_proj)
     model = prepare_model_for_kbit_training(model)
     model = get_peft_model(
         model,
         LoraConfig(
-            r=8,
-            lora_alpha=16,
+            r=16,
+            lora_alpha=32,
             lora_dropout=0.05,
-            target_modules=["q_proj", "v_proj"],
+            target_modules=target_modules,
             bias="none",
             task_type="CAUSAL_LM",
         ),
@@ -632,12 +706,34 @@ def main() -> int:
         model.enable_input_require_grads()
     model.gradient_checkpointing_enable()
 
+    per_device_train_batch_size = (
+        args.per_device_train_batch_size
+        if args.per_device_train_batch_size is not None
+        else int(gpu_caps["recommended_batch_size"])
+    )
+    gradient_accumulation_steps = (
+        args.gradient_accumulation_steps
+        if args.gradient_accumulation_steps is not None
+        else int(gpu_caps["recommended_grad_accum"])
+    )
+    dataloader_num_workers = (
+        args.dataloader_num_workers
+        if args.dataloader_num_workers is not None
+        else int(gpu_caps["recommended_num_workers"])
+    )
+    pad_token_id = getattr(processor.tokenizer, "pad_token_id", None) or 0
+    collator = (
+        MultiSamplePadCollator(pad_token_id=int(pad_token_id))
+        if per_device_train_batch_size > 1
+        else SingleSampleCollator()
+    )
+
     training_args = TrainingArguments(
         output_dir=str(args.output_dir),
         num_train_epochs=args.epochs,
-        per_device_train_batch_size=1,
+        per_device_train_batch_size=per_device_train_batch_size,
         per_device_eval_batch_size=1,
-        gradient_accumulation_steps=1,
+        gradient_accumulation_steps=gradient_accumulation_steps,
         learning_rate=args.learning_rate,
         weight_decay=0.01,
         warmup_ratio=0.05,
@@ -646,15 +742,19 @@ def main() -> int:
         eval_strategy="epoch",
         save_strategy="epoch",
         save_total_limit=3,
-        bf16=True,
-        fp16=False,
+        bf16=bool(gpu_caps["bf16"]),
+        fp16=bool(gpu_caps["fp16"]),
         seed=args.seed,
         data_seed=args.seed,
         optim="paged_adamw_8bit",
         gradient_checkpointing=True,
         remove_unused_columns=False,
         report_to=[],
-        dataloader_num_workers=0,
+        dataloader_num_workers=dataloader_num_workers,
+        dataloader_pin_memory=bool(gpu_caps["pin_memory"]),
+        dataloader_persistent_workers=bool(
+            gpu_caps["persistent_workers"] and dataloader_num_workers > 0
+        ),
         ddp_find_unused_parameters=False,
     )
     weighted = args.train_sampling in {"balanced_stratum", "capped_stratum"}
@@ -664,7 +764,7 @@ def main() -> int:
         "args": training_args,
         "train_dataset": train_dataset,
         "eval_dataset": val_dataset,
-        "data_collator": SingleSampleCollator(),
+        "data_collator": collator,
         "processing_class": processor.tokenizer,
     }
     if weighted:
@@ -702,8 +802,10 @@ def main() -> int:
         "raw_val_provenance": _json_provenance_summary(raw_val_provenance),
         "epochs": args.epochs,
         "seed": args.seed,
-        "per_device_train_batch_size": 1,
+        "per_device_train_batch_size": per_device_train_batch_size,
         "per_device_eval_batch_size": 1,
+        "gradient_accumulation_steps": gradient_accumulation_steps,
+        "dataloader_num_workers": dataloader_num_workers,
         "train_sampling": sampling_manifest,
         "learning_rate": args.learning_rate,
         "checkpoint_policy": {
@@ -714,7 +816,10 @@ def main() -> int:
         },
         "resume": resume_manifest,
         "gpu": {
-            "device_name": torch.cuda.get_device_name(0),
+            "device_name": gpu_caps["device_name"],
+            "sm_capability": f"{gpu_caps['sm_major']}.{gpu_caps['sm_minor']}",
+            "attn_implementation": gpu_caps["attn_implementation"],
+            "compute_dtype": str(compute_dtype),
             "total_memory_gib": round(total_gb, 2),
             "free_memory_before_model_load_gib": round(free_gb, 2),
             "required_free_memory_gib": args.min_free_gb,
@@ -783,10 +888,10 @@ def main() -> int:
             "seed": args.seed,
             "quantization": "4bit_nf4_double_quant",
             "lora": {
-                "r": 8,
-                "alpha": 16,
+                "r": 16,
+                "alpha": 32,
                 "dropout": 0.05,
-                "target_modules": ["q_proj", "v_proj"],
+                "target_modules": target_modules,
             },
             "sampling": sampling_manifest,
             "checkpoint_policy": {

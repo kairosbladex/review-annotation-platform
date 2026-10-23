@@ -668,3 +668,37 @@ def test_write_outputs_keeps_policy_ticket_and_human_empty_gold_fields(tmp_path)
     assert gold["box_fit"] is None
     assert gold["model_evidence"]["red_overlay_occlusion"] is True
     assert summary["gold_review"]["human_fields_prefilled"] == 0
+
+
+def test_pre_llm_geometric_gate_detects_vehicle_tricycle_iou_and_containment():
+    from app.services.ktd_recheck import apply_pre_llm_geometric_gate
+
+    candidates = [
+        {"target_index": 0, "class_name": "车辆", "confidence": 0.95, "bbox": [0.10, 0.10, 0.50, 0.50]},
+        {"target_index": 1, "class_name": "三轮车", "confidence": 0.85, "bbox": [0.11, 0.11, 0.49, 0.49]},
+        {"target_index": 2, "class_name": "人员", "confidence": 0.80, "bbox": [0.15, 0.15, 0.25, 0.25]},
+    ]
+    gated = apply_pre_llm_geometric_gate(candidates)
+    assert "cross_class_iou_conflict:vehicle_vs_tricycle" in gated[0]["geometric_warning"]
+    assert "cross_class_iou_conflict:vehicle_vs_tricycle" in gated[1]["geometric_warning"]
+    assert "part_in_whole_containment_warning" in gated[1]["geometric_warning"]
+    assert "part_in_whole_containment_warning" in gated[2]["geometric_warning"]
+
+
+def test_three_tier_cascade_routing_partitions_candidates_correctly():
+    from app.services.ktd_recheck import partition_candidates_by_cascade_tier
+
+    candidates = [
+        # High-confidence non-roof without conflict -> Tier 1 auto confirm
+        {"target_index": 0, "class_name": "车辆", "confidence": 0.95, "bbox": [0.05, 0.05, 0.15, 0.15]},
+        # High-confidence blue_illegal_roof -> must go to Tier 3 VLM for rooftop scene check
+        {"target_index": 1, "class_name": "蓝色违建顶棚", "confidence": 0.96, "bbox": [0.30, 0.30, 0.45, 0.45]},
+        # Ultra-low confidence -> Tier 2 auto reject
+        {"target_index": 2, "class_name": "道路裂缝", "confidence": 0.08, "bbox": [0.60, 0.60, 0.70, 0.70]},
+        # Ambiguous confidence -> Tier 3 VLM verify
+        {"target_index": 3, "class_name": "人员", "confidence": 0.55, "bbox": [0.75, 0.75, 0.85, 0.85]},
+    ]
+    buckets = partition_candidates_by_cascade_tier(candidates)
+    assert [c["target_index"] for c in buckets["tier1_auto_confirm"]] == [0]
+    assert [c["target_index"] for c in buckets["tier2_auto_reject"]] == [2]
+    assert [c["target_index"] for c in buckets["tier3_vlm_verify"]] == [1, 3]

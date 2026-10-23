@@ -26,9 +26,210 @@ import httpx
 
 from .annex_import import normalize_imgxy_targets, public_object_key
 from .gold_selection import select_gold_review_candidates, summarize_gold_selection
-from .auto_annotation_prompts import ROLE_ORDER, merge_agent_results
+from .auto_annotation_prompts import (
+    ROLE_ORDER,
+    get_category_guidelines,
+    merge_agent_results,
+)
 from .review_policy import apply_review_policy, normalize_scene
 from .review_views import build_visual_views, view_sha256
+
+
+DEFAULT_HTTP_LIMITS = httpx.Limits(
+    max_connections=64,
+    max_keepalive_connections=32,
+)
+_REAL_HTTPX_CLIENT = httpx.Client
+TIER1_AUTO_CONFIRM_THRESHOLD = 0.92
+TIER2_AUTO_REJECT_THRESHOLD = 0.12
+
+_VEHICLE_ALIASES = frozenset({"vehicle", "车辆", "车", "car", "机动车", "汽车"})
+_TRICYCLE_ALIASES = frozenset({"tricycle", "三轮车", "三轮"})
+_PERSON_ALIASES = frozenset({"person", "人员", "人", "行人"})
+_ROOF_ALIASES = frozenset({"blue_illegal_roof", "蓝色违建顶棚", "违建", "蓝色屋顶", "彩钢瓦"})
+
+
+def _canonical_geom_class(class_name: Any) -> str:
+    raw = str(class_name or "").strip().lower()
+    if raw in _TRICYCLE_ALIASES or "三轮" in raw or "tricycle" in raw:
+        return "tricycle"
+    if raw in _VEHICLE_ALIASES or "车" in raw or "vehicle" in raw:
+        return "vehicle"
+    if raw in _PERSON_ALIASES or "人" in raw or "person" in raw:
+        return "person"
+    if raw in _ROOF_ALIASES or "违建" in raw or "roof" in raw:
+        return "blue_illegal_roof"
+    return raw
+
+
+def _bbox_area(bbox: Sequence[float]) -> float:
+    if len(bbox) != 4:
+        return 0.0
+    x1, y1, x2, y2 = (float(v) for v in bbox)
+    return max(0.0, x2 - x1) * max(0.0, y2 - y1)
+
+
+def _bbox_intersection(box_a: Sequence[float], box_b: Sequence[float]) -> float:
+    if len(box_a) != 4 or len(box_b) != 4:
+        return 0.0
+    ax1, ay1, ax2, ay2 = (float(v) for v in box_a)
+    bx1, by1, bx2, by2 = (float(v) for v in box_b)
+    ix1 = max(ax1, bx1)
+    iy1 = max(ay1, by1)
+    ix2 = min(ax2, bx2)
+    iy2 = min(ay2, by2)
+    return max(0.0, ix2 - ix1) * max(0.0, iy2 - iy1)
+
+
+def compute_bbox_iou(box_a: Sequence[float], box_b: Sequence[float]) -> float:
+    """Compute Intersection over Union (IoU) between two [x1, y1, x2, y2] boxes."""
+    inter = _bbox_intersection(box_a, box_b)
+    if inter <= 0.0:
+        return 0.0
+    union = _bbox_area(box_a) + _bbox_area(box_b) - inter
+    return inter / union if union > 0.0 else 0.0
+
+
+def compute_containment_ratio(inner_box: Sequence[float], outer_box: Sequence[float]) -> float:
+    """Compute fraction of inner_box area contained inside outer_box."""
+    inner_area = _bbox_area(inner_box)
+    if inner_area <= 0.0:
+        return 0.0
+    return _bbox_intersection(inner_box, outer_box) / inner_area
+
+
+def apply_pre_llm_geometric_gate(
+    candidates: Sequence[Mapping[str, Any]],
+    *,
+    cross_class_iou_threshold: float = 0.75,
+    containment_threshold: float = 0.88,
+) -> list[dict[str, Any]]:
+    """Annotate candidates with geometric conflict warnings before LLM verification.
+
+    1. Cross-class conflict: `vehicle` vs `tricycle` with IoU > 0.75 -> attaches
+       `geometric_warning` warning both `class_scene` and `adversarial` roles.
+    2. Part-in-whole containment: `vehicle`/`tricycle`/`person` candidate contained
+       within a larger box (`containment_ratio > 0.88`) -> attaches `geometric_warning`.
+    """
+    enriched = [dict(c) for c in candidates]
+    n = len(enriched)
+    warnings_by_idx: dict[int, list[str]] = {i: [] for i in range(n)}
+
+    for i in range(n):
+        box_i = enriched[i].get("bbox")
+        if not isinstance(box_i, Sequence) or len(box_i) != 4:
+            continue
+        cls_i = _canonical_geom_class(enriched[i].get("class_name"))
+        area_i = _bbox_area(box_i)
+
+        for j in range(i + 1, n):
+            box_j = enriched[j].get("bbox")
+            if not isinstance(box_j, Sequence) or len(box_j) != 4:
+                continue
+            cls_j = _canonical_geom_class(enriched[j].get("class_name"))
+            area_j = _bbox_area(box_j)
+
+            if {cls_i, cls_j} == {"vehicle", "tricycle"}:
+                iou = compute_bbox_iou(box_i, box_j)
+                if iou > cross_class_iou_threshold:
+                    msg = f"cross_class_iou_conflict:vehicle_vs_tricycle(iou={iou:.2f})"
+                    warnings_by_idx[i].append(msg)
+                    warnings_by_idx[j].append(msg)
+
+            if cls_i in {"vehicle", "tricycle", "person"} and cls_j in {"vehicle", "tricycle", "person"}:
+                if area_i < area_j and area_i > 0:
+                    cont = compute_containment_ratio(box_i, box_j)
+                    if cont > containment_threshold:
+                        warnings_by_idx[i].append(
+                            f"part_in_whole_containment_warning(containment={cont:.2f})"
+                        )
+                elif area_j < area_i and area_j > 0:
+                    cont = compute_containment_ratio(box_j, box_i)
+                    if cont > containment_threshold:
+                        warnings_by_idx[j].append(
+                            f"part_in_whole_containment_warning(containment={cont:.2f})"
+                        )
+
+    for i, item in enumerate(enriched):
+        if warnings_by_idx[i]:
+            existing = item.get("geometric_warning")
+            joined = "; ".join(sorted(set(warnings_by_idx[i])))
+            item["geometric_warning"] = f"{existing}; {joined}" if existing else joined
+    return enriched
+
+
+def evaluate_cascade_tier(
+    candidate: Mapping[str, Any],
+    *,
+    tier1_threshold: float = TIER1_AUTO_CONFIRM_THRESHOLD,
+    tier2_threshold: float = TIER2_AUTO_REJECT_THRESHOLD,
+) -> dict[str, Any]:
+    """Route a candidate across the 3-tier heterogeneous GPU cascade.
+
+    - Tier 1 (High-Confidence Auto-Pass): detector confidence >= 0.92, non-rooftop-dependent
+      class (`blue_illegal_roof` is excluded because it requires rooftop scene confirmation),
+      and no geometric conflict -> auto-confirm (`true`).
+    - Tier 2 (Ultra-Low-Confidence Auto-Reject): detector confidence <= 0.12 -> auto-reject (`false`).
+    - Tier 3 (Ambiguous / Scene-Dependent -> L20 Qwen3-VL Verifier): `0.12 < confidence < 0.92`,
+      or `blue_illegal_roof`, or geometric warning present -> route to L20 VLM.
+    """
+    conf_raw = candidate.get("confidence", candidate.get("score"))
+    confidence = float(conf_raw) if isinstance(conf_raw, (int, float)) and not isinstance(conf_raw, bool) else None
+    cls_canon = _canonical_geom_class(candidate.get("class_name"))
+    has_geom_warning = bool(candidate.get("geometric_warning"))
+
+    if confidence is not None and confidence <= tier2_threshold:
+        return {
+            "tier": "tier2_auto_reject",
+            "auto_label": "false",
+            "requires_vlm": False,
+            "confidence": confidence,
+            "reason_code": "tier2_low_confidence_auto_reject",
+        }
+    if (
+        confidence is not None
+        and confidence >= tier1_threshold
+        and cls_canon != "blue_illegal_roof"
+        and not has_geom_warning
+    ):
+        return {
+            "tier": "tier1_auto_confirm",
+            "auto_label": "true",
+            "requires_vlm": False,
+            "confidence": confidence,
+            "reason_code": "tier1_high_confidence_auto_confirm",
+        }
+    return {
+        "tier": "tier3_vlm_verify",
+        "auto_label": None,
+        "requires_vlm": True,
+        "confidence": confidence,
+        "reason_code": "tier3_routed_to_l20_vlm",
+    }
+
+
+def partition_candidates_by_cascade_tier(
+    candidates: Sequence[Mapping[str, Any]],
+    *,
+    tier1_threshold: float = TIER1_AUTO_CONFIRM_THRESHOLD,
+    tier2_threshold: float = TIER2_AUTO_REJECT_THRESHOLD,
+) -> dict[str, list[dict[str, Any]]]:
+    """Apply geometric gate and partition candidates into tier1, tier2, and tier3 buckets."""
+    gated = apply_pre_llm_geometric_gate(candidates)
+    buckets: dict[str, list[dict[str, Any]]] = {
+        "tier1_auto_confirm": [],
+        "tier2_auto_reject": [],
+        "tier3_vlm_verify": [],
+    }
+    for cand in gated:
+        routing = evaluate_cascade_tier(
+            cand,
+            tier1_threshold=tier1_threshold,
+            tier2_threshold=tier2_threshold,
+        )
+        item = {**cand, "cascade_routing": routing}
+        buckets[routing["tier"]].append(item)
+    return buckets
 
 
 PROMPT_VERSION = "ktd-recheck-batch-v4-policy-views"
@@ -407,18 +608,29 @@ def validate_batch_response(
 
 
 def render_multi_image_prompt(batch: Sequence[Mapping[str, Any]]) -> str:
-    request_data = {
-        "images": [
+    images_payload = []
+    guideline_lines: list[str] = []
+    for image in batch:
+        gated_candidates = apply_pre_llm_geometric_gate(list(image["candidates"]))
+        for cand in gated_candidates:
+            g = get_category_guidelines(cand.get("class_name"))
+            if g and g not in guideline_lines:
+                guideline_lines.append(g)
+        images_payload.append(
             {
                 "image_id": image["image_id"],
                 "file_path": image["file_path"],
-                "candidates": list(image["candidates"]),
+                "candidates": gated_candidates,
                 "view_sha256": image.get("view_sha256", {}),
             }
-            for image in batch
-        ]
-    }
+        )
+    request_data = {"images": images_payload}
     encoded = _safe_json(request_data)
+    guidelines_block = (
+        "\n\n<CATEGORY_SPECIFIC_GUIDELINES>\n" + "\n".join(guideline_lines) + "\n</CATEGORY_SPECIFIC_GUIDELINES>"
+        if guideline_lines
+        else ""
+    )
     if len(batch) == 1:
         logical_image_id = _safe_json(str(batch[0]["image_id"]))
         attachment_context = (
@@ -439,7 +651,8 @@ def render_multi_image_prompt(batch: Sequence[Mapping[str, Any]]) -> str:
         "true/false 只有在视觉证据明确时使用；证据不足、目标过小、遮挡或角色冲突时使用 uncertain。每个角色 confidence 必须是 0 到 1 的数字。先输出整图 scene（rooftop、ground 或 unknown）。只有明确看见红色初审框线遮挡目标时才记录 red_overlay_occlusion=true；框内只有背景或空区域时记录 background_only=true。\n\n"
         "<UNTRUSTED_CANDIDATE_DATA>\n"
         f"{encoded}\n"
-        "</UNTRUSTED_CANDIDATE_DATA>\n\n"
+        "</UNTRUSTED_CANDIDATE_DATA>"
+        f"{guidelines_block}\n\n"
         "只输出严格 JSON，不要 Markdown、解释或额外字段。必须完整覆盖所有 image_id 和所有 target_index。结构：\n"
         '{"images":[{"image_id":"...","scene":{"label":"rooftop|ground|unknown","confidence":0.0,"reason":"..."},"decisions":[{"target_index":0,"votes":['
         '{"role":"target_presence_fit","label":"true|false|uncertain","confidence":0.0,"reason":"..."},'
@@ -937,15 +1150,39 @@ class SourceImageClient:
         self.base_url = base_url.rstrip("/")
         self.bucket = bucket
         self.verify_tls = verify_tls
+        self._pooled_client: httpx.Client | None = None
+
+    def get_pooled_client(self) -> httpx.Client:
+        if self._pooled_client is None or getattr(self._pooled_client, "is_closed", False):
+            self._pooled_client = httpx.Client(
+                timeout=60,
+                trust_env=False,
+                verify=self.verify_tls,
+                follow_redirects=True,
+                limits=DEFAULT_HTTP_LIMITS,
+            )
+        return self._pooled_client
+
+    def close(self) -> None:
+        if self._pooled_client is not None:
+            try:
+                self._pooled_client.close()
+            except Exception:
+                pass
+            self._pooled_client = None
 
     def get(self, object_key: str) -> bytes:
         if not self.base_url:
             raise RuntimeError("SOURCE_IMAGE_BASE_URL is not configured")
         url = f"{self.base_url}/{object_key.lstrip('/')}"
         try:
-            with httpx.Client(timeout=60, trust_env=False, verify=self.verify_tls, follow_redirects=True) as client:
-                response = client.get(url)
+            if httpx.Client is _REAL_HTTPX_CLIENT:
+                response = self.get_pooled_client().get(url)
                 response.raise_for_status()
+            else:
+                with httpx.Client(timeout=60, trust_env=False, verify=self.verify_tls, follow_redirects=True) as client:
+                    response = client.get(url)
+                    response.raise_for_status()
         except httpx.HTTPError as exc:
             raise RecheckProviderError(f"source image fetch failed: {exc}") from exc
         if not response.content:

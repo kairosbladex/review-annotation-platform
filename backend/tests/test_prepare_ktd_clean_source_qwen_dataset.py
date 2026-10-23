@@ -10,7 +10,16 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 
-from prepare_ktd_clean_source_qwen_dataset import VIEW_SCHEMA, build_dataset
+from prepare_ktd_clean_source_qwen_dataset import (
+    NEUTRAL_GRAY_RGB,
+    VIEW_ROLES_2VIEW,
+    VIEW_SCHEMA,
+    _crop_square_with_metadata,
+    build_dataset,
+    draw_bbox_overlay,
+    get_category_crop_spec,
+    get_processor_pixel_budget,
+)
 from qwen_training_provenance import (
     validate_disjoint_image_splits,
     validate_human_gold_dataset,
@@ -169,3 +178,100 @@ def test_rejects_candidate_gold_mismatch(tmp_path: Path):
 
     with pytest.raises(ValueError, match="differs between pair and gold"):
         build_dataset(candidate_pairs_path=pairs, gold_path=gold, output_dir=tmp_path / "output")
+
+
+def test_category_adaptive_crop_specs_match_five_target_categories():
+    person = get_category_crop_spec("人员")
+    assert person["canonical_category"] == "person"
+    assert person["bbox_margin"] == 0.20
+    assert person["roi_scale"] == 5.0
+    assert person["context_scale"] == 14.0
+
+    crack = get_category_crop_spec("道路裂缝")
+    assert crack["canonical_category"] == "road_crack"
+    assert crack["bbox_margin"] == 0.15
+    assert crack["roi_scale"] == 3.5
+    assert crack["context_scale"] == 10.0
+    assert crack["clean_roi_upscale"] == "cv2.INTER_CUBIC"
+
+    roof = get_category_crop_spec("蓝色违建顶棚")
+    assert roof["canonical_category"] == "blue_illegal_roof"
+    assert roof["bbox_margin"] == 0.15
+    assert roof["min_context_scale"] == 3.0
+    assert roof["clamp_context_to_image"] is True
+
+    tricycle = get_category_crop_spec("三轮车")
+    vehicle = get_category_crop_spec("vehicle")
+    assert tricycle["bbox_margin"] == vehicle["bbox_margin"] == 0.12
+    assert tricycle["roi_scale"] == vehicle["roi_scale"] == 4.0
+    assert tricycle["context_scale"] == vehicle["context_scale"] == 12.0
+
+
+def test_corner_ticks_leaves_mid_edges_unoccluded():
+    import numpy as np
+
+    blank = np.full((120, 120, 3), 50, dtype=np.uint8)
+    drawn = draw_bbox_overlay(blank, (30, 30, 90, 90), style="corner_ticks", color=(255, 0, 0))
+    # Corner (28, 28) is red
+    assert tuple(int(c) for c in drawn[28, 28]) == (255, 0, 0)
+    # Mid-top edge (28, 60) and mid-left edge (60, 28) remain untouched background (50, 50, 50)
+    assert tuple(int(c) for c in drawn[28, 60]) == (50, 50, 50)
+    assert tuple(int(c) for c in drawn[60, 28]) == (50, 50, 50)
+
+
+def test_edge_crop_shifts_viewport_or_pads_constant_neutral_gray_without_mirror_artifacts():
+    import numpy as np
+
+    # Create a 64x64 dark image with a bright stripe near the left edge
+    arr = np.full((64, 64, 3), 20, dtype=np.uint8)
+    arr[:, 2:5] = (200, 10, 10)
+    image = Image.fromarray(arr)
+    # Request oversized crop (min_side=128 > 64) so padding is required
+    cropped, meta = _crop_square_with_metadata(
+        image,
+        (2 / 64, 10 / 64, 12 / 64, 20 / 64),
+        factor=3.5,
+        min_side=128,
+        output_size=128,
+        class_name="道路裂缝",
+        role="clean_roi",
+        bbox_style="none",
+    )
+    cropped_arr = np.asarray(cropped)
+    assert any(p > 0 for p in meta["padding"])
+    # Top-left padded corner must be constant neutral gray (230, 230, 230), never reflected pixels
+    assert tuple(int(c) for c in cropped_arr[0, 0]) == NEUTRAL_GRAY_RGB
+
+
+def test_builds_2view_dataset_and_passes_provenance_validation(tmp_path: Path):
+    pairs, gold = _source_fixture(tmp_path)
+    output = tmp_path / "output-2view"
+
+    summary = build_dataset(
+        candidate_pairs_path=pairs,
+        gold_path=gold,
+        output_dir=output,
+        view_mode="2view",
+        bbox_style="corner_ticks",
+    )
+
+    train = _read(output / "train.jsonl")
+    validation = _read(output / "validation.jsonl")
+    contract = summary["deployment_contract"]
+    assert contract["view_mode"] == "2view"
+    assert contract["bbox_style"] == "corner_ticks"
+    assert contract["view_roles"] == list(VIEW_ROLES_2VIEW)
+    assert contract["processor"] == get_processor_pixel_budget("2view")
+    assert len(train[0]["image"]) == 2
+    assert [Image.open(output / path).size for path in train[0]["image"]] == [
+        (768, 768),
+        (512, 512),
+    ]
+    train_summary = validate_human_gold_dataset(
+        train, dataset_path=output / "train.jsonl", provenance_root=output
+    )
+    val_summary = validate_human_gold_dataset(
+        validation, dataset_path=output / "validation.jsonl", provenance_root=output
+    )
+    validate_disjoint_image_splits(train_summary, val_summary)
+    assert len(train_summary["view_sha256s"]) == 2

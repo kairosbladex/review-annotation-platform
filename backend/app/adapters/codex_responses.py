@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import base64
 import atexit
+from contextlib import contextmanager
 import json
 import mimetypes
 import os
@@ -22,10 +23,22 @@ from typing import Any
 import httpx
 
 from .object_store import ObjectStore
-from ..services.auto_annotation_prompts import render_batch_prompt
-from ..services.auto_annotation_prompts import ROLE_ORDER
+from ..services.auto_annotation_prompts import (
+    FAST_DECISION_SCHEMA,
+    ROLE_ORDER,
+    parse_fast_response,
+    render_batch_prompt,
+    render_fast_prompt,
+)
 from ..services.review_policy import normalize_scene
 from ..services.review_views import build_visual_views, masked_bytes, overlay_bytes, roi_context_bytes
+
+
+DEFAULT_HTTP_LIMITS = httpx.Limits(
+    max_connections=64,
+    max_keepalive_connections=32,
+)
+_REAL_HTTPX_CLIENT = httpx.Client
 
 
 class CodexResponsesError(RuntimeError):
@@ -233,6 +246,7 @@ class CodexResponsesVisionAdapter:
         use_codex_cli: bool = False,
         codex_binary: str = "codex",
         actor_authorization: str = "local-image-extension",
+        default_mode: str = "deep",
     ):
         self.object_store = object_store
         self.api_key = api_key
@@ -245,7 +259,58 @@ class CodexResponsesVisionAdapter:
         self.use_codex_cli = use_codex_cli
         self.codex_binary = codex_binary
         self.actor_authorization = actor_authorization
+        self.default_mode = default_mode
         self._cli_home: Path | None = None
+        self._pooled_client: httpx.Client | None = None
+        self._pooled_async_client: httpx.AsyncClient | None = None
+
+    def get_pooled_client(self) -> httpx.Client:
+        if self._pooled_client is None or getattr(self._pooled_client, "is_closed", False):
+            self._pooled_client = httpx.Client(
+                timeout=self.timeout_seconds,
+                trust_env=False,
+                verify=self.verify_tls,
+                limits=DEFAULT_HTTP_LIMITS,
+            )
+        return self._pooled_client
+
+    def get_pooled_async_client(self) -> httpx.AsyncClient:
+        if self._pooled_async_client is None or getattr(self._pooled_async_client, "is_closed", False):
+            self._pooled_async_client = httpx.AsyncClient(
+                timeout=self.timeout_seconds,
+                trust_env=False,
+                verify=self.verify_tls,
+                limits=DEFAULT_HTTP_LIMITS,
+            )
+        return self._pooled_async_client
+
+    @contextmanager
+    def _client_scope(self):
+        if httpx.Client is _REAL_HTTPX_CLIENT:
+            yield self.get_pooled_client()
+        else:
+            with httpx.Client(
+                timeout=self.timeout_seconds,
+                trust_env=False,
+                verify=self.verify_tls,
+            ) as client:
+                yield client
+
+    def close(self) -> None:
+        if self._pooled_client is not None:
+            try:
+                self._pooled_client.close()
+            except Exception:
+                pass
+            self._pooled_client = None
+
+    async def aclose(self) -> None:
+        if self._pooled_async_client is not None:
+            try:
+                await self._pooled_async_client.aclose()
+            except Exception:
+                pass
+            self._pooled_async_client = None
 
     def _url(self) -> str:
         if self.endpoint.startswith(("http://", "https://")):
@@ -472,19 +537,16 @@ class CodexResponsesVisionAdapter:
         finally:
             shutil.rmtree(work, ignore_errors=True)
 
-    def infer(self, image: dict[str, Any], options: dict[str, Any]) -> dict[str, Any]:
-        if not self.api_key:
-            raise CodexResponsesError("AUTO_ANNOTATION_API_KEY 未配置")
-        image_bytes = self.object_store.get_bytes(image["bucket"], image["object_key"])
-        candidates = options.get("candidates") or []
-        if not isinstance(candidates, list):
-            raise CodexResponsesError("auto annotation candidates must be a list")
-        if self.use_codex_cli:
-            return self._infer_cli(image_bytes, candidates, options)
-
-        mime_type = mimetypes.guess_type(str(image.get("object_key") or ""))[0] or "image/jpeg"
+    def _post_responses_payload(
+        self,
+        *,
+        prompt: str,
+        image_bytes: bytes,
+        mime_type: str,
+        candidates: list[dict[str, Any]],
+        guided_schema: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         encoded = base64.b64encode(image_bytes).decode("ascii")
-        prompt = render_batch_prompt(candidates, options)
         content = [
             {"type": "input_text", "text": prompt},
             {"type": "input_image", "image_url": f"data:{mime_type};base64,{encoded}", "detail": "high"},
@@ -496,7 +558,7 @@ class CodexResponsesVisionAdapter:
                 "image_url": f"data:image/jpeg;base64,{encoded_view}",
                 "detail": "high",
             })
-        payload = {
+        payload: dict[str, Any] = {
             "model": self.model,
             "input": [{
                 "role": "user",
@@ -504,13 +566,11 @@ class CodexResponsesVisionAdapter:
             }],
             "reasoning": {"effort": self.reasoning_effort},
         }
+        if guided_schema is not None:
+            payload["extra_body"] = {"guided_json": guided_schema}
         headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
         try:
-            with httpx.Client(
-                timeout=self.timeout_seconds,
-                trust_env=False,
-                verify=self.verify_tls,
-            ) as client:
+            with self._client_scope() as client:
                 response = client.post(self._url(), json=payload, headers=headers)
             response.raise_for_status()
             body = response.json()
@@ -522,8 +582,47 @@ class CodexResponsesVisionAdapter:
             error = body["error"]
             message = error.get("message") if isinstance(error, dict) else str(error)
             raise CodexResponsesError(f"Codex Responses returned error: {message}")
-        # A gateway may return decisions directly, without output text.
-        data = body if isinstance(body, dict) and (body.get("decisions") or body.get("votes")) else _parse_json_text(_extract_output_text(body))
+        return body if isinstance(body, dict) and (body.get("decisions") or body.get("votes")) else _parse_json_text(_extract_output_text(body))
+
+    def infer(self, image: dict[str, Any], options: dict[str, Any]) -> dict[str, Any]:
+        if not self.api_key:
+            raise CodexResponsesError("AUTO_ANNOTATION_API_KEY 未配置")
+        image_bytes = self.object_store.get_bytes(image["bucket"], image["object_key"])
+        candidates = options.get("candidates") or []
+        if not isinstance(candidates, list):
+            raise CodexResponsesError("auto annotation candidates must be a list")
+        if self.use_codex_cli:
+            return self._infer_cli(image_bytes, candidates, options)
+
+        mime_type = mimetypes.guess_type(str(image.get("object_key") or ""))[0] or "image/jpeg"
+        mode = str(options.get("mode") or self.default_mode).strip().lower()
+        if mode in {"fast", "adaptive"}:
+            fast_prompt = render_fast_prompt(candidates, options)
+            fast_data = self._post_responses_payload(
+                prompt=fast_prompt,
+                image_bytes=image_bytes,
+                mime_type=mime_type,
+                candidates=candidates,
+                guided_schema=FAST_DECISION_SCHEMA,
+            )
+            fast_parsed = parse_fast_response(fast_data)
+            if mode == "fast":
+                return fast_parsed
+            needs_fallback = any(
+                d.get("label") == "uncertain" or float(d.get("confidence", 0.0)) < 0.75
+                for d in fast_parsed.get("decisions", [])
+            )
+            if not needs_fallback:
+                return fast_parsed
+
+        prompt = render_batch_prompt(candidates, options)
+        data = self._post_responses_payload(
+            prompt=prompt,
+            image_bytes=image_bytes,
+            mime_type=mime_type,
+            candidates=candidates,
+            guided_schema=options.get("guided_json"),
+        )
         return {"scene": normalize_scene(data.get("scene")), "decisions": _normalise_decisions(data)}
 
     def review(self, image: dict[str, Any], candidates: list[dict[str, Any]], options: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -551,4 +650,5 @@ def build_codex_vision_adapter(settings, object_store: ObjectStore) -> CodexResp
         use_codex_cli=settings.auto_annotation_use_codex_cli,
         codex_binary=settings.auto_annotation_codex_binary,
         actor_authorization=settings.auto_annotation_actor_authorization,
+        default_mode=getattr(settings, "auto_annotation_mode", "deep"),
     )

@@ -1,0 +1,131 @@
+# Heterogeneous 6-GPU cluster topology: 4x Tesla T4 (16GB, GPU 0..3) + 2x NVIDIA L20 (48GB, GPU 4..5)
+# - GPU 0..3 (T4 SM75): YOLOE TensorRT FP16 high-throughput detection workers behindyoloe-detector-lb
+# - GPU 4 (L20 SM89): vLLM BF16 + FlashAttention-2 + Prefix Caching + LoRA serving Qwen3-VL-8B-Instruct
+# - GPU 5 (L20 SM89): Dedicated QLoRA training / offline verification / canary standby
+
+services:
+  yoloe-detector-t4-0:
+    image: yoloe_service:latest
+    restart: unless-stopped
+    mem_limit: 8g
+    memswap_limit: 8g
+    cpus: 4.0
+    labels:
+      owner: agent
+      gpu_tier: t4_detector
+    environment:
+      CUDA_VISIBLE_DEVICES: "0"
+      TRT_FP16_ENABLE: "1"
+      YOLOE_MAX_BATCH_SIZE: "8"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["0"]
+              capabilities: [gpu]
+
+  yoloe-detector-t4-1:
+    image: yoloe_service:latest
+    restart: unless-stopped
+    mem_limit: 8g
+    memswap_limit: 8g
+    cpus: 4.0
+    labels:
+      owner: agent
+      gpu_tier: t4_detector
+    environment:
+      CUDA_VISIBLE_DEVICES: "0"
+      TRT_FP16_ENABLE: "1"
+      YOLOE_MAX_BATCH_SIZE: "8"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["1"]
+              capabilities: [gpu]
+
+  yoloe-detector-t4-2:
+    image: yoloe_service:latest
+    restart: unless-stopped
+    mem_limit: 8g
+    memswap_limit: 8g
+    cpus: 4.0
+    labels:
+      owner: agent
+      gpu_tier: t4_detector
+    environment:
+      CUDA_VISIBLE_DEVICES: "0"
+      TRT_FP16_ENABLE: "1"
+      YOLOE_MAX_BATCH_SIZE: "8"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["2"]
+              capabilities: [gpu]
+
+  yoloe-detector-t4-3:
+    image: yoloe_service:latest
+    restart: unless-stopped
+    mem_limit: 8g
+    memswap_limit: 8g
+    cpus: 4.0
+    labels:
+      owner: agent
+      gpu_tier: t4_detector
+    environment:
+      CUDA_VISIBLE_DEVICES: "0"
+      TRT_FP16_ENABLE: "1"
+      YOLOE_MAX_BATCH_SIZE: "8"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["3"]
+              capabilities: [gpu]
+
+  vllm-qwen3vl-l20:
+    image: vllm/vllm-openai:latest
+    restart: unless-stopped
+    ipc: host
+    mem_limit: 32g
+    memswap_limit: 32g
+    cpus: 8.0
+    labels:
+      owner: agent
+      gpu_tier: l20_vlm_verifier
+    ports:
+      - "127.0.0.1:${VLLM_L20_PORT:-8009}:8000"
+    volumes:
+      - ${QWEN3VL_MODEL_DIR:-/data/models/Qwen3-VL-8B-Instruct}:/models/Qwen3-VL-8B-Instruct:ro
+      - ${QWEN3VL_LORA_DIR:-/data/models/qwen3vl-ktd-lora}:/models/qwen3vl-ktd-lora:ro
+    command:
+      - "--model"
+      - "/models/Qwen3-VL-8B-Instruct"
+      - "--served-model-name"
+      - "Qwen/Qwen3-VL-8B-Instruct"
+      - "--dtype"
+      - "bfloat16"
+      - "--gpu-memory-utilization"
+      - "0.85"
+      - "--max-model-len"
+      - "8192"
+      - "--max-num-seqs"
+      - "32"
+      - "--enable-prefix-caching"
+      - "--enable-lora"
+      - "--max-lora-rank"
+      - "32"
+      - "--lora-modules"
+      - "ktd-verifier=/models/qwen3vl-ktd-lora"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["4"]
+              capabilities: [gpu]

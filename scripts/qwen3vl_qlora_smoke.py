@@ -14,15 +14,30 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Sequence
 
-import torch
-from torch.utils.data import Dataset
-from transformers import (
-    AutoProcessor,
-    BitsAndBytesConfig,
-    Qwen3VLForConditionalGeneration,
-    Trainer,
-    TrainingArguments,
-)
+try:
+    import torch
+    from torch.utils.data import Dataset
+except ModuleNotFoundError:  # pragma: no cover - local CPU test env without torch
+    torch = None  # type: ignore[assignment]
+
+    class Dataset:  # type: ignore[no-redef]
+        def __class_getitem__(cls, item: Any) -> Any:
+            return cls
+
+try:
+    from transformers import (
+        AutoProcessor,
+        BitsAndBytesConfig,
+        Qwen3VLForConditionalGeneration,
+        Trainer,
+        TrainingArguments,
+    )
+except ModuleNotFoundError:  # pragma: no cover - local CPU test env without transformers
+    AutoProcessor = None  # type: ignore[assignment]
+    BitsAndBytesConfig = None  # type: ignore[assignment]
+    Qwen3VLForConditionalGeneration = None  # type: ignore[assignment]
+    Trainer = object  # type: ignore[assignment,misc]
+    TrainingArguments = None  # type: ignore[assignment]
 
 from qwen_training_provenance import (
     validate_human_gold_dataset,
@@ -130,6 +145,104 @@ class QwenVerifierDataset(Dataset[dict[str, Any]]):
         return {key: value for key, value in full.items() if torch.is_tensor(value)}
 
 
+DEFAULT_LORA_TARGET_MODULES: list[str] = [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj",
+]
+VISION_PROJ_MODULES: list[str] = [
+    "merger.mlp.0",
+    "merger.mlp.2",
+]
+
+
+def resolve_lora_target_modules(include_vision_proj: bool = False) -> list[str]:
+    modules = list(DEFAULT_LORA_TARGET_MODULES)
+    if include_vision_proj:
+        for mod in VISION_PROJ_MODULES:
+            if mod not in modules:
+                modules.append(mod)
+    return modules
+
+
+def _detect_gpu_capabilities(device_index: int = 0) -> dict[str, Any]:
+    """Detect GPU SM capability and memory to select optimal precision, attention, and DataLoader parameters."""
+    import importlib.util
+
+    if torch is None or not torch.cuda.is_available():
+        return {
+            "device_name": "cpu",
+            "sm_major": 0,
+            "sm_minor": 0,
+            "total_gb": 0.0,
+            "free_gb": 0.0,
+            "compute_dtype": getattr(torch, "float32", "float32"),
+            "bf16": False,
+            "fp16": False,
+            "attn_implementation": "sdpa",
+            "is_l20_class": False,
+            "recommended_batch_size": 1,
+            "recommended_grad_accum": 1,
+            "recommended_num_workers": 0,
+            "pin_memory": False,
+            "persistent_workers": False,
+        }
+
+    major, minor = torch.cuda.get_device_capability(device_index)
+    device_name = torch.cuda.get_device_name(device_index)
+    free_bytes, total_bytes = torch.cuda.mem_get_info(device_index)
+    free_gb = free_bytes / (1024**3)
+    total_gb = total_bytes / (1024**3)
+    has_fa2 = importlib.util.find_spec("flash_attn") is not None
+
+    if major >= 8:
+        compute_dtype = torch.bfloat16
+        bf16 = True
+        fp16 = False
+        attn_impl = "flash_attention_2" if has_fa2 else "sdpa"
+    else:
+        compute_dtype = torch.float16
+        bf16 = False
+        fp16 = True
+        attn_impl = "sdpa"
+
+    is_l20_class = major >= 8 and total_gb >= 40.0
+    if is_l20_class:
+        batch_size = 4
+        grad_accum = 4
+        num_workers = 8
+        pin_memory = True
+        persistent_workers = True
+    else:
+        batch_size = 1
+        grad_accum = 16
+        num_workers = 2
+        pin_memory = True
+        persistent_workers = False
+
+    return {
+        "device_name": device_name,
+        "sm_major": major,
+        "sm_minor": minor,
+        "total_gb": total_gb,
+        "free_gb": free_gb,
+        "compute_dtype": compute_dtype,
+        "bf16": bf16,
+        "fp16": fp16,
+        "attn_implementation": attn_impl,
+        "is_l20_class": is_l20_class,
+        "recommended_batch_size": batch_size,
+        "recommended_grad_accum": grad_accum,
+        "recommended_num_workers": num_workers,
+        "pin_memory": pin_memory,
+        "persistent_workers": persistent_workers,
+    }
+
+
 @dataclass
 class SingleSampleCollator:
     """Keep batches at one sample to avoid variable image patch padding."""
@@ -138,6 +251,94 @@ class SingleSampleCollator:
         if len(features) != 1:
             raise ValueError("QLoRA smoke collator expects batch size 1")
         return features[0]
+
+
+@dataclass
+class MultiSamplePadCollator:
+    """Collate single or multi-sample Qwen3-VL batches with right-padded sequences and concatenated vision patches."""
+
+    pad_token_id: int = 0
+
+    def __call__(self, features: list[dict[str, Any]]) -> dict[str, Any]:
+        if not features:
+            raise ValueError("MultiSamplePadCollator received empty features")
+        if len(features) == 1:
+            return features[0]
+
+        if torch is None:
+            import numpy as np
+
+            max_seq_len = max(int(np.asarray(f["input_ids"]).shape[-1]) for f in features)
+            b_ids, b_mask, b_lbl, pv_list, grid_list = [], [], [], [], []
+            for f in features:
+                ids = np.asarray(f["input_ids"]).reshape(-1)
+                mask = (
+                    np.asarray(f["attention_mask"]).reshape(-1)
+                    if "attention_mask" in f
+                    else np.ones_like(ids)
+                )
+                lbl = np.asarray(f["labels"]).reshape(-1)
+                pad_len = max_seq_len - int(ids.shape[-1])
+                if pad_len > 0:
+                    ids = np.pad(ids, (0, pad_len), constant_values=self.pad_token_id)
+                    mask = np.pad(mask, (0, pad_len), constant_values=0)
+                    lbl = np.pad(lbl, (0, pad_len), constant_values=-100)
+                b_ids.append(ids)
+                b_mask.append(mask)
+                b_lbl.append(lbl)
+                if "pixel_values" in f:
+                    pv_list.append(np.asarray(f["pixel_values"]))
+                if "image_grid_thw" in f:
+                    grid_list.append(np.asarray(f["image_grid_thw"]))
+            out: dict[str, Any] = {
+                "input_ids": np.stack(b_ids, axis=0),
+                "attention_mask": np.stack(b_mask, axis=0),
+                "labels": np.stack(b_lbl, axis=0),
+            }
+            if pv_list:
+                out["pixel_values"] = np.concatenate(pv_list, axis=0)
+            if grid_list:
+                out["image_grid_thw"] = np.concatenate(grid_list, axis=0)
+            return out
+
+        max_seq_len = max(int(f["input_ids"].shape[-1]) for f in features)
+        batch_input_ids: list[Any] = []
+        batch_attention_mask: list[Any] = []
+        batch_labels: list[Any] = []
+        pixel_values_list: list[Any] = []
+        image_grid_thw_list: list[Any] = []
+
+        for f in features:
+            ids = f["input_ids"].squeeze(0) if f["input_ids"].ndim == 2 else f["input_ids"]
+            mask = (
+                f["attention_mask"].squeeze(0)
+                if "attention_mask" in f and f["attention_mask"].ndim == 2
+                else torch.ones_like(ids)
+            )
+            lbl = f["labels"].squeeze(0) if f["labels"].ndim == 2 else f["labels"]
+            pad_len = max_seq_len - int(ids.shape[-1])
+            if pad_len > 0:
+                ids = torch.nn.functional.pad(ids, (0, pad_len), value=self.pad_token_id)
+                mask = torch.nn.functional.pad(mask, (0, pad_len), value=0)
+                lbl = torch.nn.functional.pad(lbl, (0, pad_len), value=-100)
+            batch_input_ids.append(ids)
+            batch_attention_mask.append(mask)
+            batch_labels.append(lbl)
+            if "pixel_values" in f and torch.is_tensor(f["pixel_values"]):
+                pixel_values_list.append(f["pixel_values"])
+            if "image_grid_thw" in f and torch.is_tensor(f["image_grid_thw"]):
+                image_grid_thw_list.append(f["image_grid_thw"])
+
+        batch: dict[str, Any] = {
+            "input_ids": torch.stack(batch_input_ids, dim=0),
+            "attention_mask": torch.stack(batch_attention_mask, dim=0),
+            "labels": torch.stack(batch_labels, dim=0),
+        }
+        if pixel_values_list:
+            batch["pixel_values"] = torch.cat(pixel_values_list, dim=0)
+        if image_grid_thw_list:
+            batch["image_grid_thw"] = torch.cat(image_grid_thw_list, dim=0)
+        return batch
 
 
 def _configure_processor(processor: Any, min_pixels: int, max_pixels: int) -> None:
@@ -198,6 +399,11 @@ def main() -> int:
     parser.add_argument("--max-length", type=int, default=2048)
     parser.add_argument("--min-pixels", type=int, default=28 * 28 * 64)
     parser.add_argument("--max-pixels", type=int, default=28 * 28 * 256)
+    parser.add_argument(
+        "--include-vision-proj",
+        action="store_true",
+        help="Include vision merger MLP projection layers in LoRA target modules.",
+    )
     args = parser.parse_args()
 
     if not torch.cuda.is_available():
@@ -206,7 +412,8 @@ def main() -> int:
         raise FileNotFoundError(args.train)
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    compute_dtype = torch.bfloat16
+    gpu_caps = _detect_gpu_capabilities(0)
+    compute_dtype = gpu_caps["compute_dtype"]
     quantization = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_quant_type="nf4",
@@ -221,20 +428,21 @@ def main() -> int:
         quantization_config=quantization,
         torch_dtype=compute_dtype,
         device_map={"": 0},
-        attn_implementation="sdpa",
+        attn_implementation=gpu_caps["attn_implementation"],
     )
     model.config.use_cache = False
 
     from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 
+    target_modules = resolve_lora_target_modules(args.include_vision_proj)
     model = prepare_model_for_kbit_training(model)
     model = get_peft_model(
         model,
         LoraConfig(
-            r=8,
-            lora_alpha=16,
+            r=16,
+            lora_alpha=32,
             lora_dropout=0.05,
-            target_modules=["q_proj", "v_proj"],
+            target_modules=target_modules,
             bias="none",
             task_type="CAUSAL_LM",
         ),
@@ -260,8 +468,8 @@ def main() -> int:
         save_strategy="steps",
         save_steps=max(1, args.max_steps),
         save_total_limit=1,
-        bf16=True,
-        fp16=False,
+        bf16=bool(gpu_caps["bf16"]),
+        fp16=bool(gpu_caps["fp16"]),
         optim="paged_adamw_8bit",
         gradient_checkpointing=True,
         remove_unused_columns=False,

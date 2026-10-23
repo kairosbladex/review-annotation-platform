@@ -17,8 +17,9 @@ nodes:
   - remote_sync
 params:
   remote_root: /data/workspace/review-annotation-platform-ktd/agent-runs
-  gpu_index: 4
-  min_free_gpu_mib: 20000
+  gpu_index: auto
+  preferred_gpu_arch: L20
+  min_free_gpu_mib: 40000
   # dataset must already exist on the server (Codex upload convention);
   # it must contain dataset-container.yaml with container paths (/ktd-data).
   dataset_remote_dir: /data/workspace/jzheng/yoloe_service/data/ktd-formal-training-20260903/dataset
@@ -28,7 +29,9 @@ params:
   batch: 4
   patience: 15
   command: >-
-    docker run --rm --name agent-{run_id} --gpus "device={gpu_index}" --ipc=host
+    docker run --rm --name agent-{run_id} --label owner=agent
+    --memory=32g --memory-swap=32g --cpus=8
+    --gpus "device={gpu_index}" --ipc=host
     -e CUDA_VISIBLE_DEVICES=0
     -v {dataset_remote_dir}:/ktd-data:ro
     -v {remote_run_dir}/runs:/ktd-runs

@@ -19,6 +19,14 @@ _CLEAN_SOURCE_VIEW_ROLES = (
     "clean_context",
     "clean_roi",
 )
+_CLEAN_SOURCE_VIEW_ROLES_2VIEW = (
+    "annotated_context",
+    "clean_roi",
+)
+_ALLOWED_CLEAN_SOURCE_ROLE_SETS = (
+    _CLEAN_SOURCE_VIEW_ROLES,
+    _CLEAN_SOURCE_VIEW_ROLES_2VIEW,
+)
 
 
 def _resolve_file(
@@ -303,20 +311,19 @@ def validate_human_gold_dataset(
             image_paths = row.get("image")
             roles = meta.get("view_roles")
             declared_view_shas = meta.get("view_sha256")
-            if not isinstance(image_paths, list) or len(image_paths) != 4:
-                raise ValueError(
-                    "row " + str(row_number) + " must contain four ordered training views"
-                )
-            if (
-                list(roles) if isinstance(roles, (list, tuple)) else None
-            ) != list(_CLEAN_SOURCE_VIEW_ROLES):
+            role_tuple = tuple(roles) if isinstance(roles, (list, tuple)) else ()
+            if role_tuple not in _ALLOWED_CLEAN_SOURCE_ROLE_SETS:
                 raise ValueError("clean-source view_roles are missing or out of order")
+            if not isinstance(image_paths, list) or len(image_paths) != len(role_tuple):
+                raise ValueError(
+                    "row " + str(row_number) + " must contain ordered training views matching view_roles"
+                )
             if not isinstance(declared_view_shas, Mapping):
                 raise ValueError("clean-source view_sha256 must map every view role")
-            if set(declared_view_shas) != set(_CLEAN_SOURCE_VIEW_ROLES):
+            if set(declared_view_shas) != set(role_tuple):
                 raise ValueError("clean-source view_sha256 roles are incomplete")
             actual_view_shas: dict[str, str] = {}
-            for role, image_path in zip(_CLEAN_SOURCE_VIEW_ROLES, image_paths):
+            for role, image_path in zip(role_tuple, image_paths):
                 view = _resolve_file(
                     image_path,
                     roots=(dataset_dir,),
@@ -358,9 +365,9 @@ def validate_human_gold_dataset(
                     template.encode("utf-8")
                 ).hexdigest() != prompt_template_sha256:
                     raise ValueError("prompt-template SHA-256 differs from dataset contract")
-                if contract.get("view_schema") != _CLEAN_SOURCE_VIEW_SCHEMA or list(
-                    contract.get("view_roles") or []
-                ) != list(_CLEAN_SOURCE_VIEW_ROLES):
+                if contract.get("view_schema") != _CLEAN_SOURCE_VIEW_SCHEMA or tuple(
+                    contract.get("view_roles") or ()
+                ) != role_tuple:
                     raise ValueError("view contract differs from clean-source schema")
                 if contract.get("view_generation") != "service_crop_v1_lossless_png":
                     raise ValueError("view-generation contract differs from clean-source schema")

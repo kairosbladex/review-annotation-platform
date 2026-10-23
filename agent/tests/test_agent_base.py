@@ -274,3 +274,34 @@ def test_dataset_audit_requires_task_confirmation(tmp_path: Path):
     final = registry.get("dataset_audit")(state)
     assert final["gates"]["dataset_audit"]["passed"] is False
     assert any("confirm_task" in b for b in final["gates"]["dataset_audit"]["blockers"])
+
+
+def test_remote_gpu_selection_prefers_idle_l20_in_4t4_2l20_cluster():
+    from agent.nodes.remote_job import parse_nvidia_smi_csv, select_gpu_device
+
+    smi_output = "\n".join(
+        [
+            "0, Tesla T4, 14800, 309, 15109",
+            "1, Tesla T4, 14500, 609, 15109",
+            "2, Tesla T4, 14200, 909, 15109",
+            "3, Tesla T4, 14900, 209, 15109",
+            "4, NVIDIA L20, 4120, 41948, 46068",
+            "5, NVIDIA L20, 45200, 868, 46068",
+        ]
+    )
+    gpus = parse_nvidia_smi_csv(smi_output)
+    assert len(gpus) == 6
+    selected_l20 = select_gpu_device(
+        gpus, min_free_gpu_mib=40960, preferred_gpu_arch="L20"
+    )
+    assert selected_l20 is not None
+    assert selected_l20["index"] == 5
+    assert "L20" in selected_l20["name"]
+
+    selected_t4 = select_gpu_device(
+        gpus, min_free_gpu_mib=12288, preferred_gpu_arch="T4"
+    )
+    assert selected_t4 is not None
+    assert selected_t4["index"] == 3
+
+

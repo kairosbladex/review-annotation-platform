@@ -84,3 +84,29 @@ def test_zero_denominator_risk_rates_are_undefined_not_perfect():
     assert summary["actual_negative_n"] == 0
     assert summary["far"] is None
     assert summary["false_accept_rate_actual_negative"] is None
+
+
+def test_by_class_table_and_threshold_search_for_target_far():
+    from qwen3vl_verify import (
+        find_optimal_threshold_for_far,
+        format_by_class_markdown_table,
+    )
+
+    rows = [
+        {"class_name": "person", "gold": "true", "prediction": "true", "score": 0.95, "parse_error": None},
+        {"class_name": "person", "gold": "true", "prediction": "true", "score": 0.85, "parse_error": None},
+        {"class_name": "person", "gold": "false", "prediction": "true", "score": 0.60, "parse_error": None},
+        {"class_name": "person", "gold": "false", "prediction": "false", "score": 0.20, "parse_error": None},
+        {"class_name": "road_crack", "gold": "true", "prediction": "true", "score": 0.90, "parse_error": None},
+        {"class_name": "road_crack", "gold": "false", "prediction": "false", "score": 0.10, "parse_error": None},
+    ]
+    summary = summarize_predictions(rows)
+    assert len(summary["by_class_table"]) == 2
+    md = format_by_class_markdown_table(summary)
+    assert "| person |" in md
+    assert "| road_crack |" in md
+
+    search = find_optimal_threshold_for_far(rows, max_far=0.05)
+    assert search["best_metrics"]["meets_far_constraint"] is True
+    assert search["best_metrics"]["far"] == 0.0
+    assert 0.60 < search["recommended_threshold"] <= 0.85

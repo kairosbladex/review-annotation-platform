@@ -246,3 +246,56 @@ def test_auto_annotation_applies_shared_rooftop_and_red_overlay_policy_and_audit
         "rooftop_vehicle_rule",
     }
     assert all("votes" in payload and "model_label" in payload and "local_decision" in payload for payload in payloads)
+
+
+def test_adaptive_mode_falls_back_from_fast_to_deep_on_low_confidence():
+    from app.services.auto_annotation_service import _invoke_adapter
+
+    class AdaptiveFakeAdapter:
+        def __init__(self) -> None:
+            self.modes: list[str] = []
+
+        def infer(self, image, options):
+            mode = options.get("mode")
+            self.modes.append(mode)
+            if mode == "fast":
+                return {
+                    "decisions": [
+                        {"target_index": 0, "decision": "CONFIRMED", "confidence": 0.62, "reason": "low_conf_fast"}
+                    ]
+                }
+            return {
+                "decisions": [
+                    {
+                        "target_index": 0,
+                        "votes": [
+                            {"role": "target_presence_fit", "label": "true", "confidence": 0.90, "reason": "deep"},
+                            {"role": "class_scene", "label": "true", "confidence": 0.88, "reason": "deep"},
+                            {"role": "adversarial", "label": "true", "confidence": 0.86, "reason": "deep"},
+                        ],
+                        "consensus": "true",
+                    }
+                ]
+            }
+
+    adapter = AdaptiveFakeAdapter()
+    res = _invoke_adapter(
+        adapter,
+        {"bucket": "b", "object_key": "k"},
+        [{"target_index": 0, "class_name": "vehicle", "bbox": [0.1, 0.1, 0.2, 0.2]}],
+        {"mode": "adaptive"},
+    )
+    assert adapter.modes == ["fast", "deep"]
+    assert res["decisions"][0]["votes"][0]["confidence"] == 0.90
+
+
+def test_http_adapter_reuses_pooled_client_and_limits():
+    from app.adapters.model_provider import DEFAULT_HTTP_LIMITS, HttpModelAdapter
+
+    assert DEFAULT_HTTP_LIMITS.max_connections == 64
+    assert DEFAULT_HTTP_LIMITS.max_keepalive_connections == 32
+    adapter = HttpModelAdapter(object_store=MemoryObjectStore())
+    c1 = adapter.get_pooled_client(timeout=30.0, verify_tls=True)
+    c2 = adapter.get_pooled_client(timeout=30.0, verify_tls=True)
+    assert c1 is c2
+    adapter.close()
