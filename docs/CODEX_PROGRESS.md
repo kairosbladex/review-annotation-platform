@@ -28,3 +28,13 @@ project_id=review-annotation-platform
 ## 本次源文件核对
 
 README 原始字节 SHA-256：8a7becd39053a797a729df9f3881741c3df94c782ebf9db2c3cc02ee0aba452a。网页读取的是保持行号的脱敏版本，原文哈希与脱敏哈希分别记录在桥接概览。
+
+## 2026-09-22 MCP 同步记录
+
+- 当前主工作区：`/Users/wangxiaolin/PycharmProjects/review-annotation-platform`。
+- 当前分支：`codex/uncertain-recheck-training-data`；当前 HEAD：`be18583cd4f3e477e64f49821ece1eeb35ebc240`。
+- 同步前已有稳定性验证修改、`.idea`、多个实验数据集、运行结果和图片等未提交内容；本次不读取或共享数据目录中的原图、模型输出和运行日志，也不清理既有改动。
+- 本次将进度、继续文档、核心复核/金标/定位服务源码及定向测试加入规划桥接 allowlist；具体实验数据仍留在本机，不因登记而进入网页快照。
+- 网页分析应先固定 `snapshot_id`，并把模型候选、人工金标、`uncertain`、独立测量和业务验收分开；快照中的历史报告不能替代新一轮精度测量。
+- 该项目已有确认的 ChatGPT 项目绑定；两个 Zhuoyi 目标工程仍处于待绑定状态。
+- 当前隧道未运行；本机桥接快照可验证的只是登记文件和源码证据，不是线上视觉服务或真实业务结果。
