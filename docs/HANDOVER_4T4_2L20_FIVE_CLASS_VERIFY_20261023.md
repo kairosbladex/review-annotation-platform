@@ -334,10 +334,13 @@ ssh ai-lingxi 'cd <repo> && PYTHONPATH=.:backend .venv/bin/python scripts/qwen3v
 
 | 项 | 值 |
 |---|---|
-| 提交 SHA | `0b9d9c221cd7ef2634aebac54078cafc772ae350` |
-| 提交信息 | `fix: 修复四阶段复核缺陷并补齐五类门禁与级联配置传导` |
-| 变更规模 | 11 files changed, 964 insertions(+), 8 deletions(-) |
-| 是否 push | **否**（按要求仅本地提交） |
+| 第一轮提交 SHA | `0b9d9c221cd7ef2634aebac54078cafc772ae350` |
+| 第一轮提交信息 | `fix: 修复四阶段复核缺陷并补齐五类门禁与级联配置传导` |
+| 第一轮变更规模 | 11 files changed, 964 insertions(+), 8 deletions(-) |
+| 第二轮提交 SHA | `960b453faedc163271a71c63c08841b08f5813f1` |
+| 第二轮提交信息 | `fix: 修复大目标ROI灰边与级联阈值退化并量化卸载收益` |
+| 第二轮变更规模 | 11 files changed, 851 insertions(+), 59 deletions(-) |
+| 是否 push | **否**（两轮均仅本地提交） |
 | 基线 | `8d778b50c27d43f38b00e08b2e9fa985f5684e74` |
 
 ---
