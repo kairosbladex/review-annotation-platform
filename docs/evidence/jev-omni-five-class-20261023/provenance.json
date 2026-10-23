@@ -1,0 +1,64 @@
+{
+  "captured_at": "2026-10-23T20:50:28+08:00",
+  "host": "192.168.130.238",
+  "ssh_alias": "ai-lingxi",
+  "branch": "docs/luna-business-test-release",
+  "source_commit": "90e9d054c69aec48e6c23e3dd5f326ce9bf0ce73",
+  "gpu": {
+    "index": 4,
+    "name": "NVIDIA L20",
+    "device_id": "4",
+    "baseline_used_mib": 1514,
+    "loaded_used_mib": 24867,
+    "loaded_free_mib": 20728
+  },
+  "model": {
+    "path": "/data/workspace/review-annotation-platform-ktd/jev_omni_eval/model",
+    "size_gb": 23.92,
+    "weights_sha256_verified_by_prior_run": true,
+    "transformers": "5.17.0",
+    "pylibs_path": "/data/workspace/review-annotation-platform-ktd/jev_omni_eval/pylibs"
+  },
+  "runtime": {
+    "jev_omni_container": "jev-omni-t25-verify",
+    "jev_omni_endpoint": "http://127.0.0.1:18010",
+    "backend_container": "review-verify-90e9d054",
+    "backend_endpoint": "http://127.0.0.1:18392",
+    "tier3_fixture_container": "review-tier3-mock-verify",
+    "tier3_fixture_endpoint": "http://127.0.0.1:18393",
+    "backend_database": "/data/workspace/review-annotation-platform-ktd/verify_instance_90e9d054/state-v3/verify.sqlite3",
+    "backend_object_store": "/data/workspace/review-annotation-platform-ktd/verify_instance_90e9d054/state-v3/objects"
+  },
+  "not_touched": [
+    "review-annotation-test-api-1 / 5275 / 8392",
+    "review-annotation-test-frontend-1",
+    "review-annotation-test-worker-1",
+    "review-annotation-test-postgres-1",
+    "review-annotation-test-minio-1",
+    "review-annotation-test-redis-1",
+    "review-annotation-test-model-fixture-1",
+    "review-vision-test-api-1 / 5276 / 8393 / 18397",
+    "review-vision-test-frontend-1",
+    "review-vision-test-worker-1",
+    "review-vision-test-postgres-1",
+    "review-vision-test-minio-1",
+    "review-vision-test-redis-1",
+    "review-vision-test-algorithm-1",
+    "review-vision-test-luna-worker",
+    "yoloe_service / 8188",
+    "yoloe_service_test / 8189",
+    "other pre-existing non-agent containers"
+  ],
+  "artifacts": {
+    "five_class_e2e.json": "951136d92df0d8b7f2225cc99a16124d715839aba2c313a0ed2aa644183d5b76",
+    "load_test_50.json": "3e926fc7801f55b663fcdc5be7dfdffbae77e02283ad36a4fca8612c5b569248",
+    "runtime_inventory.json": "e0788f39a0c38731690c5fb637d11c25ae0b690fab5f395a29b9d6913c307df9"
+  },
+  "limitations": [
+    "Tier 3 decisions use a deterministic Responses contract fixture, not an independent Qwen3-VL quality evaluation.",
+    "The vehicle/tricycle overlap sample uses controlled overlapping bboxes on a real frame.",
+    "The Tier 2 boundary sample uses a controlled detector score of 0.05 on a real frame.",
+    "Blue-roof forced Tier 3 is 1/1 in this run, not a global accuracy estimate.",
+    "The backend is bound to 127.0.0.1; remote access requires an SSH tunnel."
+  ]
+}

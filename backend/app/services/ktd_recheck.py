@@ -221,6 +221,7 @@ def evaluate_cascade_tier(
             "auto_label": "false",
             "requires_vlm": False,
             "confidence": confidence,
+            "class_name": cls_canon,
             "reason_code": "tier2_low_confidence_auto_reject",
         }
     if (
@@ -234,6 +235,7 @@ def evaluate_cascade_tier(
             "auto_label": "true",
             "requires_vlm": False,
             "confidence": confidence,
+            "class_name": cls_canon,
             "reason_code": "tier1_high_confidence_auto_confirm",
         }
     if is_scene_dependent:
@@ -251,6 +253,7 @@ def evaluate_cascade_tier(
         "auto_label": None,
         "requires_vlm": True,
         "confidence": confidence,
+        "class_name": cls_canon,
         "reason_code": reason,
     }
 

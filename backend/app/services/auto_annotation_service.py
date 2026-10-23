@@ -349,7 +349,11 @@ def _invoke_adapter(adapter: Any, image: dict[str, Any], candidates: list[dict[s
 
 def _synthetic_cascade_decision(target_index: int, routing: dict[str, Any]) -> dict[str, Any]:
     auto_label = str(routing["auto_label"])
-    conf = float(routing.get("confidence") or (0.95 if auto_label == "true" else 0.95))
+    # A cascade auto-decision is a deterministic rule outcome.  Its vote
+    # confidence must not inherit the detector score, otherwise a valid
+    # Tier 2 auto-reject at 0.05 would be re-read as low-confidence and
+    # downgraded to manual review by ``decision_from_votes``.
+    conf = 0.99
     reason = str(routing.get("reason_code") or "cascade_auto")
     votes = [
         {"role": role, "label": auto_label, "confidence": conf, "reason": reason}
@@ -461,6 +465,7 @@ def _process_item(
         [_candidate_payload(candidate) for candidate in candidates]
     )
     decisions: dict[int, dict[str, Any]] = {}
+    routing_by_idx: dict[int, dict[str, Any]] = {}
     if options.get("cascade_routing"):
         tier1_th = float(options.get("tier1_threshold", TIER1_AUTO_CONFIRM_THRESHOLD))
         tier2_th = float(options.get("tier2_threshold", TIER2_AUTO_REJECT_THRESHOLD))
@@ -478,7 +483,9 @@ def _process_item(
                     payload,
                     class_name=payload.get("class_name"),
                     candidate_meta={
-                        "candidate_id": payload.get("candidate_id"),
+                        # Database UUIDs are random and must not perturb the
+                        # visual verifier; keep only stable decision context.
+                        "target_index": payload.get("target_index"),
                         "class_name": payload.get("class_name"),
                         "detector_confidence": payload.get("confidence"),
                         "geometric_warning": payload.get("geometric_warning"),
@@ -505,6 +512,7 @@ def _process_item(
                         "jev_omni_explanation": tier25["explanation"],
                     }
                     routing = {**routing, "jev_omni": tier25}
+            routing_by_idx[t_idx] = routing
             if routing["requires_vlm"]:
                 tier3_payloads.append(payload)
                 tier3_candidates.append(cand_by_idx[t_idx])
@@ -518,6 +526,8 @@ def _process_item(
         decisions = _normalise_decisions(result, candidates)
     for candidate in candidates:
         decision = decisions[candidate.target_index]
+        if decision.get("cascade_routing") is None:
+            decision["cascade_routing"] = routing_by_idx.get(candidate.target_index)
         votes = decision["votes"]
         model_label = decision_from_votes(votes, votes_by_role=decision.get("votes_by_role"), consensus=decision.get("consensus"))
         model_confidence = _model_confidence(

@@ -24,6 +24,8 @@ class Settings:
     minio_region: str = "us-east-1"
     minio_auto_create_bucket: bool = True
     object_store_required: bool = False
+    object_store_backend: str = ""
+    object_store_root: str = ""
     model_adapter_type: str = "http"
     model_service_base_url: str = ""
     model_service_api_key: str = ""
@@ -50,6 +52,7 @@ class Settings:
     auto_annotation_codex_binary: str = "codex"
     auto_annotation_actor_authorization: str = "local-image-extension"
     auto_annotation_mode: str = "deep"
+    auto_annotation_dispatch_mode: str = "celery"
     auto_annotation_cascade_routing: bool = False
     # Tier 1 threshold calibrated on real offline data: 0.85 is the lowest two-decimal
     # value with zero added false positives on the 142 human-gold candidates
@@ -99,6 +102,8 @@ class Settings:
             minio_region=os.getenv("MINIO_REGION", cls.minio_region),
             minio_auto_create_bucket=os.getenv("MINIO_AUTO_CREATE_BUCKET", "true").lower() in {"1", "true", "yes", "on"},
             object_store_required=os.getenv("OBJECT_STORE_REQUIRED", "false").lower() in {"1", "true", "yes", "on"},
+            object_store_backend=os.getenv("OBJECT_STORE_BACKEND", cls.object_store_backend).strip().lower(),
+            object_store_root=os.getenv("OBJECT_STORE_ROOT", cls.object_store_root),
             model_adapter_type=os.getenv("MODEL_ADAPTER_TYPE", cls.model_adapter_type),
             model_service_base_url=os.getenv("MODEL_SERVICE_BASE_URL", cls.model_service_base_url),
             model_service_api_key=os.getenv("MODEL_SERVICE_API_KEY", cls.model_service_api_key),
@@ -119,6 +124,9 @@ class Settings:
             auto_annotation_codex_binary=os.getenv("AUTO_ANNOTATION_CODEX_BINARY", cls.auto_annotation_codex_binary),
             auto_annotation_actor_authorization=os.getenv("AUTO_ANNOTATION_ACTOR_AUTHORIZATION", cls.auto_annotation_actor_authorization),
             auto_annotation_mode=os.getenv("AUTO_ANNOTATION_MODE", cls.auto_annotation_mode).strip().lower(),
+            auto_annotation_dispatch_mode=os.getenv(
+                "AUTO_ANNOTATION_DISPATCH_MODE", cls.auto_annotation_dispatch_mode
+            ).strip().lower(),
             auto_annotation_cascade_routing=os.getenv("AUTO_ANNOTATION_CASCADE_ROUTING", "false").lower() in {"1", "true", "yes", "on"},
             tier1_auto_confirm_threshold=float(os.getenv("TIER1_AUTO_CONFIRM_THRESHOLD", str(cls.tier1_auto_confirm_threshold))),
             tier2_auto_reject_threshold=float(os.getenv("TIER2_AUTO_REJECT_THRESHOLD", str(cls.tier2_auto_reject_threshold))),

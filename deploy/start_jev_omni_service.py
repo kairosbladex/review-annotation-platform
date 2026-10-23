@@ -31,6 +31,7 @@ import binascii
 import os
 import sys
 import tempfile
+import threading
 import time
 from pathlib import Path
 from typing import Any
@@ -49,6 +50,7 @@ DEFAULT_OPTIONS = ("Yes", "No")
 MAX_IMAGE_BYTES = int(os.getenv("JEV_OMNI_MAX_IMAGE_BYTES", str(8 * 1024 * 1024)))
 
 app = FastAPI(title="Jev-Omni Tier 2.5 Fast Gate", version="1.0.0")
+_inference_lock = threading.Lock()
 
 _state: dict[str, Any] = {
     "predictor": None,
@@ -87,16 +89,45 @@ def _loader_kwargs() -> dict[str, Any]:
     return kwargs
 
 
+def _load_from_local_dir(model_dir: Path, *, device: str, dtype: str) -> Any:
+    """Assemble the public JevOmni classifier from a local checkpoint directory.
+
+    The upstream ``load_jev_omni`` helper only accepts a HuggingFace repo id and
+    would call ``snapshot_download`` even when a verified local checkpoint is
+    already present.  Keep the same assembly steps here so the service can run
+    fully offline from ``JEV_OMNI_MODEL_PATH``.
+    """
+    import json
+
+    import torch
+    import transformers
+    from transformers import AutoProcessor
+
+    if str(model_dir) not in sys.path:
+        sys.path.insert(0, str(model_dir))
+    from jev_omni import JevOmni, _find_backbone, _Head256  # type: ignore[import-not-found]
+
+    torch_dtype = torch.bfloat16 if dtype == "bfloat16" else torch.float16
+    config = transformers.AutoConfig.from_pretrained(model_dir)
+    model = getattr(transformers, config.architectures[0]).from_pretrained(
+        model_dir, dtype=torch_dtype, device_map=device
+    ).eval()
+    decision = json.loads(
+        (model_dir / "decision_config.json").read_text(encoding="utf-8")
+    )
+    head = _Head256(decision["hidden_size"]).to(device).eval()
+    head.load_state_dict(
+        torch.load(model_dir / "head.pt", map_location=device, weights_only=True)
+    )
+    _, decoder = _find_backbone(model)
+    processor = AutoProcessor.from_pretrained(model_dir)
+    return JevOmni(model, head, processor, decoder, device)
+
+
 def load_predictor() -> Any:
     """加载 12B 权重（幂等）。失败时把原因留在 ``_state['load_error']``。"""
     if _state["predictor"] is not None:
         return _state["predictor"]
-    try:
-        import jev_omni  # type: ignore[import-not-found]
-    except Exception as exc:  # noqa: BLE001
-        _state["load_error"] = f"import jev_omni failed: {exc}"
-        raise RuntimeError(_state["load_error"]) from exc
-
     model_path = os.getenv("JEV_OMNI_MODEL_PATH", "").strip()
     if not model_path:
         try:
@@ -107,20 +138,34 @@ def load_predictor() -> Any:
             _state["load_error"] = f"snapshot_download failed: {exc}"
             raise RuntimeError(_state["load_error"]) from exc
 
-    loader = getattr(jev_omni, "load_jev_omni", None)
-    if loader is None:
-        _state["load_error"] = "jev_omni.load_jev_omni missing"
-        raise RuntimeError(_state["load_error"])
+    # The checkpoint ships its own ``jev_omni.py``; make it importable before
+    # resolving the loader, otherwise a local-only deployment fails at import.
+    if Path(model_path).is_dir() and str(Path(model_path)) not in sys.path:
+        sys.path.insert(0, str(Path(model_path)))
+    try:
+        import jev_omni  # type: ignore[import-not-found]
+    except Exception as exc:  # noqa: BLE001
+        _state["load_error"] = f"import jev_omni failed: {exc}"
+        raise RuntimeError(_state["load_error"]) from exc
 
     try:
-        predictor = loader(model_path, **_loader_kwargs())
-    except TypeError:
-        # 兼容不接受 device/dtype/quantization 关键字的旧版加载器。
-        try:
-            predictor = loader(model_path)
-        except Exception as exc:  # noqa: BLE001
-            _state["load_error"] = str(exc)
-            raise
+        local_path = Path(model_path)
+        if local_path.is_dir() and (local_path / "config.json").is_file():
+            predictor = _load_from_local_dir(
+                local_path,
+                device=_state["device"] or "cuda",
+                dtype=_state["dtype"] or "bfloat16",
+            )
+        else:
+            loader = getattr(jev_omni, "load_jev_omni", None)
+            if loader is None:
+                _state["load_error"] = "jev_omni.load_jev_omni missing"
+                raise RuntimeError(_state["load_error"])
+            try:
+                predictor = loader(model_path, **_loader_kwargs())
+            except TypeError:
+                # 兼容不接受 device/dtype/quantization 关键字的旧版加载器。
+                predictor = loader(model_path)
     except Exception as exc:  # noqa: BLE001
         _state["load_error"] = str(exc)
         raise
@@ -181,13 +226,17 @@ def decide(payload: DecideRequest) -> dict[str, Any]:
     try:
         handle.write(image_bytes)
         handle.close()
-        output = predictor.predict(
-            state=payload.state,
-            question=payload.question,
-            options=list(options),
-            media=str(path),
-            modality=payload.modality or "image",
-        )
+        # JevOmni keeps a per-instance capture buffer; concurrent calls would
+        # overwrite it.  Serialize GPU inference while keeping HTTP intake
+        # concurrent so the service reports honest queueing latency.
+        with _inference_lock:
+            output = predictor.predict(
+                state=payload.state,
+                question=payload.question,
+                options=list(options),
+                media=str(path),
+                modality=payload.modality or "image",
+            )
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Jev-Omni 推理失败：{exc}") from exc
     finally:

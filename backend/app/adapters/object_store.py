@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from io import BytesIO
+from pathlib import Path
 from typing import BinaryIO
 
 
@@ -24,6 +25,61 @@ class ObjectStore:
 
 def public_image_url(base_url: str, object_key: str) -> str:
     return f"{base_url.rstrip('/')}/{str(object_key).lstrip('/')}"
+
+
+class FilesystemObjectStore(ObjectStore):
+    """Bucket/key object store rooted at a private local directory.
+
+    Used by isolated verification instances so their uploaded frames and
+    generated artifacts never share MinIO state with a test or production
+    deployment.  Bucket and key components are rejected if they could escape
+    the configured root.
+    """
+
+    def __init__(self, root: str | Path):
+        self.root = Path(root).expanduser().resolve()
+        self.root.mkdir(parents=True, exist_ok=True)
+
+    def _path(self, bucket: str, object_key: str) -> Path:
+        parts = [str(bucket), *str(object_key).split("/")]
+        if not parts or any(not part or part in {".", ".."} for part in parts):
+            raise ValueError("invalid object store bucket/key")
+        if any("\\" in part or "\x00" in part for part in parts):
+            raise ValueError("invalid object store bucket/key")
+        path = self.root.joinpath(*parts).resolve()
+        if not path.is_relative_to(self.root):
+            raise ValueError("object store path escapes root")
+        return path
+
+    def exists(self, bucket: str, object_key: str) -> bool:
+        try:
+            return self._path(bucket, object_key).is_file()
+        except ValueError:
+            return False
+
+    def presigned_get_url(self, bucket: str, object_key: str, expires_seconds: int = 900) -> str | None:
+        return None
+
+    def put_bytes(self, bucket: str, object_key: str, data: bytes, content_type: str) -> None:
+        path = self._path(bucket, object_key)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+
+    def get_bytes(self, bucket: str, object_key: str) -> bytes:
+        return self._path(bucket, object_key).read_bytes()
+
+    def list_keys(self, bucket: str, prefix: str) -> list[str]:
+        bucket_root = self._path(bucket, "__bucket__").parent
+        if not bucket_root.exists():
+            return []
+        keys = []
+        for path in bucket_root.rglob("*"):
+            if not path.is_file():
+                continue
+            key = path.relative_to(bucket_root).as_posix()
+            if key.startswith(prefix):
+                keys.append(key)
+        return keys
 
 
 class NullObjectStore(ObjectStore):
@@ -195,6 +251,11 @@ def _http_prefix_store(settings) -> HttpPrefixObjectStore | None:
 
 
 def build_object_store(settings) -> ObjectStore:
+    if getattr(settings, "object_store_backend", "") == "filesystem":
+        root = str(getattr(settings, "object_store_root", "") or "").strip()
+        if not root:
+            raise RuntimeError("OBJECT_STORE_BACKEND=filesystem requires OBJECT_STORE_ROOT")
+        return FilesystemObjectStore(root)
     http_store = _http_prefix_store(settings)
     if not settings.minio_endpoint or not settings.minio_access_key or not settings.minio_secret_key:
         if settings.object_store_required:

@@ -630,4 +630,11 @@ def test_api_auto_annotation_falls_back_to_tier3_when_jev_omni_raises(tmp_path):
         labels = sorted(
             annotation.label for annotation in session.scalars(select(Annotation)).all()
         )
+        applied = session.scalars(
+            select(AuditEvent).where(AuditEvent.action == "auto_annotation.applied")
+        ).all()
     assert labels == ["false", "true"]
+    routing = [json.loads(event.payload_json)["cascade_routing"] for event in applied]
+    assert len(routing) == 2
+    assert all(item and item.get("requires_vlm") for item in routing)
+    assert {item["reason_code"] for item in routing} == {"tier3_routed_to_l20_vlm"}

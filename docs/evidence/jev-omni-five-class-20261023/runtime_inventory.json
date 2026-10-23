@@ -1,0 +1,76 @@
+[
+  {
+    "name": "/jev-omni-t25-verify",
+    "image": "yoloe_service_test:luna-business-6755b1e",
+    "status": "running",
+    "started_at": "2026-10-23T12:48:58.235021859Z",
+    "labels": {
+      "com.docker.compose.image.builder": "classic",
+      "com.docker.compose.project": "yoloe_service_test_prod",
+      "com.docker.compose.service": "yoloe_service_test",
+      "com.docker.compose.version": "5.2.0",
+      "org.opencontainers.image.revision": "f9cea75",
+      "org.opencontainers.image.version": "22.04",
+      "owner": "agent",
+      "release.scope": "business-review-only",
+      "source.commit": "6755b1e149fb1bfceb289999b4f5ab8174279bdb"
+    },
+    "memory_limit_bytes": 30064771072,
+    "memory_swap_bytes": 30064771072,
+    "nano_cpus": 8000000000,
+    "network_mode": "bridge",
+    "port_bindings": {
+      "8010/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "18010"
+        }
+      ]
+    },
+    "device_requests": [
+      {
+        "Driver": "",
+        "Count": 0,
+        "DeviceIDs": [
+          "4"
+        ],
+        "Capabilities": [
+          [
+            "gpu"
+          ]
+        ],
+        "Options": {}
+      }
+    ]
+  },
+  {
+    "name": "/review-verify-90e9d054",
+    "image": "review-annotation-test-api:4e3e5c7",
+    "status": "running",
+    "started_at": "2026-10-23T12:48:23.349824762Z",
+    "labels": {
+      "owner": "agent"
+    },
+    "memory_limit_bytes": 8589934592,
+    "memory_swap_bytes": 8589934592,
+    "nano_cpus": 4000000000,
+    "network_mode": "host",
+    "port_bindings": {},
+    "device_requests": null
+  },
+  {
+    "name": "/review-tier3-mock-verify",
+    "image": "python:3.13-slim",
+    "status": "running",
+    "started_at": "2026-10-23T12:43:10.128586257Z",
+    "labels": {
+      "owner": "agent"
+    },
+    "memory_limit_bytes": 536870912,
+    "memory_swap_bytes": 536870912,
+    "nano_cpus": 1000000000,
+    "network_mode": "host",
+    "port_bindings": {},
+    "device_requests": null
+  }
+]

@@ -728,6 +728,20 @@ def test_low_confidence_non_roof_class_still_auto_rejects():
     assert routing["auto_label"] == "false"
 
 
+def test_tier2_auto_reject_votes_use_rule_confidence_not_detector_score():
+    """A 0.05 detector score must still persist a decisive auto-reject label."""
+    from app.services.auto_annotation_service import _synthetic_cascade_decision, decision_from_votes
+    from app.services.ktd_recheck import evaluate_cascade_tier
+
+    routing = evaluate_cascade_tier(
+        {"class_name": "车辆", "confidence": 0.05, "bbox": [0.1, 0.1, 0.5, 0.5]}
+    )
+    decision = _synthetic_cascade_decision(0, routing)
+
+    assert decision_from_votes(decision["votes"]) == "false"
+    assert all(vote["confidence"] >= 0.6 for vote in decision["votes"])
+
+
 def test_tier1_default_threshold_is_calibrated_on_real_gold_with_zero_added_fp():
     """回归 F6：默认阈值须与真实检测器分布匹配，且只对刚体类生效。"""
     from app.config import Settings

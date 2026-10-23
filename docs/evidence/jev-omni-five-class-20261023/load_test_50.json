@@ -1,0 +1,429 @@
+{
+  "requests": 50,
+  "concurrency": 4,
+  "wall_seconds": 11.451,
+  "qps": 4.367,
+  "latency_ms": {
+    "mean": 889.826,
+    "p50": 826.813,
+    "p95": 1161.748,
+    "p99": 1647.483,
+    "min": 744.263,
+    "max": 1768.22
+  },
+  "service_latency_ms": {
+    "mean": 878.676,
+    "p50": 816.15,
+    "p95": 1141.019,
+    "p99": 1612.976
+  },
+  "p_true": {
+    "min": 0.000579,
+    "max": 0.956145
+  },
+  "status_counts": {
+    "200": 50
+  },
+  "results": [
+    {
+      "index": 0,
+      "candidate_id": "1679d30c1c204528886cf81618dd132a:000",
+      "latency_ms": 1521.8174219917273,
+      "service_latency_ms": 1486.71,
+      "p_true": 0.9209320133507842,
+      "status": 200
+    },
+    {
+      "index": 1,
+      "candidate_id": "1679d30c1c204528886cf81618dd132a:002",
+      "latency_ms": 1768.2199679984478,
+      "service_latency_ms": 1734.29,
+      "p_true": 0.7240905545922949,
+      "status": 200
+    },
+    {
+      "index": 2,
+      "candidate_id": "1679d30c1c204528886cf81618dd132a:001",
+      "latency_ms": 1274.3551369931083,
+      "service_latency_ms": 1248.11,
+      "p_true": 0.47950369119644165,
+      "status": 200
+    },
+    {
+      "index": 3,
+      "candidate_id": "1679d30c1c204528886cf81618dd132a:004",
+      "latency_ms": 993.3616339985747,
+      "service_latency_ms": 966.23,
+      "p_true": 0.15895612300997788,
+      "status": 200
+    },
+    {
+      "index": 4,
+      "candidate_id": "1679d30c1c204528886cf81618dd132a:003",
+      "latency_ms": 988.7316359963734,
+      "service_latency_ms": 979.17,
+      "p_true": 0.6233768648915549,
+      "status": 200
+    },
+    {
+      "index": 5,
+      "candidate_id": "35d69abd520849d6abafeea580c376a7:000",
+      "latency_ms": 896.4389799948549,
+      "service_latency_ms": 890.28,
+      "p_true": 0.7390459179878235,
+      "status": 200
+    },
+    {
+      "index": 6,
+      "candidate_id": "35d69abd520849d6abafeea580c376a7:001",
+      "latency_ms": 863.9230629923986,
+      "service_latency_ms": 854.01,
+      "p_true": 0.7978719829561702,
+      "status": 200
+    },
+    {
+      "index": 7,
+      "candidate_id": "35d69abd520849d6abafeea580c376a7:002",
+      "latency_ms": 818.6291199963307,
+      "service_latency_ms": 810.2,
+      "p_true": 0.7078087714967498,
+      "status": 200
+    },
+    {
+      "index": 8,
+      "candidate_id": "35d69abd520849d6abafeea580c376a7:003",
+      "latency_ms": 803.0540260078851,
+      "service_latency_ms": 794.83,
+      "p_true": 0.7078087714967498,
+      "status": 200
+    },
+    {
+      "index": 9,
+      "candidate_id": "35d69abd520849d6abafeea580c376a7:004",
+      "latency_ms": 821.9017369992798,
+      "service_latency_ms": 810.08,
+      "p_true": 0.6649755635843017,
+      "status": 200
+    },
+    {
+      "index": 10,
+      "candidate_id": "35d69abd520849d6abafeea580c376a7:005",
+      "latency_ms": 825.215801000013,
+      "service_latency_ms": 814.69,
+      "p_true": 0.8993426032315388,
+      "status": 200
+    },
+    {
+      "index": 11,
+      "candidate_id": "5d8d7ca962814912a7365cfa344ab9d4:002",
+      "latency_ms": 807.1662339934846,
+      "service_latency_ms": 799.08,
+      "p_true": 0.4785288416900886,
+      "status": 200
+    },
+    {
+      "index": 12,
+      "candidate_id": "5d8d7ca962814912a7365cfa344ab9d4:003",
+      "latency_ms": 880.7787579862634,
+      "service_latency_ms": 876.71,
+      "p_true": 0.7943849563598633,
+      "status": 200
+    },
+    {
+      "index": 13,
+      "candidate_id": "5d8d7ca962814912a7365cfa344ab9d4:001",
+      "latency_ms": 858.666867003194,
+      "service_latency_ms": 849.32,
+      "p_true": 0.6697448292450657,
+      "status": 200
+    },
+    {
+      "index": 14,
+      "candidate_id": "5d8d7ca962814912a7365cfa344ab9d4:000",
+      "latency_ms": 842.3205459985184,
+      "service_latency_ms": 834.44,
+      "p_true": 0.45229397571963,
+      "status": 200
+    },
+    {
+      "index": 15,
+      "candidate_id": "5d8d7ca962814912a7365cfa344ab9d4:005",
+      "latency_ms": 860.7960489898687,
+      "service_latency_ms": 854.67,
+      "p_true": 0.9561454342647027,
+      "status": 200
+    },
+    {
+      "index": 16,
+      "candidate_id": "5d8d7ca962814912a7365cfa344ab9d4:006",
+      "latency_ms": 777.0969830016838,
+      "service_latency_ms": 770.13,
+      "p_true": 0.7846492645837257,
+      "status": 200
+    },
+    {
+      "index": 17,
+      "candidate_id": "5d8d7ca962814912a7365cfa344ab9d4:007",
+      "latency_ms": 794.1129689861555,
+      "service_latency_ms": 785.56,
+      "p_true": 0.680878620200075,
+      "status": 200
+    },
+    {
+      "index": 18,
+      "candidate_id": "5d8d7ca962814912a7365cfa344ab9d4:004",
+      "latency_ms": 811.6455590061378,
+      "service_latency_ms": 800.48,
+      "p_true": 0.7126323197076416,
+      "status": 200
+    },
+    {
+      "index": 19,
+      "candidate_id": "de89e3ca580749fb8da517ffb141a5c9:001",
+      "latency_ms": 810.1998399943113,
+      "service_latency_ms": 804.43,
+      "p_true": 0.7749242302019035,
+      "status": 200
+    },
+    {
+      "index": 20,
+      "candidate_id": "de89e3ca580749fb8da517ffb141a5c9:002",
+      "latency_ms": 815.9175309992861,
+      "service_latency_ms": 799.91,
+      "p_true": 0.781330621798914,
+      "status": 200
+    },
+    {
+      "index": 21,
+      "candidate_id": "de89e3ca580749fb8da517ffb141a5c9:003",
+      "latency_ms": 832.3177129932446,
+      "service_latency_ms": 817.61,
+      "p_true": 0.8056321740150452,
+      "status": 200
+    },
+    {
+      "index": 22,
+      "candidate_id": "de89e3ca580749fb8da517ffb141a5c9:000",
+      "latency_ms": 828.410606001853,
+      "service_latency_ms": 818.63,
+      "p_true": 0.5717666149139404,
+      "status": 200
+    },
+    {
+      "index": 23,
+      "candidate_id": "de89e3ca580749fb8da517ffb141a5c9:005",
+      "latency_ms": 830.4378840111895,
+      "service_latency_ms": 824.42,
+      "p_true": 0.64868895266387,
+      "status": 200
+    },
+    {
+      "index": 24,
+      "candidate_id": "de89e3ca580749fb8da517ffb141a5c9:004",
+      "latency_ms": 1024.1175319970353,
+      "service_latency_ms": 1010.13,
+      "p_true": 0.8631034026012332,
+      "status": 200
+    },
+    {
+      "index": 25,
+      "candidate_id": "de89e3ca580749fb8da517ffb141a5c9:007",
+      "latency_ms": 1018.4404220053693,
+      "service_latency_ms": 1005.05,
+      "p_true": 0.6825737153716768,
+      "status": 200
+    },
+    {
+      "index": 26,
+      "candidate_id": "de89e3ca580749fb8da517ffb141a5c9:008",
+      "latency_ms": 1021.3784469960956,
+      "service_latency_ms": 1010.1,
+      "p_true": 0.4503593877064999,
+      "status": 200
+    },
+    {
+      "index": 27,
+      "candidate_id": "de89e3ca580749fb8da517ffb141a5c9:006",
+      "latency_ms": 1019.5756559987785,
+      "service_latency_ms": 1008.1,
+      "p_true": 0.7885831711975213,
+      "status": 200
+    },
+    {
+      "index": 28,
+      "candidate_id": "feb66a418f40409e949d0797105ff240:003",
+      "latency_ms": 815.719274993171,
+      "service_latency_ms": 807.78,
+      "p_true": 0.0005792916906493761,
+      "status": 200
+    },
+    {
+      "index": 29,
+      "candidate_id": "feb66a418f40409e949d0797105ff240:004",
+      "latency_ms": 783.5948159918189,
+      "service_latency_ms": 775.55,
+      "p_true": 0.057071401818522785,
+      "status": 200
+    },
+    {
+      "index": 30,
+      "candidate_id": "feb66a418f40409e949d0797105ff240:000",
+      "latency_ms": 752.6927500002785,
+      "service_latency_ms": 741.76,
+      "p_true": 0.16132024411321413,
+      "status": 200
+    },
+    {
+      "index": 31,
+      "candidate_id": "feb66a418f40409e949d0797105ff240:002",
+      "latency_ms": 744.2631529993378,
+      "service_latency_ms": 739.26,
+      "p_true": 0.01302048970439817,
+      "status": 200
+    },
+    {
+      "index": 32,
+      "candidate_id": "feb66a418f40409e949d0797105ff240:001",
+      "latency_ms": 769.5168240024941,
+      "service_latency_ms": 763.2,
+      "p_true": 0.006192990526801986,
+      "status": 200
+    },
+    {
+      "index": 33,
+      "candidate_id": "1886bb7db7ad48869cfb3e4d98679bee:000",
+      "latency_ms": 812.1093979862053,
+      "service_latency_ms": 801.0,
+      "p_true": 0.6566582517820075,
+      "status": 200
+    },
+    {
+      "index": 34,
+      "candidate_id": "1886bb7db7ad48869cfb3e4d98679bee:001",
+      "latency_ms": 807.5712830031989,
+      "service_latency_ms": 793.59,
+      "p_true": 0.7911764147527094,
+      "status": 200
+    },
+    {
+      "index": 35,
+      "candidate_id": "1886bb7db7ad48869cfb3e4d98679bee:002",
+      "latency_ms": 812.0784100028686,
+      "service_latency_ms": 799.69,
+      "p_true": 0.7846492645837257,
+      "status": 200
+    },
+    {
+      "index": 36,
+      "candidate_id": "1886bb7db7ad48869cfb3e4d98679bee:003",
+      "latency_ms": 896.367259992985,
+      "service_latency_ms": 887.41,
+      "p_true": 0.5784481763839722,
+      "status": 200
+    },
+    {
+      "index": 37,
+      "candidate_id": "1886bb7db7ad48869cfb3e4d98679bee:004",
+      "latency_ms": 892.1921059954911,
+      "service_latency_ms": 880.53,
+      "p_true": 0.5926665906508809,
+      "status": 200
+    },
+    {
+      "index": 38,
+      "candidate_id": "2180878f378f4b59b97583f7f0a2dfbc:000",
+      "latency_ms": 920.7256649970077,
+      "service_latency_ms": 914.93,
+      "p_true": 0.15178061795561584,
+      "status": 200
+    },
+    {
+      "index": 39,
+      "candidate_id": "2180878f378f4b59b97583f7f0a2dfbc:001",
+      "latency_ms": 930.1462290022755,
+      "service_latency_ms": 918.14,
+      "p_true": 0.4035668728609757,
+      "status": 200
+    },
+    {
+      "index": 40,
+      "candidate_id": "21efd374c2774895ad80fe6fa1a394fe:000",
+      "latency_ms": 819.3844950001221,
+      "service_latency_ms": 810.76,
+      "p_true": 0.7816641577334333,
+      "status": 200
+    },
+    {
+      "index": 41,
+      "candidate_id": "21efd374c2774895ad80fe6fa1a394fe:001",
+      "latency_ms": 822.0154369919328,
+      "service_latency_ms": 808.55,
+      "p_true": 0.8130158064810067,
+      "status": 200
+    },
+    {
+      "index": 42,
+      "candidate_id": "21efd374c2774895ad80fe6fa1a394fe:002",
+      "latency_ms": 796.9637240021257,
+      "service_latency_ms": 783.79,
+      "p_true": 0.6334102561053557,
+      "status": 200
+    },
+    {
+      "index": 43,
+      "candidate_id": "21efd374c2774895ad80fe6fa1a394fe:003",
+      "latency_ms": 800.5089219950605,
+      "service_latency_ms": 789.48,
+      "p_true": 0.8180110102299157,
+      "status": 200
+    },
+    {
+      "index": 44,
+      "candidate_id": "2269bdd2293b438fb017ddaaeb23d86d:000",
+      "latency_ms": 883.0787600018084,
+      "service_latency_ms": 873.89,
+      "p_true": 0.8238958716392517,
+      "status": 200
+    },
+    {
+      "index": 45,
+      "candidate_id": "2269bdd2293b438fb017ddaaeb23d86d:001",
+      "latency_ms": 847.0913740020478,
+      "service_latency_ms": 841.45,
+      "p_true": 0.02998650796721497,
+      "status": 200
+    },
+    {
+      "index": 46,
+      "candidate_id": "2269bdd2293b438fb017ddaaeb23d86d:002",
+      "latency_ms": 847.7513060061028,
+      "service_latency_ms": 841.74,
+      "p_true": 0.842733765922003,
+      "status": 200
+    },
+    {
+      "index": 47,
+      "candidate_id": "2269bdd2293b438fb017ddaaeb23d86d:003",
+      "latency_ms": 821.6980989964213,
+      "service_latency_ms": 811.64,
+      "p_true": 0.9125141553572323,
+      "status": 200
+    },
+    {
+      "index": 48,
+      "candidate_id": "2269bdd2293b438fb017ddaaeb23d86d:004",
+      "latency_ms": 745.7456599950092,
+      "service_latency_ms": 738.1,
+      "p_true": 0.8471476218319366,
+      "status": 200
+    },
+    {
+      "index": 49,
+      "candidate_id": "2269bdd2293b438fb017ddaaeb23d86d:005",
+      "latency_ms": 761.0746099962853,
+      "service_latency_ms": 754.19,
+      "p_true": 0.8531803107330064,
+      "status": 200
+    }
+  ]
+}

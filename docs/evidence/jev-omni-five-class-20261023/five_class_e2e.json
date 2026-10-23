@@ -1,0 +1,772 @@
+{
+  "generated_at": "2026-10-23T12:48:30+0000",
+  "backend": "http://127.0.0.1:18392",
+  "job": {
+    "job_id": "e6665e81a8974eeba11cd3213957159b",
+    "job_type": "auto_annotation",
+    "reference_id": "65d777dbfa51406ab48ab06007ec105b",
+    "status": "succeeded",
+    "total": 9,
+    "completed": 9,
+    "failed": 0,
+    "error_summary": null,
+    "created_at": "2026-10-23T12:48:28.156862",
+    "started_at": "2026-10-23T12:48:28.177300",
+    "finished_at": "2026-10-23T12:48:30.531964"
+  },
+  "sample_ids": {
+    "person-tier1": "9fb22855f22048738dd1f793f960add0",
+    "vehicle-tier1": "b357d8d63393468d96497193850faa96",
+    "vehicle-tier25-confirm": "df2c2c4f02c9437ea4c71769d1a565e2",
+    "vehicle-tier25-reject": "9ce623a9c20f4c24b0ed2cb4525e8de8",
+    "tricycle-tier3-gray": "5caeffd604ae4d7dac63fd75a256f154",
+    "blue-roof-tier3-forced": "a50085a46cfd44f0a470528e15ecab35",
+    "road-crack-tier3": "734b609c4d4d4f0ea4ef7366a573a4f8",
+    "vehicle-tricycle-geometric-conflict": "a16930f03ac747bc97e1a23fc7f1ad93",
+    "vehicle-tier2-reject": "2024f22219d84cf9b24b342de1e58aa0"
+  },
+  "checks": {
+    "person_tier1": {
+      "passed": true,
+      "tier": "tier1_auto_confirm",
+      "reason_code": "tier1_high_confidence_auto_confirm",
+      "label": "true",
+      "jev_omni": null,
+      "p_true": null
+    },
+    "vehicle_tier1": {
+      "passed": true,
+      "tier": "tier1_auto_confirm",
+      "reason_code": "tier1_high_confidence_auto_confirm",
+      "label": "true",
+      "jev_omni": null,
+      "p_true": null
+    },
+    "vehicle_tier25_confirm": {
+      "passed": true,
+      "tier": "tier2_5_jev_omni_confirm",
+      "reason_code": "tier2_5_jev_omni_calibrated_confirm",
+      "label": "true",
+      "jev_omni": null,
+      "p_true": 0.910704360742802
+    },
+    "vehicle_tier25_reject": {
+      "passed": true,
+      "tier": "tier2_5_jev_omni_reject",
+      "reason_code": "tier2_5_jev_omni_calibrated_reject",
+      "label": "false",
+      "jev_omni": null,
+      "p_true": 0.00045831288617679205
+    },
+    "tricycle_tier3_gray": {
+      "passed": true,
+      "tier": "tier3_vlm_verify",
+      "reason_code": "tier3_routed_to_l20_vlm",
+      "label": "true",
+      "jev_omni": {
+        "p_true": 0.020177319345216164,
+        "p_false": 0.9798226806547838,
+        "class_name": "tricycle",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier2_5_jev_omni_gray_zone",
+        "explanation": "Jev-Omni P(真)=0.020 落在灰区 (0.01, 0.60)，转 L20 Qwen3-VL 生成细粒度中文证据，Jev-Omni 概率作为先验参考。"
+      },
+      "p_true": 0.020177319345216164
+    },
+    "blue_roof_tier3_forced": {
+      "passed": true,
+      "tier": "tier3_vlm_verify",
+      "reason_code": "tier3_scene_dependent_forced_vlm",
+      "label": "true",
+      "jev_omni": {
+        "p_true": 0.44794322705438055,
+        "p_false": 0.5520567729456194,
+        "class_name": "blue_illegal_roof",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier3_scene_dependent_forced_vlm",
+        "explanation": "蓝色违建顶棚 属场景依赖类，Jev-Omni 概率仅作先验（P(真)=0.448），强制转 L20 Qwen3-VL 复核屋顶场景证据。"
+      },
+      "p_true": 0.44794322705438055
+    },
+    "road_crack_tier3": {
+      "passed": true,
+      "tier": "tier3_vlm_verify",
+      "reason_code": "tier3_road_crack_never_auto_confirmed",
+      "label": "true",
+      "jev_omni": {
+        "p_true": 0.5370413821053917,
+        "p_false": 0.46295861789460835,
+        "class_name": "road_crack",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier2_5_jev_omni_gray_zone",
+        "explanation": "Jev-Omni P(真)=0.537 落在灰区 (0.01, 0.60)，转 L20 Qwen3-VL 生成细粒度中文证据，Jev-Omni 概率作为先验参考。"
+      },
+      "p_true": 0.5370413821053917
+    },
+    "geometric_conflict_0": {
+      "passed": true,
+      "tier": "tier3_vlm_verify",
+      "reason_code": "tier3_geometric_conflict",
+      "label": "false",
+      "jev_omni": {
+        "p_true": 0.7662936563237557,
+        "p_false": 0.23370634367624432,
+        "class_name": "vehicle",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier3_geometric_conflict",
+        "explanation": "候选存在几何冲突（cross_class_iou_conflict:vehicle_vs_tricycle(iou=1.00)），Jev-Omni P(真)=0.766 不作最终裁决，转 L20 Qwen3-VL。"
+      },
+      "p_true": 0.7662936563237557
+    },
+    "geometric_conflict_1": {
+      "passed": true,
+      "tier": "tier3_vlm_verify",
+      "reason_code": "tier3_geometric_conflict",
+      "label": "false",
+      "jev_omni": {
+        "p_true": 0.40709767958812954,
+        "p_false": 0.5929023204118704,
+        "class_name": "tricycle",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier3_geometric_conflict",
+        "explanation": "候选存在几何冲突（cross_class_iou_conflict:vehicle_vs_tricycle(iou=1.00)），Jev-Omni P(真)=0.407 不作最终裁决，转 L20 Qwen3-VL。"
+      },
+      "p_true": 0.40709767958812954
+    },
+    "vehicle_tier2_reject": {
+      "passed": true,
+      "tier": "tier2_auto_reject",
+      "reason_code": "tier2_low_confidence_auto_reject",
+      "label": "false",
+      "jev_omni": null,
+      "p_true": null
+    },
+    "routing_fields_complete": {
+      "passed": true,
+      "records": 10,
+      "complete": 10
+    },
+    "blue_roof_forced_tier3_100pct": {
+      "passed": true,
+      "observed": "tier3_vlm_verify"
+    },
+    "tier25_confirm_threshold": {
+      "passed": true,
+      "p_true": 0.910704360742802
+    },
+    "tier25_reject_threshold": {
+      "passed": true,
+      "p_true": 0.00045831288617679205
+    },
+    "tier1_no_jev_call": {
+      "passed": true
+    }
+  },
+  "records": [
+    {
+      "source_event_id": "verify-20261023-person-tier1",
+      "candidate_id": "6bb48592c26043a2ae73f731b5f5c3fa",
+      "target_index": 0,
+      "class_name": "人员",
+      "confidence": 0.8625,
+      "bbox": [
+        0.828125,
+        0.358333,
+        0.911458,
+        0.488889
+      ],
+      "label": "true",
+      "note": "auto annotation model_consensus: target_presence_fit=true (0.99); class_scene=true (0.99); adversarial=true (0.99)",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "tier": "tier1_auto_confirm",
+        "auto_label": "true",
+        "requires_vlm": false,
+        "confidence": 0.8625,
+        "class_name": "person",
+        "reason_code": "tier1_high_confidence_auto_confirm"
+      },
+      "policy": {
+        "final_label": "true",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "true",
+        "model_confidence": 0.99,
+        "scene": {
+          "label": "unknown",
+          "confidence": 0.0,
+          "reason": ""
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": null
+    },
+    {
+      "source_event_id": "verify-20261023-vehicle-tier1",
+      "candidate_id": "cb06b05f7ba643d6b6c28b25ca352483",
+      "target_index": 0,
+      "class_name": "车",
+      "confidence": 0.8558,
+      "bbox": [
+        0.614583,
+        0.251389,
+        0.64375,
+        0.276389
+      ],
+      "label": "true",
+      "note": "auto annotation model_consensus: target_presence_fit=true (0.99); class_scene=true (0.99); adversarial=true (0.99)",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "tier": "tier1_auto_confirm",
+        "auto_label": "true",
+        "requires_vlm": false,
+        "confidence": 0.8558,
+        "class_name": "vehicle",
+        "reason_code": "tier1_high_confidence_auto_confirm"
+      },
+      "policy": {
+        "final_label": "true",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "true",
+        "model_confidence": 0.99,
+        "scene": {
+          "label": "unknown",
+          "confidence": 0.0,
+          "reason": ""
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": null
+    },
+    {
+      "source_event_id": "verify-20261023-vehicle-tier25-confirm",
+      "candidate_id": "666c78b262804596943ca582adeecbd2",
+      "target_index": 0,
+      "class_name": "车",
+      "confidence": 0.8376206755638123,
+      "bbox": [
+        0.0037202380952380955,
+        0.1693121693121693,
+        0.022569444444444444,
+        0.21924603174603174
+      ],
+      "label": "true",
+      "note": "auto annotation model_consensus: target_presence_fit=true (0.99); class_scene=true (0.99); adversarial=true (0.99); Jev-Omni 双视角校准 P(真)=0.911 ≥ 确认阈值 0.60，车辆 属刚体类白名单且无几何冲突：自动确认。",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "p_true": 0.910704360742802,
+        "p_false": 0.08929563925719797,
+        "class_name": "vehicle",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier2_5_jev_omni_confirm",
+        "auto_label": "true",
+        "requires_vlm": false,
+        "reason_code": "tier2_5_jev_omni_calibrated_confirm",
+        "explanation": "Jev-Omni 双视角校准 P(真)=0.911 ≥ 确认阈值 0.60，车辆 属刚体类白名单且无几何冲突：自动确认。",
+        "confidence": 0.910704360742802
+      },
+      "policy": {
+        "final_label": "true",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "true",
+        "model_confidence": 0.99,
+        "scene": {
+          "label": "unknown",
+          "confidence": 0.0,
+          "reason": ""
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": null
+    },
+    {
+      "source_event_id": "verify-20261023-vehicle-tier25-reject",
+      "candidate_id": "8f0658eaa4414c8ea8412f31446c380c",
+      "target_index": 0,
+      "class_name": "车",
+      "confidence": 0.6514,
+      "bbox": [
+        0.504712,
+        0.031085,
+        0.518104,
+        0.051587
+      ],
+      "label": "false",
+      "note": "auto annotation model_consensus: target_presence_fit=false (0.99); class_scene=false (0.99); adversarial=false (0.99); Jev-Omni 双视角校准 P(真)=0.000 ≤ 拒识阈值 0.01，且无几何冲突：车辆 低概率假框自动拒识。",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "p_true": 0.00045831288617679205,
+        "p_false": 0.9995416871138232,
+        "class_name": "vehicle",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier2_5_jev_omni_reject",
+        "auto_label": "false",
+        "requires_vlm": false,
+        "reason_code": "tier2_5_jev_omni_calibrated_reject",
+        "explanation": "Jev-Omni 双视角校准 P(真)=0.000 ≤ 拒识阈值 0.01，且无几何冲突：车辆 低概率假框自动拒识。",
+        "confidence": 0.9995416871138232
+      },
+      "policy": {
+        "final_label": "false",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "false",
+        "model_confidence": 0.99,
+        "scene": {
+          "label": "unknown",
+          "confidence": 0.0,
+          "reason": ""
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": null
+    },
+    {
+      "source_event_id": "verify-20261023-tricycle-tier3-gray",
+      "candidate_id": "99186aa587cf4390925c114bbe248a30",
+      "target_index": 0,
+      "class_name": "三轮车",
+      "confidence": 0.6206,
+      "bbox": [
+        0.408333,
+        0.669444,
+        0.427083,
+        0.731944
+      ],
+      "label": "true",
+      "note": "auto annotation model_consensus: target_presence_fit=true (0.95); class_scene=true (0.95); adversarial=true (0.95)",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "confidence": 0.6206,
+        "class_name": "tricycle",
+        "reason_code": "tier3_routed_to_l20_vlm",
+        "jev_omni": {
+          "p_true": 0.020177319345216164,
+          "p_false": 0.9798226806547838,
+          "class_name": "tricycle",
+          "confirm_threshold": 0.6,
+          "reject_threshold": 0.01,
+          "tier": "tier3_vlm_verify",
+          "auto_label": null,
+          "requires_vlm": true,
+          "reason_code": "tier2_5_jev_omni_gray_zone",
+          "explanation": "Jev-Omni P(真)=0.020 落在灰区 (0.01, 0.60)，转 L20 Qwen3-VL 生成细粒度中文证据，Jev-Omni 概率作为先验参考。"
+        }
+      },
+      "policy": {
+        "final_label": "true",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "true",
+        "model_confidence": 0.95,
+        "scene": {
+          "label": "ground",
+          "confidence": 0.95,
+          "reason": "deterministic Tier 3 fixture"
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": {
+        "p_true": 0.020177319345216164,
+        "p_false": 0.9798226806547838,
+        "class_name": "tricycle",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier2_5_jev_omni_gray_zone",
+        "explanation": "Jev-Omni P(真)=0.020 落在灰区 (0.01, 0.60)，转 L20 Qwen3-VL 生成细粒度中文证据，Jev-Omni 概率作为先验参考。"
+      }
+    },
+    {
+      "source_event_id": "verify-20261023-blue-roof-tier3-forced",
+      "candidate_id": "581424fe83234893b6797129bb991082",
+      "target_index": 0,
+      "class_name": "违建",
+      "confidence": 0.8524,
+      "bbox": [
+        0.0,
+        0.854167,
+        0.047917,
+        0.997222
+      ],
+      "label": "true",
+      "note": "auto annotation model_consensus: target_presence_fit=true (0.95); class_scene=true (0.95); adversarial=true (0.95)",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "confidence": 0.8524,
+        "class_name": "blue_illegal_roof",
+        "reason_code": "tier3_scene_dependent_forced_vlm",
+        "jev_omni": {
+          "p_true": 0.44794322705438055,
+          "p_false": 0.5520567729456194,
+          "class_name": "blue_illegal_roof",
+          "confirm_threshold": 0.6,
+          "reject_threshold": 0.01,
+          "tier": "tier3_vlm_verify",
+          "auto_label": null,
+          "requires_vlm": true,
+          "reason_code": "tier3_scene_dependent_forced_vlm",
+          "explanation": "蓝色违建顶棚 属场景依赖类，Jev-Omni 概率仅作先验（P(真)=0.448），强制转 L20 Qwen3-VL 复核屋顶场景证据。"
+        }
+      },
+      "policy": {
+        "final_label": "true",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "true",
+        "model_confidence": 0.95,
+        "scene": {
+          "label": "rooftop",
+          "confidence": 0.95,
+          "reason": "deterministic Tier 3 fixture"
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": {
+        "p_true": 0.44794322705438055,
+        "p_false": 0.5520567729456194,
+        "class_name": "blue_illegal_roof",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier3_scene_dependent_forced_vlm",
+        "explanation": "蓝色违建顶棚 属场景依赖类，Jev-Omni 概率仅作先验（P(真)=0.448），强制转 L20 Qwen3-VL 复核屋顶场景证据。"
+      }
+    },
+    {
+      "source_event_id": "verify-20261023-road-crack-tier3",
+      "candidate_id": "34dd5199adee460e95107db4c568ad27",
+      "target_index": 0,
+      "class_name": "道路裂纹",
+      "confidence": 0.6531,
+      "bbox": [
+        0.480208,
+        0.308333,
+        0.573958,
+        0.320833
+      ],
+      "label": "true",
+      "note": "auto annotation model_consensus: target_presence_fit=true (0.95); class_scene=true (0.95); adversarial=true (0.95)",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "confidence": 0.6531,
+        "class_name": "road_crack",
+        "reason_code": "tier3_road_crack_never_auto_confirmed",
+        "jev_omni": {
+          "p_true": 0.5370413821053917,
+          "p_false": 0.46295861789460835,
+          "class_name": "road_crack",
+          "confirm_threshold": 0.6,
+          "reject_threshold": 0.01,
+          "tier": "tier3_vlm_verify",
+          "auto_label": null,
+          "requires_vlm": true,
+          "reason_code": "tier2_5_jev_omni_gray_zone",
+          "explanation": "Jev-Omni P(真)=0.537 落在灰区 (0.01, 0.60)，转 L20 Qwen3-VL 生成细粒度中文证据，Jev-Omni 概率作为先验参考。"
+        }
+      },
+      "policy": {
+        "final_label": "true",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "true",
+        "model_confidence": 0.95,
+        "scene": {
+          "label": "ground",
+          "confidence": 0.95,
+          "reason": "deterministic Tier 3 fixture"
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": {
+        "p_true": 0.5370413821053917,
+        "p_false": 0.46295861789460835,
+        "class_name": "road_crack",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier2_5_jev_omni_gray_zone",
+        "explanation": "Jev-Omni P(真)=0.537 落在灰区 (0.01, 0.60)，转 L20 Qwen3-VL 生成细粒度中文证据，Jev-Omni 概率作为先验参考。"
+      }
+    },
+    {
+      "source_event_id": "verify-20261023-vehicle-tricycle-geometric-conflict",
+      "candidate_id": "0d17eb57bd594ae1aa84c3ab542fe82e",
+      "target_index": 0,
+      "class_name": "车",
+      "confidence": 0.8176,
+      "bbox": [
+        0.520833,
+        0.65,
+        0.536458,
+        0.705556
+      ],
+      "label": "false",
+      "note": "auto annotation model_consensus: target_presence_fit=false (0.95); class_scene=false (0.95); adversarial=false (0.95)",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "confidence": 0.8176,
+        "class_name": "vehicle",
+        "reason_code": "tier3_geometric_conflict",
+        "jev_omni": {
+          "p_true": 0.7662936563237557,
+          "p_false": 0.23370634367624432,
+          "class_name": "vehicle",
+          "confirm_threshold": 0.6,
+          "reject_threshold": 0.01,
+          "tier": "tier3_vlm_verify",
+          "auto_label": null,
+          "requires_vlm": true,
+          "reason_code": "tier3_geometric_conflict",
+          "explanation": "候选存在几何冲突（cross_class_iou_conflict:vehicle_vs_tricycle(iou=1.00)），Jev-Omni P(真)=0.766 不作最终裁决，转 L20 Qwen3-VL。"
+        }
+      },
+      "policy": {
+        "final_label": "false",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "false",
+        "model_confidence": 0.95,
+        "scene": {
+          "label": "ground",
+          "confidence": 0.95,
+          "reason": "deterministic Tier 3 fixture"
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": {
+        "p_true": 0.7662936563237557,
+        "p_false": 0.23370634367624432,
+        "class_name": "vehicle",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier3_geometric_conflict",
+        "explanation": "候选存在几何冲突（cross_class_iou_conflict:vehicle_vs_tricycle(iou=1.00)），Jev-Omni P(真)=0.766 不作最终裁决，转 L20 Qwen3-VL。"
+      }
+    },
+    {
+      "source_event_id": "verify-20261023-vehicle-tricycle-geometric-conflict",
+      "candidate_id": "2ad8c99a77f54d4eba96c67b756a5632",
+      "target_index": 1,
+      "class_name": "三轮车",
+      "confidence": 0.4436,
+      "bbox": [
+        0.520833,
+        0.65,
+        0.536458,
+        0.705556
+      ],
+      "label": "false",
+      "note": "auto annotation model_consensus: target_presence_fit=false (0.95); class_scene=false (0.95); adversarial=false (0.95)",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "confidence": 0.4436,
+        "class_name": "tricycle",
+        "reason_code": "tier3_geometric_conflict",
+        "jev_omni": {
+          "p_true": 0.40709767958812954,
+          "p_false": 0.5929023204118704,
+          "class_name": "tricycle",
+          "confirm_threshold": 0.6,
+          "reject_threshold": 0.01,
+          "tier": "tier3_vlm_verify",
+          "auto_label": null,
+          "requires_vlm": true,
+          "reason_code": "tier3_geometric_conflict",
+          "explanation": "候选存在几何冲突（cross_class_iou_conflict:vehicle_vs_tricycle(iou=1.00)），Jev-Omni P(真)=0.407 不作最终裁决，转 L20 Qwen3-VL。"
+        }
+      },
+      "policy": {
+        "final_label": "false",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "false",
+        "model_confidence": 0.95,
+        "scene": {
+          "label": "ground",
+          "confidence": 0.95,
+          "reason": "deterministic Tier 3 fixture"
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": {
+        "p_true": 0.40709767958812954,
+        "p_false": 0.5929023204118704,
+        "class_name": "tricycle",
+        "confirm_threshold": 0.6,
+        "reject_threshold": 0.01,
+        "tier": "tier3_vlm_verify",
+        "auto_label": null,
+        "requires_vlm": true,
+        "reason_code": "tier3_geometric_conflict",
+        "explanation": "候选存在几何冲突（cross_class_iou_conflict:vehicle_vs_tricycle(iou=1.00)），Jev-Omni P(真)=0.407 不作最终裁决，转 L20 Qwen3-VL。"
+      }
+    },
+    {
+      "source_event_id": "verify-20261023-vehicle-tier2-reject",
+      "candidate_id": "fbed2a9dfec849a6b6ab7572d268f516",
+      "target_index": 0,
+      "class_name": "车",
+      "confidence": 0.05,
+      "bbox": [
+        0.504712,
+        0.031085,
+        0.518104,
+        0.051587
+      ],
+      "label": "false",
+      "note": "auto annotation model_consensus: target_presence_fit=false (0.99); class_scene=false (0.99); adversarial=false (0.99)",
+      "audit_action": "auto_annotation.applied",
+      "cascade_routing": {
+        "tier": "tier2_auto_reject",
+        "auto_label": "false",
+        "requires_vlm": false,
+        "confidence": 0.05,
+        "class_name": "vehicle",
+        "reason_code": "tier2_low_confidence_auto_reject"
+      },
+      "policy": {
+        "final_label": "false",
+        "reason_code": "model_consensus",
+        "source": "model",
+        "applied": false,
+        "model_label": "false",
+        "model_confidence": 0.99,
+        "scene": {
+          "label": "unknown",
+          "confidence": 0.0,
+          "reason": ""
+        },
+        "evidence": {
+          "red_overlay_occlusion": null,
+          "overlay_obscures": null,
+          "background_only": null,
+          "target_visible": null,
+          "occlusion_type": null,
+          "reason": ""
+        }
+      },
+      "jev_omni": null
+    }
+  ]
+}

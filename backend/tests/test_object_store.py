@@ -3,7 +3,14 @@ from __future__ import annotations
 import sys
 from types import SimpleNamespace
 
-from app.adapters.object_store import FallbackObjectStore, HttpPrefixObjectStore, MinioObjectStore, NullObjectStore
+from app.adapters.object_store import (
+    FallbackObjectStore,
+    FilesystemObjectStore,
+    HttpPrefixObjectStore,
+    MinioObjectStore,
+    NullObjectStore,
+    build_object_store,
+)
 from app.config import Settings
 
 
@@ -58,8 +65,6 @@ def test_production_store_does_not_create_missing_bucket(monkeypatch):
 
 
 def test_required_object_store_does_not_silently_downgrade_when_config_is_missing():
-    from app.adapters.object_store import build_object_store
-
     settings = Settings(
         minio_endpoint="",
         minio_access_key="",
@@ -73,6 +78,24 @@ def test_required_object_store_does_not_silently_downgrade_when_config_is_missin
         assert "required" in str(exc)
     else:
         raise AssertionError("required object storage must fail when configuration is missing")
+
+
+def test_filesystem_object_store_round_trip_is_isolated_and_rejects_traversal(tmp_path):
+    store = build_object_store(
+        Settings(
+            object_store_backend="filesystem",
+            object_store_root=str(tmp_path / "objects"),
+        )
+    )
+    assert isinstance(store, FilesystemObjectStore)
+
+    store.put_bytes("verify-source", "event/sample.jpg", b"jpeg", "image/jpeg")
+
+    assert store.exists("verify-source", "event/sample.jpg") is True
+    assert store.get_bytes("verify-source", "event/sample.jpg") == b"jpeg"
+    assert store.list_keys("verify-source", "event/") == ["event/sample.jpg"]
+    assert store.presigned_get_url("verify-source", "event/sample.jpg") is None
+    assert store.exists("verify-source", "../escape.jpg") is False
 
 
 def test_fallback_store_uses_http_prefix_when_minio_object_is_absent():

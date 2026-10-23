@@ -83,6 +83,12 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
         )
 
     app.state.run_auto_annotation_job = run_auto_annotation_job
+    if settings.auto_annotation_dispatch_mode == "inline":
+        from .tasks.dispatcher import InlineDispatcher
+
+        # Isolated API-only verification: execute the job in the request path,
+        # with no Redis/Celery worker or background scheduler attached.
+        app.state.auto_annotation_dispatcher = InlineDispatcher(run_auto_annotation_job)
 
     def run_export_job(job_id: str) -> None:
         execute_export_job(

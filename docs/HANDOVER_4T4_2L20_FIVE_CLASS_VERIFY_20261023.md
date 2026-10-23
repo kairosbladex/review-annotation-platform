@@ -1093,3 +1093,267 @@ PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q
 | 远端 | `github`（`https://github.com/kairosbladex/review-annotation-platform.git`） |
 | 分支 | `docs/luna-business-test-release` |
 | SHA 核对 | 本地 `git rev-parse HEAD` 与 `git ls-remote github refs/heads/docs/luna-business-test-release` 一致 |
+
+---
+
+## 13. 独立验证实例：Jev-Omni 常驻 + 五类 E2E + 并发压测（2026-10-23）
+
+### 13.0 执行边界
+
+本节记录的是**独立端口验证实例**，不是共享测试环境发布：
+
+- 远端：`ai-lingxi` / `192.168.130.238`。
+- 仅使用空闲 GPU 4（NVIDIA L20 48 GB）；启动前 GPU 4 基线占用 `1514 MiB`。
+- 未重启、未替换、未修改任何 `review-annotation-test-*`、`review-vision-test-*`、
+  `yoloe_service*` 容器；未触碰 `5275/8392`、`5276/8393/18397`、`8188/8189`、`8010`。
+- 新增容器均带 `--rm --label owner=agent` 和显式内存/CPU 上限。
+- 独立 SQLite 与文件对象存储位于 `verify_instance_90e9d054/state-v3/`，
+  自动标注使用进程内 inline dispatcher，未启动 Redis/Celery worker 或后台定时任务。
+
+### 13.1 实际运行拓扑
+
+| 组件 | 容器 | 镜像/代码 | 监听 | 资源上限 |
+|---|---|---|---|---|
+| Jev-Omni 常驻推理 | `jev-omni-t25-verify` | `yoloe_service_test:luna-business-6755b1e` + 本地 `model/` + `pylibs/` | `127.0.0.1:18010 -> 8010` | GPU 4、28g/28g、8 CPU |
+| 独立后端 | `review-verify-90e9d054` | `review-annotation-test-api:4e3e5c7` + 挂载 `verify_instance_90e9d054` | `127.0.0.1:18392` | 8g/8g、4 CPU、host network |
+| Tier 3 契约夹具 | `review-tier3-mock-verify` | `python:3.13-slim` + `scripts/verify_tier3_mock.py` | `127.0.0.1:18393` | 512m/512m、1 CPU、host network |
+
+后端配置（已实际生效）：
+
+```text
+AUTO_ANNOTATION_MODE=adaptive
+AUTO_ANNOTATION_CASCADE_ROUTING=true
+TIER1_AUTO_CONFIRM_THRESHOLD=0.85
+TIER2_AUTO_REJECT_THRESHOLD=0.12
+JEV_OMNI_ENABLED=true
+JEV_OMNI_MODE=http
+JEV_OMNI_BASE_URL=http://127.0.0.1:18010
+JEV_OMNI_CONFIRM_THRESHOLD=0.60
+JEV_OMNI_REJECT_THRESHOLD=0.01
+AUTO_ANNOTATION_USE_CODEX_CLI=false
+AUTO_ANNOTATION_BASE_URL=http://127.0.0.1:18393
+AUTO_ANNOTATION_DISPATCH_MODE=inline
+OBJECT_STORE_BACKEND=filesystem
+```
+
+`verify.env` 中的管理员密码、JWT secret、service key 均为远端随机生成、权限 `0600`；
+本报告不记录任何凭据。
+
+### 13.2 Jev-Omni 常驻服务结果
+
+实际加载的是已经校验过的本地权重：
+
+```text
+JEV_OMNI_MODEL_PATH=/models/Jev-Omni
+model/ = 23.92 GB
+pylibs/transformers = 5.17.0
+JEV_OMNI_DEVICE=cuda
+JEV_OMNI_DTYPE=bfloat16
+JEV_OMNI_PRELOAD=true
+```
+
+`curl -s http://127.0.0.1:18010/healthz` 实际返回：
+
+```json
+{"status":"ok","model_id":"akhilaaa3/Jev-Omni","loaded":true,"load_error":null,"device":"cuda","dtype":"bfloat16","quantization":""}
+```
+
+`POST /v1/warmup` 返回 `{"status":"ready","model_id":"akhilaaa3/Jev-Omni"}`。
+
+GPU 4 实测：
+
+| 时点 | 显存占用 | 空闲 |
+|---|---:|---:|
+| 启动前基线 | 1514 MiB | 44081 MiB |
+| 权重加载完成、50 次压测后 | 24867 MiB | 20728 MiB |
+
+本轮修复了两个部署脚本问题：
+
+1. 上游 `load_jev_omni()` 只接受 HuggingFace repo id；服务脚本现在检测本地
+   `config.json`，直接装配本地 checkpoint，避免离线环境误走 `snapshot_download`。
+2. `JevOmni` 的 `_capture` 是实例级共享状态；服务现在用 `threading.Lock`
+   串行化 GPU `predict`，HTTP 入口仍保持并发，避免并发请求交叉污染概率。
+
+### 13.3 五类业务 API 闭环
+
+测试数据来源：`data/ktd-test-real-monitoring-full-20260924/source_manifest.jsonl`
+中的真实监测事件；负样本使用
+`data/ktd-clean-source-full-evaluation-20260924/assets/primary/feb66...jpg`
+的金标同源原帧。请求经真实
+`POST /api/v1/ingest/review-events` → `POST /api/v1/auto-annotations` →
+独立 SQLite 落库；未通过 Python 内部函数伪造落库结果。
+
+本次共导入 **9 个事件 / 10 个候选**，自动标注 job 实际结果：
+
+```text
+status=succeeded, total=9, completed=9, failed=0
+```
+
+| 样本 | 类别 | 检测分 | Jev-Omni P(true) | 实际路由 | 落库标签 | 说明 |
+|---|---|---:|---:|---|---|---|
+| person-tier1 | 人员 | 0.8625 | — | `tier1_auto_confirm` | true | 真实人员帧，Tier 1 |
+| vehicle-tier1 | 车 | 0.8558 | — | `tier1_auto_confirm` | true | 真实车辆帧，Tier 1 |
+| vehicle-tier25-confirm | 车 | 0.8376 | **0.910704** | `tier2_5_jev_omni_confirm` | true | ≥0.60，自动确认 |
+| vehicle-tier25-reject | 车 | 0.6514 | **0.000458** | `tier2_5_jev_omni_reject` | false | ≤0.01，自动拒识；金标 false 原帧 |
+| tricycle-tier3-gray | 三轮车 | 0.6206 | 0.020177 | `tier3_routed_to_l20_vlm` | true | 灰区，转 Tier 3 |
+| blue-roof-tier3-forced | 违建 | 0.8524 | 0.447943 | `tier3_scene_dependent_forced_vlm` | true | 分数虽 ≥0.85，场景依赖类仍 100% 强制 Tier 3（本轮 1/1） |
+| road-crack-tier3 | 道路裂纹 | 0.6531 | 0.537041 | `tier3_road_crack_never_auto_confirmed` | true | 裂缝永不自动确认 |
+| geometric-conflict-car | 车 | 0.8176 | 0.766294 | `tier3_geometric_conflict` | false | 与三轮车 bbox 受控重叠，IoU=1.00 |
+| geometric-conflict-tricycle | 三轮车 | 0.4436 | 0.407098 | `tier3_geometric_conflict` | false | 同上，几何门禁优先于自动确认 |
+| vehicle-tier2-reject | 车 | 0.05 | — | `tier2_auto_reject` | false | 真实帧 + 受控低分，验证 Tier 2 边界 |
+
+验证结论：
+
+- `audit.cascade_routing` 完整性：**10/10 候选**均含
+  `tier`、`requires_vlm`、`reason_code`、`class_name`；Tier 2.5/Tier 3 另带
+  实际 `p_true`/`p_false` 或 `jev_omni` 先验对象。
+- 蓝色违建顶棚强制 Tier 3：本轮 **1/1**，不能外推为全量 100%。
+- 车/三轮车几何冲突：两个候选均未走 Tier 1/2.5 自动确认，均进入 Tier 3。
+- Tier 2.5 确认/拒识使用的是英文 `state` 与稳定元数据；已移除随机数据库 candidate UUID，
+  避免 UUID 文本扰动 12B 概率。
+- **重要限制**：Tier 3 的 `true/false` 来自
+  `scripts/verify_tier3_mock.py` 的确定性 Responses 契约夹具，不是独立 Qwen3-VL
+  模型质量或业务准确率结论。本次已真实验证的是 API、级联路由、Tier 3 调用路径和 SQLite 落库。
+
+### 13.4 50 次真实双视角合图并发压测
+
+请求来源：远端 `jev_omni_eval/bundle/` 中 50 张真实双视角合图 +
+`manifest_en.jsonl` 的原始英文 `state/question/options`。使用并发度 4、
+4 个 HTTP 客户端共享连接池，全部请求返回 HTTP 200。
+
+| 指标 | 实测 |
+|---|---:|
+| 请求数 | 50 |
+| 并发度 | 4 |
+| 总耗时 | 11.451 s |
+| 吞吐 | **4.367 QPS** |
+| 客户端延迟 mean | 889.826 ms |
+| 客户端延迟 P50 | 826.813 ms |
+| 客户端延迟 P95 | **1161.748 ms** |
+| 客户端延迟 P99 | 1647.483 ms |
+| 服务端计时 mean | 878.676 ms |
+| 服务端计时 P95 | 1141.019 ms |
+| 服务端计时 P99 | 1612.976 ms |
+| `p_true` 范围 | 0.000579–0.956145 |
+
+并发正确性交叉校验：50 条结果与
+`jev_omni_real_probs_en.jsonl` 的历史串行概率逐条匹配 **50/50**，
+最大绝对差 `4.92e-7`，均值绝对差 `2.49e-7`。这说明推理锁没有改变输出，
+并发压测没有出现 `_capture` 交叉污染。
+
+### 13.5 当前实例、访问与清理
+
+当前实例**保留供用户验收**。从本机访问需建立 SSH 隧道：
+
+```bash
+ssh -N -L 18392:127.0.0.1:18392 ai-lingxi
+ssh -N -L 18010:127.0.0.1:18010 ai-lingxi
+```
+
+- 后端健康：`http://127.0.0.1:18392/api/v1/health`
+- 后端 Swagger：`http://127.0.0.1:18392/docs`
+- Jev-Omni 健康：`http://127.0.0.1:18010/healthz`
+
+当前资源：
+
+| 资源 | 实测 |
+|---|---|
+| GPU 4 显存 | 24867 MiB used / 20728 MiB free |
+| Jev-Omni 容器内存 | 1.43 GiB / 28 GiB |
+| 后端容器内存 | 108.6 MiB / 8 GiB |
+| Tier 3 夹具内存 | 27.5 MiB / 512 MiB |
+| 宿主机内存 | 57 GB used / 251 GB total，194 GB available |
+| `/data` | 3.6 TB used / 15 TB total，11 TB available |
+
+一键停止（`--rm` 容器停止后自动删除）：
+
+```bash
+ssh ai-lingxi 'docker stop jev-omni-t25-verify review-verify-90e9d054 review-tier3-mock-verify'
+ssh ai-lingxi 'nvidia-smi --query-gpu=index,memory.used --format=csv,noheader -i 4'
+```
+
+停止后 GPU 4 应回到基线 `1514 MiB`。现场证据保留在 `state-v3/logs/` 与
+`docs/evidence/jev-omni-five-class-20261023/`；确认不再需要现场后，才执行完整清理：
+
+```bash
+ssh ai-lingxi 'rm -rf \
+  /data/workspace/review-annotation-platform-ktd/verify_instance_90e9d054/state \
+  /data/workspace/review-annotation-platform-ktd/verify_instance_90e9d054/state-v2 \
+  /data/workspace/review-annotation-platform-ktd/verify_instance_90e9d054/state-v3'
+```
+
+### 13.6 共享容器未触碰核对
+
+验证前后共享容器均保持运行，未执行 `restart/stop/replace`。当前关键容器：
+
+| 容器 | 容器 ID | 状态 |
+|---|---|---|
+| `review-annotation-test-api-1` | `e332813451cc` | Up 20 hours |
+| `review-annotation-test-frontend-1` | `7795cc63a9bc` | Up 20 hours |
+| `review-annotation-test-worker-1` | `f82183f4ae9f` | Up 20 hours |
+| `review-vision-test-api-1` | `4bfdce2a64b8` | Up 20 hours |
+| `review-vision-test-frontend-1` | `226a07d8c750` | Up 19 hours |
+| `review-vision-test-worker-1` | `29cbec49eafb` | Up 20 hours |
+| `review-vision-test-luna-worker` | `6125a847fbf9` | Up 19 hours |
+| `yoloe_service` | `341a5147098f` | Up 20 hours (healthy) |
+| `yoloe_service_test` | `e2b673da5929` | Up 20 hours (healthy) |
+
+### 13.7 验证分类与残余风险
+
+**已验证**
+
+- Jev-Omni 本地权重加载、`/healthz`、`/v1/warmup`。
+- 50 次真实双视角合图、并发 4、HTTP 200、QPS 与 P50/P95/P99。
+- 五类真实事件经真实 HTTP API 导入、自动标注、SQLite 落库。
+- Tier 1、Tier 2、Tier 2.5 确认/拒识、Tier 3 强制穿透、几何门禁、
+  `audit.cascade_routing` 字段完整性。
+- 独立对象存储与数据库、inline dispatcher、无后台 Celery 写入。
+- 共享测试容器未重启/替换。
+
+**未验证 / 不可外推**
+
+- Tier 3 真实 Qwen3-VL 的模型质量、准确率、误接受/误拒绝；本轮为契约夹具。
+- 前端浏览器验收；本轮只验证 API/SQLite/审计链。
+- 蓝色违建顶棚全量 100%；本轮只有 1/1 样本。
+- 真实检测器天然产生的车/三轮车重叠；本轮重叠 bbox 是在真实帧上的受控几何夹具。
+- Tier 2 真实低分样本；本轮 0.05 为受控边界值。
+- 生产共享环境发布与 UAT。
+
+### 13.8 复现与证据
+
+复现脚本（均在验证目录或仓库 `scripts/`）：
+
+```bash
+ssh ai-lingxi 'docker exec review-verify-90e9d054 \
+  /usr/local/bin/python /app/scripts/run_five_class_verify.py'
+ssh ai-lingxi 'docker run --rm --label owner=agent \
+  --memory=2g --memory-swap=2g --cpus=2 --network host \
+  -v /data/workspace/review-annotation-platform-ktd/verify_instance_90e9d054:/app:ro \
+  -v /data/workspace/review-annotation-platform-ktd/verify_instance_90e9d054/state-v3:/state \
+  -v /data/workspace/review-annotation-platform-ktd/jev_omni_eval/bundle:/bundle:ro \
+  --entrypoint /usr/local/bin/python review-annotation-test-api:4e3e5c7 \
+  /app/scripts/load_test_jev_omni.py --limit 50 --concurrency 4'
+```
+
+证据文件：
+
+| 文件 | 内容 | sha256 |
+|---|---|---|
+| `docs/evidence/jev-omni-five-class-20261023/five_class_e2e.json` | 10 条候选的 tier/reason/p_true/label 与 job 结果 | `951136d92df0d8b7f2225cc99a16124d715839aba2c313a0ed2aa644183d5b76` |
+| `docs/evidence/jev-omni-five-class-20261023/load_test_50.json` | 50 次请求逐条延迟与概率 | `3e926fc7801f55b663fcdc5be7dfdffbae77e02283ad36a4fca8612c5b569248` |
+| `docs/evidence/jev-omni-five-class-20261023/runtime_inventory.json` | 容器资源上限、GPU 设备、端口 | `e0788f39a0c38731690c5fb637d11c25ae0b690fab5f395a29b9d6913c307df9` |
+| `docs/evidence/jev-omni-five-class-20261023/provenance.json` | 来源、限制、共享容器未触碰清单 | `271d4bb3fb23e81f6f38d1196260c0e6f324397a9c9118d491ce3d05dc9781c4` |
+
+全量回归：
+
+```text
+PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q
+239 passed, 1 skipped, 2 warnings in 14.24s
+```
+
+本轮代码收口包括：本地 checkpoint 装配、推理锁、文件系统对象存储、
+inline 自动标注调度、Tier 3 路由审计补齐、自动决策票置信度修正、
+车/三轮车路由 `class_name` 补齐、随机 UUID 从 Jev 元数据移除。
+
+本轮本地中文提交信息：`fix: 收口 Jev-Omni 独立验证与五类审计`；
+推送目标：`github` 的 `docs/luna-business-test-release`。
