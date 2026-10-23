@@ -52,7 +52,7 @@ class QwenVLTierAdapter:
         detections = [
             {
                 "target_index": candidate.get("target_index", index),
-                "class_id": candidate.get("class_id", 0),
+                "class_id": candidate.get("class_id") if candidate.get("class_id") is not None else 0,
                 "class_name": candidate.get("class_name", "unknown"),
                 "confidence": candidate.get("confidence", 1.0),
                 "bbox": candidate.get("bbox", [0.0, 0.0, 1.0, 1.0]),

@@ -73,7 +73,7 @@ def test_qwen_vl_tier_adapter_maps_real_review_results(monkeypatch):
         endpoint="/api/v1/review-agent/review",
     )
     candidates = [
-        {"target_index": 4, "class_id": 1, "class_name": "车", "confidence": 0.7, "bbox": [0, 0, 1, 1]},
+        {"target_index": 4, "class_id": None, "class_name": "车", "confidence": 0.7, "bbox": [0, 0, 1, 1]},
         {"target_index": 5, "class_id": 2, "class_name": "人员", "confidence": 0.6, "bbox": [1, 1, 2, 2]},
         {"target_index": 6, "class_id": 3, "class_name": "三轮车", "confidence": 0.5, "bbox": [2, 2, 3, 3]},
     ]
@@ -87,6 +87,7 @@ def test_qwen_vl_tier_adapter_maps_real_review_results(monkeypatch):
     call = FakeClient.calls[0]
     detections = json.loads(call["data"]["detections"])
     assert [item["target_index"] for item in detections] == [4, 5, 6]
+    assert detections[0]["class_id"] == 0
     assert call["headers"] == {"X-API-Key": "test-key"}
     assert set(call["files"]) == {"image", "clean_image"}
     decisions = result["decisions"]
