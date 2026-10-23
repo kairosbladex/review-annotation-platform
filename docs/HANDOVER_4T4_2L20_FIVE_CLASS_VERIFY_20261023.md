@@ -311,4 +311,10 @@ ssh ai-lingxi 'cd <repo> && PYTHONPATH=.:backend .venv/bin/python scripts/qwen3v
 
 ## 7. Git 提交
 
-见 `git log -1 --stat`（提交后补充 SHA）。
+| 项 | 值 |
+|---|---|
+| 提交 SHA | `0b9d9c221cd7ef2634aebac54078cafc772ae350` |
+| 提交信息 | `fix: 修复四阶段复核缺陷并补齐五类门禁与级联配置传导` |
+| 变更规模 | 11 files changed, 964 insertions(+), 8 deletions(-) |
+| 是否 push | **否**（按要求仅本地提交） |
+| 基线 | `8d778b50c27d43f38b00e08b2e9fa985f5684e74` |
