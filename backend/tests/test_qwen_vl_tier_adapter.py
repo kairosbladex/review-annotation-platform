@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import json
 
-from backend.app.adapters.qwen_vl_tier import QwenVLTierAdapter
+from types import SimpleNamespace
+
+from backend.app.adapters.qwen_vl_tier import QwenVLTierAdapter, build_auto_annotation_adapter
 from backend.app.services.auto_annotation_prompts import ROLE_ORDER
 
 
@@ -93,3 +95,16 @@ def test_qwen_vl_tier_adapter_maps_real_review_results(monkeypatch):
     assert all(len(decision["votes"]) == len(ROLE_ORDER) for decision in decisions)
     assert decisions[0]["votes"][0]["confidence"] == 0.93
     assert decisions[1]["votes"][0]["confidence"] == 0.88
+
+
+def test_auto_annotation_adapter_uses_qwen_for_legacy_review_service():
+    settings = SimpleNamespace(
+        model_adapter_type="legacy_review_agent",
+        model_service_base_url="http://algorithm:8193",
+        model_service_api_key="key",
+        model_service_review_endpoint="/api/v1/review-agent/review",
+        auto_annotation_timeout_seconds=120,
+        model_service_verify_tls=True,
+    )
+    adapter = build_auto_annotation_adapter(settings, FakeStore())
+    assert isinstance(adapter, QwenVLTierAdapter)

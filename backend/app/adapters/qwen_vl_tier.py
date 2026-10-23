@@ -131,3 +131,12 @@ def build_qwen_vl_tier_adapter(settings: Any, object_store: Any) -> QwenVLTierAd
         timeout_seconds=settings.auto_annotation_timeout_seconds,
         verify_tls=settings.model_service_verify_tls,
     )
+
+
+def build_auto_annotation_adapter(settings: Any, object_store: Any) -> Any:
+    """Select Tier 3 consistently for the API and Celery worker."""
+    if settings.model_adapter_type == "legacy_review_agent" and settings.model_service_base_url:
+        return build_qwen_vl_tier_adapter(settings, object_store)
+    from .codex_responses import build_codex_vision_adapter
+
+    return build_codex_vision_adapter(settings, object_store)

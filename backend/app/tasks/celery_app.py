@@ -3,7 +3,7 @@ from __future__ import annotations
 from celery import Celery
 
 from ..adapters.model_provider import build_model_adapter
-from ..adapters.codex_responses import build_codex_vision_adapter
+from ..adapters.qwen_vl_tier import build_auto_annotation_adapter
 from ..adapters.object_store import build_object_store
 from ..config import Settings
 from ..db import build_engine, build_session_factory
@@ -44,7 +44,7 @@ def execute_auto_annotation_job_task(self, job_id: str):
         engine = build_engine(settings.database_url)
         factory = build_session_factory(engine)
         object_store = build_object_store(settings)
-        adapter = build_codex_vision_adapter(settings, object_store)
+        adapter = build_auto_annotation_adapter(settings, object_store)
         execute_auto_annotation_job(
             session_factory=factory,
             object_store=object_store,
