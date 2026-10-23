@@ -12,22 +12,25 @@ set -euo pipefail
 #   默认 PRECISION=auto，按所选 GPU 型号自动选择。
 #
 # 用法：
-#   GPU_DEVICE=5 bash deploy/start_jev_omni.sh              # 自动选精度
-#   GPU_DEVICE=0 PRECISION=4bit bash deploy/start_jev_omni.sh
-#   GPU_DEVICE=4 PRECISION=bf16 JEV_OMNI_PORT=8010 bash deploy/start_jev_omni.sh
+#   GPU_DEVICE=4 bash deploy/start_jev_omni.sh              # 自动选精度（L20 -> bf16）
+#   GPU_DEVICE=1 PRECISION=4bit bash deploy/start_jev_omni.sh
+#   GPU_DEVICE=4 PRECISION=bf16 JEV_OMNI_PORT=18010 bash deploy/start_jev_omni.sh
+#
+# 端口：宿主机 8010 已被无关容器 myolotrain-web-1 占用，因此默认改为 18010。
+# 容器内部仍监听 8010，映射关系为 `127.0.0.1:18010 -> 8010`。
 #
 # 只读预检（不启动容器）：DRY_RUN=1 bash deploy/start_jev_omni.sh
 
 GPU_DEVICE="${GPU_DEVICE:-4}"
-JEV_OMNI_PORT="${JEV_OMNI_PORT:-8010}"
+JEV_OMNI_PORT="${JEV_OMNI_PORT:-18010}"
 CONTAINER_NAME="${CONTAINER_NAME:-jev-omni-t25}"
 PRECISION="${PRECISION:-auto}"
 MODEL_ID="${JEV_OMNI_MODEL_ID:-akhilaaa3/Jev-Omni}"
 MODEL_DIR="${JEV_OMNI_MODEL_DIR:-/data/models/Jev-Omni}"
 HF_CACHE_DIR="${HF_CACHE_DIR:-$HOME/.cache/huggingface}"
 IMAGE="${JEV_OMNI_IMAGE:-pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime}"
-MEM_LIMIT="${MEM_LIMIT:-24g}"
-CPU_LIMIT="${CPU_LIMIT:-6}"
+MEM_LIMIT="${MEM_LIMIT:-28g}"
+CPU_LIMIT="${CPU_LIMIT:-8}"
 DRY_RUN="${DRY_RUN:-0}"
 # 镜像内若未预装 jev_omni/fastapi，可用 JEV_OMNI_BOOTSTRAP 在启动前安装依赖，例如：
 #   JEV_OMNI_BOOTSTRAP="pip install -q -U jev-omni fastapi uvicorn pillow httpx"

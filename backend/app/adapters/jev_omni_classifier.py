@@ -487,7 +487,7 @@ class JevOmniClassifierAdapter:
         self,
         *,
         mode: str = "http",
-        base_url: str = "http://127.0.0.1:8010",
+        base_url: str = "http://127.0.0.1:18010",
         model_id: str = DEFAULT_MODEL_ID,
         timeout_seconds: float = 30.0,
         verify_tls: bool = True,
@@ -687,7 +687,7 @@ def build_jev_omni_adapter(
         return None
     return JevOmniClassifierAdapter(
         mode=str(options.get("jev_omni_mode") or "http"),
-        base_url=str(options.get("jev_omni_base_url") or "http://127.0.0.1:8010"),
+        base_url=str(options.get("jev_omni_base_url") or "http://127.0.0.1:18010"),
         model_id=str(options.get("jev_omni_model_id") or DEFAULT_MODEL_ID),
         timeout_seconds=float(options.get("jev_omni_timeout_seconds") or 30.0),
         verify_tls=_flag(options.get("jev_omni_verify_tls", True)),

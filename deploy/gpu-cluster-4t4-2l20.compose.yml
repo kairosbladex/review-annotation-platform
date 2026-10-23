@@ -1,31 +1,26 @@
-# Heterogeneous 6-GPU cluster topology: 4x Tesla T4 (16GB, GPU 0..3) + 2x NVIDIA L20 (48GB, GPU 4..5)
-# - GPU 0..3 (T4 SM75): YOLOE TensorRT FP16 high-throughput detection workers behindyoloe-detector-lb
-# - GPU 4 (L20 SM89): vLLM BF16 + FlashAttention-2 + Prefix Caching + LoRA serving Qwen3-VL-8B-Instruct
-# - GPU 5 (L20 SM89): Dedicated QLoRA training / offline verification / canary standby
+# Heterogeneous 6-GPU cluster topology, aligned with the real `nvidia-smi` on ai-lingxi:
+#   index 0 = NVIDIA L20  (48GB, SM89)
+#   index 1 = Tesla T4    (16GB, SM75)
+#   index 2 = Tesla T4    (16GB, SM75)
+#   index 3 = Tesla T4    (16GB, SM75)
+#   index 4 = NVIDIA L20  (48GB, SM89)
+#   index 5 = Tesla T4    (16GB, SM75)
+# i.e. the two L20 cards are GPU 0 and GPU 4; the four T4 cards are GPU 1, 2, 3 and 5.
+# The earlier revision of this file assumed "T4 0..3 + L20 4..5", which does not match the host.
+#
+# - GPU 1/2/3/5 (T4 SM75): YOLOE TensorRT FP16 high-throughput detection workers behind yoloe-detector-lb
+# - GPU 4 (L20 SM89): vLLM BF16 + FlashAttention-2 + Prefix Caching + LoRA serving Qwen3-VL-8B-Instruct (Tier 3)
+# - GPU 0 (L20 SM89): second L20; currently hosts light tenant processes (~3GB baseline). Reserved for
+#   the Tier 2.5 Jev-Omni fast gate and QLoRA training / offline verification / canary standby.
+#
+# Ports: host port 8010 is already taken by the unrelated `myolotrain-web-1` container, so the
+# Jev-Omni fast gate (deploy/start_jev_omni.sh) binds host port 18010 by default. The container
+# still listens on 8010 internally, so the mapping is `127.0.0.1:18010 -> 8010`.
+# vLLM keeps its own 8009 mapping.
 
 services:
-  yoloe-detector-t4-0:
-    image: yoloe_service:latest
-    restart: unless-stopped
-    mem_limit: 8g
-    memswap_limit: 8g
-    cpus: 4.0
-    labels:
-      owner: agent
-      gpu_tier: t4_detector
-    environment:
-      CUDA_VISIBLE_DEVICES: "0"
-      TRT_FP16_ENABLE: "1"
-      YOLOE_MAX_BATCH_SIZE: "8"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ["0"]
-              capabilities: [gpu]
-
-  yoloe-detector-t4-1:
+  # Real GPU index 1 (Tesla T4 16GB)
+  yoloe-detector-t4-gpu1:
     image: yoloe_service:latest
     restart: unless-stopped
     mem_limit: 8g
@@ -46,7 +41,8 @@ services:
               device_ids: ["1"]
               capabilities: [gpu]
 
-  yoloe-detector-t4-2:
+  # Real GPU index 2 (Tesla T4 16GB)
+  yoloe-detector-t4-gpu2:
     image: yoloe_service:latest
     restart: unless-stopped
     mem_limit: 8g
@@ -67,7 +63,8 @@ services:
               device_ids: ["2"]
               capabilities: [gpu]
 
-  yoloe-detector-t4-3:
+  # Real GPU index 3 (Tesla T4 16GB)
+  yoloe-detector-t4-gpu3:
     image: yoloe_service:latest
     restart: unless-stopped
     mem_limit: 8g
@@ -88,6 +85,29 @@ services:
               device_ids: ["3"]
               capabilities: [gpu]
 
+  # Real GPU index 5 (Tesla T4 16GB) — the fourth T4 lives on index 5, not index 3.
+  yoloe-detector-t4-gpu5:
+    image: yoloe_service:latest
+    restart: unless-stopped
+    mem_limit: 8g
+    memswap_limit: 8g
+    cpus: 4.0
+    labels:
+      owner: agent
+      gpu_tier: t4_detector
+    environment:
+      CUDA_VISIBLE_DEVICES: "0"
+      TRT_FP16_ENABLE: "1"
+      YOLOE_MAX_BATCH_SIZE: "8"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["5"]
+              capabilities: [gpu]
+
+  # Tier 3 verifier on the dedicated L20 (real GPU index 4, 44GB free at verification time).
   vllm-qwen3vl-l20:
     image: vllm/vllm-openai:latest
     restart: unless-stopped

@@ -61,7 +61,7 @@ class Settings:
     # Disabled by default so the existing 3-tier behaviour is byte-for-byte unchanged.
     jev_omni_enabled: bool = False
     jev_omni_mode: str = "http"
-    jev_omni_base_url: str = "http://127.0.0.1:8010"
+    jev_omni_base_url: str = "http://127.0.0.1:18010"
     jev_omni_model_id: str = "akhilaaa3/Jev-Omni"
     jev_omni_confirm_threshold: float = 0.88
     jev_omni_reject_threshold: float = 0.12

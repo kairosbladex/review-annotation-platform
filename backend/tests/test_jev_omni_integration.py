@@ -406,7 +406,7 @@ def test_jev_omni_is_disabled_by_default_and_settings_reach_job_options():
 
     assert options["jev_omni_enabled"] is False
     assert options["jev_omni_mode"] == "http"
-    assert options["jev_omni_base_url"] == "http://127.0.0.1:8010"
+    assert options["jev_omni_base_url"] == "http://127.0.0.1:18010"
     assert options["jev_omni_model_id"] == "akhilaaa3/Jev-Omni"
     assert options["jev_omni_confirm_threshold"] == 0.88
     assert options["jev_omni_reject_threshold"] == 0.12

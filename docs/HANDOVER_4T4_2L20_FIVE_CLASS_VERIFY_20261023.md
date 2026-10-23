@@ -512,7 +512,7 @@ PYTHONPATH=.:backend .venv/bin/pytest backend/tests/test_prepare_ktd_clean_sourc
 |---|---|---|
 | `JEV_OMNI_ENABLED` | `false` | 总开关；关闭时级联行为与接入前逐字节一致 |
 | `JEV_OMNI_MODE` | `http` | `local`（进程内加载 12B）/ `http`（独立微服务） |
-| `JEV_OMNI_BASE_URL` | `http://127.0.0.1:8010` | 微服务地址，调用 `POST /v1/decide` |
+| `JEV_OMNI_BASE_URL` | `http://127.0.0.1:18010` | 微服务地址，调用 `POST /v1/decide`（宿主机 8010 被 `myolotrain-web-1` 占用，改用 18010） |
 | `JEV_OMNI_MODEL_ID` | `akhilaaa3/Jev-Omni` | 模型 ID（同时写入返回值 `model_id`） |
 | `JEV_OMNI_CONFIRM_THRESHOLD` | `0.88` | 自动确认阈值 |
 | `JEV_OMNI_REJECT_THRESHOLD` | `0.12` | 自动拒识阈值 |
@@ -619,21 +619,21 @@ PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q
 
 ```bash
 # 只读预检（不启动容器）
-DRY_RUN=1 GPU_DEVICE=5 bash deploy/start_jev_omni.sh
+DRY_RUN=1 GPU_DEVICE=4 bash deploy/start_jev_omni.sh
 
-# L20（48GB）BF16，自动识别卡型
-GPU_DEVICE=4 JEV_OMNI_PORT=8010 bash deploy/start_jev_omni.sh
+# L20（48GB）BF16，自动识别卡型（真机 L20 在 GPU 0 与 GPU 4）
+GPU_DEVICE=4 JEV_OMNI_PORT=18010 bash deploy/start_jev_omni.sh
 
-# T4（16GB）4-bit 量化
-GPU_DEVICE=0 PRECISION=4bit JEV_OMNI_PORT=8010 bash deploy/start_jev_omni.sh
+# T4（16GB）4-bit 量化（真机 T4 在 GPU 1/2/3/5）
+GPU_DEVICE=5 PRECISION=4bit JEV_OMNI_PORT=18010 bash deploy/start_jev_omni.sh
 
 # 镜像内未预装依赖时
 JEV_OMNI_BOOTSTRAP="pip install -q -U jev-omni fastapi uvicorn pillow httpx" \
   GPU_DEVICE=4 bash deploy/start_jev_omni.sh
 
 # 就绪探针 + 单框冒烟
-curl -s http://127.0.0.1:8010/healthz
-curl -s -X POST http://127.0.0.1:8010/v1/warmup
+curl -s http://127.0.0.1:18010/healthz
+curl -s -X POST http://127.0.0.1:18010/v1/warmup
 ```
 
 主后端启用：
@@ -641,7 +641,7 @@ curl -s -X POST http://127.0.0.1:8010/v1/warmup
 ```bash
 JEV_OMNI_ENABLED=true
 JEV_OMNI_MODE=http
-JEV_OMNI_BASE_URL=http://127.0.0.1:8010
+JEV_OMNI_BASE_URL=http://127.0.0.1:18010
 AUTO_ANNOTATION_CASCADE_ROUTING=true   # Tier 2.5 依赖级联开启
 ```
 
@@ -768,3 +768,218 @@ PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q
 | 推送命令 | `git push github docs/luna-business-test-release:docs/luna-business-test-release` |
 | 核验命令 | `git rev-parse HEAD` 与 `git ls-remote github refs/heads/docs/luna-business-test-release` 比对，要求两者 SHA 完全一致 |
 | 强制推送 | **未使用**（`--force` / `--force-with-lease` 均未执行） |
+
+---
+
+## 11. 第五轮：Jev-Omni 真机推理验证（L20 GPU 4，142 条真实人工金标）
+
+前四轮所有 Jev-Omni 收益都建立在**代理概率**上（`multimodal_proxy` 上界 / `detector_platt` 下界）。
+本轮首次把 `akhilaaa3/Jev-Omni`（12B，Gemma-4 Unified 架构）真机跑起来，用 142 条真实人工金标
+的**实测 `p_true`** 回答两个问题：能否提高准确率、能否安全卸载 VLM 流量。
+
+### 11.0 执行边界（红线）
+
+| 项 | 约束与结果 |
+|---|---|
+| GPU 服务器 | 未重启；未触碰 8188 / 8189 / 8080 / 8010 等运行中容器 |
+| 卡位 | 只用 **GPU 4（NVIDIA L20，44 GB free）**；GPU 3（1.5 GB free）与 GPU 5（5.3 GB free）全程未触碰 |
+| 容器 | 全部 `--rm --label owner=agent --memory=28g --memory-swap=28g --cpus=8 --gpus device=4`，任务结束已确认容器退出、GPU 4 显存回到基线 `1514 MiB`（与开工前逐字节一致） |
+| 本地工作区 | 原有 6 项未跟踪文件/目录未暂存、未修改、未推送 |
+
+### 11.1 Step 1：真机拓扑对齐与 8010 → 18010 端口迁移
+
+真机 `nvidia-smi` 实测（2026-10-23 18:24）：
+
+| index | 型号 | 显存 free / used |
+|---:|---|---|
+| 0 | **NVIDIA L20** | 42531 / 3064 MiB |
+| 1 | Tesla T4 | 11634 / 3295 MiB |
+| 2 | Tesla T4 | 14716 / 213 MiB |
+| 3 | Tesla T4 | 1538 / 13391 MiB（忙碌） |
+| 4 | **NVIDIA L20** | **44081 / 1514 MiB**（本次使用） |
+| 5 | Tesla T4 | 5312 / 9617 MiB（忙碌） |
+
+即**两块 L20 在 0 和 4，四块 T4 在 1/2/3/5**，与此前编排文件假设的「T4 0..3 + L20 4..5」相反。
+同时宿主机 `8010` 已被无关容器 `myolotrain-web-1` 占用。
+
+| 文件 | 变更 |
+|---|---|
+| `deploy/gpu-cluster-4t4-2l20.compose.yml` | 注释改为真机拓扑；四个 T4 服务重命名 `yoloe-detector-t4-gpu{1,2,3,5}` 且 `device_ids` 对齐 `["1"]/["2"]/["3"]/["5"]`；vLLM 保留 `["4"]`；新增 8010 被占用的说明 |
+| `deploy/start_jev_omni.sh` | 默认 `JEV_OMNI_PORT` 8010 → **18010**（容器内仍监听 8010，映射 `127.0.0.1:18010 -> 8010`）；默认资源上限 24g/6 → **28g/8**；用法示例改用真机卡号 |
+| `backend/app/config.py` | `jev_omni_base_url` 默认 `http://127.0.0.1:8010` → **`18010`** |
+| `backend/app/adapters/jev_omni_classifier.py` | 适配器默认 `base_url` 与 `build_jev_omni_adapter` 兜底值同步改为 18010 |
+| `deploy/production.env.example` | `JEV_OMNI_BASE_URL` → `18010` 并注明端口冲突原因 |
+| `backend/tests/test_jev_omni_integration.py` | 默认地址断言同步 18010 |
+
+校验：`yaml.safe_load` 通过，5 个服务的 `device_ids` 依次为 `1/2/3/5/4`；`bash -n deploy/start_jev_omni.sh` 通过；
+全量单测 `234 passed, 1 skipped`（与改动前一致）。
+
+### 11.2 Step 2：142 条金标双视角合图打包
+
+新增 `scripts/build_jev_omni_gold_bundle.py`：读 `gold_overlap_map.jsonl`（142 条）关联
+`inference_manifest.jsonl` 的检测器分数与 bbox，逐条生成 1024×512 双视角合图与
+`(state, question, options)`，打包到 `/tmp/jev_omni_gold_eval_bundle`（16 MB）后传到
+`ai-lingxi:/data/workspace/review-annotation-platform-ktd/jev_omni_eval/bundle/`。
+
+| 视图来源 | 条数 | 说明 |
+|---|---:|---|
+| `review_views_from_original_frame` | **126** | `event_annotated_frames/<event_id>.jpg` 分辨率与 `frame_size` **完全一致**，用 `build_jev_omni_review_views` + 归一化 bbox 现场重建 —— 与线上 `auto_annotation_service._process_item` 的调用路径逐像素一致 |
+| `materialized_views_annotated_roi_fallback` | 16 | 这 16 条人员样本 `has_clean_source=false`、且无原始帧，回退到已落盘的 `annotated_context` + `annotated_roi` |
+| `materialized_views`（clean_roi） | 0 | 未被触发 |
+
+合图规格核验：全部 `(1024, 512)`；分隔条固定在中性灰 `(230,230,230)` 的第 508–515 列；
+每条样本记录 `composite_sha256`。类别 车 86 / 人员 56，标签 true 96 / false 46。
+
+### 11.3 Step 3：GPU 4 上真机加载与逐条推理
+
+| 项 | 结果 |
+|---|---|
+| 镜像 | `yoloe-service:latest`（Ubuntu 22.04 / Python 3.10.12 / **torch 2.9.1+cu128** / 原 transformers 5.5.4） |
+| 依赖 | `pip install --no-deps --target /work/pylibs transformers==5.17.0 tokenizers==0.23.3 huggingface_hub==1.33.0 safetensors regex typer accelerate psutil pyyaml`（复用镜像内 torch，避免 3 GB 无用下载） |
+| 权重 | `model.safetensors` 23.92 GB，经 `hf-mirror.com` 12 路分片并行下载（聚合 8.8 MB/s，2927 s），按仓库自带 `sha256.json` 校验 **通过** |
+| 架构 | `transformers 5.17.0` **原生**提供 `Gemma4UnifiedForConditionalGeneration`，无需 GGUF / 社区分支回退 |
+| 加载 | 7.5–9.2 s，`vram_allocated = 22.28 GiB` |
+| 推理 | 142/142 成功，**0 error**；单框 **mean 212.9 ms / p50 202.0 ms / p95 247.9 ms / max 878.5 ms**（预热 3 条不计） |
+| 清理 | 容器已退出（`docker ps` 无残留），GPU 4 回到 `44081 MiB free / 1514 MiB used` |
+
+> 实测 212.9 ms 比此前假设的 900 ms 快 4.2 倍，此前评估里的耗时结论因此偏保守。
+
+产物：`data/ktd-clean-source-full-evaluation-20260924/jev_omni_real_probs.jsonl`（142 行，56 KB，已纳入版本管理）。
+
+### 11.4 Step 4：四组同分母对比（主口径 = 生产中文 prompt）
+
+`scripts/eval_five_class_gates.py` 新增 `evaluate_gold_four_way()`：四组严格共用同一批 142 条样本，
+`uncertain`（VLM 弃权转人工）在自动裁决口径下计为「未确认」，分母恒为 142。
+
+复现命令：
+
+```bash
+PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
+    --jev-omni-probs data/ktd-clean-source-full-evaluation-20260924/jev_omni_real_probs.jsonl \
+    --jev-omni-prob-source real --jev-omni-latency-ms 212.9 \
+    --output-dir /tmp/ktd_jev_real_eval
+```
+
+| 组 | 策略 | Precision | Recall | F1 | FAR | FRR | 平均单框耗时 | TP/FP/TN/FN |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| A | 仅上游检测器（conf ≥ 0.25 全保留） | 0.6761 | 1.0000 | 0.8067 | **1.0000** | 0.0000 | 0 ms | 96/46/0/0 |
+| B | 仅 Jev-Omni（p_true ≥ 0.5） | 1.0000 | 0.3021 | 0.4640 | 0.0000 | **0.6979** | 212.9 ms | 29/0/46/67 |
+| C | 仅 Qwen3-VL（`hybrid_decision`） | 0.9583 | 0.9583 | **0.9583** | 0.0870 | 0.0417 | 4857.3 ms | 92/4/42/4 |
+| D | Tier1 + Tier2.5 + Tier3 融合级联 | 0.9868 | 0.7812 | 0.8721 | 0.0217 | **0.2188** | 1597.3 ms | 75/1/45/21 |
+
+组 D 档位分布：`tier1_auto_confirm 36 / tier2_5_jev_omni_reject 64 / tier3_vlm_verify 42`。
+
+**结论（中文 prompt 口径）：不可上线。** Jev-Omni 在 0.12 拒识阈值下把 **21 个真实正样本**判成假框，
+端到端 F1 从 0.9684 掉到 0.8721、FRR 从 2.1% 升到 **21.9%** —— 卸载了 60% 的 VLM 调用，代价是每 5 个真目标丢 1 个。
+
+### 11.5 对照实验：英文 prompt 的诊断价值
+
+概率偏低是否只是 prompt 语言导致？用同一批合图、同一模型、把 `state` 换成等价的英文版本
+（`bundle/manifest_en.jsonl`）再跑一遍：
+
+| 指标 | 中文 prompt（生产口径） | 英文 prompt（诊断） |
+|---|---:|---:|
+| AUC（142 条金标） | 0.9363 | **0.9493** |
+| 正样本平均 `p_true` | 0.363 | **0.639** |
+| 负样本平均 `p_true` | 0.020 | 0.085 |
+| `p_true ≥ 0.88` 确认（TP/FP） | 1 / 0 | 12 / 0 |
+| `p_true ≤ 0.12` 拒识（TN/FN） | 43 / **23** | 36 / **7** |
+| 单框耗时 | 212.9 ms | 192.5 ms |
+
+英文口径四组同分母：
+
+| 组 | 策略 | Precision | Recall | F1 | FAR | FRR | 平均单框耗时 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| A | 仅上游检测器 | 0.6761 | 1.0000 | 0.8067 | 1.0000 | 0.0000 | 0 ms |
+| B | 仅 Jev-Omni（p_true ≥ 0.5） | 0.9859 | 0.7292 | 0.8383 | 0.0217 | 0.2708 | 192.5 ms |
+| C | 仅 Qwen3-VL | 0.9583 | 0.9583 | 0.9583 | 0.0870 | 0.0417 | 4857.3 ms |
+| D | 融合级联（0.88/0.12） | 0.9780 | 0.9271 | 0.9519 | 0.0435 | 0.0729 | 2132.5 ms |
+
+档位分布：`tier1 36 / tier2.5 confirm 5 / tier2.5 reject 43 / tier3 58`，即 VLM 调用 106 → 58（**−45.3%**）。
+
+### 11.6 阈值网格：找到安全卸载点
+
+英文口径下扫描 `(confirm, reject)` 组合（同一 142 条金标，Tier1 固定 0.85）：
+
+| confirm | reject | TP | FP | TN | FN | Precision | Recall | F1 | FAR | FRR | VLM 调用 |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0.88 | 0.120 | 89 | 2 | 44 | 7 | 0.9780 | 0.9271 | 0.9519 | 0.0435 | 0.0729 | 58 |
+| 0.80 | 0.050 | 89 | 2 | 44 | 7 | 0.9780 | 0.9271 | 0.9519 | 0.0435 | 0.0729 | 59 |
+| **0.60** | **0.010** | 91 | 3 | 43 | 5 | 0.9681 | 0.9479 | **0.9579** | 0.0652 | 0.0521 | **59** |
+| 0.75 | 0.010 | 91 | 3 | 43 | 5 | 0.9681 | 0.9479 | 0.9579 | 0.0652 | 0.0521 | 74 |
+| 0.50 | 0.005 | 92 | 5 | 41 | 4 | 0.9485 | 0.9583 | 0.9534 | 0.1087 | 0.0417 | 59 |
+| 0.88 | 0.005 | 92 | 4 | 42 | 4 | 0.9583 | 0.9583 | 0.9583 | 0.0870 | 0.0417 | 92 |
+
+中文口径同样两档：`(0.60, 0.01)` → F1 0.9412 / FRR 0.0833 / VLM 49；`(0.50, 0.005)` → F1 0.9524 / FRR 0.0625 / VLM 52。
+**中文 prompt 即使重校准也追不上英文口径**，说明瓶颈在 prompt 语言而不是阈值。
+
+### 11.7 回答任务书的两个问题
+
+**（1）能否提高检索/复检准确率？——不能。**
+Jev-Omni 单模型最好 F1 为 0.9263（英文，阈值 0.17 的最优点），融合级联最好 F1 为 **0.9579**，
+均未超过现有 Qwen3-VL 的 **0.9583**。它的价值不在「更准」，而在「更便宜」：
+AUC 0.9493 说明**排序能力足够**，但 12B 校准头的绝对概率分布与本域不匹配（正样本均值 0.639、最高 0.96）。
+
+**（2）能否安全卸载 VLM 流量？——分情况。**
+
+| 配置 | 端到端 F1 | FRR | VLM 调用 | 判定 |
+|---|---:|---:|---:|---|
+| 中文 prompt + 0.88/0.12（当前生产配置） | 0.8721（−0.0963） | 21.88% | 106 → 42（−60%） | **禁止上线**：误拒 21 个真目标 |
+| 英文 prompt + 0.88/0.12 | 0.9519（−0.0064） | 7.29% | 106 → 58（−45%） | 可灰度：F1 仅降 0.6pp，FAR 8.7%→4.4% |
+| **英文 prompt + 0.60/0.01** | **0.9579（−0.0004）** | 5.21% | 106 → 59（−44%） | **推荐**：F1 与纯 VLM 持平，FAR 8.7%→6.5%，平均单框耗时 4857→约 2100 ms（−57%） |
+
+关键前提：`build_jev_omni_decision_query` 目前输出**中文** `state`。本轮实测证明这会让 12B 校准头
+系统性偏保守（正样本均值 0.363），必须先改成英文再谈阈值。**本轮未改动该函数**（属行为变更，
+需单独评审），仅给出证据与建议。
+
+### 11.8 6713 条真实回放的口径声明（不可外推）
+
+用真机概率文件重跑后，`jev_omni_tier25.replay` 显示 Tier2.5 确认 3428 / 拒识 637、VLM 卸载 68.69%。
+**这组数字不是真机结论**：`_load_prob_overrides` 只对 142 条金标命中真机概率，
+其余 6571 条仍走 `multimodal_proxy`（8B 决策置信度折算）。真实可外推的只有 11.4 / 11.5 的 142 条同分母表。
+
+同口径下假框拒识质量（以真实 VLM decision 为伪标签）：中文 拒识 637 条中 610 条 VLM 亦判 false
+（精确率 95.76%，误拒真样本 24 条）；英文 616 条中 606 条一致（精确率 98.38%，误拒 8 条）。
+
+### 11.9 复现命令
+
+```bash
+# 1) 打包 142 条金标双视角合图（本地，CPU 可跑）
+PYTHONPATH=.:backend .venv/bin/python scripts/build_jev_omni_gold_bundle.py \
+    --output-dir /tmp/jev_omni_gold_eval_bundle
+
+# 2) GPU 侧逐条推理（容器内，GPU 4）
+python3 scripts/run_jev_omni_gold_inference.py \
+    --manifest /work/bundle/manifest.jsonl --bundle-root /work/bundle \
+    --model-dir /work/model --output /work/out/jev_omni_probs.jsonl
+
+# 3) 四组同分母评测
+PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
+    --jev-omni-probs data/ktd-clean-source-full-evaluation-20260924/jev_omni_real_probs.jsonl \
+    --jev-omni-prob-source real --jev-omni-latency-ms 212.9 \
+    --output-dir /tmp/ktd_jev_real_eval
+
+# 4) 全量单测
+PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q
+```
+
+远端留存（`/data/workspace/review-annotation-platform-ktd/jev_omni_eval/`）：
+`bundle/`（142 张合图 + 清单）、`model/`（23.92 GB 权重，sha256 已校验）、`out/`（两份概率 JSONL）、
+`logs/`（下载 / 推理日志）、`pylibs/`（transformers 5.17.0）。容器与进程已全部清理。
+
+### 11.10 残余风险
+
+| 项 | 说明 | 建议 |
+|---|---|---|
+| 金标只覆盖车/人员 | 142 条全为 `车 86 / 人员 56`，三轮车/违建/裂缝无真机数据 | 五类扩样后重跑 `build_jev_omni_gold_bundle.py` |
+| VLM 耗时仅 9 条实测 | 金标日志只打印每 10 条的进度，`variant=dual` 可用样本 9 条（均值 4857 ms） | 若要做精确耗时对比，需重跑一次带全量计时的 VLM 推理 |
+| 16 条无原始帧 | 回退到 `annotated_roi`（带角标），与其余 126 条的零遮挡 ROI 略有差异 | 影响可忽略，已在清单里逐条标注 `view_source` |
+| 单帧 0.2 s 未含排队 | 实测为单请求串行耗时，未测并发吞吐 | 上线前用 `start_jev_omni.sh` 起常驻服务压测 P95 |
+| prompt 语言未改 | 中文 `state` 使校准系统性偏低 | 建议单独 PR 把 `build_jev_omni_decision_query` 的 `state` 改英文并补 2 个断言 |
+
+### 11.11 Git 提交
+
+| 项 | 值 |
+|---|---|
+| 本轮变更 | 见下方提交记录 |
+| 是否 push | 是（仅 `github` 远端 `docs/luna-business-test-release`） |

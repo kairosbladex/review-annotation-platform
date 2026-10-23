@@ -62,11 +62,22 @@ DEFAULT_CANDIDATES = ROOT / "data/ktd-test-real-monitoring-full-20260924/output/
 DEFAULT_GOLD = ROOT / "data/ktd-clean-source-full-evaluation-20260924/predictions_scored.jsonl"
 DEFAULT_MANIFEST = ROOT / "data/ktd-test-real-monitoring-full-20260924/input/inference_manifest.jsonl"
 DEFAULT_GOLD_OVERLAP = ROOT / "data/ktd-test-real-monitoring-full-20260924/gold_overlap_map.jsonl"
+DEFAULT_VLM_RUN_LOG = ROOT / "data/ktd-clean-source-full-evaluation-20260924/gpu_inference_run.log"
 
 # 改造前（0.92，任意非 roof 类均可自动确认） vs 改造后（0.85，仅刚体类白名单）。
 BASELINE_TIER1_THRESHOLD = 0.92
 
 FIVE_CLASSES = ("人员", "车辆", "三轮车", "蓝色违建顶棚", "道路裂缝")
+
+
+def _rel(path: Path | None) -> str | None:
+    """尽量输出仓库相对路径；仓库外的绝对路径原样返回（便于把概率文件放在 /tmp）。"""
+    if path is None:
+        return None
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -995,7 +1006,7 @@ def evaluate_jev_omni_tier25(
     return {
         "note": JEV_OMNI_PROXY_NOTE,
         "probability_source": (
-            f"real:{probs_path.relative_to(ROOT)}" if probs_path is not None else prob_source
+            f"real:{_rel(probs_path)}" if probs_path is not None else prob_source
         ),
         "calibration": {
             **calibration,
@@ -1032,6 +1043,271 @@ def evaluate_jev_omni_tier25(
             },
         },
     }
+
+def _load_jev_prob_rows(path: Path | None) -> dict[str, dict[str, Any]]:
+    """读取真机概率 JSONL，保留 ``p_true`` 与实测 ``latency_ms``。"""
+    rows: dict[str, dict[str, Any]] = {}
+    if path is None:
+        return rows
+    for row in _read_jsonl(path):
+        candidate_id = row.get("candidate_id") or row.get("target_index")
+        value = row.get("p_true", row.get("probability", row.get("score")))
+        if candidate_id is None or not isinstance(value, (int, float)):
+            continue
+        probability = float(value)
+        if not 0.0 <= probability <= 1.0:
+            continue
+        latency = row.get("latency_ms")
+        rows[str(candidate_id)] = {
+            "p_true": probability,
+            "latency_ms": float(latency) if isinstance(latency, (int, float)) else None,
+            "error": row.get("error"),
+        }
+    return rows
+
+
+def _load_vlm_latency_ms(log_path: Path | None) -> dict[str, float]:
+    """从金标推理运行日志里取 ``variant=dual`` 的逐样本实测耗时（毫秒）。"""
+    latencies: dict[str, float] = {}
+    if log_path is None or not log_path.exists():
+        return latencies
+    for line in log_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line.startswith("{"):
+            continue
+        try:
+            record = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if record.get("event") != "progress" or record.get("variant") != "dual":
+            continue
+        if record.get("status") != "ok":
+            continue
+        candidate_id = record.get("candidate_id")
+        elapsed = record.get("elapsed_seconds")
+        if candidate_id and isinstance(elapsed, (int, float)):
+            latencies[str(candidate_id)] = float(elapsed) * 1000.0
+    return latencies
+
+
+def _four_way_metrics(
+    decisions: list[dict[str, Any]],
+    *,
+    latencies_ms: list[float],
+) -> dict[str, Any]:
+    """同分母二分类指标。
+
+    口径：``uncertain``（VLM 弃权、转人工）在**自动裁决**口径下按「未确认」计为
+    负例，因此 142 条始终是同一个分母；同时单独给出 ``manual_review_n``，
+    避免把「弃权」和「判假」混为一谈。
+    """
+    tp = fp = tn = fn = manual = 0
+    for row in decisions:
+        gold = str(row["gold"])
+        prediction = str(row["prediction"])
+        if prediction == "uncertain":
+            manual += 1
+        accepted = prediction == "true"
+        if gold == "true" and accepted:
+            tp += 1
+        elif gold == "true":
+            fn += 1
+        elif accepted:
+            fp += 1
+        else:
+            tn += 1
+    total = len(decisions)
+    precision = tp / (tp + fp) if (tp + fp) else 0.0
+    recall = tp / (tp + fn) if (tp + fn) else 0.0
+    f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) else 0.0
+    far = fp / (fp + tn) if (fp + tn) else None
+    frr = fn / (fn + tp) if (fn + tp) else None
+    return {
+        "n": total,
+        "tp": tp,
+        "fp": fp,
+        "tn": tn,
+        "fn": fn,
+        "manual_review_n": manual,
+        "manual_review_rate": round(manual / total, 4) if total else 0.0,
+        "precision": round(precision, 4),
+        "recall": round(recall, 4),
+        "f1": round(f1, 4),
+        "far": None if far is None else round(far, 4),
+        "frr": None if frr is None else round(frr, 4),
+        "accuracy": round((tp + tn) / total, 4) if total else 0.0,
+        "mean_latency_ms": round(sum(latencies_ms) / len(latencies_ms), 1) if latencies_ms else 0.0,
+        "total_latency_s": round(sum(latencies_ms) / 1000.0, 1),
+    }
+
+
+def evaluate_gold_four_way(
+    manifest_path: Path,
+    overlap_path: Path,
+    gold_path: Path,
+    *,
+    probs_path: Path | None = None,
+    vlm_log_path: Path | None = None,
+    detector_floor: float = 0.25,
+    jev_argmax: float = 0.5,
+) -> dict[str, Any]:
+    """142 条真实人工金标上的四组同分母对比（A/B/C/D）。
+
+    * **A 仅上游检测器**：``detector_confidence >= 0.25`` 即确认（线上检测器自身的
+      产出阈值，低于它的框根本不会成为候选）；
+    * **B 仅 Jev-Omni**：真机 ``p_true >= 0.5`` 即确认；
+    * **C 仅 Qwen3-VL**：直接取金标文件里的 ``hybrid_decision``（``uncertain`` 视为未确认）；
+    * **D 三级融合级联**：Tier1(0.85) → Tier2(0.12) → Tier2.5(真机 p_true, 0.88/0.12)
+      → Tier3(``hybrid_decision``)。
+
+    四组使用完全相同的 142 条样本，指标口径统一走 :func:`_four_way_metrics`。
+    耗时按组统计：A 不含检测器耗时（上游已完成），B 用实测 Jev-Omni 单框耗时，
+    C 用金标 ``variant=dual`` 的实测 VLM 耗时，D 按每条样本实际走的档位累加。
+    """
+    manifest = {row["candidate_id"]: row for row in _read_jsonl(manifest_path)}
+    vlm = {str(row.get("candidate_id")): row for row in _read_jsonl(gold_path)}
+    prob_rows = _load_jev_prob_rows(probs_path)
+    vlm_latency = _load_vlm_latency_ms(vlm_log_path)
+    vlm_latency_mean = (
+        sum(vlm_latency.values()) / len(vlm_latency) if vlm_latency else 0.0
+    )
+    jev_latency_values = [
+        row["latency_ms"] for row in prob_rows.values() if isinstance(row.get("latency_ms"), (int, float))
+    ]
+    jev_latency_mean = (
+        sum(jev_latency_values) / len(jev_latency_values) if jev_latency_values else 0.0
+    )
+
+    rows: list[dict[str, Any]] = []
+    missing_prob = 0
+    for item in _read_jsonl(overlap_path):
+        source = manifest.get(str(item.get("full_candidate_id")))
+        if source is None:
+            continue
+        candidate_id = str(source["candidate_id"])
+        legacy_id = str(item.get("legacy_candidate_id"))
+        probability = prob_rows.get(candidate_id)
+        if probability is None:
+            missing_prob += 1
+        rows.append(
+            {
+                **source,
+                "human_label": str(item.get("human_label")),
+                "legacy_candidate_id": legacy_id,
+                "p_true": (probability or {}).get("p_true"),
+                "jev_latency_ms": (probability or {}).get("latency_ms") or jev_latency_mean,
+                "vlm_decision": str((vlm.get(legacy_id) or {}).get("hybrid_decision") or "uncertain"),
+                "vlm_latency_ms": vlm_latency.get(legacy_id, vlm_latency_mean),
+            }
+        )
+
+    groups: dict[str, dict[str, Any]] = {
+        "A_detector_only": {"decisions": [], "latencies": []},
+        "B_jev_omni_only": {"decisions": [], "latencies": []},
+        "C_qwen3vl_only": {"decisions": [], "latencies": []},
+        "D_cascade_fused": {"decisions": [], "latencies": []},
+    }
+    tier_counts: Counter[str] = Counter()
+
+    by_event: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in rows:
+        by_event[str(row.get("event_id"))].append(row)
+
+    for event_rows in by_event.values():
+        gated = apply_pre_llm_geometric_gate(
+            [
+                {
+                    "target_index": row["candidate_id"],
+                    "class_name": row.get("class_name"),
+                    "confidence": row.get("detector_confidence"),
+                    "bbox": row.get("bbox_px"),
+                }
+                for row in event_rows
+            ]
+        )
+        for candidate, row in zip(gated, event_rows):
+            gold = row["human_label"]
+            confidence = row.get("detector_confidence")
+            confidence = float(confidence) if isinstance(confidence, (int, float)) else 0.0
+            p_true = row.get("p_true")
+
+            # A：仅上游检测器
+            groups["A_detector_only"]["decisions"].append(
+                {"gold": gold, "prediction": "true" if confidence >= detector_floor else "false"}
+            )
+            groups["A_detector_only"]["latencies"].append(0.0)
+
+            # B：仅 Jev-Omni
+            if isinstance(p_true, (int, float)):
+                b_pred = "true" if float(p_true) >= jev_argmax else "false"
+            else:
+                b_pred = "uncertain"
+            groups["B_jev_omni_only"]["decisions"].append({"gold": gold, "prediction": b_pred})
+            groups["B_jev_omni_only"]["latencies"].append(float(row["jev_latency_ms"]))
+
+            # C：仅 Qwen3-VL
+            groups["C_qwen3vl_only"]["decisions"].append(
+                {"gold": gold, "prediction": row["vlm_decision"]}
+            )
+            groups["C_qwen3vl_only"]["latencies"].append(float(row["vlm_latency_ms"]))
+
+            # D：Tier1 → Tier2 → Tier2.5 → Tier3
+            routing = evaluate_cascade_tier(candidate)
+            latency_ms = 0.0
+            if routing["tier"] == "tier1_auto_confirm":
+                d_pred = "true"
+                tier = "tier1_auto_confirm"
+            elif routing["tier"] == "tier2_auto_reject":
+                d_pred = "false"
+                tier = "tier2_auto_reject"
+            elif isinstance(p_true, (int, float)):
+                tier25 = evaluate_jev_omni_tier(
+                    candidate,
+                    p_true=float(p_true),
+                    confirm_threshold=JEV_OMNI_CONFIRM_THRESHOLD,
+                    reject_threshold=JEV_OMNI_REJECT_THRESHOLD,
+                )
+                tier = tier25["tier"]
+                latency_ms += float(row["jev_latency_ms"])
+                if tier25["requires_vlm"]:
+                    d_pred = row["vlm_decision"]
+                    latency_ms += float(row["vlm_latency_ms"])
+                else:
+                    d_pred = str(tier25["auto_label"])
+            else:
+                tier = "tier3_vlm_verify"
+                d_pred = row["vlm_decision"]
+                latency_ms += float(row["vlm_latency_ms"])
+            tier_counts[tier] += 1
+            groups["D_cascade_fused"]["decisions"].append({"gold": gold, "prediction": d_pred})
+            groups["D_cascade_fused"]["latencies"].append(latency_ms)
+
+    metrics = {
+        name: _four_way_metrics(payload["decisions"], latencies_ms=payload["latencies"])
+        for name, payload in groups.items()
+    }
+    baseline = metrics["A_detector_only"]
+    for name, block in metrics.items():
+        block["delta_f1_vs_A"] = round(block["f1"] - baseline["f1"], 4)
+        block["delta_latency_ms_vs_C"] = round(
+            block["mean_latency_ms"] - metrics["C_qwen3vl_only"]["mean_latency_ms"], 1
+        )
+
+    return {
+        "samples": len(rows),
+        "missing_jev_probs": missing_prob,
+        "probability_source": f"real:{_rel(probs_path)}" if probs_path else "proxy",
+        "vlm_latency_source": _rel(vlm_log_path),
+        "vlm_latency_samples": len(vlm_latency),
+        "jev_latency_samples": len(jev_latency_values),
+        "jev_latency_mean_ms": round(jev_latency_mean, 1),
+        "vlm_latency_mean_ms": round(vlm_latency_mean, 1),
+        "detector_floor": detector_floor,
+        "jev_argmax": jev_argmax,
+        "groups": metrics,
+        "cascade_tier_counts": dict(tier_counts),
+    }
+
 
 def _delta(after: Any, before: Any) -> float | None:
     if isinstance(after, (int, float)) and isinstance(before, (int, float)):
@@ -1086,6 +1362,12 @@ def main() -> int:
         default=900.0,
         help="Jev-Omni 单框耗时假设（毫秒）。L20 BF16 实测前先用 900ms 保守估计。",
     )
+    parser.add_argument(
+        "--vlm-run-log",
+        type=Path,
+        default=DEFAULT_VLM_RUN_LOG,
+        help="142 条金标的 Qwen3-VL 推理日志（取 variant=dual 的逐样本实测耗时）",
+    )
     args = parser.parse_args()
 
     report = {
@@ -1112,6 +1394,13 @@ def main() -> int:
             probs_path=args.jev_omni_probs,
             prob_source=args.jev_omni_prob_source,
         ),
+        "gold_four_way": evaluate_gold_four_way(
+            args.manifest,
+            args.gold_overlap,
+            args.gold,
+            probs_path=args.jev_omni_probs,
+            vlm_log_path=args.vlm_run_log,
+        ),
     }
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -1131,6 +1420,7 @@ def main() -> int:
     rj = jev["replay"]
     rq = rj["false_box_reject"]
     gj = jev["gold"]
+    fw = report["gold_four_way"]
 
     def _fmt(value: Any, *, signed: bool = False) -> str:
         if value is None:
@@ -1326,6 +1616,50 @@ def main() -> int:
             f"{counts.get('tier3_vlm_verify', 0)} |"
             for cls, counts in rj["per_class"].items()
         ],
+        "",
+        "## 6. 142 条真实人工金标四组同分母对比（真机 Jev-Omni 概率）",
+        "",
+        f"概率来源：`{fw['probability_source']}`（缺失 {fw['missing_jev_probs']} 条）；"
+        f"Jev-Omni 实测单框耗时均值 {fw['jev_latency_mean_ms']:.1f} ms"
+        f"（{fw['jev_latency_samples']} 条实测），"
+        f"Qwen3-VL 实测单框耗时均值 {fw['vlm_latency_mean_ms']:.1f} ms"
+        f"（`variant=dual`，{fw['vlm_latency_samples']} 条实测）。",
+        "",
+        "口径：四组均为同一批 142 条样本；`uncertain`（VLM 弃权转人工）在自动裁决口径下"
+        "计为「未确认」，故分母恒为 142。组 A 不含检测器耗时（上游已完成）。",
+        "",
+        "| 组 | 策略 | Precision | Recall | F1 | FAR | FRR | 平均单框耗时 | 自动裁决率 |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|",
+        *[
+            f"| {label} | {strategy} | {block['precision']:.4f} | {block['recall']:.4f} | "
+            f"{block['f1']:.4f} | {_fmt(block['far'])} | {_fmt(block['frr'])} | "
+            f"{block['mean_latency_ms']:.1f} ms | {1 - block['manual_review_rate']:.2%} |"
+            for label, strategy, block in (
+                ("A", "仅上游检测器（conf ≥ 0.25 全保留）", fw["groups"]["A_detector_only"]),
+                ("B", "仅 Jev-Omni（p_true ≥ 0.5）", fw["groups"]["B_jev_omni_only"]),
+                ("C", "仅 Qwen3-VL（hybrid_decision）", fw["groups"]["C_qwen3vl_only"]),
+                ("D", "Tier1 + Tier2.5 + Tier3 融合级联", fw["groups"]["D_cascade_fused"]),
+            )
+        ],
+        "",
+        "| 组 | TP | FP | TN | FN | 人工转交 | F1 相对 A | 耗时相对 C |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|",
+        *[
+            f"| {label} | {block['tp']} | {block['fp']} | {block['tn']} | {block['fn']} | "
+            f"{block['manual_review_n']} | {block['delta_f1_vs_A']:+.4f} | "
+            f"{block['delta_latency_ms_vs_C']:+.1f} ms |"
+            for label, block in (
+                ("A", fw["groups"]["A_detector_only"]),
+                ("B", fw["groups"]["B_jev_omni_only"]),
+                ("C", fw["groups"]["C_qwen3vl_only"]),
+                ("D", fw["groups"]["D_cascade_fused"]),
+            )
+        ],
+        "",
+        f"- 组 D 的档位分布：{json.dumps(fw['cascade_tier_counts'], ensure_ascii=False)}。",
+        "- 组 A 的 FAR 为 1.0 属预期：检测器产出阈值 0.25 之下的框根本不会成为候选，"
+        "因此「只信检测器」等价于把 46 个真实负样本全部接受 —— 这正是必须做二级复核的原因。",
+        "",
     ]
     (args.output_dir / "five_class_gate_eval.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     print("\n".join(md))
