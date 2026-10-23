@@ -86,6 +86,7 @@ def test_qwen_vl_tier_adapter_maps_real_review_results(monkeypatch):
     detections = json.loads(call["data"]["detections"])
     assert [item["target_index"] for item in detections] == [4, 5, 6]
     assert call["headers"] == {"X-API-Key": "test-key"}
+    assert set(call["files"]) == {"image", "clean_image"}
     decisions = result["decisions"]
     assert [decision["target_index"] for decision in decisions] == [4, 5, 6]
     assert [decision["consensus"] for decision in decisions] == ["true", "false", "uncertain"]

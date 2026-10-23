@@ -69,7 +69,13 @@ class QwenVLTierAdapter:
         with httpx.Client(timeout=self.timeout_seconds, verify=self.verify_tls) as client:
             response = client.post(
                 f"{self.base_url}{self.endpoint}",
-                files={"image": (filename, image_bytes, mime_type)},
+                files={
+                    "image": (filename, image_bytes, mime_type),
+                    # The clean-source gate is opt-in on the legacy service.
+                    # Use the same source frame for the four-view Qwen3-VL
+                    # verifier when no separately cleaned frame is available.
+                    "clean_image": (f"clean-{filename}", image_bytes, mime_type),
+                },
                 data=data,
                 headers=headers,
             )
