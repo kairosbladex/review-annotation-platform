@@ -3,7 +3,8 @@
     "name": "/jev-omni-t25-verify",
     "image": "yoloe_service_test:luna-business-6755b1e",
     "status": "running",
-    "started_at": "2026-10-23T12:48:58.235021859Z",
+    "health_status": "healthy",
+    "started_at": "2026-10-23T12:52:44.835940873Z",
     "labels": {
       "com.docker.compose.image.builder": "classic",
       "com.docker.compose.project": "yoloe_service_test_prod",
@@ -47,6 +48,7 @@
     "name": "/review-verify-90e9d054",
     "image": "review-annotation-test-api:4e3e5c7",
     "status": "running",
+    "health_status": null,
     "started_at": "2026-10-23T12:48:23.349824762Z",
     "labels": {
       "owner": "agent"
@@ -62,6 +64,7 @@
     "name": "/review-tier3-mock-verify",
     "image": "python:3.13-slim",
     "status": "running",
+    "health_status": null,
     "started_at": "2026-10-23T12:43:10.128586257Z",
     "labels": {
       "owner": "agent"

@@ -1166,6 +1166,8 @@ GPU 4 实测：
 |---|---:|---:|
 | 启动前基线 | 1514 MiB | 44081 MiB |
 | 权重加载完成、50 次压测后 | 24867 MiB | 20728 MiB |
+| 修正 healthcheck 并重启后 idle | 24681 MiB | 20914 MiB |
+| 最终 idle 采样 | 24805 MiB | 20790 MiB |
 
 本轮修复了两个部署脚本问题：
 
@@ -1173,6 +1175,8 @@ GPU 4 实测：
    `config.json`，直接装配本地 checkpoint，避免离线环境误走 `snapshot_download`。
 2. `JevOmni` 的 `_capture` 是实例级共享状态；服务现在用 `threading.Lock`
    串行化 GPU `predict`，HTTP 入口仍保持并发，避免并发请求交叉污染概率。
+3. 容器 healthcheck 已从基础镜像默认的 `8188` 改为本服务
+   `127.0.0.1:8010/healthz`；`docker ps` 实际显示 `Up (healthy)`。
 
 ### 13.3 五类业务 API 闭环
 
@@ -1258,8 +1262,8 @@ ssh -N -L 18010:127.0.0.1:18010 ai-lingxi
 
 | 资源 | 实测 |
 |---|---|
-| GPU 4 显存 | 24867 MiB used / 20728 MiB free |
-| Jev-Omni 容器内存 | 1.43 GiB / 28 GiB |
+| GPU 4 显存 | 24805 MiB used / 20790 MiB free（多次采样范围 24681–24867 MiB） |
+| Jev-Omni 容器内存 | 1.33 GiB / 28 GiB |
 | 后端容器内存 | 108.6 MiB / 8 GiB |
 | Tier 3 夹具内存 | 27.5 MiB / 512 MiB |
 | 宿主机内存 | 57 GB used / 251 GB total，194 GB available |
@@ -1341,8 +1345,8 @@ ssh ai-lingxi 'docker run --rm --label owner=agent \
 |---|---|---|
 | `docs/evidence/jev-omni-five-class-20261023/five_class_e2e.json` | 10 条候选的 tier/reason/p_true/label 与 job 结果 | `951136d92df0d8b7f2225cc99a16124d715839aba2c313a0ed2aa644183d5b76` |
 | `docs/evidence/jev-omni-five-class-20261023/load_test_50.json` | 50 次请求逐条延迟与概率 | `3e926fc7801f55b663fcdc5be7dfdffbae77e02283ad36a4fca8612c5b569248` |
-| `docs/evidence/jev-omni-five-class-20261023/runtime_inventory.json` | 容器资源上限、GPU 设备、端口 | `e0788f39a0c38731690c5fb637d11c25ae0b690fab5f395a29b9d6913c307df9` |
-| `docs/evidence/jev-omni-five-class-20261023/provenance.json` | 来源、限制、共享容器未触碰清单 | `271d4bb3fb23e81f6f38d1196260c0e6f324397a9c9118d491ce3d05dc9781c4` |
+| `docs/evidence/jev-omni-five-class-20261023/runtime_inventory.json` | 容器资源上限、GPU 设备、端口、health 状态 | `32aee90adce38c1bd8e41c0476ea989e59c903ffa07d8bc182e3f90ce56114b7` |
+| `docs/evidence/jev-omni-five-class-20261023/provenance.json` | 来源、限制、共享容器未触碰清单 | `a9ff528f9e91041bafa3d7d096a41135ffdac64c5b0e557683f1fc8e31520cc0` |
 
 全量回归：
 

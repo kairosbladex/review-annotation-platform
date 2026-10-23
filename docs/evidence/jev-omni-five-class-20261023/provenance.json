@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-23T20:50:28+08:00",
+  "captured_at": "2026-10-23T20:53:30+08:00",
   "host": "192.168.130.238",
   "ssh_alias": "ai-lingxi",
   "branch": "docs/luna-business-test-release",
@@ -9,8 +9,8 @@
     "name": "NVIDIA L20",
     "device_id": "4",
     "baseline_used_mib": 1514,
-    "loaded_used_mib": 24867,
-    "loaded_free_mib": 20728
+    "loaded_used_mib": 24681,
+    "loaded_free_mib": 20914
   },
   "model": {
     "path": "/data/workspace/review-annotation-platform-ktd/jev_omni_eval/model",
@@ -52,7 +52,7 @@
   "artifacts": {
     "five_class_e2e.json": "951136d92df0d8b7f2225cc99a16124d715839aba2c313a0ed2aa644183d5b76",
     "load_test_50.json": "3e926fc7801f55b663fcdc5be7dfdffbae77e02283ad36a4fca8612c5b569248",
-    "runtime_inventory.json": "e0788f39a0c38731690c5fb637d11c25ae0b690fab5f395a29b9d6913c307df9"
+    "runtime_inventory.json": "32aee90adce38c1bd8e41c0476ea989e59c903ffa07d8bc182e3f90ce56114b7"
   },
   "limitations": [
     "Tier 3 decisions use a deterministic Responses contract fixture, not an independent Qwen3-VL quality evaluation.",
