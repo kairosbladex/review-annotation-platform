@@ -14,6 +14,7 @@ from sqlalchemy import select
 from .adapters.object_store import ObjectStore, build_object_store
 from .adapters.codex_responses import build_codex_vision_adapter
 from .adapters.model_provider import build_model_adapter
+from .adapters.qwen_vl_tier import build_qwen_vl_tier_adapter
 from .config import Settings
 from .db import Base, build_engine, build_session_factory
 from .models import Annotation, AnnotationTask, AuditEvent, Candidate, ExportRecord, Job, ModelProfile, ModelRun, ModelRunSample, Sample, User, AutoAnnotationRun
@@ -57,7 +58,15 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
     app.state.object_store = object_store
     app.state.dataset_queue = DatasetQueueIndex.from_jsonl(settings.v2_queue_map_path)
     app.state.model_adapter = model_adapter or build_model_adapter(settings, object_store)
-    app.state.auto_annotation_adapter = auto_annotation_adapter or build_codex_vision_adapter(settings, object_store)
+    if auto_annotation_adapter is None:
+        if settings.model_adapter_type == "legacy_review_agent" and settings.model_service_base_url:
+            # The deployed independent workbench already exposes Qwen3-VL through
+            # the legacy review endpoint.  Reuse it for Tier 3 instead of
+            # requiring a second Luna/Codex credential.
+            auto_annotation_adapter = build_qwen_vl_tier_adapter(settings, object_store)
+        else:
+            auto_annotation_adapter = build_codex_vision_adapter(settings, object_store)
+    app.state.auto_annotation_adapter = auto_annotation_adapter
     # Tier 2.5 (Jev-Omni) is injected only for tests/embedding; production builds it
     # lazily from JEV_OMNI_* job options when JEV_OMNI_ENABLED=true.
     app.state.jev_omni_adapter = jev_omni_adapter
