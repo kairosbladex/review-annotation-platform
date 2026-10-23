@@ -1464,105 +1464,76 @@ F1 为 0.9626、FAR 为 0.0217；全参数 LOO 方案 4 的 F1 为 0.9579、FAR 
 - 本轮未操作 `5275/8392`、`5276/8393`、`8188/8189` 共享服务；GPU 4 上的
   `jev-omni-t25-verify` 只接收了 142 条真金标 HTTP 请求，未重启。
 
-## 15. review-vision-test 合并与真机发布验收（2026-10-24）
+## 15. review-vision-test 合并与真机发布验收（2026-10-24 修订）
 
 ### 15.1 代码与发布身份
 
-- 合并 `c97e46a7d5b01fdf842b91f469a04bfc0f8fb371`（独立视觉复检/智能检索）
-  到 `docs/luna-business-test-release`，合并提交
-  `33cd8ace01139bebe14d07b9ab67aecc75303e48`。
-- 合并后的 QLoRA 冲突同时保留数据集契约、L20/T4 自适应、全线性层 LoRA 与
-  `MultiSamplePadCollator`；解决后全量测试为
-  `374 passed, 1 skipped`，最终发布代码为
-  `29eb66a6e5195cf13afff734f7ba32ef681c73c0`，全量测试为
-  `376 passed, 1 skipped`。
-- 最终 release 目录：
-  `/data/workspace/user/review-vision-test/releases/29eb66a6e5195cf13afff734f7ba32ef681c73c0`。
-  旧目录
-  `/data/workspace/user/review-vision-test/releases/c97e46a7d5b01fdf842b91f469a04bfc0f8fb371`
-  及其旧容器镜像未删除、未覆盖。
-- 官方 `deploy_independent_vision.py prepare` 依赖旧 release 的受保护容器
-  快照；旧快照已因后续容器变化失效，因此本轮使用等价的定向容器切换：
-  `api/worker/frontend` 重建，`postgres/minio/redis/algorithm/luna-worker`
-  的既有容器与数据卷保持。未执行数据库重置或 MinIO 清空。
+- 当前分支：`docs/luna-business-test-release`；最新提交
+  `5ff303da327a5ce504c1319f5acb47abbce4e13c`，其父提交
+  `402a7575a1b08f14765a1b667af0bcb3f213e320` 为模型证据审计修复，
+  `b2c4b02306094a096713388b9b930c73bcc77403` 为仲裁/契约/LOO 修复。
+- `origin` 与 `github` 的同名远端分支均已核验为
+  `5ff303da327a5ce504c1319f5acb47abbce4e13c`。
+- 本机全量测试：
+  `PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q`，
+  `381 passed, 1 skipped, 10 warnings`；模型证据审计定向回归为 `46 passed, 1 warning`。
+- 当前发布目录：
+  `/data/workspace/user/review-vision-test/releases/402a7575a1b08f14765a1b667af0bcb3f213e320`。
+  c97 回滚目录、镜像和三个 `backup-c97e46a7` 容器保留；33cd/c8c705e/7b0393e/3b51c1f
+  中间备份容器、API/前端镜像标签和 release 目录已清理。
+- 官方 `prepare` 因历史 29eb release 元数据不是同一版本校验格式而拒绝继续；随后使用
+  同一 compose 配置和固定资源边界定向重建 API/Worker/前端。Postgres、Redis、MinIO、
+  algorithm、luna-worker 和数据卷未重建，未重置数据库或清空对象存储。
 
 ### 15.2 运行状态与连通性
 
-| 资源 | 状态 |
+| 资源 | 当前实测 |
 |---|---|
-| `review-vision-test-api-1` | `29eb66a6`，8393，`/api/v1/health` 200 |
-| `review-vision-test-worker-1` | `29eb66a6`，Celery 正常 |
-| `review-vision-test-frontend-1` | `29eb66a6`，5276，HTTP 200 |
+| `review-vision-test-api-1` | revision `402a7575`，8393，`/api/v1/health` 返回 `{"status":"ok"}` |
+| `review-vision-test-worker-1` | revision `402a7575`，Celery running |
+| `review-vision-test-frontend-1` | revision `402a7575`，5276，HTTP 200 |
 | `review-vision-test-postgres-1` / `redis` / `minio` | 原容器与数据卷继续运行 |
-| `review-vision-test-algorithm-1` | 原镜像 `dac104a6`，`/api/v1/health` 200、`model_loaded=true`；容器 healthcheck 因探针路径仍显示 unhealthy，不能据此判定服务不可用 |
-| `jev-omni-t25-verify` | 18010 健康，`model_id=akhilaaa3/Jev-Omni`、`loaded=true` |
-| 临时 `review-verify-90e9d054` / `review-tier3-mock-verify` | 已停止并删除；18392/18393 已释放 |
+| `review-vision-test-algorithm-1` | 原镜像 `dac104a6a893`，8193 可用；Docker healthcheck 仍显示 unhealthy，不能单独当作业务失败 |
+| `jev-omni-t25-verify` | healthy，`127.0.0.1:18010 -> 8010` |
+| c97 回滚备份 | API/Worker/前端三个镜像与容器名称均保留，未启动 |
 
-API/Worker 环境变量已核验为 `AUTO_ANNOTATION_MODE=adaptive`、
-`AUTO_ANNOTATION_CASCADE_ROUTING=true`、Tier1 `0.85`、Tier2 `0.12`、
-Jev confirm/reject `0.60/0.01`，Jev 地址为容器网络内的
-`http://jev-omni-t25-verify:8010`。宿主机 `127.0.0.1:18010` 保持原回环映射，
-未暴露新端口。
+### 15.3 五类业务真机复检
 
-### 15.3 五类业务复检结果
+- 首轮五类批次：`c8ab38ab79a94c9bb4d9be0c1b70f5ad`，9 条中 8 条完成、1 条失败；失败样本
+  `verify-20261024-r5-vehicle-tier25-reject` 的 algorithm 请求曾返回 500/超时，失败保留在
+  证据中，未从分母删除。
+- 修复后车辆 Tier 3 补跑：`b46c115cc61d4dd8ae9c64e249ed229d`，1/1 成功。
+- 修复后其余四类/几何批次：`266e403cc84d46a89aafe80b90f59512`，4/4 成功。
+- 修复后审计结果：违建为 `tier3_scene_dependent_forced_vlm + arbiter_kept_guarded_tier3`；
+  道路裂纹为 `tier3_road_crack_never_auto_confirmed + arbiter_kept_uncertain`；几何冲突
+  进入 `tier3_geometric_conflict`；车辆 Tier 3 产生真实 Qwen3-VL clean-source 结果。
+- 逐条审计证据（包括 Tier、Jev 概率、仲裁原因、实际模型版本、reasonCode、clean-source
+  applied/workerIsolated/match score）见
+  `docs/evidence/luna-business-test-release-20261024/review-vision-test-e2e.json`。
 
-真实 API 任务 `1a69631300734a90a93fab46d0c6f198`：
-`succeeded`，`9/9` 完成、`0` 失败。审计证据显示：
+### 15.4 Qwen3-VL 真实契约结果
 
-| 路径 | 真实结果 |
-|---|---|
-| Tier 1 | 人员、车辆各 1 条，`tier1_high_confidence_auto_confirm`，均未调用 Jev |
-| Tier 2 | 车辆低分 1 条，`tier2_low_confidence_auto_reject` |
-| Tier 2.5 confirm | 车辆 `p_true=0.9052`，`tier2_5_jev_omni_calibrated_confirm` |
-| Tier 2.5 reject 样本 | 真实 `p_true=0.0876`，落在 `(0.01, 0.60)` 灰区，转 Tier 3；未达到 `<=0.01`，不能把该样本算作 Tier 2.5 reject 通过 |
-| Tier 3 | 三轮车、蓝色违建、道路裂纹、两个几何冲突候选共 5 条进入 `tier3_vlm_verify` |
-| 仲裁 | `arbiter_uncertain_resolved_false/true`、`arbiter_kept_uncertain`、`arbiter_kept_vlm_decision` 均出现在审计中 |
+`QwenVLTierAdapter` 现在为原图清洁源候选传入合法归一化 `clean_bbox` 和
+`clean_match_quality={passed:true, coordinate_space:"normalized", score:1.0}`；显式关闭
+清洁源标记时不会伪造质量字段。真实审计已出现：
 
-真实模型标签与旧脚本预期不完全一致：三轮车被判 `false`，蓝色违建/道路裂纹
-保留 `uncertain`，几何冲突车/三轮车被判 `true`。因此旧脚本的
-`9/9` 预期标签检查为 false，但“任务执行 9/9 成功、路由字段 10/10 完整、
-Jev 与仲裁真实调用”是已验证事实；不能把旧预期标签当作模型精度结论。
+- `modelVersion=Qwen/Qwen3-VL-8B-Instruct`；
+- `reasonCode=clean_source_consensus_confirmed` 与
+  `clean_source_consensus_rejected`；
+- `cleanSource.applied=true`、`workerIsolated=true`、`matchQuality.score=1.0`；
+- `modelProbability` 对 clean-source 结果由 algorithm 返回为空，未伪造数值；legacy verifier
+  结果则保留实际 `resnet18-human-20260907-seed7-epoch14` 版本和对应 reasonCode。
 
-### 15.4 Qwen3-VL 边界
+这证明 Tier 3 已真实走通 Qwen3-VL clean-source worker；不同类别仍按算法契约可能走
+legacy verifier，审计字段区分了实际 modelVersion，未将其冒充 Qwen3-VL。
 
-已新增并部署 `QwenVLTierAdapter`，API 与 Worker 在
-`MODEL_ADAPTER_TYPE=legacy_review_agent` 时统一调用 algorithm
-`/api/v1/review-agent/review`，并传入原图作为清洁源触发 clean-source 门禁。
-请求实测返回 `clean_source.requested=true`、`enabled=true`，但本轮样本返回
-`clean_match_quality_missing`，未产生 `modelVersion`/Qwen3-VL 概率。
+### 15.5 GPU 与清理结果
 
-因此本轮可确认的是：Tier 3 已真实调用 algorithm 复核链路，Jev 灰区先验与
-`arbitrate_jev_omni_and_vlm` 仲裁已真实生效；**Qwen3-VL clean-source 实际推理
-仍未取得可验收证据，标记 `not_evaluable`**，不能宣称双模型 Qwen3-VL 仲裁
-已完成真机闭环。需要带匹配质量的清洁源帧重新跑 Tier 3 后再下结论。
+最终 `nvidia-smi`：GPU 4（NVIDIA L20）`31696 MiB used / 13899 MiB free`；GPU 0
+（算法固定卡）`3064 MiB used / 42531 MiB free`。当前 `docker ps -a` 已只保留当前
+`review-vision-test` 服务、c97 回滚备份、algorithm/luna-worker 及其依赖；用户指定的
+33cd/c8c705e/7b0393e/3b51c1f 和 `algorithm-backup-pre-qwen` 均已删除。
 
-### 15.5 智能检索实测
-
-通过 8393 真实 API 上传素材并创建任务
-`0bc476684e6749b1a63aae9beebaf34e`，最终为 `completed`，
-`processed_count=1/1`、`total_hits=0`、`sync_error=null`，无接口报错。
-algorithm 日志同时记录 `POST /api/v1/detect/batch/text-search` 200，
-文本后端为 `yolo`，说明请求确实到达检索服务；零命中是检索结果，不是传输或
-服务失败。
-
-### 15.6 GPU 与回滚
-
-发布后 GPU 4（`GPU-9f2ac4d0-be45-fe5b-d16a-86d1f3fd10f7`）显存为
-`24849 MiB used / 20746 MiB free`。`jev-omni-t25-verify` 仍为
-`restart=no`，因为该容器启用了 `AutoRemove`，Docker 拒绝更新 restart 策略；
-当前已健康常驻，但宿主机重启后不会自动恢复，需按原启动方式重新拉起。
-
-10 秒回滚到 `c97e46a7`（先停新容器，再启动已保留的旧容器）：
-
-```bash
-ssh ai-lingxi '
-docker stop review-vision-test-api-1 review-vision-test-worker-1 review-vision-test-frontend-1
-docker network connect --alias api review-vision-test_default review-vision-test-api-backup-c97e46a7 2>/dev/null || true
-docker network connect --alias worker review-vision-test_default review-vision-test-worker-backup-c97e46a7 2>/dev/null || true
-docker network connect --alias frontend review-vision-test_default review-vision-test-frontend-backup-c97e46a7 2>/dev/null || true
-docker start review-vision-test-api-backup-c97e46a7 review-vision-test-worker-backup-c97e46a7 review-vision-test-frontend-backup-c97e46a7
-'
-```
-
-旧容器名带 `backup-c97e46a7` 后缀，但其原端口绑定与网络别名保持不变；
-启动后 5276/8393 即由旧版接管。旧 release 目录和旧镜像均保留完整。
+回滚仍按 c97 三个备份容器执行：停止当前 API/Worker/前端后启动
+`review-vision-test-api-backup-c97e46a7`、`review-vision-test-worker-backup-c97e46a7`、
+`review-vision-test-frontend-backup-c97e46a7`；c97 release 目录和镜像未删除。
