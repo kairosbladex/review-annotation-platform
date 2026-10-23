@@ -287,6 +287,9 @@ def arbitrate_jev_omni_and_vlm(
     *,
     jev_omni_p_true: float | None,
     detector_confidence: float | None,
+    class_name: Any | None = None,
+    has_geometric_warning: bool = False,
+    vlm_reason_code: str | None = None,
     uncertain_reject_threshold: float = 0.18,
     uncertain_confirm_threshold: float = 0.65,
     detector_uncertain_max: float = 0.82,
@@ -325,6 +328,37 @@ def arbitrate_jev_omni_and_vlm(
     if detector is not None and not math.isfinite(detector):
         detector = None
 
+    canonical_class = _canonical_geom_class(class_name)
+    class_context_provided = bool(str(class_name or "").strip())
+    # A Tier 3 response that stopped at the clean-source/quality gate is not
+    # model evidence.  Keep its abstention visible instead of allowing an
+    # unrelated Jev-Omni prior to turn a protocol failure into a label.
+    reason_code = str(vlm_reason_code or "").strip().lower()
+    unverified_tier3 = bool(
+        reason_code
+        and reason_code != "clean_match_quality_passed"
+        and (
+            reason_code.startswith("clean_match_")
+            or reason_code.startswith("clean_source_")
+            or reason_code in {"invalid_clean_bbox", "clean_source_runtime_error"}
+        )
+    )
+    if normalized == "uncertain" and unverified_tier3:
+        return {
+            "decision": "uncertain",
+            "reason_code": "arbiter_kept_unverified_tier3",
+            "changed": False,
+        }
+    if normalized == "uncertain" and (
+        has_geometric_warning
+        or canonical_class in JEV_OMNI_SCENE_DEPENDENT_CLASSES
+    ):
+        return {
+            "decision": "uncertain",
+            "reason_code": "arbiter_kept_guarded_tier3",
+            "changed": False,
+        }
+
     if normalized == "uncertain":
         if (
             p_true is not None
@@ -337,7 +371,16 @@ def arbitrate_jev_omni_and_vlm(
                 "reason_code": "arbiter_uncertain_resolved_false",
                 "changed": True,
             }
-        if p_true is not None and p_true >= float(uncertain_confirm_threshold):
+        # Geometry conflicts and scene-dependent classes require human/VLM
+        # evidence.  Unknown or non-rigid classes also cannot be confirmed by
+        # a Jev-Omni prior alone; this is the Tier-1 allow-list boundary.
+        if (
+            p_true is not None
+            and p_true >= float(uncertain_confirm_threshold)
+            and not has_geometric_warning
+            and canonical_class not in JEV_OMNI_SCENE_DEPENDENT_CLASSES
+            and (not class_context_provided or canonical_class in TIER1_ELIGIBLE_CLASSES)
+        ):
             return {
                 "decision": "true",
                 "reason_code": "arbiter_uncertain_resolved_true",

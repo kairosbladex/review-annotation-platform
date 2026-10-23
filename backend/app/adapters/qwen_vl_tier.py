@@ -19,6 +19,48 @@ import httpx
 from ..services.auto_annotation_prompts import ROLE_ORDER
 
 
+def _clean_source_fields(candidate: dict[str, Any], *, source_is_original: bool) -> dict[str, Any]:
+    """Return the legacy verifier's required clean-source fields.
+
+    Auto annotation passes the original, unannotated asset as ``clean_image``.
+    For that explicit source contract the detector bbox is already in the
+    normalized coordinate space expected by the algorithm.  Callers that do
+    not have a clean source can set ``clean_source_is_original=False``; in
+    that case the algorithm receives no fabricated quality claim and keeps its
+    normal fail-open ``uncertain`` path.
+    """
+    supplied_bbox = candidate.get("clean_bbox", candidate.get("cleanBbox"))
+    supplied_quality = candidate.get(
+        "clean_match_quality", candidate.get("cleanMatchQuality")
+    )
+    if supplied_bbox is not None or supplied_quality is not None:
+        return {
+            "clean_bbox": supplied_bbox,
+            "clean_match_quality": supplied_quality,
+        }
+    if not source_is_original:
+        return {}
+    bbox = candidate.get("bbox")
+    if not isinstance(bbox, (list, tuple)) or len(bbox) != 4:
+        return {}
+    try:
+        values = [float(value) for value in bbox]
+    except (TypeError, ValueError):
+        return {}
+    x1, y1, x2, y2 = values
+    if not all(0.0 <= value <= 1.0 for value in values) or not (x1 < x2 and y1 < y2):
+        return {}
+    return {
+        "clean_bbox": values,
+        "clean_match_quality": {
+            "passed": True,
+            "coordinate_space": "normalized",
+            "score": 1.0,
+            "source": "original_asset",
+        },
+    }
+
+
 class QwenVLTierAdapter:
     def __init__(
         self,
@@ -49,6 +91,7 @@ class QwenVLTierAdapter:
         image_bytes = self.object_store.get_bytes(image["bucket"], image["object_key"])
         filename = str(image.get("object_key") or "image").rsplit("/", 1)[-1]
         mime_type = mimetypes.guess_type(filename)[0] or "image/jpeg"
+        source_is_original = bool(options.get("clean_source_is_original", True))
         detections = [
             {
                 "target_index": candidate.get("target_index", index),
@@ -56,6 +99,7 @@ class QwenVLTierAdapter:
                 "class_name": candidate.get("class_name", "unknown"),
                 "confidence": candidate.get("confidence", 1.0),
                 "bbox": candidate.get("bbox", [0.0, 0.0, 1.0, 1.0]),
+                **_clean_source_fields(candidate, source_is_original=source_is_original),
             }
             for index, candidate in enumerate(candidates)
         ]

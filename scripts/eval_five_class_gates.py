@@ -26,6 +26,7 @@
 from __future__ import annotations
 
 import argparse
+import itertools
 import json
 import math
 import random
@@ -1332,23 +1333,33 @@ def _arbitrate_prediction(row: dict[str, Any], thresholds: dict[str, float]) -> 
         row["vlm_decision"],
         jev_omni_p_true=row.get("p_true"),
         detector_confidence=row.get("detector_confidence"),
+        class_name=row.get("class_name"),
+        has_geometric_warning=bool(row.get("geometric_warning")),
+        vlm_reason_code=row.get("vlm_reason_code"),
         **thresholds,
     )
 
 
+ARBITRATION_GRID = {
+    "uncertain_reject_threshold": (0.05, 0.08, 0.12, 0.18),
+    "uncertain_confirm_threshold": (0.55, 0.60, 0.65, 0.70, 0.75),
+    "detector_uncertain_max": (0.70, 0.76, 0.82, 0.88),
+    "veto_max_jev_p": (0.005, 0.01, 0.015, 0.03),
+    "detector_low_max": (0.25, 0.30, 0.34, 0.40),
+    "jev_low_max": (0.10, 0.15, 0.20, 0.25),
+}
+
+
 def _select_loo_arbitration_thresholds(training_rows: list[dict[str, Any]]) -> dict[str, float]:
-    """Select conservative arbiter thresholds from the other 141 gold rows."""
-    candidates = []
-    # These are policy values, not free model parameters. LOO only checks the
-    # abstention boundary against the other 141 rows; the confirm and veto
-    # boundaries stay at the versioned safety defaults.
-    for reject in (0.05, 0.08, 0.12, 0.18):
-        candidates.append(
-            {
-                **ARBITRATION_DEFAULTS,
-                "uncertain_reject_threshold": reject,
-            }
-        )
+    """Select all six arbitration thresholds using only the training fold.
+
+    Every value that affects the arbiter is searched inside the 141-row fold;
+    the held-out row is never used to choose a boundary.  The versioned
+    ``ARBITRATION_DEFAULTS`` remain available as the separate fixed-rule
+    comparison reported by :func:`evaluate_gold_five_way`.
+    """
+    names = tuple(ARBITRATION_GRID)
+    candidates = [dict(zip(names, values, strict=True)) for values in itertools.product(*(ARBITRATION_GRID[name] for name in names))]
     best: tuple[tuple[float, float, float], dict[str, float]] | None = None
     for thresholds in candidates:
         decisions = [
@@ -1596,10 +1607,17 @@ def evaluate_gold_five_way(
         "full_set": full,
         "leave_one_out": {
             "groups": loo,
+            "threshold_search": "full_parameter_grid",
+            "grid": {name: list(values) for name, values in ARBITRATION_GRID.items()},
             "selected_threshold_counts": [
                 {"thresholds": list(key), "folds": count}
                 for key, count in threshold_counts.most_common()
             ],
+        },
+        "fixed_rule_set": {
+            "name": "versioned_fixed_parameters_on_full_142",
+            "thresholds": ARBITRATION_DEFAULTS,
+            "groups": full["groups"],
         },
     }
 
@@ -1723,6 +1741,7 @@ def main() -> int:
     rq = rj["false_box_reject"]
     gj = jev["gold"]
     fw = report["gold_four_way"]
+    five = report["gold_five_way"]
 
     def _fmt(value: Any, *, signed: bool = False) -> str:
         if value is None:
@@ -1931,6 +1950,10 @@ def main() -> int:
         "口径：四组均为同一批 142 条样本；`uncertain`（VLM 弃权转人工）在自动裁决口径下"
         "计为「未确认」，故分母恒为 142。组 A 不含检测器耗时（上游已完成）。",
         "",
+        "LOO 结果在每个 141 条训练折内对仲裁器六个关键阈值做内嵌网格搜索；"
+        "固定规则集结果则使用版本化默认阈值在完整 142 条上评估。两者分开报告，"
+        "固定规则集不宣称为无泄漏 LOO。",
+        "",
         "| 组 | 策略 | Precision | Recall | F1 | FAR | FRR | 平均单框耗时 | 自动裁决率 |",
         "|---|---|---:|---:|---:|---:|---:|---:|---:|",
         *[
@@ -1960,6 +1983,11 @@ def main() -> int:
         ],
         "",
         f"- 组 D 的档位分布：{json.dumps(fw['cascade_tier_counts'], ensure_ascii=False)}。",
+        f"- 全参数网格 LOO 的 `scheme_5_high_precision_consult`："
+        f"Accuracy={five['leave_one_out']['groups']['scheme_5_high_precision_consult']['accuracy']:.4f}，"
+        f"F1={five['leave_one_out']['groups']['scheme_5_high_precision_consult']['f1']:.4f}；"
+        f"固定规则集完整 142 条：Accuracy={five['fixed_rule_set']['groups']['scheme_5_high_precision_consult']['accuracy']:.4f}，"
+        f"F1={five['fixed_rule_set']['groups']['scheme_5_high_precision_consult']['f1']:.4f}。",
         "- 组 A 的 FAR 为 1.0 属预期：检测器产出阈值 0.25 之下的框根本不会成为候选，"
         "因此「只信检测器」等价于把 46 个真实负样本全部接受 —— 这正是必须做二级复核的原因。",
         "",

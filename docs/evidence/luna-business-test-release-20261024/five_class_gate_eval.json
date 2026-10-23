@@ -1,0 +1,1867 @@
+{
+  "generated_at": "deterministic",
+  "geometry_gate": {
+    "iou_threshold": 0.75,
+    "containment_threshold": 0.88,
+    "same_target_double_box_suppression_rate": 1.0,
+    "same_target_double_box_false_flag_rate": 0.0,
+    "iou_scan_points": 50,
+    "iou_above_threshold_n": 24,
+    "iou_below_threshold_n": 26,
+    "tricycle_bucket_interception_rate": 1.0,
+    "tricycle_bucket_false_flag_rate": 0.027,
+    "containment_only_interception_rate": 1.0,
+    "containment_only_false_flag_rate": 0.027,
+    "iou_curve": [
+      {
+        "target_iou": 0.5,
+        "measured_iou": 0.5,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.51,
+        "measured_iou": 0.51,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.52,
+        "measured_iou": 0.52,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.53,
+        "measured_iou": 0.53,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.54,
+        "measured_iou": 0.54,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.55,
+        "measured_iou": 0.55,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.56,
+        "measured_iou": 0.56,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.57,
+        "measured_iou": 0.57,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.58,
+        "measured_iou": 0.58,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.59,
+        "measured_iou": 0.59,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.6,
+        "measured_iou": 0.6,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.61,
+        "measured_iou": 0.61,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.62,
+        "measured_iou": 0.62,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.63,
+        "measured_iou": 0.63,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.64,
+        "measured_iou": 0.64,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.65,
+        "measured_iou": 0.65,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.66,
+        "measured_iou": 0.66,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.67,
+        "measured_iou": 0.67,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.68,
+        "measured_iou": 0.68,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.69,
+        "measured_iou": 0.69,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.7,
+        "measured_iou": 0.7,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.71,
+        "measured_iou": 0.71,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.72,
+        "measured_iou": 0.72,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.73,
+        "measured_iou": 0.73,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.74,
+        "measured_iou": 0.74,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.75,
+        "measured_iou": 0.75,
+        "flagged": false
+      },
+      {
+        "target_iou": 0.76,
+        "measured_iou": 0.76,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.77,
+        "measured_iou": 0.77,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.78,
+        "measured_iou": 0.78,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.79,
+        "measured_iou": 0.79,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.8,
+        "measured_iou": 0.8,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.81,
+        "measured_iou": 0.81,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.82,
+        "measured_iou": 0.82,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.83,
+        "measured_iou": 0.83,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.84,
+        "measured_iou": 0.84,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.85,
+        "measured_iou": 0.85,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.86,
+        "measured_iou": 0.86,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.87,
+        "measured_iou": 0.87,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.88,
+        "measured_iou": 0.88,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.89,
+        "measured_iou": 0.89,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.9,
+        "measured_iou": 0.9,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.91,
+        "measured_iou": 0.91,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.92,
+        "measured_iou": 0.92,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.93,
+        "measured_iou": 0.93,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.94,
+        "measured_iou": 0.94,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.95,
+        "measured_iou": 0.95,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.96,
+        "measured_iou": 0.96,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.97,
+        "measured_iou": 0.97,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.98,
+        "measured_iou": 0.98,
+        "flagged": true
+      },
+      {
+        "target_iou": 0.99,
+        "measured_iou": 0.99,
+        "flagged": true
+      }
+    ],
+    "tricycle_containment_curve": [
+      {
+        "target_containment": 0.7,
+        "measured_containment": 0.7,
+        "measured_iou": 0.0429,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.705,
+        "measured_containment": 0.705,
+        "measured_iou": 0.0433,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.71,
+        "measured_containment": 0.71,
+        "measured_iou": 0.0436,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.715,
+        "measured_containment": 0.715,
+        "measured_iou": 0.0439,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.72,
+        "measured_containment": 0.72,
+        "measured_iou": 0.0442,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.725,
+        "measured_containment": 0.725,
+        "measured_iou": 0.0445,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.73,
+        "measured_containment": 0.73,
+        "measured_iou": 0.0449,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.735,
+        "measured_containment": 0.735,
+        "measured_iou": 0.0452,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.74,
+        "measured_containment": 0.74,
+        "measured_iou": 0.0455,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.745,
+        "measured_containment": 0.745,
+        "measured_iou": 0.0458,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.75,
+        "measured_containment": 0.75,
+        "measured_iou": 0.0462,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.755,
+        "measured_containment": 0.755,
+        "measured_iou": 0.0465,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.76,
+        "measured_containment": 0.76,
+        "measured_iou": 0.0468,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.765,
+        "measured_containment": 0.765,
+        "measured_iou": 0.0471,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.77,
+        "measured_containment": 0.77,
+        "measured_iou": 0.0474,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.775,
+        "measured_containment": 0.775,
+        "measured_iou": 0.0478,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.78,
+        "measured_containment": 0.78,
+        "measured_iou": 0.0481,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.785,
+        "measured_containment": 0.785,
+        "measured_iou": 0.0484,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.79,
+        "measured_containment": 0.79,
+        "measured_iou": 0.0487,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.795,
+        "measured_containment": 0.795,
+        "measured_iou": 0.0491,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.8,
+        "measured_containment": 0.8,
+        "measured_iou": 0.0494,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.805,
+        "measured_containment": 0.805,
+        "measured_iou": 0.0497,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.81,
+        "measured_containment": 0.81,
+        "measured_iou": 0.05,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.815,
+        "measured_containment": 0.815,
+        "measured_iou": 0.0504,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.82,
+        "measured_containment": 0.82,
+        "measured_iou": 0.0507,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.825,
+        "measured_containment": 0.825,
+        "measured_iou": 0.051,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.83,
+        "measured_containment": 0.83,
+        "measured_iou": 0.0513,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.835,
+        "measured_containment": 0.835,
+        "measured_iou": 0.0517,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.84,
+        "measured_containment": 0.84,
+        "measured_iou": 0.052,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.845,
+        "measured_containment": 0.845,
+        "measured_iou": 0.0523,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.85,
+        "measured_containment": 0.85,
+        "measured_iou": 0.0526,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.855,
+        "measured_containment": 0.855,
+        "measured_iou": 0.053,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.86,
+        "measured_containment": 0.86,
+        "measured_iou": 0.0533,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.865,
+        "measured_containment": 0.865,
+        "measured_iou": 0.0536,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.87,
+        "measured_containment": 0.87,
+        "measured_iou": 0.0539,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.875,
+        "measured_containment": 0.875,
+        "measured_iou": 0.0543,
+        "flagged": false
+      },
+      {
+        "target_containment": 0.88,
+        "measured_containment": 0.88,
+        "measured_iou": 0.0546,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.885,
+        "measured_containment": 0.885,
+        "measured_iou": 0.0549,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.89,
+        "measured_containment": 0.89,
+        "measured_iou": 0.0552,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.895,
+        "measured_containment": 0.895,
+        "measured_iou": 0.0556,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.9,
+        "measured_containment": 0.9,
+        "measured_iou": 0.0559,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.905,
+        "measured_containment": 0.905,
+        "measured_iou": 0.0562,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.91,
+        "measured_containment": 0.91,
+        "measured_iou": 0.0566,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.915,
+        "measured_containment": 0.915,
+        "measured_iou": 0.0569,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.92,
+        "measured_containment": 0.92,
+        "measured_iou": 0.0572,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.925,
+        "measured_containment": 0.925,
+        "measured_iou": 0.0575,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.93,
+        "measured_containment": 0.93,
+        "measured_iou": 0.0579,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.935,
+        "measured_containment": 0.935,
+        "measured_iou": 0.0582,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.94,
+        "measured_containment": 0.94,
+        "measured_iou": 0.0585,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.945,
+        "measured_containment": 0.945,
+        "measured_iou": 0.0589,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.95,
+        "measured_containment": 0.95,
+        "measured_iou": 0.0592,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.955,
+        "measured_containment": 0.955,
+        "measured_iou": 0.0595,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.96,
+        "measured_containment": 0.96,
+        "measured_iou": 0.0599,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.965,
+        "measured_containment": 0.965,
+        "measured_iou": 0.0602,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.97,
+        "measured_containment": 0.97,
+        "measured_iou": 0.0605,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.975,
+        "measured_containment": 0.975,
+        "measured_iou": 0.0608,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.98,
+        "measured_containment": 0.98,
+        "measured_iou": 0.0612,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.985,
+        "measured_containment": 0.985,
+        "measured_iou": 0.0615,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.99,
+        "measured_containment": 0.99,
+        "measured_iou": 0.0618,
+        "flagged": true
+      },
+      {
+        "target_containment": 0.995,
+        "measured_containment": 0.995,
+        "measured_iou": 0.0622,
+        "flagged": true
+      }
+    ]
+  },
+  "real_replay": {
+    "source": "data/ktd-test-real-monitoring-full-20260924/output/raw_predictions.jsonl",
+    "events": 1416,
+    "candidates": 6713,
+    "tier_counts": {
+      "tier3_vlm_verify": 6167,
+      "tier1_auto_confirm": 546
+    },
+    "tier_ratios": {
+      "tier3_vlm_verify": 0.9187,
+      "tier1_auto_confirm": 0.0813
+    },
+    "tier1_threshold_sensitivity": [
+      {
+        "tier1_threshold": 0.6,
+        "tier1_share": 0.5042,
+        "tier3_share": 0.4958,
+        "tier1_count": 3385
+      },
+      {
+        "tier1_threshold": 0.65,
+        "tier1_share": 0.4615,
+        "tier3_share": 0.5385,
+        "tier1_count": 3098
+      },
+      {
+        "tier1_threshold": 0.7,
+        "tier1_share": 0.4129,
+        "tier3_share": 0.5871,
+        "tier1_count": 2772
+      },
+      {
+        "tier1_threshold": 0.75,
+        "tier1_share": 0.3484,
+        "tier3_share": 0.6516,
+        "tier1_count": 2339
+      },
+      {
+        "tier1_threshold": 0.8,
+        "tier1_share": 0.2501,
+        "tier3_share": 0.7499,
+        "tier1_count": 1679
+      },
+      {
+        "tier1_threshold": 0.85,
+        "tier1_share": 0.0813,
+        "tier3_share": 0.9187,
+        "tier1_count": 546
+      },
+      {
+        "tier1_threshold": 0.9,
+        "tier1_share": 0.0082,
+        "tier3_share": 0.9918,
+        "tier1_count": 55
+      },
+      {
+        "tier1_threshold": 0.92,
+        "tier1_share": 0.0027,
+        "tier3_share": 0.9973,
+        "tier1_count": 18
+      },
+      {
+        "tier1_threshold": 0.95,
+        "tier1_share": 0.0001,
+        "tier3_share": 0.9999,
+        "tier1_count": 1
+      }
+    ],
+    "thresholds": {
+      "tier1_auto_confirm": 0.85,
+      "tier2_auto_reject": 0.12
+    },
+    "geometric_warning_candidates": 36,
+    "geometric_warning_ratio": 0.0054,
+    "vehicle_tricycle_iou_conflicts": 29,
+    "containment_warnings": 10,
+    "blue_illegal_roof_total": 1247,
+    "blue_illegal_roof_tier3": 1247,
+    "blue_illegal_roof_tier3_compliance": 1.0,
+    "five_class_tier_breakdown": {
+      "车": {
+        "tier3_vlm_verify": 3715,
+        "tier1_auto_confirm": 531
+      },
+      "人员": {
+        "tier3_vlm_verify": 231,
+        "tier1_auto_confirm": 6
+      },
+      "三轮车": {
+        "tier3_vlm_verify": 39,
+        "tier1_auto_confirm": 2
+      },
+      "违建": {
+        "tier3_vlm_verify": 1247
+      },
+      "道路裂纹": {
+        "tier3_vlm_verify": 262
+      }
+    }
+  },
+  "cascade_before_after": {
+    "source": "data/ktd-test-real-monitoring-full-20260924/output/raw_predictions.jsonl",
+    "candidates": 6713,
+    "runs": [
+      {
+        "tier1_threshold": 0.92,
+        "tier1_count": 18,
+        "tier2_count": 0,
+        "tier3_count": 6695,
+        "tier1_share": 0.0027,
+        "tier2_share": 0.0,
+        "vlm_share": 0.9973,
+        "vlm_offload_share": 0.0027,
+        "geometric_gate_direct_intercept_share": 0.0,
+        "per_class": {
+          "三轮车": {
+            "tier3_vlm_verify": 41
+          },
+          "两轮车": {
+            "tier3_vlm_verify": 142
+          },
+          "人员": {
+            "tier3_vlm_verify": 237
+          },
+          "光伏板": {
+            "tier3_vlm_verify": 165
+          },
+          "光斑": {
+            "tier3_vlm_verify": 283
+          },
+          "公交车": {
+            "tier3_vlm_verify": 27
+          },
+          "卡车": {
+            "tier3_vlm_verify": 54
+          },
+          "没戴头盔": {
+            "tier3_vlm_verify": 5
+          },
+          "车": {
+            "tier3_vlm_verify": 4228,
+            "tier1_auto_confirm": 18
+          },
+          "车牌": {
+            "tier3_vlm_verify": 4
+          },
+          "违建": {
+            "tier3_vlm_verify": 1247
+          },
+          "道路裂纹": {
+            "tier3_vlm_verify": 262
+          }
+        }
+      },
+      {
+        "tier1_threshold": 0.85,
+        "tier1_count": 546,
+        "tier2_count": 0,
+        "tier3_count": 6167,
+        "tier1_share": 0.0813,
+        "tier2_share": 0.0,
+        "vlm_share": 0.9187,
+        "vlm_offload_share": 0.0813,
+        "geometric_gate_direct_intercept_share": 0.0,
+        "per_class": {
+          "三轮车": {
+            "tier3_vlm_verify": 39,
+            "tier1_auto_confirm": 2
+          },
+          "两轮车": {
+            "tier3_vlm_verify": 140,
+            "tier1_auto_confirm": 2
+          },
+          "人员": {
+            "tier3_vlm_verify": 231,
+            "tier1_auto_confirm": 6
+          },
+          "光伏板": {
+            "tier3_vlm_verify": 165
+          },
+          "光斑": {
+            "tier3_vlm_verify": 283
+          },
+          "公交车": {
+            "tier3_vlm_verify": 26,
+            "tier1_auto_confirm": 1
+          },
+          "卡车": {
+            "tier3_vlm_verify": 50,
+            "tier1_auto_confirm": 4
+          },
+          "没戴头盔": {
+            "tier3_vlm_verify": 5
+          },
+          "车": {
+            "tier3_vlm_verify": 3715,
+            "tier1_auto_confirm": 531
+          },
+          "车牌": {
+            "tier3_vlm_verify": 4
+          },
+          "违建": {
+            "tier3_vlm_verify": 1247
+          },
+          "道路裂纹": {
+            "tier3_vlm_verify": 262
+          }
+        }
+      }
+    ],
+    "tier1_allowlist": [
+      "person",
+      "tricycle",
+      "vehicle"
+    ],
+    "non_allowlist_candidates_blocked_at_new_threshold": {
+      "blue_illegal_roof": 560,
+      "光伏板": 13
+    },
+    "non_allowlist_blocked_total": 573
+  },
+  "gold_cascade_replay": {
+    "gold_source": "data/ktd-test-real-monitoring-full-20260924/gold_overlap_map.jsonl",
+    "detector_score_source": "data/ktd-test-real-monitoring-full-20260924/input/inference_manifest.jsonl",
+    "vlm_decision_source": "data/ktd-clean-source-full-evaluation-20260924/predictions_scored.jsonl",
+    "gold_candidates": 142,
+    "unmatched": 0,
+    "runs": [
+      {
+        "tier1_threshold": 0.75,
+        "n": 142,
+        "tier1_auto_confirm": 68,
+        "tier2_auto_reject": 0,
+        "tier3_vlm_verify": 74,
+        "tier1_true_positive": 63,
+        "tier1_false_positive": 5,
+        "tier1_precision": 0.9265,
+        "accuracy": 0.831,
+        "selective_accuracy": 0.9147,
+        "f1": 0.9436,
+        "far": 0.1956521739130435,
+        "frr": 0.020833333333333332,
+        "manual_review_rate": 0.0915,
+        "confusion": {
+          "tp": 92,
+          "tn": 26,
+          "fp": 9,
+          "fn": 2,
+          "true_uncertain": 2,
+          "false_uncertain": 11
+        }
+      },
+      {
+        "tier1_threshold": 0.8,
+        "n": 142,
+        "tier1_auto_confirm": 64,
+        "tier2_auto_reject": 0,
+        "tier3_vlm_verify": 78,
+        "tier1_true_positive": 60,
+        "tier1_false_positive": 4,
+        "tier1_precision": 0.9375,
+        "accuracy": 0.838,
+        "selective_accuracy": 0.9225,
+        "f1": 0.9485,
+        "far": 0.17391304347826086,
+        "frr": 0.020833333333333332,
+        "manual_review_rate": 0.0915,
+        "confusion": {
+          "tp": 92,
+          "tn": 27,
+          "fp": 8,
+          "fn": 2,
+          "true_uncertain": 2,
+          "false_uncertain": 11
+        }
+      },
+      {
+        "tier1_threshold": 0.82,
+        "n": 142,
+        "tier1_auto_confirm": 55,
+        "tier2_auto_reject": 0,
+        "tier3_vlm_verify": 87,
+        "tier1_true_positive": 52,
+        "tier1_false_positive": 3,
+        "tier1_precision": 0.9455,
+        "accuracy": 0.838,
+        "selective_accuracy": 0.9297,
+        "f1": 0.9534,
+        "far": 0.15217391304347827,
+        "frr": 0.020833333333333332,
+        "manual_review_rate": 0.0986,
+        "confusion": {
+          "tp": 92,
+          "tn": 27,
+          "fp": 7,
+          "fn": 2,
+          "true_uncertain": 2,
+          "false_uncertain": 12
+        }
+      },
+      {
+        "tier1_threshold": 0.85,
+        "n": 142,
+        "tier1_auto_confirm": 36,
+        "tier2_auto_reject": 0,
+        "tier3_vlm_verify": 106,
+        "tier1_true_positive": 36,
+        "tier1_false_positive": 0,
+        "tier1_precision": 1.0,
+        "accuracy": 0.8592,
+        "selective_accuracy": 0.9531,
+        "f1": 0.9684,
+        "far": 0.08695652173913043,
+        "frr": 0.020833333333333332,
+        "manual_review_rate": 0.0986,
+        "confusion": {
+          "tp": 92,
+          "tn": 30,
+          "fp": 4,
+          "fn": 2,
+          "true_uncertain": 2,
+          "false_uncertain": 12
+        }
+      },
+      {
+        "tier1_threshold": 0.92,
+        "n": 142,
+        "tier1_auto_confirm": 0,
+        "tier2_auto_reject": 0,
+        "tier3_vlm_verify": 142,
+        "tier1_true_positive": 0,
+        "tier1_false_positive": 0,
+        "tier1_precision": null,
+        "accuracy": 0.8592,
+        "selective_accuracy": 0.9531,
+        "f1": 0.9684,
+        "far": 0.08695652173913043,
+        "frr": 0.020833333333333332,
+        "manual_review_rate": 0.0986,
+        "confusion": {
+          "tp": 92,
+          "tn": 30,
+          "fp": 4,
+          "fn": 2,
+          "true_uncertain": 2,
+          "false_uncertain": 12
+        }
+      }
+    ]
+  },
+  "real_two_class_table": {
+    "source": "data/ktd-clean-source-full-evaluation-20260924/predictions_scored.jsonl",
+    "n": 142,
+    "classes": [
+      "人员",
+      "车"
+    ],
+    "by_class_table": [
+      {
+        "class_name": "人员",
+        "n": 56,
+        "tp": 13,
+        "fp": 2,
+        "tn": 26,
+        "fn": 2,
+        "f1": 0.8666666666666667,
+        "far": 0.05128205128205128,
+        "frr": 0.11764705882352941,
+        "coverage": 0.7678571428571429,
+        "manual_review_rate": 0.23214285714285715
+      },
+      {
+        "class_name": "车",
+        "n": 86,
+        "tp": 79,
+        "fp": 2,
+        "tn": 4,
+        "fn": 0,
+        "f1": 0.9875,
+        "far": 0.2857142857142857,
+        "frr": 0.0,
+        "coverage": 0.9883720930232558,
+        "manual_review_rate": 0.011627906976744186
+      }
+    ],
+    "markdown": "| Class | N | TP | FP | TN | FN | F1 | FAR | FRR | Coverage | Manual Review |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n| 人员 | 56 | 13 | 2 | 26 | 2 | 0.8667 | 0.0513 | 0.1176 | 0.7679 | 0.2321 |\n| 车 | 86 | 79 | 2 | 4 | 0 | 0.9875 | 0.2857 | 0.0000 | 0.9884 | 0.0116 |",
+    "threshold_search": {
+      "max_far": 0.1,
+      "recommended_threshold": 0.55,
+      "best_metrics": {
+        "threshold": 0.55,
+        "f1": 0.9583333333333334,
+        "far": 0.08695652173913043,
+        "frr": 0.041666666666666664,
+        "accuracy": 0.9436619718309859,
+        "meets_far_constraint": true
+      }
+    },
+    "overall": {
+      "f1": 0.9684,
+      "far": 0.08695652173913043,
+      "frr": 0.020833333333333332,
+      "coverage": 0.9014084507042254
+    }
+  },
+  "five_class_benchmark": {
+    "source": "constructed_benchmark",
+    "note": "合成基准 proxy：仅验证指标管线与阈值搜索，不代表真实模型精度",
+    "seed": 20261023,
+    "n": 760,
+    "by_class_table": [
+      {
+        "class_name": "三轮车",
+        "n": 140,
+        "tp": 88,
+        "fp": 8,
+        "tn": 42,
+        "fn": 2,
+        "f1": 0.946236559139785,
+        "far": 0.16,
+        "frr": 0.022222222222222223,
+        "coverage": 1.0,
+        "manual_review_rate": 0.0
+      },
+      {
+        "class_name": "人员",
+        "n": 165,
+        "tp": 120,
+        "fp": 0,
+        "tn": 45,
+        "fn": 0,
+        "f1": 1.0,
+        "far": 0.0,
+        "frr": 0.0,
+        "coverage": 1.0,
+        "manual_review_rate": 0.0
+      },
+      {
+        "class_name": "蓝色违建顶棚",
+        "n": 125,
+        "tp": 66,
+        "fp": 13,
+        "tn": 42,
+        "fn": 4,
+        "f1": 0.8859060402684564,
+        "far": 0.23636363636363636,
+        "frr": 0.05714285714285714,
+        "coverage": 1.0,
+        "manual_review_rate": 0.0
+      },
+      {
+        "class_name": "车辆",
+        "n": 210,
+        "tp": 148,
+        "fp": 1,
+        "tn": 59,
+        "fn": 2,
+        "f1": 0.9899665551839465,
+        "far": 0.016666666666666666,
+        "frr": 0.013333333333333334,
+        "coverage": 1.0,
+        "manual_review_rate": 0.0
+      },
+      {
+        "class_name": "道路裂缝",
+        "n": 120,
+        "tp": 57,
+        "fp": 15,
+        "tn": 45,
+        "fn": 3,
+        "f1": 0.8636363636363636,
+        "far": 0.25,
+        "frr": 0.05,
+        "coverage": 1.0,
+        "manual_review_rate": 0.0
+      }
+    ],
+    "markdown": "| Class | N | TP | FP | TN | FN | F1 | FAR | FRR | Coverage | Manual Review |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n| 三轮车 | 140 | 88 | 8 | 42 | 2 | 0.9462 | 0.1600 | 0.0222 | 1.0000 | 0.0000 |\n| 人员 | 165 | 120 | 0 | 45 | 0 | 1.0000 | 0.0000 | 0.0000 | 1.0000 | 0.0000 |\n| 蓝色违建顶棚 | 125 | 66 | 13 | 42 | 4 | 0.8859 | 0.2364 | 0.0571 | 1.0000 | 0.0000 |\n| 车辆 | 210 | 148 | 1 | 59 | 2 | 0.9900 | 0.0167 | 0.0133 | 1.0000 | 0.0000 |\n| 道路裂缝 | 120 | 57 | 15 | 45 | 3 | 0.8636 | 0.2500 | 0.0500 | 1.0000 | 0.0000 |",
+    "threshold_search": {
+      "max_far": 0.1,
+      "recommended_threshold": 0.9,
+      "best_metrics": {
+        "threshold": 0.9,
+        "f1": 0.44031007751937984,
+        "far": 0.04814814814814815,
+        "frr": 0.710204081632653,
+        "accuracy": 0.525,
+        "meets_far_constraint": true
+      }
+    }
+  },
+  "jev_omni_tier25": {
+    "note": "本机无 NVIDIA GPU、未下载 12B 权重：Tier 2.5 的 P(true) 为**代理口径**，不是 Jev-Omni 真实输出。主口径用同一候选的 8B 多模态决策置信度折算（与 Tier 3 伪标签同源，精确率是上界）；下界用 142 条人工金标拟合的 detector_confidence -> P(true) Platt 校准（与 Tier 3 独立）。真机部署后用 --jev-omni-probs 指向真实概率 JSONL 重跑同一评估，结果应落在这两个界之间。",
+    "probability_source": "real:data/ktd-clean-source-full-evaluation-20260924/jev_omni_real_probs_en.jsonl",
+    "calibration": {
+      "a": 5.609355175150379,
+      "b": -3.058648124740598,
+      "n": 142,
+      "auc_detector_score": 0.8236,
+      "positives": 96,
+      "negatives": 46
+    },
+    "thresholds": {
+      "tier1_auto_confirm": 0.85,
+      "tier2_auto_reject": 0.12,
+      "jev_omni_confirm": 0.6,
+      "jev_omni_reject": 0.01,
+      "jev_omni_latency_ms": 900.0
+    },
+    "replay": {
+      "source": "data/ktd-test-real-monitoring-full-20260924/output/raw_predictions.jsonl",
+      "candidates": 6713,
+      "events": 1416,
+      "before": {
+        "tier1_auto_confirm": 546,
+        "tier2_auto_reject": 0,
+        "tier3_vlm_verify": 6167,
+        "vlm_share": 0.9187,
+        "vlm_offload_share": 0.0813
+      },
+      "after": {
+        "tier1_auto_confirm": 546,
+        "tier2_auto_reject": 0,
+        "tier2_5_jev_omni_confirm": 3462,
+        "tier2_5_jev_omni_reject": 15,
+        "tier3_vlm_verify": 2690,
+        "vlm_share": 0.4007,
+        "vlm_offload_share": 0.5993,
+        "second_stage_offload_share": 0.518,
+        "second_stage_offload_within_previous_tier3": 0.5638
+      },
+      "false_box_reject": {
+        "rejected_candidates": 15,
+        "vlm_false_total_among_previous_tier3": 730,
+        "rejected_and_vlm_false": 13,
+        "rejected_but_vlm_true": 2,
+        "false_box_reject_rate": 0.0178,
+        "reject_precision_vs_vlm": 0.8667
+      },
+      "confirmed": {
+        "confirmed_candidates": 3462,
+        "confirmed_and_vlm_true": 3461,
+        "confirmed_but_vlm_false": 0
+      },
+      "per_class": {
+        "车": {
+          "tier2_5_jev_omni_confirm": 3228,
+          "tier3_vlm_verify": 484,
+          "tier1_auto_confirm": 531,
+          "tier2_5_jev_omni_reject": 3
+        },
+        "违建": {
+          "tier3_vlm_verify": 1247
+        },
+        "光斑": {
+          "tier3_vlm_verify": 282,
+          "tier2_5_jev_omni_reject": 1
+        },
+        "道路裂纹": {
+          "tier3_vlm_verify": 262
+        },
+        "人员": {
+          "tier3_vlm_verify": 140,
+          "tier2_5_jev_omni_confirm": 80,
+          "tier2_5_jev_omni_reject": 11,
+          "tier1_auto_confirm": 6
+        },
+        "光伏板": {
+          "tier3_vlm_verify": 165
+        },
+        "两轮车": {
+          "tier3_vlm_verify": 45,
+          "tier2_5_jev_omni_confirm": 95,
+          "tier1_auto_confirm": 2
+        },
+        "卡车": {
+          "tier3_vlm_verify": 31,
+          "tier2_5_jev_omni_confirm": 19,
+          "tier1_auto_confirm": 4
+        },
+        "三轮车": {
+          "tier3_vlm_verify": 21,
+          "tier2_5_jev_omni_confirm": 18,
+          "tier1_auto_confirm": 2
+        },
+        "公交车": {
+          "tier2_5_jev_omni_confirm": 22,
+          "tier1_auto_confirm": 1,
+          "tier3_vlm_verify": 4
+        },
+        "没戴头盔": {
+          "tier3_vlm_verify": 5
+        },
+        "车牌": {
+          "tier3_vlm_verify": 4
+        }
+      },
+      "latency": {
+        "vlm_measured_mean_ms": 24095.4,
+        "jev_omni_assumed_mean_ms": 900.0,
+        "before_total_seconds": 148596.2,
+        "after_total_seconds": 82534.2,
+        "before_mean_ms_per_box": 22135.6,
+        "after_mean_ms_per_box": 12294.7,
+        "mean_latency_drop_ratio": 0.4446
+      }
+    },
+    "replay_detector_bound": {
+      "candidates": 6713,
+      "events": 1416,
+      "before": {
+        "tier1_auto_confirm": 546,
+        "tier2_auto_reject": 0,
+        "tier3_vlm_verify": 6167,
+        "vlm_share": 0.9187,
+        "vlm_offload_share": 0.0813
+      },
+      "after": {
+        "tier1_auto_confirm": 546,
+        "tier2_auto_reject": 0,
+        "tier2_5_jev_omni_confirm": 2681,
+        "tier2_5_jev_omni_reject": 13,
+        "tier3_vlm_verify": 3473,
+        "vlm_share": 0.5174,
+        "vlm_offload_share": 0.4826,
+        "second_stage_offload_share": 0.4013,
+        "second_stage_offload_within_previous_tier3": 0.4368
+      },
+      "false_box_reject": {
+        "rejected_candidates": 13,
+        "vlm_false_total_among_previous_tier3": 730,
+        "rejected_and_vlm_false": 11,
+        "rejected_but_vlm_true": 2,
+        "false_box_reject_rate": 0.0151,
+        "reject_precision_vs_vlm": 0.8462
+      },
+      "confirmed": {
+        "confirmed_candidates": 2681,
+        "confirmed_and_vlm_true": 2432,
+        "confirmed_but_vlm_false": 234
+      },
+      "per_class": {
+        "车": {
+          "tier2_5_jev_omni_confirm": 2505,
+          "tier3_vlm_verify": 1208,
+          "tier1_auto_confirm": 531,
+          "tier2_5_jev_omni_reject": 2
+        },
+        "违建": {
+          "tier3_vlm_verify": 1247
+        },
+        "光斑": {
+          "tier3_vlm_verify": 283
+        },
+        "道路裂纹": {
+          "tier3_vlm_verify": 262
+        },
+        "人员": {
+          "tier2_5_jev_omni_confirm": 84,
+          "tier3_vlm_verify": 136,
+          "tier2_5_jev_omni_reject": 11,
+          "tier1_auto_confirm": 6
+        },
+        "光伏板": {
+          "tier3_vlm_verify": 165
+        },
+        "两轮车": {
+          "tier3_vlm_verify": 92,
+          "tier2_5_jev_omni_confirm": 48,
+          "tier1_auto_confirm": 2
+        },
+        "卡车": {
+          "tier3_vlm_verify": 35,
+          "tier2_5_jev_omni_confirm": 15,
+          "tier1_auto_confirm": 4
+        },
+        "三轮车": {
+          "tier3_vlm_verify": 26,
+          "tier2_5_jev_omni_confirm": 13,
+          "tier1_auto_confirm": 2
+        },
+        "公交车": {
+          "tier3_vlm_verify": 10,
+          "tier2_5_jev_omni_confirm": 16,
+          "tier1_auto_confirm": 1
+        },
+        "没戴头盔": {
+          "tier3_vlm_verify": 5
+        },
+        "车牌": {
+          "tier3_vlm_verify": 4
+        }
+      },
+      "latency": {
+        "vlm_measured_mean_ms": 24095.4,
+        "jev_omni_assumed_mean_ms": 900.0,
+        "before_total_seconds": 148596.2,
+        "after_total_seconds": 97000.6,
+        "before_mean_ms_per_box": 22135.6,
+        "after_mean_ms_per_box": 14449.7,
+        "mean_latency_drop_ratio": 0.3472
+      }
+    },
+    "gold": {
+      "gold_source": "data/ktd-test-real-monitoring-full-20260924/gold_overlap_map.jsonl",
+      "detector_score_source": "data/ktd-test-real-monitoring-full-20260924/input/inference_manifest.jsonl",
+      "candidates": 142,
+      "unmatched": 0,
+      "before": {
+        "n": 142,
+        "tier_counts": {
+          "tier3_vlm_verify": 106,
+          "tier1_auto_confirm": 36
+        },
+        "accuracy": 0.8592,
+        "f1": 0.9684,
+        "far": 0.08695652173913043,
+        "frr": 0.020833333333333332,
+        "manual_review_rate": 0.0986,
+        "confusion": {
+          "tp": 92,
+          "tn": 30,
+          "fp": 4,
+          "fn": 2,
+          "true_uncertain": 2,
+          "false_uncertain": 12
+        },
+        "tier2_5_reject_true_negative": 0,
+        "tier2_5_reject_false_negative": 0,
+        "tier2_5_confirm_true_positive": 0,
+        "tier2_5_confirm_false_positive": 0
+      },
+      "after": {
+        "n": 142,
+        "tier_counts": {
+          "tier2_5_jev_omni_confirm": 34,
+          "tier1_auto_confirm": 36,
+          "tier3_vlm_verify": 59,
+          "tier2_5_jev_omni_reject": 13
+        },
+        "accuracy": 0.8732,
+        "f1": 0.9681,
+        "far": 0.06521739130434782,
+        "frr": 0.03125,
+        "manual_review_rate": 0.0845,
+        "confusion": {
+          "tp": 91,
+          "tn": 33,
+          "fp": 3,
+          "fn": 3,
+          "true_uncertain": 2,
+          "false_uncertain": 10
+        },
+        "tier2_5_reject_true_negative": 12,
+        "tier2_5_reject_false_negative": 1,
+        "tier2_5_confirm_true_positive": 34,
+        "tier2_5_confirm_false_positive": 0
+      },
+      "delta": {
+        "f1": -0.0003,
+        "far": -0.0217,
+        "frr": 0.0104,
+        "manual_review_rate": -0.0141
+      }
+    }
+  },
+  "gold_four_way": {
+    "samples": 142,
+    "missing_jev_probs": 0,
+    "probability_source": "real:data/ktd-clean-source-full-evaluation-20260924/jev_omni_real_probs_en.jsonl",
+    "vlm_latency_source": "data/ktd-clean-source-full-evaluation-20260924/gpu_inference_run.log",
+    "vlm_latency_samples": 9,
+    "jev_latency_samples": 142,
+    "jev_latency_mean_ms": 192.5,
+    "vlm_latency_mean_ms": 4857.3,
+    "detector_floor": 0.25,
+    "jev_argmax": 0.5,
+    "groups": {
+      "A_detector_only": {
+        "n": 142,
+        "tp": 96,
+        "fp": 46,
+        "tn": 0,
+        "fn": 0,
+        "manual_review_n": 0,
+        "manual_review_rate": 0.0,
+        "precision": 0.6761,
+        "recall": 1.0,
+        "f1": 0.8067,
+        "far": 1.0,
+        "frr": 0.0,
+        "accuracy": 0.6761,
+        "coverage": 1.0,
+        "mean_latency_ms": 0.0,
+        "total_latency_s": 0.0,
+        "delta_f1_vs_A": 0.0,
+        "delta_latency_ms_vs_C": -4857.3
+      },
+      "B_jev_omni_only": {
+        "n": 142,
+        "tp": 70,
+        "fp": 1,
+        "tn": 45,
+        "fn": 26,
+        "manual_review_n": 0,
+        "manual_review_rate": 0.0,
+        "precision": 0.9859,
+        "recall": 0.7292,
+        "f1": 0.8383,
+        "far": 0.0217,
+        "frr": 0.2708,
+        "accuracy": 0.8099,
+        "coverage": 1.0,
+        "mean_latency_ms": 192.5,
+        "total_latency_s": 27.3,
+        "delta_f1_vs_A": 0.0316,
+        "delta_latency_ms_vs_C": -4664.8
+      },
+      "C_qwen3vl_only": {
+        "n": 142,
+        "tp": 92,
+        "fp": 4,
+        "tn": 42,
+        "fn": 4,
+        "manual_review_n": 14,
+        "manual_review_rate": 0.0986,
+        "precision": 0.9583,
+        "recall": 0.9583,
+        "f1": 0.9583,
+        "far": 0.087,
+        "frr": 0.0417,
+        "accuracy": 0.8592,
+        "coverage": 0.9014,
+        "mean_latency_ms": 4857.3,
+        "total_latency_s": 689.7,
+        "delta_f1_vs_A": 0.1516,
+        "delta_latency_ms_vs_C": 0.0
+      },
+      "D_cascade_fused": {
+        "n": 142,
+        "tp": 91,
+        "fp": 3,
+        "tn": 43,
+        "fn": 5,
+        "manual_review_n": 12,
+        "manual_review_rate": 0.0845,
+        "precision": 0.9681,
+        "recall": 0.9479,
+        "f1": 0.9579,
+        "far": 0.0652,
+        "frr": 0.0521,
+        "accuracy": 0.8732,
+        "coverage": 0.9155,
+        "mean_latency_ms": 2167.8,
+        "total_latency_s": 307.8,
+        "delta_f1_vs_A": 0.1512,
+        "delta_latency_ms_vs_C": -2689.5
+      }
+    },
+    "cascade_tier_counts": {
+      "tier2_5_jev_omni_confirm": 34,
+      "tier1_auto_confirm": 36,
+      "tier3_vlm_verify": 59,
+      "tier2_5_jev_omni_reject": 13
+    }
+  },
+  "gold_five_way": {
+    "samples": 142,
+    "missing_jev_probs": 0,
+    "probability_source": "real:data/ktd-clean-source-full-evaluation-20260924/jev_omni_real_probs_en.jsonl",
+    "jev_latency_mean_ms": 192.5,
+    "vlm_latency_mean_ms": 4857.3,
+    "full_set": {
+      "n": 142,
+      "thresholds": {
+        "uncertain_reject_threshold": 0.18,
+        "uncertain_confirm_threshold": 0.65,
+        "detector_uncertain_max": 0.82,
+        "veto_max_jev_p": 0.015,
+        "detector_low_max": 0.34,
+        "jev_low_max": 0.2
+      },
+      "groups": {
+        "baseline_1_detector_only": {
+          "n": 142,
+          "tp": 96,
+          "fp": 46,
+          "tn": 0,
+          "fn": 0,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.6761,
+          "recall": 1.0,
+          "f1": 0.8067,
+          "far": 1.0,
+          "frr": 0.0,
+          "accuracy": 0.6761,
+          "coverage": 1.0,
+          "mean_latency_ms": 0.0,
+          "total_latency_s": 0.0
+        },
+        "baseline_2_jev_omni_only": {
+          "n": 142,
+          "tp": 70,
+          "fp": 1,
+          "tn": 45,
+          "fn": 26,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.9859,
+          "recall": 0.7292,
+          "f1": 0.8383,
+          "far": 0.0217,
+          "frr": 0.2708,
+          "accuracy": 0.8099,
+          "coverage": 1.0,
+          "mean_latency_ms": 192.5,
+          "total_latency_s": 27.3
+        },
+        "baseline_3_qwen3vl_only": {
+          "n": 142,
+          "tp": 92,
+          "fp": 4,
+          "tn": 42,
+          "fn": 4,
+          "manual_review_n": 14,
+          "manual_review_rate": 0.0986,
+          "precision": 0.9583,
+          "recall": 0.9583,
+          "f1": 0.9583,
+          "far": 0.087,
+          "frr": 0.0417,
+          "accuracy": 0.8592,
+          "coverage": 0.9014,
+          "mean_latency_ms": 4857.3,
+          "total_latency_s": 689.7
+        },
+        "scheme_4_fast_unload": {
+          "n": 142,
+          "tp": 90,
+          "fp": 1,
+          "tn": 45,
+          "fn": 6,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.989,
+          "recall": 0.9375,
+          "f1": 0.9626,
+          "far": 0.0217,
+          "frr": 0.0625,
+          "accuracy": 0.9507,
+          "coverage": 1.0,
+          "mean_latency_ms": 2167.8,
+          "total_latency_s": 307.8
+        },
+        "scheme_5_high_precision_consult": {
+          "n": 142,
+          "tp": 90,
+          "fp": 1,
+          "tn": 45,
+          "fn": 6,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.989,
+          "recall": 0.9375,
+          "f1": 0.9626,
+          "far": 0.0217,
+          "frr": 0.0625,
+          "accuracy": 0.9507,
+          "coverage": 1.0,
+          "mean_latency_ms": 5049.8,
+          "total_latency_s": 717.1
+        }
+      },
+      "cascade_tier_counts": {
+        "tier2_5_jev_omni_confirm": 34,
+        "tier1_auto_confirm": 36,
+        "tier3_vlm_verify": 59,
+        "tier2_5_jev_omni_reject": 13
+      }
+    },
+    "leave_one_out": {
+      "groups": {
+        "baseline_1_detector_only": {
+          "n": 142,
+          "tp": 96,
+          "fp": 46,
+          "tn": 0,
+          "fn": 0,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.6761,
+          "recall": 1.0,
+          "f1": 0.8067,
+          "far": 1.0,
+          "frr": 0.0,
+          "accuracy": 0.6761,
+          "coverage": 1.0,
+          "mean_latency_ms": 0.0,
+          "total_latency_s": 0.0
+        },
+        "baseline_2_jev_omni_only": {
+          "n": 142,
+          "tp": 70,
+          "fp": 1,
+          "tn": 45,
+          "fn": 26,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.9859,
+          "recall": 0.7292,
+          "f1": 0.8383,
+          "far": 0.0217,
+          "frr": 0.2708,
+          "accuracy": 0.8099,
+          "coverage": 1.0,
+          "mean_latency_ms": 192.5,
+          "total_latency_s": 27.3
+        },
+        "baseline_3_qwen3vl_only": {
+          "n": 142,
+          "tp": 92,
+          "fp": 4,
+          "tn": 42,
+          "fn": 4,
+          "manual_review_n": 14,
+          "manual_review_rate": 0.0986,
+          "precision": 0.9583,
+          "recall": 0.9583,
+          "f1": 0.9583,
+          "far": 0.087,
+          "frr": 0.0417,
+          "accuracy": 0.8592,
+          "coverage": 0.9014,
+          "mean_latency_ms": 4857.3,
+          "total_latency_s": 689.7
+        },
+        "scheme_4_fast_unload": {
+          "n": 142,
+          "tp": 91,
+          "fp": 3,
+          "tn": 43,
+          "fn": 5,
+          "manual_review_n": 1,
+          "manual_review_rate": 0.007,
+          "precision": 0.9681,
+          "recall": 0.9479,
+          "f1": 0.9579,
+          "far": 0.0652,
+          "frr": 0.0521,
+          "accuracy": 0.9366,
+          "coverage": 0.993,
+          "mean_latency_ms": 2167.8,
+          "total_latency_s": 307.8
+        },
+        "scheme_5_high_precision_consult": {
+          "n": 142,
+          "tp": 91,
+          "fp": 4,
+          "tn": 42,
+          "fn": 5,
+          "manual_review_n": 1,
+          "manual_review_rate": 0.007,
+          "precision": 0.9579,
+          "recall": 0.9479,
+          "f1": 0.9529,
+          "far": 0.087,
+          "frr": 0.0521,
+          "accuracy": 0.9296,
+          "coverage": 0.993,
+          "mean_latency_ms": 5049.8,
+          "total_latency_s": 717.1
+        }
+      },
+      "threshold_search": "full_parameter_grid",
+      "grid": {
+        "uncertain_reject_threshold": [
+          0.05,
+          0.08,
+          0.12,
+          0.18
+        ],
+        "uncertain_confirm_threshold": [
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.75
+        ],
+        "detector_uncertain_max": [
+          0.7,
+          0.76,
+          0.82,
+          0.88
+        ],
+        "veto_max_jev_p": [
+          0.005,
+          0.01,
+          0.015,
+          0.03
+        ],
+        "detector_low_max": [
+          0.25,
+          0.3,
+          0.34,
+          0.4
+        ],
+        "jev_low_max": [
+          0.1,
+          0.15,
+          0.2,
+          0.25
+        ]
+      },
+      "selected_threshold_counts": [
+        {
+          "thresholds": [
+            0.18,
+            0.55,
+            0.015
+          ],
+          "folds": 140
+        },
+        {
+          "thresholds": [
+            0.18,
+            0.55,
+            0.005
+          ],
+          "folds": 2
+        }
+      ]
+    },
+    "fixed_rule_set": {
+      "name": "versioned_fixed_parameters_on_full_142",
+      "thresholds": {
+        "uncertain_reject_threshold": 0.18,
+        "uncertain_confirm_threshold": 0.65,
+        "detector_uncertain_max": 0.82,
+        "veto_max_jev_p": 0.015,
+        "detector_low_max": 0.34,
+        "jev_low_max": 0.2
+      },
+      "groups": {
+        "baseline_1_detector_only": {
+          "n": 142,
+          "tp": 96,
+          "fp": 46,
+          "tn": 0,
+          "fn": 0,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.6761,
+          "recall": 1.0,
+          "f1": 0.8067,
+          "far": 1.0,
+          "frr": 0.0,
+          "accuracy": 0.6761,
+          "coverage": 1.0,
+          "mean_latency_ms": 0.0,
+          "total_latency_s": 0.0
+        },
+        "baseline_2_jev_omni_only": {
+          "n": 142,
+          "tp": 70,
+          "fp": 1,
+          "tn": 45,
+          "fn": 26,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.9859,
+          "recall": 0.7292,
+          "f1": 0.8383,
+          "far": 0.0217,
+          "frr": 0.2708,
+          "accuracy": 0.8099,
+          "coverage": 1.0,
+          "mean_latency_ms": 192.5,
+          "total_latency_s": 27.3
+        },
+        "baseline_3_qwen3vl_only": {
+          "n": 142,
+          "tp": 92,
+          "fp": 4,
+          "tn": 42,
+          "fn": 4,
+          "manual_review_n": 14,
+          "manual_review_rate": 0.0986,
+          "precision": 0.9583,
+          "recall": 0.9583,
+          "f1": 0.9583,
+          "far": 0.087,
+          "frr": 0.0417,
+          "accuracy": 0.8592,
+          "coverage": 0.9014,
+          "mean_latency_ms": 4857.3,
+          "total_latency_s": 689.7
+        },
+        "scheme_4_fast_unload": {
+          "n": 142,
+          "tp": 90,
+          "fp": 1,
+          "tn": 45,
+          "fn": 6,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.989,
+          "recall": 0.9375,
+          "f1": 0.9626,
+          "far": 0.0217,
+          "frr": 0.0625,
+          "accuracy": 0.9507,
+          "coverage": 1.0,
+          "mean_latency_ms": 2167.8,
+          "total_latency_s": 307.8
+        },
+        "scheme_5_high_precision_consult": {
+          "n": 142,
+          "tp": 90,
+          "fp": 1,
+          "tn": 45,
+          "fn": 6,
+          "manual_review_n": 0,
+          "manual_review_rate": 0.0,
+          "precision": 0.989,
+          "recall": 0.9375,
+          "f1": 0.9626,
+          "far": 0.0217,
+          "frr": 0.0625,
+          "accuracy": 0.9507,
+          "coverage": 1.0,
+          "mean_latency_ms": 5049.8,
+          "total_latency_s": 717.1
+        }
+      }
+    }
+  }
+}

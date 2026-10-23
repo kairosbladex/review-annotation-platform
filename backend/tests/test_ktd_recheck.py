@@ -94,6 +94,35 @@ def test_arbiter_vetoes_known_vlm_false_positive_patterns_and_preserves_other_la
     }
 
 
+@pytest.mark.parametrize(
+    ("class_name", "has_geometric_warning", "reason_code"),
+    [
+        ("blue_illegal_roof", False, "clean_match_quality_passed"),
+        ("road_crack", False, "clean_match_quality_passed"),
+        ("vehicle", True, "clean_match_quality_passed"),
+        ("vehicle", False, "clean_match_quality_missing"),
+    ],
+)
+def test_arbiter_never_promotes_unverified_or_guarded_tier3_to_true(
+    class_name, has_geometric_warning, reason_code
+):
+    result = arbitrate_jev_omni_and_vlm(
+        "uncertain",
+        jev_omni_p_true=0.90,
+        detector_confidence=0.70,
+        class_name=class_name,
+        has_geometric_warning=has_geometric_warning,
+        vlm_reason_code=reason_code,
+    )
+    assert result["decision"] == "uncertain"
+    assert result["changed"] is False
+    assert result["reason_code"] in {
+        "arbiter_kept_uncertain",
+        "arbiter_kept_unverified_tier3",
+        "arbiter_kept_guarded_tier3",
+    }
+
+
 def test_group_source_rows_preserves_ids_deduplicates_exact_candidates_and_marks_conflicts():
     images = group_source_rows(
         [

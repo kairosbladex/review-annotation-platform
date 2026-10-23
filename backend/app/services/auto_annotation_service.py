@@ -481,6 +481,7 @@ def _process_item(
             routing = evaluate_cascade_tier(
                 payload, tier1_threshold=tier1_th, tier2_threshold=tier2_th
             )
+            routing["geometric_warning"] = payload.get("geometric_warning")
             t_idx = int(payload["target_index"])
             if routing["requires_vlm"] and jev_omni_runner is not None:
                 tier25 = jev_omni_runner.evaluate(
@@ -545,10 +546,16 @@ def _process_item(
         if cascade_routing and cascade_routing.get("tier") == "tier3_vlm_verify":
             jev_prior = cascade_routing.get("jev_omni") or {}
             if isinstance(jev_prior, dict) and "p_true" in jev_prior:
+                evidence = decision.get("evidence") if isinstance(decision.get("evidence"), dict) else {}
+                qwen_evidence = evidence.get("qwen3_vl") if isinstance(evidence.get("qwen3_vl"), dict) else {}
+                vlm_reason_code = qwen_evidence.get("reasonCode") or qwen_evidence.get("reason_code")
                 arbiter_result = arbitrate_jev_omni_and_vlm(
                     model_label,
                     jev_omni_p_true=jev_prior.get("p_true"),
                     detector_confidence=candidate.confidence,
+                    class_name=candidate.class_name,
+                    has_geometric_warning=bool(cascade_routing.get("geometric_warning")),
+                    vlm_reason_code=vlm_reason_code,
                 )
                 model_label = arbiter_result["decision"]
         policy = apply_review_policy(

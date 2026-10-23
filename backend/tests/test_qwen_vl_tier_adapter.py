@@ -88,6 +88,13 @@ def test_qwen_vl_tier_adapter_maps_real_review_results(monkeypatch):
     detections = json.loads(call["data"]["detections"])
     assert [item["target_index"] for item in detections] == [4, 5, 6]
     assert detections[0]["class_id"] == 0
+    assert detections[0]["clean_bbox"] == [0.0, 0.0, 1.0, 1.0]
+    assert detections[0]["clean_match_quality"] == {
+        "passed": True,
+        "coordinate_space": "normalized",
+        "score": 1.0,
+        "source": "original_asset",
+    }
     assert call["headers"] == {"X-API-Key": "test-key"}
     assert set(call["files"]) == {"image", "clean_image"}
     decisions = result["decisions"]
@@ -96,6 +103,24 @@ def test_qwen_vl_tier_adapter_maps_real_review_results(monkeypatch):
     assert all(len(decision["votes"]) == len(ROLE_ORDER) for decision in decisions)
     assert decisions[0]["votes"][0]["confidence"] == 0.93
     assert decisions[1]["votes"][0]["confidence"] == 0.88
+
+
+def test_qwen_vl_tier_adapter_does_not_claim_clean_source_when_disabled(monkeypatch):
+    import backend.app.adapters.qwen_vl_tier as module
+
+    FakeClient.calls = []
+    monkeypatch.setattr(module.httpx, "Client", FakeClient)
+    adapter = QwenVLTierAdapter(
+        object_store=FakeStore(), base_url="http://algorithm:8193"
+    )
+    adapter.review(
+        {"bucket": "vision-test", "object_key": "verify-source/frame.jpg"},
+        [{"target_index": 0, "class_name": "车", "confidence": 0.7, "bbox": [0.1, 0.1, 0.2, 0.2]}],
+        {"clean_source_is_original": False},
+    )
+    detections = json.loads(FakeClient.calls[0]["data"]["detections"])
+    assert "clean_bbox" not in detections[0]
+    assert "clean_match_quality" not in detections[0]
 
 
 def test_auto_annotation_adapter_uses_qwen_for_legacy_review_service():
