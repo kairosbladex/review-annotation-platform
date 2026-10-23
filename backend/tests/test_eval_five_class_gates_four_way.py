@@ -38,6 +38,7 @@ def test_four_way_metrics_treats_uncertain_as_not_confirmed():
     # FAR / FRR 的分母是真实负/正样本数（2 / 2），不是已裁决子集
     assert metrics["far"] == 0.0
     assert metrics["frr"] == 0.5
+    assert metrics["accuracy"] == 0.5
     assert metrics["mean_latency_ms"] == 25.0
 
 

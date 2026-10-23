@@ -282,6 +282,94 @@ def partition_candidates_by_cascade_tier(
     return buckets
 
 
+def arbitrate_jev_omni_and_vlm(
+    vlm_decision: str | None,
+    *,
+    jev_omni_p_true: float | None,
+    detector_confidence: float | None,
+    uncertain_reject_threshold: float = 0.18,
+    uncertain_confirm_threshold: float = 0.65,
+    detector_uncertain_max: float = 0.82,
+    veto_max_jev_p: float = 0.015,
+    detector_low_max: float = 0.34,
+    jev_low_max: float = 0.20,
+) -> dict[str, Any]:
+    """Cross-arbitrate a Tier 3 Qwen3-VL decision with independent Jev-Omni evidence.
+
+    ``uncertain`` is a real abstention state. It is resolved only when the
+    independent probability and detector signal meet an explicit boundary;
+    otherwise the abstention remains visible for manual review. A VLM ``true``
+    is vetoed only by the two strong low-evidence conflicts documented in the
+    five-class gold evaluation.
+    """
+    normalized = str(vlm_decision or "uncertain").strip().lower()
+    if normalized in {"confirmed", "keep", "yes"}:
+        normalized = "true"
+    elif normalized in {"rejected", "reject", "no"}:
+        normalized = "false"
+    elif normalized not in LABELS:
+        normalized = "uncertain"
+
+    p_true = (
+        float(jev_omni_p_true)
+        if isinstance(jev_omni_p_true, (int, float)) and not isinstance(jev_omni_p_true, bool)
+        else None
+    )
+    detector = (
+        float(detector_confidence)
+        if isinstance(detector_confidence, (int, float)) and not isinstance(detector_confidence, bool)
+        else None
+    )
+    if p_true is not None and not math.isfinite(p_true):
+        p_true = None
+    if detector is not None and not math.isfinite(detector):
+        detector = None
+
+    if normalized == "uncertain":
+        if (
+            p_true is not None
+            and p_true <= float(uncertain_reject_threshold)
+            and detector is not None
+            and detector < float(detector_uncertain_max)
+        ):
+            return {
+                "decision": "false",
+                "reason_code": "arbiter_uncertain_resolved_false",
+                "changed": True,
+            }
+        if p_true is not None and p_true >= float(uncertain_confirm_threshold):
+            return {
+                "decision": "true",
+                "reason_code": "arbiter_uncertain_resolved_true",
+                "changed": True,
+            }
+        return {
+            "decision": "uncertain",
+            "reason_code": "arbiter_kept_uncertain",
+            "changed": False,
+        }
+
+    if normalized == "true" and p_true is not None:
+        strong_jev_conflict = p_true <= float(veto_max_jev_p)
+        dual_low_conflict = (
+            detector is not None
+            and detector < float(detector_low_max)
+            and p_true < float(jev_low_max)
+        )
+        if strong_jev_conflict or dual_low_conflict:
+            return {
+                "decision": "false",
+                "reason_code": "arbiter_fp_vetoed_by_jev_omni",
+                "changed": True,
+            }
+
+    return {
+        "decision": normalized,
+        "reason_code": "arbiter_kept_vlm_decision",
+        "changed": False,
+    }
+
+
 # Tier 2.5 — Jev-Omni Fast Gate.  Placed between the static detector thresholds and
 # the L20 Qwen3-VL verifier: the 12B multimodal classifier returns a *calibrated*
 # P(true) for the double-view (global context + clean ROI) composite image, which

@@ -106,6 +106,8 @@ def build_bundle(
     overlap_path: Path,
     manifest_path: Path,
     jpeg_quality: int = 92,
+    roi_profile: str = "legacy",
+    prompt_variant: str = "legacy",
 ) -> dict[str, Any]:
     manifest = {str(row["candidate_id"]): row for row in _read_jsonl(manifest_path)}
     overlap = _read_jsonl(overlap_path)
@@ -141,7 +143,10 @@ def build_bundle(
                 frame = frame.convert("RGB")
                 if list(frame.size) == list(row["frame_size"]):
                     context_img, roi_img = build_jev_omni_review_views(
-                        frame, _normalized_bbox(row["bbox_px"], row["frame_size"])
+                        frame,
+                        _normalized_bbox(row["bbox_px"], row["frame_size"]),
+                        class_name=row.get("class_name"),
+                        roi_profile=roi_profile,
                     )
                     view_source = VIEW_SOURCE_REBUILT
                 else:
@@ -176,7 +181,11 @@ def build_bundle(
             "detector_confidence": row.get("detector_confidence"),
             "geometric_warning": warnings.get(candidate_id),
         }
-        query = build_jev_omni_decision_query(row.get("class_name"), meta)
+        query = build_jev_omni_decision_query(
+            row.get("class_name"),
+            meta,
+            prompt_variant=prompt_variant,
+        )
 
         records.append(
             {
@@ -232,6 +241,8 @@ def main() -> int:
     parser.add_argument("--gold-root", type=Path, default=DEFAULT_GOLD_ROOT)
     parser.add_argument("--gold-overlap", type=Path, default=DEFAULT_OVERLAP)
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
+    parser.add_argument("--roi-profile", choices=("legacy", "adaptive"), default="legacy")
+    parser.add_argument("--prompt-variant", choices=("legacy", "category_guidelines"), default="legacy")
     args = parser.parse_args()
 
     summary = build_bundle(
@@ -239,6 +250,8 @@ def main() -> int:
         gold_root=args.gold_root,
         overlap_path=args.gold_overlap,
         manifest_path=args.manifest,
+        roi_profile=args.roi_profile,
+        prompt_variant=args.prompt_variant,
     )
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0

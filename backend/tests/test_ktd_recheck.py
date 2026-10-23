@@ -17,6 +17,7 @@ from app.services.ktd_recheck import (
     ProviderResponse,
     _preflight_provider,
     _write_yolo_training_files,
+    arbitrate_jev_omni_and_vlm,
     dataset_class_map,
     decision_label,
     group_source_rows,
@@ -49,6 +50,47 @@ def _decision(target_index: int, label: str = "true") -> dict:
             {"role": "adversarial", **_vote("uncertain", 0.7)},
         ],
         "consensus": label,
+    }
+
+
+def test_arbiter_resolves_uncertain_with_jev_omni_and_detector_signals():
+    assert arbitrate_jev_omni_and_vlm(
+        "uncertain", jev_omni_p_true=0.10, detector_confidence=0.70
+    ) == {
+        "decision": "false",
+        "reason_code": "arbiter_uncertain_resolved_false",
+        "changed": True,
+    }
+    assert arbitrate_jev_omni_and_vlm(
+        "uncertain", jev_omni_p_true=0.70, detector_confidence=0.30
+    ) == {
+        "decision": "true",
+        "reason_code": "arbiter_uncertain_resolved_true",
+        "changed": True,
+    }
+
+
+def test_arbiter_vetoes_known_vlm_false_positive_patterns_and_preserves_other_labels():
+    assert arbitrate_jev_omni_and_vlm(
+        "true", jev_omni_p_true=0.01, detector_confidence=0.90
+    ) == {
+        "decision": "false",
+        "reason_code": "arbiter_fp_vetoed_by_jev_omni",
+        "changed": True,
+    }
+    assert arbitrate_jev_omni_and_vlm(
+        "true", jev_omni_p_true=0.19, detector_confidence=0.20
+    ) == {
+        "decision": "false",
+        "reason_code": "arbiter_fp_vetoed_by_jev_omni",
+        "changed": True,
+    }
+    assert arbitrate_jev_omni_and_vlm(
+        "false", jev_omni_p_true=0.90, detector_confidence=0.90
+    ) == {
+        "decision": "false",
+        "reason_code": "arbiter_kept_vlm_decision",
+        "changed": False,
     }
 
 

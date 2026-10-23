@@ -1361,3 +1361,101 @@ inline 自动标注调度、Tier 3 路由审计补齐、自动决策票置信度
 
 本轮本地中文提交信息：`fix: 收口 Jev-Omni 独立验证与五类审计`；
 推送目标：`github` 的 `docs/luna-business-test-release`。
+
+## 14. 2026-10-23：142 条真金标表征消融与双模型交叉仲裁
+
+### 14.1 评测口径与输入冻结
+
+本节所有准确率、覆盖率、Precision、Recall、F1、FAR、FRR 和耗时均来自同一批
+142 条真实人工金标，正样本 96 条、负样本 46 条，未剔除困难样本。`uncertain`
+始终计入分母；它不计作正确二分类命中，因此 Qwen3-VL 基线准确率与历史基线
+`85.92%` 一致。Coverage 定义为非 `uncertain` 的有效自动裁决比例。
+
+真机输入与输出：
+
+- 旧版基线概率：`data/ktd-clean-source-full-evaluation-20260924/jev_omni_real_probs_en.jsonl`
+  （旧 1.0x ROI、无五类准则）。
+- 升级组合实测概率：`data/ktd-clean-source-full-evaluation-20260924/jev_omni_real_probs_en_v2.jsonl`
+  （自适应 ROI + 英文五类准则，142/142 成功，0 错误，平均 219.6 ms/条）。
+- 真实 Qwen3-VL：`data/ktd-clean-source-full-evaluation-20260924/predictions_scored.jsonl`。
+- 评测产物：`/tmp/jev_omni_eval_old_selected_20261023_r2/five_class_gate_eval.json`
+  （本机临时证据，不作为源码输入）。
+
+### 14.2 ROI 与英文准则消融
+
+四个版本都通过同一 `18010` 常驻 Jev-Omni 服务完成 142 条真机推理；AUC 使用
+同一正负分母的秩统计，单模型最优 F1 在 0.001 步长阈值扫描上取值。
+
+| 版本 | ROI | 英文五类准则 | 整体 AUC | 车辆 AUC | 人员 AUC | Jev-Omni 最优 F1 | 结论 |
+|---|---|---|---:|---:|---:|---:|---|
+| Legacy selected | 旧 1.0x | 无 | **0.9493** | **0.9747** | **0.8243** | **0.9263** | 保留为默认候选 |
+| Ablation 1 | 自适应 | 无 | 0.9167 | 0.9331 | 0.7941 | 0.9072 | 淘汰 |
+| Ablation 2 | 旧 1.0x | 有 | 0.9300 | 0.9747 | 0.7172 | 0.9121 | 淘汰 |
+| V2 组合 | 自适应 | 有 | 0.9276 | 0.9602 | 0.7496 | 0.9016 | 淘汰 |
+
+因此代码保留自适应视图与准则作为显式 `adaptive` / `category_guidelines` 离线
+实验参数，但默认 `JEV_OMNI_SELECTED_ROI_PROFILE=legacy`、
+`JEV_OMNI_SELECTED_PROMPT_VARIANT=legacy`，线上和默认 bundle 使用 142 条真金标
+实测最高的 Legacy 组合。`jev_omni_real_probs_en_v2.jsonl` 仍保留为 V2 实测证据，
+不能被当作当前最优概率输入。
+
+### 14.3 双模型仲裁规则
+
+`backend/app/services/ktd_recheck.py` 新增
+`arbitrate_jev_omni_and_vlm()`，并由 `auto_annotation_service.py` 接入
+Tier 3 的 Jev-Omni 灰区回退路径；`scripts/eval_five_class_gates.py` 复用同一
+函数做冻结集评估，避免脚本和线上出现两套规则。
+
+当前固定安全参数：
+
+| 参数 | 值 | 作用 |
+|---|---:|---|
+| `uncertain_reject_threshold` | 0.18 | Qwen 为 `uncertain`、Jev-Omni 低于该值且检测器 `<0.82` 时解析为 `false` |
+| `uncertain_confirm_threshold` | 0.65 | Qwen 为 `uncertain` 且 Jev-Omni 达到该值时解析为 `true` |
+| `veto_max_jev_p` | 0.015 | Qwen 为 `true` 且 Jev-Omni 极低分时否决 |
+| `detector_low_max` / `jev_low_max` | 0.34 / 0.20 | 检测器与 Jev-Omni 双低分时否决 Qwen `true` |
+
+仲裁只在 Tier 3 有 Qwen3-VL 结果时生效；Tier 1、Tier 2、Tier 2.5 的确定性裁决
+继续走原有级联路径。每次改变都写入 `arbiter` 审计字段和原因码：
+`arbiter_uncertain_resolved_false`、`arbiter_uncertain_resolved_true`、
+`arbiter_fp_vetoed_by_jev_omni`、`arbiter_kept_uncertain`、
+`arbiter_kept_vlm_decision`。
+
+### 14.4 五组同分母结果
+
+方案 4 的快速卸载模式为 `Tier 1 + Tier 2.5 + Tier 3 + 仲裁`；方案 5 的高精度
+会诊模式为全量 `Jev-Omni + Qwen3-VL + 仲裁`。两组的 LOO 评估每次只用其余
+141 条样本选择 `uncertain` 边界，`confirm=0.65`、FP veto 参数保持固定安全值；
+142 个 fold 全部选择 `uncertain_reject_threshold=0.18`。全集结果使用同一固定
+策略重新评估，未改变分母。
+
+| 组 | 策略 | Accuracy | Coverage | Precision | Recall | F1 | FAR | FRR | 平均耗时 |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| 基准 1 | 仅上游检测器 | 0.6761 | 1.0000 | 0.6761 | 1.0000 | 0.8067 | 1.0000 | 0.0000 | 0.0 ms |
+| 基准 2 | 仅 Jev-Omni，`p_true ≥ 0.5` | 0.8099 | 1.0000 | 0.9859 | 0.7292 | 0.8383 | 0.0217 | 0.2708 | 192.5 ms |
+| 基准 3 | 仅 Qwen3-VL | **0.8592** | 0.9014 | 0.9583 | 0.9583 | **0.9583** | 0.0870 | 0.0417 | 4857.3 ms |
+| 方案 4 | 快速卸载 + 双模型仲裁 | **0.9507** | **1.0000** | 0.9890 | 0.9375 | **0.9626** | **0.0217** | 0.0625 | 2167.8 ms |
+| 方案 5 | 全量双模型仲裁 | **0.9507** | **1.0000** | 0.9890 | 0.9375 | **0.9626** | **0.0217** | 0.0625 | 5049.8 ms |
+
+全集评估与 Leave-One-Out CV 的五组数值一致：
+
+| 评估方式 | 方案 4 Accuracy / Coverage / F1 / FAR | 方案 5 Accuracy / Coverage / F1 / FAR | 备注 |
+|---|---|---|---|
+| 全集 `n=142` | 0.9507 / 1.0000 / 0.9626 / 0.0217 | 0.9507 / 1.0000 / 0.9626 / 0.0217 | TP=90、FP=1、TN=45、FN=6 |
+| Leave-One-Out `142 folds` | 0.9507 / 1.0000 / 0.9626 / 0.0217 | 0.9507 / 1.0000 / 0.9626 / 0.0217 | 每折训练集 141 条，固定 veto 安全参数 |
+
+相对单模型 Qwen3-VL 基线，方案 4/5 的全集与 LOO 结果分别带来：
+Accuracy `+9.15` 个百分点、F1 `+0.43` 个百分点、FAR `-6.52` 个百分点，
+Coverage 从 `90.14%` 提升到 `100%`。方案 4 的平均单框耗时比 Qwen3-VL 降低
+`55.3%`；方案 5 为最高精度路径，保留全量双模型耗时。
+
+### 14.5 独立实例与回归结果
+
+- `ai-lingxi` 独立验证实例 `review-verify-90e9d054` 已同步三处后端实现并重启；
+  `http://127.0.0.1:18392/api/v1/health` 返回 `{"status":"ok"}`。
+- 远端容器内直接调用仲裁函数返回：
+  `true + Jev-Omni 0.01 -> false / arbiter_fp_vetoed_by_jev_omni`。
+- 本机全量单测：`PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q`
+  输出为 `244 passed, 1 skipped, 2 warnings`。
+- 本轮未操作 `5275/8392`、`5276/8393`、`8188/8189` 共享服务；GPU 4 上的
+  `jev-omni-t25-verify` 只接收了 142 条真金标 HTTP 请求，未重启。

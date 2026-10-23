@@ -45,6 +45,7 @@ from app.services.ktd_recheck import (  # noqa: E402
     TIER1_ELIGIBLE_CLASSES,
     TIER2_AUTO_REJECT_THRESHOLD,
     _canonical_geom_class,
+    arbitrate_jev_omni_and_vlm,
     apply_pre_llm_geometric_gate,
     compute_bbox_iou,
     compute_containment_ratio,
@@ -1122,6 +1123,10 @@ def _four_way_metrics(
     f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) else 0.0
     far = fp / (fp + tn) if (fp + tn) else None
     frr = fn / (fn + tp) if (fn + tp) else None
+    strict_correct = tp + sum(
+        1 for row in decisions
+        if str(row["gold"]) == "false" and str(row["prediction"]) == "false"
+    )
     return {
         "n": total,
         "tp": tp,
@@ -1135,7 +1140,10 @@ def _four_way_metrics(
         "f1": round(f1, 4),
         "far": None if far is None else round(far, 4),
         "frr": None if frr is None else round(frr, 4),
-        "accuracy": round((tp + tn) / total, 4) if total else 0.0,
+        # An abstention remains in the denominator but is not a correct
+        # binary decision, including an uncertain prediction on a negative.
+        "accuracy": round(strict_correct / total, 4) if total else 0.0,
+        "coverage": round(1.0 - manual / total, 4) if total else 0.0,
         "mean_latency_ms": round(sum(latencies_ms) / len(latencies_ms), 1) if latencies_ms else 0.0,
         "total_latency_s": round(sum(latencies_ms) / 1000.0, 1),
     }
@@ -1309,6 +1317,293 @@ def evaluate_gold_four_way(
     }
 
 
+ARBITRATION_DEFAULTS = {
+    "uncertain_reject_threshold": 0.18,
+    "uncertain_confirm_threshold": 0.65,
+    "detector_uncertain_max": 0.82,
+    "veto_max_jev_p": 0.015,
+    "detector_low_max": 0.34,
+    "jev_low_max": 0.20,
+}
+
+
+def _arbitrate_prediction(row: dict[str, Any], thresholds: dict[str, float]) -> dict[str, Any]:
+    return arbitrate_jev_omni_and_vlm(
+        row["vlm_decision"],
+        jev_omni_p_true=row.get("p_true"),
+        detector_confidence=row.get("detector_confidence"),
+        **thresholds,
+    )
+
+
+def _select_loo_arbitration_thresholds(training_rows: list[dict[str, Any]]) -> dict[str, float]:
+    """Select conservative arbiter thresholds from the other 141 gold rows."""
+    candidates = []
+    # These are policy values, not free model parameters. LOO only checks the
+    # abstention boundary against the other 141 rows; the confirm and veto
+    # boundaries stay at the versioned safety defaults.
+    for reject in (0.05, 0.08, 0.12, 0.18):
+        candidates.append(
+            {
+                **ARBITRATION_DEFAULTS,
+                "uncertain_reject_threshold": reject,
+            }
+        )
+    best: tuple[tuple[float, float, float], dict[str, float]] | None = None
+    for thresholds in candidates:
+        decisions = [
+            {
+                "gold": row["human_label"],
+                "prediction": _arbitrate_prediction(row, thresholds)["decision"],
+            }
+            for row in training_rows
+        ]
+        metrics = _four_way_metrics(decisions, latencies_ms=[])
+        far = metrics["far"] if metrics["far"] is not None else 1.0
+        key = (metrics["f1"], metrics["accuracy"], -far)
+        if best is None or key > best[0]:
+            best = (key, thresholds)
+    return dict(best[1] if best else ARBITRATION_DEFAULTS)
+
+
+def _five_way_rows(
+    manifest_path: Path,
+    overlap_path: Path,
+    gold_path: Path,
+    probs_path: Path | None,
+    vlm_log_path: Path | None,
+) -> tuple[list[dict[str, Any]], int, float, float]:
+    manifest = {str(row["candidate_id"]): row for row in _read_jsonl(manifest_path)}
+    vlm = {str(row.get("candidate_id")): row for row in _read_jsonl(gold_path)}
+    prob_rows = _load_jev_prob_rows(probs_path)
+    vlm_latency = _load_vlm_latency_ms(vlm_log_path)
+    vlm_latency_mean = sum(vlm_latency.values()) / len(vlm_latency) if vlm_latency else 0.0
+    jev_latency_values = [
+        float(row["latency_ms"])
+        for row in prob_rows.values()
+        if isinstance(row.get("latency_ms"), (int, float))
+    ]
+    jev_latency_mean = (
+        sum(jev_latency_values) / len(jev_latency_values) if jev_latency_values else 0.0
+    )
+    rows: list[dict[str, Any]] = []
+    missing_prob = 0
+    for item in _read_jsonl(overlap_path):
+        source = manifest.get(str(item.get("full_candidate_id")))
+        if source is None:
+            continue
+        candidate_id = str(source["candidate_id"])
+        legacy_id = str(item.get("legacy_candidate_id"))
+        probability = prob_rows.get(candidate_id)
+        if probability is None:
+            missing_prob += 1
+        rows.append(
+            {
+                **source,
+                "human_label": str(item.get("human_label")),
+                "legacy_candidate_id": legacy_id,
+                "p_true": (probability or {}).get("p_true"),
+                "jev_latency_ms": (probability or {}).get("latency_ms") or jev_latency_mean,
+                "vlm_decision": str((vlm.get(legacy_id) or {}).get("hybrid_decision") or "uncertain"),
+                "vlm_latency_ms": vlm_latency.get(legacy_id, vlm_latency_mean),
+            }
+        )
+    return rows, missing_prob, jev_latency_mean, vlm_latency_mean
+
+
+def _five_way_metrics(rows: list[dict[str, Any]], thresholds: dict[str, float]) -> dict[str, Any]:
+    groups: dict[str, dict[str, list[Any]]] = {
+        "baseline_1_detector_only": {"decisions": [], "latencies": []},
+        "baseline_2_jev_omni_only": {"decisions": [], "latencies": []},
+        "baseline_3_qwen3vl_only": {"decisions": [], "latencies": []},
+        "scheme_4_fast_unload": {"decisions": [], "latencies": []},
+        "scheme_5_high_precision_consult": {"decisions": [], "latencies": []},
+    }
+    tier_counts: Counter[str] = Counter()
+    for row in rows:
+        gold = row["human_label"]
+        detector_confidence = float(row.get("detector_confidence") or 0.0)
+        p_true = row.get("p_true")
+        jev_latency = float(row.get("jev_latency_ms") or 0.0)
+        vlm_latency = float(row.get("vlm_latency_ms") or 0.0)
+        vlm_decision = row["vlm_decision"]
+
+        groups["baseline_1_detector_only"]["decisions"].append(
+            {"gold": gold, "prediction": "true" if detector_confidence >= 0.25 else "false"}
+        )
+        groups["baseline_1_detector_only"]["latencies"].append(0.0)
+        groups["baseline_2_jev_omni_only"]["decisions"].append(
+            {"gold": gold, "prediction": "true" if isinstance(p_true, (int, float)) and p_true >= 0.5 else "false"}
+        )
+        groups["baseline_2_jev_omni_only"]["latencies"].append(jev_latency)
+        groups["baseline_3_qwen3vl_only"]["decisions"].append(
+            {"gold": gold, "prediction": vlm_decision}
+        )
+        groups["baseline_3_qwen3vl_only"]["latencies"].append(vlm_latency)
+
+        candidate = {
+            "class_name": row.get("class_name"),
+            "confidence": row.get("detector_confidence"),
+            "bbox": row.get("bbox_px"),
+        }
+        routing = evaluate_cascade_tier(candidate)
+        if routing["tier"] == "tier1_auto_confirm":
+            fast_prediction = "true"
+            fast_latency = 0.0
+            tier_counts[routing["tier"]] += 1
+        elif routing["tier"] == "tier2_auto_reject":
+            fast_prediction = "false"
+            fast_latency = 0.0
+            tier_counts[routing["tier"]] += 1
+        elif isinstance(p_true, (int, float)):
+            tier25 = evaluate_jev_omni_tier(candidate, p_true=float(p_true))
+            tier_counts[tier25["tier"]] += 1
+            fast_latency = jev_latency
+            if tier25["requires_vlm"]:
+                fast_latency += vlm_latency
+                fast_prediction = _arbitrate_prediction(row, thresholds)["decision"]
+            else:
+                fast_prediction = str(tier25["auto_label"])
+        else:
+            tier_counts["tier3_vlm_verify"] += 1
+            fast_prediction = _arbitrate_prediction(row, thresholds)["decision"]
+            fast_latency = vlm_latency
+        groups["scheme_4_fast_unload"]["decisions"].append(
+            {"gold": gold, "prediction": fast_prediction}
+        )
+        groups["scheme_4_fast_unload"]["latencies"].append(fast_latency)
+
+        high_prediction = _arbitrate_prediction(row, thresholds)["decision"]
+        groups["scheme_5_high_precision_consult"]["decisions"].append(
+            {"gold": gold, "prediction": high_prediction}
+        )
+        groups["scheme_5_high_precision_consult"]["latencies"].append(jev_latency + vlm_latency)
+
+    metrics = {
+        name: _four_way_metrics(payload["decisions"], latencies_ms=payload["latencies"])
+        for name, payload in groups.items()
+    }
+    return {
+        "n": len(rows),
+        "thresholds": thresholds,
+        "groups": metrics,
+        "cascade_tier_counts": dict(tier_counts),
+    }
+
+
+def evaluate_gold_five_way(
+    manifest_path: Path,
+    overlap_path: Path,
+    gold_path: Path,
+    *,
+    probs_path: Path | None = None,
+    vlm_log_path: Path | None = None,
+) -> dict[str, Any]:
+    """Same-denominator five-way comparison with fixed and leave-one-out results."""
+    rows, missing_prob, jev_latency_mean, vlm_latency_mean = _five_way_rows(
+        manifest_path, overlap_path, gold_path, probs_path, vlm_log_path
+    )
+    full = _five_way_metrics(rows, ARBITRATION_DEFAULTS)
+
+    loo_decisions: dict[str, list[dict[str, Any]]] = {
+        name: [] for name in full["groups"]
+    }
+    loo_latencies: dict[str, list[float]] = {name: [] for name in full["groups"]}
+    selected_thresholds: list[dict[str, float]] = []
+    for index, row in enumerate(rows):
+        training = rows[:index] + rows[index + 1 :]
+        thresholds = _select_loo_arbitration_thresholds(training)
+        selected_thresholds.append(thresholds)
+        for name, payload in (
+            ("baseline_1_detector_only", 0.0),
+            ("baseline_2_jev_omni_only", float(row.get("jev_latency_ms") or 0.0)),
+            ("baseline_3_qwen3vl_only", float(row.get("vlm_latency_ms") or 0.0)),
+        ):
+            loo_latencies[name].append(payload)
+        candidate = {
+            "class_name": row.get("class_name"),
+            "confidence": row.get("detector_confidence"),
+            "bbox": row.get("bbox_px"),
+        }
+        routing = evaluate_cascade_tier(candidate)
+        if routing["tier"] in {"tier1_auto_confirm", "tier2_auto_reject"}:
+            fast_latency = 0.0
+        elif isinstance(row.get("p_true"), (int, float)):
+            tier25 = evaluate_jev_omni_tier(candidate, p_true=float(row["p_true"]))
+            fast_latency = float(row.get("jev_latency_ms") or 0.0)
+            if tier25["requires_vlm"]:
+                fast_latency += float(row.get("vlm_latency_ms") or 0.0)
+        else:
+            fast_latency = float(row.get("vlm_latency_ms") or 0.0)
+        loo_latencies["scheme_4_fast_unload"].append(fast_latency)
+        loo_latencies["scheme_5_high_precision_consult"].append(
+            float(row.get("jev_latency_ms") or 0.0) + float(row.get("vlm_latency_ms") or 0.0)
+        )
+
+    # Generate held-out labels directly with the selected fold thresholds.
+    loo_decisions = {name: [] for name in full["groups"]}
+    for index, row in enumerate(rows):
+        thresholds = selected_thresholds[index]
+        gold = row["human_label"]
+        p_true = row.get("p_true")
+        loo_decisions["baseline_1_detector_only"].append(
+            {"gold": gold, "prediction": "true" if float(row.get("detector_confidence") or 0.0) >= 0.25 else "false"}
+        )
+        loo_decisions["baseline_2_jev_omni_only"].append(
+            {"gold": gold, "prediction": "true" if isinstance(p_true, (int, float)) and p_true >= 0.5 else "false"}
+        )
+        loo_decisions["baseline_3_qwen3vl_only"].append(
+            {"gold": gold, "prediction": row["vlm_decision"]}
+        )
+        candidate = {
+            "class_name": row.get("class_name"),
+            "confidence": row.get("detector_confidence"),
+            "bbox": row.get("bbox_px"),
+        }
+        routing = evaluate_cascade_tier(candidate)
+        if routing["tier"] == "tier1_auto_confirm":
+            fast = "true"
+        elif routing["tier"] == "tier2_auto_reject":
+            fast = "false"
+        elif isinstance(p_true, (int, float)):
+            tier25 = evaluate_jev_omni_tier(candidate, p_true=float(p_true))
+            fast = (
+                str(tier25["auto_label"])
+                if not tier25["requires_vlm"]
+                else _arbitrate_prediction(row, thresholds)["decision"]
+            )
+        else:
+            fast = _arbitrate_prediction(row, thresholds)["decision"]
+        loo_decisions["scheme_4_fast_unload"].append({"gold": gold, "prediction": fast})
+        loo_decisions["scheme_5_high_precision_consult"].append(
+            {"gold": gold, "prediction": _arbitrate_prediction(row, thresholds)["decision"]}
+        )
+
+    loo = {
+        name: _four_way_metrics(loo_decisions[name], latencies_ms=loo_latencies[name])
+        for name in loo_decisions
+    }
+    threshold_counts = Counter(
+        (item["uncertain_reject_threshold"], item["uncertain_confirm_threshold"], item["veto_max_jev_p"])
+        for item in selected_thresholds
+    )
+    return {
+        "samples": len(rows),
+        "missing_jev_probs": missing_prob,
+        "probability_source": f"real:{_rel(probs_path)}" if probs_path else "proxy",
+        "jev_latency_mean_ms": round(jev_latency_mean, 1),
+        "vlm_latency_mean_ms": round(vlm_latency_mean, 1),
+        "full_set": full,
+        "leave_one_out": {
+            "groups": loo,
+            "selected_threshold_counts": [
+                {"thresholds": list(key), "folds": count}
+                for key, count in threshold_counts.most_common()
+            ],
+        },
+    }
+
+
 def _delta(after: Any, before: Any) -> float | None:
     if isinstance(after, (int, float)) and isinstance(before, (int, float)):
         return round(float(after) - float(before), 4)
@@ -1395,6 +1690,13 @@ def main() -> int:
             prob_source=args.jev_omni_prob_source,
         ),
         "gold_four_way": evaluate_gold_four_way(
+            args.manifest,
+            args.gold_overlap,
+            args.gold,
+            probs_path=args.jev_omni_probs,
+            vlm_log_path=args.vlm_run_log,
+        ),
+        "gold_five_way": evaluate_gold_five_way(
             args.manifest,
             args.gold_overlap,
             args.gold,

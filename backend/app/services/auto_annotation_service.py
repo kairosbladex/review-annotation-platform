@@ -17,6 +17,7 @@ from .ktd_recheck import (
     JEV_OMNI_REJECT_THRESHOLD,
     TIER1_AUTO_CONFIRM_THRESHOLD,
     TIER2_AUTO_REJECT_THRESHOLD,
+    arbitrate_jev_omni_and_vlm,
     apply_pre_llm_geometric_gate,
     evaluate_cascade_tier,
     evaluate_jev_omni_tier,
@@ -422,7 +423,11 @@ class JevOmniTierRunner:
         self.last_error = None
         try:
             image_bytes = self._load_image(image_ref)
-            context_img, roi_img = build_jev_omni_review_views(image_bytes, candidate.get("bbox"))
+            context_img, roi_img = build_jev_omni_review_views(
+                image_bytes,
+                candidate.get("bbox"),
+                class_name=class_name if class_name is not None else candidate.get("class_name"),
+            )
             result = self.adapter.decide(
                 context_img,
                 roi_img,
@@ -535,6 +540,17 @@ def _process_item(
             votes_by_role=decision.get("votes_by_role"),
             consensus=decision.get("consensus"),
         )
+        cascade_routing = decision.get("cascade_routing")
+        arbiter_result: dict[str, Any] | None = None
+        if cascade_routing and cascade_routing.get("tier") == "tier3_vlm_verify":
+            jev_prior = cascade_routing.get("jev_omni") or {}
+            if isinstance(jev_prior, dict) and "p_true" in jev_prior:
+                arbiter_result = arbitrate_jev_omni_and_vlm(
+                    model_label,
+                    jev_omni_p_true=jev_prior.get("p_true"),
+                    detector_confidence=candidate.confidence,
+                )
+                model_label = arbiter_result["decision"]
         policy = apply_review_policy(
             class_name=candidate.class_name,
             model_label=model_label,
@@ -544,7 +560,6 @@ def _process_item(
             rooftop_confidence_threshold=options.get("rooftop_scene_confidence_threshold", 0.8),
         )
         label = policy.label
-        cascade_routing = decision.get("cascade_routing")
         audit_payload = {
             "target_index": candidate.target_index,
             "votes": votes,
@@ -559,6 +574,8 @@ def _process_item(
         }
         if cascade_routing:
             audit_payload["cascade_routing"] = cascade_routing
+        if arbiter_result is not None:
+            audit_payload["arbiter"] = arbiter_result
         if label == "uncertain":
             _audit(session, action="auto_annotation.uncertain", sample_id=sample.id, candidate_id=candidate.id, payload=audit_payload)
             continue

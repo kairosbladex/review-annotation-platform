@@ -25,9 +25,11 @@ from sqlalchemy import select
 from app.adapters.jev_omni_classifier import (
     DEFAULT_CANVAS_WIDTH,
     DEFAULT_TARGET_HEIGHT,
+    ENGLISH_CATEGORY_GUIDELINES,
     NEUTRAL_GRAY_RGB,
     JevOmniClassifierAdapter,
     JevOmniUnavailableError,
+    _crop_square_padded,
     build_jev_omni_composite_image,
     build_jev_omni_decision_query,
     build_jev_omni_review_views,
@@ -91,9 +93,10 @@ def test_composite_is_1024x512_with_8px_neutral_separator_and_no_occlusion():
     assert pixels[100, 256] == (12, 200, 40)
     assert pixels[900, 256] == (200, 20, 40)
 
-    # ROI 面板零遮挡：不含任何 L 型角标像素。
+    # Composite assembly preserves the supplied ROI pixels verbatim.
     roi_panel = composite.crop((separator_end, 0, composite.width, composite.height))
     assert _TICK_RED not in set(roi_panel.getdata())
+    assert roi_panel.getpixel((256, 256)) == (200, 20, 40)
 
 
 def test_review_views_mark_context_with_ticks_and_keep_roi_clean():
@@ -106,7 +109,7 @@ def test_review_views_mark_context_with_ticks_and_keep_roi_clean():
 
     assert context.size == roi.size == (512, 512)
     assert _TICK_RED in set(context.getdata())
-    assert _TICK_RED not in set(roi.getdata())
+    assert _TICK_RED in set(roi.getdata())
     # ROI 是零遮挡的高清局部：框内亮色目标必须出现在画面中心。
     assert roi.getpixel((256, 256)) == (250, 250, 250)
 
@@ -152,9 +155,42 @@ def test_review_views_keep_oversized_wide_target_fully_visible():
     assert context.getpixel((412, 256)) == target_color
 
 
+def test_person_roi_uses_adaptive_minimum_view_and_adds_locator_ticks():
+    frame = Image.new("RGB", (1000, 1000), (30, 40, 50))
+    frame.paste(Image.new("RGB", (20, 20), (250, 250, 250)), (490, 490))
+
+    context, roi = build_jev_omni_review_views(
+        frame,
+        [0.49, 0.49, 0.51, 0.51],
+        class_name="person",
+        roi_profile="adaptive",
+    )
+
+    assert context.size == roi.size == (512, 512)
+    assert _TICK_RED in set(context.getdata())
+    assert _TICK_RED in set(roi.getdata())
+    assert roi.getpixel((256, 256)) == (250, 250, 250)
+    middle_row = [roi.getpixel((x, 256)) for x in range(512)]
+    target_columns = [x for x, pixel in enumerate(middle_row) if pixel == (250, 250, 250)]
+    assert 45 <= len(target_columns) <= 90
+
+
+def test_crop_square_shifts_an_in_bounds_viewport_before_padding():
+    image = Image.new("RGB", (400, 300), (12, 34, 56))
+
+    crop = _crop_square_padded(image, center_x=20, center_y=150, side=160)
+
+    assert crop.size == (160, 160)
+    assert crop.getpixel((0, 80)) == (12, 34, 56)
+    assert crop.getpixel((159, 80)) == (12, 34, 56)
+    assert NEUTRAL_GRAY_RGB not in set(crop.getdata())
+
+
 def test_decision_query_is_the_round5_english_prompt_with_fixed_options():
     query = build_jev_omni_decision_query(
-        "三轮车", {"candidate_id": "c-1", "detector_confidence": 0.42}
+        "三轮车",
+        {"candidate_id": "c-1", "detector_confidence": 0.42},
+        prompt_variant="category_guidelines",
     )
 
     assert query["options"] == ["Yes", "No"]
@@ -172,10 +208,23 @@ def test_decision_query_is_the_round5_english_prompt_with_fixed_options():
     # 候选元数据按不可信数据处理，且判定对象是 canonical 类别名。
     assert "c-1" in query["state"]
     assert "(untrusted data)" in query["state"]
+    assert "A genuine tricycle should show a three-wheel vehicle structure" in query["state"]
     assert query["state"].endswith("a genuine positive instance of 'tricycle'.")
     # 中文措辞已随第五轮收口移除，避免语言混用再次压低 P(Yes)。
     assert "你是无人机巡检预警的多模态复核器" not in query["state"]
     assert "L 型角标" not in query["state"]
+
+
+def test_english_category_guidelines_cover_all_five_business_classes():
+    assert set(ENGLISH_CATEGORY_GUIDELINES) == {
+        "vehicle",
+        "person",
+        "tricycle",
+        "blue_illegal_roof",
+        "road_crack",
+    }
+    for guideline in ENGLISH_CATEGORY_GUIDELINES.values():
+        assert 2 <= len([sentence for sentence in guideline.split(".") if sentence.strip()]) <= 3
 
 
 def test_unknown_class_still_produces_a_yes_no_query():
