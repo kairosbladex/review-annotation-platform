@@ -673,3 +673,98 @@ AUTO_ANNOTATION_CASCADE_ROUTING=true   # Tier 2.5 依赖级联开启
 | 变更规模 | 11 files changed, 2857 insertions(+), 30 deletions(-) |
 | 是否 push | **否**（仅本地提交） |
 | 基线 | `e0d2e256` |
+
+## 10. 第四轮：超宽目标视口截断修复与 GitHub 外发（2026-10-23）
+
+### 10.0 执行边界（红线）
+
+| 项 | 约束 |
+|---|---|
+| 工作区原有 6 项未跟踪文件 | `YOLOE_API_BLOCKING_MQTT_DIAGNOSIS.md`、`deploy-records/`、`复盘日志/`、3 个汇报 `.docx`/`.txt` —— **不暂存、不推送** |
+| 密钥与隐私 | 不推送任何真实密钥 / Token / 密码 / 私钥 / 客户原始业务图像 |
+| 历史安全 | 不使用 `git push --force`，不改写已推送历史 |
+| 推送范围 | 仅 `github`（`https://github.com/kairosbladex/review-annotation-platform.git`）的 `docs/luna-business-test-release` 分支 |
+
+### 10.1 缺陷：正方形视口被短边夹死，超宽目标两端被截断
+
+`backend/app/adapters/jev_omni_classifier.py` 的 `build_jev_omni_review_views()` 原先用
+`min(..., short_side)` 同时限制 `context_side` 与 `roi_side`。正方形视口一旦被压到图像短边，
+目标框比短边宽的部分就会直接落到视口外：
+
+| 场景 | 目标框 | 旧视口边长 | 后果 |
+|---|---|---|---|
+| `1920×1080` 画幅，长条目标 | `1200×300` | `roi_side = min(1216, 1080) = 1080` | 左右各丢 `60px`，两端目标本体完全不可见；L 型角标画在负坐标处 |
+| 同上，上下文视图 | `1200×300` | `context_side = min(9600, 1080) = 1080` | 同上，且“全局视图”退化为与 ROI 同尺度的局部视图 |
+
+实测旧逻辑：ROI 视图横向 `0..511` 列**全是目标色**（左列像素即目标本体，无任何背景边），
+上下文视图左右两侧同样被目标铺满 —— 即视口已完全落入目标内部。
+
+### 10.2 修复：对齐 `_clamp_roi_side_to_image`
+
+新增私有助手 `_clamp_view_side_to_image()`，与 `scripts/prepare_ktd_clean_source_qwen_dataset.py`
+的 `_clamp_roi_side_to_image` 同构：
+
+```python
+required_side = max(box_w, box_h) + 2.0 * margin_px      # margin_px = 8（角标向内绘制，仅需外扩 8px）
+short_side, long_side = float(min(w, h)), float(max(w, h))
+if required_side <= short_side:                           # 短边装得下 → 零灰边
+    cap = short_side
+else:                                                     # 装不下 → 上限放宽到长边
+    cap = min(max(desired_side, required_side), max(long_side, required_side))
+side = min(max(desired_side, required_side), cap)         # 恒 >= required_side
+```
+
+| 分支 | 条件 | 视口边长 | 灰边 |
+|---|---|---|---|
+| 常规目标 | `目标 + 16px <= 短边` | `min(desired, short_side)` | 0（与修复前一致，无行为变化） |
+| 超宽 / 超高目标 | `目标 + 16px > 短边` | `min(max(desired, required), max(long_side, required))` | 仅画幅内不足的部分补中性灰 |
+| 退化画幅 | `短边 < min_side` | `max(desired, required)` | 保持历史行为，但绝不截断目标 |
+
+调用侧同时把 `context_side` 收敛为 `max(context_side, roi_side)`，保证“全局视图不小于局部视图”
+的双视角语义不会因夹取而反转。`1920×1080` + `1200×300` 的修复后取值：
+`roi_side = 1216`、`context_side = 1920`（视口纵向各补 420px 灰边）。
+
+### 10.3 回归测试
+
+新增 `backend/tests/test_jev_omni_integration.py::test_review_views_keep_oversized_wide_target_fully_visible`：
+
+- 构造 `1920×1080` 画幅、`1200×300` 居中目标（`bbox=[0.1875, 0.3611, 0.8125, 0.6389]`）；
+- ROI 视图逐列扫描：目标列区间两侧必须留有背景边（`first >= 1`、`last <= 510`），
+  横向跨度 `>= 500px`（`1200/1216×512 ≈ 505`），中心行必须是目标本体；
+- 上下文视图断言目标在视图内占 `x≈96..416`，`x=90` 与 `x=422` 必须是背景色 —— 这两条断言在旧逻辑下
+  取到的是目标色，因此该用例是**真回归用例**（旧实现实测失败，新实现通过）。
+
+### 10.4 全量单测
+
+```bash
+PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q
+# 234 passed, 1 skipped, 0 failed in 16.16s
+```
+
+`Jev-Omni` 子集：`backend/tests/test_jev_omni_integration.py` → `37 passed`（新增 1 条）。
+
+### 10.5 安全、脱敏与临时文件审计
+
+| 检查项 | 方法 | 结论 |
+|---|---|---|
+| 临时评估目录 | `ls -d /tmp/ktd_*` | 已删除 `/tmp/ktd_phase3_eval`、`/tmp/ktd_phase4_eval`、`/tmp/ktd_jev_eval`、`/tmp/ktd_sample_event.jpg`，复查无残留 |
+| 大文件 | 对 `025df7c8..HEAD` 全部变更文件取 `stat` | 无 `> 1MB` 文件（最大为源码/文档） |
+| 二进制 / 图像 | 按扩展名扫描变更清单 | **0 个**新增 `.png/.jpg/.mp4/.pt/.onnx/.sqlite3`；基线 `025df7c8` 已有 43 个图像文件属既有内容，本次未新增 |
+| 疑似密钥 | 正则 `sk-` / `ghp_` / `github_pat_` / `AKIA` / `xox[baprs]-` / `AIza` | 无命中 |
+| 私钥头 | `BEGIN .* PRIVATE KEY` | 无命中 |
+| URL 内嵌凭证 | `scheme://user:pass@host` | 无命中 |
+| 赋值式口令 | `password/secret/token/api_key = "..."` | 8 处命中，全部为 pytest 夹具假值（`service-secret`、`admin-password`、`a-test-jwt-secret-that-is-long-enough`、`env-secret`），非真实凭据 |
+| 示例配置占位符 | `.venv/bin/python scripts/check_production_config.py --env-file deploy/production.env.example` | 返回码 **1**，11 项敏感值均为 `REPLACE_ME*` 占位（`DATABASE_URL`、`REDIS_URL`、`ADMIN_PASSWORD`、`JWT_SECRET`、`SERVICE_API_KEY`、`MINIO_*`、`MODEL_SERVICE_*`） |
+| 内网地址 | `192.168.` / `10.` / `172.16-31.` | 新增 2 处：`http://10.0.0.9:8010`（单测 `monkeypatch` 假地址）、`192.168.130.238`（交接报告网络诊断记录）。同类内网地址在基线 `025df7c8` 的 `docs/ACCEPTANCE_GITLAB.md`、`docs/HISTORY_COMPARE.md` 等文档中已存在，非本次新增的暴露面；不含账号口令 |
+
+### 10.6 GitHub 同步记录
+
+| 项 | 值 |
+|---|---|
+| 远端 | `github` → `https://github.com/kairosbladex/review-annotation-platform.git` |
+| 分支 | `docs/luna-business-test-release`（本地 → 同名远端分支） |
+| 远端基线 | `025df7c8`（`git ls-remote` 核验，本地为其快进后继，无需合并） |
+| 外发提交 | `c03f1e2d`（第三轮文档收口）→ `dfffe704`（本轮 `fix:` 视口截断修复 + 回归用例）→ 本文档所在 `docs:` 提交 |
+| 推送命令 | `git push github docs/luna-business-test-release:docs/luna-business-test-release` |
+| 核验命令 | `git rev-parse HEAD` 与 `git ls-remote github refs/heads/docs/luna-business-test-release` 比对，要求两者 SHA 完全一致 |
+| 强制推送 | **未使用**（`--force` / `--force-with-lease` 均未执行） |
