@@ -726,3 +726,62 @@ def test_low_confidence_non_roof_class_still_auto_rejects():
     )
     assert routing["tier"] == "tier2_auto_reject"
     assert routing["auto_label"] == "false"
+
+
+def test_tier1_default_threshold_is_calibrated_on_real_gold_with_zero_added_fp():
+    """回归 F6：默认阈值须与真实检测器分布匹配，且只对刚体类生效。"""
+    from app.config import Settings
+    from app.services.ktd_recheck import TIER1_AUTO_CONFIRM_THRESHOLD, evaluate_cascade_tier
+
+    assert TIER1_AUTO_CONFIRM_THRESHOLD == 0.85
+    assert Settings().tier1_auto_confirm_threshold == 0.85
+    # AUTO_ANNOTATION_CASCADE_ROUTING stays off by default; enabling it uses the new value.
+    assert Settings().auto_annotation_cascade_routing is False
+
+    for class_name in ("车辆", "人员", "三轮车", "vehicle", "person", "tricycle"):
+        routing = evaluate_cascade_tier({"class_name": class_name, "confidence": 0.85})
+        assert routing["tier"] == "tier1_auto_confirm", class_name
+        assert routing["auto_label"] == "true"
+
+    # Just below the calibrated boundary still needs the L20 VLM.
+    routing = evaluate_cascade_tier({"class_name": "车辆", "confidence": 0.8499})
+    assert routing["tier"] == "tier3_vlm_verify"
+
+
+def test_road_crack_can_never_be_auto_confirmed():
+    """道路裂缝属纹理歧义类：高分只能进 Tier3，极低分才允许 Tier2。"""
+    from app.services.ktd_recheck import evaluate_cascade_tier
+
+    for class_name in ("道路裂缝", "道路裂纹", "road_crack", "crack"):
+        for confidence in (0.85, 0.90, 0.95, 0.99, 1.0):
+            routing = evaluate_cascade_tier({"class_name": class_name, "confidence": confidence})
+            assert routing["tier"] == "tier3_vlm_verify", (class_name, confidence)
+            assert routing["auto_label"] is None
+            assert routing["reason_code"] == "tier3_road_crack_never_auto_confirmed"
+
+        routing = evaluate_cascade_tier({"class_name": class_name, "confidence": 0.10})
+        assert routing["tier"] == "tier2_auto_reject"
+        assert routing["auto_label"] == "false"
+
+
+def test_classes_outside_the_tier1_allowlist_are_never_auto_confirmed():
+    from app.services.ktd_recheck import evaluate_cascade_tier
+
+    for class_name in ("光斑", "光伏板", "车牌", "没戴头盔"):
+        routing = evaluate_cascade_tier({"class_name": class_name, "confidence": 0.99})
+        assert routing["tier"] == "tier3_vlm_verify", class_name
+        assert routing["reason_code"] == "tier3_class_outside_tier1_allowlist"
+
+
+def test_geometric_conflict_downgrades_a_tier1_eligible_candidate():
+    from app.services.ktd_recheck import evaluate_cascade_tier
+
+    routing = evaluate_cascade_tier(
+        {
+            "class_name": "车辆",
+            "confidence": 0.99,
+            "geometric_warning": "cross_class_iou_conflict:vehicle_vs_tricycle(iou=0.81)",
+        }
+    )
+    assert routing["tier"] == "tier3_vlm_verify"
+    assert routing["reason_code"] == "tier3_geometric_conflict"

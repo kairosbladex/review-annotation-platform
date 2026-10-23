@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 import sys
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 
 from qwen3vl_verify import parse_strict_decision, summarize_predictions
@@ -93,12 +95,12 @@ def test_by_class_table_and_threshold_search_for_target_far():
     )
 
     rows = [
-        {"class_name": "person", "gold": "true", "prediction": "true", "score": 0.95, "parse_error": None},
-        {"class_name": "person", "gold": "true", "prediction": "true", "score": 0.85, "parse_error": None},
-        {"class_name": "person", "gold": "false", "prediction": "true", "score": 0.60, "parse_error": None},
-        {"class_name": "person", "gold": "false", "prediction": "false", "score": 0.20, "parse_error": None},
-        {"class_name": "road_crack", "gold": "true", "prediction": "true", "score": 0.90, "parse_error": None},
-        {"class_name": "road_crack", "gold": "false", "prediction": "false", "score": 0.10, "parse_error": None},
+        {"class_name": "person", "gold": "true", "prediction": "true", "score": 0.95, "score_is_p_true": True, "parse_error": None},
+        {"class_name": "person", "gold": "true", "prediction": "true", "score": 0.85, "score_is_p_true": True, "parse_error": None},
+        {"class_name": "person", "gold": "false", "prediction": "true", "score": 0.60, "score_is_p_true": True, "parse_error": None},
+        {"class_name": "person", "gold": "false", "prediction": "false", "score": 0.20, "score_is_p_true": True, "parse_error": None},
+        {"class_name": "road_crack", "gold": "true", "prediction": "true", "score": 0.90, "score_is_p_true": True, "parse_error": None},
+        {"class_name": "road_crack", "gold": "false", "prediction": "false", "score": 0.10, "score_is_p_true": True, "parse_error": None},
     ]
     summary = summarize_predictions(rows)
     assert len(summary["by_class_table"]) == 2
@@ -110,3 +112,58 @@ def test_by_class_table_and_threshold_search_for_target_far():
     assert search["best_metrics"]["meets_far_constraint"] is True
     assert search["best_metrics"]["far"] == 0.0
     assert 0.60 < search["recommended_threshold"] <= 0.85
+
+
+def test_high_confidence_rejection_is_never_flipped_into_an_acceptance():
+    """回归：prediction="false", confidence=0.95 代表 P(true)=0.05，不能按 0.95 判真。"""
+    from qwen3vl_verify import _resolve_positive_score, apply_confidence_threshold
+
+    rejected = {"gold": "false", "prediction": "false", "confidence": 0.95}
+    confirmed = {"gold": "true", "prediction": "true", "confidence": 0.95}
+
+    assert _resolve_positive_score(rejected) == pytest.approx(0.05)
+    assert _resolve_positive_score(confirmed) == pytest.approx(0.95)
+
+    adjusted = apply_confidence_threshold([rejected, confirmed], 0.90)
+    assert adjusted[0]["prediction"] == "false"
+    assert adjusted[0]["correct"] is True
+    assert adjusted[1]["prediction"] == "true"
+    assert adjusted[1]["correct"] is True
+
+
+def test_positive_score_explicit_fields_win_over_the_confidence_heuristic():
+    from qwen3vl_verify import _resolve_positive_score
+
+    assert _resolve_positive_score(
+        {"prediction": "false", "confidence": 0.9, "positive_score": 0.31}
+    ) == pytest.approx(0.31)
+    assert _resolve_positive_score(
+        {"prediction": "false", "confidence": 0.9, "p_true": 0.27}
+    ) == pytest.approx(0.27)
+    # An explicitly declared P(true) score must not be inverted again.
+    assert _resolve_positive_score(
+        {"prediction": "false", "score": 0.2, "score_is_p_true": True}
+    ) == pytest.approx(0.2)
+    assert _resolve_positive_score({"prediction": "true", "confidence": 0.7}) == pytest.approx(0.7)
+    assert _resolve_positive_score({"prediction": "true"}) is None
+
+
+def test_threshold_search_on_raw_records_recovers_a_usable_threshold():
+    """回归：原始记录（含高置信 false）直传时不得退化成 0.99。"""
+    from qwen3vl_verify import find_optimal_threshold_for_far
+
+    raw_rows = [
+        {"class_name": "车", "gold": "true", "prediction": "true", "confidence": 0.95},
+        {"class_name": "车", "gold": "true", "prediction": "true", "confidence": 0.90},
+        {"class_name": "车", "gold": "false", "prediction": "false", "confidence": 0.95},
+        {"class_name": "车", "gold": "false", "prediction": "false", "confidence": 0.60},
+        {"class_name": "人员", "gold": "false", "prediction": "true", "confidence": 0.80},
+    ]
+
+    search = find_optimal_threshold_for_far(raw_rows, max_far=0.05)
+
+    assert search["recommended_threshold"] < 0.99
+    # The search keeps the lowest threshold that still reaches the best F1.
+    assert search["recommended_threshold"] == pytest.approx(0.85)
+    assert search["best_metrics"]["f1"] == pytest.approx(1.0)
+    assert search["best_metrics"]["far"] == 0.0

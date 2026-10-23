@@ -40,23 +40,45 @@ DEFAULT_HTTP_LIMITS = httpx.Limits(
     max_keepalive_connections=32,
 )
 _REAL_HTTPX_CLIENT = httpx.Client
-TIER1_AUTO_CONFIRM_THRESHOLD = 0.92
+# Calibrated on the repository's real offline data (2026-10-23):
+#   * 142 human-gold candidates (`data/ktd-clean-source-full-evaluation-20260924`)
+#     joined to the real monitoring snapshot detector scores; the highest-scoring
+#     gold *false* candidate is 0.84997, so 0.85 is the lowest two-decimal threshold
+#     with zero added Tier 1 false positives.
+#   * 6713 real candidates / 1416 events (`data/ktd-test-real-monitoring-full-20260924`).
+# Raising this back to 0.92 sends ~99.7% of candidates to the L20 VLM.
+TIER1_AUTO_CONFIRM_THRESHOLD = 0.85
 TIER2_AUTO_REJECT_THRESHOLD = 0.12
 
 _VEHICLE_ALIASES = frozenset({"vehicle", "车辆", "车", "car", "机动车", "汽车"})
 _TRICYCLE_ALIASES = frozenset({"tricycle", "三轮车", "三轮"})
 _PERSON_ALIASES = frozenset({"person", "人员", "人", "行人"})
 _ROOF_ALIASES = frozenset({"blue_illegal_roof", "蓝色违建顶棚", "违建", "蓝色屋顶", "彩钢瓦"})
+_ROAD_CRACK_ALIASES = frozenset(
+    {"road_crack", "crack", "pavement_crack", "道路裂缝", "道路裂纹", "路面裂缝", "裂缝", "裂纹"}
+)
+# `车牌`/`号牌` contain the character `车` but are not vehicles; they must be matched
+# before the generic vehicle substring rule so they never become Tier 1 eligible.
+_PLATE_ALIASES = frozenset({"license_plate", "plate", "车牌", "号牌", "车牌号"})
+
+# Tier 1 auto-confirm is restricted to rigid targets whose detector score is already a
+# reliable P(true).  Scene-dependent classes (rooftop) and appearance-ambiguous texture
+# classes (road cracks) are never settled by detector confidence alone.
+TIER1_ELIGIBLE_CLASSES = frozenset({"vehicle", "person", "tricycle"})
 
 
 def _canonical_geom_class(class_name: Any) -> str:
     raw = str(class_name or "").strip().lower()
+    if raw in _PLATE_ALIASES or "车牌" in raw or "号牌" in raw or "plate" in raw:
+        return "license_plate"
     if raw in _TRICYCLE_ALIASES or "三轮" in raw or "tricycle" in raw:
         return "tricycle"
     if raw in _VEHICLE_ALIASES or "车" in raw or "vehicle" in raw:
         return "vehicle"
     if raw in _PERSON_ALIASES or "人" in raw or "person" in raw:
         return "person"
+    if raw in _ROAD_CRACK_ALIASES or "裂缝" in raw or "裂纹" in raw or "crack" in raw:
+        return "road_crack"
     if raw in _ROOF_ALIASES or "违建" in raw or "roof" in raw:
         return "blue_illegal_roof"
     return raw
@@ -166,13 +188,20 @@ def evaluate_cascade_tier(
 ) -> dict[str, Any]:
     """Route a candidate across the 3-tier heterogeneous GPU cascade.
 
-    - Tier 1 (High-Confidence Auto-Pass): detector confidence >= 0.92, non-rooftop-dependent
-      class (`blue_illegal_roof` is excluded because it requires rooftop scene confirmation),
+    - Tier 1 (High-Confidence Auto-Pass): detector confidence >= `tier1_threshold`,
+      class restricted to rigid high-certainty targets (`vehicle`/`person`/`tricycle`),
       and no geometric conflict -> auto-confirm (`true`).
-    - Tier 2 (Ultra-Low-Confidence Auto-Reject): detector confidence <= 0.12 -> auto-reject (`false`).
-      Scene-dependent classes (`blue_illegal_roof`) are exempt from this tier.
-    - Tier 3 (Ambiguous / Scene-Dependent -> L20 Qwen3-VL Verifier): `0.12 < confidence < 0.92`,
-      or `blue_illegal_roof`, or geometric warning present -> route to L20 VLM.
+    - Tier 2 (Ultra-Low-Confidence Auto-Reject): detector confidence <= 0.12 -> auto-reject
+      (`false`).  Scene-dependent classes (`blue_illegal_roof`) are exempt from this tier.
+    - Tier 3 (Ambiguous / Scene-Dependent -> L20 Qwen3-VL Verifier): `0.12 < confidence <
+      tier1_threshold`, or a class outside the Tier 1 allow-list, or a geometric warning
+      -> route to L20 VLM.
+
+    Safety boundaries:
+      * `blue_illegal_roof` is scene-dependent: the same rooftop evidence is needed to
+        confirm *and* to reject, so it is force-routed to Tier 3 at any confidence.
+      * `road_crack` is texture-ambiguous: it can never be auto-confirmed, and only an
+        ultra-low score (<= `tier2_threshold`) may auto-reject it.
     """
     conf_raw = candidate.get("confidence", candidate.get("score"))
     confidence = float(conf_raw) if isinstance(conf_raw, (int, float)) and not isinstance(conf_raw, bool) else None
@@ -183,6 +212,8 @@ def evaluate_cascade_tier(
     # confirm is also needed to reject, so a low detector score must not silently
     # auto-reject them. They are force-routed to Tier 3 ahead of the Tier 2 gate.
     is_scene_dependent = cls_canon == "blue_illegal_roof"
+    is_tier1_eligible = cls_canon in TIER1_ELIGIBLE_CLASSES
+    is_road_crack = cls_canon == "road_crack"
 
     if confidence is not None and confidence <= tier2_threshold and not is_scene_dependent:
         return {
@@ -195,7 +226,7 @@ def evaluate_cascade_tier(
     if (
         confidence is not None
         and confidence >= tier1_threshold
-        and not is_scene_dependent
+        and is_tier1_eligible
         and not has_geom_warning
     ):
         return {
@@ -205,16 +236,22 @@ def evaluate_cascade_tier(
             "confidence": confidence,
             "reason_code": "tier1_high_confidence_auto_confirm",
         }
+    if is_scene_dependent:
+        reason = "tier3_scene_dependent_forced_vlm"
+    elif is_road_crack:
+        reason = "tier3_road_crack_never_auto_confirmed"
+    elif not is_tier1_eligible:
+        reason = "tier3_class_outside_tier1_allowlist"
+    elif has_geom_warning:
+        reason = "tier3_geometric_conflict"
+    else:
+        reason = "tier3_routed_to_l20_vlm"
     return {
         "tier": "tier3_vlm_verify",
         "auto_label": None,
         "requires_vlm": True,
         "confidence": confidence,
-        "reason_code": (
-            "tier3_scene_dependent_forced_vlm"
-            if is_scene_dependent
-            else "tier3_routed_to_l20_vlm"
-        ),
+        "reason_code": reason,
     }
 
 

@@ -51,7 +51,10 @@ class Settings:
     auto_annotation_actor_authorization: str = "local-image-extension"
     auto_annotation_mode: str = "deep"
     auto_annotation_cascade_routing: bool = False
-    tier1_auto_confirm_threshold: float = 0.92
+    # Tier 1 threshold calibrated on real offline data: 0.85 is the lowest two-decimal
+    # value with zero added false positives on the 142 human-gold candidates
+    # (max gold-false detector score = 0.84997). See docs/HANDOVER_4T4_2L20_FIVE_CLASS_VERIFY_20261023.md.
+    tier1_auto_confirm_threshold: float = 0.85
     tier2_auto_reject_threshold: float = 0.12
     vllm_l20_base_url: str = ""
     source_image_base_url: str = ""

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """五类业务门禁与三级级联路由的离线回放评估（可复现）。
 
-评估三组指标：
+评估四组指标：
   1. 车/三轮车几何门禁：IoU > 0.75 同目标双框抑制率、containment > 0.88 三轮车车斗误报拦截率；
   2. 三级级联路由：Tier1/Tier2/Tier3 分流比、blue_illegal_roof 100% 强制进入 Tier3 的合规率；
-  3. 阈值搜索与逐类表：build_by_class_table / find_optimal_threshold_for_far(max_far=0.10)。
+  3. 级联阈值改造前后对比：6713 条真实候选的 VLM 卸载比例、142 条真实金标上的新增 FP 与端到端 F1/FAR；
+  4. 阈值搜索与逐类表：build_by_class_table / find_optimal_threshold_for_far(max_far=0.10)。
 
 数据来源：
   - 真实回放集（默认）：data/ktd-test-real-monitoring-full-20260924/output/raw_predictions.jsonl
@@ -33,10 +34,13 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from app.services.ktd_recheck import (  # noqa: E402
     TIER1_AUTO_CONFIRM_THRESHOLD,
+    TIER1_ELIGIBLE_CLASSES,
     TIER2_AUTO_REJECT_THRESHOLD,
+    _canonical_geom_class,
     apply_pre_llm_geometric_gate,
     compute_bbox_iou,
     compute_containment_ratio,
+    evaluate_cascade_tier,
     partition_candidates_by_cascade_tier,
 )
 from qwen3vl_verify import (  # noqa: E402
@@ -47,6 +51,11 @@ from qwen3vl_verify import (  # noqa: E402
 
 DEFAULT_CANDIDATES = ROOT / "data/ktd-test-real-monitoring-full-20260924/output/raw_predictions.jsonl"
 DEFAULT_GOLD = ROOT / "data/ktd-clean-source-full-evaluation-20260924/predictions_scored.jsonl"
+DEFAULT_MANIFEST = ROOT / "data/ktd-test-real-monitoring-full-20260924/input/inference_manifest.jsonl"
+DEFAULT_GOLD_OVERLAP = ROOT / "data/ktd-test-real-monitoring-full-20260924/gold_overlap_map.jsonl"
+
+# 改造前（0.92，任意非 roof 类均可自动确认） vs 改造后（0.85，仅刚体类白名单）。
+BASELINE_TIER1_THRESHOLD = 0.92
 
 FIVE_CLASSES = ("人员", "车辆", "三轮车", "蓝色违建顶棚", "道路裂缝")
 
@@ -277,8 +286,9 @@ def evaluate_real_replay(candidates_path: Path) -> dict[str, Any]:
 def evaluate_real_two_class(gold_path: Path) -> dict[str, Any]:
     """真实人工金标（车/人员）上的逐类表与阈值搜索。
 
-    `hybrid_confidence` 是「模型对自身决策的置信度」，不是 P(true)。阈值搜索要求
-    score 语义为 P(true)，因此对 false 决策取 1-confidence 做翻转；uncertain 记 0.5。
+    `hybrid_confidence` 是「模型对自身决策的置信度」，不是 P(true)。这里**不再**手工翻转
+    分数，而是把原始记录直传 `find_optimal_threshold_for_far`，由
+    `_resolve_positive_score` 统一折算，从而同时验证该折算逻辑本身。
     """
     rows = _read_jsonl(gold_path)
     records = []
@@ -289,18 +299,13 @@ def evaluate_real_two_class(gold_path: Path) -> dict[str, Any]:
         if not isinstance(conf, (int, float)):
             continue
         decision = str(r.get("hybrid_decision"))
-        if decision == "true":
-            score_true = float(conf)
-        elif decision == "false":
-            score_true = 1.0 - float(conf)
-        else:
-            score_true = 0.5
         records.append(
             {
                 "class_name": str(r["class_name"]),
                 "gold": str(r["human_label"]),
-                "score": round(score_true, 6),
                 "prediction": decision,
+                "raw_prediction": decision,
+                "confidence": float(conf),
             }
         )
     summary = summarize_predictions(records)
@@ -328,6 +333,189 @@ def evaluate_real_two_class(gold_path: Path) -> dict[str, Any]:
             "frr": summary["overall"]["frr"],
             "coverage": summary["overall"]["coverage"],
         },
+    }
+
+
+def _gate_real_candidates(candidates_path: Path) -> list[dict[str, Any]]:
+    """Load the real replay snapshot and apply the pre-LLM geometric gate per event."""
+    rows = _read_jsonl(candidates_path)
+    by_event: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in rows:
+        bbox = row.get("bbox_px")
+        if not isinstance(bbox, list) or len(bbox) != 4:
+            continue
+        by_event[str(row.get("event_id"))].append(
+            {
+                "target_index": row.get("candidate_id"),
+                "class_name": row.get("class_name"),
+                "confidence": row.get("detector_confidence"),
+                "bbox": bbox,
+            }
+        )
+    gated: list[dict[str, Any]] = []
+    for event_candidates in by_event.values():
+        gated.extend(apply_pre_llm_geometric_gate(event_candidates))
+    return gated
+
+
+def evaluate_cascade_comparison(
+    candidates_path: Path, *, thresholds: tuple[float, ...] = (BASELINE_TIER1_THRESHOLD, TIER1_AUTO_CONFIRM_THRESHOLD)
+) -> dict[str, Any]:
+    """对比改造前后 6713 条真实候选的 VLM 卸载比例与 Tier1 白名单护栏。"""
+    gated = _gate_real_candidates(candidates_path)
+    total = len(gated)
+    runs: list[dict[str, Any]] = []
+    for th in thresholds:
+        counts: Counter[str] = Counter()
+        per_class: dict[str, Counter[str]] = defaultdict(Counter)
+        for cand in gated:
+            routing = evaluate_cascade_tier(cand, tier1_threshold=th)
+            counts[routing["tier"]] += 1
+            per_class[str(cand.get("class_name") or "unknown")][routing["tier"]] += 1
+        offloaded = counts["tier1_auto_confirm"] + counts["tier2_auto_reject"]
+        runs.append(
+            {
+                "tier1_threshold": th,
+                "tier1_count": counts["tier1_auto_confirm"],
+                "tier2_count": counts["tier2_auto_reject"],
+                "tier3_count": counts["tier3_vlm_verify"],
+                "tier1_share": round(counts["tier1_auto_confirm"] / total, 4) if total else 0.0,
+                "tier2_share": round(counts["tier2_auto_reject"] / total, 4) if total else 0.0,
+                "vlm_share": round(counts["tier3_vlm_verify"] / total, 4) if total else 0.0,
+                "vlm_offload_share": round(offloaded / total, 4) if total else 0.0,
+                "geometric_gate_direct_intercept_share": 0.0,
+                "per_class": {cls: dict(counter) for cls, counter in sorted(per_class.items())},
+            }
+        )
+
+    # 护栏价值：若无 Tier1 白名单，多少非刚体类高分候选会被错误自动确认。
+    guard = Counter()
+    for cand in gated:
+        cls_canon = _canonical_geom_class(cand.get("class_name"))
+        confidence = cand.get("confidence")
+        if cls_canon in TIER1_ELIGIBLE_CLASSES or bool(cand.get("geometric_warning")):
+            continue
+        if isinstance(confidence, (int, float)) and confidence >= TIER1_AUTO_CONFIRM_THRESHOLD:
+            guard[cls_canon] += 1
+
+    return {
+        "source": str(candidates_path.relative_to(ROOT)),
+        "candidates": total,
+        "runs": runs,
+        "tier1_allowlist": sorted(TIER1_ELIGIBLE_CLASSES),
+        "non_allowlist_candidates_blocked_at_new_threshold": dict(sorted(guard.items())),
+        "non_allowlist_blocked_total": sum(guard.values()),
+    }
+
+
+def evaluate_gold_cascade_replay(
+    manifest_path: Path,
+    overlap_path: Path,
+    gold_path: Path,
+    *,
+    thresholds: tuple[float, ...] = (BASELINE_TIER1_THRESHOLD, TIER1_AUTO_CONFIRM_THRESHOLD),
+) -> dict[str, Any]:
+    """142 条真实人工金标上的端到端级联回放（Tier3 回退到真实 VLM 决策）。
+
+    金标候选通过 `gold_overlap_map.jsonl` 关联到真实监控快照的 `detector_confidence`，
+    因此可以用真实检测器分数验证「Tier1 自动确认的误报增量」。
+    """
+    manifest = {row["candidate_id"]: row for row in _read_jsonl(manifest_path)}
+    overlap = _read_jsonl(overlap_path)
+    vlm = {str(row.get("candidate_id")): row for row in _read_jsonl(gold_path)}
+
+    gold_rows: list[dict[str, Any]] = []
+    missing = 0
+    for item in overlap:
+        source = manifest.get(str(item.get("full_candidate_id")))
+        if source is None:
+            missing += 1
+            continue
+        gold_rows.append(
+            {
+                **source,
+                "human_label": str(item.get("human_label")),
+                "legacy_candidate_id": item.get("legacy_candidate_id"),
+            }
+        )
+
+    by_event: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in gold_rows:
+        by_event[str(row.get("event_id"))].append(row)
+
+    runs: list[dict[str, Any]] = []
+    for th in thresholds:
+        decisions: list[dict[str, Any]] = []
+        tier_counts: Counter[str] = Counter()
+        tier1_fp = tier1_tp = 0
+        for event_rows in by_event.values():
+            gated = apply_pre_llm_geometric_gate(
+                [
+                    {
+                        "target_index": row["candidate_id"],
+                        "class_name": row.get("class_name"),
+                        "confidence": row.get("detector_confidence"),
+                        "bbox": row.get("bbox_px"),
+                    }
+                    for row in event_rows
+                ]
+            )
+            for cand, source in zip(gated, event_rows):
+                routing = evaluate_cascade_tier(cand, tier1_threshold=th)
+                tier_counts[routing["tier"]] += 1
+                if routing["tier"] == "tier1_auto_confirm":
+                    if source["human_label"] == "false":
+                        tier1_fp += 1
+                    else:
+                        tier1_tp += 1
+                    prediction = "true"
+                elif routing["tier"] == "tier2_auto_reject":
+                    prediction = "false"
+                else:
+                    fallback = vlm.get(str(source.get("legacy_candidate_id")))
+                    prediction = str((fallback or {}).get("hybrid_decision") or "uncertain")
+                decisions.append(
+                    {
+                        "class_name": str(source.get("class_name")),
+                        "gold": source["human_label"],
+                        "prediction": prediction,
+                        "parse_error": None,
+                    }
+                )
+        summary = summarize_predictions(decisions)
+        confusion = summary["overall"]["confusion"]
+        runs.append(
+            {
+                "tier1_threshold": th,
+                "n": len(decisions),
+                "tier1_auto_confirm": tier_counts["tier1_auto_confirm"],
+                "tier2_auto_reject": tier_counts["tier2_auto_reject"],
+                "tier3_vlm_verify": tier_counts["tier3_vlm_verify"],
+                "tier1_true_positive": tier1_tp,
+                "tier1_false_positive": tier1_fp,
+                "tier1_precision": round(tier1_tp / (tier1_tp + tier1_fp), 4)
+                if (tier1_tp + tier1_fp)
+                else None,
+                "accuracy": round(summary["overall"]["accuracy"], 4),
+                "selective_accuracy": round(summary["overall"]["selective_accuracy"], 4),
+                "f1": round(
+                    (2 * confusion["tp"]) / max(1, 2 * confusion["tp"] + confusion["fp"] + confusion["fn"]),
+                    4,
+                ),
+                "far": summary["overall"]["far"],
+                "frr": summary["overall"]["frr"],
+                "manual_review_rate": round(summary["overall"]["manual_review_rate"], 4),
+                "confusion": confusion,
+            }
+        )
+
+    return {
+        "gold_source": str(overlap_path.relative_to(ROOT)),
+        "detector_score_source": str(manifest_path.relative_to(ROOT)),
+        "vlm_decision_source": str(gold_path.relative_to(ROOT)),
+        "gold_candidates": len(gold_rows),
+        "unmatched": missing,
+        "runs": runs,
     }
 
 
@@ -377,6 +565,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidates", type=Path, default=DEFAULT_CANDIDATES)
     parser.add_argument("--gold", type=Path, default=DEFAULT_GOLD)
+    parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
+    parser.add_argument("--gold-overlap", type=Path, default=DEFAULT_GOLD_OVERLAP)
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
 
@@ -384,6 +574,13 @@ def main() -> int:
         "generated_at": "deterministic",
         "geometry_gate": evaluate_geometry_sweep(),
         "real_replay": evaluate_real_replay(args.candidates),
+        "cascade_before_after": evaluate_cascade_comparison(args.candidates),
+        "gold_cascade_replay": evaluate_gold_cascade_replay(
+            args.manifest,
+            args.gold_overlap,
+            args.gold,
+            thresholds=(0.75, 0.80, 0.82, 0.85, 0.92),
+        ),
         "real_two_class_table": evaluate_real_two_class(args.gold),
         "five_class_benchmark": evaluate_five_class_benchmark(),
     }
@@ -395,6 +592,12 @@ def main() -> int:
 
     geo = report["geometry_gate"]
     rep = report["real_replay"]
+    cmp_runs = {run["tier1_threshold"]: run for run in report["cascade_before_after"]["runs"]}
+    gold_runs = {run["tier1_threshold"]: run for run in report["gold_cascade_replay"]["runs"]}
+    base = cmp_runs[BASELINE_TIER1_THRESHOLD]
+    new = cmp_runs[TIER1_AUTO_CONFIRM_THRESHOLD]
+    gold_base = gold_runs[BASELINE_TIER1_THRESHOLD]
+    gold_new = gold_runs[TIER1_AUTO_CONFIRM_THRESHOLD]
     md = [
         "# 五类业务门禁与三级级联路由离线回放评估",
         "",
@@ -430,9 +633,44 @@ def main() -> int:
         f"{(rep['blue_illegal_roof_tier3_compliance'] or 0):.2%}"
         f"（{rep['blue_illegal_roof_tier3']}/{rep['blue_illegal_roof_total']}）。",
         "",
-        "## 3. 逐类表与阈值搜索",
+        "## 3. 级联阈值改造前后对比（真实数据）",
         "",
-        "### 3.1 真实人工金标（车/人员）",
+        f"数据源：`{report['cascade_before_after']['source']}`，"
+        f"{report['cascade_before_after']['candidates']} 条真实候选；"
+        f"金标回放 {report['gold_cascade_replay']['gold_candidates']} 条（Tier3 回退真实 VLM 决策）。",
+        "",
+        "| 指标 | 改造前（Tier1=0.92） | 改造后（Tier1=0.85，刚体类白名单） |",
+        "|---|---:|---:|",
+        f"| Tier1 自动确认 | {base['tier1_count']}（{base['tier1_share']:.2%}） | {new['tier1_count']}（{new['tier1_share']:.2%}） |",
+        f"| Tier2 自动拒识 | {base['tier2_count']}（{base['tier2_share']:.2%}） | {new['tier2_count']}（{new['tier2_share']:.2%}） |",
+        f"| L20 VLM 调用 | {base['tier3_count']}（{base['vlm_share']:.2%}） | {new['tier3_count']}（{new['vlm_share']:.2%}） |",
+        f"| VLM 卸载比例（Tier1+Tier2） | {base['vlm_offload_share']:.2%} | {new['vlm_offload_share']:.2%} |",
+        f"| 金标 Tier1 自动确认数 | {gold_base['tier1_auto_confirm']} | {gold_new['tier1_auto_confirm']} |",
+        f"| 金标 Tier1 新增误报 FP | {gold_base['tier1_false_positive']} | {gold_new['tier1_false_positive']} |",
+        f"| 金标端到端 F1 | {gold_base['f1']:.4f} | {gold_new['f1']:.4f} |",
+        f"| 金标端到端 FAR | {gold_base['far']} | {gold_new['far']} |",
+        f"| 金标端到端准确率 | {gold_base['accuracy']:.4f} | {gold_new['accuracy']:.4f} |",
+        "",
+        f"- Tier1 白名单：{', '.join(report['cascade_before_after']['tier1_allowlist'])}；"
+        f"在新阈值下被白名单拦下的非刚体类高分候选 "
+        f"{report['cascade_before_after']['non_allowlist_blocked_total']} 条"
+        f"（{report['cascade_before_after']['non_allowlist_candidates_blocked_at_new_threshold']}）。",
+        "- 几何门禁直接拦截占比：0%（当前门禁只把冲突候选升级到 Tier3，不做直接裁决）。",
+        "",
+        "### 3.1 Tier1 阈值 ↔ 金标误报权衡（142 条真实人工金标）",
+        "",
+        "| Tier1 阈值 | 金标自动确认数 | 新增 FP | 端到端 F1 | 端到端 FAR |",
+        "|---:|---:|---:|---:|---:|",
+        *[
+            f"| {run['tier1_threshold']:.2f} | {run['tier1_auto_confirm']} | "
+            f"{run['tier1_false_positive']} | {run['f1']:.4f} | "
+            f"{run['far'] if run['far'] is None else round(run['far'], 4)} |"
+            for run in report["gold_cascade_replay"]["runs"]
+        ],
+        "",
+        "## 4. 逐类表与阈值搜索",
+        "",
+        "### 4.1 真实人工金标（车/人员）",
         "",
         f"数据源：`{report['real_two_class_table']['source']}`，n={report['real_two_class_table']['n']}。",
         "",
@@ -443,7 +681,7 @@ def main() -> int:
         f"best F1={report['real_two_class_table']['threshold_search']['best_metrics']['f1']:.4f}，"
         f"FAR={report['real_two_class_table']['threshold_search']['best_metrics']['far']}。",
         "",
-        "### 3.2 五类合成基准（proxy，非真实精度）",
+        "### 4.2 五类合成基准（proxy，非真实精度）",
         "",
         report["five_class_benchmark"]["markdown"],
         "",

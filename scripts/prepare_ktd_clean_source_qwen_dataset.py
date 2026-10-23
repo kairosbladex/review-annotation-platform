@@ -112,6 +112,7 @@ CROP_SPEC = {
     "clean_roi": {"factor": 4.0, "min_side": 96, "output_size": 512},
     "padding": "viewport_shift_then_cv2.BORDER_CONSTANT_rgb_230_230_230",
     "padding_color_rgb": list(NEUTRAL_GRAY_RGB),
+    "roi_clamp": "short_side_when_target_fits_else_long_side",
     "bbox_style_default": "corner_ticks",
     "downscale": "cv2.INTER_AREA",
     "upscale": "cv2.INTER_LANCZOS4",
@@ -343,6 +344,51 @@ def draw_bbox_overlay(
     return canvas
 
 
+def _tick_expansion_px(box_w: float, box_h: float, *, expand_px: int = 2, thickness: int = 2) -> float:
+    """Outward margin (in source pixels) needed to keep corner ticks inside the viewport.
+
+    `draw_bbox_overlay` offsets each corner by `expand_px` and draws the L-shaped arms
+    *inward* along the box edges, so only the offset plus half the stroke width can ever
+    fall outside the box.  The tick length must not be reserved as viewport margin —
+    doing so would force large targets onto the image long side and re-introduce the
+    neutral-gray padding this clamp exists to remove.
+    """
+    del box_w, box_h  # margin is independent of the box size for corner ticks
+    return float(2 * (expand_px + thickness))
+
+
+def _clamp_roi_side_to_image(
+    box_w: float,
+    box_h: float,
+    width: int,
+    height: int,
+    desired_side: float,
+    *,
+    min_side: float,
+) -> tuple[float, bool]:
+    """Converge an ROI viewport side onto the image's own side range.
+
+    A square viewport larger than the image short side can only be produced by padding
+    with neutral gray, which wastes visual tokens and lowers effective resolution for
+    large targets (e.g. a 700x400 `blue_illegal_roof` box scaled by 4x inside a
+    1920x1080 frame).  The viewport is therefore capped at the image short side when the
+    target plus its corner-tick margin still fits there (zero gray padding), and at the
+    image long side otherwise.  Small targets keep their original zoom because their
+    desired side is already below the short side.
+
+    Returns `(side, clamped)`.  Degenerate images smaller than `min_side` keep the legacy
+    padded behaviour so that the caller's explicit minimum viewport is honoured.
+    """
+    short_side = float(min(width, height))
+    long_side = float(max(width, height))
+    if short_side < float(min_side):
+        return float(desired_side), False
+    required = max(float(box_w), float(box_h)) + _tick_expansion_px(box_w, box_h)
+    cap = short_side if required <= short_side else long_side
+    side = min(max(float(desired_side), required), cap)
+    return side, side < float(desired_side) - 1e-9
+
+
 def _crop_square_with_metadata(
     image: Image.Image,
     bbox: tuple[float, float, float, float],
@@ -370,6 +416,8 @@ def _crop_square_with_metadata(
     cat_spec = get_category_crop_spec(class_name)
     effective_factor = float(factor)
     is_context = "context" in role
+    is_roi = "roi" in role
+    roi_side_clamped = False
     if is_context and cat_spec.get("clamp_context_to_image"):
         min_ctx = float(cat_spec.get("min_context_scale", 3.0))
         effective_factor = max(effective_factor, min_ctx)
@@ -378,7 +426,17 @@ def _crop_square_with_metadata(
         desired_side = max(float(min_side), max(box_w, box_h) * effective_factor)
         side = min(max(desired_side, min_required_side), max_image_side)
     else:
-        side = max(float(min_side), max(box_w, box_h) * effective_factor)
+        desired_side = max(float(min_side), max(box_w, box_h) * effective_factor)
+        side = desired_side
+        if is_roi:
+            side, roi_side_clamped = _clamp_roi_side_to_image(
+                box_w,
+                box_h,
+                width,
+                height,
+                desired_side,
+                min_side=float(min_side),
+            )
 
     side_int = max(8, int(round(side)))
     left = int(round(center_x - side_int / 2.0))
@@ -455,11 +513,18 @@ def _crop_square_with_metadata(
     if bbox_style != "none" and role.startswith("annotated_"):
         resized = draw_bbox_overlay(resized, shifted_bbox, style=bbox_style)
 
+    visible_area = max(0, min(width, right) - max(0, left)) * max(
+        0, min(height, bottom) - max(0, top)
+    )
     meta = {
         "viewport": [left, top, right, bottom],
+        "viewport_side": side_int,
         "padding": [pad_top, pad_bottom, pad_left, pad_right],
+        "padding_ratio": round(1.0 - visible_area / float(side_int * side_int), 4),
         "shifted_bbox_px": [round(v, 2) for v in shifted_bbox],
         "effective_factor": effective_factor,
+        "desired_side": round(float(desired_side), 2),
+        "roi_side_clamped": roi_side_clamped,
     }
     return Image.fromarray(resized), meta
 
@@ -569,6 +634,16 @@ def _save_generated_views(
             image_paths.append(relative)
             view_shas[role] = _sha256(destination)
             view_crop_meta[role] = meta
+    # The context view must never be tighter than the ROI view, otherwise the locator
+    # view would show less scene than the detail view it is supposed to anchor.
+    for prefix in ("annotated", "clean"):
+        context_side = view_crop_meta.get(f"{prefix}_context", {}).get("viewport_side")
+        roi_side = view_crop_meta.get(f"{prefix}_roi", {}).get("viewport_side")
+        if context_side is not None and roi_side is not None and context_side < roi_side:
+            raise ValueError(
+                f"{prefix} context viewport ({context_side}px) is smaller than the ROI "
+                f"viewport ({roi_side}px) for candidate {candidate_id}"
+            )
     return image_paths, view_shas, view_crop_meta
 
 

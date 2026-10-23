@@ -131,6 +131,43 @@ def format_by_class_markdown_table(summary: Mapping[str, Any]) -> str:
     return "\n".join(lines)
 
 
+_NEGATIVE_DECISIONS = frozenset({"false", "rejected", "no", "0", "negative"})
+
+
+def _as_score(value: Any) -> float | None:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    return float(value)
+
+
+def _resolve_positive_score(row: Mapping[str, Any]) -> float | None:
+    """Resolve P(true) for one prediction record.
+
+    Verifier records store "confidence" as the confidence in the emitted decision,
+    not as P(true).  A record with ``prediction="false", confidence=0.95`` therefore
+    means P(true)=0.05; thresholding it directly on 0.95 would silently flip a
+    confident rejection into an acceptance.  Callers can bypass the conversion by
+    supplying an explicit ``positive_score``/``p_true`` field, or by marking the
+    score as already being P(true) with ``score_is_p_true=True``.
+    """
+    for key in ("positive_score", "p_true"):
+        explicit = _as_score(row.get(key))
+        if explicit is not None:
+            return min(1.0, max(0.0, explicit))
+    score = _as_score(row.get("score"))
+    if score is None:
+        score = _as_score(row.get("confidence"))
+    if score is None:
+        return None
+    score = min(1.0, max(0.0, score))
+    if row.get("score_is_p_true") is True:
+        return score
+    raw = row.get("raw_prediction", row.get("prediction"))
+    if str(raw or "").strip().lower() in _NEGATIVE_DECISIONS:
+        return 1.0 - score
+    return score
+
+
 def apply_confidence_threshold(
     predictions: Iterable[Mapping[str, Any]], threshold: float
 ) -> list[dict[str, Any]]:
@@ -138,9 +175,10 @@ def apply_confidence_threshold(
     adjusted: list[dict[str, Any]] = []
     for row in predictions:
         item = dict(row)
-        score = item.get("score", item.get("confidence"))
-        if isinstance(score, (int, float)):
-            if float(score) >= threshold:
+        score = _resolve_positive_score(item)
+        if score is not None:
+            item["positive_score"] = score
+            if score >= threshold:
                 item["prediction"] = "true"
             else:
                 item["prediction"] = "false"
@@ -425,6 +463,9 @@ def main() -> int:
                 "parse_error": parse_error,
                 "raw_response": text,
                 "score": row.get("meta", {}).get("detector_score"),
+                # The detector score is already P(target is real), not confidence in the
+                # emitted decision, so the threshold search must not invert it.
+                "score_is_p_true": True,
             }
         )
         if index % 25 == 0:

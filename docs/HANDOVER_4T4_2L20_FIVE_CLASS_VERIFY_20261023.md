@@ -5,6 +5,7 @@
 - 被复核基线：`8d778b50c27d43f38b00e08b2e9fa985f5684e74`（24 个文件，+2570/−201）
 - 复核执行环境：macOS / Python 3.13.2 / `.venv`；**无 NVIDIA GPU、无 `nvidia-smi`、无 Docker GPU 运行时**
 - 复核日期：2026-10-23
+- **第二轮收口日期：2026-10-23**（F5 ROI 灰边、F6 级联阈值，见第 8 章；全程未连接 GPU 服务器、未触碰 8188/8189 线上服务）
 
 ---
 
@@ -23,6 +24,13 @@
 | `scripts/prepare_ktd_clean_source_qwen_dataset.py` | 修改 | **F4 修复**：删除 `math` 未导入的死分支；`--bbox-style` 增加 `--marker-style` 别名 |
 | `scripts/eval_five_class_gates.py` | **新增** | 五类门禁 + 三级级联的可复现离线回放评估脚本 |
 | `docs/HANDOVER_4T4_2L20_FIVE_CLASS_VERIFY_20261023.md` | **新增** | 本报告 |
+| `scripts/prepare_ktd_clean_source_qwen_dataset.py` | 修改（第二轮） | **F5 修复**：新增 `_clamp_roi_side_to_image` / `_tick_expansion_px`，ROI 视口收敛到图像短边（必要时长边）；crop meta 增加 `viewport_side` / `padding_ratio` / `roi_side_clamped`；`_save_generated_views` 强制 `context_side >= roi_side` |
+| `scripts/prepare_ktd_canonical_crop_dataset.py` | 修改（第二轮） | **F5 同步**：`_square_context` 复用同一 ROI 收敛函数 |
+| `scripts/qwen3vl_verify.py` | 修改（第二轮） | **F7 修复**：新增 `_resolve_positive_score`，`false` 决策自动折算 `P(true)=1-confidence`；阈值搜索改用正类得分 |
+| `backend/app/services/ktd_recheck.py` | 修改（第二轮） | **F6 修复**：Tier1 白名单收紧到 `vehicle/person/tricycle`，`road_crack` 禁自动确认，默认阈值 0.92→0.85；新增 `车牌` 与 `road_crack` 类别归一 |
+| `backend/app/config.py` | 修改（第二轮） | `tier1_auto_confirm_threshold` 默认值 0.92→0.85（`AUTO_ANNOTATION_CASCADE_ROUTING` 仍默认 `false`） |
+| `deploy/production.env.example` | 修改（第二轮） | `TIER1_AUTO_CONFIRM_THRESHOLD=0.85` + 白名单注释 |
+| `scripts/eval_five_class_gates.py` | 修改（第二轮） | 新增 `cascade_before_after` / `gold_cascade_replay` 两段评估与「改造前后对比」Markdown |
 
 提交：见本报告末尾「Git 提交」小节（中文 commit message，未 push）。
 
@@ -51,6 +59,14 @@ FAILED backend/tests/test_audit_codex_pilot_review.py::test_audit_rejects_confir
 ```
 
 `0 failed`。新增 7 个用例（3 自动标注 + 2 级联 + 2 审计断言增强）。
+
+第二轮收口后（最终）：
+
+```
+197 passed, 1 skipped, 2 warnings in 14.95s
+```
+
+`0 failed`。第二轮再新增 12 个用例：5 个 ROI 收敛（`test_prepare_ktd_clean_source_qwen_dataset.py`）、3 个置信度折算（`test_qwen3vl_verify.py`）、4 个级联白名单（`test_ktd_recheck.py`），另对 2 个既有用例补了 `score_is_p_true` 语义标注。
 
 ### 2.2 生产配置校验
 
@@ -109,9 +125,9 @@ scripts/prepare_ktd_clean_source_qwen_dataset.py --marker-style corner_ticks --v
 
 验证后 `/tmp/ktd_phase1_verify` 已删除。
 
-**观察（非缺陷，待产品决策 F5）**：`roi_scale` 只按 bbox 长边放大、不向图像边界收敛，大目标会产生较高灰边占比：
+**F5 缺陷与修复（第二轮已闭环，详见第 8 章）**：`roi_scale` 只按 bbox 长边放大、不向图像边界收敛，大目标会产生较高灰边占比：
 
-| 样本 | 类别 | annotated_context 填充率 | annotated_roi 填充率 |
+| 样本 | 类别 | annotated_context 填充率 | annotated_roi 填充率（第一轮实测） |
 |---|---|---:|---:|
 | person-01 | 人员 | 17.9% | 0.0% |
 | tricycle-01 | 三轮车 | 17.9% | 0.0% |
@@ -119,7 +135,9 @@ scripts/prepare_ktd_clean_source_qwen_dataset.py --marker-style corner_ticks --v
 | roof-01 | 蓝色违建顶棚 | 21.9% | **46.4%** |
 | crack-01 | 道路裂缝 | 47.5% | 0.0% |
 
-`blue_illegal_roof` 的 context 已由 `clamp_context_to_image=true` 收敛，但 **roi 视角无同等约束**，700×400 的屋顶在 4× 放大后视口 2800px 远超 1920px 画幅，46.4% 为中性灰。
+`blue_illegal_roof` 的 context 已由 `clamp_context_to_image=true` 收敛，但 **roi 视角无同等约束**，700×400 的屋顶在 4× 放大后视口 2800px 远超 1920px 画幅。
+
+第二轮已在 `_crop_square_with_metadata` 中对 **所有 ROI 视角**加入同一收敛规则：目标框 + 角标外扩边距仍能落在图像短边内时，视口收敛到短边（零灰边）；否则收敛到长边。修复后 `roof-01`（1920×1080 帧内 700×400）ROI 灰边 **73.41% → 0.00%**（第一轮 46.4% 口径见第 8 章脚注），真实 6678 条候选中被收敛的 238 条平均灰边 **43.60% → 0.95%**。
 
 ### 3.2 Phase 2 — QLoRA 训练与验证契约
 
@@ -162,11 +180,11 @@ PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py --output-
 
 **（b）三级级联分流（真实回放：`data/ktd-test-real-monitoring-full-20260924/output/raw_predictions.jsonl`，1416 事件 / 6713 候选）**
 
-| Tier | 数量 | 占比 |
+| Tier | 第一轮（≥0.92，任意非 roof 类） | 第二轮（≥0.85，刚体类白名单） |
 |---|---:|---:|
-| Tier 1（≥0.92 自动确认） | 18 | **0.27%** |
-| Tier 2（≤0.12 自动拒绝） | 0 | **0.00%** |
-| Tier 3（进入 L20 Qwen3-VL 复核） | 6695 | **99.73%** |
+| Tier 1 自动确认 | 18（**0.27%**） | 546（**8.13%**） |
+| Tier 2 自动拒绝 | 0（**0.00%**） | 0（**0.00%**） |
+| Tier 3 进入 L20 Qwen3-VL | 6695（**99.73%**） | 6167（**91.87%**） |
 
 | 合规/冲突指标 | 数值 |
 |---|---:|
@@ -222,24 +240,25 @@ PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py --output-
 | F2 | 高 | `TIER1_AUTO_CONFIRM_THRESHOLD` / `TIER2_AUTO_REJECT_THRESHOLD` / `VLLM_L20_BASE_URL` 只解析进 `Settings`，**从未写入 job options**；`AUTO_ANNOTATION_MODE=adaptive` 也因此无法触发 `_invoke_adapter` 的二次深思考分支 → `production.env.example` 中这些开关实际无效 | **已修复**（`build_auto_annotation_options` 传导 + 显式入参优先 + 3 个回归用例） |
 | F3 | 中 | `test_audit_codex_pilot_review._pilot()` 缺 `source_object_key`，2 个用例失败 | **已修复**（补夹具 + 断言，未放宽生产校验） |
 | F4 | 低 | `prepare_ktd_clean_source_qwen_dataset.py` 存在 `"math" in globals()` 死分支（`math` 未导入）；CLI 只有 `--bbox-style`，验收命令 `--marker-style` 无法执行 | **已修复**（删死分支 + 增别名） |
-| F5 | 中（待决策） | `roi_scale` 不向图像边界收敛，大目标 ROI 视角灰边占比最高 46.4%（roof-01） | **未改**，需产品确认后加 `clamp_roi_to_image` 并重建数据集 |
-| F6 | 高（待决策） | 真实检测器置信度下 Tier 1 仅 0.27%、Tier 2 为 0%（最低置信度 0.25 > 0.12），99.73% 候选压向 L20 → L20 成为吞吐瓶颈，T4 侧几乎不卸载 | **未改**，见下方敏感性表，需业务定阈值 |
+| F5 | 中 | `roi_scale` 不向图像边界收敛，大目标 ROI 视角灰边占比最高 46.4%（roof-01） | **已修复（第二轮）**：ROI 视口收敛到图像短边/长边 + 5 个回归用例；`roof-01` 灰边 73.41%→0.00%，见第 8 章 |
+| F6 | 高 | 真实检测器置信度下 Tier 1 仅 0.27%、Tier 2 为 0%（最低置信度 0.25 > 0.12），99.73% 候选压向 L20 → L20 成为吞吐瓶颈，T4 侧几乎不卸载 | **已修复（第二轮）**：Tier1 白名单 + 阈值校准至 0.85，卸载 0.27%→8.13% 且金标零新增 FP；`AUTO_ANNOTATION_CASCADE_ROUTING` 仍默认关闭，见第 8 章 |
+| F7 | 高 | `qwen3vl_verify.apply_confidence_threshold` 把 `prediction=false, confidence=0.95` 当成 `P(true)=0.95`，直接翻转决策，阈值搜索退化为 0.99 | **已修复（第二轮）**：`_resolve_positive_score` 统一折算 + 3 个回归用例 |
 
-### F6 阈值敏感性（真实回放，仅调整 `tier1_threshold`）
+### F6 阈值敏感性（真实回放，仅调整 `tier1_threshold`，已含第二轮 Tier1 白名单）
 
 | tier1_threshold | Tier 1 占比 | Tier 3 占比 |
 |---:|---:|---:|
-| 0.60 | 54.57% | 45.43% |
-| 0.65 | 49.29% | 50.71% |
-| 0.70 | 43.33% | 56.67% |
-| 0.75 | 36.09% | 63.91% |
-| 0.80 | 25.50% | 74.50% |
-| 0.85 | 8.33% | 91.67% |
-| 0.90 | 0.86% | 99.14% |
-| **0.92（当前默认）** | **0.27%** | **99.73%** |
+| 0.60 | 50.42% | 49.58% |
+| 0.65 | 46.15% | 53.85% |
+| 0.70 | 41.29% | 58.71% |
+| 0.75 | 34.84% | 65.16% |
+| 0.80 | 25.01% | 74.99% |
+| **0.85（第二轮默认）** | **8.13%** | **91.87%** |
+| 0.90 | 0.82% | 99.18% |
+| 0.92（第一轮默认） | 0.27% | 99.73% |
 | 0.95 | 0.01% | 99.99% |
 
-结论：0.92 与现有检测器置信度分布严重不匹配。若目标是让 T4 侧承担可观比例的一级裁决，需在 0.75–0.80 区间取值，并用人工金标验证该区间的 FAR 可接受性后再放开 `AUTO_ANNOTATION_CASCADE_ROUTING=true`。
+结论：0.92 与现有检测器置信度分布严重不匹配。第二轮用 142 条真实人工金标联合校准后取 **0.85**：这是金标上「Tier1 新增 FP = 0」的最低两位小数阈值（金标最高分负样本 0.84997），对应 6713 条真实候选卸载 8.13%。0.80 虽能卸载 25.01%，但金标新增 4 个 FP（端到端 F1 0.9684→0.9485、FAR 0.087→0.174），故不采用。
 
 ---
 
@@ -293,7 +312,9 @@ ssh ai-lingxi 'cd <repo> && PYTHONPATH=.:backend .venv/bin/python scripts/qwen3v
 | 本次全部提交 | `git revert <本次 commit SHA>`（推荐，保留审计轨迹） |
 | 仅回滚级联修复 | `git checkout 8d778b5 -- backend/app/services/ktd_recheck.py backend/app/services/auto_annotation_service.py backend/app/config.py backend/app/main.py` |
 | 关闭级联（不换代码） | 环境变量保持 `AUTO_ANNOTATION_CASCADE_ROUTING=false`（默认值，行为与修复前完全一致） |
-| 恢复旧阈值行为 | `TIER1_AUTO_CONFIRM_THRESHOLD=0.92`、`TIER2_AUTO_REJECT_THRESHOLD=0.12`（默认值） |
+| 恢复旧阈值行为 | `TIER1_AUTO_CONFIRM_THRESHOLD=0.92`（第二轮默认已改为 0.85）、`TIER2_AUTO_REJECT_THRESHOLD=0.12` |
+| 恢复旧 Tier1 类别口径 | `git checkout 0b9d9c22 -- backend/app/services/ktd_recheck.py`（会一并回退白名单与 `车牌`/`road_crack` 归一） |
+| 回退 ROI 收敛 | `TIER1_AUTO_CONFIRM_THRESHOLD` 无关；改回 `git checkout 0b9d9c22 -- scripts/prepare_ktd_clean_source_qwen_dataset.py scripts/prepare_ktd_canonical_crop_dataset.py`（会重新引入大目标灰边） |
 | vLLM 容器 | `docker stop vllm-qwen3vl-l20`（启动脚本带 `--rm`，停止即清理） |
 | 训练任务 | `pkill -f qwen3vl_qlora_train.py`；产物在 `--output-dir` 指定的 LoRA 目录，删除该目录即回滚权重 |
 
@@ -318,3 +339,110 @@ ssh ai-lingxi 'cd <repo> && PYTHONPATH=.:backend .venv/bin/python scripts/qwen3v
 | 变更规模 | 11 files changed, 964 insertions(+), 8 deletions(-) |
 | 是否 push | **否**（按要求仅本地提交） |
 | 基线 | `8d778b50c27d43f38b00e08b2e9fa985f5684e74` |
+
+---
+
+## 8. 第二轮收口：F5 / F6 / F7 修复与可量化收益（2026-10-23）
+
+### 8.0 执行边界（红线）
+
+1. 全程**未连接、未重启、未修改任何 GPU 服务器**，未触碰 8188/8189 线上服务。
+2. 所有验证仅基于仓库内真实离线数据：`data/ktd-clean-source-full-evaluation-20260924`（142 条人工金标）与 `data/ktd-test-real-monitoring-full-20260924`（1416 事件 / 6713 候选）。
+3. 未触碰、未暂存工作区原有 6 项未跟踪文件/目录。
+4. 仅本地中文 commit，**未执行 `git push`**。
+
+### 8.1 改造前后真实收益对比表
+
+| 维度 | 改造前 | 改造后 | 判定 |
+|---|---|---|---|
+| 大框 `roof-01`（1920×1080 帧内 700×400）`annotated_roi` 灰边占比 | **73.41%**（视口 2800px） | **0.00%**（视口 1080px） | 达标（要求 ≤15%） |
+| 真实候选 ROI 视口灰边（238 条被收敛样本，均值） | **43.60%** | **0.95%**（229 条归零） | 显著改善 |
+| `qwen3vl_verify` 原始记录直传阈值搜索 F1 | **0.0360**（阈值退化 0.99） | **0.9583**（阈值 0.55） | 修复 |
+| 6713 条真实候选 VLM 卸载比例（Tier1+Tier2） | **0.27%**（18 条） | **8.13%**（546 条） | **30×** |
+| 142 条金标 Tier1 新增 FP | 0 | **0** | 零精度损失 |
+| 142 条金标端到端 F1 / FAR | 0.9684 / 0.0870 | **0.9684 / 0.0870** | 完全不变 |
+
+> F1 口径：`find_optimal_threshold_for_far(max_far=0.10)` 在 142 条金标（`hybrid_decision`/`hybrid_confidence` 原始记录）上的 best F1。改造前把 `confidence` 直接当 `P(true)`，高置信 `false` 全被翻成 `true`，任何阈值下 FAR 都 ≥0.28，无法满足 `max_far=0.10`，于是退化到兜底阈值 0.99（F1=0.0360）。改造后无需任何外部脚本手工翻转即可得到 0.55 / F1=0.9583 / FAR=0.0870。
+
+### 8.2 F5：大尺寸目标 ROI 无效灰边
+
+**根因**：`_crop_square_with_metadata` 中 context 视角有 `clamp_context_to_image` 约束，ROI 视角没有。`roi_scale=4.0` 直接把 700×400 的屋顶放大到 2800px 视口，超出 1920×1080 画幅后由 `cv2.copyMakeBorder` 补中性灰。
+
+**修复**（`scripts/prepare_ktd_clean_source_qwen_dataset.py`，`scripts/prepare_ktd_canonical_crop_dataset.py` 同步）：
+
+- 新增 `_tick_expansion_px()`：角标 L 型臂是**向内**绘制的，只有 2px 外扩 + 描边会落在框外，因此外扩边距恒为 8px（不再按臂长 6–24px 预留，否则大目标会被迫退到长边）。
+- 新增 `_clamp_roi_side_to_image()`：目标框 + 8px 边距仍能落在图像短边内 → 视口收敛到**短边**（零灰边）；否则收敛到**长边**（仍完整包含目标）。
+- 小目标不受影响：`desired_side <= short_side` 时原样返回，`person` 100×100 仍保持 5× = 500px 视口。
+- 退化图像（短边 < `min_side`）保留原有补边路径，不破坏既有行为。
+- crop meta 新增 `viewport_side` / `padding_ratio` / `desired_side` / `roi_side_clamped`，`_save_generated_views` 强制 `context_side >= roi_side`（不满足直接 `ValueError`）。
+
+**实测（`roof-01`：700×400 in 1920×1080，`blue_illegal_roof`，`annotated_roi`）**：
+
+| 项 | 改造前 | 改造后 |
+|---|---|---|
+| 视口边长 | 2800px | 1080px |
+| viewport | `[-440, -860, 2360, 1940]` | `[420, 0, 1500, 1080]` |
+| padding | `[860, 860, 440, 440]` | `[0, 0, 0, 0]` |
+| 灰边占比（逐像素 `==(230,230,230)`） | **73.41%** | **0.00%** |
+| 目标框在 512px 输出中的位置 | 被灰边包围 | `[90.07, 161.19, 421.93, 350.81]`，完整且四角留白 ≥90px |
+| `context_side >= roi_side` | 1920 ≥ 2800 ❌ | 1920 ≥ 1080 ✅ |
+
+> 口径脚注：第一轮报告的 roof-01 灰边 46.4% 来自 `/tmp/ktd_phase1_verify`（已删除）的另一画幅夹具；本轮用可复现代码在 1920×1080 上重建同一缺陷，实测 73.41%。两者是同一缺陷的不同画幅表现，修复后均为 0%。真实 6678 条候选快照中被收敛的 238 条（3.56%）平均灰边 43.60% → 0.95%，其中 229 条完全归零，9 条因目标本身宽于短边而保留 ≤25% 灰边（正方形视口的几何下限）。
+
+### 8.3 F6：三级级联阈值校准
+
+**安全边界强化**（`backend/app/services/ktd_recheck.py`）：
+
+| 类别 | Tier 1 自动确认 | Tier 2 自动拒识 | Tier 3 VLM |
+|---|---|---|---|
+| `vehicle` / `person` / `tricycle`（车/人员/三轮车） | ✅ 允许（≥阈值且无几何冲突） | ✅ ≤0.12 | 其余 |
+| `blue_illegal_roof`（蓝色违建顶棚） | ❌ 禁止 | ❌ 禁止 | **100% 强制** |
+| `road_crack`（道路裂缝/裂纹） | ❌ 禁止 | ✅ ≤0.12 | 其余（含所有高分） |
+| 其它（光斑/光伏板/车牌/没戴头盔…） | ❌ 禁止 | ✅ ≤0.12 | 其余 |
+
+- 新增 `TIER1_ELIGIBLE_CLASSES = {vehicle, person, tricycle}` 白名单与 `_ROAD_CRACK_ALIASES`、`_PLATE_ALIASES`；修正 `车牌`（含「车」字）此前会被归一成 `vehicle` 的缺陷。
+- 新增原因码：`tier3_road_crack_never_auto_confirmed` / `tier3_class_outside_tier1_allowlist` / `tier3_geometric_conflict`。
+
+**阈值校准**（142 条金标 × 真实检测器分数，通过 `gold_overlap_map.jsonl` 关联监控快照的 `detector_confidence`）：
+
+| Tier1 阈值 | 金标自动确认数 | 新增 FP | 端到端 F1 | 端到端 FAR |
+|---:|---:|---:|---:|---:|
+| 0.75 | 68 | 5 | 0.9436 | 0.1957 |
+| 0.80 | 64 | 4 | 0.9485 | 0.1739 |
+| 0.82 | 55 | 3 | 0.9534 | 0.1522 |
+| **0.85** | **36** | **0** | **0.9684** | **0.0870** |
+| 0.92 | 0 | 0 | 0.9684 | 0.0870 |
+
+金标中最高分的负样本为 **0.84997**，因此 0.85 是「零新增 FP」的最低两位小数阈值；再往下每降一档都开始出现金标 FP 且 F1 单调下降。**采用 0.85**，并保持 `AUTO_ANNOTATION_CASCADE_ROUTING=false` 默认关闭（开启即生效）。
+
+**白名单护栏价值**：在 0.85 阈值下，若无白名单会有 **573 条**非刚体类高分候选被自动确认（违建 560 条、光伏板 13 条）。
+
+### 8.4 F7：`qwen3vl_verify` 正类置信度折算
+
+- 新增 `_resolve_positive_score(row)`：优先 `positive_score`/`p_true`；其次 `score`/`confidence`，当原始决策为 `false`/`rejected`/`no`/`0` 且未标 `score_is_p_true=True` 时折算为 `1-value`。
+- `apply_confidence_threshold` 与 `find_optimal_threshold_for_far` 统一走该函数，并把折算结果写回 `positive_score` 便于审计。
+- `qwen3vl_verify.main()` 中 `score` 是检测器 P(true)，显式标记 `score_is_p_true=True`，避免被二次翻转。
+
+### 8.5 复现命令
+
+```bash
+# 全量测试（0 failed）
+PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q
+
+# 级联 / 金标 / 灰边的可量化对比（输出 JSON + Markdown）
+PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
+    --output-dir /tmp/ktd_phase4_eval
+
+# ROI 灰边回归（含 roof-01 与真实 960x720 帧两个用例）
+PYTHONPATH=.:backend .venv/bin/pytest backend/tests/test_prepare_ktd_clean_source_qwen_dataset.py -q
+```
+
+### 8.6 残余风险与后续
+
+| 项 | 说明 | 建议 |
+|---|---|---|
+| 0.85 的统计置信度 | 金标仅在 36 个样本上验证零 FP，按「rule of three」其 95% 上界约 8% | 线上开启 cascade 前，用 2–3 周真实告警抽样复核该区间 |
+| Tier 2 仍为 0% | 真实检测器最低置信度 0.25 > 0.12，当前 `tier2_auto_reject` 完全不触发 | 若要释放 Tier 2 卸载，需重新校准 0.12 或用低分候选单独验证 |
+| 9 条宽目标仍有 ≤25% 灰边 | 目标本身宽于图像短边，正方形视口无法避免 | 若需彻底消除，二期可改为非正方形视口或按目标长宽比自适应 |
+| 几何门禁不直接裁决 | 当前只把冲突候选升级到 Tier3，直接拦截占比 0% | 若需进一步卸载，可对「同目标双框」的重复框做自动抑制（需人工金标验证） |
+| 数据集需重建 | 灰边修复只影响新建数据集，已产出的 `ktd-clean-source-qwen-20260930-v2` 仍是旧视口 | 下次训练前用同一命令重建并比对 `padding_ratio` |

@@ -243,6 +243,143 @@ def test_edge_crop_shifts_viewport_or_pads_constant_neutral_gray_without_mirror_
     assert tuple(int(c) for c in cropped_arr[0, 0]) == NEUTRAL_GRAY_RGB
 
 
+def _gray_fill_ratio(view: Image.Image) -> float:
+    import numpy as np
+
+    array = np.asarray(view)
+    return float(np.all(array == np.array(NEUTRAL_GRAY_RGB, dtype=np.uint8), axis=-1).mean())
+
+
+def test_large_target_roi_viewport_converges_on_image_short_side_without_gray_padding():
+    """回归 F5：700x400 违建顶棚在 1920x1080 帧内按 4x 放大后曾达 2800px 视口，灰边 73%。"""
+    import numpy as np
+
+    frame_w, frame_h = 1920, 1080
+    frame = Image.fromarray(np.full((frame_h, frame_w, 3), 90, dtype=np.uint8))
+    x1, y1, x2, y2 = 610, 340, 1310, 740
+    bbox = (x1 / frame_w, y1 / frame_h, x2 / frame_w, y2 / frame_h)
+
+    view, meta = _crop_square_with_metadata(
+        frame,
+        bbox,
+        factor=4.0,
+        min_side=96,
+        output_size=512,
+        class_name="蓝色违建顶棚",
+        role="annotated_roi",
+        bbox_style="corner_ticks",
+    )
+
+    assert meta["roi_side_clamped"] is True
+    assert meta["desired_side"] == 2800
+    assert meta["viewport_side"] == frame_h
+    assert meta["padding"] == [0, 0, 0, 0]
+    assert _gray_fill_ratio(view) <= 0.15
+    # The target box plus its corner-tick margin stays fully inside the viewport.
+    sx1, sy1, sx2, sy2 = meta["shifted_bbox_px"]
+    assert 0 <= sx1 < sx2 <= 512
+    assert 0 <= sy1 < sy2 <= 512
+    assert sx1 >= 4 and sy1 >= 4 and sx2 <= 508 and sy2 <= 508
+
+
+def test_roi_viewport_never_exceeds_the_image_long_side_for_oversized_targets():
+    import numpy as np
+
+    frame_w, frame_h = 1920, 1080
+    frame = Image.fromarray(np.full((frame_h, frame_w, 3), 90, dtype=np.uint8))
+    # A crack spanning almost the full frame width cannot fit the short side.
+    bbox = (60 / frame_w, 500 / frame_h, 1860 / frame_w, 600 / frame_h)
+    view, meta = _crop_square_with_metadata(
+        frame,
+        bbox,
+        factor=3.5,
+        min_side=96,
+        output_size=512,
+        class_name="道路裂缝",
+        role="clean_roi",
+        bbox_style="none",
+    )
+    assert meta["viewport_side"] <= frame_w
+    assert meta["viewport_side"] == frame_w
+    assert meta["padding"] == [0, 0, 0, 0] or meta["padding"][0] == meta["padding"][1]
+    # The full-width target is still contained horizontally (1800 of 1920 px -> ~480 of 512).
+    sx1, _, sx2, _ = meta["shifted_bbox_px"]
+    assert 0 <= sx1 < sx2 <= 512
+    assert (sx2 - sx1) >= 470
+
+
+def test_small_target_roi_keeps_requested_zoom_instead_of_being_clamped():
+    import numpy as np
+
+    frame = Image.fromarray(np.full((1080, 1920, 3), 90, dtype=np.uint8))
+    bbox = (100 / 1920, 100 / 1080, 200 / 1920, 200 / 1080)
+    _, meta = _crop_square_with_metadata(
+        frame,
+        bbox,
+        factor=5.0,
+        min_side=96,
+        output_size=512,
+        class_name="人员",
+        role="annotated_roi",
+        bbox_style="corner_ticks",
+    )
+    assert meta["roi_side_clamped"] is False
+    assert meta["viewport_side"] == 500
+    assert meta["padding"] == [0, 0, 0, 0]
+
+
+def test_roof_context_view_is_never_tighter_than_its_roi_view():
+    import numpy as np
+
+    frame = Image.fromarray(np.full((1080, 1920, 3), 90, dtype=np.uint8))
+    bbox = (610 / 1920, 340 / 1080, 1310 / 1920, 740 / 1080)
+    _, context_meta = _crop_square_with_metadata(
+        frame,
+        bbox,
+        factor=12.0,
+        min_side=320,
+        output_size=768,
+        class_name="蓝色违建顶棚",
+        role="annotated_context",
+        bbox_style="corner_ticks",
+    )
+    _, roi_meta = _crop_square_with_metadata(
+        frame,
+        bbox,
+        factor=4.0,
+        min_side=96,
+        output_size=512,
+        class_name="蓝色违建顶棚",
+        role="annotated_roi",
+        bbox_style="corner_ticks",
+    )
+    assert context_meta["viewport_side"] >= roi_meta["viewport_side"]
+
+
+def test_large_roof_in_real_monitoring_frame_is_not_padded():
+    """真实监控帧（960x720）里的 700x400 违建顶棚：视口收敛到短边 720，灰边归零。"""
+    import numpy as np
+
+    frame = Image.fromarray(np.full((720, 960, 3), 90, dtype=np.uint8))
+    bbox = (100 / 960, 150 / 720, 800 / 960, 550 / 720)
+    view, meta = _crop_square_with_metadata(
+        frame,
+        bbox,
+        factor=4.0,
+        min_side=96,
+        output_size=512,
+        class_name="蓝色违建顶棚",
+        role="annotated_roi",
+        bbox_style="corner_ticks",
+    )
+    assert meta["viewport_side"] == 720
+    assert meta["padding"] == [0, 0, 0, 0]
+    assert _gray_fill_ratio(view) == 0.0
+    sx1, sy1, sx2, sy2 = meta["shifted_bbox_px"]
+    # 8px tick margin (2px offset + stroke) must stay inside the 512px output.
+    assert 0 < sx1 and 0 < sy1 and sx2 < 512 and sy2 < 512
+
+
 def test_builds_2view_dataset_and_passes_provenance_validation(tmp_path: Path):
     pairs, gold = _source_fixture(tmp_path)
     output = tmp_path / "output-2view"

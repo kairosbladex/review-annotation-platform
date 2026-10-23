@@ -28,6 +28,7 @@ try:
         NEUTRAL_GRAY_RGB,
         VALID_BBOX_STYLES,
         VALID_VIEW_MODES,
+        _clamp_roi_side_to_image,
         draw_bbox_overlay,
         get_category_crop_spec,
         get_processor_pixel_budget,
@@ -38,6 +39,7 @@ except ImportError:
         NEUTRAL_GRAY_RGB,
         VALID_BBOX_STYLES,
         VALID_VIEW_MODES,
+        _clamp_roi_side_to_image,
         draw_bbox_overlay,
         get_category_crop_spec,
         get_processor_pixel_budget,
@@ -124,6 +126,18 @@ def _square_context(
         effective_scale = max(effective_scale, float(cat_spec.get("min_context_scale", 3.0)))
     side = max(2, round(max(x2 - x1, y2 - y1) * effective_scale))
     side = min(max(side, 32), max(width, height))
+    if not is_context:
+        # Keep the ROI viewport inside the image side range so a large target cannot
+        # force the square canvas to be mostly neutral-gray letterboxing.
+        side, _ = _clamp_roi_side_to_image(
+            float(x2 - x1),
+            float(y2 - y1),
+            width,
+            height,
+            float(side),
+            min_side=32.0,
+        )
+        side = max(2, round(side))
     cx = (x1 + x2) / 2
     cy = (y1 + y2) / 2
     left = round(cx - side / 2)
