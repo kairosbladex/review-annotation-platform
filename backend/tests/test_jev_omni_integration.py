@@ -111,6 +111,47 @@ def test_review_views_mark_context_with_ticks_and_keep_roi_clean():
     assert roi.getpixel((256, 256)) == (250, 250, 250)
 
 
+def test_review_views_keep_oversized_wide_target_fully_visible():
+    """回归：1920×1080 画幅里 1200×300 的超宽目标不能被压到短边而截断两端。"""
+    width, height = 1920, 1080
+    background = (60, 60, 60)
+    target_color = (250, 250, 250)
+    frame = Image.new("RGB", (width, height), background)
+    # 目标框 1200×300，居中于 (960, 540)：左右各留 360px 余量，完全在画幅内。
+    box_left, box_top, box_right, box_bottom = 360, 390, 1560, 690
+    frame.paste(
+        Image.new("RGB", (box_right - box_left, box_bottom - box_top), target_color),
+        (box_left, box_top),
+    )
+    bbox = [box_left / width, box_top / height, box_right / width, box_bottom / height]
+
+    context, roi = build_jev_omni_review_views(frame, bbox)
+
+    assert context.size == roi.size == (512, 512)
+
+    # ROI 视口边长 = 1200 + 2×8 = 1216（放宽到长边），缩放后目标横向占 ~505px，
+    # 左右各留 ~3.4px 背景边；若视口仍被压到短边 1080，左端 60px 目标会被切掉，
+    # 表现为最左列直接是目标色、没有背景边。
+    roi_row = [roi.getpixel((x, 256)) for x in range(512)]
+    target_columns = [x for x, pixel in enumerate(roi_row) if pixel == target_color]
+    assert target_columns, "ROI 视图中目标本体完全消失"
+    first, last = target_columns[0], target_columns[-1]
+    assert first >= 1 and last <= 510, "目标两端顶到视口边缘，说明视口被截断"
+    assert roi_row[0] == background and roi_row[511] == background
+    assert last - first + 1 >= 500, "目标横向跨度异常，可能被压到短边后裁切"
+    # 目标纵向 300px → 视口内 ~126px，中心行必须是目标本体。
+    assert roi.getpixel((256, 256)) == target_color
+
+    # 上下文视口（边长 1920，缩放比 512/1920）同样完整包含目标两端：
+    # 目标在视图内占 x≈96..416，两侧必须还是背景色。
+    scale = 512 / 1920.0
+    assert int(box_left * scale) == 96 and int(box_right * scale) == 416
+    assert context.getpixel((90, 256)) == background
+    assert context.getpixel((422, 256)) == background
+    assert context.getpixel((100, 256)) == target_color
+    assert context.getpixel((412, 256)) == target_color
+
+
 def test_decision_query_embeds_category_guidelines_and_fixed_options():
     query = build_jev_omni_decision_query(
         "三轮车", {"candidate_id": "c-1", "detector_confidence": 0.42}

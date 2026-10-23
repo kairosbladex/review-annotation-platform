@@ -229,6 +229,38 @@ def normalized_pixel_bbox(
     )
 
 
+def _clamp_view_side_to_image(
+    box_w: float,
+    box_h: float,
+    width: int,
+    height: int,
+    desired_side: float,
+    *,
+    margin_px: float,
+    min_side: float,
+) -> float:
+    """把正方形视口边长收敛到图像自身可承载的范围。
+
+    对齐 ``scripts/prepare_ktd_clean_source_qwen_dataset.py`` 的
+    ``_clamp_roi_side_to_image``：目标框 + 角标外扩边距仍能装进图像短边时，
+    视口上限夹到短边（零灰边）；装不进短边时（例如 ``1920×1080`` 画幅里
+    宽 ``1200px`` 的长条目标）上限放宽到长边，避免把视口压到短边后截断
+    目标左右两端。任何情况下返回值都 ``>= required_side``，保证目标本体与
+    外扩边距 100% 落在视口内。
+    """
+    short_side = float(min(width, height))
+    long_side = float(max(width, height))
+    required_side = max(float(box_w), float(box_h)) + 2.0 * float(margin_px)
+    if short_side < float(min_side):
+        # 退化画幅（比最小视口还小）：保持历史行为，但绝不截断目标本体。
+        return max(float(desired_side), required_side)
+    if required_side <= short_side:
+        cap = short_side
+    else:
+        cap = min(max(float(desired_side), required_side), max(long_side, required_side))
+    return max(min(max(float(desired_side), required_side), cap), required_side)
+
+
 def build_jev_omni_review_views(
     image: Any,
     bbox: Sequence[float],
@@ -249,11 +281,30 @@ def build_jev_omni_review_views(
     x1, y1, x2, y2 = normalized_pixel_bbox(bbox, (width, height))
     box_w, box_h = max(1.0, x2 - x1), max(1.0, y2 - y1)
     center_x, center_y = (x1 + x2) / 2.0, (y1 + y2) / 2.0
-    short_side = float(min(width, height))
+    box_side = max(box_w, box_h)
 
-    context_side = max(box_w, box_h) * float(context_scale)
-    context_side = max(context_side, float(min_context_side))
-    context_side = min(context_side, short_side)
+    # ROI 视口只留 8px 外扩边距（L 型角标向内绘制，无需为臂长预留空间）。
+    roi_side = _clamp_view_side_to_image(
+        box_w,
+        box_h,
+        width,
+        height,
+        box_side + 2.0 * float(margin_px),
+        margin_px=margin_px,
+        min_side=1.0,
+    )
+    context_side = _clamp_view_side_to_image(
+        box_w,
+        box_h,
+        width,
+        height,
+        max(box_side * float(context_scale), float(min_context_side)),
+        margin_px=margin_px,
+        min_side=float(min_context_side),
+    )
+    # 上下文视口必须不小于 ROI 视口，否则双视角的“全局/局部”语义会反转。
+    context_side = max(context_side, roi_side)
+
     context = _crop_square_padded(rgb, center_x, center_y, context_side)
     scale = view_size / context_side
     view_left = (x1 - (center_x - context_side / 2.0)) * scale
@@ -263,8 +314,6 @@ def build_jev_omni_review_views(
     context = context.resize((view_size, view_size), _lanczos())
     _draw_corner_ticks(context, (view_left, view_top, view_right, view_bottom))
 
-    # ROI 视口只留 8px 外扩边距（L 型角标向内绘制，无需为臂长预留空间）。
-    roi_side = min(max(box_w, box_h) + 2 * float(margin_px), short_side)
     roi = _crop_square_padded(rgb, center_x, center_y, roi_side)
     roi = roi.resize((view_size, view_size), _lanczos())
     return context, roi
