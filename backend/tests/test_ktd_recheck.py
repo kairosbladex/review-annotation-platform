@@ -702,3 +702,27 @@ def test_three_tier_cascade_routing_partitions_candidates_correctly():
     assert [c["target_index"] for c in buckets["tier1_auto_confirm"]] == [0]
     assert [c["target_index"] for c in buckets["tier2_auto_reject"]] == [2]
     assert [c["target_index"] for c in buckets["tier3_vlm_verify"]] == [1, 3]
+
+
+def test_scene_dependent_roof_class_is_forced_into_tier3_at_any_confidence():
+    """blue_illegal_roof 不得被任何阈值自动裁决，必须 100% 进入 Tier 3。"""
+    from app.services.ktd_recheck import evaluate_cascade_tier
+
+    for confidence in (0.0, 0.05, 0.12, 0.5, 0.92, 0.96, 1.0):
+        routing = evaluate_cascade_tier(
+            {"class_name": "蓝色违建顶棚", "confidence": confidence, "bbox": [0.1, 0.1, 0.5, 0.5]}
+        )
+        assert routing["tier"] == "tier3_vlm_verify", confidence
+        assert routing["requires_vlm"] is True
+        assert routing["auto_label"] is None
+        assert routing["reason_code"] == "tier3_scene_dependent_forced_vlm"
+
+
+def test_low_confidence_non_roof_class_still_auto_rejects():
+    from app.services.ktd_recheck import evaluate_cascade_tier
+
+    routing = evaluate_cascade_tier(
+        {"class_name": "道路裂缝", "confidence": 0.12, "bbox": [0.1, 0.1, 0.5, 0.5]}
+    )
+    assert routing["tier"] == "tier2_auto_reject"
+    assert routing["auto_label"] == "false"

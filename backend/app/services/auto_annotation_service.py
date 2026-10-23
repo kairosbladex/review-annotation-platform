@@ -45,6 +45,37 @@ def sanitize_options(value: Any) -> Any:
     return value
 
 
+def build_auto_annotation_options(
+    options: dict[str, Any] | None, settings: Any
+) -> dict[str, Any]:
+    """Merge Settings-derived cascade defaults with caller-supplied options.
+
+    `deploy/production.env.example` documents AUTO_ANNOTATION_MODE,
+    TIER1_AUTO_CONFIRM_THRESHOLD, TIER2_AUTO_REJECT_THRESHOLD and
+    VLLM_L20_BASE_URL. Before this merge those values were parsed into
+    Settings but never threaded into the job payload, so the three-tier
+    cascade could not actually be enabled by configuration. Explicit
+    caller-supplied options always take precedence.
+    """
+    defaults: dict[str, Any] = {
+        "mode": str(getattr(settings, "auto_annotation_mode", "deep") or "deep"),
+        "tier1_threshold": float(
+            getattr(settings, "tier1_auto_confirm_threshold", TIER1_AUTO_CONFIRM_THRESHOLD)
+        ),
+        "tier2_threshold": float(
+            getattr(settings, "tier2_auto_reject_threshold", TIER2_AUTO_REJECT_THRESHOLD)
+        ),
+        "cascade_routing": bool(
+            getattr(settings, "auto_annotation_cascade_routing", False)
+        ),
+    }
+    vllm_base = str(getattr(settings, "vllm_l20_base_url", "") or "").strip()
+    if vllm_base:
+        defaults["vllm_l20_base_url"] = vllm_base
+    explicit = {k: v for k, v in (options or {}).items() if v is not None}
+    return {**defaults, **explicit}
+
+
 def create_auto_annotation_run(
     session: Session,
     *,

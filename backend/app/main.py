@@ -23,7 +23,7 @@ from .services.annotation_service import import_minio_prefix, import_uploaded_by
 from .services.dataset_queue import DatasetQueueIndex, V2_DATASET_TAG
 from .services.model_run_service import execute_model_job
 from .services.export_service import execute_export_job
-from .services.auto_annotation_service import create_auto_annotation_run, execute_auto_annotation_job
+from .services.auto_annotation_service import build_auto_annotation_options, create_auto_annotation_run, execute_auto_annotation_job
 from .services.agent_api import create_agent_review_request, list_agent_candidates, list_human_gold
 from .tasks.dispatcher import CeleryDispatcher
 
@@ -367,7 +367,7 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             run, job = create_auto_annotation_run(
                 session,
                 sample_ids=sample_ids,
-                options=payload.options,
+                options=build_auto_annotation_options(payload.options, settings),
                 model_name=settings.auto_annotation_model,
                 created_by=user.id,
             )

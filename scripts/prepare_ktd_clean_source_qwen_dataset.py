@@ -404,7 +404,7 @@ def _crop_square_with_metadata(
 
     # Ensure shifted viewport still contains target bbox if target is inside image
     if 0 <= x1 and x2 <= width and side_int >= box_w:
-        if left > int(math.floor(x1)) if "math" in globals() else left > int(np.floor(x1)):
+        if left > int(np.floor(x1)):
             left = max(0, int(np.floor(x1)))
         if left + side_int < int(np.ceil(x2)):
             left = min(max(0, width - side_int), int(np.ceil(x2)) - side_int)
@@ -899,9 +899,14 @@ def main() -> int:
     )
     parser.add_argument(
         "--bbox-style",
+        "--marker-style",
+        dest="bbox_style",
         choices=VALID_BBOX_STYLES,
         default="corner_ticks",
-        help="Bounding box drawing style on annotated views: corner_ticks (default), solid_box, or none.",
+        help=(
+            "Bounding box drawing style on annotated views: corner_ticks (default), "
+            "solid_box, or none. --marker-style is an accepted alias."
+        ),
     )
     args = parser.parse_args()
     summary = build_dataset(

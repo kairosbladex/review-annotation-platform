@@ -9,7 +9,7 @@ from fastapi.testclient import TestClient
 from app.adapters.codex_responses import CodexResponsesVisionAdapter
 from app.config import Settings
 from app.main import create_app
-from app.models import AuditEvent
+from app.models import AuditEvent, AutoAnnotationRun
 
 from .test_annotation_flow import _login, _review_event
 from .test_imports import MemoryObjectStore
@@ -299,3 +299,101 @@ def test_http_adapter_reuses_pooled_client_and_limits():
     c2 = adapter.get_pooled_client(timeout=30.0, verify_tls=True)
     assert c1 is c2
     adapter.close()
+
+
+def test_settings_cascade_defaults_reach_the_persisted_job_options(tmp_path):
+    """TIER1/TIER2 阈值与 cascade 开关必须经 Settings 传导进 job options。
+
+    回归背景：这些值原先只被解析进 Settings，从未写入 options，
+    导致 deploy/production.env.example 中对应开关实际无效。
+    """
+    from app.services.auto_annotation_service import build_auto_annotation_options
+
+    settings = Settings(
+        auto_annotation_mode="adaptive",
+        auto_annotation_cascade_routing=True,
+        tier1_auto_confirm_threshold=0.88,
+        tier2_auto_reject_threshold=0.15,
+        vllm_l20_base_url="http://l20.internal:8009",
+    )
+
+    options = build_auto_annotation_options({}, settings)
+
+    assert options["mode"] == "adaptive"
+    assert options["cascade_routing"] is True
+    assert options["tier1_threshold"] == 0.88
+    assert options["tier2_threshold"] == 0.15
+    assert options["vllm_l20_base_url"] == "http://l20.internal:8009"
+
+
+def test_explicit_caller_options_override_settings_cascade_defaults():
+    from app.services.auto_annotation_service import build_auto_annotation_options
+
+    settings = Settings(auto_annotation_cascade_routing=True, tier1_auto_confirm_threshold=0.92)
+    options = build_auto_annotation_options(
+        {"cascade_routing": False, "tier1_threshold": 0.70}, settings
+    )
+
+    assert options["cascade_routing"] is False
+    assert options["tier1_threshold"] == 0.70
+    assert options["tier2_threshold"] == settings.tier2_auto_reject_threshold
+
+
+def test_auto_annotation_api_persists_cascade_options_from_settings(tmp_path):
+    adapter = FakeAutoAnnotationAdapter([
+        {
+            "target_index": 0,
+            "votes": [
+                {"role": "target_presence_fit", "label": "true", "confidence": 0.8, "reason": "car"},
+                {"role": "class_scene", "label": "true", "confidence": 0.7, "reason": "box"},
+                {"role": "adversarial", "label": "true", "confidence": 0.9, "reason": "clean"},
+            ],
+            "consensus": "true",
+        },
+        {
+            "target_index": 1,
+            "votes": [
+                {"role": "target_presence_fit", "label": "true", "confidence": 0.8, "reason": "car"},
+                {"role": "class_scene", "label": "true", "confidence": 0.8, "reason": "box"},
+                {"role": "adversarial", "label": "true", "confidence": 0.9, "reason": "clean"},
+            ],
+            "consensus": "true",
+        },
+    ])
+    store = MemoryObjectStore()
+    event = _review_event("auto-annotation-cascade-001")
+    store.put_bytes(event["image"]["bucket"], event["image"]["object_key"], b"image", "image/jpeg")
+    settings = Settings(
+        database_url=f"sqlite:///{tmp_path / 'test.sqlite3'}",
+        service_api_key="service-secret",
+        admin_username="admin",
+        admin_password="admin-password",
+        jwt_secret="a-test-jwt-secret-that-is-long-enough",
+        minio_endpoint="",
+        auto_annotation_api_key="env-secret",
+        auto_annotation_cascade_routing=True,
+        tier1_auto_confirm_threshold=0.92,
+        tier2_auto_reject_threshold=0.12,
+    )
+    app = create_app(settings, object_store=store, auto_annotation_adapter=adapter)
+    app.state.auto_annotation_dispatcher = InlineDispatcher(app.state.run_auto_annotation_job)
+    client = TestClient(app)
+    ingest = client.post(
+        "/api/v1/ingest/review-events", json=event, headers={"X-Service-Key": "service-secret"}
+    )
+    assert ingest.status_code == 201, ingest.text
+    sample_id = ingest.json()["sample_id"]
+
+    response = client.post(
+        "/api/v1/auto-annotations", json={"sample_ids": [sample_id]}, headers=_login(client)
+    )
+    assert response.status_code == 202, response.text
+
+    with app.state.session_factory() as session:  # type: ignore[attr-defined]
+        run = session.scalars(
+            select(AutoAnnotationRun).order_by(AutoAnnotationRun.created_at.desc())
+        ).first()
+        options = json.loads(run.options_json)
+    assert options["cascade_routing"] is True
+    assert options["tier1_threshold"] == 0.92
+    assert options["tier2_threshold"] == 0.12

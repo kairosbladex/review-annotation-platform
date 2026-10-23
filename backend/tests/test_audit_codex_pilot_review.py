@@ -27,6 +27,9 @@ def _pilot(tmp_path: Path) -> tuple[Path, Path]:
     original = media / "source-original-01.jpg"
     original.write_bytes(b"original-image")
     original_sha = hashlib.sha256(original.read_bytes()).hexdigest()
+    # 溯源必需字段：由 build_codex_review_batch.py 写入，审计时落库为 gold 行的
+    # image_object_key。夹具必须显式声明，否则审计会因缺少对象键而拒绝冻结。
+    source_object_key = "ktd/2026/09/24/image-1/original.jpg"
 
     manifests = []
     prelabels = []
@@ -52,6 +55,7 @@ def _pilot(tmp_path: Path) -> tuple[Path, Path]:
                 "bbox_px": bbox_px,
                 "image_size": [100, 100],
                 "original_sha256": original_sha,
+                "source_object_key": source_object_key,
                 "source_original": "source/original.jpg",
                 "full_original_copy": str(original.relative_to(pilot)),
                 "media": view_paths,
@@ -127,6 +131,8 @@ def test_audit_freezes_binary_human_gold_without_splitting_source_group(
     assert {row["source_event_id"] for row in gold} == {"event-group-1"}
     assert all(row["split"] == "train_candidate_single_source_group" for row in gold)
     assert all(row["training_eligible"] for row in gold)
+    # 溯源链不得断：每条 gold 行都必须携带非空 image_object_key
+    assert all(row["image_object_key"] for row in gold)
     assert (output / "excluded_from_training.jsonl").read_text() == ""
     qwen_rows = [
         json.loads(line)

@@ -170,6 +170,7 @@ def evaluate_cascade_tier(
       class (`blue_illegal_roof` is excluded because it requires rooftop scene confirmation),
       and no geometric conflict -> auto-confirm (`true`).
     - Tier 2 (Ultra-Low-Confidence Auto-Reject): detector confidence <= 0.12 -> auto-reject (`false`).
+      Scene-dependent classes (`blue_illegal_roof`) are exempt from this tier.
     - Tier 3 (Ambiguous / Scene-Dependent -> L20 Qwen3-VL Verifier): `0.12 < confidence < 0.92`,
       or `blue_illegal_roof`, or geometric warning present -> route to L20 VLM.
     """
@@ -177,8 +178,13 @@ def evaluate_cascade_tier(
     confidence = float(conf_raw) if isinstance(conf_raw, (int, float)) and not isinstance(conf_raw, bool) else None
     cls_canon = _canonical_geom_class(candidate.get("class_name"))
     has_geom_warning = bool(candidate.get("geometric_warning"))
+    # Scene-dependent classes (currently `blue_illegal_roof`) can never be settled by
+    # detector confidence alone: the same rooftop-scene evidence that Tier 1 needs to
+    # confirm is also needed to reject, so a low detector score must not silently
+    # auto-reject them. They are force-routed to Tier 3 ahead of the Tier 2 gate.
+    is_scene_dependent = cls_canon == "blue_illegal_roof"
 
-    if confidence is not None and confidence <= tier2_threshold:
+    if confidence is not None and confidence <= tier2_threshold and not is_scene_dependent:
         return {
             "tier": "tier2_auto_reject",
             "auto_label": "false",
@@ -189,7 +195,7 @@ def evaluate_cascade_tier(
     if (
         confidence is not None
         and confidence >= tier1_threshold
-        and cls_canon != "blue_illegal_roof"
+        and not is_scene_dependent
         and not has_geom_warning
     ):
         return {
@@ -204,7 +210,11 @@ def evaluate_cascade_tier(
         "auto_label": None,
         "requires_vlm": True,
         "confidence": confidence,
-        "reason_code": "tier3_routed_to_l20_vlm",
+        "reason_code": (
+            "tier3_scene_dependent_forced_vlm"
+            if is_scene_dependent
+            else "tier3_routed_to_l20_vlm"
+        ),
     }
 
 

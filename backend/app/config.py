@@ -50,6 +50,7 @@ class Settings:
     auto_annotation_codex_binary: str = "codex"
     auto_annotation_actor_authorization: str = "local-image-extension"
     auto_annotation_mode: str = "deep"
+    auto_annotation_cascade_routing: bool = False
     tier1_auto_confirm_threshold: float = 0.92
     tier2_auto_reject_threshold: float = 0.12
     vllm_l20_base_url: str = ""
@@ -97,6 +98,7 @@ class Settings:
             auto_annotation_codex_binary=os.getenv("AUTO_ANNOTATION_CODEX_BINARY", cls.auto_annotation_codex_binary),
             auto_annotation_actor_authorization=os.getenv("AUTO_ANNOTATION_ACTOR_AUTHORIZATION", cls.auto_annotation_actor_authorization),
             auto_annotation_mode=os.getenv("AUTO_ANNOTATION_MODE", cls.auto_annotation_mode).strip().lower(),
+            auto_annotation_cascade_routing=os.getenv("AUTO_ANNOTATION_CASCADE_ROUTING", "false").lower() in {"1", "true", "yes", "on"},
             tier1_auto_confirm_threshold=float(os.getenv("TIER1_AUTO_CONFIRM_THRESHOLD", str(cls.tier1_auto_confirm_threshold))),
             tier2_auto_reject_threshold=float(os.getenv("TIER2_AUTO_REJECT_THRESHOLD", str(cls.tier2_auto_reject_threshold))),
             vllm_l20_base_url=os.getenv("VLLM_L20_BASE_URL", cls.vllm_l20_base_url).rstrip("/"),
