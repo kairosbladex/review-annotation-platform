@@ -650,7 +650,7 @@ AUTO_ANNOTATION_CASCADE_ROUTING=true   # Tier 2.5 依赖级联开启
 | 回滚对象 | 命令 |
 |---|---|
 | 关闭 Tier 2.5（不换代码） | `JEV_OMNI_ENABLED=false`（默认值，行为与接入前一致） |
-| 仅回退 Tier 2.5 代码 | `git revert <本次 commit SHA>` |
+| 仅回退 Tier 2.5 代码 | `git revert 67c21066` |
 | 回退配置传导 | `git checkout e0d2e256 -- backend/app/config.py deploy/production.env.example` |
 | 微服务容器 | `docker stop jev-omni-t25`（启动脚本带 `--rm`，停止即清理） |
 
@@ -663,3 +663,13 @@ AUTO_ANNOTATION_CASCADE_ROUTING=true   # Tier 2.5 依赖级联开启
 | 确认路径无二次复核 | `P≥0.88` 直接写 `true`，继承验证器自身误报（金标 4 FP） | 上线首周抽样复核确认样本；必要时把确认阈值抬到 0.93 |
 | 合图对超宽目标的处理 | `contain` 缩放 + 中性灰补边，极端长宽比会降低 ROI 有效像素 | 若真实告警中长条目标占比高，改 `panel_width` 自适应 |
 | 与 `blue_illegal_roof` 的边界 | 该类任何概率都不自动裁决，Tier 2.5 对其只有耗时成本 | 若该类占流量大头，可对其跳过合图直接 Tier 3 以省一次前向 |
+
+### 9.12 Git 提交
+
+| 项 | 值 |
+|---|---|
+| 第三轮提交 SHA | `67c2106648c715a80b56199b78e4d1ec9fff92c2`（短 SHA `67c21066`） |
+| 提交信息 | `feat: 接入 Jev-Omni 作为 Tier 2.5 多模态校准概率初筛器` |
+| 变更规模 | 11 files changed, 2857 insertions(+), 30 deletions(-) |
+| 是否 push | **否**（仅本地提交） |
+| 基线 | `e0d2e256` |
