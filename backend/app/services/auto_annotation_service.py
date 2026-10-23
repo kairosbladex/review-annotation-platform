@@ -13,10 +13,13 @@ from sqlalchemy.orm import Session
 from ..models import Annotation, AnnotationTask, Asset, AuditEvent, AutoAnnotationItem, AutoAnnotationRun, Candidate, Job, Sample, new_id, utc_now
 from .auto_annotation_prompts import ROLE_ORDER, merge_agent_results, parse_fast_response
 from .ktd_recheck import (
+    JEV_OMNI_CONFIRM_THRESHOLD,
+    JEV_OMNI_REJECT_THRESHOLD,
     TIER1_AUTO_CONFIRM_THRESHOLD,
     TIER2_AUTO_REJECT_THRESHOLD,
     apply_pre_llm_geometric_gate,
     evaluate_cascade_tier,
+    evaluate_jev_omni_tier,
 )
 from .review_policy import apply_review_policy, normalize_scene
 
@@ -68,6 +71,24 @@ def build_auto_annotation_options(
         "cascade_routing": bool(
             getattr(settings, "auto_annotation_cascade_routing", False)
         ),
+        # Tier 2.5 (Jev-Omni Fast Gate).  Defaults are off so a deployment that never
+        # sets JEV_OMNI_* keeps the exact 3-tier behaviour.
+        "jev_omni_enabled": bool(getattr(settings, "jev_omni_enabled", False)),
+        "jev_omni_mode": str(getattr(settings, "jev_omni_mode", "http") or "http").strip().lower(),
+        "jev_omni_base_url": str(getattr(settings, "jev_omni_base_url", "") or "").rstrip("/"),
+        "jev_omni_model_id": str(
+            getattr(settings, "jev_omni_model_id", "akhilaaa3/Jev-Omni") or "akhilaaa3/Jev-Omni"
+        ),
+        "jev_omni_confirm_threshold": float(
+            getattr(settings, "jev_omni_confirm_threshold", JEV_OMNI_CONFIRM_THRESHOLD)
+        ),
+        "jev_omni_reject_threshold": float(
+            getattr(settings, "jev_omni_reject_threshold", JEV_OMNI_REJECT_THRESHOLD)
+        ),
+        "jev_omni_timeout_seconds": float(
+            getattr(settings, "jev_omni_timeout_seconds", 30.0)
+        ),
+        "jev_omni_verify_tls": bool(getattr(settings, "jev_omni_verify_tls", True)),
     }
     vllm_base = str(getattr(settings, "vllm_l20_base_url", "") or "").strip()
     if vllm_base:
@@ -345,7 +366,85 @@ def _synthetic_cascade_decision(target_index: int, routing: dict[str, Any]) -> d
     }
 
 
-def _process_item(session: Session, item: AutoAnnotationItem, *, adapter: Any, options: dict[str, Any]) -> None:
+class JevOmniTierRunner:
+    """Tier 2.5 执行器：双视角合图 → Jev-Omni 校准概率 → 级联裁决。
+
+    安全契约：**任何异常都返回 ``None``**（依赖缺失、权重未下载、HTTP 超时、
+    推理服务 5xx、图像不可解码、概率不可解析）。调用方拿到 ``None`` 时把候选
+    原样送入 Tier 3，因此接入 Jev-Omni 不会引入新的失败路径，也不会写入
+    任何猜测标签。
+    """
+
+    def __init__(
+        self,
+        adapter: Any,
+        image_loader: Any,
+        *,
+        confirm_threshold: float = JEV_OMNI_CONFIRM_THRESHOLD,
+        reject_threshold: float = JEV_OMNI_REJECT_THRESHOLD,
+    ) -> None:
+        if adapter is None or not callable(image_loader):
+            raise ValueError("JevOmniTierRunner 需要 adapter 与 image_loader")
+        self.adapter = adapter
+        self.image_loader = image_loader
+        self.confirm_threshold = float(confirm_threshold)
+        self.reject_threshold = float(reject_threshold)
+        self.last_error: str | None = None
+        self._image_cache_key: tuple[str, str] | None = None
+        self._image_cache: bytes | None = None
+
+    def _load_image(self, image_ref: dict[str, Any]) -> bytes:
+        key = (str(image_ref.get("bucket") or ""), str(image_ref.get("object_key") or ""))
+        if self._image_cache is not None and self._image_cache_key == key:
+            return self._image_cache
+        payload = self.image_loader(image_ref)
+        if not isinstance(payload, (bytes, bytearray)) or not payload:
+            raise ValueError("源图为空")
+        self._image_cache_key = key
+        self._image_cache = bytes(payload)
+        return self._image_cache
+
+    def evaluate(
+        self,
+        image_ref: dict[str, Any],
+        candidate: dict[str, Any],
+        *,
+        class_name: str | None = None,
+        candidate_meta: dict[str, Any] | None = None,
+    ) -> dict[str, Any] | None:
+        """返回 ``evaluate_jev_omni_tier`` 的裁决，或 ``None`` 表示安全回退。"""
+        from ..adapters.jev_omni_classifier import build_jev_omni_review_views
+
+        self.last_error = None
+        try:
+            image_bytes = self._load_image(image_ref)
+            context_img, roi_img = build_jev_omni_review_views(image_bytes, candidate.get("bbox"))
+            result = self.adapter.decide(
+                context_img,
+                roi_img,
+                class_name if class_name is not None else candidate.get("class_name"),
+                candidate_meta,
+            )
+            return evaluate_jev_omni_tier(
+                candidate,
+                p_true=result["p_true"],
+                p_false=result["p_false"],
+                confirm_threshold=self.confirm_threshold,
+                reject_threshold=self.reject_threshold,
+            )
+        except Exception as exc:  # noqa: BLE001 - 安全回退是显式契约
+            self.last_error = _safe_error(exc)
+            return None
+
+
+def _process_item(
+    session: Session,
+    item: AutoAnnotationItem,
+    *,
+    adapter: Any,
+    options: dict[str, Any],
+    jev_omni_runner: JevOmniTierRunner | None = None,
+) -> None:
     sample = session.get(Sample, item.sample_id)
     if sample is None:
         raise ValueError("sample not found")
@@ -373,6 +472,39 @@ def _process_item(session: Session, item: AutoAnnotationItem, *, adapter: Any, o
                 payload, tier1_threshold=tier1_th, tier2_threshold=tier2_th
             )
             t_idx = int(payload["target_index"])
+            if routing["requires_vlm"] and jev_omni_runner is not None:
+                tier25 = jev_omni_runner.evaluate(
+                    image,
+                    payload,
+                    class_name=payload.get("class_name"),
+                    candidate_meta={
+                        "candidate_id": payload.get("candidate_id"),
+                        "class_name": payload.get("class_name"),
+                        "detector_confidence": payload.get("confidence"),
+                        "geometric_warning": payload.get("geometric_warning"),
+                    },
+                )
+                if tier25 is not None and not tier25["requires_vlm"]:
+                    decisions[t_idx] = _synthetic_cascade_decision(
+                        t_idx,
+                        {
+                            **tier25,
+                            "confidence": (
+                                tier25["p_true"] if tier25["auto_label"] == "true" else tier25["p_false"]
+                            ),
+                        },
+                    )
+                    continue
+                if tier25 is not None:
+                    # 灰区/场景依赖：把 Jev-Omni 校准概率作为先验传给下游 L20。
+                    payload = {
+                        **payload,
+                        "jev_omni_p_true": tier25["p_true"],
+                        "jev_omni_p_false": tier25["p_false"],
+                        "jev_omni_reason_code": tier25["reason_code"],
+                        "jev_omni_explanation": tier25["explanation"],
+                    }
+                    routing = {**routing, "jev_omni": tier25}
             if routing["requires_vlm"]:
                 tier3_payloads.append(payload)
                 tier3_candidates.append(cand_by_idx[t_idx])
@@ -402,6 +534,7 @@ def _process_item(session: Session, item: AutoAnnotationItem, *, adapter: Any, o
             rooftop_confidence_threshold=options.get("rooftop_scene_confidence_threshold", 0.8),
         )
         label = policy.label
+        cascade_routing = decision.get("cascade_routing")
         audit_payload = {
             "target_index": candidate.target_index,
             "votes": votes,
@@ -414,6 +547,8 @@ def _process_item(session: Session, item: AutoAnnotationItem, *, adapter: Any, o
             "local_decision": label,
             "confidence_floor": AUTO_ANNOTATION_CONFIDENCE_FLOOR,
         }
+        if cascade_routing:
+            audit_payload["cascade_routing"] = cascade_routing
         if label == "uncertain":
             _audit(session, action="auto_annotation.uncertain", sample_id=sample.id, candidate_id=candidate.id, payload=audit_payload)
             continue
@@ -427,18 +562,71 @@ def _process_item(session: Session, item: AutoAnnotationItem, *, adapter: Any, o
         else:
             annotation.revision = (annotation.revision or 0) + 1
         annotation.label = label
-        annotation.note = f"auto annotation {policy.reason_code}: " + "; ".join(
+        note = f"auto annotation {policy.reason_code}: " + "; ".join(
             f"{vote['role']}={vote['label']} ({vote['confidence']:.2f})" for vote in votes
         )
+        explanation = (cascade_routing or {}).get("explanation")
+        if explanation:
+            note = f"{note}; {explanation}"
+        annotation.note = note
         annotation.labeled_by = None
         annotation.labeled_at = utc_now()
         session.flush()
         _audit(session, action="auto_annotation.applied", sample_id=sample.id, candidate_id=candidate.id, payload=audit_payload)
 
 
-def execute_auto_annotation_job(*, session_factory, object_store, adapter, job_id: str) -> None:
-    """Execute a job, isolating each sample's network/parse failure."""
-    del object_store  # Kept in the signature for worker parity and injection.
+def _build_jev_omni_runner(
+    options: dict[str, Any],
+    object_store: Any,
+    jev_omni_adapter: Any | None,
+) -> tuple[JevOmniTierRunner | None, Any | None]:
+    """构造 Tier 2.5 执行器，返回 ``(runner, 需要关闭的适配器)``。
+
+    ``JEV_OMNI_ENABLED=false``（默认）时立即返回 ``(None, None)``，级联行为与
+    接入前完全一致。任何构造失败都退化为 ``None``，不阻断主任务。
+    """
+    if not options.get("jev_omni_enabled"):
+        return None, None
+    owned_adapter: Any | None = None
+    adapter = jev_omni_adapter
+    if adapter is None:
+        try:
+            from ..adapters.jev_omni_classifier import build_jev_omni_adapter
+
+            adapter = build_jev_omni_adapter(options)
+        except Exception:  # noqa: BLE001 - 配置错误不应让整个 job 失败
+            return None, None
+        owned_adapter = adapter
+    if adapter is None or object_store is None or not hasattr(object_store, "get_bytes"):
+        return None, owned_adapter
+    runner = JevOmniTierRunner(
+        adapter,
+        lambda ref: object_store.get_bytes(ref["bucket"], ref["object_key"]),
+        confirm_threshold=float(
+            options.get("jev_omni_confirm_threshold", JEV_OMNI_CONFIRM_THRESHOLD)
+        ),
+        reject_threshold=float(
+            options.get("jev_omni_reject_threshold", JEV_OMNI_REJECT_THRESHOLD)
+        ),
+    )
+    return runner, owned_adapter
+
+
+def execute_auto_annotation_job(
+    *,
+    session_factory,
+    object_store,
+    adapter,
+    job_id: str,
+    jev_omni_adapter: Any | None = None,
+) -> None:
+    """Execute a job, isolating each sample's network/parse failure.
+
+    ``object_store`` is now also used by the Tier 2.5 (Jev-Omni) fast gate: the
+    runner needs the original frame to build the double-view composite image.
+    When ``JEV_OMNI_ENABLED`` is false (the default) the runner is never built and
+    behaviour is identical to the previous three-tier cascade.
+    """
     with session_factory() as session:
         job = session.get(Job, job_id)
         if job is None or job.job_type != "auto_annotation":
@@ -456,29 +644,43 @@ def execute_auto_annotation_job(*, session_factory, object_store, adapter, job_i
         run.status = "running"
         session.commit()
         options = json.loads(run.options_json or "{}")
+        runner, owned_adapter = _build_jev_omni_runner(options, object_store, jev_omni_adapter)
         items = session.scalars(select(AutoAnnotationItem).where(AutoAnnotationItem.run_id == run.id).order_by(AutoAnnotationItem.created_at)).all()
-        for item in items:
-            if item.status == "succeeded":
-                continue
-            try:
-                _process_item(session, item, adapter=adapter, options=options)
-                item.status = "succeeded"
-                job.completed += 1
-            except Exception as exc:
-                # A database/serialization failure after an earlier candidate
-                # in this sample was written must not leave a half-labelled
-                # sample behind. Roll back the item transaction, then record
-                # the isolated failure in a fresh session state.
-                item_id = item.id
-                session.rollback()
-                job = session.get(Job, job_id)
-                item = session.get(AutoAnnotationItem, item_id)
-                error = _safe_error(exc)
-                item.status = "failed"
-                item.error_message = error
-                job.failed += 1
-                _audit(session, action="auto_annotation.failed", sample_id=item.sample_id, candidate_id=None, payload={"error": error})
-            session.commit()
+        try:
+            for item in items:
+                if item.status == "succeeded":
+                    continue
+                try:
+                    _process_item(
+                        session,
+                        item,
+                        adapter=adapter,
+                        options=options,
+                        jev_omni_runner=runner,
+                    )
+                    item.status = "succeeded"
+                    job.completed += 1
+                except Exception as exc:
+                    # A database/serialization failure after an earlier candidate
+                    # in this sample was written must not leave a half-labelled
+                    # sample behind. Roll back the item transaction, then record
+                    # the isolated failure in a fresh session state.
+                    item_id = item.id
+                    session.rollback()
+                    job = session.get(Job, job_id)
+                    item = session.get(AutoAnnotationItem, item_id)
+                    error = _safe_error(exc)
+                    item.status = "failed"
+                    item.error_message = error
+                    job.failed += 1
+                    _audit(session, action="auto_annotation.failed", sample_id=item.sample_id, candidate_id=None, payload={"error": error})
+                session.commit()
+        finally:
+            if owned_adapter is not None:
+                try:
+                    owned_adapter.close()
+                except Exception:  # noqa: BLE001 - 关闭连接池失败不影响任务结果
+                    pass
 
         run.status = "partial_failed" if job.failed and job.completed else ("failed" if job.failed else "succeeded")
         run.error_summary = "one or more samples failed" if job.failed else None

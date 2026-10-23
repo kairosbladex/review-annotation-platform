@@ -279,6 +279,144 @@ def partition_candidates_by_cascade_tier(
     return buckets
 
 
+# Tier 2.5 — Jev-Omni Fast Gate.  Placed between the static detector thresholds and
+# the L20 Qwen3-VL verifier: the 12B multimodal classifier returns a *calibrated*
+# P(true) for the double-view (global context + clean ROI) composite image, which
+# lets the cascade reject obvious false boxes that the detector scored >= 0.25
+# (the reason Tier 2 never fires on real traffic).
+JEV_OMNI_CONFIRM_THRESHOLD = 0.88
+JEV_OMNI_REJECT_THRESHOLD = 0.12
+# Scene-dependent classes can never be settled by a probability alone: the same
+# rooftop evidence is needed to confirm *and* to reject, so they always reach the
+# L20 verifier (Jev-Omni's P(true) is still forwarded as a prior).
+JEV_OMNI_SCENE_DEPENDENT_CLASSES = frozenset({"blue_illegal_roof"})
+TIER25_REASON_REJECT = "tier2_5_jev_omni_calibrated_reject"
+TIER25_REASON_CONFIRM = "tier2_5_jev_omni_calibrated_confirm"
+TIER25_REASON_GRAY = "tier2_5_jev_omni_gray_zone"
+
+_CLASS_ZH = {
+    "vehicle": "车辆",
+    "person": "人员",
+    "tricycle": "三轮车",
+    "blue_illegal_roof": "蓝色违建顶棚",
+    "road_crack": "道路裂缝",
+    "license_plate": "车牌",
+}
+
+
+def _class_zh(canonical: str) -> str:
+    return _CLASS_ZH.get(canonical, canonical or "未知类别")
+
+
+def evaluate_jev_omni_tier(
+    candidate: Mapping[str, Any],
+    *,
+    p_true: float,
+    p_false: float | None = None,
+    confirm_threshold: float = JEV_OMNI_CONFIRM_THRESHOLD,
+    reject_threshold: float = JEV_OMNI_REJECT_THRESHOLD,
+) -> dict[str, Any]:
+    """Route one candidate with Jev-Omni's calibrated probability (Tier 2.5).
+
+    Rule order (each guard is fail-safe towards Tier 3):
+
+    1. Scene-dependent class (`blue_illegal_roof`) -> Tier 3 at any probability.
+    2. Geometric conflict (cross-class IoU / part-in-whole) -> Tier 3.
+    3. ``p_true <= reject_threshold`` -> auto-reject (``false``); this is the main
+       win, because real detectors never emit <= 0.12 and Tier 2 stays at 0%.
+    4. ``p_true >= confirm_threshold`` and the class is in
+       `TIER1_ELIGIBLE_CLASSES` -> auto-confirm (``true``).
+    5. Everything else (gray zone, or a non-rigid class above the confirm
+       threshold) -> Tier 3, carrying ``p_true`` as a prior for the L20 verifier.
+    """
+    probability = float(p_true)
+    if not math.isfinite(probability) or not 0.0 <= probability <= 1.0:
+        raise ValueError("Jev-Omni p_true 必须是 [0, 1] 内的有限值")
+    complement = 1.0 - probability if p_false is None else float(p_false)
+    if not math.isfinite(complement) or not 0.0 <= complement <= 1.0:
+        raise ValueError("Jev-Omni p_false 必须是 [0, 1] 内的有限值")
+
+    canonical = _canonical_geom_class(candidate.get("class_name"))
+    class_zh = _class_zh(canonical)
+    has_geom_warning = bool(candidate.get("geometric_warning"))
+    base = {
+        "p_true": probability,
+        "p_false": complement,
+        "class_name": canonical,
+        "confirm_threshold": float(confirm_threshold),
+        "reject_threshold": float(reject_threshold),
+    }
+
+    if canonical in JEV_OMNI_SCENE_DEPENDENT_CLASSES:
+        return {
+            **base,
+            "tier": "tier3_vlm_verify",
+            "auto_label": None,
+            "requires_vlm": True,
+            "reason_code": "tier3_scene_dependent_forced_vlm",
+            "explanation": (
+                f"{class_zh} 属场景依赖类，Jev-Omni 概率仅作先验"
+                f"（P(真)={probability:.3f}），强制转 L20 Qwen3-VL 复核屋顶场景证据。"
+            ),
+        }
+    if has_geom_warning:
+        return {
+            **base,
+            "tier": "tier3_vlm_verify",
+            "auto_label": None,
+            "requires_vlm": True,
+            "reason_code": "tier3_geometric_conflict",
+            "explanation": (
+                f"候选存在几何冲突（{candidate.get('geometric_warning')}），"
+                f"Jev-Omni P(真)={probability:.3f} 不作最终裁决，转 L20 Qwen3-VL。"
+            ),
+        }
+    if probability <= reject_threshold:
+        return {
+            **base,
+            "tier": "tier2_5_jev_omni_reject",
+            "auto_label": "false",
+            "requires_vlm": False,
+            "reason_code": TIER25_REASON_REJECT,
+            "explanation": (
+                f"Jev-Omni 双视角校准 P(真)={probability:.3f} ≤ 拒识阈值 "
+                f"{float(reject_threshold):.2f}，且无几何冲突：{class_zh} 低概率假框自动拒识。"
+            ),
+        }
+    if probability >= confirm_threshold and canonical in TIER1_ELIGIBLE_CLASSES:
+        return {
+            **base,
+            "tier": "tier2_5_jev_omni_confirm",
+            "auto_label": "true",
+            "requires_vlm": False,
+            "reason_code": TIER25_REASON_CONFIRM,
+            "explanation": (
+                f"Jev-Omni 双视角校准 P(真)={probability:.3f} ≥ 确认阈值 "
+                f"{float(confirm_threshold):.2f}，{class_zh} 属刚体类白名单且无几何冲突：自动确认。"
+            ),
+        }
+
+    if probability >= confirm_threshold:
+        gray_reason = (
+            f"Jev-Omni P(真)={probability:.3f} 虽达确认阈值，但 {class_zh} 不在刚体类白名单，"
+            "禁止自动确认，转 L20 Qwen3-VL 复核。"
+        )
+    else:
+        gray_reason = (
+            f"Jev-Omni P(真)={probability:.3f} 落在灰区 "
+            f"({float(reject_threshold):.2f}, {float(confirm_threshold):.2f})，"
+            "转 L20 Qwen3-VL 生成细粒度中文证据，Jev-Omni 概率作为先验参考。"
+        )
+    return {
+        **base,
+        "tier": "tier3_vlm_verify",
+        "auto_label": None,
+        "requires_vlm": True,
+        "reason_code": TIER25_REASON_GRAY,
+        "explanation": gray_reason,
+    }
+
+
 PROMPT_VERSION = "ktd-recheck-batch-v4-policy-views"
 CANDIDATE_DATA_VERSION = "ktd-imgxy-normalized-v2-policy-views"
 CONFIDENCE_FLOOR = 0.6

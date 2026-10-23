@@ -56,6 +56,17 @@ class Settings:
     # (max gold-false detector score = 0.84997). See docs/HANDOVER_4T4_2L20_FIVE_CLASS_VERIFY_20261023.md.
     tier1_auto_confirm_threshold: float = 0.85
     tier2_auto_reject_threshold: float = 0.12
+    # Tier 2.5 (Jev-Omni Fast Gate): a multimodal calibrated-probability pre-screen
+    # that sits between the static detector thresholds and the L20 Qwen3-VL verifier.
+    # Disabled by default so the existing 3-tier behaviour is byte-for-byte unchanged.
+    jev_omni_enabled: bool = False
+    jev_omni_mode: str = "http"
+    jev_omni_base_url: str = "http://127.0.0.1:8010"
+    jev_omni_model_id: str = "akhilaaa3/Jev-Omni"
+    jev_omni_confirm_threshold: float = 0.88
+    jev_omni_reject_threshold: float = 0.12
+    jev_omni_timeout_seconds: float = 30.0
+    jev_omni_verify_tls: bool = True
     vllm_l20_base_url: str = ""
     source_image_base_url: str = ""
     source_image_bucket: str = "minio-src"
@@ -104,6 +115,14 @@ class Settings:
             auto_annotation_cascade_routing=os.getenv("AUTO_ANNOTATION_CASCADE_ROUTING", "false").lower() in {"1", "true", "yes", "on"},
             tier1_auto_confirm_threshold=float(os.getenv("TIER1_AUTO_CONFIRM_THRESHOLD", str(cls.tier1_auto_confirm_threshold))),
             tier2_auto_reject_threshold=float(os.getenv("TIER2_AUTO_REJECT_THRESHOLD", str(cls.tier2_auto_reject_threshold))),
+            jev_omni_enabled=os.getenv("JEV_OMNI_ENABLED", "false").lower() in {"1", "true", "yes", "on"},
+            jev_omni_mode=os.getenv("JEV_OMNI_MODE", cls.jev_omni_mode).strip().lower(),
+            jev_omni_base_url=os.getenv("JEV_OMNI_BASE_URL", cls.jev_omni_base_url).rstrip("/"),
+            jev_omni_model_id=os.getenv("JEV_OMNI_MODEL_ID", cls.jev_omni_model_id),
+            jev_omni_confirm_threshold=float(os.getenv("JEV_OMNI_CONFIRM_THRESHOLD", str(cls.jev_omni_confirm_threshold))),
+            jev_omni_reject_threshold=float(os.getenv("JEV_OMNI_REJECT_THRESHOLD", str(cls.jev_omni_reject_threshold))),
+            jev_omni_timeout_seconds=float(os.getenv("JEV_OMNI_TIMEOUT_SECONDS", str(cls.jev_omni_timeout_seconds))),
+            jev_omni_verify_tls=os.getenv("JEV_OMNI_VERIFY_TLS", "true").lower() in {"1", "true", "yes", "on"},
             vllm_l20_base_url=os.getenv("VLLM_L20_BASE_URL", cls.vllm_l20_base_url).rstrip("/"),
             source_image_base_url=os.getenv("SOURCE_IMAGE_BASE_URL", cls.source_image_base_url).rstrip("/"),
             source_image_bucket=os.getenv("SOURCE_IMAGE_BUCKET", cls.source_image_bucket),

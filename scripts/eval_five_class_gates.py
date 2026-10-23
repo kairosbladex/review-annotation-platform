@@ -6,33 +6,41 @@
   2. 三级级联路由：Tier1/Tier2/Tier3 分流比、blue_illegal_roof 100% 强制进入 Tier3 的合规率；
   3. 级联阈值改造前后对比：6713 条真实候选的 VLM 卸载比例、142 条真实金标上的新增 FP 与端到端 F1/FAR；
   4. 阈值搜索与逐类表：build_by_class_table / find_optimal_threshold_for_far(max_far=0.10)。
+  5. Tier 2.5（Jev-Omni Fast Gate）：二级卸载率（含假框拒识）、FAR/FRR、平均单框耗时下降比例。
 
 数据来源：
   - 真实回放集（默认）：data/ktd-test-real-monitoring-full-20260924/output/raw_predictions.jsonl
-    （6713 条候选、1416 个事件、五类目标、含 detector_confidence 与 bbox_px）
+    （6713 条候选、1416 个事件、五类目标、含 detector_confidence / bbox_px / VLM decision / elapsed_seconds）
   - 真实人工金标（默认）：data/ktd-clean-source-full-evaluation-20260924/predictions_scored.jsonl
     （142 条，覆盖 车/人员 两类；五类人工金标在仓库内不存在，故五类逐类表使用显式标注的合成基准）
 
 用法：
     PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
         --output-dir /tmp/ktd_phase3_eval
+
+    # 真机部署 Jev-Omni 后，用真实概率重跑同一评估（不依赖代理校准）
+    PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
+        --output-dir /tmp/ktd_jev_eval --jev-omni-probs /tmp/jev_omni_probs.jsonl
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import math
 import random
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from app.services.ktd_recheck import (  # noqa: E402
+    JEV_OMNI_CONFIRM_THRESHOLD,
+    JEV_OMNI_REJECT_THRESHOLD,
     TIER1_AUTO_CONFIRM_THRESHOLD,
     TIER1_ELIGIBLE_CLASSES,
     TIER2_AUTO_REJECT_THRESHOLD,
@@ -41,6 +49,7 @@ from app.services.ktd_recheck import (  # noqa: E402
     compute_bbox_iou,
     compute_containment_ratio,
     evaluate_cascade_tier,
+    evaluate_jev_omni_tier,
     partition_candidates_by_cascade_tier,
 )
 from qwen3vl_verify import (  # noqa: E402
@@ -561,6 +570,495 @@ def evaluate_five_class_benchmark(seed: int = 20261023) -> dict[str, Any]:
     }
 
 
+# --------------------------------------------------------------------------
+# 5. Tier 2.5（Jev-Omni Fast Gate）离线收益评估
+# --------------------------------------------------------------------------
+JEV_OMNI_PROXY_NOTE = (
+    "本机无 NVIDIA GPU、未下载 12B 权重：Tier 2.5 的 P(true) 为**代理口径**，不是 Jev-Omni "
+    "真实输出。主口径用同一候选的 8B 多模态决策置信度折算（与 Tier 3 伪标签同源，精确率是上界）；"
+    "下界用 142 条人工金标拟合的 detector_confidence -> P(true) Platt 校准（与 Tier 3 独立）。"
+    "真机部署后用 --jev-omni-probs 指向真实概率 JSONL 重跑同一评估，结果应落在这两个界之间。"
+)
+
+
+def _sigmoid(value: float) -> float:
+    if value >= 0:
+        return 1.0 / (1.0 + math.exp(-value))
+    exp_value = math.exp(value)
+    return exp_value / (1.0 + exp_value)
+
+
+def fit_platt_calibration(pairs: Iterable[tuple[float, int]]) -> dict[str, float]:
+    """在真实金标上拟合 ``P(true) = sigmoid(a * detector_confidence + b)``。
+
+    用牛顿法（IRLS）解二维 logistic 回归，确定性、无第三方依赖。
+    """
+    data = [(float(score), int(label)) for score, label in pairs]
+    if len(data) < 2 or len({label for _, label in data}) < 2:
+        raise ValueError("Platt 校准至少需要两个类别各一个样本")
+    a, b = 2.0, -1.0
+    for _ in range(100):
+        grad_a = grad_b = 0.0
+        hess_aa = hess_ab = hess_bb = 0.0
+        for score, label in data:
+            probability = _sigmoid(a * score + b)
+            residual = probability - label
+            grad_a += residual * score
+            grad_b += residual
+            weight = max(probability * (1.0 - probability), 1e-9)
+            hess_aa += weight * score * score
+            hess_ab += weight * score
+            hess_bb += weight
+        determinant = hess_aa * hess_bb - hess_ab * hess_ab
+        if abs(determinant) < 1e-12:
+            break
+        step_a = (hess_bb * grad_a - hess_ab * grad_b) / determinant
+        step_b = (-hess_ab * grad_a + hess_aa * grad_b) / determinant
+        a -= step_a
+        b -= step_b
+        if abs(step_a) < 1e-9 and abs(step_b) < 1e-9:
+            break
+    return {"a": a, "b": b, "n": len(data)}
+
+
+def _rank_auc(pairs: list[tuple[float, int]]) -> float | None:
+    positives = [score for score, label in pairs if label == 1]
+    negatives = [score for score, label in pairs if label == 0]
+    if not positives or not negatives:
+        return None
+    wins = 0.0
+    for positive in positives:
+        for negative in negatives:
+            if positive > negative:
+                wins += 1.0
+            elif positive == negative:
+                wins += 0.5
+    return round(wins / (len(positives) * len(negatives)), 4)
+
+
+def _load_prob_overrides(path: Path | None) -> dict[str, float]:
+    if path is None:
+        return {}
+    overrides: dict[str, float] = {}
+    for row in _read_jsonl(path):
+        candidate_id = row.get("candidate_id") or row.get("target_index")
+        value = row.get("p_true", row.get("probability", row.get("score")))
+        if candidate_id is None or not isinstance(value, (int, float)):
+            continue
+        probability = float(value)
+        if 0.0 <= probability <= 1.0:
+            overrides[str(candidate_id)] = probability
+    return overrides
+
+
+def _gold_rows_with_detector_scores(
+    manifest_path: Path, overlap_path: Path
+) -> tuple[list[dict[str, Any]], int]:
+    """142 条人工金标 join 到真实监控快照的检测器分数（与 gold_cascade_replay 同口径）。"""
+    manifest = {row["candidate_id"]: row for row in _read_jsonl(manifest_path)}
+    rows: list[dict[str, Any]] = []
+    missing = 0
+    for item in _read_jsonl(overlap_path):
+        source = manifest.get(str(item.get("full_candidate_id")))
+        if source is None:
+            missing += 1
+            continue
+        rows.append(
+            {
+                **source,
+                "human_label": str(item.get("human_label")),
+                "legacy_candidate_id": item.get("legacy_candidate_id"),
+            }
+        )
+    return rows, missing
+
+
+def _multimodal_probability(row: dict[str, Any]) -> float:
+    """把同一候选的多模态复核决策+置信度折算成 ``P(true)`` 代理。
+
+    说明：``qwen3-vl:8b`` 的 ``decision``/``confidence`` 与 Jev-Omni 属于同一类
+    「看图判真假」的多模态验证器，比检测器分数更接近 Jev-Omni 的校准概率形态；
+    但它与 Tier 3 的伪标签同源，因此**拒识精确率是上界**，必须配合
+    ``detector_platt`` 下界一起解读。
+    """
+    decision = str(row.get("decision", row.get("hybrid_decision")) or "").strip().lower()
+    confidence = row.get("confidence", row.get("hybrid_confidence"))
+    if not isinstance(confidence, (int, float)) or isinstance(confidence, bool):
+        return 0.5
+    value = min(1.0, max(0.0, float(confidence)))
+    if decision in {"true", "confirmed", "keep"}:
+        return value
+    if decision in {"false", "rejected", "reject"}:
+        return 1.0 - value
+    return 0.5
+
+
+def evaluate_jev_omni_tier25(
+    candidates_path: Path,
+    manifest_path: Path,
+    overlap_path: Path,
+    gold_path: Path,
+    *,
+    confirm_threshold: float = JEV_OMNI_CONFIRM_THRESHOLD,
+    reject_threshold: float = JEV_OMNI_REJECT_THRESHOLD,
+    jev_omni_latency_ms: float = 900.0,
+    probs_path: Path | None = None,
+    prob_source: str = "multimodal_proxy",
+) -> dict[str, Any]:
+    """评估接入 Tier 2.5 后的二级卸载率、FAR/FRR 与平均单框耗时变化。
+
+    概率来源三档：
+
+    * ``real``（``--jev-omni-probs``）：真机 Jev-Omni 输出，唯一非代理口径；
+    * ``multimodal_proxy``（默认）：用同一候选的 8B 多模态决策置信度折算，
+      形态最接近 12B 校准分类器，但拒识精确率是**上界**；
+    * ``detector_platt``：142 条金标上拟合的 ``detector_confidence -> P(true)``，
+      与 Tier 3 伪标签完全独立，是**保守下界**（当前数据下 Tier 2.5 不触发）。
+
+    主口径用 ``multimodal_proxy``，同时输出 ``detector_platt`` 下界，避免用单一
+    代理高估收益。Tier 3 耗时取真实候选的实测 ``elapsed_seconds``；Tier 2.5 耗时
+    用 ``jev_omni_latency_ms`` 参数化（真机部署后可用实测值替换）。
+    """
+    if prob_source not in {"multimodal_proxy", "detector_platt", "real"}:
+        raise ValueError("prob_source 必须是 multimodal_proxy / detector_platt / real")
+    if prob_source == "real" and probs_path is None:
+        raise ValueError("prob_source=real 需要提供 --jev-omni-probs")
+
+    overrides = _load_prob_overrides(probs_path)
+    gold_rows, gold_missing = _gold_rows_with_detector_scores(manifest_path, overlap_path)
+    gold_vlm = {str(row.get("candidate_id")): row for row in _read_jsonl(gold_path)}
+    for row in gold_rows:
+        legacy = gold_vlm.get(str(row.get("legacy_candidate_id"))) or {}
+        row["hybrid_decision"] = legacy.get("hybrid_decision")
+        row["hybrid_confidence"] = legacy.get("hybrid_confidence")
+        row["decision"] = legacy.get("hybrid_decision")
+        row["confidence"] = legacy.get("hybrid_confidence")
+
+    calibration_pairs = [
+        (float(row["detector_confidence"]), 1 if row["human_label"] == "true" else 0)
+        for row in gold_rows
+        if isinstance(row.get("detector_confidence"), (int, float))
+    ]
+    calibration = fit_platt_calibration(calibration_pairs)
+
+    def detector_probability(row: dict[str, Any]) -> float:
+        confidence = row.get("detector_confidence")
+        if not isinstance(confidence, (int, float)) or isinstance(confidence, bool):
+            return 0.5
+        return _sigmoid(calibration["a"] * float(confidence) + calibration["b"])
+
+    def make_probability(source: str):
+        def probability_of(row: dict[str, Any]) -> float:
+            key = str(row.get("candidate_id"))
+            if key in overrides:
+                return overrides[key]
+            if source == "detector_platt":
+                return detector_probability(row)
+            return _multimodal_probability(row)
+
+        return probability_of
+
+    rows = _read_jsonl(candidates_path)
+    by_event: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in rows:
+        bbox = row.get("bbox_px")
+        if isinstance(bbox, list) and len(bbox) == 4:
+            by_event[str(row.get("event_id"))].append(row)
+
+    vlm_false_ids = {
+        str(row.get("candidate_id")) for row in rows if str(row.get("decision")) == "false"
+    }
+    vlm_true_ids = {
+        str(row.get("candidate_id")) for row in rows if str(row.get("decision")) == "true"
+    }
+
+    def replay_candidates(probability_of) -> dict[str, Any]:
+        counts: Counter[str] = Counter()
+        base_counts: Counter[str] = Counter()
+        per_class: dict[str, Counter[str]] = defaultdict(Counter)
+        vlm_seconds_before = vlm_seconds_after = tier25_seconds = 0.0
+        rejected_rows: list[dict[str, Any]] = []
+        confirmed_rows: list[dict[str, Any]] = []
+        tier3_before_ids: set[str] = set()
+        total = 0
+
+        for event_rows in by_event.values():
+            gated = apply_pre_llm_geometric_gate(
+                [
+                    {
+                        "target_index": row.get("candidate_id"),
+                        "class_name": row.get("class_name"),
+                        "confidence": row.get("detector_confidence"),
+                        "bbox": row.get("bbox_px"),
+                    }
+                    for row in event_rows
+                ]
+            )
+            for candidate, row in zip(gated, event_rows):
+                total += 1
+                cls = str(row.get("class_name") or "unknown")
+                elapsed = float(row.get("elapsed_seconds") or 0.0)
+                routing = evaluate_cascade_tier(candidate)
+                tier = routing["tier"]
+                base_counts[tier] += 1
+                if routing["requires_vlm"]:
+                    tier3_before_ids.add(str(row.get("candidate_id")))
+                    vlm_seconds_before += elapsed
+                    tier25 = evaluate_jev_omni_tier(
+                        candidate,
+                        p_true=probability_of(row),
+                        confirm_threshold=confirm_threshold,
+                        reject_threshold=reject_threshold,
+                    )
+                    tier = tier25["tier"]
+                    if tier25["requires_vlm"]:
+                        vlm_seconds_after += elapsed
+                    else:
+                        tier25_seconds += jev_omni_latency_ms / 1000.0
+                        if tier25["auto_label"] == "false":
+                            rejected_rows.append(row)
+                        else:
+                            confirmed_rows.append(row)
+                counts[tier] += 1
+                per_class[cls][tier] += 1
+
+        def share(value: int) -> float:
+            return round(value / total, 4) if total else 0.0
+
+        tier1 = counts["tier1_auto_confirm"]
+        tier2 = counts["tier2_auto_reject"]
+        tier25_confirm = counts["tier2_5_jev_omni_confirm"]
+        tier25_reject = counts["tier2_5_jev_omni_reject"]
+        tier3 = counts["tier3_vlm_verify"]
+        tier3_before = base_counts["tier3_vlm_verify"]
+        rejected_false = sum(1 for row in rejected_rows if str(row.get("candidate_id")) in vlm_false_ids)
+        rejected_true = sum(1 for row in rejected_rows if str(row.get("candidate_id")) in vlm_true_ids)
+        false_box_total = len(vlm_false_ids & tier3_before_ids)
+        before_seconds = vlm_seconds_before
+        after_seconds = vlm_seconds_after + tier25_seconds
+
+        return {
+            "candidates": total,
+            "events": len(by_event),
+            "before": {
+                "tier1_auto_confirm": tier1,
+                "tier2_auto_reject": tier2,
+                "tier3_vlm_verify": tier3_before,
+                "vlm_share": share(tier3_before),
+                "vlm_offload_share": share(tier1 + tier2),
+            },
+            "after": {
+                "tier1_auto_confirm": tier1,
+                "tier2_auto_reject": tier2,
+                "tier2_5_jev_omni_confirm": tier25_confirm,
+                "tier2_5_jev_omni_reject": tier25_reject,
+                "tier3_vlm_verify": tier3,
+                "vlm_share": share(tier3),
+                "vlm_offload_share": share(total - tier3),
+                "second_stage_offload_share": share(tier25_confirm + tier25_reject),
+                "second_stage_offload_within_previous_tier3": round(
+                    (tier25_confirm + tier25_reject) / tier3_before, 4
+                )
+                if tier3_before
+                else 0.0,
+            },
+            "false_box_reject": {
+                "rejected_candidates": tier25_reject,
+                "vlm_false_total_among_previous_tier3": false_box_total,
+                "rejected_and_vlm_false": rejected_false,
+                "rejected_but_vlm_true": rejected_true,
+                "false_box_reject_rate": round(rejected_false / false_box_total, 4)
+                if false_box_total
+                else 0.0,
+                "reject_precision_vs_vlm": round(rejected_false / len(rejected_rows), 4)
+                if rejected_rows
+                else 0.0,
+            },
+            "confirmed": {
+                "confirmed_candidates": tier25_confirm,
+                "confirmed_and_vlm_true": sum(
+                    1 for row in confirmed_rows if str(row.get("candidate_id")) in vlm_true_ids
+                ),
+                "confirmed_but_vlm_false": sum(
+                    1 for row in confirmed_rows if str(row.get("candidate_id")) in vlm_false_ids
+                ),
+            },
+            "per_class": {
+                cls: dict(counter)
+                for cls, counter in sorted(per_class.items(), key=lambda item: -sum(item[1].values()))
+            },
+            "latency": {
+                "vlm_measured_mean_ms": round(vlm_seconds_before / tier3_before * 1000.0, 1)
+                if tier3_before
+                else 0.0,
+                "jev_omni_assumed_mean_ms": jev_omni_latency_ms,
+                "before_total_seconds": round(before_seconds, 1),
+                "after_total_seconds": round(after_seconds, 1),
+                "before_mean_ms_per_box": round(before_seconds / total * 1000.0, 1) if total else 0.0,
+                "after_mean_ms_per_box": round(after_seconds / total * 1000.0, 1) if total else 0.0,
+                "mean_latency_drop_ratio": round(1.0 - after_seconds / before_seconds, 4)
+                if before_seconds
+                else 0.0,
+            },
+        }
+
+    primary = replay_candidates(make_probability(prob_source))
+    detector_bound = (
+        replay_candidates(make_probability("detector_platt"))
+        if prob_source != "detector_platt"
+        else None
+    )
+
+    # ---------------- 142 条人工金标 ----------------
+    gold_probability = make_probability("detector_platt" if prob_source == "detector_platt" else "multimodal_proxy")
+
+    def replay_gold(*, use_tier25: bool) -> dict[str, Any]:
+        decisions: list[dict[str, Any]] = []
+        tier_counts: Counter[str] = Counter()
+        reject_true = reject_false = confirm_true = confirm_false = 0
+        for event_rows in _group_by_event(gold_rows).values():
+            gated = apply_pre_llm_geometric_gate(
+                [
+                    {
+                        "target_index": row["candidate_id"],
+                        "class_name": row.get("class_name"),
+                        "confidence": row.get("detector_confidence"),
+                        "bbox": row.get("bbox_px"),
+                    }
+                    for row in event_rows
+                ]
+            )
+            for candidate, source in zip(gated, event_rows):
+                routing = evaluate_cascade_tier(candidate)
+                if routing["requires_vlm"] and use_tier25:
+                    tier25 = evaluate_jev_omni_tier(
+                        candidate,
+                        p_true=gold_probability(source),
+                        confirm_threshold=confirm_threshold,
+                        reject_threshold=reject_threshold,
+                    )
+                    tier_counts[tier25["tier"]] += 1
+                    if tier25["tier"] == "tier2_5_jev_omni_reject":
+                        if source["human_label"] == "false":
+                            reject_false += 1
+                        else:
+                            reject_true += 1
+                        prediction = "false"
+                    elif tier25["tier"] == "tier2_5_jev_omni_confirm":
+                        if source["human_label"] == "true":
+                            confirm_true += 1
+                        else:
+                            confirm_false += 1
+                        prediction = "true"
+                    else:
+                        prediction = _gold_vlm_prediction(gold_path, source)
+                elif routing["tier"] == "tier1_auto_confirm":
+                    tier_counts[routing["tier"]] += 1
+                    prediction = "true"
+                elif routing["tier"] == "tier2_auto_reject":
+                    tier_counts[routing["tier"]] += 1
+                    prediction = "false"
+                else:
+                    tier_counts[routing["tier"]] += 1
+                    prediction = _gold_vlm_prediction(gold_path, source)
+                decisions.append(
+                    {
+                        "class_name": str(source.get("class_name")),
+                        "gold": source["human_label"],
+                        "prediction": prediction,
+                        "parse_error": None,
+                    }
+                )
+        summary = summarize_predictions(decisions)
+        confusion = summary["overall"]["confusion"]
+        return {
+            "n": len(decisions),
+            "tier_counts": {key: value for key, value in tier_counts.items() if value},
+            "accuracy": round(summary["overall"]["accuracy"], 4),
+            "f1": round(
+                (2 * confusion["tp"]) / max(1, 2 * confusion["tp"] + confusion["fp"] + confusion["fn"]),
+                4,
+            ),
+            "far": summary["overall"]["far"],
+            "frr": summary["overall"]["frr"],
+            "manual_review_rate": round(summary["overall"]["manual_review_rate"], 4),
+            "confusion": confusion,
+            "tier2_5_reject_true_negative": reject_false,
+            "tier2_5_reject_false_negative": reject_true,
+            "tier2_5_confirm_true_positive": confirm_true,
+            "tier2_5_confirm_false_positive": confirm_false,
+        }
+
+    gold_before = replay_gold(use_tier25=False)
+    gold_after = replay_gold(use_tier25=True)
+
+    return {
+        "note": JEV_OMNI_PROXY_NOTE,
+        "probability_source": (
+            f"real:{probs_path.relative_to(ROOT)}" if probs_path is not None else prob_source
+        ),
+        "calibration": {
+            **calibration,
+            "auc_detector_score": _rank_auc(calibration_pairs),
+            "positives": sum(1 for _, label in calibration_pairs if label == 1),
+            "negatives": sum(1 for _, label in calibration_pairs if label == 0),
+        },
+        "thresholds": {
+            "tier1_auto_confirm": TIER1_AUTO_CONFIRM_THRESHOLD,
+            "tier2_auto_reject": TIER2_AUTO_REJECT_THRESHOLD,
+            "jev_omni_confirm": confirm_threshold,
+            "jev_omni_reject": reject_threshold,
+            "jev_omni_latency_ms": jev_omni_latency_ms,
+        },
+        "replay": {
+            "source": str(candidates_path.relative_to(ROOT)),
+            **primary,
+        },
+        "replay_detector_bound": detector_bound,
+        "gold": {
+            "gold_source": str(overlap_path.relative_to(ROOT)),
+            "detector_score_source": str(manifest_path.relative_to(ROOT)),
+            "candidates": len(gold_rows),
+            "unmatched": gold_missing,
+            "before": gold_before,
+            "after": gold_after,
+            "delta": {
+                "f1": round(gold_after["f1"] - gold_before["f1"], 4),
+                "far": _delta(gold_after["far"], gold_before["far"]),
+                "frr": _delta(gold_after["frr"], gold_before["frr"]),
+                "manual_review_rate": round(
+                    gold_after["manual_review_rate"] - gold_before["manual_review_rate"], 4
+                ),
+            },
+        },
+    }
+
+def _delta(after: Any, before: Any) -> float | None:
+    if isinstance(after, (int, float)) and isinstance(before, (int, float)):
+        return round(float(after) - float(before), 4)
+    return None
+
+
+def _group_by_event(rows: Iterable[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in rows:
+        grouped[str(row.get("event_id"))].append(row)
+    return grouped
+
+
+def _gold_vlm_prediction(gold_path: Path, source: dict[str, Any]) -> str:
+    """Tier 3 回退：用真实 VLM 决策（与 gold_cascade_replay 同口径）。"""
+    cache = globals().get("_GOLD_VLM_CACHE")
+    if cache is None or cache[0] != str(gold_path):
+        mapping = {
+            str(row.get("candidate_id")): str(row.get("hybrid_decision") or "uncertain")
+            for row in _read_jsonl(gold_path)
+        }
+        cache = (str(gold_path), mapping)
+        globals()["_GOLD_VLM_CACHE"] = cache
+    return cache[1].get(str(source.get("legacy_candidate_id")), "uncertain")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidates", type=Path, default=DEFAULT_CANDIDATES)
@@ -568,6 +1066,26 @@ def main() -> int:
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--gold-overlap", type=Path, default=DEFAULT_GOLD_OVERLAP)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--jev-omni-probs",
+        type=Path,
+        default=None,
+        help="真实 Jev-Omni 概率 JSONL（candidate_id + p_true）；缺省用 142 条金标的 Platt 校准代理",
+    )
+    parser.add_argument("--jev-omni-confirm-threshold", type=float, default=JEV_OMNI_CONFIRM_THRESHOLD)
+    parser.add_argument("--jev-omni-reject-threshold", type=float, default=JEV_OMNI_REJECT_THRESHOLD)
+    parser.add_argument(
+        "--jev-omni-prob-source",
+        choices=("multimodal_proxy", "detector_platt", "real"),
+        default="multimodal_proxy",
+        help="概率来源：multimodal_proxy（默认，上界）/ detector_platt（下界）/ real（真机概率）",
+    )
+    parser.add_argument(
+        "--jev-omni-latency-ms",
+        type=float,
+        default=900.0,
+        help="Jev-Omni 单框耗时假设（毫秒）。L20 BF16 实测前先用 900ms 保守估计。",
+    )
     args = parser.parse_args()
 
     report = {
@@ -583,6 +1101,17 @@ def main() -> int:
         ),
         "real_two_class_table": evaluate_real_two_class(args.gold),
         "five_class_benchmark": evaluate_five_class_benchmark(),
+        "jev_omni_tier25": evaluate_jev_omni_tier25(
+            args.candidates,
+            args.manifest,
+            args.gold_overlap,
+            args.gold,
+            confirm_threshold=args.jev_omni_confirm_threshold,
+            reject_threshold=args.jev_omni_reject_threshold,
+            jev_omni_latency_ms=args.jev_omni_latency_ms,
+            probs_path=args.jev_omni_probs,
+            prob_source=args.jev_omni_prob_source,
+        ),
     }
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -598,6 +1127,17 @@ def main() -> int:
     new = cmp_runs[TIER1_AUTO_CONFIRM_THRESHOLD]
     gold_base = gold_runs[BASELINE_TIER1_THRESHOLD]
     gold_new = gold_runs[TIER1_AUTO_CONFIRM_THRESHOLD]
+    jev = report["jev_omni_tier25"]
+    rj = jev["replay"]
+    rq = rj["false_box_reject"]
+    gj = jev["gold"]
+
+    def _fmt(value: Any, *, signed: bool = False) -> str:
+        if value is None:
+            return "—"
+        if isinstance(value, (int, float)):
+            return f"{value:+.4f}" if signed else f"{value:.4f}"
+        return str(value)
     md = [
         "# 五类业务门禁与三级级联路由离线回放评估",
         "",
@@ -689,6 +1229,103 @@ def main() -> int:
         f"**{report['five_class_benchmark']['threshold_search']['recommended_threshold']}**，"
         f"best F1={report['five_class_benchmark']['threshold_search']['best_metrics']['f1']:.4f}，"
         f"FAR={report['five_class_benchmark']['threshold_search']['best_metrics']['far']}。",
+        "",
+        "## 5. Tier 2.5（Jev-Omni Fast Gate）接入前后对比",
+        "",
+        f"> {jev['note']}",
+        "",
+        f"概率来源：`{jev['probability_source']}`；校准参数 a={jev['calibration']['a']:.4f}、"
+        f"b={jev['calibration']['b']:.4f}（142 条金标：{jev['calibration']['positives']} 正 / "
+        f"{jev['calibration']['negatives']} 负，检测器分数 AUC={jev['calibration']['auc_detector_score']}）。",
+        "",
+        f"阈值：Tier1={jev['thresholds']['tier1_auto_confirm']}、Tier2={jev['thresholds']['tier2_auto_reject']}、"
+        f"Jev-Omni 确认={jev['thresholds']['jev_omni_confirm']}、Jev-Omni 拒识={jev['thresholds']['jev_omni_reject']}。",
+        "",
+        "### 5.1 6713 条真实候选的分流与卸载",
+        "",
+        "| 指标 | 接入前（Tier1+Tier2） | 接入 Tier 2.5 后 |",
+        "|---|---:|---:|",
+        f"| Tier1 自动确认 | {rj['before']['tier1_auto_confirm']} | {rj['after']['tier1_auto_confirm']} |",
+        f"| Tier2 自动拒识 | {rj['before']['tier2_auto_reject']} | {rj['after']['tier2_auto_reject']} |",
+        f"| Tier2.5 自动确认 | — | {rj['after']['tier2_5_jev_omni_confirm']} |",
+        f"| Tier2.5 自动拒识（假框） | — | {rj['after']['tier2_5_jev_omni_reject']} |",
+        f"| L20 Qwen3-VL 调用 | {rj['before']['tier3_vlm_verify']}（{rj['before']['vlm_share']:.2%}） | "
+        f"{rj['after']['tier3_vlm_verify']}（{rj['after']['vlm_share']:.2%}） |",
+        f"| VLM 卸载比例 | {rj['before']['vlm_offload_share']:.2%} | {rj['after']['vlm_offload_share']:.2%} |",
+        f"| 二级卸载率（Tier 2.5 占全量） | — | {rj['after']['second_stage_offload_share']:.2%} |",
+        f"| 二级卸载率（占原 Tier3） | — | {rj['after']['second_stage_offload_within_previous_tier3']:.2%} |",
+        "",
+        "### 5.1.1 代理口径敏感性（收益区间）",
+        "",
+        "| 概率口径 | Tier2.5 确认 | Tier2.5 拒识 | VLM 卸载比例 | 平均单框耗时下降 |",
+        "|---|---:|---:|---:|---:|",
+        f"| `{jev['probability_source']}`（主口径） | {rj['after']['tier2_5_jev_omni_confirm']} | "
+        f"{rj['after']['tier2_5_jev_omni_reject']} | {rj['after']['vlm_offload_share']:.2%} | "
+        f"{rj['latency']['mean_latency_drop_ratio']:.2%} |",
+        *(
+            [
+                f"| `detector_platt`（独立下界） | {db['after']['tier2_5_jev_omni_confirm']} | "
+                f"{db['after']['tier2_5_jev_omni_reject']} | {db['after']['vlm_offload_share']:.2%} | "
+                f"{db['latency']['mean_latency_drop_ratio']:.2%} |"
+            ]
+            if (db := report["jev_omni_tier25"]["replay_detector_bound"])
+            else []
+        ),
+        "",
+        "- 主口径用 8B 多模态决策置信度折算，形态接近 12B 校准分类器，但**与 Tier 3 伪标签同源**，"
+        "因此确认/拒识的精确率是**上界**。",
+        "- `detector_platt` 只用检测器分数（与 Tier 3 独立），是**下界**：当前数据下检测器分数"
+        "经 Platt 校准后落在 [0.16, 0.93]，Tier 2.5 在 0.12/0.88 双阈值下不触发。",
+        "- 真实收益必须用真机 Jev-Omni 概率（`--jev-omni-probs`）重跑后落在这两个界之间。",
+        "",
+        "### 5.2 假框拒识质量（以真实 VLM decision 为伪标签）",
+        "",
+        "| 指标 | 数值 |",
+        "|---|---:|",
+        f"| 原 Tier3 中 VLM 判为 false 的候选 | {rq['vlm_false_total_among_previous_tier3']} |",
+        f"| 被 Tier 2.5 拒识且 VLM 亦判 false | {rq['rejected_and_vlm_false']} |",
+        f"| 被 Tier 2.5 拒识但 VLM 判 true（误拒风险） | {rq['rejected_but_vlm_true']} |",
+        f"| 假框拒识率（拒识覆盖的 VLM-false 占比） | {rq['false_box_reject_rate']:.2%} |",
+        f"| 拒识精确率（拒识中 VLM 亦判 false 占比） | {rq['reject_precision_vs_vlm']:.2%} |",
+        "",
+        "### 5.3 平均单框耗时",
+        "",
+        "| 指标 | 数值 |",
+        "|---|---:|",
+        f"| L20 Qwen3-VL 实测单框均值 | {rj['latency']['vlm_measured_mean_ms']:.1f} ms |",
+        f"| Jev-Omni 单框耗时（假设值） | {rj['latency']['jev_omni_assumed_mean_ms']:.1f} ms |",
+        f"| 接入前平均单框耗时 | {rj['latency']['before_mean_ms_per_box']:.1f} ms |",
+        f"| 接入后平均单框耗时 | {rj['latency']['after_mean_ms_per_box']:.1f} ms |",
+        f"| 平均单框耗时下降比例 | **{rj['latency']['mean_latency_drop_ratio']:.2%}** |",
+        f"| 全量总耗时 | {rj['latency']['before_total_seconds']:.1f}s → {rj['latency']['after_total_seconds']:.1f}s |",
+        "",
+        "### 5.4 142 条人工金标的端到端影响",
+        "",
+        "| 指标 | 接入前 | 接入 Tier 2.5 后 | 变化 |",
+        "|---|---:|---:|---:|",
+        f"| 端到端 F1 | {gj['before']['f1']:.4f} | {gj['after']['f1']:.4f} | {gj['delta']['f1']:+.4f} |",
+        f"| FAR | {_fmt(gj['before']['far'])} | {_fmt(gj['after']['far'])} | {_fmt(gj['delta']['far'], signed=True)} |",
+        f"| FRR | {_fmt(gj['before']['frr'])} | {_fmt(gj['after']['frr'])} | {_fmt(gj['delta']['frr'], signed=True)} |",
+        f"| 准确率 | {gj['before']['accuracy']:.4f} | {gj['after']['accuracy']:.4f} | "
+        f"{gj['after']['accuracy'] - gj['before']['accuracy']:+.4f} |",
+        f"| 人工复核率 | {gj['before']['manual_review_rate']:.4f} | {gj['after']['manual_review_rate']:.4f} | "
+        f"{gj['delta']['manual_review_rate']:+.4f} |",
+        "",
+        f"- Tier 2.5 在金标上拒识：{gj['after']['tier2_5_reject_true_negative']} 个真负样本、"
+        f"{gj['after']['tier2_5_reject_false_negative']} 个正样本（误拒）。",
+        f"- Tier 2.5 在金标上确认：{gj['after']['tier2_5_confirm_true_positive']} 个真阳样本、"
+        f"{gj['after']['tier2_5_confirm_false_positive']} 个负样本（误确认）。",
+        "",
+        "### 5.5 逐类分流（接入 Tier 2.5 后）",
+        "",
+        "| 类别 | Tier1 | Tier2 | Tier2.5 确认 | Tier2.5 拒识 | Tier3 |",
+        "|---|---:|---:|---:|---:|---:|",
+        *[
+            f"| {cls} | {counts.get('tier1_auto_confirm', 0)} | {counts.get('tier2_auto_reject', 0)} | "
+            f"{counts.get('tier2_5_jev_omni_confirm', 0)} | {counts.get('tier2_5_jev_omni_reject', 0)} | "
+            f"{counts.get('tier3_vlm_verify', 0)} |"
+            for cls, counts in rj["per_class"].items()
+        ],
     ]
     (args.output_dir / "five_class_gate_eval.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     print("\n".join(md))

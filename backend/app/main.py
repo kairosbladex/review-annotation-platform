@@ -28,7 +28,7 @@ from .services.agent_api import create_agent_review_request, list_agent_candidat
 from .tasks.dispatcher import CeleryDispatcher
 
 
-def create_app(settings: Settings | None = None, *, object_store: ObjectStore | None = None, model_adapter=None, task_dispatcher=None, export_dispatcher=None, auto_annotation_adapter=None, auto_annotation_dispatcher=None) -> FastAPI:
+def create_app(settings: Settings | None = None, *, object_store: ObjectStore | None = None, model_adapter=None, task_dispatcher=None, export_dispatcher=None, auto_annotation_adapter=None, auto_annotation_dispatcher=None, jev_omni_adapter=None) -> FastAPI:
     settings = settings or Settings.from_env()
     engine = build_engine(settings.database_url)
     Base.metadata.create_all(engine)
@@ -56,6 +56,9 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
     app.state.dataset_queue = DatasetQueueIndex.from_jsonl(settings.v2_queue_map_path)
     app.state.model_adapter = model_adapter or build_model_adapter(settings, object_store)
     app.state.auto_annotation_adapter = auto_annotation_adapter or build_codex_vision_adapter(settings, object_store)
+    # Tier 2.5 (Jev-Omni) is injected only for tests/embedding; production builds it
+    # lazily from JEV_OMNI_* job options when JEV_OMNI_ENABLED=true.
+    app.state.jev_omni_adapter = jev_omni_adapter
     app.state.task_dispatcher = task_dispatcher or CeleryDispatcher(settings.redis_url)
     app.state.export_dispatcher = export_dispatcher or app.state.task_dispatcher
     app.state.auto_annotation_dispatcher = auto_annotation_dispatcher or app.state.task_dispatcher
@@ -76,6 +79,7 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
             object_store=app.state.object_store,
             adapter=app.state.auto_annotation_adapter,
             job_id=job_id,
+            jev_omni_adapter=app.state.jev_omni_adapter,
         )
 
     app.state.run_auto_annotation_job = run_auto_annotation_job

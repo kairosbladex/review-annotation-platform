@@ -449,3 +449,217 @@ PYTHONPATH=.:backend .venv/bin/pytest backend/tests/test_prepare_ktd_clean_sourc
 | 9 条宽目标仍有 ≤25% 灰边 | 目标本身宽于图像短边，正方形视口无法避免 | 若需彻底消除，二期可改为非正方形视口或按目标长宽比自适应 |
 | 几何门禁不直接裁决 | 当前只把冲突候选升级到 Tier3，直接拦截占比 0% | 若需进一步卸载，可对「同目标双框」的重复框做自动抑制（需人工金标验证） |
 | 数据集需重建 | 灰边修复只影响新建数据集，已产出的 `ktd-clean-source-qwen-20260930-v2` 仍是旧视口 | 下次训练前用同一命令重建并比对 `padding_ratio` |
+
+---
+
+## 9. 第三轮：接入 Jev-Omni Tier 2.5 多模态校准概率初筛器（2026-10-23）
+
+### 9.0 执行边界（红线）
+
+1. 全程**未连接、未重启、未修改任何远端 GPU 服务器**，未触碰线上 8188/8189 服务。
+2. 本机无 NVIDIA GPU、未下载 `akhilaaa3/Jev-Omni` 12B 权重：所有代码走**依赖解耦**路径
+   （延迟导入 + 协议级 Mock/HTTP 客户端），在 CPU 环境 100% 可单测、可干跑。
+3. 未触碰、未暂存工作区原有 6 项未跟踪文件/目录（`YOLOE_API_BLOCKING_MQTT_DIAGNOSIS.md`、
+   `deploy-records/`、`复盘日志/`、3 个 `.docx`/`.txt` 报告）。
+4. 仅本地中文 commit，**未执行 `git push`**。
+
+### 9.1 新增 / 修改文件
+
+| 文件 | 类型 | 变更要点 |
+|---|---|---|
+| `backend/app/adapters/jev_omni_classifier.py` | **新增** | 双视角合图 `build_jev_omni_composite_image`、五类专属查询 `build_jev_omni_decision_query`、双后端适配器 `JevOmniClassifierAdapter`（`local`/`http`）、概率归一化与异常兜底 |
+| `backend/app/services/ktd_recheck.py` | 修改 | 新增 `evaluate_jev_omni_tier()`（Tier 2.5 裁决）、`JEV_OMNI_CONFIRM_THRESHOLD=0.88`、`JEV_OMNI_REJECT_THRESHOLD=0.12`、场景依赖类豁免集合与结构化中文说明 |
+| `backend/app/services/auto_annotation_service.py` | 修改 | `build_auto_annotation_options()` 传导 `JEV_OMNI_*`；新增 `JevOmniTierRunner`（异常 100% 回退）与 `_build_jev_omni_runner()`；`_process_item` 接入 Tier 2.5；审计落 `cascade_routing` |
+| `backend/app/config.py` | 修改 | 新增 8 个 `jev_omni_*` 配置项（默认关闭） |
+| `backend/app/main.py` | 修改 | `create_app(..., jev_omni_adapter=None)` 注入点 + 任务执行透传 |
+| `deploy/production.env.example` | 修改 | 新增 `JEV_OMNI_*` 配置块与启用前验证要求 |
+| `deploy/start_jev_omni_service.py` | **新增** | FastAPI/Uvicorn 包装器：`/healthz`、`/v1/warmup`、`/v1/decide`，权重延迟加载 |
+| `deploy/start_jev_omni.sh` | **新增** | 容器启动脚本（`--rm --label owner=agent --memory=24g --memory-swap=24g --cpus=6`），L20→BF16 / T4→4-bit 自动选精度 |
+| `scripts/eval_five_class_gates.py` | 修改 | 新增 `evaluate_jev_omni_tier25()`（二级卸载率/假框拒识/FAR-FRR/耗时下降）与第 5 章 Markdown |
+| `backend/tests/test_jev_omni_integration.py` | **新增** | 36 个用例：合图几何、概率解析、异常兜底、Tier 2.5 裁决、配置传导、API 端到端 |
+| `docs/HANDOVER_4T4_2L20_FIVE_CLASS_VERIFY_20261023.md` | 修改 | 本章节 |
+
+### 9.2 Tier 2.5 在异构级联中的位置
+
+```
+候选框 → 几何门禁（IoU>0.75 / containment>0.88）
+      → Tier 1  检测器 ≥0.85 且刚体类白名单且无几何冲突 → 自动确认 true
+      → Tier 2  检测器 ≤0.12（场景依赖类豁免）           → 自动拒识 false
+      → Tier 2.5 Jev-Omni 双视角校准 P(true)  ← 本轮新增
+             ├─ P ≤ 0.12 且无几何冲突            → 自动拒识 false（核心收益点）
+             ├─ P ≥ 0.88 且刚体类白名单且无冲突  → 自动确认 true
+             └─ 灰区 / 场景依赖类 / 几何冲突      → 透传 P(true) 先验
+      → Tier 3  L20 Qwen3-VL 细粒度中文证据
+```
+
+`blue_illegal_roof` 在任何概率下都强制 Tier 3；`road_crack` 永不自动确认，但允许在
+`P ≤ 0.12` 时自动拒识。
+
+### 9.3 双视角合图规格
+
+| 项 | 取值 |
+|---|---|
+| 画幅 | 1024 × 512（左 508 + 分隔条 8 + 右 508） |
+| 左视图 | `annotated_context`：全局上下文 + 四角 L 型角标（向内绘制，臂长 `clip(边长×0.20, 6, 24)`） |
+| 右视图 | `clean_roi`：候选框内零遮挡高清局部，无框线/编号/遮罩 |
+| 分隔条 | 中性灰 `(230,230,230)`，与 `NEUTRAL_GRAY_RGB` 一致 |
+| 缩放 | `contain` 等比缩放后居中，**不裁剪**，越界补中性灰 |
+| 编码 | JPEG q=92，`http` 模式 base64 传输并附 SHA256 |
+
+### 9.4 新增配置项
+
+| 配置 | 默认值 | 说明 |
+|---|---|---|
+| `JEV_OMNI_ENABLED` | `false` | 总开关；关闭时级联行为与接入前逐字节一致 |
+| `JEV_OMNI_MODE` | `http` | `local`（进程内加载 12B）/ `http`（独立微服务） |
+| `JEV_OMNI_BASE_URL` | `http://127.0.0.1:8010` | 微服务地址，调用 `POST /v1/decide` |
+| `JEV_OMNI_MODEL_ID` | `akhilaaa3/Jev-Omni` | 模型 ID（同时写入返回值 `model_id`） |
+| `JEV_OMNI_CONFIRM_THRESHOLD` | `0.88` | 自动确认阈值 |
+| `JEV_OMNI_REJECT_THRESHOLD` | `0.12` | 自动拒识阈值 |
+| `JEV_OMNI_TIMEOUT_SECONDS` | `30` | HTTP 超时；超时即回退 Tier 3 |
+| `JEV_OMNI_VERIFY_TLS` | `true` | 微服务 TLS 校验 |
+
+### 9.5 Tier 2.5 裁决规则与原因码
+
+| 条件（按顺序） | 结果 | 原因码 |
+|---|---|---|
+| 类别 = `blue_illegal_roof` | Tier 3（概率仅作先验） | `tier3_scene_dependent_forced_vlm` |
+| 存在 `geometric_warning` | Tier 3 | `tier3_geometric_conflict` |
+| `P(true) ≤ 0.12` | 自动拒识 `false` | `tier2_5_jev_omni_calibrated_reject` |
+| `P(true) ≥ 0.88` 且刚体白名单 | 自动确认 `true` | `tier2_5_jev_omni_calibrated_confirm` |
+| 其余（灰区 / 非刚体类高分） | Tier 3 + `jev_omni_p_true` 先验 | `tier2_5_jev_omni_gray_zone` |
+
+自动裁决会写入结构化中文复核说明（如「Jev-Omni 双视角校准 P(真)=0.043 ≤ 拒识阈值 0.12，
+且无几何冲突：车辆 低概率假框自动拒识。」），并落 `audit.cascade_routing`。
+
+### 9.6 离线评估：接入前后对比
+
+复现命令：
+
+```bash
+PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
+    --output-dir /tmp/ktd_jev_eval
+```
+
+**（a）6713 条真实候选 / 1416 事件**
+
+| 指标 | 接入前（Tier1+Tier2） | 接入 Tier 2.5 后 | 变化 |
+|---|---:|---:|---:|
+| Tier 1 自动确认 | 546（8.13%） | 546（8.13%） | 0 |
+| Tier 2 自动拒识 | 0（0.00%） | 0（0.00%） | 0 |
+| Tier 2.5 自动确认 | — | 3492（52.02%） | 新增 |
+| Tier 2.5 自动拒识 | — | 610（9.09%） | 新增 |
+| L20 Qwen3-VL 调用 | 6167（91.87%） | 2065（30.76%） | **−4102** |
+| VLM 卸载比例 | 8.13% | **69.24%** | **+61.11pp** |
+| 平均单框耗时 | 22135.6 ms | 10185.4 ms | **−53.99%** |
+| 全量总耗时 | 148596.2 s | 68374.8 s | −1337.0 分钟 |
+
+**（b）假框拒识质量（以真实 VLM `decision` 为伪标签）**
+
+| 指标 | 数值 |
+|---|---:|
+| 原 Tier 3 中 VLM 判为 false 的候选 | 730 |
+| 被 Tier 2.5 拒识且 VLM 亦判 false | 610 |
+| 被 Tier 2.5 拒识但 VLM 判 true | 0 |
+| 假框拒识率（覆盖 VLM-false 占比） | 83.56% |
+| 拒识精确率 | 100.00%（上界口径，见 9.7） |
+
+**（c）142 条人工金标端到端**
+
+| 指标 | 接入前 | 接入后 | 变化 |
+|---|---:|---:|---:|
+| Tier 1 / Tier 2.5 确认 / 2.5 拒识 / Tier 3 | 36 / — / — / 106 | 36 / 60 / 32 / 14 | Tier 3 −92 |
+| 端到端 F1 | 0.9684 | 0.9684 | 0.0000 |
+| FAR | 0.0870 | 0.0870 | 0.0000 |
+| FRR | 0.0208 | 0.0208 | 0.0000 |
+| 准确率 | 0.8592 | 0.8592 | 0.0000 |
+
+- Tier 2.5 在金标上拒识 32 条：30 条真负（正确）、2 条正样本（误拒）。
+- Tier 2.5 在金标上确认 60 条：56 条真阳、4 条负样本（误确认，与接入前 VLM 的 4 个 FP 同源）。
+
+### 9.7 口径声明：这是代理模拟，不是真机测量
+
+本机无 GPU，`P(true)` 用两档代理，收益必须按区间解读：
+
+| 概率口径 | Tier2.5 确认 | Tier2.5 拒识 | VLM 卸载比例 | 耗时下降 |
+|---|---:|---:|---:|---:|
+| `multimodal_proxy`（主口径，上界） | 3492 | 610 | 69.24% | 53.99% |
+| `detector_platt`（独立下界） | 0 | 0 | 8.13% | 0.00% |
+
+- 主口径用同一候选的 `qwen3-vl:8b` 决策置信度折算（`true→conf`、`false→1−conf`、`uncertain→0.5`），
+  形态接近 12B 校准分类器，但**与 Tier 3 伪标签同源**，因此 100% 拒识精确率是**上界**。
+- 下界只用检测器分数经 142 条金标 Platt 校准（a=5.6094、b=−3.0586、AUC=0.8236），概率落在
+  `[0.16, 0.93]`，在 0.12/0.88 双阈值下完全不触发 —— 说明**检测器分数无法替代 Jev-Omni**，
+  这正是 Tier 2 卸载为 0% 的根因。
+- 真机部署后用 `--jev-omni-probs` 指向真实概率 JSONL 重跑，结果应落在两界之间。
+- 平均单框耗时中，Tier 3 用真实候选的实测 `elapsed_seconds`（均值 24095.4 ms）；
+  Jev-Omni 单框按 **900 ms 假设值**（`--jev-omni-latency-ms` 可改），尚未实测。
+
+### 9.8 全量测试
+
+```bash
+PYTHONPATH=.:backend .venv/bin/pytest backend/tests agent/tests -q
+```
+
+```
+233 passed, 1 skipped, 2 warnings in 15.65s
+```
+
+`0 failed`。新增 36 个用例（`backend/tests/test_jev_omni_integration.py`），覆盖：
+
+| 组 | 用例数 | 关键断言 |
+|---|---:|---|
+| 双视角合图 | 4 | `(1024,512)` 画幅、8px 中性灰分隔条 `(508,516)`、ROI 面板无角标像素、上下文有 L 型角标 |
+| 概率解析与兜底 | 21 | 8 种输出形态归一化且 `p_true+p_false==1.0`；HTTP 500/超时/坏 JSON/坏 body → `JevOmniUnavailableError`；本地无权重 → 可执行错误；图像不可解码 → `None` 回退 |
+| Tier 2.5 裁决 | 6 | 刚体高概率确认、低概率拒识、`road_crack` 不确认但可拒识、`blue_illegal_roof` 全概率穿透且保留先验、灰区/几何冲突回退 |
+| 配置传导 | 3 | 默认关闭、8 项 Settings→options、显式入参优先、`JEV_OMNI_*` 环境变量解析 |
+| API 端到端 | 2 | Tier 2.5 确认+拒识时 Tier 3 **零调用**；Jev-Omni 抛错时整批回退 Tier 3 且标注照常写入 |
+
+### 9.9 GPU 宿主机一键启动（未执行，仅提供入口）
+
+```bash
+# 只读预检（不启动容器）
+DRY_RUN=1 GPU_DEVICE=5 bash deploy/start_jev_omni.sh
+
+# L20（48GB）BF16，自动识别卡型
+GPU_DEVICE=4 JEV_OMNI_PORT=8010 bash deploy/start_jev_omni.sh
+
+# T4（16GB）4-bit 量化
+GPU_DEVICE=0 PRECISION=4bit JEV_OMNI_PORT=8010 bash deploy/start_jev_omni.sh
+
+# 镜像内未预装依赖时
+JEV_OMNI_BOOTSTRAP="pip install -q -U jev-omni fastapi uvicorn pillow httpx" \
+  GPU_DEVICE=4 bash deploy/start_jev_omni.sh
+
+# 就绪探针 + 单框冒烟
+curl -s http://127.0.0.1:8010/healthz
+curl -s -X POST http://127.0.0.1:8010/v1/warmup
+```
+
+主后端启用：
+
+```bash
+JEV_OMNI_ENABLED=true
+JEV_OMNI_MODE=http
+JEV_OMNI_BASE_URL=http://127.0.0.1:8010
+AUTO_ANNOTATION_CASCADE_ROUTING=true   # Tier 2.5 依赖级联开启
+```
+
+### 9.10 回滚
+
+| 回滚对象 | 命令 |
+|---|---|
+| 关闭 Tier 2.5（不换代码） | `JEV_OMNI_ENABLED=false`（默认值，行为与接入前一致） |
+| 仅回退 Tier 2.5 代码 | `git revert <本次 commit SHA>` |
+| 回退配置传导 | `git checkout e0d2e256 -- backend/app/config.py deploy/production.env.example` |
+| 微服务容器 | `docker stop jev-omni-t25`（启动脚本带 `--rm`，停止即清理） |
+
+### 9.11 残余风险
+
+| 项 | 说明 | 建议 |
+|---|---|---|
+| 收益为代理模拟 | 上界 69.24% 卸载 / 下界 0%，真机值未知 | 部署后先用 `--jev-omni-probs` 重跑评估再放开 `JEV_OMNI_ENABLED` |
+| 900 ms 单框耗时未实测 | L20 BF16 12B 单图 + 2 token 生成的真实耗时未知 | 真机测 100 框取 P50/P95，替换 `--jev-omni-latency-ms` |
+| 确认路径无二次复核 | `P≥0.88` 直接写 `true`，继承验证器自身误报（金标 4 FP） | 上线首周抽样复核确认样本；必要时把确认阈值抬到 0.93 |
+| 合图对超宽目标的处理 | `contain` 缩放 + 中性灰补边，极端长宽比会降低 ROI 有效像素 | 若真实告警中长条目标占比高，改 `panel_width` 自适应 |
+| 与 `blue_illegal_roof` 的边界 | 该类任何概率都不自动裁决，Tier 2.5 对其只有耗时成本 | 若该类占流量大头，可对其跳过合图直接 Tier 3 以省一次前向 |
