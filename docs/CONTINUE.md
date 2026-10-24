@@ -85,3 +85,5 @@ PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190
 - HEAD: `e104c27` `fix: target deployed Kimi review service by default`
 - KTD-ADVANCE-NEXT-BOX 未单独 commit、未 push
 - 工作区还有 annex 导入、`agent/`、object_store、前端角标等其他人的未提交改动
+
+> 2026-10-25：端到端准确率闭环回放与收敛结论见 [初审复检与智能检索端到端准确率优化总结](evidence/end-to-end-accuracy-20261025/REPORT.md)。本轮只做离线/独立评测，未更新共享 8189/8188。
