@@ -1,0 +1,8 @@
+{
+  "schema_version": "engineering-gold-annotation-manifest-v1",
+  "rows": 20,
+  "selection": "first 20 unique strong clean-source candidates with detector class 卡车",
+  "not_gold": true,
+  "required_human_action": "人工查看原图和框内目标，填写 engineering_vehicle / ordinary_truck_or_other / uncertain、label_source 和审阅者信息；不得使用模型输出作为标签",
+  "source_sha256": "a9b215b086caf2c0866af4b9612622af22207fb3dd920186f9cf59959de13b9c"
+}

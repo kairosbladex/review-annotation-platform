@@ -72,3 +72,7 @@ PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
 ## 工程机械金标缺口复核
 
 重新检查了 `other_class_gold_labels.jsonl`、`selection_gold.jsonl` 和多目标候选清单。发现一条 `Test-渣土车` 任务，但它只有 `legacy_point_only` 点位、没有完整 bbox，也没有人工二态标签，不能进入同分母评测。当前工程机械合格人工金标仍为 0；下一步必须提供带完整 bbox、原图哈希、人工 true/false 标签和来源的正负样本。
+
+## 待人工补标清单
+
+已生成 20 条唯一、具备强 clean-source 映射的“卡车”候选人工补标清单：`engineering_gold_annotation_manifest.jsonl`。该文件明确标记为 `not_gold`，只允许人工填写 `engineering_vehicle`、`ordinary_truck_or_other` 或 `uncertain`，模型结果不得回填为标签。
