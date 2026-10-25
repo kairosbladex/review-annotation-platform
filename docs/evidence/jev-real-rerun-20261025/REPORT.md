@@ -76,3 +76,7 @@ PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
 ## 待人工补标清单
 
 已生成 20 条唯一、具备强 clean-source 映射的“卡车”候选人工补标清单：`engineering_gold_annotation_manifest.jsonl`。该文件明确标记为 `not_gold`，只允许人工填写 `engineering_vehicle`、`ordinary_truck_or_other` 或 `uncertain`，模型结果不得回填为标签。
+
+## 移除工程机械后的剩余范围阈值扫描
+
+在车/人员同分母真机概率集上扫描 8 个 reject × 8 个 confirm 共 64 组，并计入真实 Qwen3-VL 延迟日志；0 组同时满足 F1、Recall、FAR 和 `<1.5s` 延迟。`reject=0.00 / confirm=0.60` 可恢复基线 F1/Recall（0.9583/0.9583），但平均端到端延迟为 2607.3ms，仍不能晋级。详见 `reduced-scope-threshold-sweep.json`。

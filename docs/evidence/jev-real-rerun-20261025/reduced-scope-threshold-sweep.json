@@ -1,0 +1,29 @@
+{
+  "scope": ["车", "人员", "违建", "三轮车"],
+  "dataset": "142 vehicle/person human-gold rows; supplemental roof/tricycle positives excluded from strict confusion gate",
+  "probability_source": "data/ktd-clean-source-full-evaluation-20260924/jev_omni_real_probs_en.jsonl",
+  "jev_latency_ms": 192.5,
+  "vlm_latency_ms": 4857.3,
+  "grid": {
+    "reject": [0.0, 0.005, 0.01, 0.02, 0.05, 0.08, 0.1, 0.12],
+    "confirm": [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85],
+    "combinations": 64,
+    "passing_combinations": 0
+  },
+  "best_no_false_rejection_point": {
+    "reject": 0.0,
+    "confirm": 0.6,
+    "tp": 92,
+    "fp": 4,
+    "tn": 42,
+    "fn": 4,
+    "precision": 0.9583,
+    "recall": 0.9583,
+    "f1": 0.9583,
+    "far": 0.087,
+    "frr": 0.0417,
+    "mean_latency_ms": 2607.3,
+    "latency_gate": false
+  },
+  "decision": "no_threshold_promotion"
+}
