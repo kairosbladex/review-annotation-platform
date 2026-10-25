@@ -62,3 +62,9 @@ PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
 | 三轮车 | 1 | 1 true | 0.4201 | 0 |
 
 这批样本没有负例，不能计算 Precision/FAR，也不能作为五类门禁通过证据；三轮车只有 1 条，统计上不足。工程机械仍为 0 条人工金标，无法继续扩展为完整五类同分母评测。
+
+## 重型车辆/卡车补充真机样本
+
+另有 10 条可审计“卡车”金标（canonical 4 条：2 true/2 false；released 6 条：0 true/6 false）完成真机推理，0 错误。该集合只能作为重型车辆子集，不能直接替代挖掘机/工程机械金标。
+
+在 `confirm=0.60 / reject=0.01` 下，混合结果为 TP/FP/TN/FN=`1/2/6/1`，Precision=`0.3333`、Recall=`0.5000`、F1=`0.4000`；即使 reject 降至 `0.01`，也只有 F1=`0.5000`，不能用于晋级。结果见 `truck_supplemental_probs.jsonl`。
