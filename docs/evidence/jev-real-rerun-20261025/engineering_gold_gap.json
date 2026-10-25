@@ -1,0 +1,36 @@
+{
+  "schema_version": "engineering-gold-gap-v1",
+  "required_classes": [
+    "挖掘机",
+    "渣土车",
+    "装载机",
+    "推土机"
+  ],
+  "eligible_human_gold": 0,
+  "sources_checked": [
+    {
+      "path": "data/recheck-released-fp-20260930/dataset-source/other_class_gold_labels.jsonl",
+      "classes": {
+        "卡车": 6,
+        "三轮车": 1,
+        "违建": 9
+      },
+      "eligible_engineering": 0
+    },
+    {
+      "path": "data/ktd-canonical-crop-20260904/selection_gold.jsonl",
+      "classes": {
+        "卡车": 4
+      },
+      "eligible_engineering": 0
+    },
+    {
+      "path": "data/codex-multiclass-review-20261008/input/jobs.json",
+      "candidate": "Test-渣土车",
+      "eligible_engineering": 0,
+      "reason": "只有 legacy_point_only 点位，无完整 bbox，也无人工 gold label"
+    }
+  ],
+  "decision": "blocked_without_human_labels",
+  "required_next_artifact": "至少一个工程机械正例和一个负例，带完整 bbox、原图哈希、人工标签和来源"
+}

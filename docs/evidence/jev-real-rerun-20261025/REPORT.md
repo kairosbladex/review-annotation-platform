@@ -68,3 +68,7 @@ PYTHONPATH=.:backend .venv/bin/python scripts/eval_five_class_gates.py \
 另有 10 条可审计“卡车”金标（canonical 4 条：2 true/2 false；released 6 条：0 true/6 false）完成真机推理，0 错误。该集合只能作为重型车辆子集，不能直接替代挖掘机/工程机械金标。
 
 在 `confirm=0.60 / reject=0.01` 下，混合结果为 TP/FP/TN/FN=`1/2/6/1`，Precision=`0.3333`、Recall=`0.5000`、F1=`0.4000`；即使 reject 降至 `0.01`，也只有 F1=`0.5000`，不能用于晋级。结果见 `truck_supplemental_probs.jsonl`。
+
+## 工程机械金标缺口复核
+
+重新检查了 `other_class_gold_labels.jsonl`、`selection_gold.jsonl` 和多目标候选清单。发现一条 `Test-渣土车` 任务，但它只有 `legacy_point_only` 点位、没有完整 bbox，也没有人工二态标签，不能进入同分母评测。当前工程机械合格人工金标仍为 0；下一步必须提供带完整 bbox、原图哈希、人工 true/false 标签和来源的正负样本。
