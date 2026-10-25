@@ -87,3 +87,5 @@ PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190
 - 工作区还有 annex 导入、`agent/`、object_store、前端角标等其他人的未提交改动
 
 > 2026-10-25：端到端准确率闭环回放与收敛结论见 [初审复检与智能检索端到端准确率优化总结](evidence/end-to-end-accuracy-20261025/REPORT.md)。本轮只做离线/独立评测，未更新共享 8189/8188。
+
+> 2026-10-25：真机 Jev-Omni 英文概率复核与五类金标覆盖审计见 [真机概率复核报告](evidence/jev-real-rerun-20261025/REPORT.md)。F1/Recall/FRR/延迟门禁未全通过，本轮未提交算法代码。
