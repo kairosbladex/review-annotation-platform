@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+from concurrent.futures import ThreadPoolExecutor
 from collections import Counter
 from typing import Any
 
@@ -476,6 +477,7 @@ def _process_item(
         tier2_th = float(options.get("tier2_threshold", TIER2_AUTO_REJECT_THRESHOLD))
         tier3_payloads: list[dict[str, Any]] = []
         tier3_candidates: list[Candidate] = []
+        jev_pending: list[tuple[dict[str, Any], int, dict[str, Any]]] = []
         cand_by_idx = {c.target_index: c for c in candidates}
         for payload in candidate_payloads:
             routing = evaluate_cascade_tier(
@@ -484,7 +486,27 @@ def _process_item(
             routing["geometric_warning"] = payload.get("geometric_warning")
             t_idx = int(payload["target_index"])
             if routing["requires_vlm"] and jev_omni_runner is not None:
-                tier25 = jev_omni_runner.evaluate(
+                jev_pending.append((payload, t_idx, routing))
+                continue
+            routing_by_idx[t_idx] = routing
+            if routing["requires_vlm"]:
+                tier3_payloads.append(payload)
+                tier3_candidates.append(cand_by_idx[t_idx])
+            else:
+                decisions[t_idx] = _synthetic_cascade_decision(t_idx, routing)
+
+        # Jev-Omni calls are independent per candidate.  Run them concurrently
+        # so a dense frame is bounded by the slowest request instead of the sum
+        # of all request latencies.  The default is conservative for the L20
+        # service and can be lowered per isolated deployment.
+        if jev_pending:
+            try:
+                max_workers = max(1, min(16, int(options.get("jev_omni_max_concurrency", 4))))
+            except (TypeError, ValueError):
+                max_workers = 4
+            def _run_jev(item: tuple[dict[str, Any], int, dict[str, Any]]) -> tuple[dict[str, Any], int, dict[str, Any] | None]:
+                payload, t_idx, routing = item
+                result = jev_omni_runner.evaluate(
                     image,
                     payload,
                     class_name=payload.get("class_name"),
@@ -497,7 +519,13 @@ def _process_item(
                         "geometric_warning": payload.get("geometric_warning"),
                     },
                 )
+                return payload, t_idx, result
+
+            with ThreadPoolExecutor(max_workers=min(max_workers, len(jev_pending)), thread_name_prefix="jev-tier25") as pool:
+                jev_results = list(pool.map(_run_jev, jev_pending))
+            for payload, t_idx, tier25 in jev_results:
                 if tier25 is not None and not tier25["requires_vlm"]:
+                    routing_by_idx[t_idx] = {**routing, "jev_omni": tier25}
                     decisions[t_idx] = _synthetic_cascade_decision(
                         t_idx,
                         {
@@ -518,12 +546,12 @@ def _process_item(
                         "jev_omni_explanation": tier25["explanation"],
                     }
                     routing = {**routing, "jev_omni": tier25}
-            routing_by_idx[t_idx] = routing
-            if routing["requires_vlm"]:
-                tier3_payloads.append(payload)
-                tier3_candidates.append(cand_by_idx[t_idx])
-            else:
-                decisions[t_idx] = _synthetic_cascade_decision(t_idx, routing)
+                routing_by_idx[t_idx] = routing
+                if routing["requires_vlm"]:
+                    tier3_payloads.append(payload)
+                    tier3_candidates.append(cand_by_idx[t_idx])
+                else:
+                    decisions[t_idx] = _synthetic_cascade_decision(t_idx, routing)
         if tier3_payloads:
             result = _invoke_adapter(adapter, image, tier3_payloads, options)
             decisions.update(_normalise_decisions(result, tier3_candidates))

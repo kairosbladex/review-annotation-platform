@@ -89,3 +89,5 @@ PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8190
 > 2026-10-25：端到端准确率闭环回放与收敛结论见 [初审复检与智能检索端到端准确率优化总结](evidence/end-to-end-accuracy-20261025/REPORT.md)。本轮只做离线/独立评测，未更新共享 8189/8188。
 
 > 2026-10-25：真机 Jev-Omni 英文概率复核与五类金标覆盖审计见 [真机概率复核报告](evidence/jev-real-rerun-20261025/REPORT.md)。F1/Recall/FRR/延迟门禁未全通过，本轮未提交算法代码。
+
+> 2026-10-25：业务场景分级后，在线检索流（8189）采用 YOLOE + Jev-Omni 强时效链路（目标 <2s/图），平台深度复检流（8393）采用异步 Tier-3 clean-source 质量链路，按 F1/召回优先、分钟级完成。`auto_annotation_service.py` 已将同一图内独立 Jev-Omni 候选改为有界 `ThreadPoolExecutor` 并发；独立 18392 回放确认 Jev 阶段 P95 <1.5s，142 条车辆/人员真金标融合结果为 TP/FP/TN/FN=`91/3/43/5`、F1=`0.9579`、Recall=`0.9479`。对应回归为 `370 passed, 1 skipped`，已提交并推送后发布到共享测试 8393；回滚候选保留 c97 与 402a7575。

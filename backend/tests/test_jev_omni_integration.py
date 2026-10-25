@@ -14,6 +14,8 @@ from __future__ import annotations
 
 import base64
 import json
+import threading
+import time
 from io import BytesIO
 
 import httpx
@@ -531,6 +533,34 @@ class _RecordingJevOmni:
         }
 
 
+class _SlowConcurrentJevOmni:
+    """Slow fake used to prove the Tier 2.5 calls overlap in one item."""
+
+    def __init__(self) -> None:
+        self.calls = 0
+        self.active = 0
+        self.max_active = 0
+        self._lock = threading.Lock()
+
+    def decide(self, _context, _roi, _class_name, _candidate_meta=None):
+        with self._lock:
+            self.calls += 1
+            self.active += 1
+            self.max_active = max(self.max_active, self.active)
+        try:
+            time.sleep(0.05)
+            return {
+                "p_true": 0.5,
+                "p_false": 0.5,
+                "raw_probs": {"Yes": 0.5, "No": 0.5},
+                "latency_ms": 50.0,
+                "model_id": "akhilaaa3/Jev-Omni",
+            }
+        finally:
+            with self._lock:
+                self.active -= 1
+
+
 class _ExplodingJevOmni:
     def __init__(self) -> None:
         self.calls = 0
@@ -622,6 +652,58 @@ def test_api_auto_annotation_uses_tier25_confirm_and_reject_without_touching_tie
 
     assert sorted(labels.values()) == ["false", "true"]
     assert reasons == {TIER25_REASON_CONFIRM, TIER25_REASON_REJECT}
+
+
+def test_api_auto_annotation_evaluates_dense_jev_candidates_concurrently(tmp_path):
+    store = MemoryObjectStore()
+    store.put_bytes(
+        "review-images",
+        "review/2026/09/02/session-001/original.jpg",
+        _jpeg_bytes(_solid((110, 130, 150), (960, 720))),
+        "image/jpeg",
+    )
+    jev_omni = _SlowConcurrentJevOmni()
+    tier3 = _FixedTier3Adapter(
+        [
+            {
+                "target_index": index,
+                "votes": [
+                    {"role": role, "label": "uncertain", "confidence": 0.5, "reason": "gray"}
+                    for role in ("target_presence_fit", "class_scene", "adversarial")
+                ],
+                "consensus": "uncertain",
+            }
+            for index in range(4)
+        ]
+    )
+    app = _app(tmp_path, store=store, auto_adapter=tier3, jev_omni=jev_omni)
+    client = TestClient(app)
+    event = _review_event("jev-omni-concurrency-001")
+    event["targets"].extend(
+        [
+            {**event["targets"][0], "target_index": 2, "confidence": 0.55, "bbox": [0.1, 0.5, 0.24, 0.65]},
+            {**event["targets"][0], "target_index": 3, "confidence": 0.58, "bbox": [0.5, 0.5, 0.7, 0.7]},
+        ]
+    )
+    response = client.post(
+        "/api/v1/ingest/review-events",
+        json=event,
+        headers={"X-Service-Key": "service-secret"},
+    )
+    assert response.status_code == 201, response.text
+    started = time.perf_counter()
+    created = client.post(
+        "/api/v1/auto-annotations",
+        json={"sample_ids": [response.json()["sample_id"]]},
+        headers=_login(client),
+    )
+    elapsed = time.perf_counter() - started
+
+    assert created.status_code == 202, created.text
+    assert jev_omni.calls == 4
+    assert jev_omni.max_active >= 2
+    assert elapsed < 0.18
+    assert len(tier3.calls) == 1
 
 
 class _FixedTier3Adapter:
