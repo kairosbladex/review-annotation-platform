@@ -190,7 +190,8 @@ def test_category_specific_guidelines_cover_all_five_target_classes():
     }
     assert "交通锥桶" in get_category_guidelines("人员")
     assert "三轮结构" in get_category_guidelines("三轮车")
-    assert "scene=rooftop" in get_category_guidelines("蓝色违建顶棚")
+    assert "轻钢立柱支撑" in get_category_guidelines("蓝色违建顶棚")
+    assert "红砖墙" in get_category_guidelines("蓝色违建顶棚")
     assert "沥青修补接缝" in get_category_guidelines("道路裂缝")
 
     fast_prompt = render_fast_prompt(

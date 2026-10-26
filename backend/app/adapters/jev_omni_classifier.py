@@ -71,9 +71,10 @@ ENGLISH_CATEGORY_GUIDELINES: dict[str, str] = {
         "or an unrelated rectangular object."
     ),
     "blue_illegal_roof": (
-        "A genuine blue illegal roof should be a blue temporary roof or canopy with visible roof "
-        "material and supporting sides or vertical structure attached to a building. Do not count "
-        "solar panels, blue ground nets, tarps lying flat on the ground, or blue roof reflections."
+        "A genuine blue illegal roof should be a temporary makeshift shed, detached bicycle/parking canopy, "
+        "sunshade canopy, or open-sided steel shed with visible blue corrugated metal roofing on ground or rooftop. "
+        "Strictly exclude permanent brick-and-mortar buildings with masonry walls, ordinary residential houses, "
+        "non-blue tiled roofs, solar panels, vertical construction fences, or ground tarps."
     ),
     "road_crack": (
         "A genuine road crack should be an irregular natural fracture in the pavement, with branching "
