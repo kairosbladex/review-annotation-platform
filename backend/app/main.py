@@ -7,7 +7,7 @@ import threading
 from contextlib import contextmanager
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, File, Header, HTTPException, Request, UploadFile, status
+from fastapi import Depends, FastAPI, File, Header, HTTPException, Query, Request, UploadFile, status
 from fastapi.responses import JSONResponse
 from sqlalchemy import select
 
@@ -25,6 +25,7 @@ from .services.model_run_service import execute_model_job
 from .services.export_service import execute_export_job
 from .services.auto_annotation_service import build_auto_annotation_options, create_auto_annotation_run, execute_auto_annotation_job
 from .services.agent_api import create_agent_review_request, list_agent_candidates, list_human_gold
+from .services.negative_rag import retrieve_negative_samples
 from .services.retrieval import register_retrieval_routes
 from .services.history_compare_records import register_history_record_routes
 from .tasks.dispatcher import CeleryDispatcher
@@ -170,6 +171,19 @@ def create_app(settings: Settings | None = None, *, object_store: ObjectStore | 
     @app.get("/api/v1/health")
     def health():
         return {"status": "ok"}
+
+    @app.get("/api/v1/negative-rag")
+    def negative_rag(
+        category: str,
+        scene_tags: list[str] | None = Query(default=None),
+        top_k: int = Query(default=5, ge=1, le=20),
+        _: None = Depends(service_auth),
+    ):
+        """Return recent human-confirmed false-positive feature descriptions."""
+        with session_scope() as session:
+            return retrieve_negative_samples(
+                session, category=category, scene_tags=scene_tags or [], top_k=top_k
+            )
 
     @app.get("/api/v1/agent/candidates")
     def agent_candidates(
